@@ -3,7 +3,7 @@
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Counting Rounds — `for`, `range` and the Five-Scores Analyzer
 
-**Status:** Built, awaiting teacher approval  
+**Status:** Approved by the teacher  
 **Duration:** 90 minutes  
 **Structure:** Lab + Lab (25 min guided practice, then 65 min lab)  
 **Minutes (theory / practice):** 0 / 90  

@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 1 (pp. 5–8); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built, awaiting teacher approval — all 3 meetings.
+**Build status:** ✅ complete — all 3 meetings built and approved by the teacher.
 Inspired by two sets of raw material: the codex decks (`Downloads\python-b-codex\python_b_unit01_m01–m03_*.pptx`,
 the main source) and the teacher's raw meetings (`Downloads\python-b-raw-meterials\ie-cs-python-b\U1_M1–M3`).
 
@@ -17,22 +17,22 @@ Status: ✅ built and approved · 🔶 built, awaiting approval · ⏳ planned, 
 
 | Topic (Ministry, p. 7) | Chapter-table hours (T / P) | Planned in | Minutes (T / P) | Status |
 |---|---:|---|---:|---|
-| תנאים לוגיים וביצוע מותנה — logical conditions and conditional execution | 0 / 2 | 1.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| ביצוע חוזר באורך ידוע מראש — counted repetition | 1 / 1 | 1.2 (90 P) | 0 / 90 | 🔶 |
-| ביצוע חוזר מותנה — conditional repetition | 1 / 1 | 1.3 (90 P) | 0 / 90 | 🔶 |
+| תנאים לוגיים וביצוע מותנה — logical conditions and conditional execution | 0 / 2 | 1.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| ביצוע חוזר באורך ידוע מראש — counted repetition | 1 / 1 | 1.2 (90 P) | 0 / 90 | ✅ |
+| ביצוע חוזר מותנה — conditional repetition | 1 / 1 | 1.3 (90 P) | 0 / 90 | ✅ |
 | **Total (master table)** | **1 / 5** | | **45 / 225** | |
 
 Also required by the chapter's goals (pp. 5–7):
 
-- Compound conditions with `and`, `or`, `not` (goals CS 1–2, Py 1) → 1.1 🔶, 1.3 (`not success`) 🔶
-- `elif` — "ביצוע מותנה מתגלגל" (CS 6, concepts p. 5) → 1.1 🔶 — **new**: Python A left `elif` as an optional extension
-- Nested conditions (CS 6, Py 5) → 1.1 Task 1 🔶
-- Input validation with a condition (CS 7) → 1.1 Task 3 🔶; asking again with `while` → 1.3 warm-up and Task 1 🔶
-- `range(n)` and `range(start, stop, step)` (teaching 3) → 1.2 🔶
-- A loop that never ends; correctness = the goal holds and the loop ends (teaching 4–5) → 1.3 warm-up 🔶
-- A loop whose stop depends on a variable (CS 8) → 1.3 Task 2 🔶
-- A function without parameters that contains a loop (Py 3) → every lab task is such a function 🔶
-- Trace tables, counting rounds, choosing the loop type (assessment 1–6) → 1.2, 1.3 🔶
+- Compound conditions with `and`, `or`, `not` (goals CS 1–2, Py 1) → 1.1 ✅, 1.3 (`not success`) ✅
+- `elif` — "ביצוע מותנה מתגלגל" (CS 6, concepts p. 5) → 1.1 ✅ — **new**: Python A left `elif` as an optional extension
+- Nested conditions (CS 6, Py 5) → 1.1 Task 1 ✅
+- Input validation with a condition (CS 7) → 1.1 Task 3 ✅; asking again with `while` → 1.3 warm-up and Task 1 ✅
+- `range(n)` and `range(start, stop, step)` (teaching 3) → 1.2 ✅
+- A loop that never ends; correctness = the goal holds and the loop ends (teaching 4–5) → 1.3 warm-up ✅
+- A loop whose stop depends on a variable (CS 8) → 1.3 Task 2 ✅
+- A function without parameters that contains a loop (Py 3) → every lab task is such a function ✅
+- Trace tables, counting rounds, choosing the loop type (assessment 1–6) → 1.2, 1.3 ✅
 
 ## Unit 1.1 — Knowledge + Lab: Who can come in? (compound conditions, `elif`, validation)
 - comparisons give `True` / `False`; `=` vs `==`; `input()` gives text.

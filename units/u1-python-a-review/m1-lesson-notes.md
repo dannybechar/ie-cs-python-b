@@ -3,7 +3,7 @@
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Who Can Come In? — Compound Conditions, `elif` and Input Validation
 
-**Status:** Built, awaiting teacher approval  
+**Status:** Approved by the teacher  
 **Duration:** 90 minutes  
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab  
 **Minutes (theory / practice):** 45 / 45  

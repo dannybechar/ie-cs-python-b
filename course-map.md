@@ -16,7 +16,7 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 
 | # | Unit | Official hours (T/P) | Official minutes (T/P) | Meetings | Planned minutes (T/P) | Remaining | Built |
 |---|---|---:|---:|---:|---:|---:|---|
-| 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | 🔶 3/3 |
+| 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | ✅ 3/3 |
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | 🔶 2/2 |
 | 3 | Functions | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
 | 4 | Bringing AI into Code (API) | 4 (1 / 3) | 180 (45 / 135) | 2 | 0 | 180 | ❌ 0/2 |
@@ -55,9 +55,9 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 
 | # | Meeting | Content | Built | Target week | Taught on |
 |---:|---|---|---|---|---|
-| 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | 🔶 | | |
-| 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | 🔶 | | |
-| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, three-try locker; unit checkpoint | 🔶 | | |
+| 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | ✅ | | |
+| 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | ✅ | | |
+| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, three-try locker; unit checkpoint | ✅ | | |
 | 4 | 2.1 AI2 Year Opening | K+L · Rules or learning? Kettle rule, Quick, Draw!, dataset detectives | 🔶 | | |
 | 5 | 2.2 AI2 Year Opening | K+L · Data, bias and responsibility; dataset audit; from consumers to creators | 🔶 | | |
 | 6 | 3.1 Functions | K+L · Functions without `return` (review); the black box | ❌ | | |

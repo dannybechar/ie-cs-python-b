@@ -3,7 +3,7 @@
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Until It's Done — `while`, the Stop Condition and the Three-Try Locker (Unit Checkpoint)
 
-**Status:** Built, awaiting teacher approval  
+**Status:** Approved by the teacher  
 **Duration:** 90 minutes  
 **Structure:** Lab + Lab (22 min guided practice, then 68 min lab, including the unit checkpoint)  
 **Minutes (theory / practice):** 0 / 90  
