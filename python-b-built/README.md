@@ -43,7 +43,7 @@ run with the real service before class.
 | 4 Bringing AI into Code (API) | [`u4-api`](u4-api) | 2 | 🔶 built |
 | 5 Strings | [`u5-strings`](u5-strings) | 4 | 🔶 built |
 | 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | 🔶 built |
-| 7 Lists | [`u7-lists`](u7-lists) | 5 | ⏳ |
+| 7 Lists | [`u7-lists`](u7-lists) | 5 | 🔶 built |
 | 8 Classification | [`u8-classification`](u8-classification) | 4 | ⏳ |
 | 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⏳ |
 
