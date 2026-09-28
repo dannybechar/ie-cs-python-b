@@ -45,7 +45,7 @@ run with the real service before class.
 | 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | 🔶 built |
 | 7 Lists | [`u7-lists`](u7-lists) | 5 | 🔶 built |
 | 8 Classification | [`u8-classification`](u8-classification) | 4 | 🔶 built |
-| 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⏳ |
+| 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | 🔶 built |
 
 ## Moving a unit into the official course
 
