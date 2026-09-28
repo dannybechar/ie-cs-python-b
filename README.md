@@ -1,12 +1,11 @@
-# Grade 9 — Python C (Transition Year)
+# Grade 8 — AI + Python B
 
 This repository is the source of truth for working examples and teaching
-resources for the Grade 9 course. This is a **transition-year** (תשפ"ז)
-program: the Ministry of Education's 2026/27 circular permits the old
-Python C track as an official Grade 9 alternative this year, alongside the
-new programs, until an official "AI + Computer Science Part C" syllabus is
-published. Content here is built directly against
-[`docs/ministry-source/python-c.pdf`](docs/ministry-source/python-c.pdf).
+resources for the Grade 8 course **"בינה מלאכותית בשילוב מדעי המחשב — AI2
+בשילוב פייתון ב'"**, the Ministry of Education's new program, first taught in
+תשפ"ז. Content here is built directly against
+[`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf):
+60 hours (21 theory + 39 practice), 9 units, 30 double meetings of 90 minutes.
 
 It follows the structure, conventions and workflow of the Grade 7 Python A course,
 [`ie-cs-python-a`](https://github.com/dannybechar/ie-cs-python-a). How meetings are built, reviewed
@@ -15,21 +14,26 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 ## Current build status
 
 **0 of 30 official double meetings are built.** See [`course-map.md`](course-map.md) for the unit-by-unit
-breakdown, the schedule and the pace check, and each unit's `unit-strategy.md` for its official scope.
+breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md) for the
+year plan.
 
-- Unit 1 — Data Structures — not started (0/6 meetings)
-- Unit 2 — Classes — not started (0/6 meetings)
-- Unit 3 — Mouse Events — not started (0/6 meetings)
-- Unit 4 — Keyboard Events and Timer — not started (0/6 meetings)
-- Unit 5 — Final Project — not started (0/6 meetings)
+- Unit 1 — Python A Review — not started (0/3 meetings)
+- Unit 2 — AI2 Year Opening — not started (0/2 meetings)
+- Unit 3 — Functions — not started (0/3 meetings)
+- Unit 4 — Bringing AI into Code (API) — not started (0/2 meetings)
+- Unit 5 — Strings — not started (0/4 meetings)
+- Unit 6 — Advanced Language Model — not started (0/3 meetings)
+- Unit 7 — Lists — not started (0/5 meetings)
+- Unit 8 — Classification — not started (0/4 meetings)
+- Unit 9 — Recommender Systems — not started (0/4 meetings)
 
 ## Repository layout
 
 ```
 CLAUDE.md                   — the build / review / approve workflow
 docs/
-  annual-strategy.md        — year-wide pedagogical strategy (transition-year framing, exit profile)
-  annual-work-plan-he.docx  — official annual work plan (Hebrew)
+  annual-strategy.md        — year-wide strategy (hours, meeting outline, depth boundaries, tools, exit profile)
+  annual-work-plan-he.docx  — annual work plan for the school (Hebrew)
   ministry-source/          — the official ministry PDFs this course answers to
 tools/
   deck-patch-kit/           — scripts for reviewing and patching the NotebookLM slide decks
@@ -46,12 +50,12 @@ units/
 ## Repository conventions
 
 - **Naming rule:** a meeting is named by its curriculum unit, as
-  **Unit {U}.{M} — {unit name}** (e.g. *Unit 2.1 — Classes*);
-  in Hebrew, **יחידה {U}.{M} – {שם היחידה}** (e.g. *יחידה 2.1 – מחלקות*).
-  Unit names follow the Ministry program (`python-c.pdf`). A lesson's theme
-  appears only as a subtitle, never as its name. This applies to headings,
-  the course map, lab briefs, slide titles and footers, and NotebookLM
-  notebook names.
+  **Unit {U}.{M} — {unit name}** (e.g. *Unit 3.1 — Functions*);
+  in Hebrew, **יחידה {U}.{M} – {שם היחידה}** (e.g. *יחידה 3.1 – פעולות*).
+  Unit names follow the Ministry program (`python-b-ai.pdf`); the list is in
+  [`CLAUDE.md`](CLAUDE.md). A lesson's theme appears only as a subtitle, never
+  as its name. This applies to headings, the course map, lab briefs, slide
+  titles and footers, and NotebookLM notebook names.
 - Every `.py` example must compile cleanly before it's committed.
 - Code files use `_Starter` / `_Reference` — `_Starter` is the student's
   starting point (may contain an intentional bug, documented in that
@@ -74,10 +78,12 @@ units/
   fenced blocks. Wrap tables and numbered/bulleted lists in
   `<div dir="rtl">` … `</div>` with blank lines inside, since GitHub
   doesn't set their direction automatically.
-- Units 3–4's Turtle mouse/keyboard/timer examples need a live run
-  (open, run, click/press) — they can't be fully verified headless.
+- Code that calls an outside AI service or library (Units 4, 6 and 8) is
+  verified with a stand-in that returns fixed answers, and needs a live run
+  in Thonny with the real service before class.
+- **Never commit an API key**, student information, passwords, tokens, or
+  private school data. Survey and image data from Units 8–9 stay out of the repo.
 - Generated files (`__pycache__/`, etc.) are not committed.
-- Never commit student information, passwords, tokens, or private school data.
 
 ## Course workflow
 

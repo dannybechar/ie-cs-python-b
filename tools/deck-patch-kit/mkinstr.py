@@ -1,8 +1,7 @@
 # Writes <folder>/0-START-HERE-instructions.md for one NotebookLM deck. See README.md.
-GRADE = "9th graders (age 14–15)"
-# Code-style rule pasted into the prompt. Grade 9 uses turtle.Turtle() objects and Turtle subclasses (Unit 2 on),
-# so the rule is "exactly as in the source" rather than Grade 7's "never t = turtle.Turtle()".
-CODE_STYLE = "Write every Python line exactly as in the source — names, objects (turtle.Turtle(), class definitions), operators and spacing."
+GRADE = "8th graders (age 13–14)"
+# Code-style rule pasted into the prompt. Grade 8 AI + Python B: no Turtle objects, and API keys never appear in code.
+CODE_STYLE = "Write every Python line exactly as in the source — names, f-strings, operators and spacing. Never invent an API key, a real person's name or real personal data."
 
 
 def make(folder, U, M, name_en, name_he, subtitle, n, topic, theme, qonly, checks, saves, notebook_he, extra_forbid, unitdir, raw, raw_issue):

@@ -1,4 +1,4 @@
-# NotebookLM deck patch kit (Grade 9 Python C course; first used for Grade 7 Python A). See README.md in this folder.
+# NotebookLM deck patch kit (Grade 8 AI + Python B course; first used for Grade 7 Python A). See README.md in this folder.
 # Needs: pymupdf, pillow, numpy, opencv-python, python-bidi.
 # Work in a scratch folder: copy common.py and heb.py there, render the deck into <D>/pNN.png,
 # write p<D>.py with `from common import *`, then build(D, '', N) -> new_<D>.pdf.

@@ -3,7 +3,7 @@
 Tools for reviewing and patching the Hebrew slide decks that NotebookLM generates for this course.
 Teacher-facing material lives in `units/`; this folder is only for maintaining the decks.
 The kit was built for the Grade 7 Python A course (`ie-cs-python-a`, 31 decks) and carried over unchanged
-except for the Grade 9 settings in `mkinstr.py`.
+except for the Grade 8 settings in `mkinstr.py`.
 
 Requirements: Python 3 with `pymupdf`, `pillow`, `numpy`, `opencv-python`, `python-bidi`; Windows fonts Segoe UI and Consolas.
 

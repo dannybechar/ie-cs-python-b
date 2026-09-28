@@ -1,10 +1,11 @@
-# Grade 9 course map — Python C (transition year)
+# Grade 8 course map — AI + Python B
 
-Official numbering and hours from [`docs/ministry-source/python-c.pdf`](docs/ministry-source/python-c.pdf) (hours table, p. 3; per-topic tables in each unit's pages).
-Full framing strategy: [`docs/annual-strategy.md`](docs/annual-strategy.md).
+Official numbering and hours from [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
+(master syllabus table, pp. 3–4; one chapter per unit, pp. 5–23). Full framing strategy, provisional meeting outline and
+depth boundaries: [`docs/annual-strategy.md`](docs/annual-strategy.md).
 
-> This is a transition-year (תשפ"ז) course based on the old Python C, an officially permitted Grade 9
-> alternative this year. Revisit once the official "AI + Computer Science Part C" syllabus is released.
+> **Hours rule (teacher's decision):** theory/practice hours come from the master table. The chapter tables of Units 1, 3,
+> 5 and 7 give a different split (1: 2 / 4, 3: 1 / 5, 5: 3 / 5, 7: 4 / 6); they are used only for the order and weight of topics.
 
 ## Time budget
 
@@ -15,25 +16,28 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 
 | # | Unit | Official hours (T/P) | Official minutes (T/P) | Meetings | Planned minutes (T/P) | Remaining | Built |
 |---|---|---:|---:|---:|---:|---:|---|
-| 1 | Data Structures | 12 (2 / 10) | 540 (90 / 450) | 6 | 0 | 540 | ❌ 0/6 |
-| 2 | Classes | 12 (2 / 10) | 540 (90 / 450) | 6 | 0 | 540 | ❌ 0/6 |
-| 3 | Mouse Events | 12 (2 / 10) | 540 (90 / 450) | 6 | 0 | 540 | ❌ 0/6 |
-| 4 | Keyboard Events and Timer | 12 (2 / 10) | 540 (90 / 450) | 6 | 0 | 540 | ❌ 0/6 |
-| 5 | Final Project | 12 (2 / 10) | 540 (90 / 450) | 6 | 0 | 540 | ❌ 0/6 |
-|  | **TOTAL** | **60 (10 / 50)** | **2,700 (450 / 2,250)** | **30** | **0** | **2,700** | **0/30 meetings built** |
+| 1 | Python A Review | 6 (1 / 5) | 270 (45 / 225) | 3 | 0 | 270 | ❌ 0/3 |
+| 2 | AI2 Year Opening | 4 (2 / 2) | 180 (90 / 90) | 2 | 0 | 180 | ❌ 0/2 |
+| 3 | Functions | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
+| 4 | Bringing AI into Code (API) | 4 (1 / 3) | 180 (45 / 135) | 2 | 0 | 180 | ❌ 0/2 |
+| 5 | Strings | 8 (2 / 6) | 360 (90 / 270) | 4 | 0 | 360 | ❌ 0/4 |
+| 6 | Advanced Language Model | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
+| 7 | Lists | 10 (3 / 7) | 450 (135 / 315) | 5 | 0 | 450 | ❌ 0/5 |
+| 8 | Classification | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
+| 9 | Recommender Systems | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **0** | **2,700** | **0/30 meetings built** |
 
-Each unit has 90 theory minutes, so at most two meetings per unit are Knowledge + Lab (45 / 45); the rest are Lab + Lab.
+A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
 
 ## Deadline and pace
 
-- **Assessment:** the Ministry's exam index for Python C
-  ([`exam-index-python-c-he.pdf`](docs/ministry-source/exam-index-python-c-he.pdf)) describes a summary task at the end of each year.
-  The circular ([`ministry-circular-tashpaz-he.pdf`](docs/ministry-source/ministry-circular-tashpaz-he.pdf), p. 2) dates the
-  Grade 9 exams of the new programs to **May 2027**. *To confirm with the teacher:* the assessment date for this class.
+- **Assessment:** the Ministry exam (בחינת מפמ"ר) for "בינה מלאכותית בשילוב מדעי המחשב חלק ב'", set for **May 2027**
+  ([`ministry-circular-tashpaz-he.pdf`](docs/ministry-source/ministry-circular-tashpaz-he.pdf), p. 2; the exact date is
+  published during the year). Printed notes are allowed; calculators are not (p. 3).
 - **Meetings needed:** 30 (plus any school-added meeting, as Python A's Unit 0).
 - **Meetings available:** *to confirm with the teacher* — the weekly meeting day and the first meeting date.
-- **Check after every lesson:** meetings left in the schedule below ≤ meetings left before the assessment.
+- **Check after every lesson:** meetings left in the schedule below ≤ meetings left before the exam.
 
 ## Open coverage gaps
 
@@ -41,45 +45,46 @@ Official topics that no planned meeting fully covers yet. Details are in each un
 
 | Unit | Gap | Fix to plan |
 |---|---|---|
-| 1–5 | Nothing built yet | Build unit by unit |
+| 1–9 | Nothing built yet | Build unit by unit |
+| 4, 6, 8, 9 | Tools not chosen: the language-model API and key (4), the embedding library (6), the model-loading library (8), the survey and CSV (9) | Settle with the teacher before building each unit ([annual strategy §8](docs/annual-strategy.md#8-tools-and-safety-to-settle-before-the-unit-is-built)) |
 
 ## Schedule
 
-All meetings in teaching order. Fill in **Content** when a unit is planned, **Target week** once the school calendar is known,
-and **Taught on** after each lesson.
+All meetings in teaching order. **Content** is the provisional outline from the annual strategy; it is refined when the unit
+is built. Fill in **Target week** once the school calendar is known, and **Taught on** after each lesson.
 
 | # | Meeting | Content | Built | Target week | Taught on |
 |---:|---|---|---|---|---|
-| 1 | 1.1 Data Structures | | ❌ | | |
-| 2 | 1.2 Data Structures | | ❌ | | |
-| 3 | 1.3 Data Structures | | ❌ | | |
-| 4 | 1.4 Data Structures | | ❌ | | |
-| 5 | 1.5 Data Structures | | ❌ | | |
-| 6 | 1.6 Data Structures | | ❌ | | |
-| 7 | 2.1 Classes | | ❌ | | |
-| 8 | 2.2 Classes | | ❌ | | |
-| 9 | 2.3 Classes | | ❌ | | |
-| 10 | 2.4 Classes | | ❌ | | |
-| 11 | 2.5 Classes | | ❌ | | |
-| 12 | 2.6 Classes | | ❌ | | |
-| 13 | 3.1 Mouse Events | | ❌ | | |
-| 14 | 3.2 Mouse Events | | ❌ | | |
-| 15 | 3.3 Mouse Events | | ❌ | | |
-| 16 | 3.4 Mouse Events | | ❌ | | |
-| 17 | 3.5 Mouse Events | | ❌ | | |
-| 18 | 3.6 Mouse Events | | ❌ | | |
-| 19 | 4.1 Keyboard Events and Timer | | ❌ | | |
-| 20 | 4.2 Keyboard Events and Timer | | ❌ | | |
-| 21 | 4.3 Keyboard Events and Timer | | ❌ | | |
-| 22 | 4.4 Keyboard Events and Timer | | ❌ | | |
-| 23 | 4.5 Keyboard Events and Timer | | ❌ | | |
-| 24 | 4.6 Keyboard Events and Timer | | ❌ | | |
-| 25 | 5.1 Final Project | | ❌ | | |
-| 26 | 5.2 Final Project | | ❌ | | |
-| 27 | 5.3 Final Project | | ❌ | | |
-| 28 | 5.4 Final Project | | ❌ | | |
-| 29 | 5.5 Final Project | | ❌ | | |
-| 30 | 5.6 Final Project | | ❌ | | |
+| 1 | 1.1 Python A Review | K+L · Compound conditions, `elif`, input validation | ❌ | | |
+| 2 | 1.2 Python A Review | L+L · `for` with `range`; counters and totals | ❌ | | |
+| 3 | 1.3 Python A Review | L+L · `while` and the stop condition; integrated review | ❌ | | |
+| 4 | 2.1 AI2 Year Opening | K+L · Classical programming vs AI; Quick, Draw! | ❌ | | |
+| 5 | 2.2 AI2 Year Opening | K+L · Data, bias and responsibility | ❌ | | |
+| 6 | 3.1 Functions | K+L · Functions without `return` (review); the black box | ❌ | | |
+| 7 | 3.2 Functions | K+L · `return`; `print` vs `return`; local and global | ❌ | | |
+| 8 | 3.3 Functions | L+L · Bottom-up design with returning functions | ❌ | | |
+| 9 | 4.1 Bringing AI into Code (API) | K+L · API, safe key, wrapper function | ❌ | | |
+| 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" mini-project | ❌ | | |
+| 11 | 5.1 Strings | K+L · Operators, indexing, `len`, `in` | ❌ | | |
+| 12 | 5.2 Strings | K+L · String methods and validation | ❌ | | |
+| 13 | 5.3 Strings | L+L · Slicing | ❌ | | |
+| 14 | 5.4 Strings | L+L · Traversal; text-processing program | ❌ | | |
+| 15 | 6.1 Advanced Language Model | K+L · Tokens and the context window | ❌ | | |
+| 16 | 6.2 Advanced Language Model | K+L · Semantic map and self-attention | ❌ | | |
+| 17 | 6.3 Advanced Language Model | L+L · The Semantle game | ❌ | | |
+| 18 | 7.1 Lists | K+L · What a list is; access and update | ❌ | | |
+| 19 | 7.2 Lists | K+L · List operations; `split` / `join` | ❌ | | |
+| 20 | 7.3 Lists | K+L · The summation pattern | ❌ | | |
+| 21 | 7.4 Lists | L+L · The sequential-search pattern | ❌ | | |
+| 22 | 7.5 Lists | L+L · Integrated list problem | ❌ | | |
+| 23 | 8.1 Classification | K+L · Features, decision boundary, rule-based classifier | ❌ | | |
+| 24 | 8.2 Classification | K+L · Training vs test; Teachable Machine | ❌ | | |
+| 25 | 8.3 Classification | K+L · Planned data collection (fist vs OK) | ❌ | | |
+| 26 | 8.4 Classification | K+L · Accuracy; loading the model in Python | ❌ | | |
+| 27 | 9.1 Recommender Systems | K+L · Content- vs user-based; the survey | ❌ | | |
+| 28 | 9.2 Recommender Systems | K+L · Similarity score | ❌ | | |
+| 29 | 9.3 Recommender Systems | K+L · The digital twin and the recommendation | ❌ | | |
+| 30 | 9.4 Recommender Systems | K+L · Filter bubbles and the attention economy | ❌ | | |
 
 ## Meeting log
 
@@ -100,4 +105,4 @@ When a meeting is added or its timing changes:
 
 After each lesson is taught:
 1. Fill in **Taught on** in the **Schedule**.
-2. Recheck **Deadline and pace**: meetings left in the schedule must not exceed meetings left before the assessment.
+2. Recheck **Deadline and pace**: meetings left in the schedule must not exceed meetings left before the exam.

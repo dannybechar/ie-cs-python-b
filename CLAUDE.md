@@ -1,6 +1,7 @@
 # Working in this repository
 
-This is the Grade 9 **Python C** course (Israeli Ministry of Education, transition year תשפ"ז).
+This is the Grade 8 **AI + Python B** course — the Israeli Ministry of Education's new program
+"בינה מלאכותית בשילוב מדעי המחשב — AI2 בשילוב פייתון ב'", first taught in תשפ"ז (60 hours, 9 units, 30 meetings).
 The user is the teacher. Together we build every meeting — lesson notes, a Hebrew lab brief, starter and
 reference code, and a Hebrew slide deck — the same way the Grade 7 **Python A** course was built in
 [`ie-cs-python-a`](https://github.com/dannybechar/ie-cs-python-a) (local: `C:\Users\Guitar\Workspace\ie-cs-python-a`).
@@ -19,14 +20,18 @@ checked, any decision the teacher must make.
 
 Build every meeting of the unit (or one meeting), one at a time.
 
-1. **Sources.** The Ministry program [`docs/ministry-source/python-c.pdf`](docs/ministry-source/python-c.pdf)
-   (unit goals, concepts, teaching notes, per-topic hours tables — pp. 3–18) is the authority. The teacher's raw decks
-   (PowerPoint, one per meeting) are **inspiration only**: ask where they are if you haven't been told
-   (Python A used `Downloads\unit<N>\unit<N>_meeting<M>_*.pptx`). If there are none, build from the Ministry program alone.
-   The initial import of this repo (commit `23564d2`: `units/*/strategy/unit-strategy.md`, Unit 1 lesson drafts)
-   is disposable raw material of the same kind.
+1. **Sources.** The Ministry program [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
+   is the authority: the master syllabus table (pp. 3–4) and one chapter per unit (goals, concepts, teaching methods,
+   assessment, per-topic hours — pp. 5–23). **Hours come from the master table** (teacher's decision): the chapter tables
+   of Units 1, 3, 5 and 7 give a different theory/practice split and are used only for the order and weight of topics.
+   The year plan is [`docs/annual-strategy.md`](docs/annual-strategy.md) (provisional meeting outline, depth boundaries,
+   tools to settle). The teacher's raw materials are **inspiration only**:
+   `Downloads\python-b-raw-meterials\ie-cs-python-b\` — `U<N>_M<M>\` folders (strategy `.md`, raw deck `.pptx`, lab brief,
+   starter and reference `.py`, exit-check `.png`) for meetings 1.1–1.3, 2.1–2.2 and 3.1, plus a year strategy.
+   The raw year strategy is wrong wherever it says the syllabus leaves a unit open (Units 4, 6, 8, 9): the official
+   chapters name the activities — follow them. For meetings with no raw material, build from the Ministry program alone.
 2. **Plan the unit first** (`units/u<N>-<slug>/unit-strategy.md`): official topics with theory/practice hours from the
-   Ministry hours table, which meeting covers each topic, meeting-by-meeting outline, scope decisions (what the raw decks
+   Ministry master table, which meeting covers each topic, meeting-by-meeting outline, scope decisions (what the raw decks
    do that the course won't), exit criteria. Meetings are 90 minutes: **Knowledge + Lab** (45 theory / 45 practice) or
    **Lab + Lab** (0 / 90). A unit's planned minutes must equal its official minutes (1 academic hour = 45 min).
 3. **Per meeting**, in the unit folder (flat — no subfolders):
@@ -35,13 +40,15 @@ Build every meeting of the unit (or one meeting), one at a time.
    - `<Topic>_Starter.py` / `<Topic>_Reference.py` — the starter usually opens with a **warm-up bug** (a real,
      common mistake, documented in the lesson notes); the reference solves every task, one function per task.
 4. **Verify all code**: run every example, output and trace in the lesson notes, brief and slides; check every error
-   message against the installed Python (3.14). Turtle/event code that can't run headless: drive the handlers with a
-   simulated turtle, and tell the teacher which files need a live run in Thonny before class.
+   message against the installed Python (3.14). Code that calls an outside service or library (the language-model API
+   in Unit 4, the embedding library in Unit 6, the exported model in Unit 8) is verified with a stand-in function that
+   returns fixed answers; tell the teacher which files need a live run in Thonny, with the real service, before class.
+   Never put an API key in any file.
 5. **Records**: unit `README.md` (one section per meeting, table of files; the slides row is
    `| Teacher | slides | Pending (NotebookLM) |`), `unit-strategy.md` status 🔶, `course-map.md` (time budget row,
    schedule rows 🔶, meeting log row, open gaps), root `README.md` unit line ("🔶 built, awaiting approval").
 6. **Prepare the NotebookLM folder** for each meeting (next routine) as part of the build.
-7. Commit per meeting or per unit ("Build Unit 2 Classes (6 meetings)"), push, report: a table of meetings
+7. Commit per meeting or per unit ("Build Unit 3 Functions (3 meetings)"), push, report: a table of meetings
    (topic, theory/practice, starter bug, slide count), changes from the raw decks, open decisions.
 
 ### "prepare slides U.M" (the NotebookLM folder)
@@ -93,23 +100,35 @@ and make the README and course map describe the current state.
   **יחידה U.M – <שם היחידה>**. The lesson's theme is only a subtitle. This applies everywhere: headings, course map,
   briefs, slide titles and footers, NotebookLM notebook names, and how you refer to meetings in chat.
   Meetings are 1-based (2.1, 2.2 …); files `m1-`, `m2-` ….
-- **Units** (from `python-c.pdf` p. 3; 12 h each = 2 theory + 10 practice = 6 meetings):
+- **Units** (from the master table, `python-b-ai.pdf` pp. 3–4; 60 h = 21 theory + 39 practice = 30 meetings).
+  A unit has one Knowledge + Lab meeting per theory hour; its other meetings are Lab + Lab.
+  The Hebrew names are the official chapter names, shortened so a title never contains "שיעור" or a second dash
+  (official: "שיעור פתיחה לשנה ב' AI2", "API - להכניס בינה לקוד", "מודל שפה - מתקדם", "רשימה list").
 
-  | # | English | Hebrew | Folder |
-  |---|---|---|---|
-  | 1 | Data Structures | מבני נתונים | `units/u1-data-structures` |
-  | 2 | Classes | מחלקות | `units/u2-classes` |
-  | 3 | Mouse Events | אירועי עכבר | `units/u3-mouse-events` |
-  | 4 | Keyboard Events and Timer | אירועי מקלדת וטיימר | `units/u4-keyboard-events-timer` |
-  | 5 | Final Project | פרויקט סיכום | `units/u5-final-project` |
+  | # | English | Hebrew | Hours (T / P) | Meetings (K+L / L+L) | Folder |
+  |---|---|---|---:|---:|---|
+  | 1 | Python A Review | חזרה על פייתון א' | 6 (1 / 5) | 3 (1 / 2) | `units/u1-python-a-review` |
+  | 2 | AI2 Year Opening | פתיחת שנת AI2 | 4 (2 / 2) | 2 (2 / 0) | `units/u2-ai2-year-opening` |
+  | 3 | Functions | פעולות | 6 (2 / 4) | 3 (2 / 1) | `units/u3-functions` |
+  | 4 | Bringing AI into Code (API) | להכניס בינה לקוד (API) | 4 (1 / 3) | 2 (1 / 1) | `units/u4-api` |
+  | 5 | Strings | מחרוזות | 8 (2 / 6) | 4 (2 / 2) | `units/u5-strings` |
+  | 6 | Advanced Language Model | מודל שפה מתקדם | 6 (2 / 4) | 3 (2 / 1) | `units/u6-advanced-language-model` |
+  | 7 | Lists | רשימות | 10 (3 / 7) | 5 (3 / 2) | `units/u7-lists` |
+  | 8 | Classification | סיווג | 8 (4 / 4) | 4 (4 / 0) | `units/u8-classification` |
+  | 9 | Recommender Systems | מערכות המלצה | 8 (4 / 4) | 4 (4 / 0) | `units/u9-recommender-systems` |
 
 - **Lesson rhythm:** never more than 10–15 minutes of teacher talk before students act (predict, trace, type, run,
   discuss); 4–5-minute demos in lab meetings; short demo → task → short demo → task. Predict-first questions get their
   own step, with the answer after. One flexible "if time" block per lab. One function per task.
 - **Code style:** double quotes, 4-space indents, `snake_case`, a comment line at the top of each starter saying what
-  to find or do. Use only what the students have been taught: the Python A course, the Grade 8 program (lists yes;
-  tuples and sets are new in Unit 1), and earlier Python C meetings. Grade 7's bans (no lists, no `turtle.Turtle()`)
-  do **not** apply here — Unit 2 builds Turtle subclasses. Ask the teacher before using `+=` (Python A wrote `x = x + 1`).
+  to find or do. Use only what the students have been taught: the Python A course (Grade 7) and earlier meetings of
+  this course. **Lists are new in Unit 7** — no lists before it (Units 1–6 accumulate into strings and counters).
+  Never, in any unit: nested loops (dropped from the new program — clarifications p. 3), tuples, sets, dictionaries,
+  list comprehensions, lists of lists (all moved to Part C), default or keyword arguments, classes.
+  f-strings are new in Unit 4 (the program lists them there, p. 12). If Turtle is used, follow Python A
+  (module-level `turtle.` calls, no `turtle.Turtle()`). Ask the teacher before using `+=` (Python A wrote `x = x + 1`).
+- **AI safety in every file:** no API keys, no student names, faces or personal data; model output is always shown
+  as something to check, not as the truth (program rationale, p. 2).
 - Every `.py` compiles before it is committed (except a documented intentional syntax bug in a starter).
 - Markdown is the source format; GitHub must render it well. Hebrew lines start with a Hebrew word; code in fenced blocks;
   wrap Hebrew tables and lists in `<div dir="rtl">` … `</div>` with blank lines inside.
@@ -118,7 +137,7 @@ and make the README and course map describe the current state.
 
 ## File templates (copy the shape from `ie-cs-python-a/units/u8-functions-parameters/`)
 
-**`m<M>-lesson-notes.md`:** `# Unit U.M — <name>` · `## Grade 9 / Python C · Lesson Strategy v1` ·
+**`m<M>-lesson-notes.md`:** `# Unit U.M — <name>` · `## Grade 8 / AI + Python B · Lesson Strategy v1` ·
 `### Topic: <theme>` · header lines `**Status:**` (🔶 text: "Built, awaiting teacher approval"), `**Duration:** 90 minutes`,
 `**Structure:**`, `**Minutes (theory / practice):**`, `**Current tool:** Thonny`, `**Source of inspiration:**` (the raw
 deck, what was kept, what was changed and why), `**Tool-dependence rule:**` · sections: 1 Position in Unit N (table of
@@ -136,8 +155,9 @@ save/document · exit check.
 
 Keep `course-map.md` current whenever a meeting is added, retimed or taught: time budget vs official minutes,
 the schedule (target week / taught on), open coverage gaps, the meeting log, and the pace check (meetings left in
-the schedule ≤ meetings left before the exam). Not yet known for this class — ask the teacher: the weekly meeting day,
-the first meeting date, and the end-of-year assessment date (see "Deadline and pace" in the course map).
+the schedule ≤ meetings left before the exam). The Ministry exam (בחינת מפמ"ר) is set for **May 2027**
+(circular, p. 2). Not yet known for this class — ask the teacher: the weekly meeting day, the first meeting date,
+and the exact exam date (see "Deadline and pace" in the course map).
 
 ## Git
 
