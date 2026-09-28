@@ -30,6 +30,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Scores_Starter.py`](Scores_Starter.py) | Overwritten-total warm-up bug, the trace task, stubs |
 | Teacher | [`Scores_Reference.py`](Scores_Reference.py) | Solutions, one function per task |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (17 slides, NotebookLM, patched) |
 | Teacher | slides | Pending (NotebookLM) |
 
 ## Unit 1.3 — Python A Review
