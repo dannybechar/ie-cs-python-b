@@ -1,7 +1,7 @@
 # Grade 9 / Python C — Transition-Year Annual Strategy
 
 Source of truth: [`ministry-source/python-c.pdf`](ministry-source/python-c.pdf).
-Per-unit detail lives in each unit's own `strategy/unit-strategy.md` — see
+Per-unit detail lives in each unit's own `unit-strategy.md` (written when the unit is built) — see
 [`../course-map.md`](../course-map.md) for the full list.
 
 > This is a transition-year (תשפ"ז) strategy, based on the old Python C as
@@ -42,10 +42,10 @@ Lab**, 4 meetings **Lab + Lab** — i.e. each unit = 6 double meetings.
 | # | Unit | Hours | Theory / Practice | 90-min Meetings |
 |---|---|---:|---:|---:|
 | 1 | Data Structures | 12 | 2 / 10 | 6 |
-| 2 | Classes & OOP | 12 | 2 / 10 | 6 |
+| 2 | Classes | 12 | 2 / 10 | 6 |
 | 3 | Mouse Events | 12 | 2 / 10 | 6 |
-| 4 | Keyboard Events, Timer & Animation | 12 | 2 / 10 | 6 |
-| 5 | Final Integrated Project | 12 | 2 / 10 | 6 |
+| 4 | Keyboard Events and Timer | 12 | 2 / 10 | 6 |
+| 5 | Final Project | 12 | 2 / 10 | 6 |
 |  | **TOTAL** | **60** | **10 / 50** | **30** |
 
 ## 4. Pedagogical Progression
