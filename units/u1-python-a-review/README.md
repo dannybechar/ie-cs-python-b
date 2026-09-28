@@ -16,7 +16,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Entry_Starter.py`](Entry_Starter.py) | `int()` warm-up bug, the two-bug gate, stubs for Tasks 2–3 |
 | Teacher | [`Entry_Reference.py`](Entry_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Pending (NotebookLM) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (20 slides, NotebookLM, patched) |
 
 ## Unit 1.2 — Python A Review
 
