@@ -17,7 +17,7 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | # | Unit | Official hours (T/P) | Official minutes (T/P) | Meetings | Planned minutes (T/P) | Remaining | Built |
 |---|---|---:|---:|---:|---:|---:|---|
 | 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | 🔶 3/3 |
-| 2 | AI2 Year Opening | 4 (2 / 2) | 180 (90 / 90) | 2 | 0 | 180 | ❌ 0/2 |
+| 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | 🔶 2/2 |
 | 3 | Functions | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
 | 4 | Bringing AI into Code (API) | 4 (1 / 3) | 180 (45 / 135) | 2 | 0 | 180 | ❌ 0/2 |
 | 5 | Strings | 8 (2 / 6) | 360 (90 / 270) | 4 | 0 | 360 | ❌ 0/4 |
@@ -25,7 +25,7 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 7 | Lists | 10 (3 / 7) | 450 (135 / 315) | 5 | 0 | 450 | ❌ 0/5 |
 | 8 | Classification | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
 | 9 | Recommender Systems | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **270 (45 / 225)** | **2,430** | **3/30 meetings built** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **450 (135 / 315)** | **2,250** | **5/30 meetings built** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -45,7 +45,7 @@ Official topics that no planned meeting fully covers yet. Details are in each un
 
 | Unit | Gap | Fix to plan |
 |---|---|---|
-| 2–9 | Nothing built yet | Build unit by unit |
+| 3–9 | Nothing built yet | Build unit by unit |
 | 4, 6, 8, 9 | Tools not chosen: the language-model API and key (4), the embedding library (6), the model-loading library (8), the survey and CSV (9) | Settle with the teacher before building each unit ([annual strategy §8](docs/annual-strategy.md#8-tools-and-safety-to-settle-before-the-unit-is-built)) |
 
 ## Schedule
@@ -58,8 +58,8 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | 🔶 | | |
 | 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | 🔶 | | |
 | 3 | 1.3 Python A Review | L+L · Until it's done: `while`, three-try locker; unit checkpoint | 🔶 | | |
-| 4 | 2.1 AI2 Year Opening | K+L · Classical programming vs AI; Quick, Draw! | ❌ | | |
-| 5 | 2.2 AI2 Year Opening | K+L · Data, bias and responsibility | ❌ | | |
+| 4 | 2.1 AI2 Year Opening | K+L · Rules or learning? Kettle rule, Quick, Draw!, dataset detectives | 🔶 | | |
+| 5 | 2.2 AI2 Year Opening | K+L · Data, bias and responsibility; dataset audit; from consumers to creators | 🔶 | | |
 | 6 | 3.1 Functions | K+L · Functions without `return` (review); the black box | ❌ | | |
 | 7 | 3.2 Functions | K+L · `return`; `print` vs `return`; local and global | ❌ | | |
 | 8 | 3.3 Functions | L+L · Bottom-up design with returning functions | ❌ | | |
@@ -95,6 +95,8 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 1 | 1.1 Python A Review | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u1-python-a-review/m1-lesson-notes.md) | From the codex deck + the raw 1.1; slides pending (NotebookLM) |
 | 1 | 1.2 Python A Review | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u1-python-a-review/m2-lesson-notes.md) | From the codex deck + the raw 1.2; slides pending (NotebookLM) |
 | 1 | 1.3 Python A Review | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u1-python-a-review/m3-lesson-notes.md) | Unit diagnostic checkpoint; from the codex deck + the raw 1.3; slides pending (NotebookLM) |
+| 2 | 2.1 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u2-ai2-year-opening/m1-lesson-notes.md) | From the codex deck + the raw 2.1; needs Quick, Draw! (web); slides pending (NotebookLM) |
+| 2 | 2.2 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u2-ai2-year-opening/m2-lesson-notes.md) | From the codex deck + the raw 2.2; slides pending (NotebookLM) |
 
 ## Keeping this up to date
 
