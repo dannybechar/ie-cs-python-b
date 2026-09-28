@@ -13,11 +13,11 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**0 of 30 official double meetings are built.** See [`course-map.md`](course-map.md) for the unit-by-unit
+**3 of 30 official double meetings are built** (Unit 1, awaiting approval). See [`course-map.md`](course-map.md) for the unit-by-unit
 breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md) for the
 year plan.
 
-- Unit 1 — Python A Review — not started (0/3 meetings)
+- [Unit 1 — Python A Review](units/u1-python-a-review) — 🔶 built, awaiting approval (3/3 meetings)
 - Unit 2 — AI2 Year Opening — not started (0/2 meetings)
 - Unit 3 — Functions — not started (0/3 meetings)
 - Unit 4 — Bringing AI into Code (API) — not started (0/2 meetings)
