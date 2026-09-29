@@ -12,7 +12,8 @@ depth boundaries: [`docs/annual-strategy.md`](docs/annual-strategy.md).
 1 academic hour = 45 minutes, so the course is 60 hours = **2,700 minutes** = 30 double meetings of 90 minutes.
 Minutes are written as **total (theory / practice)**. "Planned" counts only meetings that are built in the repo.
 
-Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher approval · ⚠️ partly built · ❌ / ⏳ not built yet.
+Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher approval (lesson notes, brief, code and slides all done) ·
+⚠️ partly built (lesson notes, brief and code done for every meeting; slides not yet prepared) · ❌ / ⏳ not built yet.
 
 | # | Unit | Official hours (T/P) | Official minutes (T/P) | Meetings | Planned minutes (T/P) | Remaining | Built |
 |---|---|---:|---:|---:|---:|---:|---|
@@ -20,12 +21,12 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | ✅ 2/2 |
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 4 | [Bringing AI into Code (API)](python-b-built/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 |
-| 5 | Strings | 8 (2 / 6) | 360 (90 / 270) | 4 | 0 | 360 | ❌ 0/4 |
-| 6 | Advanced Language Model | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
-| 7 | Lists | 10 (3 / 7) | 450 (135 / 315) | 5 | 0 | 450 | ❌ 0/5 |
-| 8 | Classification | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
-| 9 | Recommender Systems | 8 (4 / 4) | 360 (180 / 180) | 4 | 0 | 360 | ❌ 0/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **450 (135 / 315)** | **2,250** | **5/30 meetings built** |
+| 5 | [Strings](python-b-built/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | ⚠️ 4/4 |
+| 6 | [Advanced Language Model](python-b-built/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ⚠️ 3/3 |
+| 7 | [Lists](python-b-built/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ⚠️ 5/5 |
+| 8 | [Classification](python-b-built/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
+| 9 | [Recommender Systems](python-b-built/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **10/30 fully built (✅/🔶); 20 more have complete lesson content, slides pending (⚠️)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -65,26 +66,26 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 8 | 3.3 Functions | K+L · `return`, `print` vs `return`, local scope, task-calculator checkpoint | ✅ | | |
 | 9 | 4.1 Bringing AI into Code (API) | K+L · The waiter analogy, key security, a wrapper function that returns | 🔶 | | |
 | 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" checkpoint project | 🔶 | | |
-| 11 | 5.1 Strings | K+L · Operators, indexing, `len`, `in` | ❌ | | |
-| 12 | 5.2 Strings | K+L · String methods and validation | ❌ | | |
-| 13 | 5.3 Strings | L+L · Slicing | ❌ | | |
-| 14 | 5.4 Strings | L+L · Traversal; text-processing program | ❌ | | |
-| 15 | 6.1 Advanced Language Model | K+L · Tokens and the context window | ❌ | | |
-| 16 | 6.2 Advanced Language Model | K+L · Semantic map and self-attention | ❌ | | |
-| 17 | 6.3 Advanced Language Model | L+L · The Semantle game | ❌ | | |
-| 18 | 7.1 Lists | K+L · What a list is; access and update | ❌ | | |
-| 19 | 7.2 Lists | K+L · List operations; `split` / `join` | ❌ | | |
-| 20 | 7.3 Lists | K+L · The summation pattern | ❌ | | |
-| 21 | 7.4 Lists | L+L · The sequential-search pattern | ❌ | | |
-| 22 | 7.5 Lists | L+L · Integrated list problem | ❌ | | |
-| 23 | 8.1 Classification | K+L · Features, decision boundary, rule-based classifier | ❌ | | |
-| 24 | 8.2 Classification | K+L · Training vs test; Teachable Machine | ❌ | | |
-| 25 | 8.3 Classification | K+L · Planned data collection (fist vs OK) | ❌ | | |
-| 26 | 8.4 Classification | K+L · Accuracy; loading the model in Python | ❌ | | |
-| 27 | 9.1 Recommender Systems | K+L · Content- vs user-based; the survey | ❌ | | |
-| 28 | 9.2 Recommender Systems | K+L · Similarity score | ❌ | | |
-| 29 | 9.3 Recommender Systems | K+L · The digital twin and the recommendation | ❌ | | |
-| 30 | 9.4 Recommender Systems | K+L · Filter bubbles and the attention economy | ❌ | | |
+| 11 | 5.1 Strings | K+L · A string as an ordered sequence: indices, `+`/`*`/`in`, core methods, immutability | ⚠️ | | |
+| 12 | 5.2 Strings | L+L · Slicing — start, end, step | ⚠️ | | |
+| 13 | 5.3 Strings | L+L · Dynamic slicing (`find` as a boundary) + traversal | ⚠️ | | |
+| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | ⚠️ | | |
+| 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ⚠️ | | |
+| 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ⚠️ | | |
+| 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ⚠️ | | |
+| 18 | 7.1 Lists | K+L · What a list is: indices, traversal | ⚠️ | | |
+| 19 | 7.2 Lists | K+L · List operations: append/extend/insert, remove/pop, sort/reverse, split/join | ⚠️ | | |
+| 20 | 7.3 Lists | K+L · Advanced operations + the accumulation pattern | ⚠️ | | |
+| 21 | 7.4 Lists | L+L · Counting, minimum, maximum, a report | ⚠️ | | |
+| 22 | 7.5 Lists | L+L · Linear search + the "AI Experiment Analyzer" checkpoint | ⚠️ | | |
+| 23 | 8.1 Classification | K+L · Classification, features, a decision boundary | ⚠️ | | |
+| 24 | 8.2 Classification | K+L · The ML process + Teachable Machine | ⚠️ | | |
+| 25 | 8.3 Classification | K+L · Project planning, data, bias | ⚠️ | | |
+| 26 | 8.4 Classification | K+L · Accuracy, export, loading the model — checkpoint | ⚠️ | | |
+| 27 | 9.1 Recommender Systems | K+L · What is a recommender system? + data collection | ⚠️ | | |
+| 28 | 9.2 Recommender Systems | K+L · From CSV to a similarity score | ⚠️ | | |
+| 29 | 9.3 Recommender Systems | K+L · From digital twin to recommendation — checkpoint | ⚠️ | | |
+| 30 | 9.4 Recommender Systems | K+L · Filter bubbles, echo chambers, the attention economy | ⚠️ | | |
 
 ## Meeting log
 
@@ -102,6 +103,26 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 3 | 3.3 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u3-functions/m3-lesson-notes.md) | Unit checkpoint (task calculator); from the codex deck; slides: `m3-slides-he.pdf` (19 slides, 90 min; NotebookLM, patched) |
 | 4 | 4.1 Bringing AI into Code (API) | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u4-api/m1-lesson-notes.md) | From the codex deck; classroom-mode `ask_ai()` (no key needed); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched). Built, awaiting approval — staged in `python-b-built/`, not yet in `units/`. |
 | 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](python-b-built/u4-api/m2-lesson-notes.md) | Unit checkpoint ("Balanced Day"); from the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched). Built, awaiting approval — staged in `python-b-built/`, not yet in `units/`. |
+| 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u5-strings/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 5 | 5.2 Strings | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](python-b-built/u5-strings/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u5-strings/m3-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](python-b-built/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u6-advanced-language-model/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u6-advanced-language-model/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u6-advanced-language-model/m3-lesson-notes.md) | Unit checkpoint ("Semantle"); classroom-mode similarity function (no model download needed); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 7 | 7.1 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u7-lists/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 7 | 7.2 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u7-lists/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 7 | 7.3 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u7-lists/m3-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 7 | 7.4 Lists | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](python-b-built/u7-lists/m4-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 7 | 7.5 Lists | 90 | 0 / 90 | Lab + Lab | [`m5-lesson-notes.md`](python-b-built/u7-lists/m5-lesson-notes.md) | Unit checkpoint ("AI Experiment Analyzer"); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 8 | 8.1 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u8-classification/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u8-classification/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u8-classification/m3-lesson-notes.md) | Real photography (hands only; full privacy/consent rules in the lesson notes); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](python-b-built/u8-classification/m4-lesson-notes.md) | Unit checkpoint; classroom-mode `classify_image()`; lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u9-recommender-systems/m1-lesson-notes.md) | Real class survey (full privacy rules in the lesson notes); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u9-recommender-systems/m2-lesson-notes.md) | Real `ratings.csv` sample data (no mock needed); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](python-b-built/u9-recommender-systems/m4-lesson-notes.md) | Live-browsing option with its own safety rules (offline card-simulation fallback); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 
 ## Keeping this up to date
 

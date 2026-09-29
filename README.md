@@ -13,19 +13,21 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**10 of 30 official double meetings are built** (8 approved — Units 1–3; 2 built and awaiting approval — Unit 4).
-See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
-[`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
+**10 of 30 official double meetings are fully built** (8 approved — Units 1–3; 2 built and awaiting approval —
+Unit 4). A further **20 meetings have complete lesson notes, Hebrew briefs and verified code** (Units 5–9) but
+still need their NotebookLM slide decks prepared and reviewed. See [`course-map.md`](course-map.md) for the
+unit-by-unit breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md)
+for the year plan.
 
 - [Unit 1 — Python A Review](units/u1-python-a-review) — ✅ approved (3/3 meetings)
 - [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — ✅ approved (2/2 meetings)
 - [Unit 3 — Functions](units/u3-functions) — ✅ approved (3/3 meetings)
 - [Unit 4 — Bringing AI into Code (API)](python-b-built/u4-api) — 🔶 built, awaiting approval (2/2 meetings)
-- Unit 5 — Strings — not started (0/4 meetings)
-- Unit 6 — Advanced Language Model — not started (0/3 meetings)
-- Unit 7 — Lists — not started (0/5 meetings)
-- Unit 8 — Classification — not started (0/4 meetings)
-- Unit 9 — Recommender Systems — not started (0/4 meetings)
+- [Unit 5 — Strings](python-b-built/u5-strings) — ⚠️ lesson content complete, slides pending (4/4 meetings)
+- [Unit 6 — Advanced Language Model](python-b-built/u6-advanced-language-model) — ⚠️ lesson content complete, slides pending (3/3 meetings)
+- [Unit 7 — Lists](python-b-built/u7-lists) — ⚠️ lesson content complete, slides pending (5/5 meetings)
+- [Unit 8 — Classification](python-b-built/u8-classification) — ⚠️ lesson content complete, slides pending (4/4 meetings)
+- [Unit 9 — Recommender Systems](python-b-built/u9-recommender-systems) — ⚠️ lesson content complete, slides pending (4/4 meetings)
 
 ## Repository layout
 
