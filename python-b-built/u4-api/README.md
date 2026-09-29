@@ -35,4 +35,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`BalancedDay_Starter.py`](BalancedDay_Starter.py) | One-call-per-activity warm-up, stubs for Tasks 1–3 |
 | Teacher | [`BalancedDay_Reference.py`](BalancedDay_Reference.py) | Solutions, all five test cases verified |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (17 slides, NotebookLM, patched) |
