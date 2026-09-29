@@ -19,7 +19,7 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | ✅ 3/3 |
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | ✅ 2/2 |
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
-| 4 | Bringing AI into Code (API) | 4 (1 / 3) | 180 (45 / 135) | 2 | 0 | 180 | ❌ 0/2 |
+| 4 | [Bringing AI into Code (API)](python-b-built/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 |
 | 5 | Strings | 8 (2 / 6) | 360 (90 / 270) | 4 | 0 | 360 | ❌ 0/4 |
 | 6 | Advanced Language Model | 6 (2 / 4) | 270 (90 / 180) | 3 | 0 | 270 | ❌ 0/3 |
 | 7 | Lists | 10 (3 / 7) | 450 (135 / 315) | 5 | 0 | 450 | ❌ 0/5 |
@@ -63,8 +63,8 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 6 | 3.1 Functions | K+L · A function as a building block; `def`, the call, execution order, procedural abstraction | ✅ | | |
 | 7 | 3.2 Functions | L+L · Parameter vs argument, multiple parameters, refactoring repeats | ✅ | | |
 | 8 | 3.3 Functions | K+L · `return`, `print` vs `return`, local scope, task-calculator checkpoint | ✅ | | |
-| 9 | 4.1 Bringing AI into Code (API) | K+L · API, safe key, wrapper function | ❌ | | |
-| 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" mini-project | ❌ | | |
+| 9 | 4.1 Bringing AI into Code (API) | K+L · The waiter analogy, key security, a wrapper function that returns | 🔶 | | |
+| 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" checkpoint project | 🔶 | | |
 | 11 | 5.1 Strings | K+L · Operators, indexing, `len`, `in` | ❌ | | |
 | 12 | 5.2 Strings | K+L · String methods and validation | ❌ | | |
 | 13 | 5.3 Strings | L+L · Slicing | ❌ | | |
@@ -100,6 +100,8 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 3 | 3.1 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u3-functions/m1-lesson-notes.md) | From the codex deck (no raw material for this unit); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
 | 3 | 3.2 Functions | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u3-functions/m2-lesson-notes.md) | From the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched) |
 | 3 | 3.3 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u3-functions/m3-lesson-notes.md) | Unit checkpoint (task calculator); from the codex deck; slides: `m3-slides-he.pdf` (19 slides, 90 min; NotebookLM, patched) |
+| 4 | 4.1 Bringing AI into Code (API) | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u4-api/m1-lesson-notes.md) | From the codex deck; classroom-mode `ask_ai()` (no key needed); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched). Built, awaiting approval — staged in `python-b-built/`, not yet in `units/`. |
+| 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](python-b-built/u4-api/m2-lesson-notes.md) | Unit checkpoint ("Balanced Day"); from the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched). Built, awaiting approval — staged in `python-b-built/`, not yet in `units/`. |
 
 ## Keeping this up to date
 
