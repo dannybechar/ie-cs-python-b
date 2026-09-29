@@ -21,7 +21,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Wrapper_Starter.py`](Wrapper_Starter.py) | Two-bug warm-up (missing parameter, `print` vs `return`), stub for Task 2 |
 | Teacher | [`Wrapper_Reference.py`](Wrapper_Reference.py) | Solutions, classroom-mode `ask_ai()`, the real-client code as a commented block |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (18 slides, NotebookLM, patched) |
 
 ## Unit 4.2 — Bringing AI into Code (API)
 
