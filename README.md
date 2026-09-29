@@ -23,7 +23,7 @@ for the year plan.
 - [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — ✅ approved (2/2 meetings)
 - [Unit 3 — Functions](units/u3-functions) — ✅ approved (3/3 meetings)
 - [Unit 4 — Bringing AI into Code (API)](python-b-built/u4-api) — 🔶 built, awaiting approval (2/2 meetings)
-- [Unit 5 — Strings](python-b-built/u5-strings) — ⚠️ lesson content complete (4/4 meetings); slides done for 5.1–5.2, pending for 5.3–5.4
+- [Unit 5 — Strings](python-b-built/u5-strings) — ⚠️ lesson content complete (4/4 meetings); slides done for 5.1–5.3, pending for 5.4
 - [Unit 6 — Advanced Language Model](python-b-built/u6-advanced-language-model) — ⚠️ lesson content complete, slides pending (3/3 meetings)
 - [Unit 7 — Lists](python-b-built/u7-lists) — ⚠️ lesson content complete, slides pending (5/5 meetings)
 - [Unit 8 — Classification](python-b-built/u8-classification) — ⚠️ lesson content complete, slides pending (4/4 meetings)

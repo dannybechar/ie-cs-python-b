@@ -46,7 +46,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Scan_Starter.py`](Scan_Starter.py) | Off-by-one range warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Scan_Reference.py`](Scan_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
 
 ## Unit 5.4 — Strings
 

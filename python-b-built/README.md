@@ -42,7 +42,7 @@ run with the real service before class.
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
 | 4 Bringing AI into Code (API) | [`u4-api`](u4-api) | 2 | 🔶 built (lesson notes, briefs, code and slides all done; awaiting approval) |
-| 5 Strings | [`u5-strings`](u5-strings) | 4 | ⚠️ lesson notes, briefs and code done for all 4; slides done for 5.1–5.2, pending for 5.3–5.4 |
+| 5 Strings | [`u5-strings`](u5-strings) | 4 | ⚠️ lesson notes, briefs and code done for all 4; slides done for 5.1–5.3, pending for 5.4 |
 | 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 7 Lists | [`u7-lists`](u7-lists) | 5 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 8 Classification | [`u8-classification`](u8-classification) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
