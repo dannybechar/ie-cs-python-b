@@ -21,12 +21,12 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | ✅ 2/2 |
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | ✅ 2/2 |
-| 5 | [Strings](python-b-built/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | ⚠️ 4/4 (5.1–5.3 slides done) |
+| 5 | [Strings](python-b-built/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | 🔶 4/4 |
 | 6 | [Advanced Language Model](python-b-built/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ⚠️ 3/3 |
 | 7 | [Lists](python-b-built/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ⚠️ 5/5 |
 | 8 | [Classification](python-b-built/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
 | 9 | [Recommender Systems](python-b-built/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **10/30 fully built (✅/🔶); 20 more have complete lesson content, slides pending (⚠️)** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **14/30 fully built (✅/🔶); 16 more have complete lesson content, slides pending (⚠️)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -69,7 +69,7 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 11 | 5.1 Strings | K+L · A string as an ordered sequence: indices, `+`/`*`/`in`, core methods, immutability | 🔶 | | |
 | 12 | 5.2 Strings | L+L · Slicing — start, end, step | 🔶 | | |
 | 13 | 5.3 Strings | L+L · Dynamic slicing (`find` as a boundary) + traversal | 🔶 | | |
-| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | ⚠️ | | |
+| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | 🔶 | | |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ⚠️ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ⚠️ | | |
 | 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ⚠️ | | |
@@ -106,7 +106,7 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u5-strings/m1-lesson-notes.md) | Built, awaiting approval — slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched). |
 | 5 | 5.2 Strings | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](python-b-built/u5-strings/m2-lesson-notes.md) | Built, awaiting approval — slides: `m2-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched). |
 | 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u5-strings/m3-lesson-notes.md) | Built, awaiting approval — slides: `m3-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
-| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](python-b-built/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
+| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](python-b-built/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); built, awaiting approval — slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u6-advanced-language-model/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u6-advanced-language-model/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u6-advanced-language-model/m3-lesson-notes.md) | Unit checkpoint ("Semantle"); classroom-mode similarity function (no model download needed); lesson notes, Hebrew brief and code complete; slides not yet prepared. |

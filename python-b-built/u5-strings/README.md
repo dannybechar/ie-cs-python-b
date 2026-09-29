@@ -60,4 +60,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`TextChecker_Starter.py`](TextChecker_Starter.py) | Copy-paste warm-up bug, the project brief |
 | Teacher | [`TextChecker_Reference.py`](TextChecker_Reference.py) | Solutions, all 7 official test cases verified |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
