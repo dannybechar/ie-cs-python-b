@@ -32,7 +32,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Slicer_Starter.py`](Slicer_Starter.py) | Index-vs-slice warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Slicer_Reference.py`](Slicer_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (16 slides, NotebookLM, patched) |
 
 ## Unit 5.3 — Strings
 
