@@ -32,4 +32,4 @@ Needs internet for Quick, Draw! (`quickdraw.withgoogle.com`) — or printed draw
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Audit_Starter.py`](Audit_Starter.py) | Reversed-comparison warm-up bug, stub for the car audit |
 | Teacher | [`Audit_Reference.py`](Audit_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Pending (NotebookLM) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (18 slides, NotebookLM, patched) |
