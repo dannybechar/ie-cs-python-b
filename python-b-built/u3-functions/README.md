@@ -48,4 +48,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Points_Starter.py`](Points_Starter.py) | Missing-`return` warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Points_Reference.py`](Points_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (19 slides, NotebookLM, patched) |
