@@ -3,7 +3,7 @@
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Same Function, Different Input — Parameters
 
-**Status:** Built, awaiting teacher approval — staged in `python-b-built/`, not yet in `units/`
+**Status:** Approved by the teacher
 **Duration:** 90 minutes
 **Structure:** Lab + Lab (24 min guided practice, then 66 min lab)
 **Minutes (theory / practice):** 0 / 90

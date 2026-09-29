@@ -1,10 +1,11 @@
 # python-b-built — staged units (not yet in `units/`)
 
-This folder holds Units 3–9, built from `Downloads\python-b-codex\` at the teacher's request
+This folder holds Units 4–9, built from `Downloads\python-b-codex\` at the teacher's request
 ("build units 3–9 using the codex materials... place your built units each one in a directory under python-b-built").
 It is a **staging area**, kept deliberately separate from `units/` and from the root `course-map.md` / `README.md`,
 which describe the official, reviewed course. Nothing here has been through the "review U.M" (slide check) or
-"approve unit N" routines.
+"approve unit N" routines. (Unit 3 was staged here too; it has since been reviewed, approved and moved to
+[`units/u3-functions`](../units/u3-functions).)
 
 ## What's in each unit folder
 
@@ -15,8 +16,7 @@ the same way it works for Units 1–2.
 
 ## Sources
 
-- Units 3, 4–9 core content: `Downloads\python-b-codex\` — Unit 3 is three PowerPoint decks (one per meeting, the
-  same shape as Units 1–2's codex decks); Units 4–9 are each one `..._complete_unit.md` document covering every
+- Units 4–9 core content: `Downloads\python-b-codex\` — each one `..._complete_unit.md` document covering every
   meeting of that unit, richly detailed (goals, full 90-minute timings, worked code, bug clinics, a graded project
   with a rubric).
 - Official scope and hours: [`../docs/ministry-source/python-b-ai.pdf`](../docs/ministry-source/python-b-ai.pdf),
@@ -29,7 +29,8 @@ the same way it works for Units 1–2.
 
 ## Verification
 
-Every `.py` file compiles and was run with representative test inputs before being committed. Units 4, 6, 8 and 9
+Every `.py` file compiles and was run with representative test inputs before being committed. Of the units still
+staged here, Units 4, 6, 8 and 9
 call an outside service or library the classroom can't run headlessly (a language-model API, an embedding library,
 a trained image classifier, a CSV survey) — those are verified with a stand-in that returns fixed values, exactly as
 each source document's own "no internet / no key" fallback describes; the lesson notes say which files need a live
@@ -39,7 +40,6 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 3 Functions | [`u3-functions`](u3-functions) | 3 | 🔶 built |
 | 4 Bringing AI into Code (API) | [`u4-api`](u4-api) | 2 | 🔶 built |
 | 5 Strings | [`u5-strings`](u5-strings) | 4 | 🔶 built |
 | 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | 🔶 built |

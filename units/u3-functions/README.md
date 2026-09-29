@@ -4,10 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 6 academic hours = 3 meetings = 270 minutes (90 theory / 180 practice).
 
-> **Staging note:** this unit was built in `python-b-built/`, not `units/` — see the repo root
-> [`python-b-built/README.md`](../README.md) for what that means and what's still needed before it joins the
-> official course.
-
 ## Unit 3.1 — Functions
 
 **Topic:** A Function as a Building Block (no parameters, no return)

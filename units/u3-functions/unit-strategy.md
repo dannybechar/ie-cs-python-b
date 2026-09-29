@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 3 (pp. 10–11); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex decks only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 3 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit03_m01–m03_*.pptx`
 (three decks, one per meeting — the same shape as Units 1–2's codex decks: slide text plus teacher speaker notes).
 
@@ -17,16 +17,16 @@ Minutes = hours × 45.
 
 | Topic (Ministry, p. 11) | Chapter-table hours (T / P) | Planned in | Minutes (T / P) | Status |
 |---|---:|---|---:|---|
-| פעולה בלי/עם פרמטר/ים שאינה מחזירה ערך — function with/without parameters, no return | 0 / 2 | 3.1 (45 T + 45 P), 3.2 (90 P) | 45 / 135 | 🔶 |
-| פעולה עם פרמטרים ומחזירה ערך; טווח הכרה — function with parameters and return; scope | 1 / 3 | 3.3 (45 T + 45 P) | 45 / 45 | 🔶 |
+| פעולה בלי/עם פרמטר/ים שאינה מחזירה ערך — function with/without parameters, no return | 0 / 2 | 3.1 (45 T + 45 P), 3.2 (90 P) | 45 / 135 | ✅ |
+| פעולה עם פרמטרים ומחזירה ערך; טווח הכרה — function with parameters and return; scope | 1 / 3 | 3.3 (45 T + 45 P) | 45 / 45 | ✅ |
 | **Total (master table)** | **2 / 4** | | **90 / 180** | |
 
 Chapter goals (p. 10), in the exact official order — this unit's meetings follow it directly:
 
-1. Write and call a function with no parameters and no return value → **3.1** 🔶
-2. Write and call a function with parameters and no return value → **3.2** 🔶
-3. Write and call a function with parameters that returns a value → **3.3** 🔶
-4. Distinguish a variable's scope inside a function from outside it → **3.3** 🔶
+1. Write and call a function with no parameters and no return value → **3.1** ✅
+2. Write and call a function with parameters and no return value → **3.2** ✅
+3. Write and call a function with parameters that returns a value → **3.3** ✅
+4. Distinguish a variable's scope inside a function from outside it → **3.3** ✅
 
 Also required: procedural abstraction and the black-box idea (goal SC 1–4: an algorithmic building block, using it
 without its internal description, use vs. implementation, bottom-up development and "what" vs "how") → every
