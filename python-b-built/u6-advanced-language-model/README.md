@@ -21,7 +21,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Tokenizer_Starter.py`](Tokenizer_Starter.py) | Missing-final-flush warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Tokenizer_Reference.py`](Tokenizer_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
 
 ## Unit 6.2 — Advanced Language Model
 
@@ -35,7 +35,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Meanings_Starter.py`](Meanings_Starter.py) | Spelling-comparison warm-up bug, the spelling-vs-meaning task |
 | Teacher | [`Meanings_Reference.py`](Meanings_Reference.py) | Solutions |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
 
 ## Unit 6.3 — Advanced Language Model
 
@@ -49,4 +49,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Semantle_Starter.py`](Semantle_Starter.py) | Swapped-meter-colors warm-up bug, the project brief |
 | Teacher | [`Semantle_Reference.py`](Semantle_Reference.py) | Solutions, all 7 official test cases verified (classroom mode) |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (11 slides, NotebookLM, patched) |

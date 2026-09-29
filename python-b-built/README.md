@@ -42,7 +42,7 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
+| 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | 🔶 built (lesson notes, briefs, code and slides all done; awaiting approval) |
 | 7 Lists | [`u7-lists`](u7-lists) | 5 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 8 Classification | [`u8-classification`](u8-classification) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
