@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 4 (pp. 11–13); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — both meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit04_api_bring_ai_into_code_complete_unit.md` —
 a single, very detailed document covering both meetings (goals, full clock tables, worked code, common mistakes, a
 graded project with a rubric), not a slide deck.
@@ -17,8 +17,8 @@ Minutes = hours × 45.
 
 | Topic (Ministry, p. 11) | Chapter-table hours (T / P) | Planned in | Minutes (T / P) | Status |
 |---|---:|---|---:|---|
-| מבוא ל-API, מפתח, ייבוא ספריות ופונקציית עטיפה — API intro, key, imports, wrapper function | 1 / 1 | 4.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| פרומפטים דינמיים, לולאות צבירה ופרויקטון "יום מאוזן" — dynamic prompts, accumulation loops, the project | 0 / 2 | 4.2 (90 P) | 0 / 90 | 🔶 |
+| מבוא ל-API, מפתח, ייבוא ספריות ופונקציית עטיפה — API intro, key, imports, wrapper function | 1 / 1 | 4.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| פרומפטים דינמיים, לולאות צבירה ופרויקטון "יום מאוזן" — dynamic prompts, accumulation loops, the project | 0 / 2 | 4.2 (90 P) | 0 / 90 | ✅ |
 | **Total** | **1 / 3** | | **45 / 135** | |
 
 Chapter goals (p. 11 continues to p. 12 in the source document's own numbering):

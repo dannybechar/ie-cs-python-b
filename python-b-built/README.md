@@ -1,12 +1,12 @@
 # python-b-built — staged units (not yet in `units/`)
 
-This folder holds Units 4–9, built from `Downloads\python-b-codex\` at the teacher's request
+This folder holds Units 5–9, built from `Downloads\python-b-codex\` at the teacher's request
 ("build units 3–9 using the codex materials... place your built units each one in a directory under python-b-built").
 It is a **staging area** for the files themselves — a unit only moves to `units/` once the teacher approves it.
 The root `course-map.md` and `README.md` *do* track what's here, though: built (🔶/⚠️) status is recorded as soon
 as it's true, separately from approval (✅), which still only happens on "approve unit N". Nothing here has been
-through the "approve unit N" routine yet. (Unit 3 was staged here too; it has since been reviewed, approved and
-moved to [`units/u3-functions`](../units/u3-functions).)
+through the "approve unit N" routine yet. (Units 3 and 4 were staged here too; both have since been reviewed,
+approved and moved to [`units/u3-functions`](../units/u3-functions) and [`units/u4-api`](../units/u4-api).)
 
 ## What's in each unit folder
 
@@ -31,7 +31,7 @@ the same way it works for Units 1–2.
 ## Verification
 
 Every `.py` file compiles and was run with representative test inputs before being committed. Of the units still
-staged here, Units 4, 6, 8 and 9
+staged here, Units 6, 8 and 9
 call an outside service or library the classroom can't run headlessly (a language-model API, an embedding library,
 a trained image classifier, a CSV survey) — those are verified with a stand-in that returns fixed values, exactly as
 each source document's own "no internet / no key" fallback describes; the lesson notes say which files need a live
@@ -41,7 +41,6 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 4 Bringing AI into Code (API) | [`u4-api`](u4-api) | 2 | 🔶 built (lesson notes, briefs, code and slides all done; awaiting approval) |
 | 5 Strings | [`u5-strings`](u5-strings) | 4 | ⚠️ lesson notes, briefs and code done for all 4; slides done for 5.1–5.3, pending for 5.4 |
 | 6 Advanced Language Model | [`u6-advanced-language-model`](u6-advanced-language-model) | 3 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 7 Lists | [`u7-lists`](u7-lists) | 5 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |

@@ -4,7 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 4 academic hours = 2 meetings = 180 minutes (45 theory / 135 practice).
 
-> **Staging note:** built in `python-b-built/`, not `units/` — see [`../README.md`](../README.md).
 > **Service note:** every file runs in classroom (mock) mode — `ask_ai()` returns a fixed string, no key required.
 > Before teaching, the teacher chooses and tests a real service; see `unit-strategy.md`'s scope decisions and
 > `docs/annual-strategy.md` §8.
