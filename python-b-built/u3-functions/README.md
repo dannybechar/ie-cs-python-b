@@ -34,7 +34,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Card_Starter.py`](Card_Starter.py) | Wrong-variable-name warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Card_Reference.py`](Card_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (17 slides, NotebookLM, patched) |
 
 ## Unit 3.3 — Functions
 
