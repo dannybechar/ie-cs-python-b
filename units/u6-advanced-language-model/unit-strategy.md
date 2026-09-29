@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 6 (pp. 15–16); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 3 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit06_advanced_language_models_complete_unit.md` —
 one detailed document covering all three meetings, including its own exact 90-minute clock tables and meeting split.
 
@@ -15,9 +15,9 @@ meaning-map + attention + project 1/2, total 2/4 — for once both agree).
 
 | Topic | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| Tokens, tokenization, token IDs; a simple learning tokenizer | 6.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Context window, the meaning map, self-attention | 6.2 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Semantic similarity + the "Semantle" project | 6.3 (0 T + 90 P) | 0 / 90 | 🔶 |
+| Tokens, tokenization, token IDs; a simple learning tokenizer | 6.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| Context window, the meaning map, self-attention | 6.2 (45 T + 45 P) | 45 / 45 | ✅ |
+| Semantic similarity + the "Semantle" project | 6.3 (0 T + 90 P) | 0 / 90 | ✅ |
 | **Total** | | **90 / 180** | |
 
 Chapter goals (source §1, eleven in all):

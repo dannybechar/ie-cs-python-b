@@ -4,7 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 6 academic hours = 3 meetings = 270 minutes (90 theory / 180 practice).
 
-> **Staging note:** built in `python-b-built/`, not `units/` — see [`../README.md`](../README.md).
 > **Model note:** every file runs in classroom (mock) mode — `calculate_similarity()` uses a rule-based stand-in,
 > no model download required. Before teaching 6.3 live, the teacher installs `sentence-transformers` and downloads
 > the multilingual model once; see `unit-strategy.md`'s scope decisions.
