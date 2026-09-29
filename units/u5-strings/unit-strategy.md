@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 5 (pp. 13–15); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 4 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit05_strings_complete_unit.md` —
 one detailed document covering all four meetings, including its own exact 90-minute clock tables and meeting split.
 
@@ -17,10 +17,10 @@ the master table's 2/6, and that plan is followed directly below.
 
 | Topic | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| String as an ordered sequence; indices; `+`, `*`, `in`; core methods | 5.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Slicing `[start:end:step]` | 5.2 (90 P) | 0 / 90 | 🔶 |
-| Advanced slicing + traversal (character loop vs. index loop) | 5.3 (90 P) | 0 / 90 | 🔶 |
-| String algorithms + the "Smart Text Checker" project | 5.4 (90 P) | 0 / 90 | 🔶 |
+| String as an ordered sequence; indices; `+`, `*`, `in`; core methods | 5.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| Slicing `[start:end:step]` | 5.2 (90 P) | 0 / 90 | ✅ |
+| Advanced slicing + traversal (character loop vs. index loop) | 5.3 (90 P) | 0 / 90 | ✅ |
+| String algorithms + the "Smart Text Checker" project | 5.4 (90 P) | 0 / 90 | ✅ |
 | **Total** | | **45 / 315** | |
 
 Chapter goals (source §1, ten in all — the exact official numbering used throughout this unit's files):

@@ -13,8 +13,8 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**14 of 30 official double meetings are fully built** (10 approved — Units 1–4; 4 built and awaiting approval —
-Unit 5). A further **16 meetings have complete lesson notes, Hebrew briefs and verified code** (Units 6–9) but
+**14 of 30 official double meetings are fully built and approved** (Units 1–5). A further **16 meetings have
+complete lesson notes, Hebrew briefs and verified code** (Units 6–9) but
 still need their NotebookLM slide decks prepared and reviewed. See [`course-map.md`](course-map.md) for the
 unit-by-unit breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md)
 for the year plan.
@@ -23,7 +23,7 @@ for the year plan.
 - [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — ✅ approved (2/2 meetings)
 - [Unit 3 — Functions](units/u3-functions) — ✅ approved (3/3 meetings)
 - [Unit 4 — Bringing AI into Code (API)](units/u4-api) — ✅ approved (2/2 meetings)
-- [Unit 5 — Strings](python-b-built/u5-strings) — 🔶 built, awaiting approval (4/4 meetings)
+- [Unit 5 — Strings](units/u5-strings) — ✅ approved (4/4 meetings)
 - [Unit 6 — Advanced Language Model](python-b-built/u6-advanced-language-model) — ⚠️ lesson content complete, slides pending (3/3 meetings)
 - [Unit 7 — Lists](python-b-built/u7-lists) — ⚠️ lesson content complete, slides pending (5/5 meetings)
 - [Unit 8 — Classification](python-b-built/u8-classification) — ⚠️ lesson content complete, slides pending (4/4 meetings)

@@ -4,8 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 8 academic hours = 4 meetings = 360 minutes (45 theory / 315 practice).
 
-> **Staging note:** built in `python-b-built/`, not `units/` — see [`../README.md`](../README.md).
-
 ## Unit 5.1 — Strings
 
 **Topic:** A String Is an Ordered Sequence

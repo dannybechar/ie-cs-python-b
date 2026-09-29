@@ -21,7 +21,7 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | ✅ 2/2 |
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | ✅ 2/2 |
-| 5 | [Strings](python-b-built/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | 🔶 4/4 |
+| 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | ✅ 4/4 |
 | 6 | [Advanced Language Model](python-b-built/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ⚠️ 3/3 |
 | 7 | [Lists](python-b-built/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ⚠️ 5/5 |
 | 8 | [Classification](python-b-built/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
@@ -66,10 +66,10 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 8 | 3.3 Functions | K+L · `return`, `print` vs `return`, local scope, task-calculator checkpoint | ✅ | | |
 | 9 | 4.1 Bringing AI into Code (API) | K+L · The waiter analogy, key security, a wrapper function that returns | ✅ | | |
 | 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" checkpoint project | ✅ | | |
-| 11 | 5.1 Strings | K+L · A string as an ordered sequence: indices, `+`/`*`/`in`, core methods, immutability | 🔶 | | |
-| 12 | 5.2 Strings | L+L · Slicing — start, end, step | 🔶 | | |
-| 13 | 5.3 Strings | L+L · Dynamic slicing (`find` as a boundary) + traversal | 🔶 | | |
-| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | 🔶 | | |
+| 11 | 5.1 Strings | K+L · A string as an ordered sequence: indices, `+`/`*`/`in`, core methods, immutability | ✅ | | |
+| 12 | 5.2 Strings | L+L · Slicing — start, end, step | ✅ | | |
+| 13 | 5.3 Strings | L+L · Dynamic slicing (`find` as a boundary) + traversal | ✅ | | |
+| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | ✅ | | |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ⚠️ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ⚠️ | | |
 | 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ⚠️ | | |
@@ -103,10 +103,10 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 3 | 3.3 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u3-functions/m3-lesson-notes.md) | Unit checkpoint (task calculator); from the codex deck; slides: `m3-slides-he.pdf` (19 slides, 90 min; NotebookLM, patched) |
 | 4 | 4.1 Bringing AI into Code (API) | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u4-api/m1-lesson-notes.md) | From the codex deck; classroom-mode `ask_ai()` (no key needed); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
 | 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u4-api/m2-lesson-notes.md) | Unit checkpoint ("Balanced Day"); from the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched) |
-| 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u5-strings/m1-lesson-notes.md) | Built, awaiting approval — slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched). |
-| 5 | 5.2 Strings | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](python-b-built/u5-strings/m2-lesson-notes.md) | Built, awaiting approval — slides: `m2-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched). |
-| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u5-strings/m3-lesson-notes.md) | Built, awaiting approval — slides: `m3-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
-| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](python-b-built/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); built, awaiting approval — slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
+| 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u5-strings/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
+| 5 | 5.2 Strings | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u5-strings/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched) |
+| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Slides: `m3-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
+| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched) |
 | 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u6-advanced-language-model/m1-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u6-advanced-language-model/m2-lesson-notes.md) | Lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](python-b-built/u6-advanced-language-model/m3-lesson-notes.md) | Unit checkpoint ("Semantle"); classroom-mode similarity function (no model download needed); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
