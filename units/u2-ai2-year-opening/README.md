@@ -16,7 +16,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief and worksheet (guess log, detective sheet) |
 | Student | [`Rules_Starter.py`](Rules_Starter.py) | Rule-based message flag (warm-up) and the kettle rule to break |
 | Teacher | [`Rules_Reference.py`](Rules_Reference.py) | Answers as comments, one function per task |
-| Teacher | slides | Pending (NotebookLM) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (18 slides, NotebookLM, patched) |
 
 Needs internet for Quick, Draw! (`quickdraw.withgoogle.com`) — or printed drawing strips as the offline fallback.
 
