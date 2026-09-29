@@ -18,7 +18,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Checker_Starter.py`](Checker_Starter.py) | Immutability warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Checker_Reference.py`](Checker_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (18 slides, NotebookLM, patched) |
 
 ## Unit 5.2 — Strings
 
