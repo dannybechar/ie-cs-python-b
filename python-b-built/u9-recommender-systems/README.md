@@ -22,7 +22,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`SurveyData_Starter.py`](SurveyData_Starter.py) | Inverted-rating-meaning warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`SurveyData_Reference.py`](SurveyData_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (16 slides, NotebookLM, patched) |
 
 ## Unit 9.2 — Recommender Systems
 
@@ -37,7 +37,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`Similarity_Starter.py`](Similarity_Starter.py) | `0 == 0`-counts-as-a-match warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Similarity_Reference.py`](Similarity_Reference.py) | Solutions, verified against all 4 official asserts |
 | Data | [`ratings.csv`](ratings.csv) | Sample rating data (3 users, 4 items), read for real |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (12 slides, NotebookLM, patched) |
 
 ## Unit 9.3 — Recommender Systems
 
@@ -51,7 +51,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`TwinRecommend_Starter.py`](TwinRecommend_Starter.py) | Compared-to-itself warm-up bug, the project brief |
 | Teacher | [`TwinRecommend_Reference.py`](TwinRecommend_Reference.py) | Solutions, all 7 official test cases verified |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
 
 ## Unit 9.4 — Recommender Systems
 
@@ -65,4 +65,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Bubble_Starter.py`](Bubble_Starter.py) | Inverted-count warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Bubble_Reference.py`](Bubble_Reference.py) | Solutions, a deterministic simulation of the card experiment |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Hebrew slide deck (14 slides, NotebookLM, patched) |

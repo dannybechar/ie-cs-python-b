@@ -43,7 +43,7 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
+| 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | 🔶 built, awaiting approval — all 4 meetings, slides done for all 4 |
 
 ## Moving a unit into the official course
 
