@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 7 (pp. 17–18); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 5 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit07_lists_complete_unit.md` —
 one detailed document covering all five meetings, including its own exact 90-minute clock tables and meeting split.
 
@@ -18,10 +18,10 @@ Lab); that pattern is adjusted here to fit the master table's 3/7 instead — se
 
 | Topic (Ministry) | Chapter-table hours (T / P) | Planned in | Minutes (T / P) | Status |
 |---|---:|---|---:|---|
-| מהי רשימה — what a list is | 1 / 1 | 7.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| פעולות על רשימה — list operations | 1 / 2 | 7.2 (45 T + 45 P) | 45 / 45 | 🔶 |
-| סכימת איברים — the accumulation pattern | 1 / 2 | 7.3 (45 T + 45 P), 7.4 (90 P) | 45 / 135 | 🔶 |
-| חיפוש סדרתי — linear search | 1 / 1 | 7.5 (90 P) | 0 / 90 | 🔶 |
+| מהי רשימה — what a list is | 1 / 1 | 7.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| פעולות על רשימה — list operations | 1 / 2 | 7.2 (45 T + 45 P) | 45 / 45 | ✅ |
+| סכימת איברים — the accumulation pattern | 1 / 2 | 7.3 (45 T + 45 P), 7.4 (90 P) | 45 / 135 | ✅ |
+| חיפוש סדרתי — linear search | 1 / 1 | 7.5 (90 P) | 0 / 90 | ✅ |
 | **Total (master table)** | **3 / 7** | | **135 / 315** | |
 
 Chapter goals (source §1, twelve in all):

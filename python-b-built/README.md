@@ -1,13 +1,14 @@
 # python-b-built — staged units (not yet in `units/`)
 
-This folder holds Units 7–9, built from `Downloads\python-b-codex\` at the teacher's request
+This folder holds Units 8–9, built from `Downloads\python-b-codex\` at the teacher's request
 ("build units 3–9 using the codex materials... place your built units each one in a directory under python-b-built").
 It is a **staging area** for the files themselves — a unit only moves to `units/` once the teacher approves it.
 The root `course-map.md` and `README.md` *do* track what's here, though: built (🔶/⚠️) status is recorded as soon
 as it's true, separately from approval (✅), which still only happens on "approve unit N". Nothing here has been
-through the "approve unit N" routine yet. (Units 3, 4, 5 and 6 were staged here too; all four have since been
+through the "approve unit N" routine yet. (Units 3, 4, 5, 6 and 7 were staged here too; all five have since been
 reviewed, approved and moved to [`units/u3-functions`](../units/u3-functions), [`units/u4-api`](../units/u4-api),
-[`units/u5-strings`](../units/u5-strings) and [`units/u6-advanced-language-model`](../units/u6-advanced-language-model).)
+[`units/u5-strings`](../units/u5-strings), [`units/u6-advanced-language-model`](../units/u6-advanced-language-model)
+and [`units/u7-lists`](../units/u7-lists).)
 
 ## What's in each unit folder
 
@@ -42,7 +43,6 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 7 Lists | [`u7-lists`](u7-lists) | 5 | 🔶 built, awaiting approval — all 5 meetings, slides done for all 5 |
 | 8 Classification | [`u8-classification`](u8-classification) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 | 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 
