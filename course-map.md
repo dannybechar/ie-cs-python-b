@@ -25,8 +25,8 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
 | 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-| 9 | [Recommender Systems](python-b-built/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | 🔶 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **30/30 fully built (✅/🔶)** |
+| 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **30/30 approved (✅) — course complete** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -82,10 +82,10 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 24 | 8.2 Classification | K+L · The ML process + Teachable Machine | ✅ | | |
 | 25 | 8.3 Classification | K+L · Project planning, data, bias | ✅ | | |
 | 26 | 8.4 Classification | K+L · Accuracy, export, loading the model — checkpoint | ✅ | | |
-| 27 | 9.1 Recommender Systems | K+L · What is a recommender system? + data collection | 🔶 | | |
-| 28 | 9.2 Recommender Systems | K+L · From CSV to a similarity score | 🔶 | | |
-| 29 | 9.3 Recommender Systems | K+L · From digital twin to recommendation — checkpoint | 🔶 | | |
-| 30 | 9.4 Recommender Systems | K+L · Filter bubbles, echo chambers, the attention economy | 🔶 | | |
+| 27 | 9.1 Recommender Systems | K+L · What is a recommender system? + data collection | ✅ | | |
+| 28 | 9.2 Recommender Systems | K+L · From CSV to a similarity score | ✅ | | |
+| 29 | 9.3 Recommender Systems | K+L · From digital twin to recommendation — checkpoint | ✅ | | |
+| 30 | 9.4 Recommender Systems | K+L · Filter bubbles, echo chambers, the attention economy | ✅ | | |
 
 ## Meeting log
 
@@ -119,10 +119,10 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u8-classification/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
 | 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u8-classification/m3-lesson-notes.md) | Real photography (hands only; full privacy/consent rules in the lesson notes); slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u8-classification/m4-lesson-notes.md) | Unit checkpoint; classroom-mode `classify_image()`; slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u9-recommender-systems/m1-lesson-notes.md) | Real class survey (full privacy rules in the lesson notes); built, awaiting approval — slides: `m1-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u9-recommender-systems/m2-lesson-notes.md) | Real `ratings.csv` sample data (no mock needed); built, awaiting approval — slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; built, awaiting approval — slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](python-b-built/u9-recommender-systems/m4-lesson-notes.md) | Live-browsing option with its own safety rules (offline card-simulation fallback); built, awaiting approval — slides: `m4-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
+| 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u9-recommender-systems/m1-lesson-notes.md) | Real class survey (full privacy rules in the lesson notes); slides: `m1-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched). |
+| 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u9-recommender-systems/m2-lesson-notes.md) | Real `ratings.csv` sample data (no mock needed); slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
+| 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
+| 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u9-recommender-systems/m4-lesson-notes.md) | Live-browsing option with its own safety rules (offline card-simulation fallback); slides: `m4-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
 
 ## Keeping this up to date
 

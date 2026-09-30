@@ -4,7 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 8 academic hours = 4 meetings = 360 minutes (180 theory / 180 practice).
 
-> **Staging note:** built in `python-b-built/`, not `units/` — see [`../README.md`](../README.md).
 > **Data note:** [`ratings.csv`](ratings.csv) is real sample data (synthetic aliases, no personal information),
 > genuinely read from disk by 9.2–9.3's code — unlike Units 4/6/8, no mock is needed here.
 > **Safety note:** Unit 9.1 involves a real class survey and Unit 9.4 a live-browsing option — read each meeting's

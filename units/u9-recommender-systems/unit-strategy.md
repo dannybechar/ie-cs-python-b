@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 9 (pp. 21–23); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 4 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit09_recommendation_systems_complete_unit.md` —
 one detailed document covering all four meetings, including its own exact 90-minute clock tables and meeting split.
 
@@ -16,10 +16,10 @@ for once both agree, same as Units 4, 6 and 8).
 
 | Topic | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| Recommender systems intro, project design, Google Forms data collection | 9.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Reading CSV data, computing similarity between users | 9.2 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Finding a digital twin, producing a recommendation | 9.3 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Filter bubble experiment, ethics, the attention economy | 9.4 (45 T + 45 P) | 45 / 45 | 🔶 |
+| Recommender systems intro, project design, Google Forms data collection | 9.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| Reading CSV data, computing similarity between users | 9.2 (45 T + 45 P) | 45 / 45 | ✅ |
+| Finding a digital twin, producing a recommendation | 9.3 (45 T + 45 P) | 45 / 45 | ✅ |
+| Filter bubble experiment, ethics, the attention economy | 9.4 (45 T + 45 P) | 45 / 45 | ✅ |
 | **Total** | | **180 / 180** | |
 
 Chapter goals (source §1, fourteen in all):

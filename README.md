@@ -13,10 +13,9 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**26 of 30 official double meetings are fully built and approved** (Units 1–8). A further **4 meetings are built
-with slides, awaiting approval** (Unit 9). See [`course-map.md`](course-map.md) for the
-unit-by-unit breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md)
-for the year plan.
+**All 30 of 30 official double meetings are fully built and approved** (Units 1–9) — the course is complete.
+See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
+[`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
 
 - [Unit 1 — Python A Review](units/u1-python-a-review) — ✅ approved (3/3 meetings)
 - [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — ✅ approved (2/2 meetings)
@@ -26,7 +25,7 @@ for the year plan.
 - [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
 - [Unit 7 — Lists](units/u7-lists) — ✅ approved (5/5 meetings)
 - [Unit 8 — Classification](units/u8-classification) — ✅ approved (4/4 meetings)
-- [Unit 9 — Recommender Systems](python-b-built/u9-recommender-systems) — 🔶 built, awaiting approval (4/4 meetings, all with slides)
+- [Unit 9 — Recommender Systems](units/u9-recommender-systems) — ✅ approved (4/4 meetings)
 
 ## Repository layout
 
