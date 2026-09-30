@@ -42,12 +42,11 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 
 ## Open coverage gaps
 
-Official topics that no planned meeting fully covers yet. Details are in each unit's `unit-strategy.md`, under "Official topics and hours".
-
-| Unit | Gap | Fix to plan |
-|---|---|---|
-| 3–9 | Nothing built yet | Build unit by unit |
-| 4, 6, 8, 9 | Tools not chosen: the language-model API and key (4), the embedding library (6), the model-loading library (8), the survey and CSV (9) | Settle with the teacher before building each unit ([annual strategy §8](docs/annual-strategy.md#8-tools-and-safety-to-settle-before-the-unit-is-built)) |
+None. All 9 units are built and approved, and every official topic is covered — see each unit's `unit-strategy.md`
+("Official topics and hours") for the topic-by-topic mapping. The tool choices flagged during planning (the
+language-model API for Unit 4, the embedding library for Unit 6, the model-loading library for Unit 8, the survey
+and CSV for Unit 9) were all settled during each unit's build — each runs in classroom/mock mode by default, with
+the live-service setup step documented in that unit's own README and lesson notes.
 
 ## Schedule
 
