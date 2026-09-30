@@ -24,9 +24,9 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | ✅ 4/4 |
 | 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
-| 8 | [Classification](python-b-built/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | 🔶 4/4 |
+| 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
 | 9 | [Recommender Systems](python-b-built/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ⚠️ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **22/30 fully built (✅/🔶); 8 more have complete lesson content, slides pending (⚠️)** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **26/30 fully built (✅/🔶); 4 more have complete lesson content, slides pending (⚠️)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -78,10 +78,10 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 20 | 7.3 Lists | K+L · Advanced operations + the accumulation pattern | ✅ | | |
 | 21 | 7.4 Lists | L+L · Counting, minimum, maximum, a report | ✅ | | |
 | 22 | 7.5 Lists | L+L · Linear search + the "AI Experiment Analyzer" checkpoint | ✅ | | |
-| 23 | 8.1 Classification | K+L · Classification, features, a decision boundary | 🔶 | | |
-| 24 | 8.2 Classification | K+L · The ML process + Teachable Machine | 🔶 | | |
-| 25 | 8.3 Classification | K+L · Project planning, data, bias | 🔶 | | |
-| 26 | 8.4 Classification | K+L · Accuracy, export, loading the model — checkpoint | 🔶 | | |
+| 23 | 8.1 Classification | K+L · Classification, features, a decision boundary | ✅ | | |
+| 24 | 8.2 Classification | K+L · The ML process + Teachable Machine | ✅ | | |
+| 25 | 8.3 Classification | K+L · Project planning, data, bias | ✅ | | |
+| 26 | 8.4 Classification | K+L · Accuracy, export, loading the model — checkpoint | ✅ | | |
 | 27 | 9.1 Recommender Systems | K+L · What is a recommender system? + data collection | ⚠️ | | |
 | 28 | 9.2 Recommender Systems | K+L · From CSV to a similarity score | ⚠️ | | |
 | 29 | 9.3 Recommender Systems | K+L · From digital twin to recommendation — checkpoint | ⚠️ | | |
@@ -115,10 +115,10 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 7 | 7.3 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u7-lists/m3-lesson-notes.md) | Slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 7 | 7.4 Lists | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u7-lists/m4-lesson-notes.md) | Slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 7 | 7.5 Lists | 90 | 0 / 90 | Lab + Lab | [`m5-lesson-notes.md`](units/u7-lists/m5-lesson-notes.md) | Unit checkpoint ("AI Experiment Analyzer"); slides: `m5-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.1 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u8-classification/m1-lesson-notes.md) | Built, awaiting approval — slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u8-classification/m2-lesson-notes.md) | Built, awaiting approval — slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u8-classification/m3-lesson-notes.md) | Real photography (hands only; full privacy/consent rules in the lesson notes); built, awaiting approval — slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](python-b-built/u8-classification/m4-lesson-notes.md) | Unit checkpoint; classroom-mode `classify_image()`; built, awaiting approval — slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
+| 8 | 8.1 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u8-classification/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
+| 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u8-classification/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
+| 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u8-classification/m3-lesson-notes.md) | Real photography (hands only; full privacy/consent rules in the lesson notes); slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
+| 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u8-classification/m4-lesson-notes.md) | Unit checkpoint; classroom-mode `classify_image()`; slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](python-b-built/u9-recommender-systems/m1-lesson-notes.md) | Real class survey (full privacy rules in the lesson notes); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](python-b-built/u9-recommender-systems/m2-lesson-notes.md) | Real `ratings.csv` sample data (no mock needed); lesson notes, Hebrew brief and code complete; slides not yet prepared. |
 | 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](python-b-built/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; lesson notes, Hebrew brief and code complete; slides not yet prepared. |

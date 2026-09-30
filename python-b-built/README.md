@@ -1,14 +1,14 @@
 # python-b-built — staged units (not yet in `units/`)
 
-This folder holds Units 8–9, built from `Downloads\python-b-codex\` at the teacher's request
+This folder holds Unit 9, built from `Downloads\python-b-codex\` at the teacher's request
 ("build units 3–9 using the codex materials... place your built units each one in a directory under python-b-built").
 It is a **staging area** for the files themselves — a unit only moves to `units/` once the teacher approves it.
 The root `course-map.md` and `README.md` *do* track what's here, though: built (🔶/⚠️) status is recorded as soon
 as it's true, separately from approval (✅), which still only happens on "approve unit N". Nothing here has been
-through the "approve unit N" routine yet. (Units 3, 4, 5, 6 and 7 were staged here too; all five have since been
+through the "approve unit N" routine yet. (Units 3, 4, 5, 6, 7 and 8 were staged here too; all six have since been
 reviewed, approved and moved to [`units/u3-functions`](../units/u3-functions), [`units/u4-api`](../units/u4-api),
-[`units/u5-strings`](../units/u5-strings), [`units/u6-advanced-language-model`](../units/u6-advanced-language-model)
-and [`units/u7-lists`](../units/u7-lists).)
+[`units/u5-strings`](../units/u5-strings), [`units/u6-advanced-language-model`](../units/u6-advanced-language-model),
+[`units/u7-lists`](../units/u7-lists) and [`units/u8-classification`](../units/u8-classification).)
 
 ## What's in each unit folder
 
@@ -33,8 +33,8 @@ the same way it works for Units 1–2.
 ## Verification
 
 Every `.py` file compiles and was run with representative test inputs before being committed. Of the units still
-staged here, Units 8 and 9
-call an outside service or library the classroom can't run headlessly (a language-model API, an embedding library,
+staged here, Unit 9
+calls an outside service or library the classroom can't run headlessly (a language-model API, an embedding library,
 a trained image classifier, a CSV survey) — those are verified with a stand-in that returns fixed values, exactly as
 each source document's own "no internet / no key" fallback describes; the lesson notes say which files need a live
 run with the real service before class.
@@ -43,7 +43,6 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 8 Classification | [`u8-classification`](u8-classification) | 4 | 🔶 built, awaiting approval — all 4 meetings, slides done for all 4 |
 | 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 
 ## Moving a unit into the official course

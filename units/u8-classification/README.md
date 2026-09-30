@@ -4,7 +4,6 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 8 academic hours = 4 meetings = 360 minutes (180 theory / 180 practice).
 
-> **Staging note:** built in `python-b-built/`, not `units/` — see [`../README.md`](../README.md).
 > **Model note:** `classify_image()` runs in classroom (mock) mode — no Teachable Machine model, TensorFlow/Keras
 > install, or files required. Before teaching 8.4 live, the teacher exports a real model; see `unit-strategy.md`'s
 > scope decisions. Units 8.2–8.3's Teachable Machine work is a browser + camera activity outside any code file.

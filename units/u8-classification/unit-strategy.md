@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 8 (pp. 19–21); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 built from the codex material only — **staged in `python-b-built/`, not yet in `units/`.**
+**Build status:** ✅ complete — all 4 meetings built and approved by the teacher.
 No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit08_classification_complete_unit.md` —
 one detailed document covering all four meetings, including its own exact 90-minute clock tables and meeting split.
 
@@ -16,10 +16,10 @@ agree, same as Unit 4 and Unit 6).
 
 | Topic | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| Classification, features, the decision boundary; a naive rule-based classifier | 8.1 (45 T + 45 P) | 45 / 45 | 🔶 |
-| The ML process; training vs. test; first Teachable Machine try | 8.2 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Project planning, 100+ images per category, bias experiments | 8.3 (45 T + 45 P) | 45 / 45 | 🔶 |
-| Accuracy, export, loading the model in Python | 8.4 (45 T + 45 P) | 45 / 45 | 🔶 |
+| Classification, features, the decision boundary; a naive rule-based classifier | 8.1 (45 T + 45 P) | 45 / 45 | ✅ |
+| The ML process; training vs. test; first Teachable Machine try | 8.2 (45 T + 45 P) | 45 / 45 | ✅ |
+| Project planning, 100+ images per category, bias experiments | 8.3 (45 T + 45 P) | 45 / 45 | ✅ |
+| Accuracy, export, loading the model in Python | 8.4 (45 T + 45 P) | 45 / 45 | ✅ |
 | **Total** | | **180 / 180** | |
 
 Chapter goals (source §1, thirteen in all):
