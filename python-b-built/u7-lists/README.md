@@ -46,7 +46,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Accumulate_Starter.py`](Accumulate_Starter.py) | Remove-while-iterating warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Accumulate_Reference.py`](Accumulate_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
 
 ## Unit 7.4 — Lists
 
@@ -60,7 +60,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Stats_Starter.py`](Stats_Starter.py) | Max-initialized-to-0 warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Stats_Reference.py`](Stats_Reference.py) | Solutions, tested against all 4 official edge cases |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
 
 ## Unit 7.5 — Lists
 
