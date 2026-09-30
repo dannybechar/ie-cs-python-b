@@ -25,7 +25,7 @@ for the year plan.
 - [Unit 4 — Bringing AI into Code (API)](units/u4-api) — ✅ approved (2/2 meetings)
 - [Unit 5 — Strings](units/u5-strings) — ✅ approved (4/4 meetings)
 - [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
-- [Unit 7 — Lists](python-b-built/u7-lists) — ⚠️ lesson content complete, slides pending (5/5 meetings)
+- [Unit 7 — Lists](python-b-built/u7-lists) — ⚠️ lesson content complete (5/5 meetings); slides done for 7.1–7.2, pending for 7.3–7.5
 - [Unit 8 — Classification](python-b-built/u8-classification) — ⚠️ lesson content complete, slides pending (4/4 meetings)
 - [Unit 9 — Recommender Systems](python-b-built/u9-recommender-systems) — ⚠️ lesson content complete, slides pending (4/4 meetings)
 

@@ -18,7 +18,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Lists_Starter.py`](Lists_Starter.py) | `==` vs `=` warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Lists_Reference.py`](Lists_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
 
 ## Unit 7.2 — Lists
 
@@ -32,7 +32,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Operations_Starter.py`](Operations_Starter.py) | `sort()`-returns-`None` warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Operations_Reference.py`](Operations_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (14 slides, NotebookLM, patched) |
 
 ## Unit 7.3 — Lists
 
