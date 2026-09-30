@@ -43,7 +43,7 @@ run with the real service before class.
 
 | Unit | Folder | Meetings | Status |
 |---|---|---|---|
-| 8 Classification | [`u8-classification`](u8-classification) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
+| 8 Classification | [`u8-classification`](u8-classification) | 4 | 🔶 built, awaiting approval — all 4 meetings, slides done for all 4 |
 | 9 Recommender Systems | [`u9-recommender-systems`](u9-recommender-systems) | 4 | ⚠️ lesson notes, briefs and code done; slides not yet prepared |
 
 ## Moving a unit into the official course

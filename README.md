@@ -13,9 +13,9 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**22 of 30 official double meetings are fully built and approved** (Units 1–7). A further **8 meetings have
-complete lesson notes, Hebrew briefs and verified code** (Units 8–9) but
-still need their NotebookLM slide decks prepared and reviewed. See [`course-map.md`](course-map.md) for the
+**22 of 30 official double meetings are fully built and approved** (Units 1–7). A further **4 meetings are built with
+slides, awaiting approval** (Unit 8), and **4 more have complete lesson notes, Hebrew briefs and verified code**
+(Unit 9) but still need their NotebookLM slide decks prepared and reviewed. See [`course-map.md`](course-map.md) for the
 unit-by-unit breakdown, the schedule and the pace check, and [`docs/annual-strategy.md`](docs/annual-strategy.md)
 for the year plan.
 
@@ -26,7 +26,7 @@ for the year plan.
 - [Unit 5 — Strings](units/u5-strings) — ✅ approved (4/4 meetings)
 - [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
 - [Unit 7 — Lists](units/u7-lists) — ✅ approved (5/5 meetings)
-- [Unit 8 — Classification](python-b-built/u8-classification) — ⚠️ lesson content complete, slides pending (4/4 meetings)
+- [Unit 8 — Classification](python-b-built/u8-classification) — 🔶 built, awaiting approval (4/4 meetings, all with slides)
 - [Unit 9 — Recommender Systems](python-b-built/u9-recommender-systems) — ⚠️ lesson content complete, slides pending (4/4 meetings)
 
 ## Repository layout

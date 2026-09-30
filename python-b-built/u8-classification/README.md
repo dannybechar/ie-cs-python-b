@@ -23,7 +23,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Classifier_Starter.py`](Classifier_Starter.py) | Unnormalized-case warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`Classifier_Reference.py`](Classifier_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
 
 ## Unit 8.2 — Classification
 
@@ -37,7 +37,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`TrainTest_Starter.py`](TrainTest_Starter.py) | List-equality warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`TrainTest_Reference.py`](TrainTest_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (12 slides, NotebookLM, patched) |
 
 ## Unit 8.3 — Classification
 
@@ -51,7 +51,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`DataPlan_Starter.py`](DataPlan_Starter.py) | Inverted-balance-check warm-up bug, stubs for Tasks 1–2 |
 | Teacher | [`DataPlan_Reference.py`](DataPlan_Reference.py) | Solutions, one function per task |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
 
 ## Unit 8.4 — Classification
 
@@ -65,4 +65,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Accuracy_Starter.py`](Accuracy_Starter.py) | Unstripped-label warm-up bug, the project brief |
 | Teacher | [`Accuracy_Reference.py`](Accuracy_Reference.py) | Solutions (classroom mode), confirmed against the source's ≈85.7% example |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
