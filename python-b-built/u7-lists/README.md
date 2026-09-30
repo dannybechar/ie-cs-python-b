@@ -74,4 +74,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m5-lab-brief-he.md`](m5-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Analyzer_Starter.py`](Analyzer_Starter.py) | Index-0-as-`False` warm-up bug, the project brief |
 | Teacher | [`Analyzer_Reference.py`](Analyzer_Reference.py) | Solutions, all 7 official test cases verified |
-| Teacher | slides | Not built (no NotebookLM prep this pass) |
+| Teacher | [`m5-slides-he.pdf`](m5-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
