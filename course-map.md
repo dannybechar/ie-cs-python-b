@@ -123,6 +123,14 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
 | 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u9-recommender-systems/m4-lesson-notes.md) | Live-browsing option with its own safety rules (offline card-simulation fallback); slides: `m4-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
 
+## Assessments
+
+Written tests made outside the 30-meeting plan (they do not change the time budget).
+
+| Unit | Test | Length | Status | Files |
+|---|---|---:|---|---|
+| 1 | Python A Review — Grade 9 test | 60 min, 100 points | 🔶 built, reviewed by ChatGPT, awaiting the teacher's use | [`unit-1-test-he.md`](units/u1-python-a-review/unit-1-test-he.md), [key](units/u1-python-a-review/unit-1-test-answer-key.md), [`Test_Reference.py`](units/u1-python-a-review/Test_Reference.py) |
+
 ## Keeping this up to date
 
 When a meeting is added or its timing changes:

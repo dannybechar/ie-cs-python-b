@@ -45,3 +45,18 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`Lock_Starter.py`](Lock_Starter.py) | Never-ending validation warm-up bug, stubs |
 | Teacher | [`Lock_Reference.py`](Lock_Reference.py) | Solutions, one function per task |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (16 slides, NotebookLM, patched) |
+
+## Unit 1 test (Grade 9)
+
+60-minute written test on the whole unit, 100 points (trace 24 · debug and `range` 16 · write three programs 60).
+Reviewed by ChatGPT as an expert school teacher; the accepted corrections are in the files.
+Word copies for Google Drive: `Downloads\python-b\unit 1 - Python A Review - Test.docx` and `... - Test Solution.docx`
+(made with [`tools/md_to_docx.py`](../../tools/md_to_docx.py)).
+
+| For | File | What it is |
+|---|---|---|
+| Student | [`unit-1-test-he.md`](unit-1-test-he.md) | The Hebrew test |
+| Teacher | [`unit-1-test-answer-key.md`](unit-1-test-answer-key.md) | Answer key, rubric, common errors, grading scale |
+| Teacher | [`Test_Reference.py`](Test_Reference.py) | Model solutions (run and checked) |
+| Teacher | [`unit-1-test-for-chatgpt-review.md`](unit-1-test-for-chatgpt-review.md) | One file with the request, test, key and solutions, to paste into ChatGPT |
+| Teacher | [`unit-1-test-chatgpt-review-prompt.md`](unit-1-test-chatgpt-review-prompt.md) | The review request alone (source of the combined file) |
