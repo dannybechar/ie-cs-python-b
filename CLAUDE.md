@@ -127,6 +127,12 @@ and make the README and course map describe the current state.
   list comprehensions, lists of lists (all moved to Part C), default or keyword arguments, classes.
   f-strings are new in Unit 4 (the program lists them there, p. 12). If Turtle is used, follow Python A
   (module-level `turtle.` calls, no `turtle.Turtle()`). Ask the teacher before using `+=` (Python A wrote `x = x + 1`).
+- **Code in Hebrew-facing documents (tests, briefs, handouts, Word/PDF output):** every code example — block, inline
+  snippet, trace/output table cell, expected output — is set in **Courier New** (like the terminal) and runs
+  **left-to-right, left-aligned**, even though the surrounding Hebrew instructions run right-to-left. Never Consolas,
+  Calibri or any proportional font; never right-aligned or RTL-ordered code; one consistent weight (not bold in some
+  blocks and regular in others). In `.docx`, set the font on all four slots (ascii, hAnsi, cs, eastAsia) so Word and
+  Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
 - **AI safety in every file:** no API keys, no student names, faces or personal data; model output is always shown
   as something to check, not as the truth (program rationale, p. 2).
 - Every `.py` compiles before it is committed (except a documented intentional syntax bug in a starter).

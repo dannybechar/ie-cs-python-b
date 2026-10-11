@@ -11,6 +11,14 @@ from docx.oxml.ns import qn
 from docx.shared import Pt
 
 HEB = re.compile("[\u0590-\u05ff]")
+CODE_FONT = "Courier New"  # repository rule: all code is Courier New, left-to-right
+
+
+def set_font(run, name):
+    run.font.name = name
+    rfonts = run._r.get_or_add_rPr().get_or_add_rFonts()
+    for attr in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+        rfonts.set(qn(attr), name)
 
 
 def set_rtl(par):
@@ -29,8 +37,8 @@ def add_runs(par, text, rtl, font=None):
         run = par.add_run(chunk)
         run.bold = bold
         if code or font:
-            run.font.name = font or "Consolas"
-        if rtl:
+            set_font(run, font or CODE_FONT)
+        if rtl and not code:
             rpr = run._r.get_or_add_rPr()
             rpr.append(OxmlElement("w:rtl"))
 
@@ -48,8 +56,9 @@ def code_block(doc, lines):
     for line in lines:
         par = doc.add_paragraph()
         par.paragraph_format.space_after = Pt(0)
+        par.alignment = WD_ALIGN_PARAGRAPH.LEFT
         run = par.add_run(line if line else " ")
-        run.font.name = "Consolas"
+        set_font(run, CODE_FONT)
         run.font.size = Pt(10)
     doc.add_paragraph()
 
@@ -67,6 +76,8 @@ def table(doc, rows):
             cell.text = ""
             par = cell.paragraphs[0]
             add_runs(par, c.replace("&nbsp;", " ").replace("\\_", "_"), bool(HEB.search(c)))
+            if not HEB.search(c):
+                par.alignment = WD_ALIGN_PARAGRAPH.LEFT  # code / English cells: left-to-right
             if i == 0:
                 for run in par.runs:
                     run.bold = True
