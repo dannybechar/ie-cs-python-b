@@ -33,24 +33,41 @@ def q3():
 
 
 def q4_fixed():
-    n = 1
-    while n <= 5:
+    # the faults: stop 5 -> 6, step 2 removed, print("Done") moved out of the loop
+    for n in range(1, 6):
         print(n)
-        n = n + 1
     print("Done")
+
+
+def q4b_fixed(age):
+    if age >= 13 and age <= 15:
+        print("Access granted")
+    else:
+        print("Access Denied")
+
+
+# Question 5
+def q5a():
+    for i in range(1, 10, 2):
+        print(i)
+
+
+def q5b():
+    for i in range(20, 0, -5):
+        print(i)
 
 
 # Question 6
 def ticket():
     age = int(input("Age: "))
     if age < 0 or age > 120:
-        print("Invalid age")
+        print("Invalid")
     elif age < 6:
         print("Free")
     elif age <= 17:
-        print("Student: 20")
+        print("Student")
     else:
-        print("Regular: 40")
+        print("Regular")
 
 
 # Question 7

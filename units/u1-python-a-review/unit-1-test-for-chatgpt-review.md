@@ -45,7 +45,9 @@ Be specific and concise. If you are unsure whether something is wrong, say so an
 
 # PART 1 — THE STUDENT TEST (Hebrew)
 
-כיתה ט׳ · AI + Python B · יחידה 1 · **זמן: 60 דקות** · **ניקוד: 100**
+כיתה ט׳
+
+**זמן: 60 דקות · ניקוד: 100**
 
 שם: ______________________  תאריך: ______________
 
@@ -69,6 +71,7 @@ Be specific and concise. If you are unsure whether something is wrong, say so an
 ```python
 age = int(input("Age: "))
 member = input("Member (yes/no): ")
+
 if age < 10:
     print("Child")
 elif age < 18 and member == "yes":
@@ -81,7 +84,9 @@ else:
 
 <div dir="rtl">
 
-השלימו את הפלט. כתבו רק את ההודעה שהתוכנית מדפיסה (לא את שורות הקלט):
+השלימו את הפלט.
+
+כתבו רק את ההודעה שהתוכנית מדפיסה (לא את שורות הקלט):
 
 | age | member | פלט |
 |---|---|---|
@@ -148,45 +153,42 @@ print(x, steps)
 
 <div dir="rtl">
 
-א. (6 נק') התוכנית אמורה להדפיס את המספרים 1 עד 5 ואחר כך `Done`. יש בה **שתי תקלות**. מצאו אותן ותקנו (אפשר לכתוב על הקוד).
+א. (6 נק') התוכנית אמורה להדפיס את המספרים 1 עד 5 (כולל 5) ואחר כך `Done`.
+
+יש בה **שלוש תקלות**. מצאו אותן ותקנו (בתיבה מצד שמאל).
+
+| הקוד | התיקון |
+|---|---|
+| `for n in range(1, 5, 2):`<br>`&nbsp;&nbsp;&nbsp;&nbsp;print(n)`<br>`&nbsp;&nbsp;&nbsp;&nbsp;print("Done")` | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+
+ב. (4 נק') התוכנית אמורה להדפיס `Access granted` רק לבני 13 עד 15.
+
+בן 20 נכנס בטעות.
+
+מה הבעיה, ואיך מתקנים?
+
+| הקוד | התיקון |
+|---|---|
+| `age = int(input("Age: "))`<br>`if age >= 13 or age <= 15:`<br>`&nbsp;&nbsp;&nbsp;&nbsp;print("Access granted")`<br>`else:`<br>`&nbsp;&nbsp;&nbsp;&nbsp;print("Access Denied")` | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 </div>
-
-```python
-n = 1
-while n < 5:
-    print(n)
-print("Done")
-```
-
-<div dir="rtl">
-
-ב. (4 נק') התוכנית אמורה להדפיס `Access granted` רק לבני 13 עד 15. בן 20 נכנס בטעות. מה הבעיה, ואיך מתקנים?
-
-</div>
-
-```python
-age = int(input("Age: "))
-if age >= 13 or age <= 15:
-    print("Access granted")
-```
 
 #### שאלה 5 (6 נקודות)
 
 <div dir="rtl">
 
-א. (2 נק') כתבו שורת `for` שמייצרת את הערכים 1, 2, 3, … 9:
+א. (2 נק') כתבו לולאת `for` שמדפיסה רק את הערכים האי-זוגיים בין 1 ל-9 (כולל 1 וכולל 9).
 
-`for i in ______________________:`
+&nbsp;
 
-ב. (2 נק') כתבו שורת `for` שמייצרת את הערכים 20, 15, 10, 5:
+ב. (2 נק') כתבו שורת `for` המדפיסה: 20, 15, 10, 5
 
-`for i in ______________________:`
+&nbsp;
 
-ג. (2 נק') לכל מצב כתבו איזו לולאה מתאימה, `for` או `while`, ונמקו במשפט:
+ג. (2 נק') כתבו איזו לולאה מתאימה לכל מצב, `for` או `while`, ונמקו במשפט:
 
-1. הדפסת לוח הכפל של 7 (עשר שורות). ______________________
-2. לבקש סיסמה עד שהיא נכונה. ______________________
+1. הדפסת לוח הכפל של 7 (עשר שורות): ______________________
+2. לבקש סיסמה עד שהיא נכונה: ______________________
 
 </div>
 
@@ -204,14 +206,18 @@ if age >= 13 or age <= 15:
 
 <div dir="rtl">
 
-כתבו תוכנית שקולטת גיל ומדפיסה **הודעה אחת בלבד**:
+א. כתבו תוכנית שקולטת גיל, מאמתת אותו ומדפיסה **הודעה אחת בלבד**:
 
-- גיל מחוץ לטווח 0 עד 120 ← `Invalid age`
-- פחות מ-6 ← `Free`
-- 6 עד 17 ← `Student: 20`
-- 18 ומעלה ← `Regular: 40`
+- אם הגיל מחוץ לטווח 0 עד 120 הדפיסו `Invalid`
+- אם הגיל קטן מ-6 הדפיסו `Free`
+- אם הגיל בין 6 ל-17 הדפיסו `Student`
+- אם הגיל 18 ומעלה הדפיסו `Regular`
 
-כתבו גם **ארבעה ערכי בדיקה שונים** בקצוות הטווחים, כלומר ערכים שבהם ההודעה משתנה (גיל ← פלט צפוי).
+| &nbsp; |
+|---|
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+
+ב. כתבו **ארבעה ערכים מספריים לכל טווח** (`Regular`, `Student`, `Invalid`, `Free`).
 
 </div>
 
@@ -219,12 +225,9 @@ if age >= 13 or age <= 15:
 
 <div dir="rtl">
 
-כתבו תוכנית שקולטת **שישה** ציונים (מספרים שלמים), ובסוף מדפיסה:
+כתבו תוכנית שקולטת **שישה** ציונים (מספרים שלמים), ובסוף מדפיסה את הערך הממוצע ואת מספר הציונים שהם 90 ומעלה.
 
-- `Average:` והממוצע
-- `Grades >= 90:` ומספר הציונים שהם 90 ומעלה
-
-עבור הציונים 90, 80, 70, 100, 60, 80 הפלט הוא:
+לדוגמה, עבור הציונים 90, 80, 70, 100, 60, 80 הפלט המצופה הוא:
 
 </div>
 
@@ -233,23 +236,31 @@ Average: 80.0
 Grades >= 90: 2
 ```
 
+<div dir="rtl">
+
+| &nbsp; |
+|---|
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+
+</div>
+
 #### שאלה 8 – חיסכון (24 נקודות)
 
 <div dir="rtl">
 
-ילד חוסך למטרה של 100 שקלים, ומפקיד סכום אחד בכל פעם (מספר שלם חיובי). כתבו תוכנית שקולטת הפקדות **עד שהסכום מגיע ל-100 או עד שבוצעו 5 הפקדות**, המוקדם מביניהם. בסוף מדפיסים:
+ילד חוסך עבור רכישת מחשב סכום של 100 שקלים, ומפקיד סכום אחד בכל פעם (מספר שלם חיובי). כתבו תוכנית שקולטת הפקדות **עד שהסכום מגיע ל-100 או עד שבוצעו 5 הפקדות**, המוקדם מביניהם. בסוף מדפיסים:
 
 - הגיע ל-100 או יותר ← `Goal reached after N deposits`
 - אחרת ← `Goal not reached. Total: T`
 
-דוגמאות:
+לפניכם שתי דוגמאות מייצגות:
 
 | הקלט | הפלט |
 |---|---|
 | 60, 50 | `Goal reached after 2 deposits` |
 | 10, 10, 10, 10, 10 | `Goal not reached. Total: 50` |
 
-חובה להשתמש ב-`while` עם תנאי מורכב אחד. ההפקדה החמישית היא האחרונה – אין הפקדה שישית.
+שימו לב: ההפקדה החמישית היא האחרונה – אין הפקדה שישית.
 
 </div>
 
@@ -293,20 +304,25 @@ validation). No lists, functions with parameters, `+=`, nested loops or string m
 
 ### Part B (16)
 
-**Q4a (6):** `n` never changes → add `n = n + 1` inside the loop (3); `n < 5` stops before 5 → `n <= 5` (3).
-The fixed program prints 1 2 3 4 5 Done.
-**Q4b (4):** `or` lets every age pass; use `and` (`age >= 13 and age <= 15`). 2 for the diagnosis, 2 for the fix.
+**Q4a (6, 2 per fault):** the code is `for n in range(1, 5, 2):` with `print(n)` and `print("Done")` both inside the loop.
+(1) the stop value 5 is excluded → `range(1, 6)`; (2) the step 2 skips numbers → remove it (`range(1, 6)`);
+(3) `print("Done")` is indented inside the loop → move it out (no indent), so it prints once at the end.
+Faults 1 and 2 can be fixed together by `range(1, 6)` (1 pt for each fault named, 1 pt for each fixed). The fixed program prints 1 2 3 4 5 Done.
+**Q4b (4):** `or` lets every age pass (so 20 gets in; the `else` branch can never run); use `and` (`age >= 13 and age <= 15`). 2 for the diagnosis, 2 for the fix.
 
-**Q5 (6):** (a) 2 pts: `range(1, 10)` · (b) 2 pts: `range(20, 0, -5)` (any stop from 0 to 4 is fine) ·
+**Q5 (6):** (a) 2 pts: a `for` loop with `range(1, 10, 2)` and `print(i)` (stop 10 or 11 both fine; 1 pt if the loop and `range` are right but nothing is printed) ·
+(b) 2 pts: `for i in range(20, 0, -5):` (any stop from 0 to 4 is fine) ·
 (c) 1 pt each: 1 → `for` (known number of rounds); 2 → `while` (the number of rounds depends on the input).
 
 ### Part C (60)
 
 General rule: code that is understandable with a minor syntax slip (colon, quote, indent) is penalised **once** per question, not per line.
 
-**Q6 (18):** input and `int` (2) · invalid age checked first, or equivalent logic (4) · age categories with `elif` or an equivalent that is mutually exclusive, e.g. nested `if` (6) · exactly one correct output per input (2) · four different test values at the edges of the ranges (4: 1 pt each, with the correct expected output; the edges are −1/121, 0/5, 6/17 and 18/120, so a student can choose any four).
+**Q6 (18):** (a) 14 pts: input and `int` (2) · invalid age checked first, or equivalent logic (3) · categories with `elif` or an equivalent that is mutually exclusive, e.g. nested `if` (5) · exactly one correct message per input: `Invalid`, `Free`, `Student`, `Regular` (4).
+(b) 4 pts: four numeric values for **each** of the four ranges — 1 pt per range, given only if all four values really belong to that range (`Invalid`: below 0 or above 120; `Free`: 0–5; `Student`: 6–17; `Regular`: 18–120). Example: Free 0, 2, 4, 5 · Student 6, 10, 15, 17 · Regular 18, 40, 100, 120 · Invalid −1, −50, 121, 500.
 Common errors: `age < 0 and age > 120` (never True); testing `age < 6` before validation (−1 gives `Free`);
-`if` instead of `elif` (two messages).
+`if` instead of `elif` (two messages); `Invalid` as a range given only below 0 or only above 120 in (b).
+Wording note: the test says "18 ומעלה" for `Regular`, so 18 is `Regular` (and 17 is `Student`).
 
 **Q7 (18):** total and counter set to 0 **before** the loop (4) · `for` with 6 rounds (3) · `int(input())` inside the loop (2) ·
 `total = total + grade` (3) · counter grows only when `grade >= 90` (3) · average computed **after** the loop, divided by 6 (3).
@@ -315,13 +331,14 @@ Common errors: `total = grade` (the 1.2 warm-up bug), dividing inside the loop, 
 **Q8 (24):** `total` and `deposits` start at 0 (4) · `while total < 100 and deposits < 5` (8: 2 for each of the two comparisons, 4 for joining them with `and`; `or` loses the 4) ·
 input and both updates inside the loop (6) · final `if`/`else` decides by the total (4) · both messages correct (2).
 The flag style (`success = False`) from 1.3 is accepted if it is consistent.
+The test no longer requires `while` explicitly; a program that stops after 5 deposits or at 100 any other way the students have learned (e.g. a flag) is accepted if it is consistent.
 Check: 60, 50 → `Goal reached after 2 deposits`; 10 ×5 → `Goal not reached. Total: 50`; 30, 40, 30 → `Goal reached after 3 deposits`.
 Common errors: `or` instead of `and` (runs too long), no update to `deposits` (never ends when the goal is not reached),
 `while total <= 100`.
 
 ### Model solutions
 
-[`Test_Reference.py`](Test_Reference.py): `q1`–`q3` and `q4_fixed` (Parts A–B), `ticket()`, `grades()`, `savings()` (Q6–Q8).
+[`Test_Reference.py`](Test_Reference.py): `q1`–`q3`, `q4_fixed`, `q4b_fixed`, `q5a`, `q5b` (Parts A–B), `ticket()`, `grades()`, `savings()` (Q6–Q8).
 
 ### Grading scale (suggestion)
 
@@ -372,24 +389,41 @@ def q3():
 
 
 def q4_fixed():
-    n = 1
-    while n <= 5:
+    # the faults: stop 5 -> 6, step 2 removed, print("Done") moved out of the loop
+    for n in range(1, 6):
         print(n)
-        n = n + 1
     print("Done")
+
+
+def q4b_fixed(age):
+    if age >= 13 and age <= 15:
+        print("Access granted")
+    else:
+        print("Access Denied")
+
+
+# Question 5
+def q5a():
+    for i in range(1, 10, 2):
+        print(i)
+
+
+def q5b():
+    for i in range(20, 0, -5):
+        print(i)
 
 
 # Question 6
 def ticket():
     age = int(input("Age: "))
     if age < 0 or age > 120:
-        print("Invalid age")
+        print("Invalid")
     elif age < 6:
         print("Free")
     elif age <= 17:
-        print("Student: 20")
+        print("Student")
     else:
-        print("Regular: 40")
+        print("Regular")
 
 
 # Question 7

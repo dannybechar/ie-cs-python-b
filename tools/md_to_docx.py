@@ -44,6 +44,7 @@ def add_runs(par, text, rtl, font=None):
 
 
 def paragraph(doc, text, style=None):
+    text = text.replace("&nbsp;", " ")
     rtl = bool(HEB.search(text))
     par = doc.add_paragraph(style=style)
     add_runs(par, text, rtl)
@@ -75,7 +76,10 @@ def table(doc, rows):
             cell = tbl.cell(i, j)
             cell.text = ""
             par = cell.paragraphs[0]
-            add_runs(par, c.replace("&nbsp;", " ").replace("\\_", "_"), bool(HEB.search(c)))
+            for k, part in enumerate(c.split("<br>")):  # <br> = line break inside a cell
+                if k:
+                    par.add_run().add_break()
+                add_runs(par, part.replace("&nbsp;", " ").replace("\\_", "_"), bool(HEB.search(c)))
             if not HEB.search(c):
                 par.alignment = WD_ALIGN_PARAGRAPH.LEFT  # code / English cells: left-to-right
             if i == 0:

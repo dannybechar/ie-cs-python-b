@@ -27,20 +27,25 @@ validation). No lists, functions with parameters, `+=`, nested loops or string m
 
 ## Part B (16)
 
-**Q4a (6):** `n` never changes → add `n = n + 1` inside the loop (3); `n < 5` stops before 5 → `n <= 5` (3).
-The fixed program prints 1 2 3 4 5 Done.
-**Q4b (4):** `or` lets every age pass; use `and` (`age >= 13 and age <= 15`). 2 for the diagnosis, 2 for the fix.
+**Q4a (6, 2 per fault):** the code is `for n in range(1, 5, 2):` with `print(n)` and `print("Done")` both inside the loop.
+(1) the stop value 5 is excluded → `range(1, 6)`; (2) the step 2 skips numbers → remove it (`range(1, 6)`);
+(3) `print("Done")` is indented inside the loop → move it out (no indent), so it prints once at the end.
+Faults 1 and 2 can be fixed together by `range(1, 6)` (1 pt for each fault named, 1 pt for each fixed). The fixed program prints 1 2 3 4 5 Done.
+**Q4b (4):** `or` lets every age pass (so 20 gets in; the `else` branch can never run); use `and` (`age >= 13 and age <= 15`). 2 for the diagnosis, 2 for the fix.
 
-**Q5 (6):** (a) 2 pts: `range(1, 10)` · (b) 2 pts: `range(20, 0, -5)` (any stop from 0 to 4 is fine) ·
+**Q5 (6):** (a) 2 pts: a `for` loop with `range(1, 10, 2)` and `print(i)` (stop 10 or 11 both fine; 1 pt if the loop and `range` are right but nothing is printed) ·
+(b) 2 pts: `for i in range(20, 0, -5):` (any stop from 0 to 4 is fine) ·
 (c) 1 pt each: 1 → `for` (known number of rounds); 2 → `while` (the number of rounds depends on the input).
 
 ## Part C (60)
 
 General rule: code that is understandable with a minor syntax slip (colon, quote, indent) is penalised **once** per question, not per line.
 
-**Q6 (18):** input and `int` (2) · invalid age checked first, or equivalent logic (4) · age categories with `elif` or an equivalent that is mutually exclusive, e.g. nested `if` (6) · exactly one correct output per input (2) · four different test values at the edges of the ranges (4: 1 pt each, with the correct expected output; the edges are −1/121, 0/5, 6/17 and 18/120, so a student can choose any four).
+**Q6 (18):** (a) 14 pts: input and `int` (2) · invalid age checked first, or equivalent logic (3) · categories with `elif` or an equivalent that is mutually exclusive, e.g. nested `if` (5) · exactly one correct message per input: `Invalid`, `Free`, `Student`, `Regular` (4).
+(b) 4 pts: four numeric values for **each** of the four ranges — 1 pt per range, given only if all four values really belong to that range (`Invalid`: below 0 or above 120; `Free`: 0–5; `Student`: 6–17; `Regular`: 18–120). Example: Free 0, 2, 4, 5 · Student 6, 10, 15, 17 · Regular 18, 40, 100, 120 · Invalid −1, −50, 121, 500.
 Common errors: `age < 0 and age > 120` (never True); testing `age < 6` before validation (−1 gives `Free`);
-`if` instead of `elif` (two messages).
+`if` instead of `elif` (two messages); `Invalid` as a range given only below 0 or only above 120 in (b).
+Wording note: the test says "18 ומעלה" for `Regular`, so 18 is `Regular` (and 17 is `Student`).
 
 **Q7 (18):** total and counter set to 0 **before** the loop (4) · `for` with 6 rounds (3) · `int(input())` inside the loop (2) ·
 `total = total + grade` (3) · counter grows only when `grade >= 90` (3) · average computed **after** the loop, divided by 6 (3).
@@ -49,13 +54,14 @@ Common errors: `total = grade` (the 1.2 warm-up bug), dividing inside the loop, 
 **Q8 (24):** `total` and `deposits` start at 0 (4) · `while total < 100 and deposits < 5` (8: 2 for each of the two comparisons, 4 for joining them with `and`; `or` loses the 4) ·
 input and both updates inside the loop (6) · final `if`/`else` decides by the total (4) · both messages correct (2).
 The flag style (`success = False`) from 1.3 is accepted if it is consistent.
+The test no longer requires `while` explicitly; a program that stops after 5 deposits or at 100 any other way the students have learned (e.g. a flag) is accepted if it is consistent.
 Check: 60, 50 → `Goal reached after 2 deposits`; 10 ×5 → `Goal not reached. Total: 50`; 30, 40, 30 → `Goal reached after 3 deposits`.
 Common errors: `or` instead of `and` (runs too long), no update to `deposits` (never ends when the goal is not reached),
 `while total <= 100`.
 
 ## Model solutions
 
-[`Test_Reference.py`](Test_Reference.py): `q1`–`q3` and `q4_fixed` (Parts A–B), `ticket()`, `grades()`, `savings()` (Q6–Q8).
+[`Test_Reference.py`](Test_Reference.py): `q1`–`q3`, `q4_fixed`, `q4b_fixed`, `q5a`, `q5b` (Parts A–B), `ticket()`, `grades()`, `savings()` (Q6–Q8).
 
 ## Grading scale (suggestion)
 
