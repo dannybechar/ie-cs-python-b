@@ -129,7 +129,7 @@ Written tests made outside the 30-meeting plan (they do not change the time budg
 
 | Unit | Test | Length | Status | Files |
 |---|---|---:|---|---|
-| 1 | Python A Review — Grade 9 test | 60 min, 100 points | 🔶 built, reviewed by ChatGPT, awaiting the teacher's use | [`unit-1-test-he.md`](units/u1-python-a-review/unit-1-test-he.md), [key](units/u1-python-a-review/unit-1-test-answer-key.md), [`Test_Reference.py`](units/u1-python-a-review/Test_Reference.py) |
+| 1 | Python A Review — Grade 9 test | 60 min, 100 points | ✅ given 18/24 Oct 2026, graded (mean 77.1, median 80.75); Q5b wording and Q6b answer space to fix before reuse — see the key | [`unit-1-test-he.md`](units/u1-python-a-review/unit-1-test-he.md), [key](units/u1-python-a-review/unit-1-test-answer-key.md), [`Test_Reference.py`](units/u1-python-a-review/Test_Reference.py) |
 
 ## Keeping this up to date
 

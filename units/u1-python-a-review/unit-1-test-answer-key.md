@@ -63,6 +63,25 @@ Common errors: `or` instead of `and` (runs too long), no update to `deposits` (n
 
 [`Test_Reference.py`](Test_Reference.py): `q1`–`q3`, `q4_fixed`, `q4b_fixed`, `q5a`, `q5b` (Parts A–B), `ticket()`, `grades()`, `savings()` (Q6–Q8).
 
+## Results of the first sitting (18 and 24 Oct 2026, 32 students)
+
+Aggregates only; individual grades are kept outside the repository (student data). Graded from the handwritten scans
+with this rubric (strict reading; a model read the handwriting, so unclear answers were flagged for the teacher).
+Mean 77.1 · median 80.75 · range 53–92. Strongest: Q1–Q3 (tracing) and Q4a; weakest: Q6b, Q5b, Q8.
+
+**Two items to fix before the test is used again**
+
+- **Q5b is ambiguous in print.** Almost every student wrote `range(5,21,5)` (ascending). "20, 15, 10, 5" sits inside a
+  right-to-left paragraph and displays as "5, 10, 15, 20". Fix: put the values on their own line in a code block, or write
+  "from 20 down to 5 in steps of 5". The first sitting was graded strictly (0/2); crediting it adds 2 points to nearly everyone.
+- **Q6b got 0/4 for almost everyone**: one value per range instead of four. The answer space or wording did not make
+  "four values for each range" clear. Fix: give a four-column table (one row per range) to fill in.
+
+Other patterns: `and` instead of `or` in the invalid-age test (never true); `while` with `or` instead of `and` in Q8;
+a deposit counter missing or wrongly updated; the number of checks in Q3a counted as 3 instead of 4; lowercase output
+messages (rubric silent on case — graded as a slip, once per question); `+=` and `while True`/`break` were accepted.
+Three near-identical Q8 solutions suggest copying.
+
 ## Grading scale (suggestion)
 
 | Points | Meaning |

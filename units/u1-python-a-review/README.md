@@ -53,6 +53,8 @@ Reviewed by ChatGPT as an expert school teacher; the accepted corrections are in
 Word copies for Google Drive: `Downloads\python-b\unit 1 - Python A Review - Test.docx` and `... - Test Solution.docx`
 (made with [`tools/md_to_docx.py`](../../tools/md_to_docx.py)).
 
+First sitting: 18 and 24 Oct 2026, 32 students, mean 77.1 (aggregates and the two wording problems found are in the key).
+
 | For | File | What it is |
 |---|---|---|
 | Student | [`unit-1-test-he.md`](unit-1-test-he.md) | The Hebrew test |
