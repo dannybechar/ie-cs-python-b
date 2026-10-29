@@ -1,4 +1,4 @@
-# Unit 1 — Python A Review
+﻿# Unit 1 — Python A Review
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
@@ -62,3 +62,6 @@ First sitting: 18 and 24 Oct 2026, 32 students, mean 77.1 (aggregates and the tw
 | Teacher | [`Test_Reference.py`](Test_Reference.py) | Model solutions (run and checked) |
 | Teacher | [`unit-1-test-for-chatgpt-review.md`](unit-1-test-for-chatgpt-review.md) | One file with the request, test, key and solutions, to paste into ChatGPT |
 | Teacher | [`unit-1-test-chatgpt-review-prompt.md`](unit-1-test-chatgpt-review-prompt.md) | The review request alone (source of the combined file) |
+| Student | [`unit-1-test-form-b-he.md`](unit-1-test-form-b-he.md) | Form B (retest): same structure and difficulty as Form A; Q5b and Q6b wording fixed |
+| Teacher | [`unit-1-test-form-b-answer-key.md`](unit-1-test-form-b-answer-key.md) | Form B key and rubric (question-by-question map to Form A) |
+| Teacher | [`Test_B_Reference.py`](Test_B_Reference.py) | Form B model solutions (run and checked) |

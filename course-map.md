@@ -1,4 +1,4 @@
-# Grade 8 course map — AI + Python B
+﻿# Grade 8 course map — AI + Python B
 
 Official numbering and hours from [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
 (master syllabus table, pp. 3–4; one chapter per unit, pp. 5–23). Full framing strategy, provisional meeting outline and
