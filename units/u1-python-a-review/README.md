@@ -1,4 +1,4 @@
-﻿# Unit 1 — Python A Review
+# Unit 1 — Python A Review
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 

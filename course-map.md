@@ -1,4 +1,4 @@
-﻿# Grade 8 course map — AI + Python B
+# Grade 8 course map — AI + Python B
 
 Official numbering and hours from [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
 (master syllabus table, pp. 3–4; one chapter per unit, pp. 5–23). Full framing strategy, provisional meeting outline and
@@ -130,6 +130,7 @@ Written tests made outside the 30-meeting plan (they do not change the time budg
 | Unit | Test | Length | Status | Files |
 |---|---|---:|---|---|
 | 1 | Python A Review — Grade 9 test | 60 min, 100 points | ✅ given 18/24 Oct 2026, graded (mean 77.1, median 80.75); Q5b wording and Q6b answer space to fix before reuse — see the key | [`unit-1-test-he.md`](units/u1-python-a-review/unit-1-test-he.md), [key](units/u1-python-a-review/unit-1-test-answer-key.md), [`Test_Reference.py`](units/u1-python-a-review/Test_Reference.py) |
+| 1 | Python A Review — Form B (retest, 2 students) | 60 min, 100 points | 🔶 prepared 29 Oct 2026; mirrors Form A, Q5b/Q6b wording fixed; Word copies in `Downloads\python-b` | [`unit-1-test-form-b-he.md`](units/u1-python-a-review/unit-1-test-form-b-he.md), [key](units/u1-python-a-review/unit-1-test-form-b-answer-key.md), [`Test_B_Reference.py`](units/u1-python-a-review/Test_B_Reference.py) |
 
 ## Keeping this up to date
 
