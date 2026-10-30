@@ -69,7 +69,7 @@ Aggregates only; individual grades are kept outside the repository (student data
 with this rubric (strict reading; a model read the handwriting, so unclear answers were flagged for the teacher).
 Mean 77.1 · median 80.75 · range 53–92. Strongest: Q1–Q3 (tracing) and Q4a; weakest: Q6b, Q5b, Q8.
 
-**Two items to fix before the test is used again**
+**Two items to fix before the test is used again** (both are already fixed in [Form B](unit-1-test-form-b-answer-key.md), the retest form)
 
 - **Q5b is ambiguous in print.** Almost every student wrote `range(5,21,5)` (ascending). "20, 15, 10, 5" sits inside a
   right-to-left paragraph and displays as "5, 10, 15, 20". Fix: put the values on their own line in a code block, or write
