@@ -47,6 +47,16 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`Traverse_Reference.py`](Traverse_Reference.py) | Solutions, one function per task (Task 4 reads input) |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 15 slides) |
 
+**Paper-classwork edition of 5.3** (a 45-minute lesson, then a printed worksheet done with the computer; the rest is homework):
+
+| For | File | What it is |
+|---|---|---|
+| Teacher | [`m3-classwork-lesson-plan.md`](m3-classwork-lesson-plan.md) | 45-minute lesson derived from the worksheet |
+| Student | [`m3-classwork-worksheet-he.md`](m3-classwork-worksheet-he.md) | Hebrew worksheet: read and predict, write functions on paper, homework part (Word copy for printing in `Downloads\python-b`) |
+| Teacher | [`m3-classwork-answer-key.md`](m3-classwork-answer-key.md) | Answers, trace table, what to look for while circulating |
+| Student | [`Classwork_Starter.py`](Classwork_Starter.py) | Part A snippets, the counter-reset bug (B1), stubs for B2–B5 and homework |
+| Teacher | [`Classwork_Reference.py`](Classwork_Reference.py) | Solutions with expected values |
+
 ## Unit 5.4 — Strings
 
 **Topic:** String Algorithms, a Secret Code, and the Unit Checkpoint
