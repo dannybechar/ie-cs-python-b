@@ -21,7 +21,7 @@ Requirements: Python 3 with `pymupdf`, `pillow`, `numpy`, `opencv-python`, `pyth
 2. Render the newest PDF in Downloads: `render(pdf, D)` (D is a short tag such as `21` for Unit 2.1).
 3. **Check the title slide first** — the newest PDF may be a different meeting than the one asked for,
    and NotebookLM names files by theme (e.g. `Python_Scope_Mission.pdf`), not by unit.
-4. Check every slide against `Downloads/python-b-unit<U>-m<M>-slides/1-source-slide-content.md`
+4. Check every slide against `Downloads/unit<U>-m<M>-slides/1-source-slide-content.md`
    (or, when that folder is gone, the lesson notes and the `_Reference` code): use `sheet()` for overviews, then crop suspicious lines at full size.
 5. Write `p<D>.py` (`from common import *`) that patches only real errors, `save(D, p, im)` each page, then `build(D, '', N)`.
    Look at every patched page at full size before building; a wide inpaint mask can eat neighbouring text.
@@ -58,5 +58,5 @@ Requirements: Python 3 with `pymupdf`, `pillow`, `numpy`, `opencv-python`, `pyth
 
 `mkinstr.make(...)` writes `0-START-HERE-instructions.md` (Hebrew output language, the exact NAMING block, slide count,
 code and table rules, check list). Set `GRADE`, `CODE_STYLE` and the `theme` argument for this course before using it.
-Each `Downloads/python-b-unit<U>-m<M>-slides/` folder also gets `1-source-slide-content.md`
+Each `Downloads/unit<U>-m<M>-slides/` folder also gets `1-source-slide-content.md`
 (every slide spelled out, minutes summing to 90) and the meeting's lesson notes and Hebrew lab brief.
