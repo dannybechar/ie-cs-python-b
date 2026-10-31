@@ -56,7 +56,7 @@ Build every meeting of the unit (or one meeting), one at a time.
 
 ### "prepare slides U.M" (the NotebookLM folder)
 
-The teacher makes each deck in NotebookLM. Create `Downloads\unit<U>-m<M>-slides\` containing:
+The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<M>-slides\` containing:
 
 - `0-START-HERE-instructions.md` — written with `tools/deck-patch-kit/mkinstr.py` (`make(...)`): Hebrew output language
   as its own step; the prompt to paste; the exact NAMING block (title "יחידה U.M – <שם היחידה>", the theme as the subtitle,
