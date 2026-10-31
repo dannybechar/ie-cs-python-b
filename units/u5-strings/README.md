@@ -56,7 +56,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`m3-classwork-answer-key.md`](m3-classwork-answer-key.md) | Answers, trace table, what to look for while circulating |
 | Student | [`Classwork_Starter.py`](Classwork_Starter.py) | Part A snippets, the counter-reset bug (B1), stubs for B2–B5 and homework |
 | Teacher | [`Classwork_Reference.py`](Classwork_Reference.py) | Solutions with expected values |
-| Teacher | slides | Pending (NotebookLM): 20 slides, 90 min; prep folder `Downloads\python-b\unit5-m3-classwork-slides` (save the reviewed deck as `m3-classwork-slides-he.pdf`) |
+| Teacher | slides | Pending (NotebookLM): 20 slides, 90 min; prep files (loose, beside the Word worksheet) in `Downloads\python-b\` (save the reviewed deck as `m3-classwork-slides-he.pdf`) |
 
 ## Unit 5.4 — Strings
 

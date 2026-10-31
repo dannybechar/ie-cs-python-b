@@ -17,7 +17,7 @@ the Ministry's `print(count = ', count)` is a typing slip (syntax error), so the
 exercise 3 (surnames with `input`) and exercises 4–6 stay in the existing 5.3 / 5.4 plans.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled **Tool Note – Thonny**.
 
-Slides: the deck for this lesson (20 slides, 90 minutes) is built from the prep folder `Downloads\python-b\unit5-m3-classwork-slides\`; slides 1–17 are the 45-minute lesson, 18–20 the classwork block and exit check.
+Slides: the deck for this lesson (20 slides, 90 minutes) is built from the loose files `0-START-HERE-instructions.md`, `1-source-slide-content.md`, `m3-lesson-notes.md`, `m3-lab-brief-he.md` in `Downloads\python-b\`; slides 1–17 are the 45-minute lesson, 18–20 the classwork block and exit check.
 
 Files: worksheet [`m3-classwork-worksheet-he.md`](m3-classwork-worksheet-he.md) (Word copy for printing),
 answer key [`m3-classwork-answer-key.md`](m3-classwork-answer-key.md), student file [`Classwork_Starter.py`](Classwork_Starter.py),
