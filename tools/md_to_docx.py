@@ -154,7 +154,8 @@ def table(doc, rows):
         weights = []
         for j in range(len(cells[0])):
             longest = max(len(re.sub(r"<br>|&nbsp;|`", "", r[j])) for r in cells)
-            weights.append(min(max(longest, 14), 40))
+            has_code = any("`" in r[j] for r in cells[1:])
+            weights.append(min(max(longest * (2.1 if has_code else 1) + 4, 22), 48))  # code needs wider columns
         total = sum(weights)
         tbl.autofit = False
         for j, w in enumerate(weights):

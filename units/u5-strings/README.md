@@ -54,6 +54,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`m3-classwork-lesson-plan.md`](m3-classwork-lesson-plan.md) | 45-minute lesson derived from the worksheet |
 | Student | [`m3-classwork-worksheet-he.md`](m3-classwork-worksheet-he.md) | Hebrew worksheet: read and predict, write functions on paper, homework part (Word copy for printing in `Downloads\python-b`) |
 | Teacher | [`m3-classwork-answer-key.md`](m3-classwork-answer-key.md) | Answers, trace table, what to look for while circulating |
+| Student | [`string-commands-table-he.md`](string-commands-table-he.md) | One-page table of every string operation and method in the unit, each with a small example and result (Word copy for printing) |
 | Student | [`Classwork_Starter.py`](Classwork_Starter.py) | Part A snippets, the counter-reset bug (B1), stubs for B2–B5 and homework |
 | Teacher | [`Classwork_Reference.py`](Classwork_Reference.py) | Solutions with expected values |
 | Teacher | slides | Pending (NotebookLM): 20 slides, 90 min; prep files (loose, beside the Word worksheet) in `Downloads\python-b\` (save the reviewed deck as `m3-classwork-slides-he.pdf`) |
