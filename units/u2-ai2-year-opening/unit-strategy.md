@@ -2,11 +2,11 @@
 
 **4h = 2 Theory + 2 Practice = 2 double meetings**
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 2 (pp. 8–9); hours from the master table (p. 3).
-Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
+Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md). Teaching materials: [`../../docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 
-**Build status:** ✅ complete — all 2 meetings built and approved by the teacher.
-Inspired by the codex decks (`Downloads\python-b-codex\python_b_unit02_m01–m02_*.pptx`, the main source) and the teacher's
-raw meetings (`Downloads\python-b-raw-meterials\ie-cs-python-b\U2_M1–M2`).
+**Build status:** 🔶 reworked from the Ministry teaching materials — both meetings built, awaiting teacher approval.
+Main sources: the Ministry deck 3.1 "שיעור פתיחה לשנה ב AI2" (50 slides), the worksheet 3.2 "איך מחשב רואה בלי עיניים?" and the teacher solution 3.2.0.
+The earlier version (codex decks, raw meetings, "Rules or Learning?" and "Data, Bias and Responsibility") is superseded.
 
 ## Official topics and hours
 
@@ -17,55 +17,47 @@ Status: ✅ built and approved · 🔶 built, awaiting approval · ⏳ planned, 
 
 | Topic (Ministry, master table p. 3) | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| מהפכת ה-AI — the AI revolution | 2.1 (hook) | part of 2.1 | ✅ |
-| תכנות קלאסי לעומת AI — classical programming vs AI | 2.1 (45 T + 45 P) | 45 / 45 | ✅ |
-| נתונים, אחריות והסכנה בהטיות — data, responsibility and bias | 2.2 (45 T + 45 P) | 45 / 45 | ✅ |
-| "מצרכנים ליצרנים": the year's vision — building code that uses AI | 2.2 (closing) | part of 2.2 | ✅ |
+| מהפכת ה-AI — the AI revolution (images, quiz, definition, four revolutions, why now) | 2.1 (first half) | part of 2.1 | 🔶 |
+| תכנות קלאסי לעומת AI — classical programming vs AI (greeting for Grandma Sarah) | 2.1 (45 T + 45 P) | 45 / 45 | 🔶 |
+| התנסות ב-Quick, Draw! ונתונים — experience with Quick, Draw!, data and bias (worksheet 3.2) | 2.2 (45 T + 45 P) | 45 / 45 | 🔶 |
+| "מצרכנים ליצרנים": the year's road map and responsibility | 2.2 (second half of the theory, summary) | part of 2.2 | 🔶 |
 | **Total** | | **90 / 90** | |
 
 Chapter goals, concepts and methods (pp. 8–9):
 
-- Goal 1: rule-based programming vs machine learning → 2.1 ✅
-- Goal 2: define bias; how a biased or non-diverse dataset affects real decisions (hiring, autonomous car, medical) → 2.2 ✅
-- Goal 3: why data diversity matters for a fair, accurate system → 2.2 ✅
-- Concepts: machine learning vs rule-based, dataset, biased data, cultural and social bias, data diversity, pattern recognition → 2.1–2.2 ✅
-- Method 1: open with Quick, Draw! and a discussion → 2.1 ✅
-- Method 2: the worksheet "איך מחשב רואה בלי עיניים?" and detective work in the public drawings dataset → 2.1 lab (our brief is the worksheet) ✅
-- Method 3: class discussion on ethics and bias in real systems and the developer's responsibility → 2.2 ✅
-- Assessment 1: why the computer failed (e.g. no modern / electric kettles in the dataset) → 2.1 Task 3, 2.2 hook ✅
-- Assessment 2: examples where biased data leads to wrong, unfair or dangerous decisions → 2.2 stations ✅
-- Assessment 3: summary sentences on dataset size and diversity vs accuracy and fairness → 2.2 exit check ✅
+- Goal 1: rule-based programming vs machine learning → 2.1 (the greeting both ways) 🔶
+- Goal 2: define bias; how a biased or non-diverse dataset affects real decisions → 2.2 (worksheet Q3) 🔶
+- Goal 3: why data diversity matters for a fair, accurate system → 2.2 (fill-in sentences) 🔶
+- Concepts: machine learning vs rule-based, dataset, biased data, data diversity, pattern recognition → 2.1–2.2 🔶
+- Method 1: open with Quick, Draw! and a discussion → 2.2 (volunteers on the board); 2.1 opens with the "AI or not?" warm-up and quiz 🔶
+- Method 2: the worksheet "איך מחשב רואה בלי עיניים?" → 2.2 lab (the Ministry worksheet itself) 🔶
+- Method 3: discussion on ethics and the developer's responsibility → 2.2 summary 🔶
+- Assessment 1: why the computer failed (no electric kettles in the data) → 2.2 worksheet Q2 🔶
+- Assessment 2: biased data leading to wrong, unfair or dangerous decisions → 2.2 worksheet Q3.2 🔶
+- Assessment 3: summary sentences on dataset size and diversity → 2.2 fill-in sentences 🔶
 
-## Unit 2.1 — Knowledge + Lab: Rules or Learning? (Quick, Draw!)
-- where students already meet AI; who wrote the decision — a person or examples?
-- classical: input + rules → output. Machine learning: labeled examples → training → model → a guess on new input.
-- the kettle rule: rules break on drawings nobody planned for; mixed systems exist.
-- lab: a rule-based Python demo, breaking the kettle rule, Quick, Draw! with a guess log, detective work in the dataset.
+## Unit 2.1 — Knowledge + Lab: AI or Not? A Greeting for Grandma Sarah
+- Warm-up "AI or not?" (image pairs), quiz "is there AI inside?" (6 products), the shared feature, the definition of AI.
+- The four revolutions and why now (brain + power + fuel); the moon vs the greeting question.
+- The greeting in classic Python (`print` → `input`/`if` → hobby with `+`: always the same output) vs an AI greeting in a chatbot (not through code); comparison table.
+- Lab: the students write the classic greeting step by step (warm-up bug: a variable name inside quotes).
 
-## Unit 2.2 — Knowledge + Lab: Data, Bias and Responsibility
-- dataset, diversity, bias (a systematic gap — not only bad intent); where bias enters before and after training.
-- three stations: hiring, a medical system, a self-driving car. Cultural vs social bias.
-- lab: a dataset-audit program (shares in %, warnings), an improvement plan for one station, the year's vision.
+## Unit 2.2 — Knowledge + Lab: How Does a Computer See Without Eyes?
+- Quick, Draw! with three volunteers on the board; summary questions; what AI changes; consumers to creators with the API code teaser (not run).
+- The year's road map: functions, strings, lists, language model, classification, recommender systems, API; projects.
+- Lab: the Ministry worksheet 3.2 (early recognition, The Data, a failure, representativeness — the Israeli stop sign, why biased data is dangerous, guessing the future from the stroke animation, four fill-in sentences); responsibility; exit check.
+- If time: the dataset audit in Python (`Audit_*`), kept from the previous version.
 
 ### Scope decisions
-- **Codex decks were the main source** (hook, two mechanisms, kettle rule, Quick, Draw! log, dataset facts, detective chain,
-  kettle case, three stations, bias before / after training, dataset audit, cultural vs social bias, improvement plan,
-  perspectives, developer checklist). Changed: "מפגש" labels removed; the codex 2.1 "design your own recognizer" block dropped
-  (it repeats the 2.2 plan); the 1,000-face-photos audit replaced by the car dataset audit in Python — the lesson never
-  handles faces or personal data.
-- **Raw meetings:** kept the rule-based message flag (2.1 warm-up, labeled "rules, not AI"), the 9-outdoor / 1-indoor hook
-  and the counts audit (2.2 lab, extended to three groups with a warning counter).
-- **Worksheet:** the official worksheet "איך מחשב רואה בלי עיניים?" is in the Ministry's AI2 classroom (clarifications p. 5);
-  our lab brief follows its method (observe → hypothesize → check). The teacher may hand out the Ministry sheet instead.
-- **Not taught:** neural network internals, training mathematics, fairness metrics, precision / recall, AI APIs (Unit 4).
-- **Web tools:** Quick, Draw! and its data page need internet; the offline fallback is printed drawing strips (teacher prep).
-  No names or personal data are typed into any site.
+- **The Ministry flow wins.** Removed from the previous version: the kettle rule and the rule-based message flag (2.1), the Quick, Draw! guess log and dataset-detective chain (replaced by the worksheet), the three stations, bias before / after training, cultural vs social bias, the improvement plan and the developer checklist (2.2). Kept: the dataset audit as an if-time block.
+- **Python stays at Unit 1 level** (`print`, `input`, `if`/`else`, `+` on strings, `int()`); the greeting uses English strings so the console stays left-to-right and the `if` chooses a sign-off line (the Ministry's Hebrew branch relies on a gendered verb).
+- **AI greeting through a chatbot only.** The `genai` code appears once, as the Ministry's teaser ("no need to understand yet"), is never run, and holds only a placeholder instead of a key; the API itself is Unit 4.
+- **Not taught:** neural-network internals, training mathematics, fairness metrics.
+- **Web tools:** Quick, Draw! and its data page need internet; if blocked, the teacher shows them on the board. No names or personal data are typed into any site.
 
 ## Exit criteria
-The student explains the difference between rules written by a person and a model that learned from examples, defines
-dataset, diversity and bias, gives a real example of how a non-diverse dataset leads to a wrong or unfair decision, and
-names one responsibility of a developer before and one after launch.
+The student tells a product with AI from one without (and why), defines AI in a sentence, writes a classic greeting program with `input`, `if` and `+` and explains why it always gives the same output for the same input, explains why Quick, Draw! recognised or failed on a drawing using the data, gives one example of biased data causing a wrong, unfair or dangerous decision, and names the year's road map.
 
 ## Enrichment
-- 2.1: more Quick, Draw! categories with a hypothesis tested twice.
+- 2.1: `greeting_4()` (an age rule); a chatbot greeting asked twice, with a list of the facts to check.
 - 2.2: `car_data_audit()` with an empty dataset (0, 0, 0 → `ZeroDivisionError`) — how should an audit program guard against it?

@@ -95,7 +95,7 @@ Chapter goals (source §1, thirteen in all):
   a real exported model, so the file runs and is verifiable with plain `python`, no installed packages or model
   files required. The real Keras/PIL/NumPy loading and preprocessing code (taken directly from the source, which
   itself is taken from Teachable Machine's official export snippet) is a clearly marked, commented block, ready to
-  fill in once the teacher has an exported model to test with. This mirrors Units 4 and 6's `ask_ai()` /
+  fill in once the teacher has an exported model to test with. This mirrors Units 4 and 6's `ask_the_ai()` stand-in /
   `calculate_similarity()` pattern exactly.
 - **Photography safety, verbatim from the source, belongs in the lesson notes, not the code.** Hands only, no faces
   needed; consent before photographing another person; no names, documents, personal screens or private information

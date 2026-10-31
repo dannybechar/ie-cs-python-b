@@ -2,60 +2,61 @@
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
-8 academic hours = 4 meetings = 360 minutes (45 theory / 315 practice).
+8 academic hours = 4 meetings = 360 minutes (**90 theory / 270 practice**). Reworked from the Ministry's teaching materials 🔶
+(built, awaiting approval).
 
 ## Unit 5.1 — Strings
 
 **Topic:** A String Is an Ordered Sequence
 
-90 minutes: 45 knowledge + 45 lab · **indices → +/*/in → core methods → immutability**
+90 minutes: 45 knowledge + 45 lab · **quotes → indices (+/−) → `len` → `+`/`*` → `int`/`str`**
 
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m1-lesson-notes.md`](m1-lesson-notes.md) | Lesson plan |
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
-| Student | [`Checker_Starter.py`](Checker_Starter.py) | Immutability warm-up bug, stubs for Tasks 1–2 |
-| Teacher | [`Checker_Reference.py`](Checker_Reference.py) | Solutions, one function per task |
-| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Hebrew slide deck (18 slides, NotebookLM, patched) |
+| Student | [`Indices_Starter.py`](Indices_Starter.py) | `word[len(word)]` warm-up bug, stubs for Tasks 1–4 |
+| Teacher | [`Indices_Reference.py`](Indices_Reference.py) | Solutions, one function per task |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 18 slides) |
 
 ## Unit 5.2 — Strings
 
-**Topic:** Slicing — Start, End, Step
+**Topic:** Slicing and Searching
 
-90 minutes: Lab + Lab · **[start:end:step] → excluded end → negative bounds → step and reversal**
+90 minutes: 45 knowledge + 45 lab · **`[start:end:jump]` → `count` → `replace` → `in` → `find`**
 
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m2-lesson-notes.md`](m2-lesson-notes.md) | Lesson plan |
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
-| Student | [`Slicer_Starter.py`](Slicer_Starter.py) | Index-vs-slice warm-up bug, stubs for Tasks 1–2 |
-| Teacher | [`Slicer_Reference.py`](Slicer_Reference.py) | Solutions, one function per task |
-| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Hebrew slide deck (16 slides, NotebookLM, patched) |
+| Student | [`Slicing_Starter.py`](Slicing_Starter.py) | Discarded-`upper()` warm-up bug, stubs for Tasks 1–4 |
+| Teacher | [`Slicing_Reference.py`](Slicing_Reference.py) | Solutions, one function per task |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 16 slides) |
 
 ## Unit 5.3 — Strings
 
-**Topic:** Dynamic Slicing + Traversal
+**Topic:** More Methods and Walking Over a String with `for`
 
-90 minutes: Lab + Lab · **find as a boundary → character loop vs index loop → counting → building strings**
+90 minutes: Lab + Lab · **`lower`/`upper` → `startswith`/`endswith` → `isalpha`/`isdigit` → `for` → counters → `+=`**
 
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m3-lesson-notes.md`](m3-lesson-notes.md) | Lesson plan |
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
-| Student | [`Scan_Starter.py`](Scan_Starter.py) | Off-by-one range warm-up bug, stubs for Tasks 1–3 |
-| Teacher | [`Scan_Reference.py`](Scan_Reference.py) | Solutions, one function per task |
-| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (15 slides, NotebookLM, patched) |
+| Student | [`Traverse_Starter.py`](Traverse_Starter.py) | Counter-reset warm-up bug, stubs for Tasks 1–5 |
+| Teacher | [`Traverse_Reference.py`](Traverse_Reference.py) | Solutions, one function per task (Task 4 reads input) |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 15 slides) |
 
 ## Unit 5.4 — Strings
 
-**Topic:** String Algorithms + the "Smart Text Checker" — unit checkpoint
+**Topic:** String Algorithms, a Secret Code, and the Unit Checkpoint
 
-90 minutes: Lab + Lab · **tool choice → modular functions → the capstone project → structure vs. truth**
+90 minutes: Lab + Lab · **exercises 4–7 → `ord`/`chr` cipher → `split`/`join` (shown) → checkpoint**
 
 | For | File | What it is |
 |---|---|---|
-| Teacher | [`m4-lesson-notes.md`](m4-lesson-notes.md) | Lesson plan, including the project rubric |
+| Teacher | [`m4-lesson-notes.md`](m4-lesson-notes.md) | Lesson plan, including the checkpoint scoring |
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
-| Student | [`TextChecker_Starter.py`](TextChecker_Starter.py) | Copy-paste warm-up bug, the project brief |
-| Teacher | [`TextChecker_Reference.py`](TextChecker_Reference.py) | Solutions, all 7 official test cases verified |
-| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Hebrew slide deck (13 slides, NotebookLM, patched) |
+| Student | [`Cipher_Starter.py`](Cipher_Starter.py) | `or "e"` warm-up bug, stubs for Tasks 1–6 and the checkpoint |
+| Teacher | [`Cipher_Reference.py`](Cipher_Reference.py) | Solutions, one function per task, plus worksheet 8.2 enrichment |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 13 slides) |

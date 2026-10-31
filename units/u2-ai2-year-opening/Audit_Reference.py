@@ -1,4 +1,4 @@
-# Unit 2.2 - reference for the teacher.
+# Unit 2.2 - reference for the teacher (if-time block after the Ministry worksheet).
 # This code counts a dataset - it is not a machine-learning model.
 # One function per task. Run ONE task at a time: remove the # from one call at the bottom.
 

@@ -1,21 +1,33 @@
 # Unit 4.2 — Bringing AI into Code (API)
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Dynamic Prompts + the "Balanced Day" Project
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: The "Balanced Day" Project
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
-**Structure:** Lab + Lab (24 min guided practice, then 66 min lab, including the capstone project)
+**Structure:** Lab + Lab (12 min short intro, then a 78-minute project lab)
 **Minutes (theory / practice):** 0 / 90
-**Current tool:** Thonny; a language-model API for the live version (see Tool Note)
-**Source of inspiration:** `python_b_unit04_api_bring_ai_into_code_complete_unit.md` — meeting 2's own clock table,
-the two-prompt comparison, the four-part prompt template, the input-validation and sensitive-word examples, the
-accumulation loop, the "Balanced Day" project brief, skeleton, full solution and test-case table, the peer-review
-checklist, the answer-critique checklist, and the 20-point rubric kept almost unchanged; the source's
-one-call-per-activity antipattern became this meeting's warm-up, read and explained rather than "fixed" line by
-line (the point is architectural, not a syntax bug).
-**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
-labeled **Tool Note – Thonny** or **Tool Note – the AI service**.
+**Current tool:** Thonny with the classroom stand-in; Colab or a real key for the live runs (see Tool Note)
+**Source of inspiration:** the Ministry's own teaching materials (the source of truth).
+- **6.1 deck** (13 slides, "a very short deck to present the project, mostly work time") — the intro: the problem
+  (school tasks and no time for fun), what we build (input / logic / the AI's magic), "what can the AI do that plain
+  code cannot?" and the list of everything the project uses.
+- **6.2 worksheet + 6.2.0 teacher solution** — the project itself, stage by stage: (1) `home_hour`, `sleep_hour`,
+  `calc_time_today` that **returns** the hours; (2) a `while` loop that accumulates `all_tasks`; (3) the prompt with
+  an f-string, `ask_the_ai`, one call at the end; then the advanced features (emojis, language, `len` check, net fun
+  time with no call if there is none, motivation sentence, a percentage summary, colors).
+- **5.0 teacher emphases:** a base part everyone must finish plus extra features for advanced students; let students
+  work independently — the worksheet guides them step by step.
+
+*What changed from the previous version:* the project is now the Ministry's (input hours → a function that returns the
+free hours → accumulate tasks and times → one call), not our two-part "goal + activities" version; the four-part prompt
+template, the answer-critique and the 20-point rubric are kept; the warm-up is a real slip from the worksheet
+(`{time_today}` instead of `{today_time}`) instead of "one call per activity" (that idea moved into golden rule 3 and
+the exit check); the sentinel and the stand-in are in English (see Tool Note).
+**Dropped on purpose:** colored output (`"\033[31m"` escape codes) — Thonny's Shell does not render them; they work in Colab
+only. The banned-words list (4.1 worksheet) — lists come in Unit 7; our `or` chain does the same job.
+**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled
+**Tool Note – Thonny vs Colab** or **Tool Note – the AI service**.
 
 ---
 
@@ -23,145 +35,163 @@ labeled **Tool Note – Thonny** or **Tool Note – the AI service**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 4.1 | the API path, the waiter analogy, key security, a wrapper function with `return` | 45 / 45 |
-| **4.2 (this)** | **dynamic prompts, input validation, accumulation loops, the "Balanced Day" project** | 0 / 90 |
+| 4.1 | what an API is, the Gemini call, f-strings, `ask_the_ai`, limits, golden rules, the secret key | 45 / 45 |
+| **4.2 (this)** | **the "Balanced Day" project: a returning function, accumulation, one prompt, one call** | 0 / 90 |
 
 ---
 
 ## 2. Official Scope Used in This Meeting
 
-| Official goal (python-b-ai.pdf p. 12) | Covered here |
+| Official goal (python-b-ai.pdf pp. 11–12) | Covered here |
 |---|---|
-| Goal 5: build a dynamic prompt with an f-string and user input | ✅ Task 1, the project |
-| Goal 6: accumulate input with a `while` loop and string concatenation | ✅ the project |
-| Goal 7: validate input with `len`, compound conditions and `in` | ✅ Task 2, the project |
-| Goal 8: explain why data is collected first and one call is made outside the loop | ✅ warm-up, the project |
-| Goal 9: rate limits, overload errors, cost | ✅ warm-up discussion |
-| Goal 10: privacy; check an answer before relying on it | ✅ the project's output framing, answer critique |
+| Goal 5: a dynamic prompt with an f-string and user input | ✅ Stage 3 |
+| Goal 6: accumulate input with a `while` loop and string concatenation | ✅ Stage 2 |
+| Goal 7: validate input with `len` and conditions | ✅ advanced features 3, 7 |
+| Goal 8: data first, **one** API call outside the loop | ✅ Stage 3, golden rule 3 |
+| Goal 4: a function that takes input and returns a value | ✅ `calc_time_today`, `ask_the_ai` |
+| Goal 9: limits, errors 429 / 503, inaccurate answers | ✅ the "Calls sent" line; the answer check |
+| Goal 10: privacy; check the answer | ✅ no personal data in a task; peer review and answer critique |
 
 ### Deliberate exclusions
-The wrapper function itself (built in 4.1; reused here unchanged), new AI concepts (Unit 6).
+`try`/`except` for 429/503 (we wait and run again); lists; colored output; checking that `sleep_hour` is later than
+`home_hour` (the worksheet: "assume the input is valid" — an optional extension).
 
 ---
 
 ## 3. Lesson Goal
 
-**A good prompt has four parts — role, task, data, and the wanted structure — built from data collected first; the
-API is called exactly once, after collection, not once per item.**
+**Build a real program that combines input, a function that returns a value, a `while` accumulation loop, an f-string
+prompt and one call to the AI — and explain why the AI is called once, after the loop.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-activities = ""
-activity = input("Activity or done: ").strip()
+all_tasks = ""
+task_name = input("Enter a task (or done to finish): ")
+while task_name != "done":                                     # collect first
+    task_time = float(input(f"How many hours will {task_name} take? "))
+    all_tasks += f"{task_name} ({task_time} hours), "
+    task_name = input("Enter another task (or done to finish): ")   # last line of the loop
 
-while activity.lower() != "done":            # collect first
-    if len(activity) >= 3:
-        activities += f"- {activity}\n"
-    activity = input("Activity or done: ").strip()
-
-# The loop has already finished here.
-prompt = f"Create a balanced plan for these activities:\n{activities}"
-answer = ask_ai(prompt)                        # call once, after the loop
+prompt = f"I have these tasks: {all_tasks} ..."                # the loop has finished
+result = ask_the_ai(prompt)                                     # one call
 ```
 
-A prompt worth sending has: **role/context** (who is the model helping?), **task** (what should it produce?),
-**data** (what real information from the user?), **structure** (how many parts, what length?).
+Input → logic (our code: the hours, the sums) → magic (the AI: an order, splitting long tasks, encouragement). A good
+prompt has **context** (who I am), **the task** (what to build), **the data** (the hours, the tasks) and **the wanted
+result** (a short list of time blocks).
 
 ---
 
-# 5. Guided Practice (0–24)
+# 5. Short Intro (0–12)
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap:** the API path, key security, `return` |
-| 8–20 | **Two prompts, compared:** `"Plan my day."` vs. a version with role, task, data (90 min homework, 30 min exercise, a 21:30 deadline) and a wanted structure (four time blocks, one safety reminder) — which gives the model more to work with, and what personal information does neither one need? |
-| 20–24 | The four-part template (role, task, data, structure); transition to the lab |
+| 0–3 | **Recap (deck slides 3–4):** f-strings and the wrapper `ask_the_ai` from 4.1 — the same code is on the slide. |
+| 3–5 | **The problem (slides 6–7):** school tasks, and no time for fun — what are the options? An app that balances. |
+| 5–8 | **What we build (slides 8–9):** 📥 input (home hour, sleep hour, tasks), ⚙ logic (the hours of the afternoon), ✨ the AI (a balanced, encouraging schedule). |
+| 8–11 | **Discussion (slide 10):** "What can the AI give us that plain code cannot?" — plain code prints a dry list ("14:00–15:00 homework"); the AI can order, split long tasks, add a break and a kind word. |
+| 11–12 | The map of the project (slide 11): input, conditions, two functions, `while`, prompt engineering. Hand out the starter. |
 
 ---
 
-# 6. Lab (24–90)
+# 6. Lab (12–90)
 
 Starter: [`BalancedDay_Starter.py`](BalancedDay_Starter.py). Reference: [`BalancedDay_Reference.py`](BalancedDay_Reference.py).
-Classroom mode again — `ask_ai()` returns a fixed string; no key needed for the lab itself (Tool Note below).
+Default = the stand-in (ZONE A): the whole project runs with no key. **Files needing a live run with a real key:** the
+base project (`task3`) and the feature version (`task4_features`) — run each once before class.
 
-## 24–32 — Warm-up: one call per activity
+## 12–18 — Warm-up: a variable that does not exist
 
 ```python
-activity = input("Activity or done: ").strip()
-while activity.lower() != "done":
-    print(ask_ai(f"One tip for fitting in: {activity}"))
-    activity = input("Activity or done: ").strip()
+home_hour = 14
+sleep_hour = 22
+today_time = sleep_hour - home_hour
+prompt = f"I have {time_today} hours today. Build me a balanced schedule that starts at {home_hour}."
+print(prompt)
 ```
 
-Run it with `Homework`, `Walk`, `done`. Count the calls (two here — but with ten activities, ten calls). Why is that
-wasteful even with a mock function, and a real cost with a real service? This meeting's project fixes exactly this.
+`NameError: name 'time_today' is not defined`. The variable is `today_time` — the worksheet's own suggested sentences
+use the other order. Fix, and say how to prevent it: print the prompt before sending it (a debug print).
 
-## 32–44 — Task 1: a dynamic prompt
+## 18–28 — Stage 1: how many hours do we have?
 
-Build an f-string prompt from a goal and a minutes count, both read with `input()`. Print the prompt — don't call
-`ask_ai` yet.
+Read `home_hour` and `sleep_hour` (whole numbers; assume valid input). Write `calc_time_today(start, end)` that
+**returns** the hours; call it and print the result.
 
 ```text
-You help a ninth-grade student plan a balanced afternoon.
-Goal: Finish math homework
-Available time: 45 minutes
-Return three short steps and one reminder to take a break.
+What hour do you get home? 14
+What hour do you want to go to sleep? 22
+You have 8 hours this afternoon.
 ```
 
-## 44–57 — Task 2: default value + a basic privacy check
+## 28–42 — Stage 2: collect the tasks
 
-Read a short text. If it's empty, use a default goal (`"create a generally balanced afternoon"`). Separately, check
-whether it contains `"password"`, `"phone"` or `"address"` (case-insensitive) and print a warning if it does.
+A `while` loop until `done`; each time a task name and the hours (`float(input(...))`); `all_tasks += f"..."`. The second
+`input()` is the **last line** of the loop. Print `all_tasks` to check it.
 
-<div dir="rtl">
+```text
+homework (2.0 hours), sport (1.5 hours), 
+```
 
-| קלט | פלט |
-|---|---|
-| (ריק) | The text passed the basic classroom check: create a generally balanced afternoon |
-| my phone is 555-1234 | Do not send passwords, phone numbers, or addresses. |
-| review flashcards | The text passed the basic classroom check: review flashcards |
+## 42–60 — Stage 3: the prompt and the one call
 
-</div>
+Before writing it: plan the prompt in an online chat first (golden rule 1) — context, task, data, result; discuss
+"send only what is needed". Then **after the loop**: an f-string prompt from `all_tasks`, `today_time`, `home_hour` and
+`sleep_hour` (a triple-quoted `f"""…"""` lets the prompt span lines); print it; call `ask_the_ai` **once**; print the
+schedule, framed as a suggestion to check.
 
-This is a basic classroom filter, not a full personal-information detector — say so explicitly.
+```text
+I am a teenager and I come home from school at 14:00.
+I have these tasks, with the time each one takes: homework (2.0 hours), sport (1.5 hours), 
+I have 8 hours today, for the tasks and also for fun.
+...
+--- Your schedule (check it before you use it) ---
+[stand-in] 15:00 snack and homework, 16:30 short break, 17:00 the rest of the tasks, then free time.
+Calls sent: 1
+```
 
-## 57–77 — Task 3 (project): "Balanced Day"
+**Prompt engineering (slide 11 of the deck):** compare a weak prompt ("make me a schedule") with ours: which one gives
+the model something to work with? What information must **not** go in (names, phone, address)?
 
-Build a program that: asks for a short daily goal (default if empty); collects activities until `"done"`; skips
-activities under 3 characters; skips (with a warning) any activity containing a sensitive word; builds **one**
-dynamic prompt from the goal and the collected activities; calls `ask_ai` **once**, after the loop; presents the
-result as a suggestion to check, not a fact.
+## 60–62 — Limits check
 
-<div dir="rtl">
+Open `Calls sent:` — it must be 1. A run that sends 10 calls would use two thirds of a key's minute. If a real call
+returns 429 or 503: the code is fine — wait a minute and run again (the stand-in can show it:
+`SIMULATE_ERROR = "429"` in ZONE A, teacher only).
 
-| מקרה | קלט | תוצאה צפויה |
-|---|---|---|
-| שימוש רגיל | מטרה ושתי פעילויות תקינות | פרומפט נבנה, קריאה אחת נשלחת |
-| פעילות קצרה | `x` | הפעילות לא מצטרפת, מוצגת הודעת תיקון |
-| מידע רגיש | טקסט הכולל `password` | הטקסט לא מצטרף, מוצגת אזהרה |
-| מטרה ריקה | Enter | ערך ברירת המחדל מופעל |
-| אין פעילויות | `done` מיד | נשלח טקסט ברירת מחדל במקום רשימה ריקה |
+## 62–82 — Advanced features (any order, any number)
 
-</div>
+Choose from the worksheet's list: (1) emojis for every task; (2) a language choice; (3) `len(task_name) >= 3` before
+adding a task; (4) `total_task_time += task_time`, net fun time `today_time - total_task_time`, and **no call** if it
+is negative; (5) a motivation sentence for every task; (6) a percentage summary
+(`task_percent = total_task_time / today_time * 100`, printed with `:.1f`). Our addition, (7) privacy: a task that
+contains `password`, `phone` or `address` is not added. Colors (the worksheet's feature 7) are Colab-only — optional there.
+The worksheet calls this "the real hi-tech challenge: adding code to an existing program" — say so.
 
-## 77–84 — Peer review
+## 82–86 — Peer review
 
-Swap with a partner. Check: is the key absent from the code? does the wrapper function return a value? does the
-prompt include role, task, data and structure? is data collected before the call? is there exactly one API call?
-are empty input, short input and sensitive text all handled? is the answer shown as something to check?
+Swap with a partner: is the key absent from the file? do `calc_time_today` and `ask_the_ai` `return` (not print)? is
+the prompt built with context, task, data and a wanted result? are the tasks collected before the call? is there exactly
+one call? are short and sensitive tasks handled?
 
-## 84–90 — Answer critique + exit reflection
+## 86–90 — Answer critique, save, exit
 
-After a run (real or mock), mark: one detail that clearly comes from the input; one suggestion that looks useful;
-one assumption the model added on its own; one detail that needs checking or changing; whether anything in the
-answer seems unrealistic or age-inappropriate.
+After a run (real or stand-in): mark one detail that clearly comes from the input, one suggestion that looks useful,
+one assumption the model added, one detail to check or change. Save As `G8_U4_M2_BalancedDay_<Name>.py` (no key in the
+file). Exit question: "Why is the API called once, after the loop?"
 
 ### Tool Note – the AI service
-For a real run, follow the same setup as 4.1 (installed library, a valid key as an environment variable). Test the
-real call once before class and keep a saved transcript as a fallback if the connection fails during the lesson.
+Same setup as 4.1 (keys from AI Studio, the model name `gemini-2.5-flash` checked before class, the key from Colab
+Secrets or an environment variable). **Quota plan:** ≈15 requests/minute per key; a class of 30 on 10 keys is three
+students per key, and each student needs only a few calls — so develop with the stand-in and switch to the real
+service for the **final run** only.
+
+### Tool Note – Thonny vs Colab
+The Ministry worksheet is a Colab notebook. Files here use the English word `done` as the stop word, so students do
+not switch keyboards; the Ministry's Hebrew `"סיום"` works exactly the same if you prefer it (a one-word change).
 
 ---
 
@@ -169,21 +199,22 @@ real call once before class and keep a saved transcript as a fallback if the con
 
 | Misconception | Correction |
 |---|---|
-| More detail in the prompt is always better, regardless of source | It should come from real collected data, not invented detail |
-| Calling the API inside the loop is simpler | It multiplies calls, time, quota use and possible cost for no benefit |
-| A default value is only needed for a crash | It's needed whenever the user could reasonably leave a field empty |
-| The privacy check here is a complete filter | It's a basic classroom check, not a real personal-information detector |
-| The AI's plan should be shown as final | It's a suggestion, always presented as something to check |
+| The call can sit inside the loop "because the data is right there" | It multiplies calls; collect first, send once, after the loop (no indentation) |
+| `calc_time_today` should print the result | It returns it, so the main program can print it, compare it and put it in the prompt |
+| A variable named differently in the prompt will still work | The name inside `{ }` must be exactly the variable's name (the warm-up) |
+| More text in the prompt is better | Detail that comes from the data and focus beat length; no personal data |
+| The schedule is final | It is a suggestion, checked against the real day |
+| The privacy check is complete | It is a basic classroom filter |
 
 ---
 
-# 8. Assessment Evidence (formative)
+# 8. Assessment Evidence
 
-- The warm-up's call count and its explanation
-- Task 1's prompt containing all four parts (role, task, data, structure)
-- Task 2 passing all three cases (empty, sensitive, normal)
-- **Unit 4 checkpoint — "Balanced Day"**: all five test cases from the table above, scored against the source's
-  20-point rubric (wrapper function 4, key security 3, dynamic prompt 3, accumulation loop 3, one call outside the
-  loop 2, validation and privacy 3, testing and explanation 2). Bands: 18–20 complete/safe/economical/well explained
-  · 14–17 works, minor flaw · 10–13 partial, missing a check or the single-call separation · 0–9 needs support.
-- The peer review and answer critique, completed with at least one concrete note each
+- The warm-up error read and fixed; the debug print used
+- Stage 1, 2, 3 each run with a test input and the printed prompt
+- **Unit 4 checkpoint — "Balanced Day"** (20 points): functions that return a value (`calc_time_today`, `ask_the_ai`) 4 ·
+  key security (no key in the file) 3 · dynamic prompt 3 · accumulation loop 3 · one call outside the loop 2 ·
+  validation and privacy 3 · testing and explanation 2. Bands: 18–20 complete, safe and economical · 14–17 works with a minor flaw ·
+  10–13 partial (a missing check or the call inside the loop) · 0–9 needs support
+- The peer review and the answer critique, each with at least one concrete note
+- The exit question answered with a reason

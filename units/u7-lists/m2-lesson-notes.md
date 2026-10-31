@@ -34,7 +34,7 @@ labeled **Tool Note – Thonny**.
 | Official goal (python-b-ai.pdf p. 17) | Covered here |
 |---|---|
 | Goal 5: `append`, `extend`, `insert`, `remove`, `pop`, `count`, `sort`, `reverse` | ✅ every task |
-| Goal 6: `split` (text → list) and `join` (list → text) | ✅ Task 3 |
+| Goal 6: `split` (text → list) and `join` (list → text) — first met in Unit 5.4 (shown and printed only); here revisited and used as a list | ✅ Task 3 |
 
 ### Deliberate exclusions
 The accumulation pattern (7.3), any list-modification-during-traversal pitfall (7.3), search (7.5).
@@ -71,7 +71,7 @@ print(ordered)              # None - a very common surprise
 
 - `remove(value)` deletes the first match by **value**; check `value in items` first, or it raises `ValueError`.
 - `pop(index)` deletes by **position** and **returns** the removed item — useful when you need that value.
-- `text.split(sep)` is a **string** method that returns a list; `sep.join(list_of_strings)` is a **string** method
+- `text.split(sep)` (met in Unit 5.4, where the result was only printed) is a **string** method that returns a list; `split()` with no argument splits on any run of spaces, so `len(text.split())` counts words even with double spaces; `sep.join(list_of_strings)` is a **string** method
   (called on the separator) that returns text.
 
 ---
@@ -84,7 +84,7 @@ print(ordered)              # None - a very common surprise
 | 8–24 | Adding: `append`, `extend`, `insert` — and the `append([3, 4])` pitfall (one item, not two) |
 | 24–33 | Removing: `remove` (by value, with a check-first pattern) vs. `pop` (by index, returns the value) |
 | 33–41 | Sorting and reversing in place; the `ordered = scores.sort()` pitfall and its fix with `.copy()` |
-| 41–45 | `split` / `join`: `"cat,dog,bird".split(",")` → the list; `" | ".join(...)` → back to text |
+| 41–45 | `split` / `join` recalled from 5.4 (2 min: `dash_words` on the board), then used on the list: indexing and looping over what `split` returns; `" | ".join(...)` → back to text; `words[0]` and `words[-1]` replace the `find` code of 5.4's first-and-last-word task |
 
 ---
 

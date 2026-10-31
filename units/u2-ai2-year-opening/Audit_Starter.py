@@ -1,3 +1,4 @@
+# If-time block after the worksheet: turn "is the dataset representative?" into numbers.
 # Warm-up: 5 of 50 kettle drawings are electric kettles. The program says "Balanced". Find the bug.
 
 

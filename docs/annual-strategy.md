@@ -68,22 +68,25 @@ learns from data** — so its output is checked, not trusted, and its builder is
 What each meeting covers, from each chapter's goals, teaching methods and per-topic table. It is refined — and may be
 reordered inside a unit — when the unit is built and its `unit-strategy.md` is written.
 
+> **Update 31 Oct 2026:** rows for meetings 1.3 and 2.1–5.4 now follow the Ministry's published teaching materials
+> ([`ministry-teaching-materials.md`](ministry-teaching-materials.md)); units 6–9 are still the original provisional outline.
+
 | Meeting | Structure | Content (official page) |
 |---|---|---|
 | 1.1 | K+L | Compound conditions (`and`, `or`, `not`), `if` / `elif` / `else`, input validation (pp. 5–6) |
 | 1.2 | L+L | Counted loops: `for` with `range(n)` and `range(start, stop, step)`; counters and totals (pp. 6–7) |
 | 1.3 | L+L | Conditional loops: `while`, the stop condition, loops that never end; integrated review (p. 7) |
-| 2.1 | K+L | The AI revolution; classical programming vs machine learning; Quick, Draw! and the worksheet "איך מחשב רואה בלי עיניים?" (p. 8) |
-| 2.2 | K+L | Data, bias and responsibility: biased datasets in hiring, cars and medicine; "מצרכנים ליצרנים" (pp. 8–9) |
-| 3.1 | K+L | Functions without / with parameters, no `return` (review); the black box, "what" vs "how" (p. 10) |
-| 3.2 | K+L | Functions that return a value; `print` vs `return`; local and `global` variables (p. 10) |
-| 3.3 | L+L | Bottom-up design: solving a problem with small returning functions (pp. 10–11) |
-| 4.1 | K+L | API as a "waiter" between the code and the model; importing a library; a safe API key; a wrapper function that returns the model's answer (pp. 11–12) |
-| 4.2 | L+L | Dynamic prompts with f-strings; a `while` loop that collects input and one call outside it; validation with `len` and `in`; prompt chaining; the "יום מאוזן" mini-project (pp. 12–13) |
-| 5.1 | K+L | The empty string, `+`, `*`, `in`, indexing and `len`; position vs content (p. 13) |
-| 5.2 | K+L | String methods: `find`, `upper`, `lower`, `count`, `startswith`, `endswith`, `isalpha`, `isnumeric`, `replace` (pp. 13–14) |
-| 5.3 | L+L | Slicing `[start:end:step]` (p. 14) |
-| 5.4 | L+L | Traversal: `for i in range(len(st))` vs `for ch in st`; a small text-processing program (pp. 3–4, 14) |
+| 2.1 | K+L | "AI or not?" quizzes, the definition of AI, the revolutions and why now; the grandma greeting in classic Python vs an AI greeting (Ministry deck 3.1; p. 8) |
+| 2.2 | K+L | Quick, Draw! and the worksheet "איך מחשב רואה בלי עיניים?"; data, bias and responsibility; "מצרכנים ליצרנים"; the year roadmap (Ministry deck 3.1, worksheet 3.2; pp. 8–9) |
+| 3.1 | K+L | Short recap of functions with no or one parameter; several parameters and their order; `return` (Ministry 4.1, 4.2; p. 10) |
+| 3.2 | L+L | Practice: returning functions, `while` and digit extraction inside functions (Ministry 4.2, 4.4, 4.5; p. 10) |
+| 3.3 | K+L | Local and `global` variables, variable roles in functions (Ministry 4.3, 4.5, 4.6; pp. 10–11) |
+| 4.1 | K+L | API as a "waiter"; the Gemini call; f-strings; a safe API key (Colab Secrets or an environment variable); the `ask_the_ai` wrapper that returns the answer (Ministry 5.0–5.2; pp. 11–12) |
+| 4.2 | L+L | The "יום מאוזן" project: free hours from a function, a `while` loop that collects tasks, one call outside the loop, prompt engineering (Ministry 6.1, 6.2; pp. 12–13) |
+| 5.1 | K+L | Quotes, `+`, `*`, positive and negative indexing, `len` (Ministry 7.1, 7.2; p. 13) |
+| 5.2 | K+L | Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2; pp. 13–14) |
+| 5.3 | L+L | `lower`, `upper`, `startswith`, `endswith`, `isalpha`, `isdigit`; `for` over a string (Ministry 8.0, 8.1; p. 14) |
+| 5.4 | L+L | String algorithms, `ord`/`chr` cipher, `split`/`join` (shown only), the worksheet checkpoint (Ministry 8.1, 8.2, 8.7; pp. 3–4, 14) |
 | 6.1 | K+L | Tokens, tokenization and token IDs; the context window; the tokenizer worksheet (pp. 15–16) |
 | 6.2 | K+L | The semantic map (embeddings), self-attention, semantic distance (pp. 15–16) |
 | 6.3 | L+L | The "סמנטעל" (Semantle) game: `calculate_similarity`, an attempt counter, percentages, an emoji thermometer (p. 16) |

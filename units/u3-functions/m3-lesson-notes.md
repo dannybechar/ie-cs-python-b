@@ -1,21 +1,29 @@
 # Unit 3.3 — Functions
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Returning a Value + Scope (Unit Checkpoint)
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: Local and Global Variables
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** the codex deck `python_b_unit03_m03_return_values_and_scope_delivery.pptx` ("can the
-result be used in another calculation" hook, the `print` vs `return` comparison, the `double()` trace table, a
-no-parameter function that still returns a value, `is_even()` used without an `if`, the discount-completion task, a
-returned value used directly inside `if`, the local-variable and scope-error examples, the independent-vs-global
-comparison, the "what vs how" reprise, the bottom-up task-calculator challenge and its architecture, the three-case
-peer test, the exit card kept; "מפגש" labels removed; the discount task's `# complete here` blank turned into a
-missing-`return` warm-up bug, since it demonstrates the same point — a value computed but never returned — while
-giving students something that runs and produces a wrong (not blank) result to react to)
+**Source of inspiration:** the Ministry's teaching materials (the source of truth for this unit): deck **4.3 "משתנים בפעולות"**
+(24 slides) feeds the theory — life cycle of a local variable, `NameError` outside, "each function has its own world",
+`print_double`, the "weight of a number" exercise, a global read inside a function, the `score = 100` trap, `global`,
+`add_bonus`, the forgotten-`global` error, the local / global table; worksheet **4.5** (with the teacher solution **4.5.0**)
+exercises 1–5 feed the lab; **4.6 "תפקידי משתנים בפעולות"** (solutions in **4.5.0**) questions 1, 2 and 4 feed the lab and
+the checkpoint.
+**Changed from the previous version of 3.3** (codex deck: `print` vs `return`, bottom-up design, the task-calculator
+checkpoint): `return` moved to 3.1 and 3.2; this meeting is now the scope meeting and `global` is **taught** (the previous
+version only named it). The task-calculator checkpoint was dropped — the Ministry exercises win; the new checkpoint is a
+donation campaign adapted from 4.6 question 4. **Changes to Ministry code:** 4.6 question 1 builds its answer with an
+f-string and question 4 returns two values at once (`return sumOfDonations, numberOfHighDonors`, unpacked with
+`totalSum, highDonors = ...`); f-strings come in Unit 4 and returning several values (a tuple) is not taught, so the
+parking function returns a short phrase (the main program prints the hours), and the donation checkpoint uses two
+global variables that `add_donation` changes — which also fits this meeting's topic. Question 3 (the calculator that returns
+four values) is held out for the same reason; the "if time" block has the four-function version. The error text on the
+Ministry's slide 21 is older than Python 3.14; the lab uses the real message (see Misconception Risks).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -25,9 +33,9 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 3.1 | `def`, the call, execution order, procedural abstraction | 45 / 45 |
-| 3.2 | parameters vs arguments, multiple parameters, refactoring repeats | 0 / 90 |
-| **3.3 (this)** | **`return`, `print` vs `return`, local scope, unit checkpoint** | 45 / 45 |
+| 3.1 | recap; several parameters and their order; `return` vs `print` | 45 / 45 |
+| 3.2 | return practice; exam questions with `while` inside functions | 0 / 90 |
+| **3.3 (this)** | **local and global variables, `global`, variable roles, unit checkpoint** | 45 / 45 |
 
 ---
 
@@ -35,42 +43,47 @@ labeled **Tool Note – Thonny**.
 
 | Official goal / concept (python-b-ai.pdf p. 10) | Covered here |
 |---|---|
-| Goal Py 3: write and call a function with parameters that returns a value | ✅ every task |
-| Goal Py 4: distinguish a variable's scope inside a function from outside it | ✅ the scope-error prediction |
-| Concepts: scope — local variable, a variable with the `global` attribute | ✅ |
-| SC 4: reflect on bottom-up development and "what" vs "how" | ✅ the task-calculator checkpoint |
-| Assessment 1–2: trace an algorithm using procedural abstraction; develop and implement one | ✅ checkpoint |
+| Goal Py 4: distinguish a variable's scope inside a function from outside it | ✅ whole meeting |
+| Concepts: scope (local variable, `global`) | ✅ |
+| SC: use a building block through its interface — the caller does not see the function's local variables | ✅ "each function has its own world" |
+| Assessment: tracing; developing and implementing | ✅ checkpoint |
 
 ### Deliberate exclusions
-The `global` keyword itself (only named as the risk to avoid), recursion, nested function definitions.
+`nonlocal`, nested functions, returning several values (tuple), f-strings (Unit 4), lists as global variables (Unit 7).
+Style note for the teacher: a program that depends on many globals is harder to read than one that passes values with
+parameters and `return`. The lab teaches `global` because the program and the exam use it, and the last slide says
+"prefer parameters and `return`; use `global` when several calls must share one running value".
 
 ---
 
 ## 3. Lesson Goal
 
-**`return` sends a value back to the line that called the function — only a returned value can be stored, compared,
-or used in a further calculation; a variable created inside a function does not exist outside it.**
+**A variable made inside a function lives only while it runs. A variable made outside every function can be read by all
+functions — and to change it from inside, the function must say `global`.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-def double(number):        # number: parameter, gets 6
-    result = number * 2    # result: local - exists only inside double()
-    return result           # sends 12 back to the call
+score = 0                       # global: defined outside every function
 
 
-answer = double(6)          # answer receives the returned value, 12
-print(answer + 1)            # 13
+def add_bonus(bonus):
+    global score                # "this score is the outside one"
+    score = score + bonus       # without the line above: UnboundLocalError
+
+
+def show_square(num):
+    result = num ** 2           # local: born when the function starts, gone when it ends
+    print(result)
 ```
 
-- `print` shows a value on screen; the calling code gets nothing back. `return` hands a value back to the call —
-  save it in a variable, compare it, or use it in another expression.
-- A function can return a value with **no** parameters (3.1's kind, plus `return`), or with parameters and no return
-  (3.2's kind, unchanged) — the three combinations are independent choices.
-- A variable created inside a function is **local**: it exists only while that call runs, and cannot be read from
-  outside it.
+- Calling a function opens a clean workspace. Its parameters and the variables it creates are local.
+- Each function has its own world — two functions may each have a local `result`, and they never meet.
+- Reading a global needs nothing. **Assigning** to a name inside a function makes that name local, unless `global` was declared.
+- `score = 100` inside a function creates a new local `score`; the outside `score` does not change.
+- Variable roles seen in functions: a **counter** (counts events), an **accumulator** (adds up), a **best-so-far holder** (`biggest`), a **flag** (`found`). Role names are for classroom talk; the Ministry's 4.6 worksheet practices the roles without naming them.
 
 ---
 
@@ -78,101 +91,79 @@ print(answer + 1)            # 13
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 3.3 – פעולות · "ערך חוזר וטווח הכרה" |
-| 2–6 | **Recap (pairs):** `show_total(price, amount)` prints `price * amount` — can the result be used in another calculation right now? |
-| 6–8 | Answer: not yet — there is nothing to catch; the value only appears on screen |
-| 8–14 | `print` vs `return`, side by side |
-| 14–20 | **Trace table (pairs):** `double(number)` with `result = number * 2` and `return result`, called as `answer = double(6); print(answer + 1)` — track `number`, `result`, the returned value, `answer` |
-| 20–22 | Answer: `13` |
-| 22–26 | A no-parameter function that still returns a value (`get_school_year()`); the count of parameters and the presence of `return` are independent choices |
-| 26–30 | A returning function with no `print` inside it: `is_even(number)` |
-| 30–36 | **Predict:** which line raises an error, and why — a local variable read from outside its function |
-| 36–39 | Answer: `answer` is `31`; `print(secret)` outside the function raises `NameError` — the value travels out through `return`, the local name `secret` does not |
-| 39–43 | Independent function (gets input via parameters, returns a clear result) vs. one that depends on a variable from outside its own signature — why the first is easier to test |
-| 43–45 | The lab missions |
+| 0–2 | Title: יחידה 3.3 – פעולות · "משתנה מקומי ומשתנה גלובלי" |
+| 2–6 | **Hook:** `average_grade(85, 95)` — `grade1` and `grade2` are used inside the function. Can `print(grade1)` work after the call? Vote, then test |
+| 6–13 | **A local variable's life (deck 4.3, slides 4–6):** `print_square(4)`; `result` is born and dies with the call; **predict** `print(result)` at the end → `NameError` (question slide first, answer on the next) |
+| 13–17 | **Separate worlds:** `print_square(3)`, `print_cube(2)` — both use `result`; no clash |
+| 17–24 | **Write it (pairs):** `print_double(num)` with a local `doubled` → `Doubled number is: 10`. Then check and discuss |
+| 24–30 | **A global variable (slides 13–15):** `score = 0`; `print_score()` reads it. **Predict:** `change_score()` sets `score = 100` and prints inside; what do the two prints show? → inside 100, outside 0 |
+| 30–36 | **Why:** the assignment made a new local. **The fix:** `global score` → inside 100, outside 100 |
+| 36–41 | **The trap:** `counter = counter + 1` without `global` → `UnboundLocalError`. Read the real message on Python 3.14; Python decides at compile time that `counter` is local because it is assigned in the function |
+| 41–44 | The local / global table: where defined, who can see it, when it disappears, how to change it from inside |
+| 44–45 | The lab missions |
 
 ---
 
 # 6. Second 45 Minutes — Lab
 
-Starter: [`Points_Starter.py`](Points_Starter.py). Reference: [`Points_Reference.py`](Points_Reference.py).
+Starter: [`Scope_Starter.py`](Scope_Starter.py). Reference: [`Scope_Reference.py`](Scope_Reference.py).
 
-## 45–53 — Warm-up: computed, never returned
+## 45–49 — Warm-up: the counter that does not count
 
 ```python
-# Warm-up: predict what will print, run it, then add one word to fix it.
+counter = 0
 
 
-def discounted(price, percent):
-    discount = price * percent / 100
-    price - discount
+def do_step():
+    counter = counter + 1
+    print("Step done!")
 
 
-final_price = discounted(80, 25)
-print(final_price)
+do_step()
+print("Counter:", counter)
 ```
-
-Predicting first: 25% of 80 is 20, so the price after the discount should be 60. Running it instead prints:
 
 ```text
-None
+UnboundLocalError: cannot access local variable 'counter' where it is not associated with a value
 ```
 
-The function computes `price - discount` but never sends it back — with no `return`, Python's default returned
-value is `None`. Fix: add `return` before `price - discount` → `60.0`.
+(Python 3.14. The Ministry slide shows the older wording, `local variable 'counter' referenced before assignment`.)
+Fix: add `global counter` as the first line of the function → `Step done!` then `Counter: 1`.
 
-## 53–63 — Task 1: `is_even(number)`
+## 49–54 — Task 1: local or global? (worksheet 4.5, exercises 1 and 3)
 
-Returns `True` or `False` — no `print` inside the function. Test with 14 and with 9.
+On paper, then run. (1) In the code with `app_name` and `show_greeting`: which variable is global, which are local, and what does `print(welcome_msg)` at the end of the program do (`NameError: name 'welcome_msg' is not defined`)? (2) In the code with `score = 50` and `update_score()`: write the two printed lines, and explain why the outside `score` stays 50.
 
-```text
-True
-False
-```
+## 54–59 — Task 2: `add_bonus` (deck 4.3, practice 2)
 
-## 63–73 — Task 2: `passed(score)` used inside `if`
+A global `total_points = 0`; a function `add_bonus(bonus)` adds the bonus to it. Call it twice with 10 and print the total: `20`.
 
-Returns `True` when `score >= 60`. Use the returned value directly inside an `if` / `else` that prints `Continue` or
-`Try again`. Test with 72.
+## 59–67 — Task 3: the two parking lots (worksheet 4.6, question 1)
 
-```text
-Continue
-```
+Lot A costs 20 per day. Lot B: up to 3 hours 5, up to 4 hours 15, more 30. Write `parking_a()`, `parking_b(hours)` and `compare_parking(hours)`, which uses the other two and returns the phrase of the cheaper lot (or `"Same price"`). Print for 2, 4, 10 and 24 hours: B, B, A, A. A function that calls other functions: each keeps its own locals.
 
-Ask: could you write this without ever storing the returned value in a variable? (Yes — `if passed(72):` uses it
-directly.)
+## 67–71 — Task 4: `how_many_legs(animal)` (question 2)
 
-## 73–86 — Task 3 (checkpoint): the task calculator
+`elif` chain, one `return` per animal, `-1` for anything else. `spider` 8, `ant` 6, `dog` / `cat` 4, `chicken` 2.
 
-Three small functions, built and tested **one at a time**, bottom-up:
+## 71–83 — Checkpoint: donation campaign (question 4, adapted)
 
-- `calculate_points(level, tasks)` → `level * tasks * 10`
-- `passed_checkpoint(points)` → `True` when `points >= 100`
-- `show_result(name, points, success)` → prints all three
+Two global variables with roles: `sum_of_donations` (an accumulator) and `number_of_high_donors` (a counter). `add_donation(donation)` adds the donation; above 100 it also counts the donor and prints `Thank you, the certificate is on the way`. The main program reads the number of donors, then one donation each, calls `add_donation`, and prints both globals. Example with 3 donors `150`, `80`, `200`: two thank-yous, `Total donations: 430`, `Number of donations above 100 nis: 2`. Boundary test: a donation of exactly 100 is **not** a high donation.
 
-Then combine them from the main program for at least three students, including one boundary case at exactly 100
-points.
+## If time
 
-```text
-Maya 120 True
-Ali 100 True
-Noa 30 False
-```
+`add_coins(new_coins)` with a global `coins` (worksheet 4.5 exercise 4: `coins = 10`, `add_coins(5)` → `15`); `weight_of_number(number)` for a two-digit number — the product of its digits (`75` → 35, `12` → 2), and a main program that reads two numbers and prints the one with the bigger weight (deck 4.3, slide 10); the calculator of question 3 as four small functions, each returning one value.
 
-`show_result` never recomputes the points — it only prints values it's handed.
+## 83–90 — Save and exit check
 
-## 86–90 — Save and exit check
+Save As `G8_U3_M3_Scope_<Name>.py`.
 
-Save As `G8_U3_M3_Points_<Name>.py`.
-
-1. Write one short function that takes a value and returns a different one. Add a call that uses the returned
-   value (not just discards it).
-2. Why did `print(secret)` fail outside `build_code()`, even though `secret` clearly held a value while the function
-   ran?
+1. A function does `total = total + 5` and fails with an error. What is the error, and what single line fixes it?
+2. A variable named `area` is created inside `calculate_rectangle`. Why does `print(area)` after the call raise `NameError`?
+3. When is it better to pass a value as a parameter instead of using a global?
 
 ### Tool Note – Thonny
-Thonny's Shell prints `>>> None` for any expression that evaluates to `None` — a quick way to notice a missing
-`return` even outside a full program run.
+Thonny's **Variables** view (View › Variables) lists the global variables of the program; while stepping inside a function, Thonny shows the function's locals in the call frame. Use it on `do_step()` before and after adding `global`.
 
 ---
 
@@ -180,19 +171,20 @@ Thonny's Shell prints `>>> None` for any expression that evaluates to `None` —
 
 | Misconception | Correction |
 |---|---|
-| `print` and `return` do the same thing | `print` only displays; `return` hands the value back to the calling code |
-| A function without an explicit `return` returns nothing at all | It returns `None` — a real value that can cause confusing bugs |
-| The number of parameters decides whether a function can return a value | The two are independent: any combination is possible |
-| A local variable is somehow "secret" or protected | It's simply out of scope outside the function — nothing about it is hidden or safe |
-| `show_result` should recompute `points` itself | It only reports values already computed and passed to it — one job per function |
+| A function can change an outside variable just by assigning to it | Assignment creates a new local; `global` is what ties the name to the outside one |
+| "I only read it, so I need `global` too" | Reading a global needs nothing; only assignment does |
+| `UnboundLocalError` is a new kind of rule | It is the same rule: the name is local because the function assigns it, and the right side reads it before it has a value |
+| After the call, the function's variables are still there | They are gone; only a returned value or a global survives |
+| Using `global` everywhere is good style | Fine for a shared running value (score, counter); otherwise parameters and `return` are clearer |
+| The error message is the same as the slide | Python 3.14: `UnboundLocalError: cannot access local variable 'counter' where it is not associated with a value` |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The `double()` trace table completed before running
-- The warm-up's missing-`return` bug explained (why `None`, not a wrong number)
-- `is_even()` and `passed()` tested with the given values, `passed()` used directly inside a condition
-- **Unit 3 checkpoint** — the task-calculator's three functions built and tested separately, then combined, with the
-  boundary case at exactly 100 points
+- The `NameError` and the `change_score` predictions written before running
+- The warm-up explained: why `global` fixes it
+- Task 1 answers on paper
+- Tasks 2–4 passing their test values
+- **Unit checkpoint:** `add_donation` with two globals, the total 430 and the high-donor count 2 for the example, the boundary 100 handled correctly
 - Exit check

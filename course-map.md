@@ -17,16 +17,16 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 
 | # | Unit | Official hours (T/P) | Official minutes (T/P) | Meetings | Planned minutes (T/P) | Remaining | Built |
 |---|---|---:|---:|---:|---:|---:|---|
-| 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | ✅ 3/3 |
-| 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | ✅ 2/2 |
-| 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
-| 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | ✅ 2/2 |
-| 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (45 / 315) | 0 | ✅ 4/4 |
+| 1 | [Python A Review](units/u1-python-a-review) | 6 (1 / 5) | 270 (45 / 225) | 3 | 270 (45 / 225) | 0 | ✅ 2/3 · 🔶 1/3 (1.3 reworked) |
+| 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | 🔶 2/2 (reworked) |
+| 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | 🔶 3/3 (reworked) |
+| 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 (reworked) |
+| 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (90 / 270) | 0 | 🔶 4/4 (reworked) |
 | 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
 | 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
 | 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (900 / 1,800)** | **0** | **30/30 approved (✅) — course complete** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (945 / 1,755)** | **0** | **30/30 built; 12 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 18 approved (✅)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -42,11 +42,14 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 
 ## Open coverage gaps
 
-None. All 9 units are built and approved, and every official topic is covered — see each unit's `unit-strategy.md`
-("Official topics and hours") for the topic-by-topic mapping. The tool choices flagged during planning (the
-language-model API for Unit 4, the embedding library for Unit 6, the model-loading library for Unit 8, the survey
-and CSV for Unit 9) were all settled during each unit's build — each runs in classroom/mock mode by default, with
-the live-service setup step documented in that unit's own README and lesson notes.
+- **Source of truth (31 Oct 2026):** the Ministry's published teaching materials
+  ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)). Units 1.3, 2, 3, 4 and 5 were reworked to
+  match them (🔶, awaiting re-approval; new NotebookLM decks pending — the old patched decks are marked superseded).
+- **Units 6–9:** built from the Ministry program text and the teacher's own sources; the matching Ministry decks have not
+  arrived yet. When they do, compare and rework the same way.
+- **Unit 7 notes** need a small update because `split`/`join` now appear first in 5.4.
+- Every official topic is covered (see each unit's `unit-strategy.md`). The tool choices flagged during planning were
+  settled during each unit's build; the live-service steps are in each unit's README (Unit 4 now uses Gemini).
 
 ## Schedule
 
@@ -57,18 +60,18 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 |---:|---|---|---|---|---|
 | 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | ✅ | | |
 | 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | ✅ | | |
-| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, three-try locker; unit checkpoint | ✅ | | |
-| 4 | 2.1 AI2 Year Opening | K+L · Rules or learning? Kettle rule, Quick, Draw!, dataset detectives | ✅ | | |
-| 5 | 2.2 AI2 Year Opening | K+L · Data, bias and responsibility; dataset audit; from consumers to creators | ✅ | | |
-| 6 | 3.1 Functions | K+L · A function as a building block; `def`, the call, execution order, procedural abstraction | ✅ | | |
-| 7 | 3.2 Functions | L+L · Parameter vs argument, multiple parameters, refactoring repeats | ✅ | | |
-| 8 | 3.3 Functions | K+L · `return`, `print` vs `return`, local scope, task-calculator checkpoint | ✅ | | |
-| 9 | 4.1 Bringing AI into Code (API) | K+L · The waiter analogy, key security, a wrapper function that returns | ✅ | | |
-| 10 | 4.2 Bringing AI into Code (API) | L+L · Dynamic prompts, collecting loop, "יום מאוזן" checkpoint project | ✅ | | |
-| 11 | 5.1 Strings | K+L · A string as an ordered sequence: indices, `+`/`*`/`in`, core methods, immutability | ✅ | | |
-| 12 | 5.2 Strings | L+L · Slicing — start, end, step | ✅ | | |
-| 13 | 5.3 Strings | L+L · Dynamic slicing (`find` as a boundary) + traversal | ✅ | | |
-| 14 | 5.4 Strings | L+L · String algorithms + the "Smart Text Checker" checkpoint | ✅ | | |
+| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, the stop condition, loops that never end; unit checkpoint (Ministry 2.0, 2.1, loop-trap deck) | 🔶 | | |
+| 4 | 2.1 AI2 Year Opening | K+L · AI or not? Definition, revolutions, classic vs AI greeting (Ministry deck 3.1) | 🔶 | | |
+| 5 | 2.2 AI2 Year Opening | K+L · Quick, Draw!, data and bias worksheet (Ministry 3.2), consumers to creators | 🔶 | | |
+| 6 | 3.1 Functions | K+L · Several parameters and `return` (Ministry 4.1, 4.2) | 🔶 | | |
+| 7 | 3.2 Functions | L+L · Practice: returning functions and loops inside functions (Ministry 4.2, 4.4, 4.5) | 🔶 | | |
+| 8 | 3.3 Functions | K+L · Local and `global` variables, variable roles; checkpoint (Ministry 4.3, 4.5, 4.6) | 🔶 | | |
+| 9 | 4.1 Bringing AI into Code (API) | K+L · What is an API, the Gemini call, f-strings, the `ask_the_ai` wrapper (Ministry 5.0–5.2) | 🔶 | | |
+| 10 | 4.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | |
+| 11 | 5.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | |
+| 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | |
+| 13 | 5.3 Strings | L+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | |
+| 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ✅ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ✅ | | |
 | 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ✅ | | |
@@ -94,18 +97,18 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 |---|---|---:|---:|---|---|---|
 | 1 | 1.1 Python A Review | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u1-python-a-review/m1-lesson-notes.md) | From the codex deck + the raw 1.1; slides: `m1-slides-he.pdf` (20 slides, 90 min; NotebookLM, patched) |
 | 1 | 1.2 Python A Review | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u1-python-a-review/m2-lesson-notes.md) | From the codex deck + the raw 1.2; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched) |
-| 1 | 1.3 Python A Review | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u1-python-a-review/m3-lesson-notes.md) | Unit diagnostic checkpoint; from the codex deck + the raw 1.3; slides: `m3-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched) |
-| 2 | 2.1 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u2-ai2-year-opening/m1-lesson-notes.md) | From the codex deck + the raw 2.1; needs Quick, Draw! (web); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
-| 2 | 2.2 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u2-ai2-year-opening/m2-lesson-notes.md) | From the codex deck + the raw 2.2; slides: `m2-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
-| 3 | 3.1 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u3-functions/m1-lesson-notes.md) | From the codex deck (no raw material for this unit); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
-| 3 | 3.2 Functions | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u3-functions/m2-lesson-notes.md) | From the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched) |
-| 3 | 3.3 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u3-functions/m3-lesson-notes.md) | Unit checkpoint (task calculator); from the codex deck; slides: `m3-slides-he.pdf` (19 slides, 90 min; NotebookLM, patched) |
-| 4 | 4.1 Bringing AI into Code (API) | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u4-api/m1-lesson-notes.md) | From the codex deck; classroom-mode `ask_ai()` (no key needed); slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
-| 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u4-api/m2-lesson-notes.md) | Unit checkpoint ("Balanced Day"); from the codex deck; slides: `m2-slides-he.pdf` (17 slides, 90 min; NotebookLM, patched) |
-| 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u5-strings/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (18 slides, 90 min; NotebookLM, patched) |
-| 5 | 5.2 Strings | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u5-strings/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched) |
-| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Slides: `m3-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
-| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u5-strings/m4-lesson-notes.md) | Unit checkpoint ("Smart Text Checker"); slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched) |
+| 1 | 1.3 Python A Review | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u1-python-a-review/m3-lesson-notes.md) | Reworked to Ministry 2.0, 2.1 and the loop-trap deck; unit checkpoint (`cubes_sum`); slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 2 | 2.1 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u2-ai2-year-opening/m1-lesson-notes.md) | Reworked to Ministry deck 3.1; classic Python greeting vs an AI greeting; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 2 | 2.2 AI2 Year Opening | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u2-ai2-year-opening/m2-lesson-notes.md) | Reworked to Ministry deck 3.1 and worksheet 3.2 (Quick, Draw!, data, bias); slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 3 | 3.1 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u3-functions/m1-lesson-notes.md) | Reworked to Ministry 4.1, 4.2; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 3 | 3.2 Functions | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u3-functions/m2-lesson-notes.md) | Reworked to Ministry 4.2, 4.4, 4.5; slides: superseded — pending new NotebookLM deck (prep folder ready, 16 slides, 90 min). |
+| 3 | 3.3 Functions | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u3-functions/m3-lesson-notes.md) | Reworked to Ministry 4.3, 4.5, 4.6; `global` is taught; unit checkpoint; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 4 | 4.1 Bringing AI into Code (API) | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u4-api/m1-lesson-notes.md) | Reworked to Ministry 5.0–5.2 (Gemini); classroom stand-in `ask_the_ai()`; needs a live run with a real key; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u4-api/m2-lesson-notes.md) | Reworked to Ministry 6.1, 6.2 ("Balanced Day"); unit checkpoint; stand-in for verification; slides: superseded — pending new NotebookLM deck (prep folder ready, 17 slides, 90 min). |
+| 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u5-strings/m1-lesson-notes.md) | Reworked to Ministry 7.1, 7.2; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 5 | 5.2 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u5-strings/m2-lesson-notes.md) | Reworked to Ministry 7.1, 7.2; now Knowledge + Lab (official 90 / 270 split); slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
+| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Reworked to Ministry 8.0, 8.1; slides: superseded — pending new NotebookLM deck (prep folder ready, 16 slides, 90 min). |
+| 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u5-strings/m4-lesson-notes.md) | Reworked to Ministry 8.1, 8.2, 8.7; unit checkpoint; slides: superseded — pending new NotebookLM deck (prep folder ready, 18 slides, 90 min). |
 | 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u6-advanced-language-model/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
 | 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u6-advanced-language-model/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
 | 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u6-advanced-language-model/m3-lesson-notes.md) | Unit checkpoint ("Semantle"); classroom-mode similarity function (no model download needed); slides: `m3-slides-he.pdf` (11 slides, 90 min; NotebookLM, patched) |

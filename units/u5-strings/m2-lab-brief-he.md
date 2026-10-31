@@ -1,74 +1,91 @@
 # יחידה 5.2 – מחרוזות
 
-כיתה ח׳ · AI + Python B · **חיתוך מחרוזות: התחלה, סוף וקפיצה**
+כיתה ח׳ · AI + Python B · **חיתוך וחיפוש בתוך מחרוזת**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> `text[start:end:step]` מחזירה תווים מ-`start` עד לפני `end` (לא כולל), בקפיצות של `step`. גבול חסר משלים מההתחלה או עד הסוף.
+> `text[start:end:jump]` חותכת חלק מהמחרוזת — המקום `end` **לא** נכלל. הפעולות `replace`, `upper`, `lower` ו-`count` לא משנות את המחרוזת המקורית: הן מחזירות ערך חדש.
 
 ## דף עזר
 
 ```python
-word = "PROMPT"
-print(word[0:3])   # PRO
-print(word[3:])    # MPT
-print(word[:3])    # PRO
-print(word[:])     # PROMPT
-print(word[::-1])  # TPMORP
+text = "think big be bold show your color"
+print(text[3:])       # מהמקום 3 עד הסוף
+print(text[:4])       # thin - מקומות 0 עד 3
+print(text[5:12:2])   # בקפיצות של 2
+print(text[-5:])      # color
+print(text[::-1])     # הפוך
 ```
-
-<div dir="rtl">
-
-- חיתוך פשוט `text[a:b]` (קפיצה 1) אורכו `b - a` — בזכות זה שהסוף לא נכלל.
-- `word[2]` מחזיר **תו** אחד. `word[2:3]` מחזיר **חיתוך** באורך תו אחד — אותו ערך, סוג שונה.
-
-</div>
-
-## 1. חימום: תו אחד, לא חיתוך
-
-פתחו את `Slicer_Starter.py`.
 
 ```python
-filename = "answer.txt"
-extension = filename[-3]
-print(extension)
+s = "sometimes you win sometimes you learn"
+print(s.count("some"))          # 2
+print(s.replace("you", "we", 1))
+print("win" in s)               # True
+print(s.find("win"))            # 14
+print(s.find("lose"))           # -1 - לא נמצא
 ```
-
-חזו `txt`, הריצו — מקבלים `t` בלבד. `filename[-3]` הוא תו יחיד, לא חיתוך. תקנו: `filename[-3:]`.
-
-## 2. משימה 1: שלוש פעולות חיתוך
-
-על `answer = "TITLE: Safe AI\nBODY: Check important facts."`, כתבו ובדקו:
 
 <div dir="rtl">
 
-- `first_six(text)` — ששת התווים הראשונים
-- `last_ten(text)` — עשרת התווים האחרונים
-- `reversed_text(text)` — כל הטקסט, הפוך
+- אורך חיתוך פשוט: `end - start`.
+- `find` מחזירה מקום, או `-1`. `in` מחזירה `True` או `False`.
+- `in` ו-`find` מבדילות בין אותיות גדולות לקטנות.
 
 </div>
 
-## 3. משימה 2: mask_id(demo_id)
+## 1. חימום: השיטה שלא שינתה כלום
 
-מחזירה `"****"` ואחריו ארבעת התווים האחרונים. בדקו על `"CLASSROOM-2026-ABCD"`.
+פתחו את `Slicing_Starter.py`.
 
-> [!WARNING]
-> זהו מזהה הדגמה מזויף, לא מפתח API אמיתי. מפתח אמיתי לא מדפיסים בכלל — גם לא ממוסך.
+```python
+title = "strings are sequences"
+title.upper()
+print(title)
+```
 
-## 4. מתעדים, משתפים ובודקים יציאה
+חזו, הריצו, ותקנו שורה אחת כך שיודפס הכותרת באותיות גדולות.
 
-שומרים: `File › Save As` ← `G8_U5_M2_Slicer_<Name>.py`
+## 2. משימה 1: כותבים את החיתוך
 
-מחליפים עם בן/בת זוג: הם נותנים לכם ביטוי חיתוך לחישוב ידני לפני שמריצים.
+עבור `text = "I like to play drums"` הדפיסו בעזרת חיתוך: `drums`, `to play`, `Ikoar`.
+עבור `number = "345124987"` (שימו לב: מחרוזת!) הדפיסו: `124`, `49`, `4512`, `987`.
+יש כמה תשובות נכונות — השוו עם חברים.
 
-**עבור `word = "PYTHON"`:**
+## 3. משימה 2: count_the(text)
+
+מחזירה כמה פעמים מופיע הרצף `the`. הבדיקה: `"the other theme is there"` ← `4`.
+אחר כך חשבו: מה יחזיר `"aaaa".count("aa")`? הריצו, והסבירו.
+
+## 4. משימה 3: replace_first_three(text)
+
+מחליפה את התו `|` ב-`we` רק ב-3 המקומות הראשונים שבהם הוא מופיע, ומחזירה את המחרוזת החדשה. `"a|b|c|d|e"` ← `"awebwecwed|e"`.
+
+## 5. משימה 4: has_yes(text)
+
+מחזירה `True` אם המחרוזת מכילה את המילה `yes` בכל צורת אותיות (`yes`, `YES`, `Yes`), אחרת `False`.
+`"Maybe YES maybe no"` ← `True`; `"no way"` ← `False`.
+
+## 6. אם נשאר זמן: looks_like_email(address)
+
+מחזירה `True` כשיש בטקסט `@` **ואחריו** גם `.`. השתמשו ב-`find`.
+`"dana@school.org"` ← `True`; `"dana@school"` ← `False`; `"dana.school"` ← `False`.
+(שימו לב: התוכנית בודקת רק את הצורה — היא לא יודעת אם הכתובת קיימת.)
+
+## 7. מתעדים ושומרים
+
+שומרים: `File › Save As` ← `G8_U5_M2_Slicing_<Name>.py`
+
+---
+
+**בדיקת יציאה — עבור `text = "think big"`, מה מודפס?**
 
 <div dir="rtl">
 
-1. `word[1:4]`?
-2. `word[-2:]`?
-3. `word[::2]`?
-4. `word[::-1]`?
+1. `text[:5]`
+2. `text[-3:]`
+3. `text.find("big")`
+4. `text.replace("big", "small")` — ואחר כך `text` עצמו
 
 </div>

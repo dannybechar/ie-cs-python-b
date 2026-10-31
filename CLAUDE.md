@@ -20,7 +20,10 @@ checked, any decision the teacher must make.
 
 Build every meeting of the unit (or one meeting), one at a time.
 
-1. **Sources.** The Ministry program [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
+1. **Sources.** **The Ministry's published teaching materials are the source of truth**
+   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md): file inventory, which file feeds which
+   meeting, rulebook changes). Read the matching Ministry deck and worksheet first and follow their topics, examples
+   and exercises; the files live in `Downloads\השתלמות\מצגות-השתלמות\`. The Ministry program [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)
    is the authority: the master syllabus table (pp. 3–4) and one chapter per unit (goals, concepts, teaching methods,
    assessment, per-topic hours — pp. 5–23). **Hours come from the master table** (teacher's decision): the chapter tables
    of Units 1, 3, 5 and 7 give a different theory/practice split and are used only for the order and weight of topics.
@@ -124,9 +127,11 @@ and make the README and course map describe the current state.
   to find or do. Use only what the students have been taught: the Python A course (Grade 7) and earlier meetings of
   this course. **Lists are new in Unit 7** — no lists before it (Units 1–6 accumulate into strings and counters).
   Never, in any unit: nested loops (dropped from the new program — clarifications p. 3), tuples, sets, dictionaries,
-  list comprehensions, lists of lists (all moved to Part C), default or keyword arguments, classes.
+  list comprehensions, lists of lists (all moved to Part C), your own functions with default or keyword arguments, classes.
   f-strings are new in Unit 4 (the program lists them there, p. 12). If Turtle is used, follow Python A
-  (module-level `turtle.` calls, no `turtle.Turtle()`). Ask the teacher before using `+=` (Python A wrote `x = x + 1`).
+  (module-level `turtle.` calls, no `turtle.Turtle()`). **As the Ministry materials do:** `global` (Unit 3.3), `+=`,
+  `print(..., end="")`, `ord`/`chr` and `split`/`join` (Unit 5; the result is only shown, lists proper are Unit 7) —
+  see the rulebook in `docs/ministry-teaching-materials.md`.
 - **Code in Hebrew-facing documents (tests, briefs, handouts, Word/PDF output):** every code example — block, inline
   snippet, trace/output table cell, expected output — is set in **Courier New** (like the terminal) and runs
   **left-to-right, left-aligned**, even though the surrounding Hebrew instructions run right-to-left. Never Consolas,

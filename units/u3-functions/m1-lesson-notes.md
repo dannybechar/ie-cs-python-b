@@ -1,19 +1,25 @@
 # Unit 3.1 — Functions
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: A Function as a Building Block — No Parameters, No Return
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: Several Parameters and `return`
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** the codex deck `python_b_unit03_m01_functions_no_parameters_delivery.pptx` (the "what to
-name this repeated block" hook, the before/after comparison, the `def` anatomy, the execution-order trace, the
-reading task, the `show_welcome()` writing task, the call-before-`def` multiple-choice question, the bug clinic, the
-control-panel mini-project and its four-function architecture, the peer-review-by-names-alone activity, the exit
-card kept; "מפגש" labels removed; the bug clinic's three bugs split so the lab warm-up carries one clean bug
-(call-before-`def`) and the other two — the `function` keyword and bad indentation — move to enrichment)
+**Source of inspiration:** the Ministry's teaching materials (the source of truth for this unit):
+deck **4.1 "פעולות חלק א"** (28 slides) feeds the whole first half — the reminder of a one-parameter function, several
+parameters, parameter order, the `calculate average` and `print_total` examples, the wrong-argument-count `TypeError`,
+`print` vs `return` (`square_print` / `square_return`), the five steps of a call that returns, `return` stops the
+function, using the returned value, the forgotten-`return` `None` trap, the four-kinds table; and worksheet
+**4.2 "דף תרגילים — פעולה המחזירה ערך"** (with the teacher solution **4.2.0**) feeds the lab: exercises 1–6.
+**Changed from the previous version of 3.1** (codex deck: `def`, the call, execution order, a four-function control
+panel, no parameters): the control-panel lab is gone; no-parameter functions are now a **7-minute recap** (the program
+lists them, and some students may not have met one), and the meeting moves on to what the Ministry teaches here:
+several parameters and `return`. The call-before-`def` warm-up bug became a recap question. Not used from 4.1:
+nothing — slides 24–28 (`find_max`, `final_grade`) are held for 3.2. Changes to Ministry code: none in the lecture
+examples; `check_pass` and the others run as written.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -23,9 +29,9 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **3.1 (this)** | **`def`, the call, execution order, procedural abstraction** | 45 / 45 |
-| 3.2 | parameters vs arguments, multiple parameters, refactoring repeats | 0 / 90 |
-| 3.3 | `return`, `print` vs `return`, local scope, unit checkpoint | 45 / 45 |
+| **3.1 (this)** | **recap; several parameters and their order; `return` vs `print`** | 45 / 45 |
+| 3.2 | return practice, exam questions with `while` inside functions | 0 / 90 |
+| 3.3 | local and global variables, `global`, variable roles, unit checkpoint | 45 / 45 |
 
 ---
 
@@ -33,38 +39,45 @@ labeled **Tool Note – Thonny**.
 
 | Official goal / concept (python-b-ai.pdf p. 10) | Covered here |
 |---|---|
-| Goal Py 1: write and call a function with no parameters and no return value | ✅ every task |
-| SC 1–3: an algorithm as a building block; use vs. internal description; use vs. implementation | ✅ the before/after comparison, procedural abstraction |
-| Concepts: function; Python syntax: colon, indentation, `def` | ✅ |
-| Teaching: introduce every concept in the context of a real problem; black box | ✅ hook, black-box slide |
+| Goal Py 1–2: write and call a function without / with parameters, no return value | ✅ recap (7 min) and multi-parameter `print_total` |
+| Goal Py 3: write and call a function with parameters that returns a value | ✅ `return`, using the value, worksheet 4.2 |
+| SC 1–3: an algorithm as a building block, used by its name, not by its body | ✅ "the caller gets the value and does not care how it was computed" |
+| Python syntax: colon, indentation, `def` | ✅ recap |
 
 ### Deliberate exclusions
-Parameters (3.2), `return` (3.3), any function with parameters or a return value.
+Scope and `global` (3.3), exam-style loops inside functions (3.2), default and keyword arguments, returning more than
+one value (the Ministry's worksheet 4.6 does it; it is a tuple and is not taught here), recursion, lists.
 
 ---
 
 ## 3. Lesson Goal
 
-**`def` defines a function; only a call runs it — and Python must already know the `def` before that call.**
+**A function can take several parameters (matched to the arguments by position) and can send a value back with
+`return` — `print` only shows a value, `return` hands it to the line that called the function.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-def show_header():          # def: this defines the function, it does not run it
-    print("MISSION CONTROL")
-    print("---------------")
+def print_total(product, price, quantity):   # three parameters, matched by position
+    total = price * quantity
+    print("Total for", product, "is:", total, "shekels")
 
 
-show_header()                # only the call runs the body
+def square_return(num):
+    return num ** 2                           # the value goes back to the call
+
+
+x = square_return(5)                          # x = 25
 ```
 
-- Python reads every `def` top to bottom first, then runs the main program from the top; a call written **before**
-  its `def` fails with `NameError` — the name isn't known yet.
-- Indentation marks what belongs to the function's body; the first unindented line is back in the main program.
-- **Procedural abstraction:** once a function has a name, you use it by that name — you don't need to reread its body
-  every time.
+- The first argument fills the first parameter. Swapping the order does not always fail — it can silently give a wrong answer.
+- The number of arguments must equal the number of parameters: `TypeError: print_total() missing 1 required positional argument: 'quantity'`.
+- `print` shows a value on the screen. `return` gives a value to the call, so it can be saved, compared, added.
+- `return` ends the function immediately: any line after it in the same branch never runs.
+- A function with no `return` gives back `None`.
+- Same idea students know: `name = input()` — `input()` is a function that returns a value.
 
 ---
 
@@ -72,88 +85,73 @@ show_header()                # only the call runs the body
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 3.1 – פעולות · "פעולה כאבן בניין" |
-| 2–8 | **Hook (pairs):** a game program prints a round title, a divider line and short instructions every round. Which lines deserve one shared name? |
-| 8–13 | Before/after: repeated code vs. named functions — one place to fix, a main program that reads like an outline |
-| 13–20 | Anatomy of `def show_header():` — line by line: `def`, name, empty parentheses, colon, indented body, the call |
-| 20–24 | Procedural abstraction: use a function by its name; the body explains "how", the name explains "what" |
-| 24–31 | **Trace (alone, then check):** `def beep(): print("BEEP")` then `print("A"); beep(); print("B"); beep()` — write the four output lines before running |
-| 31–35 | Answer: `A`, `BEEP`, `B`, `BEEP` — defining `beep` doesn't print anything by itself |
-| 35–41 | **Read and predict (alone, 2 min, then pairs):** a `signal()` function with two `print`s, called twice with one line between — mark the function body and the main program in two colors, then write all four output lines |
-| 41–43 | Answer: `READY`, `GO`, `PAUSE`, `READY`, `GO` |
+| 0–2 | Title: יחידה 3.1 – פעולות · "כמה פרמטרים וערך חוזר" |
+| 2–9 | **Recap (pairs, predict):** a zero-parameter `show_header()` and a one-parameter `greet(name)`; write the output of four lines of calls. Cover `def` vs the call, and that the `def` must come before the call (`NameError` otherwise) — students who have never seen a no-parameter function get it here |
+| 9–17 | **Several parameters (deck 4.1, slides 4–7):** the comma in the `def` and in the call; `greet("Dana", 14)` vs `greet(14, "Dana")` — predict the second line; `print_average(85, 95)` |
+| 17–25 | **Write it (alone, then check):** `print_total("pencil", 3, 5)` → `Total for pencil is: 15 shekels` (slides 8–9). Then show the wrong-count call and read the `TypeError` aloud |
+| 25–28 | Hook: `name = input()` gives a value back. Can our own functions? |
+| 28–36 | **`print` vs `return`:** `square_print(5)` vs `x = square_return(5)`; the five steps of a call; `return` stops the function; run the version with a `print` after the `return` |
+| 36–40 | **Predict:** `result = double(6)` then `print(result)` (12). Using the returned value: in `print`, in an `if`, in an expression (`square_return(5) + 10`); `average_grade(55, 65)` with Passed / Failed |
+| 40–43 | **The trap:** `square_no_return(5)` prints `None` — the most common `return` mistake. The four-kinds table (one / several parameters × without / with `return`) |
 | 43–45 | The lab missions |
 
 ---
 
 # 6. Second 45 Minutes — Lab
 
-Starter: [`Panel_Starter.py`](Panel_Starter.py). Reference: [`Panel_Reference.py`](Panel_Reference.py).
+Starter: [`Return_Starter.py`](Return_Starter.py). Reference: [`Return_Reference.py`](Return_Reference.py).
 
-## 45–53 — Warm-up: called before it's known
+## 45–50 — Warm-up: the function that prints `None`
 
 ```python
-# Warm-up: run this. Read the error message, then move one line to fix it.
+def triple(num):
+    num * 3
 
-show_status()
 
-
-def show_status():
-    print("READY")
+result = triple(7)
+print(result)
 ```
 
 ```text
-NameError: name 'show_status' is not defined
+None
 ```
 
-Python runs the main program top to bottom; at the call, `show_status` hasn't been defined yet. Fix: move the `def`
-above the call → `READY`.
+The body computes `num * 3` and throws it away; with no `return` the function gives back `None`. Fix: `return num * 3` → `21`.
 
-## 53–65 — Task 1: `show_welcome()`
+## 50–60 — Task 1: trace and find the error (worksheet 4.2, exercises 1–3)
 
-Define `show_welcome()` — two lines, no parameters, no return. Call it twice, with something else printed between
-the calls. Write the expected output before running.
+On paper first, then run:
 
-```text
-WELCOME
-Choose a mission
----
-WELCOME
-Choose a mission
-```
+1. `calculate_box(4, 5)` — `Area is: 20`.
+2. `sum_prices(25, 40)` — three parameters, two arguments: `TypeError: sum_prices() missing 1 required positional argument: 'item3'`. Fix: send three arguments (`25, 40, 30` → `Total price: 95`).
+3. `check_pass(85)` — `Result: Pass`. The line `print("Congratulations!")` is after the `return`, so it never runs.
 
-Ask: why does changing the text inside `show_welcome()` change both calls at once?
+## 60–66 — Task 2: `rectangle_perimeter(length, width)` (exercise 4)
 
-## 65–80 — Task 2 (mini-project): control panel
+Fill in the blanks (`2 * (length + width)`, `return`); call with 6 and 3 → `Perimeter: 18`.
 
-Four functions — `show_title`, `show_status`, `show_help`, `show_end` — each printing one line, no parameters, no
-return. Call them in a sensible order from the main program; call `show_status` twice (once near the start, once
-near the end).
+## 66–72 — Task 3: from `print` to `return` (exercise 5)
 
-```text
-MISSION PANEL
-READY
-Press ENTER to continue
-READY
-Session complete
-```
+`calculate_pay(hours, wage)` prints the pay; change it to return the pay, save in `total`, print → `Total pay: 400` (8 hours, 50 per hour).
 
-Build **bottom-up**: write and test one function at a time before calling them all together.
+## 72–79 — Task 4: `get_cheaper(price1, price2)` (exercise 6)
 
-## 80–84 — Peer review by name alone
+Two returns inside `if` / `else`. `get_cheaper(80, 55)` → `Cheaper price is: 55`. Ask: what does the function give back if the prices are equal? (the second one — both are the same number.)
 
-Swap with a partner. They read only your function **names** (not the bodies) and guess what the program does. If
-the guess is right, the names are clear; if not, rename or split a function that does more than one job.
+## 79–82 — If time
 
-## 84–90 — Save and exit check
+`average_grade(grade1, grade2)` returns the average; use the returned value in an `if` (`Passed` / `Failed`). `average_grade(55, 65)` → `Passed`.
 
-Save As `G8_U3_M1_Panel_<Name>.py`.
+## 82–90 — Save and exit check
 
-1. What does defining a function do, and what makes it actually run?
-2. Two lines in a program are identical. What is the first sign that they belong in a function?
+Save As `G8_U3_M1_Return_<Name>.py`.
+
+1. A function should return the double of a number but the call prints `None`. What is missing?
+2. In `def f(a, b):` the call is `f(5)`. What happens, and what is the error called?
+3. What is the difference between `print(x)` inside a function and `return x`?
 
 ### Tool Note – Thonny
-The **Variables** view (View › Variables) only shows variables in the currently running frame — while stepping
-through a function call, it will not show the main program's variables. That's expected, not a bug.
+Thonny's **Shell** shows the value of an expression when you type it, which can look like `print`. In a program file nothing is shown unless `print` is called.
 
 ---
 
@@ -161,19 +159,18 @@ through a function call, it will not show the main program's variables. That's e
 
 | Misconception | Correction |
 |---|---|
-| Defining a function runs it | Only a call runs the body |
-| A call can appear anywhere in the file | It must come after the `def`, in the order Python runs the file |
-| Fewer lines in the main program is the whole point | The real win is one place to fix and a clear outline — a function that hides one bad job is not an improvement |
-| A function must print something to be useful | It can also just organize repeated steps (this meeting); returning a value comes in 3.3 |
-| Indentation is just style | It marks exactly which lines belong to the function's body |
+| `print` inside the function "returns" the result | It only shows it; the call gets `None` |
+| Arguments match parameters by name | By position: `greet(14, "Dana")` runs, and is wrong |
+| Code after `return` still runs | `return` ends the function at once |
+| A function with no `return` gives nothing | It gives `None`, and `None` can be saved, printed — and break later arithmetic |
+| Every function must return something | Both kinds are right; choose by what the caller needs (the four-kinds table) |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The `beep()` and `signal()` predictions written before running
-- The call-before-`def` warm-up explained, not only fixed
-- `show_welcome()` called twice with the expected output written first
-- The four-function control panel, built and tested one function at a time
-- The peer-name-guessing review completed with at least one rename or split, if needed
-- Exit check
+- The recap prediction and the `greet(14, "Dana")` prediction written before running
+- `print_total` written without looking at the slide
+- The warm-up explained, not only fixed
+- Tasks 1–4 done with the worksheet's expected output
+- Exit check (all three questions)

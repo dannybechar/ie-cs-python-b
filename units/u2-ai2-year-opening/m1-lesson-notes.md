@@ -1,15 +1,15 @@
 # Unit 2.1 — AI2 Year Opening
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Rules or Learning? — Classical Programming vs Machine Learning (Quick, Draw!)
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: AI or Not? A Greeting for Grandma Sarah — Classic Code vs AI
 
-**Status:** Approved by the teacher  
+**Status:** Built, awaiting teacher approval 🔶  
 **Duration:** 90 minutes  
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab  
 **Minutes (theory / practice):** 45 / 45  
-**Current tool:** Thonny, Quick, Draw! (web)  
-**Source of inspiration:** the codex deck `python_b_unit02_m01_ai_vs_rules_delivery.pptx` ("who wrote the decision?" sort, two mechanisms, the kettle rule, the learning pipeline, Quick, Draw! with privacy rules and an offline fallback, the guess log, the failure-analysis example, the dataset facts, the detective chain, the exit sentence kept; its "design your own recognizer" block dropped — 2.2 builds a fuller plan; "מפגש" labels removed) and the teacher's raw `G8_Unit2_M1` (the rule-based message flag kept as the warm-up, with its "rules, not AI" label; its "mixed system" boundary case kept)  
-**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny** or **Tool Note – Quick, Draw!**.
+**Current tool:** Thonny, a chatbot in the browser (teacher demo)  
+**Source of inspiration:** the Ministry deck **3.1 "שיעור פתיחה לשנה ב AI2"** (slides 1–34 and 48; the main source): the "AI or not?" image warm-up (slides 2–7), the six-product quiz "Is there AI inside?" with its answers (12–18), the shared-feature discussion and the definition of AI (19–20), the four revolutions and "why now: brain + power + fuel" (21–24), the question "landing on the moon vs writing a greeting" (25–26), and the greeting for Grandma Sarah — classic Python in three steps (print, then input and if, then the hobby), then an AI-written greeting and the comparison table (27–33). Slides 35–47 (Quick, Draw!, the programmers' role, consumers to creators, the road map) are in 2.2. **Changed from the previous version (Rules or Learning?):** the codex and raw material are replaced by the Ministry flow; the kettle rule, the rule-based message flag and the Quick, Draw! guess log are gone from 2.1 (Quick, Draw! and the kettle failure now live in 2.2 with the Ministry worksheet). The greeting program is the lab. **Changed from the Ministry:** the code prints English strings (a gendered Hebrew verb does not translate, so the `if` branch picks a sign-off line instead; English also keeps Thonny's console left-to-right); the AI greeting is shown in a chatbot, not through code (the API arrives in Unit 4).  
+**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny** or **Tool Note – Chatbot**.
 
 ---
 
@@ -17,30 +17,28 @@
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **2.1 (this)** | **AI around us → rules vs learning from examples → the kettle rule → Quick, Draw! → dataset detectives** | 45 / 45 |
-| 2.2 | dataset, diversity, bias → three real cases → dataset audit in Python → improvement plan → the year's vision | 45 / 45 |
+| **2.1 (this)** | **AI or not? → definition → the revolutions → classic greeting in Python vs AI greeting** | 45 / 45 |
+| 2.2 | Quick, Draw! → worksheet "איך מחשב רואה בלי עיניים?" → data and bias → consumers to creators, the year's road map, responsibility | 45 / 45 |
 
 ---
 
 ## 2. Official Scope Used in This Meeting
 
-| Official goal / concept / method (python-b-ai.pdf pp. 3, 8–9) | Covered here |
+| Official goal / concept / method (python-b-ai.pdf pp. 3, 8–9; Ministry deck 3.1) | Covered here |
 |---|---|
-| Master table: the AI revolution; classical programming vs AI | ✅ hook, two mechanisms |
-| Goal 1: classical programming (fixed rules written by a developer) vs machine learning (a model that learns patterns from examples) | ✅ sort, mechanisms, kettle rule |
-| Concepts: machine learning, rule-based, dataset, pattern recognition | ✅ |
-| Method 1: open with Quick, Draw! and a discussion of how the computer guesses in real time | ✅ Task 2 |
-| Method 2: the worksheet "איך מחשב רואה בלי עיניים?" and detective work in the public drawings dataset | ✅ guess log, Task 3 |
-| Assessment 1: why recognition failed (e.g. no modern / electric kettles in the dataset) | ✅ Task 1, Task 3 |
+| Master table: the AI revolution; classical programming vs AI | ✅ revolutions, why now, greeting in both ways |
+| Goal 1: rule-based programming vs machine learning | ✅ comparison table, the lab |
+| Concepts: machine learning vs rule-based, pattern recognition | ✅ quiz, definition |
+| Method 1: open with a discussion (here: the "AI or not?" warm-up and quiz) | ✅ |
 
 ### Deliberate exclusions
-Neural networks, training mathematics, bias as a formal concept (2.2), APIs (Unit 4).
+Neural-network internals, training mathematics, the language-model API (Unit 4), Quick, Draw! (2.2). Python stays at Unit 1 level: `print`, `input`, `if`/`else`, `+` on strings, `int()`.
 
 ---
 
 ## 3. Lesson Goal
 
-**In classical code a person writes the rules; in machine learning a model finds patterns in many examples — so what it can recognize depends on the examples it saw.**
+**Classic code does exactly what a person wrote, so the same input always gives the same output. An AI system learns from examples and builds a new answer each time — and its answer is something to check.**
 
 ---
 
@@ -48,17 +46,18 @@ Neural networks, training mathematics, bias as a formal concept (2.2), APIs (Uni
 
 <div dir="rtl">
 
-| תכנות קלאסי | למידת מכונה |
+| תכנות קלאסי | בינה מלאכותית |
 |---|---|
-| קלט ← חוקים שאדם כתב ← פלט | דוגמאות מתויגות ← אימון ← מודל ← ניחוש על קלט חדש |
-| קל להסביר איזה חוק הופעל | ההצלחה תלויה בדוגמאות |
-| מתאים לבעיות חד-משמעיות | מתאים לזיהוי של דברים מגוונים (ציורים, קול, תמונות) |
+| פועל לפי חוקים קבועים מראש, התוצאות צפויות | לומדת מדוגמאות ויוצרת תשובות חדשות בכל פעם |
+| אותו קלט ← אותה ברכה | אותו קלט ← ברכה שונה בכל הרצה |
+| המחשב מבצע את מה שנכתב לו | המחשב מנסח בעצמו לפי ההגדרות שקיבל |
 
 </div>
 
-- In both, **people** choose the goal, the data and the tests.
-- A decision alone does not make a program AI; many real systems mix learned parts and written rules.
-- A model's guess is a probability, not a fact — it can be confidently wrong.
+- **Shared feature of every product that contains AI** (the Ministry's discussion): it learns from examples (data) and improves over time.
+- **Definition (slide 20):** AI is the ability of a computer to do things that usually require human abilities — learning, thinking, decision-making — in conditions that were not defined in advance.
+- **Why now:** brain (programs that imitate how the human brain works) + power (computers became much faster) + fuel (huge amounts of data on the internet).
+- Safety: a chatbot's greeting is a **draft to check** — is it true about this grandmother, is it respectful, did it invent a fact?
 
 ---
 
@@ -66,92 +65,62 @@ Neural networks, training mathematics, bias as a formal concept (2.2), APIs (Uni
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 2.1 – פתיחת שנת AI2 · "חוקים או למידה?" |
-| 2–6 | **Hook — the AI revolution (pairs):** list three places you met AI this week |
-| 6–10 | **Who wrote the decision? (vote, then pairs):** a tax calculator with a fixed formula · a spam filter that adapts to new messages · a traffic light on a fixed schedule · a system that recognizes a hand drawing |
-| 10–12 | Answer: rules — the calculator, the traffic light; learning from examples — the spam filter, the drawing |
-| 12–18 | Two mechanisms (table above); people choose goals, data and tests |
-| 18–22 | **Predict (pairs):** which kettle drawings will this rule miss? |
-| 22–24 | Answer: an electric kettle, a kettle drawn from the side, one without a clear handle — more `if`s never cover every way to draw |
-| 24–30 | Learning from examples: many labeled drawings → training finds repeating patterns → a model → a guess on a drawing it never saw |
-| 30–34 | Boundary: a mixed system (a learned spam score plus a written "block list" rule); "a decision" is not enough to call it AI |
-| 34–40 | Quick, Draw! and its dataset: about 50 million drawings in 345 categories from players around the world; each drawing is saved as strokes over time, with its category and whether it was recognized. Privacy: no names or personal details |
-| 40–45 | The guess log (observation → hypothesis → test) · the lab missions |
-
-The kettle rule (18–24):
-
-```python
-if circles == 1 and lines >= 2:
-    print("kettle")
-else:
-    print("not kettle")
-```
+| 0–1 | Title: יחידה 2.1 – פתיחת שנת AI2 · "בינה מלאכותית או לא?" |
+| 1–6 | **Warm-up "AI or not?" (whole class, hands):** four pairs of similar images (Ministry deck, slides 3–6); the left image made by AI → raise the left hand, the right → the right hand; reveal each answer. Punchline (slide 7): half the pictures were photographed, half were made by a computer that never left the room — how did it learn what a dog looks like? "We will learn that this year." |
+| 6–13 | **Quiz — is there AI inside? (pairs, thumbs up or down per product, then reveal):** calculator · text autocorrect · Netflix recommendations · voice assistant · automatic mall door · license-plate recognition in a parking lot |
+| 13–15 | Reveal the answers with reasons (table in the brief): the calculator and the automatic door follow fixed rules; the other four learn from data |
+| 15–19 | **Discussion (pairs, then class):** what do all the products with AI share? (they learn from examples — data — and get better over time). Then the definition of AI |
+| 19–22 | The four revolutions (steam, electricity, computers, AI) — "how would your life look if you were born before each?"; **predict:** how long did it take Netflix to reach 1 million subscribers? ChatGPT? (3.5 years; 5 days) |
+| 22–25 | Why now: brain + power + fuel |
+| 25–27 | **The big question (pairs):** a computer landed a spacecraft on the moon in 1969 but could not write an original greeting for Grandma Sarah — what is the difference between the two tasks? (one has exact rules that can be written down; the other has none) |
+| 27–30 | **Live code 1:** the greeting in two `print` lines. Predict: what happens each time you run it? (the same two lines) |
+| 30–33 | **Live code 2:** `input` + `if`/`else` — who is wishing? Predict the output for "grandson" and for "granddaughter" |
+| 33–37 | **Live code 3:** the hobby question joined with `+`. Predict: run it twice with the same answers — the same greeting? Yes — "the same as last year's birthday". The computer only does what we wrote |
+| 37–41 | **The AI greeting (teacher demo in a chatbot, not code):** ask for a birthday greeting for Grandma Sarah, add a style (funny, rhymes or moving), her hobby and who is wishing. Run the same request twice — different greetings. Students find one thing in the text that must be checked |
+| 41–45 | Comparison table (classic vs AI); the lab mission |
 
 ---
 
 # 6. Second 45 Minutes — Lab
 
-Starter: [`Rules_Starter.py`](Rules_Starter.py). Reference: [`Rules_Reference.py`](Rules_Reference.py).
+Starter: [`Greeting_Starter.py`](Greeting_Starter.py). Reference: [`Greeting_Reference.py`](Greeting_Reference.py).
 
-## 45–51 — Warm-up: a rule you can point to
+## 45–50 — Warm-up bug: the card that says "friend"
 
 ```python
-# Warm-up: this is classical code - rules written by a person, not AI.
-# Predict the output for 180 / yes, 180 / no and 100 / yes, then run and check.
-
-
-def flag_message():
-    message_length = int(input("Message length: "))
-    has_link = input("Contains a link? (yes/no): ") == "yes"
-    if message_length > 150 and has_link:
-        print("Flag message")
-    else:
-        print("Allow message")
+def birthday_card():
+    friend = input("Friend's name: ")
+    print("Happy birthday, friend!")
 ```
 
-180 / yes → `Flag message` · 180 / no → `Allow message` · 100 / yes → `Allow message`. Change 150 to 100; 120 / yes → `Flag message`. Ask: did the program learn anything? (No — a person changed a rule.) No warm-up bug in this meeting: the point is that every result can be traced to one written line.
+Typed `Dana` → `Happy birthday, friend!`. The word `friend` is inside the quotes, so it is text, not the variable. Fix: `print("Happy birthday, " + friend + "!")`. Say it: a variable name inside quotes is just letters.
 
-## 51–57 — Task 1: break the kettle rule
+## 50–58 — Task 1: `greeting_1()`
 
-Run `kettle_rule()` and look for two failures:
+Two `print` lines: `Happy birthday, Grandma Sarah!` and `I wish you health and happiness!`. Run it three times. Change one word. Who decided what the program says? (the person who typed it)
 
-<div dir="rtl">
+## 58–69 — Task 2: `greeting_2()`
 
-| ציור | עיגולים | קווים ישרים | פלט | נכון? |
-|---|---|---|---|---|
-| קומקום מסורתי | 1 | 3 | kettle | כן |
-| קומקום חשמלי גבוה | 0 | 6 | not kettle | לא — קומקום שהוחמץ |
-| תמרור על עמוד | 1 | 2 | kettle | לא — "קומקום" מזויף |
+Ask `Who is wishing? (grandson/granddaughter): `, print the first line, then a last line that depends on the answer. Tests: `grandson` → `Your grandson wishes you health and happiness!` · `granddaughter` → `Your granddaughter wishes you health and happiness!`. (The Ministry version branches on a gendered Hebrew verb; in English the sign-off line carries the difference.)
 
-</div>
+## 69–80 — Task 3: `greeting_3()`
 
-Ask: add a condition that fixes one of them — what does it break? (Assessment 1: rules miss what nobody planned for.)
+Add a question about the hobby and use the answer in one line with `+`. Test: `grandson`, `hiking` → the middle line `I wish you lots of joy with hiking!`. Run twice with the same answers: identical output — **classic code never surprises**.
 
-## 57–69 — Task 2: Quick, Draw! with a guess log (pairs)
+## 80–85 — If time (choose one)
 
-One draws, one logs; swap after three drawings; six drawings in all. For each drawing: what was asked · when the right guess came · wrong guesses before it · what might have confused the model · one change to test next time.
-Model entry (show it): *observation* — it guessed "cup" instead of "kettle"; *hypothesis* — the handle came before the spout, so it looked like a cup; *test* — draw again, spout first; *temporary conclusion* — stroke order may matter.
+- `greeting_4()`: ask for her age (`int`) and add a line when she is 80 or older.
+- Pairs: ask a chatbot for a greeting with the same facts (no real names — only "Grandma Sarah"), twice. Write one difference between the two answers and one sentence in them that you would want to check.
 
-### Tool Note – Quick, Draw!
-`quickdraw.withgoogle.com` → "Let's Draw!". No sign-in is needed; don't type any names. If the site is blocked, use the printed drawing strips: students guess at which stroke the object becomes recognizable.
+## 85–90 — Save and exit check
 
-## 69–81 — Task 3: dataset detectives
-
-`quickdraw.withgoogle.com/data` → choose a category (kettle recommended — the official example). Compare drawings that were recognized with ones that were not: two patterns in the recognized ones, one feature of the missed ones, one careful hypothesis.
-Example chain: recognized kettles have a clear spout and handle; some missed ones are tall electric kettles with no long spout → hypothesis: the dataset (or what the model learned) represents traditional kettles better → test: count successes by kettle type over more drawings. One drawing proves nothing.
-
-## 81–85 — Share
-
-Each pair reads one hypothesis and the test that would check it.
-
-## 85–90 — Exit check
-
-1. Complete: "When a model makes a mistake on a new drawing, the first thing to check is …" (e.g. whether similar examples were in the data it learned from)
-2. Rules or learned from examples: a program that gives a discount to anyone over 65 · an app that recognizes songs from a short recording? (rules · learned)
-3. Why doesn't adding more `if`s make the kettle rule reliable? (people draw in endless ways — rules only cover what their writer imagined)
+Save: `File › Save As` → `G8_U2_M1_Greeting_<Name>.py`. Exit check (in the brief): 1) a program that always gives the same greeting for the same answers — classic or AI? 2) one thing a chatbot's greeting needs checking for; 3) why is the calculator not AI while the autocorrect is?
 
 ### Tool Note – Thonny
-Only one call at the bottom of the file is active; remove the `#` from `kettle_rule()` and add it to `flag_message()` for Task 1.
+Remove the `#` from one call at the bottom for each task and put it back on the previous one.
+
+### Tool Note – Chatbot
+Use the chatbot the school allows. Never type a real person's name or personal details; the model's text is a draft that a person checks.
 
 ---
 
@@ -159,19 +128,17 @@ Only one call at the bottom of the file is active; remove the `#` from `kettle_r
 
 | Misconception | Correction |
 |---|---|
-| Every program that decides is AI | A program that follows written rules is classical code |
-| AI means there are no rules anywhere | Many systems mix learned models and written rules |
-| A model learns by itself, without people | People choose the goal, the examples and the tests |
-| A fast right guess means the computer understands the object | It matched patterns from examples; it can be confidently wrong |
-| A big dataset covers everything | Size helps; variety and quality must be checked separately |
-| One failed drawing proves the dataset is biased | It gives a hypothesis to test on more examples |
+| Every smart-looking program is AI | A calculator and an automatic door follow fixed rules |
+| Code with `input` and `if` that "adapts" is AI | It has only the branches a person wrote; the same input gives the same output |
+| AI is magic that thinks like a person | It learned patterns from many examples and produces new text each time |
+| The chatbot's greeting is correct because it sounds good | It may invent facts or fit badly — check it |
+| AI appeared suddenly | Brain, power and fuel came together over decades |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The "who wrote the decision" sort with reasons
-- Two failures of the kettle rule and why more rules don't solve it (official assessment 1)
-- A guess log with observation → hypothesis → test for at least three drawings
-- One dataset hypothesis with a planned check (method 2)
+- Quiz answers with a reason for each of the six products
+- `greeting_1`–`greeting_3` run with the listed tests; the warm-up fixed
+- A sentence on what differs between the classic and the AI greeting
 - Exit check

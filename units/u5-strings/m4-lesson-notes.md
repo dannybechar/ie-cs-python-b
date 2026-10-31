@@ -1,18 +1,25 @@
 # Unit 5.4 — Strings
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: String Algorithms + the "Smart Text Checker" (Unit Checkpoint)
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: String Algorithms, a Secret Code, and the Unit Checkpoint
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
-**Structure:** Lab + Lab (20 min guided practice, then 70 min lab, including the capstone project)
+**Structure:** Lab + Lab (short demo → task → short demo → task, ending with a checkpoint)
 **Minutes (theory / practice):** 0 / 90
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit05_strings_complete_unit.md`, meeting 4 — its own clock table, the
-tool-choice recap table (method / slice / loop), the project brief, the choose-your-tool table, the student skeleton
-and full solution (`normalize`, `count_digits`, `count_letters`, `count_spaces`, `hide_digits`, `make_preview`), the
-report-as-a-string extension, the seven-case test table, the peer-review checklist, the "what the program can and
-cannot check" boundary discussion and the closing summary questions kept nearly unchanged.
+**Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
+decks **8.0 / 8.1** — exercises **#4, #5, #6, #7**, the ASCII enrichment (`ord`, `chr`, the circular next-letter cipher),
+and the `split` / `join` slides (8.1 slides 20–23); worksheet **8.2** (questions 2–8); the one-page summary **8.7**.
+**Changed from the previous version:** the whole "Smart Text Checker" project (normalize / counters / preview / hidden
+digits / seven test cases / 20-point rubric) is replaced. Its ideas that the Ministry also teaches — counting with a loop,
+building a string with `+=`, `startswith` — already appear in 5.3 and in exercises 4–7, so the project is no longer a
+separate build; the checkpoint is now three functions from worksheet 8.2 (3, 4, 7), and the unit's "what a program can and
+cannot tell about AI text" discussion stays as the closing five minutes. **Fixes to the Ministry text:** its
+next-letter solution prints `"a"` with a plain `print` (a new line in the middle of the answer) and handles only `"z"`; the
+course version builds the result with `+=` and returns it. Worksheet 8.2 Q7's hint (index parity) gives `"TrUsT YoUrSeLf"`,
+not the printed `"TrUsT yOuRsElF"` — alternate by *letter*, not by index. Worksheet Q6 asks for the *word* `it`; counting the
+characters `it` also finds `with`, `little` — the reference counts words.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -22,126 +29,160 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 5.1 | indices, `+`/`*`/`in`, core methods, immutability | 45 / 45 |
-| 5.2 | slicing: start, end, step | 0 / 90 |
-| 5.3 | dynamic slicing + traversal | 0 / 90 |
-| **5.4 (this)** | **string algorithms + the "Smart Text Checker" checkpoint** | 0 / 90 |
+| 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
+| 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
+| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| **5.4 (this)** | **exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint** | 0 / 90 |
 
 ---
 
 ## 2. Official Scope Used in This Meeting
 
-| Official goal (python-b-ai.pdf p. 14–15) | Covered here |
+| Official goal (python-b-ai.pdf pp. 13–15) | Covered here |
 |---|---|
-| Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ the whole project |
-| Goal 9: split a solution into functions that take a string and return a value | ✅ every function |
-| Goal 10: apply string skills to prompts and AI-generated text | ✅ the project's subject matter |
-| Assessment (source §4): a graded modular text-processing project | ✅ the checkpoint |
+| Goal 7: traverse with `for`, and with `range(len(text))` when the place matters | ✅ initials, `count_is_b`, the checkpoint |
+| Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ exercises 4–7, cipher, `alternate_case` |
+| Goal 9: functions that take a string and return a value | ✅ every task |
+| Goal 10: apply string skills to prompts and AI text | ✅ framing: the closing discussion and the cipher as a "text transformer" |
+| Ministry additions (not in the program text): `ord`/`chr`, `split`/`join` | ✅ `ord`/`chr` practised; `split`/`join` **shown and printed only** |
 
 ### Deliberate exclusions
-Any new string method or slicing form; lists (Unit 7).
+Lists as a topic: the result of `split` is printed and passed straight to `join`, never indexed, looped over or changed
+(Unit 7 does that). No nested loops, no dictionaries, no comprehensions. The 8.2 Q8 challenge is solved with `find` and a
+loop, not `split`.
 
 ---
 
 ## 3. Lesson Goal
 
-**A text-processing problem breaks into small, single-purpose functions — each takes a string and returns a
-result — combined into one report; the right tool per task is a method, a slice, or a loop, never all three at once
-out of habit.**
+**A text problem becomes a loop over the characters (or over the places) plus a counter, a remembered position, or a new
+string built with `+=`; characters are numbers underneath (`ord`, `chr`), and a function takes a string and returns a value.**
 
 ---
 
 ## 4. Core Mental Models
 
-<div dir="rtl">
-
-| משימה | כלי מתאים |
+| Task | Tool |
 |---|---|
-| המרה לאותיות קטנות | `lower` |
-| הסרת רווחים חיצוניים | `strip` |
-| קדימון | חיתוך |
-| ספירת מילה קבועה | `count` לאחר נרמול |
-| ספירת סוגי תווים | לולאה ומונים |
-| הסתרת כל ספרה | לולאה ובניית מחרוזת |
-| בדיקת כותרת | `startswith` |
+| count a letter, a substring | loop and counter, or `count` |
+| the first word | `find(" ")` and a slice |
+| the last word, a word that starts after a space | a loop that remembers a place, or looks at `text[index - 1]` |
+| a word that is *the whole word* `it` | build the word letter by letter, compare at each space |
+| change every letter | loop and `+=` into a new string |
+| letter ↔ number | `ord("a")` is `97`; `chr(97)` is `"a"` |
 
-</div>
+```python
+print(ord("a"), ord("b"), chr(100))      # 97 98 d
+print(chr(ord("c") + 1))                  # d  - the next letter
+text = "guitar piano drums"
+print(text.split(" "))                    # ['guitar', 'piano', 'drums']  - a LIST, shown only
+print("-".join(text.split(" ")))          # guitar-piano-drums
+```
 
-- **What the program can check:** length and structure, specific characters and words, a header, digit or
-  warning-word occurrences.
-- **What it cannot check on its own:** whether a fact in an AI answer is true, whether a source is reliable, whether
-  the recommendation fits this reader, whether the model actually understood the request.
+- Next-letter cipher: `z` has no "next" letter, so it wraps to `a` — a special case in the loop.
+- `"is"` hides inside `this` and `his`: counting characters is not counting words.
+- What a program can check about AI text: its **shape** (length, a title, digits, a spelling of a word). What it cannot: whether
+  it is true, whether a source is reliable, whether the answer fits the reader.
 
 ---
 
-# 5. Guided Practice (0–20)
+# 5. Lab Rhythm
+
+Starter: [`Cipher_Starter.py`](Cipher_Starter.py). Reference: [`Cipher_Reference.py`](Cipher_Reference.py).
+If the class is slow, skip the second version of Tasks 3 and 4 (the version without `count`) — but not the checkpoint.
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap:** matching a tool to a task (the table above) |
-| 8–20 | **Planning:** break the project into functions; for each, decide its parameter(s) and its return value **before** writing any body |
+| 0–5 | **Recap with the Ministry summary (8.7):** the one-page list of string operations. "Which tool?" quick-fire: say a task, class points to the tool in the table |
+| 5–11 | **Warm-up bug:** `if character == "a" or "e" or …` |
+| 11–19 | **Task 1:** first and last word (#4) |
+| 19–27 | **Task 2:** initials (#5) |
+| 27–36 | **Task 3:** count `"is"` with and without `count` (#6) |
+| 36–47 | **Task 4:** count the vowels with and without `count` (#7) |
+| 47–52 | **Demo:** `ord`, `chr`, the numbers behind letters (8.0 slides 22–25) |
+| 52–63 | **Task 5:** the next-letter cipher |
+| 63–70 | **Demo + Task 6:** `split` and `join` — shown and printed only |
+| 70–85 | **Checkpoint:** `middle`, `edges`, `alternate_case` (worksheet 8.2 Q3, Q4, Q7) |
+| 85–90 | Save, exit check, and the "what a program cannot check" discussion |
 
 ---
 
-# 6. Lab (20–90)
+# 6. Lab
 
-Starter: [`TextChecker_Starter.py`](TextChecker_Starter.py). Reference: [`TextChecker_Reference.py`](TextChecker_Reference.py).
-
-## 20–33 — Warm-up: copy, paste, forget to change one line
+## 5–11 — Warm-up: the `or` that is always true
 
 ```python
-def count_letters(text):
+def count_vowels(text):
     total = 0
     for character in text:
-        if character.isnumeric():
+        if character == "a" or "e" or "i" or "o" or "u":
             total += 1
     return total
+
+print(count_vowels("sometimes you learn"))   # should be 8
 ```
 
-Run `build_report("SUMMARY: Maybe 3 examples are enough.")` (given, unchanged) and check `Letters:` against the
-text by eye — it's far too low. `count_letters` was copied from `count_digits` and the condition was never updated.
-Fix: `character.isalpha()`.
+Predict, run: `19` — every character is counted (`"e"` on its own is a non-empty string, so it is true). Python reads
+`(character == "a") or "e" or …`. Fix: `if character in "aeiou":` (or five full comparisons joined with `or`).
 
-## 33–75 — Task (project): "Smart Text Checker" — unit checkpoint
+## 11–19 — Task 1: `first_and_last_word(text)` (Ministry exercise 4)
 
-Pair work. Build a program that reads a prompt or AI answer and reports: a normalized version used internally
-(stripped, lowercase — not printed on its own); total length; letter, digit and space counts; how many times
-`"maybe"` appears (case-insensitive); whether the text starts with `"summary:"` after normalizing; a preview of up
-to 40 characters, ending in `"..."` **only** when the text was actually cut; a version with every digit hidden as
-`#`.
+`"Cats and dogs are great friends"` → `"Cats friends"`. Hint: `find(" ")` for the first space; a loop that remembers the
+latest space for the last word. A one-word text returns itself.
 
-Build **bottom-up**: `normalize`, `count_digits`, `count_letters`, `count_spaces`, `hide_digits`, `make_preview` —
-one function at a time, each tested alone, before assembling the report.
+## 19–27 — Task 2: `initials(text)` (Ministry exercise 5)
 
-## 75–85 — Testing, using all seven of the source's own cases
+`"American Standard Code Information Interchange"` → `"ASCII"`. Hint: the first letter, then every letter whose previous
+character is a space (`text[index - 1] == " "`, a loop over `range(1, len(text))`).
 
-<div dir="rtl">
+## 27–36 — Task 3: `count_is_a(text)`, `count_is_b(text)` (Ministry exercise 6)
 
-| מקרה | קלט | נקודות לבדיקה |
-|---|---|---|
-| טקסט רגיל | `AI can help.` | אותיות, רווחים, ללא ספרות |
-| מחרוזת ריקה | `""` | אין שגיאה וכל המונים אפס |
-| טקסט קצר | `Hi` | הקדימון הוא הטקסט עצמו, בלי `...` |
-| טקסט ארוך | יותר מ-40 תווים | הקדימון נחתך ומסתיים ב-`...` |
-| אותיות גדולות | `MAYBE` | מזוהה לאחר `lower` |
-| ספרות | `Room 12 at 09:30` | כל הספרות נספרות ומוסתרות |
-| כותרת | `SUMMARY: ...` | `startswith` מחזירה `True` לאחר נרמול |
+How many times does `"is"` appear? a: with `count`. b: without — a loop over `range(len(text) - 1)` that compares
+`text[index:index + 2]` with `"is"`. `"this is his list"` → `4` (not 1: `this`, `is`, `his`, `list`).
 
-</div>
+## 36–47 — Task 4: `print_vowels(text)` (Ministry exercise 7)
 
-## 85–90 — Peer review, presentation and exit reflection
+Print the number of `a`, `e`, `i`, `o`, `u`, each on its own line (`a: 1`). Version a uses `count`; version b walks once with five
+counters (`a = 0` … `u = 0`) and `if` / `elif`. `"sometimes you learn"` → `a: 1, e: 3, i: 1, o: 2, u: 1`.
 
-Each pair explains one algorithmic decision to another pair. Peer checklist: does every function do one clear job?
-do functions use their parameter rather than a stray global? does every calculating function `return` its result?
-does the preview work on short text too? is the empty string handled? are all digits counted? can they explain why
-a structural report isn't a fact-check?
+## 47–52 — Demo: letters are numbers
 
-Exit card — two lines: one thing a program **can** check about an AI answer as a string; one thing it **cannot**
-conclude from string operations alone.
+Run `for ch in "Hello": print(ord(ch), end=",")` → `72,101,108,108,111,`. Show the ASCII table (8.0 slide 24), then
+`chr(97)`, `chr(ord("c") + 1)`. Predict first: what is `ord("A")`? (65.) Why are capitals different from small letters?
+
+## 52–63 — Task 5: `next_letters(text)`
+
+Every letter becomes the next one in the alphabet; `z` becomes `a`; spaces stay. `"abcd"` → `"bcde"`, `"zoo"` → `"app"`,
+`"i like python"` → `"j mjlf qzuipo"`. Use only lower-case text. Link: this is a (very weak) cipher — the program
+changes the *shape* of a message and anyone can undo it, so it protects nothing.
+
+## 63–70 — Demo + Task 6: `split` and `join`
+
+`"guitar piano drums".split(" ")` gives a **list** `['guitar', 'piano', 'drums']` — *only print it for now*: lists get their
+own unit (Unit 7). `"-".join(that_list)` glues it back with a separator. Task: `dash_words(text)` returns the text with every
+space replaced by `-`, using `"-".join(text.split(" "))`. Compare with `text.replace(" ", "-")` — same result; when would
+`split` be the better tool? (When you want the pieces, not only a different separator — next time.)
+
+## 70–85 — Checkpoint (worksheet 8.2 Q3, Q4, Q7)
+
+Students work alone, no help from the board. Each function takes a string and returns a value.
+
+- `middle(word)` — the middle letter; two letters for an even length. `"robot"` → `"b"`, `"python"` → `"th"`.
+- `edges(text)` — the first 4 and the last 4 characters; `"****"` when the text has fewer than 4. `"I like to play drums"` → `"I lirums"`.
+- `alternate_case(text)` — letters alternate UPPER / lower; a space stays and is not counted. `"trust yourself"` → `"TrUsT yOuRsElF"`.
+
+Scoring (10 points): each function 3 points (returns, not prints: 1; correct on a normal input: 1; correct on an edge: 1), plus 1 for a
+sensible name and layout. Enrichment / homework from worksheet 8.2: Q2 (`C*s`), Q5 (last letters), Q6 (the word `it`), Q8 (challenge).
+
+## 85–90 — Save and exit
+
+Save As `G8_U5_M4_Cipher_<Name>.py`. Exit card, two lines: one thing a program **can** check about an AI answer *as a string*,
+and one thing it **cannot** tell you from string operations alone. (Examples: can — it starts with a title, has no digits, is
+under 100 characters; cannot — whether the facts are true, whether a source exists.)
 
 ### Tool Note – Thonny
-Run each helper function alone in the Shell (`count_digits("Room 12")`) before wiring it into `build_report` — much
-faster to isolate a bug in one function than inside the full report.
+Run each function alone in the **Shell** first (`initials("American Standard Code Information Interchange")`) — much faster to
+find a mistake in one function than in a whole file.
 
 ---
 
@@ -149,21 +190,18 @@ faster to isolate a bug in one function than inside the full report.
 
 | Misconception | Correction |
 |---|---|
-| A copied function automatically fits its new name | Every condition inside must be checked, not assumed |
-| Structural checks (length, headers, counts) prove a text is accurate | They only prove structure — truth needs human judgment and checking sources |
-| A function should `print` its result to be "done" | A calculating function `return`s its value; printing happens once, in the report |
-| The `"..."` should always be added to a preview | Only when the text was actually longer than the limit |
-| A global variable is a shortcut worth taking here | Every helper takes text as a parameter — no hidden dependencies |
+| `x == "a" or "e"` means "a or e" | Each side of `or` is a full condition: `x == "a" or x == "e"`, or `x in "ae"` |
+| `count("is")` counts the word `is` | It counts the characters `is` anywhere, including inside `this` |
+| `split` returns a string | It returns a **list**; we only print it here |
+| `ord("a")` gives a letter | It gives a number; `chr` goes the other way |
+| The cipher keeps a message secret | Anyone can shift back; it is a puzzle, not protection |
+| A function should `print` its result | A calculating function `return`s; printing happens outside |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The warm-up's bug named specifically ("copied, condition never updated"), not just patched
-- **Unit 5 checkpoint — "Smart Text Checker"**, scored against the source's 20-point rubric: indices and slicing 3,
-  methods 3, loop and counters 4, building a string 3, modularity 3, testing 2, critical explanation 2. Bands:
-  18–20 complete, modular, tested and well explained · 14–17 works, one small flaw in slicing, a check, or the
-  explanation · 10–13 partial, missing a core function or an edge case · 0–9 needs support with indices, loops or
-  return values.
-- All seven test cases run and matched against the table above
-- The peer review and the two-line exit reflection
+- The warm-up explained (why `or "e"` is always true)
+- Exercises 4–7 passing their test inputs; `next_letters` passing all three
+- **Unit 5 checkpoint** — `middle`, `edges`, `alternate_case`, scored out of 10 as above
+- The two-line exit reflection on what a program can and cannot check

@@ -1,17 +1,20 @@
 # Unit 5.2 — Strings
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Slicing — Start, End, Step
+## Grade 8 / AI + Python B · Lesson Strategy v2
+### Topic: Slicing and Searching — `[start:end:jump]`, `count`, `replace`, `in`, `find`
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
-**Structure:** Lab + Lab (30 min guided practice, then 60 min lab)
-**Minutes (theory / practice):** 0 / 90
+**Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
+**Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit05_strings_complete_unit.md`, meeting 2 — its own clock table, the
-`text[start:end:step]` anatomy, the "why isn't the end included" explanation, the negative-index example, the step
-examples (including reversal), the prediction table, the header/body extraction task, the character-vs-slice
-demonstration, the masked-ID challenge (with its own privacy caveat) and the exit card kept nearly unchanged.
+**Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
+deck **7.1** slides 14–28 (slicing with `start`, `end`, `jump`; `count`; `replace` with and without a count; `in`; `find`)
+and worksheet **7.2** questions 5–11, 13, 15 (the slicing tables, `mississippi`, `replace`, `in`, `find`). **Changed from the
+previous version:** the old 5.2 was a 90-minute slicing lab with `mask_id`; slicing is now a 45-minute theory block plus
+practice, and `count`, `replace`, `in`, `find` are taught here as in the Ministry deck. The slice-the-title, `last_ten`
+and `mask_id` tasks are gone. The Ministry shows the slicing picture of `"think big be bold show your color"`; its printed
+outputs were all re-run (e.g. `text[4:25:4]` is `"kg doo"`).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -21,135 +24,126 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 5.1 | indices, `+`/`*`/`in`, core methods, immutability | 45 / 45 |
-| **5.2 (this)** | **slicing: start, end, step** | 0 / 90 |
-| 5.3 | dynamic slicing + traversal | 0 / 90 |
-| 5.4 | string algorithms + the "Smart Text Checker" checkpoint | 0 / 90 |
+| 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
+| **5.2 (this)** | **slicing `[start:end:jump]`, `count`, `replace`, `in`, `find`** | 45 / 45 |
+| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
 
 ---
 
 ## 2. Official Scope Used in This Meeting
 
-| Official goal (python-b-ai.pdf p. 13–14) | Covered here |
+| Official goal (python-b-ai.pdf pp. 13–14) | Covered here |
 |---|---|
-| Goal 5: slicing of the form `[start:end:step]` | ✅ every task |
-| Goal 10: apply string skills to prompts and AI-generated text | ✅ the header/body extraction task |
+| Goal 2: the operator `in` | ✅ |
+| Goal 5: slicing of the form `[start:end:step]` (the Ministry calls the third part *jump*) | ✅ |
+| Goal 6 (part): `find`, `count`, `replace` | ✅ |
+| Goal 8 (start): searching and counting | ✅ `count_the`, `looks_like_email` |
 
 ### Deliberate exclusions
-Dynamic bounds computed from `find()` (5.3), character loops (5.3).
+`startswith`/`endswith`, `isalpha`/`isdigit` (5.3); `lower`/`upper` appear here only as the tool for the recap and for `has_yes` (their full lesson, with the Ministry's examples, is 5.3); loops (5.3); `index()` from worksheet Q16 (it is the
+same as `find` but raises `ValueError` when nothing is found — mentioned in one sentence, not practised).
 
 ---
 
 ## 3. Lesson Goal
 
-**`text[start:end:step]` returns characters from `start` up to but not including `end`, stepping by `step`; missing
-bounds copy from the beginning or run to the end.**
+**`text[start:end:jump]` cuts a piece out of a string (the `end` place is not included); `count`, `replace`, `in` and `find`
+look inside a string — and none of them changes the original: each returns something new.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-part = text[start:end:step]
+text = "think big be bold show your color"
+print(text[3:])        # nk big be bold show your color
+print(text[:4])        # thin          - places 0,1,2,3 (not 4)
+print(text[5:12:2])    # " i e"        - places 5,7,9,11 (the 12 is not included)
+print(text[-5:])       # color
+print(text[::2])       # tikbgb odso orclr
+print(text[::-1])      # a negative jump walks backwards
 ```
 
 ```python
-word = "PROMPT"
-print(word[0:3])   # PRO
-print(word[3:])    # MPT  - missing end runs to the end
-print(word[:3])    # PRO  - missing start runs from the beginning
-print(word[:])     # PROMPT - both missing: the whole string
-print(word[::-1])  # TPMORP - step -1: reversed
+title = "strings are sequences"
+title.upper()           # a new string is returned ... and thrown away
+print(title)            # strings are sequences
+title = title.upper()   # keep it by assigning
 ```
 
-- A plain slice `text[a:b]` (step 1) is `b - a` characters long — the excluded end makes this arithmetic exact.
-- `word[2]` returns one **character**; `word[2:3]` returns a one-character **slice** — equal in value, different in
-  kind (a single value vs. a string of length one).
+- The length of a simple slice is `end - start`; a missing `start` means "from the beginning", a missing `end` "to the end".
+- `count` does not count overlapping matches: `"aaaa".count("aa")` is `2`, `"banana".count("ana")` is `1`.
+- `find` gives the place of the **first** match, or `-1`. Test for `-1` before using the number to cut.
+- `in` says only `True`/`False`; it is case-sensitive: `"yes" in "YES"` is `False`.
 
 ---
 
-# 5. Guided Practice (0–30)
+# 5. First 45 Minutes — Knowledge + Guided Practice
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap:** positive and negative indices |
-| 8–22 | **Need:** pulling a title, a short code, or a file extension out of a longer piece of text — why a single index isn't enough |
-| 22–38 | Syntax: `start`, `end` (excluded), missing bounds; `word[0:3]`, `word[3:6]`, `word[:3]`, `word[3:]`, `word[:]` on `"PROMPT"`; then negative bounds on `"answer.txt"` (`[-3:]` → `txt`, `[:-4]` → `answer`) |
-| 38–52 | **Prediction table (pairs, on `"ARTIFICIAL"`):** `text[0:3]`, `text[3:7]`, `text[:4]`, `text[-3:]`, `text[::2]`, `text[::-1]` — write before checking |
-| 52–65 | Step: `text[::2]`, `text[1::2]`, `text[::-1]` on `"0123456789"` |
-| 65–90 | *(rolls into the lab — see below)* |
-
-The prediction table (38–52):
-
-<div dir="rtl">
-
-| ביטוי | תוצאה |
-|---|---|
-| `text[0:3]` | `ART` |
-| `text[3:7]` | `IFIC` |
-| `text[:4]` | `ARTI` |
-| `text[-3:]` | `IAL` |
-| `text[::2]` | `ATFCA` |
-| `text[::-1]` | `LAICIFITRA` |
-
-</div>
+| 0–5 | **Recap + a surprise:** `upper()` and `lower()` in one line each (they return the text in capitals / small letters), then predict `title.upper()` followed by `print(title)` (unchanged). One sentence: strings can't be changed; operations give back a new string |
+| 5–19 | **Slicing** (7.1 slides 14–17): the board shows `"think big be bold show your color"` with both numberings. Demo `text[3:]`, `text[:4]`, `text[5:12:2]`; then **predict, then run:** `text[10:16]`, `text[10:18]`, `text[-5:]`, `text[-23:-15]`, `text[::2]`, `text[4:25:4]`. Two minutes on "how many characters?" (`end - start`) and the reversed string `text[::-1]` |
+| 19–26 | **`count`** (slide 18): `"I love bananas, banana are my favorite fruit".count("banana")` is `2`. Students copy the code and update the print line: `print(f"banana in text is : {x}")`. How many times is `"an"` in `"banana"`? (2) and `"ana"`? (1 — no overlap) |
+| 26–33 | **`replace(old, new)` and `replace(old, new, count)`** (slides 20–23): `text.replace("day", "DAY", 2)`; the original is unchanged — compare `print(text)` before and after |
+| 33–38 | **`in`** (slide 25): `"win" in "sometimes you win sometimes you learn"` is `True`, `"lose" in …` is `False`; `"x" in "jerusalem"`; `"2" in str(12345)` |
+| 38–45 | **`find`** (slides 26–27 and worksheet Q11): on `"sometimes you win sometimes you learn"` — `find("win")` is `14`, `find("lose")` is `-1`, `find("some")` is `0` (why 0?), `find("some", 1)` is `18`. One sentence on `index()` (like `find`, but an error when missing) |
 
 ---
 
-# 6. Lab (30–90)
+# 6. Second 45 Minutes — Lab
 
-Starter: [`Slicer_Starter.py`](Slicer_Starter.py). Reference: [`Slicer_Reference.py`](Slicer_Reference.py).
+Starter: [`Slicing_Starter.py`](Slicing_Starter.py). Reference: [`Slicing_Reference.py`](Slicing_Reference.py).
 
-## 30–39 — Warm-up: one character, not a substring
+## 45–50 — Warm-up: the method that changed nothing
 
 ```python
-filename = "answer.txt"
-extension = filename[-3]
-print(extension)
+title = "strings are sequences"
+title.upper()
+print(title)
 ```
 
-Predict `txt`, run, get `t` — `filename[-3]` is a single character (the third from the end), not a slice. Fix:
-`filename[-3:]` → `txt`.
+Predict, run: still lower case. Fix: `title = title.upper()`. (A real, very common mistake — it comes up again with `replace`.)
 
-## 39–55 — Task 1: three slicing functions
+## 50–58 — Task 1: write the slice (worksheet 7.2 Q5–6)
 
-On `answer = "TITLE: Safe AI\nBODY: Check important facts."`, write and test:
+For `text = "I like to play drums"` print `drums` (`text[-5:]`), `to play` (`text[7:14]`), `Ikoar` (`text[::4]`). For
+`number = "345124987"` (a string!) print `124` (`[3:6]`), `49` (`[-4:-2]`), `4512` (`[1:5]`), `987` (`[6:]`). Any slice that
+gives the same output is correct — compare the different answers in the room.
 
-- `first_six(text)` — the first six characters
-- `last_ten(text)` — the last ten characters
-- `reversed_text(text)` — the whole text, reversed
+## 58–66 — Task 2: `count_the(text)` (worksheet Q15)
 
-```text
-TITLE:
-ant facts.
-.stcaf tnatropmi kcehC :YDOB
-IA efaS :ELTIT
-```
+Return how many times the characters `the` appear. `"the other theme is there"` → `4`. Then run `"aaaa".count("aa")`
+and explain the `2`.
 
-## 55–68 — Task 2: `mask_id(demo_id)`
+## 66–74 — Task 3: `replace_first_three(text)` (worksheet Q9)
 
-Returns `"****"` followed by the last 4 characters. Test on `"CLASSROOM-2026-ABCD"` → `****ABCD`.
+Replace the character `|` with the two letters `we`, only in the first three places. `"a|b|c|d|e"` → `"awebwecwed|e"`.
 
-> [!WARNING]
-> This is a **fake demonstration ID**, not a real API key. A real key is never printed at all — not even masked.
+## 74–82 — Task 4: `has_yes(text)` (worksheet Q13)
 
-## 68–90 — Save, share, and exit check
+Return `True` when the text contains `yes` in any letter case. `"Maybe YES maybe no"` → `True`; `"no way"` → `False`.
 
-Save As `G8_U5_M2_Slicer_<Name>.py`. Swap with a partner: they give you a slice expression to evaluate by hand
-before running it.
+## 82–87 — If time: `looks_like_email(address)` (worksheet Q10b)
 
-For `word = "PYTHON"`:
+`True` when the text has an `@` **and** a `.` somewhere after it. `"dana@school.org"` → `True`; `"dana@school"` and `"dana.school"` →
+`False`. Use `find` and its start position. (A real check would be much stricter — a program can verify the *shape* of an
+address, never that it exists or that a person owns it.)
 
-1. `word[1:4]`?
-2. `word[-2:]`?
-3. `word[::2]`?
-4. `word[::-1]`?
+## 87–90 — Save and exit check
 
-**Answers:** `YTH`, `ON`, `PTO`, `NOHTYP`.
+Save As `G8_U5_M2_Slicing_<Name>.py`. For `text = "think big"`, write what each line prints:
+
+1. `text[:5]`
+2. `text[-3:]`
+3. `text.find("big")`
+4. `text.replace("big", "small")`, and then `text` itself
+
+**Answers:** `think`, `big`, `6`, `think small` — and `think big` (unchanged).
 
 ### Tool Note – Thonny
-Select an expression in the editor and use Thonny's **evaluate selection** (or paste it into the Shell) to check a
-slice by hand before running the whole file.
+Type slices in the **Shell** first (`text[5:12:2]`): the result appears at once, with its quotes, so a stray space shows up.
 
 ---
 
@@ -157,18 +151,18 @@ slice by hand before running the whole file.
 
 | Misconception | Correction |
 |---|---|
-| The end index of a slice is included | It's always excluded — that's what makes `end - start` the length |
-| A single index and a one-length slice are the same kind of value | Both equal the same character(s), but one is a character, the other a string |
-| Step `0` is a valid slice step | It raises `ValueError` — step must be non-zero |
-| You can assign to `text[0]` to change a character | Strings are immutable — build a new string instead |
-| Slicing needs a trace table only for beginners | Sketching indices first catches most slicing mistakes, at any level |
+| `text[2:5]` includes place 5 | The end place is never included — the slice has `end - start` characters |
+| `replace`/`upper` change the variable | They return a new string; assign it or print it |
+| `count` finds overlapping matches | It does not: `"aaaa".count("aa")` is 2 |
+| `find` returns `True`/`False` | It returns a place, or `-1`; `in` is the one that returns `True`/`False` |
+| `in` ignores letter case | It is case-sensitive — normalise with `lower()` (5.3 completes the picture) |
+| A digit string is a number | `"345124987"[0:3]` is the string `"345"` |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The `"ARTIFICIAL"` prediction table filled before checking
-- The warm-up's character-vs-slice distinction explained, not just fixed
-- `first_six`, `last_ten`, `reversed_text` passing the given text
-- `mask_id()` correct, with the real-key warning acknowledged
-- The partner slice-evaluation exchange and the exit check
+- The slicing predictions written before running
+- The warm-up explained, not only fixed
+- `count_the`, `replace_first_three`, `has_yes` passing their test inputs
+- Exit check

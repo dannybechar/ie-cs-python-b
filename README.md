@@ -13,15 +13,15 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**All 30 of 30 official double meetings are fully built and approved** (Units 1–9) — the course is complete.
+**All 30 of 30 official double meetings are built** (Units 1–9). Units 6–9 and Units 1.1–1.2 are approved; Units 1.3 and 2–5 were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
 See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
 [`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
 
-- [Unit 1 — Python A Review](units/u1-python-a-review) — ✅ approved (3/3 meetings)
-- [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — ✅ approved (2/2 meetings)
-- [Unit 3 — Functions](units/u3-functions) — ✅ approved (3/3 meetings)
-- [Unit 4 — Bringing AI into Code (API)](units/u4-api) — ✅ approved (2/2 meetings)
-- [Unit 5 — Strings](units/u5-strings) — ✅ approved (4/4 meetings)
+- [Unit 1 — Python A Review](units/u1-python-a-review) — ✅ approved (2/3); 🔶 1.3 reworked to the Ministry materials, awaiting approval
+- [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
+- [Unit 3 — Functions](units/u3-functions) — 🔶 reworked to the Ministry materials, awaiting approval (3/3)
+- [Unit 4 — Bringing AI into Code (API)](units/u4-api) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
+- [Unit 5 — Strings](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4)
 - [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
 - [Unit 7 — Lists](units/u7-lists) — ✅ approved (5/5 meetings)
 - [Unit 8 — Classification](units/u8-classification) — ✅ approved (4/4 meetings)
@@ -35,6 +35,7 @@ docs/
   annual-strategy.md        — year-wide strategy (hours, meeting outline, depth boundaries, tools, exit profile)
   annual-work-plan-he.docx  — annual work plan for the school (Hebrew)
   ministry-source/          — the official ministry PDFs this course answers to
+  ministry-teaching-materials.md — index of the Ministry decks/worksheets (source of truth) and the rulebook
 tools/
   deck-patch-kit/           — scripts for reviewing and patching the NotebookLM slide decks
 units/

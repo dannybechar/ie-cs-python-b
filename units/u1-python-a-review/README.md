@@ -34,17 +34,17 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 ## Unit 1.3 — Python A Review
 
-**Topic:** Until It's Done (`while`, the stop condition and the three-try locker) — unit checkpoint
+**Topic:** Until It's Done (the `while` loop, the stop condition and loops that never end) — unit checkpoint · 🔶 reworked from the Ministry teaching materials (2.0, 2.1, loop-trap deck)
 
-90 minutes: Lab + Lab · **three parts of while → never-ending loop → ask again → two conditions → checkpoint**
+90 minutes: Lab + Lab · **sentinel, condition, update → counting up and down → never-ending loops and the Safe Loop Checklist → `for` ↔ `while` → locker → exciting number → series checkpoint**
 
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m3-lesson-notes.md`](m3-lesson-notes.md) | Lesson plan, including the diagnostic checkpoint |
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
-| Student | [`Lock_Starter.py`](Lock_Starter.py) | Never-ending validation warm-up bug, stubs |
-| Teacher | [`Lock_Reference.py`](Lock_Reference.py) | Solutions, one function per task |
-| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Hebrew slide deck (16 slides, NotebookLM, patched) |
+| Student | [`While_Starter.py`](While_Starter.py) | Never-ending validation warm-up bug, four never-ending loops, stubs |
+| Teacher | [`While_Reference.py`](While_Reference.py) | Solutions, one function per task |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded — pending new NotebookLM deck** (the old 16-slide deck of the previous 1.3; do not teach from it) |
 
 ## Unit 1 test (Grade 9)
 

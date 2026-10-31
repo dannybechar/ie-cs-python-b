@@ -1,63 +1,92 @@
 # יחידה 5.3 – מחרוזות
 
-כיתה ח׳ · AI + Python B · **חיתוך מתקדם ומעבר על מחרוזת**
+כיתה ח׳ · AI + Python B · **שיטות נוספות ומעבר על מחרוזת בלולאה**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> `find()` מחזירה אינדקס, או `-1` כשלא נמצא — תמיד בודקים לפני שמשתמשים בערך כגבול חיתוך.
+> לולאת `for` עוברת על כל תו במחרוזת, תו אחרי תו. מונה מאפסים **פעם אחת לפני הלולאה**, ומחרוזת חדשה בונים בעזרת `+=`.
 
 ## דף עזר
 
 ```python
-record = "topic=loops;level=beginner"
-separator = record.find(";")
-if separator == -1:
-    print("Separator not found")
-else:
-    print(record[:separator])
-    print(record[separator + 1:])
+text = "I like to play drums"
+print(text.startswith("I like"))        # True
+print(text.startswith("play", 10, 17))  # True - בודקים רק את המקומות 10 עד 16
+print("2027".isdigit())                 # True
+print("1.9.2027".isdigit())             # False
+print("Hello".isalpha())                # True
+print("Piano".upper(), "DRUMS".lower())
 ```
 
 ```python
-for character in text:                 # התו עצמו חשוב
-    ...
-
-for index in range(len(text)):          # גם המיקום חשוב
-    print(index, text[index])
+def count_char(text, letter):
+    count = 0                       # פעם אחת, לפני הלולאה
+    for character in text:
+        if character == letter:
+            count += 1
+    return count
 ```
-
-## 1. חימום: אינדקס אחד רחוק מדי
-
-פתחו את `Scan_Starter.py`.
 
 ```python
-text = "AI 2026"
-for index in range(len(text) + 1):
-    print(index, text[index])
+for character in "Learn":
+    print(character * 3, end="")    # end="" - נשארים באותה שורה
+print()                             # ירידת שורה בסוף
 ```
 
-הריצו — `IndexError`. ה-`+ 1` דוחף אינדקס אחד מעבר לסוף. תקנו: `range(len(text))`.
+## 1. חימום: המונה שמתאפס
 
-## 2. משימה 1: count_maybe(text)
+פתחו את `Traverse_Starter.py`. הפעולה אמורה להחזיר `5`.
 
-מחזירה כמה פעמים מופיעה המילה `maybe`, בלי תלות בגודל אותיות. בדקו על `"Maybe it works. MAYBE verify it."`.
+```python
+def count_letter(text, letter):
+    for character in text:
+        count = 0
+        if character == letter:
+            count += 1
+    return count
 
-## 3. משימה 2: first_part(text)
+print(count_letter("sometimes you win sometimes you learn", "e"))
+```
 
-מחזירה את כל מה שלפני הרווח הראשון; אם אין רווח — את כל הטקסט. בדקו על `"smart assistant"` ועל `"Python"`.
+חזו מה יודפס, הריצו, והסבירו למה. תקנו על ידי העברת שורה אחת למקום אחר.
 
-## 4. משימה 3: hide_digits(text)
+## 2. משימה 1: is_year(text)
 
-מחזירה את הטקסט כשכל ספרה הוחלפה ב-`#`, בנוי תו אחר תו — לא קריאת `.replace()` לכל ספרה בנפרד. בדקו על `"Room 12 at 09:30"`.
+קודם חזו והריצו את שלוש הוראות `startswith` שבקובץ. אחר כך כתבו `is_year(text)` — מחזירה `True` רק כשהטקסט מורכב מספרות בלבד **ואורכו 4**.
+`"2027"` ← `True`; `"1.9.2027"`, `"20x7"`, `"99"` ← `False`.
 
-## 5. יישום על טקסט AI שמור
+## 3. משימה 2: count_char(text, letter)
 
-על `ai_answer = "Maybe the answer is 42. Verify important facts."`, הפיקו: אורך, מספר ספרות, האם מופיעה `maybe`, האם הטקסט מסתיים בנקודה, וקדימון של 10 תווים.
+פעולה שסופרת כמה פעמים אות מופיעה במחרוזת — **בלי** `count()`, בעזרת לולאת `for`. הבדיקה: במשפט שבחימום עם `"e"` מתקבל `5`.
 
-## 6. מתעדים ושומרים
+## 4. משימה 3: שלוש פעמים כל אות
 
-שומרים: `File › Save As` ← `G8_U5_M3_Scan_<Name>.py`
+- `triple_print(text)` — מדפיסה כל אות שלוש פעמים, הכול בשורה אחת: `"Learn"` ← `LLLeeeaaarrrnnn`.
+- `triple(text)` — בונה את אותה מחרוזת בעזרת `+=` **ומחזירה** אותה במקום להדפיס.
+
+## 5. משימה 4: שמות משפחה
+
+כתבו שתי פעולות שמקבלות את `number`, קולטות `number` שמות משפחה עם `input()` ומחזירות כמה מהם מכילים את `cohen` (בכל צורת אותיות):
+
+- `count_cohen_a` — בעזרת `count`.
+- `count_cohen_b` — בלי `count` (השתמשו ב-`in`).
+
+> [!NOTE]
+> מקלידים שמות **בדויים** בלבד — לא שמות של תלמידים אמיתיים.
+
+## 6. משימה 5: שומרים רק אותיות מ-a עד e
+
+כתבו `keep_a_to_e(text)` — בונה ומחזירה מחרוזת חדשה שמכילה רק את התווים שבין `"a"` ל-`"e"` (`>= "a"` ו-`<= "e"`).
+חזו קודם מה תקבלו מ-`"We play on the computer"`.
+
+## 7. אם נשאר זמן: count_words(text)
+
+מספר הרווחים ועוד 1. `"We are learning to program"` ← `5`. מה קורה ב-`"two  spaces"` (שני רווחים רצופים)? למה?
+
+## 8. מתעדים ושומרים
+
+שומרים: `File › Save As` ← `G8_U5_M3_Traverse_<Name>.py`
 
 ---
 
@@ -65,9 +94,9 @@ for index in range(len(text) + 1):
 
 <div dir="rtl">
 
-1. מתי עדיף `for character in text`?
-2. מתי צריך `range(len(text))`?
-3. מה מחזירה `find()` כאשר הטקסט לא נמצא?
-4. מדוע עדיף שפונקציית ניתוח תחזיר תוצאה עם `return` ולא רק תדפיס אותה?
+1. `"2027".isdigit()` היא…
+2. `"Python".startswith("py")` היא…
+3. מה מודפס אחרי `for ch in "abc": print(ch * 2, end="")`?
+4. איפה כותבים `count = 0` בלולאת ספירה?
 
 </div>

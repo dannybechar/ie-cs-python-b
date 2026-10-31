@@ -74,7 +74,7 @@ Chapter goals (source §1, eleven in all):
   here defaults to **classroom (mock) mode**: `calculate_similarity()` uses the source's own rule-based stand-in
   (renamed `meaning_score_demo`, reused unchanged in 6.2 and 6.3), so files run and are verifiable with plain
   `python`, no download or internet required. The real `sentence-transformers` call is a clearly marked, commented
-  block, ready to fill in once the teacher has installed and cached the model. This mirrors Unit 4's `ask_ai()`
+  block, ready to fill in once the teacher has installed and cached the model. This mirrors Unit 4's `ask_the_ai()` stand-in
   pattern exactly.
 - **6.1's teacher demo with a real HuggingFace tokenizer** (`AutoTokenizer`) is kept in the lesson notes as an
   **optional live demonstration**, not something students run or that the built code depends on — the source frames

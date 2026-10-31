@@ -1,17 +1,21 @@
 # Unit 5.1 — Strings
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
+## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: A String Is an Ordered Sequence
 
-**Status:** Approved by the teacher
+**Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit05_strings_complete_unit.md`, meeting 1 — its own clock table, the "how
-does Python see this text" hook, the empty-string note, the five-letter positive/negative index table, the
-operators section (with the `in` case-sensitivity note), the core-methods block and its immutability demo, the two
-practice tasks and the header challenge, the common-mistakes list and the exit card kept nearly unchanged.
+**Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
+deck **7.1** (slides 2–13: what a string is, quotes, `str` vs `int`, positive and negative indices on `"love :)"` and
+`"think big be bold show your color"`, `len`, the quiz) and worksheet **7.2** (questions 1–4: `+` and `*`, `len`,
+`int()`/`str()`, positive and negative indices on `"PYTHON"`). **Changed from the previous version** (which followed
+`python_b_unit05_strings_complete_unit.md`): the `ROBOT` index table is replaced by the Ministry's two index pictures; `in`,
+`count`, `find`, `replace` and the other methods moved to 5.2–5.3 where the Ministry teaches them; the "prompt checker"
+and `header_check` tasks are gone; the immutability idea stays but only as a preview (a method returns a new string)
+because the Ministry meets it with the methods. Ministry slide wording was kept, but every example was run on Python 3.14.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -21,10 +25,12 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **5.1 (this)** | **indices, `+`/`*`/`in`, core methods, immutability** | 45 / 45 |
-| 5.2 | slicing: start, end, step | 0 / 90 |
-| 5.3 | dynamic slicing + traversal | 0 / 90 |
-| 5.4 | string algorithms + the "Smart Text Checker" checkpoint | 0 / 90 |
+| **5.1 (this)** | **what a string is, quotes, indices (+/−), `len`, `+` and `*`, `int`/`str`** | 45 / 45 |
+| 5.2 | slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` | 45 / 45 |
+| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
+
+Unit total 90 theory / 270 practice (master table: 8 h = 2 + 6).
 
 ---
 
@@ -32,46 +38,47 @@ labeled **Tool Note – Thonny**.
 
 | Official goal (python-b-ai.pdf p. 13) | Covered here |
 |---|---|
-| Goal 1: a string is an ordered sequence of characters | ✅ hook, index table |
-| Goal 2: the empty string; `+`, `*`, `in` | ✅ |
-| Goal 3: access by positive or negative index | ✅ index table |
-| Goal 4: why the first index is `0` | ✅ |
-| Goal 6: `len`, `find`, `upper`, `lower`, `count`, `startswith`, `endswith`, `isalpha`, `isnumeric`, `replace` | ✅ (`isalpha`/`isnumeric` previewed here, taught in depth in 5.3) |
+| Goal 1: a string is an ordered sequence of characters | ✅ 7.1 slides 2–3, 5 |
+| Goal 2: the empty string; `+`, `*` | ✅ worksheet 7.2 Q1–2 (`in` comes in 5.2) |
+| Goal 3: access by a positive or a negative index | ✅ 7.1 slides 9–11, worksheet Q4 |
+| Goal 4: why the first index is `0` | ✅ "the first character is zero steps from the start" |
+| Goal 6 (part): `len` | ✅ |
+
+### What Grade 7 already did
+Python A (Unit 6) taught `len`, `word[0]`, `word[len(word) - 1]`, `+`, `*` — but **no negative indices**. So `+`, `*`,
+`len` are a fast review here, and negative indices are the new idea.
 
 ### Deliberate exclusions
-Slicing (5.2), traversal with a loop (5.3), building new strings from filtered characters (5.3–5.4).
+Slicing and the string methods (5.2–5.3), loops over a string (5.3), lists.
 
 ---
 
 ## 3. Lesson Goal
 
-**A string is an ordered sequence of characters, indexed from `0`; its methods return a new string and never change
-the original.**
+**A string is an ordered sequence of characters; each one has a place (an index) counted from the left starting at `0`
+and from the right starting at `-1`; the last valid index is `len(text) - 1`.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-word = "ROBOT"
-#        R  O  B  O  T
-# index: 0  1  2  3  4
-#       -5 -4 -3 -2 -1
-
-print(word[0])    # R
-print(word[-1])   # T - the last character, without needing len(word) - 1
+text = "love :)"          # 7 characters: l o v e, a space, a colon, a closing bracket
+print(len(text))           # 7 - spaces and punctuation count
+print(text[0], text[-1])   # l )
 ```
 
 ```python
-name = "python"
-name.upper()          # returns "PYTHON" but throws it away - name is unchanged
-print(name)             # python
-name = name.upper()     # only reassigning keeps the new string
-print(name)              # PYTHON
+text = "think big be bold show your color"
+print(len(text))                   # 33
+print(text[16], text[-17])         # d d  - the same character, counted from the left and from the right (slide 10)
 ```
 
-- The last valid index is always `len(text) - 1`; `text[len(text)]` is one past the end.
-- `in` is case-sensitive; normalize with `.lower()` on both sides when case shouldn't matter.
+- The quotes are not part of the string; they only show where it starts and ends. Use the same mark at both ends:
+  `"it's fine"` or `'say "hi"'`.
+- `"7"` is a string and `7` is a number: `"3" + "3"` is `"33"`, `3 + 3` is `6`; `"3" * 3` is `"333"`.
+- `int("12")` turns a string of digits into a number; `str(12)` turns a number into a string.
+- A string cannot be changed letter by letter: `text[0] = "x"` is a `TypeError` (shown now, understood in 5.2).
 
 ---
 
@@ -79,74 +86,70 @@ print(name)              # PYTHON
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Hook:** `ai_answer = "Take a short break and drink water."` — `type()`, `len()`, `ai_answer[0]`. What type is it? What does `len` count? What's the first character? |
-| 8–20 | The empty string `""` — it exists, holds no characters, and is a useful starting value for building text later; a five-letter index table (`ROBOT`), positive and negative, both directions; the classic off-by-one: `word[5]` on a 5-character word |
-| 20–35 | Operators: `+`, `*`, `"art" in "artificial"` vs. `"ART" in "artificial"` — predict all four, then check; normalizing with `.lower()` before an `in` check |
-| 35–48 | Core methods on `"  AI can help, but AI can be wrong.  "` after `.strip()`: `upper`, `lower`, `startswith`, `endswith`, `count`, `find`, `replace` — predict each result first; then the immutability demo (`name.upper()` alone vs. `name = name.upper()`) |
-| 48–63 | **Predict (alone, then check):** length, first/last character, a case-insensitive `in` check, and a count, all on `"Explain loops"` |
-| 63–78 | *(rolls into the lab — see below)* |
-| 78–90 | The lab missions, then exit check |
+| 0–5 | **Hook:** a one-line AI answer saved in a variable (`answer = "Take a short break and drink water."`). Predict `type(answer)`, `len(answer)`, the first character. A program sees a model's answer as a string like any other |
+| 5–12 | **What is a string** (7.1 slides 2–4): examples `"my school"`, `"a#%$!P_K"`, `"3+4=?"`; single or double quotes, same mark at both ends; the empty string `""`; `str` vs `int`: `"7"` is not `7` |
+| 12–22 | **Indices** (slides 5, 9–11): `"love :)"` and `"think big be bold show your color"`, both numberings drawn on the board. **Predict** `text[1]`, `text[-1]`, `text[0]`, `text[-10]`, `text[16]`, `text[-17]`. Why `0`? The index is the distance from the start. The off-by-one: `text[len(text)]` |
+| 22–29 | **`len`** (slides 6–7, quiz 12): `len("love :)")` is 7; `len("Python 3.12")` is 11; `len(" ")` is 1 (a space is a character); `len("")` is 0 |
+| 29–38 | **`+` and `*` on strings** (worksheet Q1–2): predict `print(text1 + text2)` and `print(text3 * 2)` on paper, run, compare. Then `"3" + "3"`, `"3" * 3`, and the errors: `"a" + 1`, `"5" * "3"` (read the messages) |
+| 38–45 | **`int()` and `str()`** (worksheet Q3): `input` always gives a string — `num = int(input(...))` vs `st = input(...)`; predict `num + num`, `st + st`, `num * 3`, `st * 3`. Preview of the next meeting: `text[0] = "x"` fails — a string can't be changed in place |
 
-The prediction (48–63):
-
-```python
-prompt = "Explain loops"
-print(len(prompt))
-print(prompt[0])
-print(prompt[-1])
-print("loop" in prompt.lower())
-print(prompt.count("o"))
-```
-
-```text
-13
-E
-s
-True
-2
-```
+Predict-first rule: at 29–38 students write their prediction for `msg1 = "abc" + "d" * 3`, `print(msg1 + "ef")` and
+`print(len(msg1))` *before* the answer goes on the board — `abcdddef` and `6`.
 
 ---
 
 # 6. Second 45 Minutes — Lab
 
-Starter: [`Checker_Starter.py`](Checker_Starter.py). Reference: [`Checker_Reference.py`](Checker_Reference.py).
+Starter: [`Indices_Starter.py`](Indices_Starter.py). Reference: [`Indices_Reference.py`](Indices_Reference.py).
 
-## 63–71 — Warm-up: the method that didn't change anything
+## 45–52 — Warm-up: one index too far
 
 ```python
-text = "python"
-text.upper()
-print(text)
+word = "ROBOT"
+last_letter = word[len(word)]
+print(last_letter)
 ```
 
-Predict, then run: still `python`, not `PYTHON`. `upper()` returns a new string; nothing was done with it. Fix:
-`text = text.upper()` → `PYTHON`.
+Predict, then run: `IndexError: string index out of range`. `len(word)` is 5 but the valid indices are 0–4. Fix:
+`word[len(word) - 1]` or `word[-1]`. (Python A used the first form; the second is new.)
 
-## 71–81 — Task 1: a prompt checker
+## 52–60 — Task 1: predict and check (worksheet 7.2 Q1–2)
 
-Read a prompt with `input()` and print: its length, whether it's empty, whether it contains `"password"` (any
-case), and whether it ends with `"?"`.
+Predict the eight printed lines in the starter on paper, then run. Expected: `I like to play, piano` ·
+`I like to play, guitar` · `guitarguitar` · `abcdddef` · `6` · `8` · `77` · `1`. *Teacher note: the Ministry printout of Q2
+has a broken quote (`'abc' + d' * 3`); the starter uses the intended `"abc" + "d" * 3`.*
 
-## 81–86 — Task 2: `header_check(answer)`
+## 60–68 — Task 2: `add_as_numbers(first, second)` and `join_as_text(first, second)`
 
-Returns `"Structured answer"` when `answer` starts with `"SUMMARY:"`, otherwise `"Missing title"`. Test on
-`"SUMMARY: Python loops repeat instructions."` and on the same sentence without the header.
+Both parameters are strings of digits. The first returns the sum as a number, the second the joined text.
+`"12"`, `"30"` → `42` and `"1230"`.
 
-## 86–90 — Save and exit check
+## 68–76 — Task 3: `show_edges(st)` (worksheet Q4)
 
-Save As `G8_U5_M1_Checker_<Name>.py`. For `text = "MODEL"`, complete:
+For `"PYTHON"`, print each wanted letter twice, once with a positive and once with a negative index:
+`P`/`P`, `N`/`N`, `T`/`T` (positions 0 and −6, 5 and −1, 2 and −4).
+
+## 76–84 — Task 4: `first_and_last(word)`
+
+Return the first letter followed by the last letter. `"ROBOT"` → `"RT"`; `"A"` → `"AA"`.
+
+## 84–87 — If time: `stars_for(word)`
+
+Return as many `*` as the word has characters: `"hello"` → `"*****"`.
+
+## 87–90 — Save and exit check
+
+Save As `G8_U5_M1_Indices_<Name>.py`. For `text = "MODEL"`, complete:
 
 1. `text[1]` is…
 2. `text[-1]` is…
 3. `len(text)` is…
-4. `"del" in text.lower()` is…
+4. `text[len(text)]` is…
 
-**Answers:** `O`, `L`, `5`, `True`.
+**Answers:** `O`, `L`, `5`, an `IndexError`.
 
 ### Tool Note – Thonny
-Hover a string in the **Variables** view to see it with its quotes — useful for spotting a stray leading or
-trailing space that `.strip()` would remove.
+Hover a string in the **Variables** view to see its quotes — a stray leading or trailing space becomes visible there.
 
 ---
 
@@ -154,18 +157,18 @@ trailing space that `.strip()` would remove.
 
 | Misconception | Correction |
 |---|---|
-| An index equal to the string's length is valid | The last valid index is `len(text) - 1` |
-| `in` ignores letter case | It's case-sensitive; normalize with `.lower()` first if needed |
-| `upper()` / `replace()` change the original variable | They return a new string; reassign to keep it |
-| `find()` returns `True`/`False` | It returns an index, or `-1` when nothing matches |
-| Counting words is the same as `len()` | `len()` counts characters, including spaces and punctuation |
+| An index equal to the string's length is valid | The last valid index is `len(text) - 1` (or `-1`) |
+| `-1` is the first character | `-1` counts from the right: it is the last character |
+| `"7"` and `7` are the same | One is text, one is a number: `"7" * 2` is `"77"`, `7 * 2` is `14` |
+| `input()` returns a number | It always returns a string; convert with `int()` when you need a number |
+| `len` counts only letters | It counts every character, including spaces and punctuation |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The index table filled in both directions before running any code
-- The `"Explain loops"` prediction, all five lines, before running
-- The warm-up explained (why nothing changed, not just the one-line fix)
-- The prompt checker and `header_check()` passing their test inputs
+- Both index pictures answered before running anything (`text[16]`, `text[-17]`)
+- The task 1 predictions written down before the run
+- The warm-up error explained, not just patched
+- `add_as_numbers`, `join_as_text`, `show_edges`, `first_and_last` passing their test inputs
 - Exit check
