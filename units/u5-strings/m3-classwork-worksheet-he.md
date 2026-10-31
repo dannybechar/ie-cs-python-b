@@ -1,6 +1,6 @@
 # יחידה 5.3 – מחרוזות
 
-כיתה ח׳ · AI + Python B · **עוברים על מחרוזת בלולאה** · דף עבודה בכיתה (נייר + מחשב)
+כיתה ח׳ · בינה מלאכותית ופייתון ב׳ · **עוברים על מחרוזת בלולאה** · דף עבודה בכיתה (נייר + מחשב)
 
 שם: ______________________  תאריך: ______________
 
@@ -11,46 +11,75 @@
 - קודם חושבים וכותבים **על הנייר**, ורק אחר כך מקלידים. המחשב בודק אותכם, הוא לא פותר במקומכם.
 - חלק א' וחלק ב' הם עבודת הכיתה (כ-46 דקות). מה שלא הסתיים – משלימים בבית.
 - חלק ג' הוא לבית, או לכיתה למי שמסיים מוקדם.
-- פותחים את הקובץ `Classwork_Starter.py`. בכל הדוגמאות כותבים טקסטים **בדויים** בלבד – לא שמות או מספרי טלפון אמיתיים.
+- בכל הדוגמאות כותבים טקסטים **בדויים** בלבד – לא שמות או מספרי טלפון אמיתיים.
 
 </div>
 
+<div dir="rtl">
+
+פותחים ב-Thonny את הקובץ הבא:
+
+</div>
+
+```python
+Classwork_Starter.py
+```
+
 ## דף עזר
+
+<div dir="rtl">
+
+פעולה שסופרת:
+
+</div>
 
 ```python
 def count_char(text, letter):
-    count = 0                      # once, before the loop
-    for ch in text:                # ch: the next character
+    count = 0                      # before the loop
+    for ch in text:                # next character
         if ch == letter:
             count += 1
     return count                   # after the loop
 ```
 
+<div dir="rtl">
+
+בונים מחרוזת חדשה:
+
+</div>
+
 ```python
-result = ""                        # empty string before the loop
+result = ""                        # start empty
 for ch in "abc":
-    result += ch * 2               # add to the end: "aabbcc"
+    result += ch * 2               # "aabbcc"
 print(result)
 ```
 
-```python
-for ch in "Learn":
-    print(ch * 3, end="")          # stay on the same line
-print()                            # new line at the end
-```
+<div dir="rtl">
+
+שיטות שבודקות תו אחד:
+
+</div>
 
 ```python
 "7".isdigit()      # True          "a".isalpha()    # True
 "E".lower()        # "e"           "e" in "aeiou"   # True
 ```
 
+<pagebreak>
+
 ## חלק א': קוראים וחוזים (כ-10 דקות)
 
 <div dir="rtl">
 
-לכל קטע: **קודם** כתבו חיזוי על הנייר, **אחר כך** הריצו וכתבו מה הודפס בפועל. כדי להריץ, כותבים בתחתית הקובץ שורה עם שם הפעולה וסוגריים, למשל `a1()`.
+לכל קטע: **קודם** כתבו חיזוי על הנייר, **אחר כך** הריצו וכתבו מה הודפס בפועל.
+כדי להריץ, כותבים בתחתית הקובץ שורה עם שם הפעולה וסוגריים, למשל:
 
 </div>
+
+```python
+a1()
+```
 
 ### א1
 
@@ -80,12 +109,14 @@ print(new_text)
 
 <div dir="rtl">
 
-מדוע האות `W` לא נכנסה? מדוע האות `p` לא נכנסה? (כתבו משפט אחד)
+מדוע האות הגדולה שבתחילת המשפט לא נכנסה לתוצאה? ומדוע האות p לא נכנסה? (כתבו משפט אחד)
 
 </div>
 
 | &nbsp;<br>&nbsp; |
 |---|
+
+<pagebreak>
 
 ### א3
 
@@ -105,7 +136,7 @@ print("Number of words:", count + 1)
 
 <div dir="rtl">
 
-מה בעצם סופר המשתנה `count`? ולמה מוסיפים לו 1 בהדפסה?
+מה בעצם סופר המונה בקוד? ולמה מוסיפים 1 להדפסה האחרונה?
 
 </div>
 
@@ -123,11 +154,16 @@ for ch in "banana":
 
 <div dir="rtl">
 
-השלימו את הטבלה על הנייר: בכל סבב כתבו את `ch`, אם התנאי התקיים, ואת `count` **בסוף** הסבב. אחר כך הריצו `a4()` ובדקו שהתשובה זהה.
+השלימו את הטבלה על הנייר: בכל סבב כתבו את התו, אם התנאי התקיים, ואת ערך המונה **בסוף** הסבב.
+אחר כך הריצו את הפעולה הבאה ובדקו שהתשובה זהה:
 
 </div>
 
-| סבב | ch | האם ch == "a"? | count בסוף הסבב |
+```python
+a4()
+```
+
+| סבב | התו | האם התו הוא a? | המונה בסוף הסבב |
 |---|---|---|---|
 | 1 | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; |
 | 2 | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; |
@@ -136,13 +172,19 @@ for ch in "banana":
 | 5 | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; |
 | 6 | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; |
 
+<pagebreak>
+
 ## חלק ב': כותבים פעולות (כ-36 דקות)
 
 <div dir="rtl">
 
-בכל משימה: כתבו את הפעולה **על הנייר**, הקלידו אותה בקובץ במקום המילה `pass`, הריצו, והשוו לעמודה "צפוי".
+בכל משימה: כתבו את הפעולה **על הנייר**, הקלידו אותה בקובץ במקום המילה הבאה, הריצו, והשוו לעמודה "צפוי".
 
 </div>
+
+```python
+pass
+```
 
 ### ב1: מצאו את הבאג (5 דקות)
 
@@ -154,12 +196,14 @@ def count_letter(text, letter):
             count += 1
     return count
 
-print(count_letter("sometimes you win sometimes you learn", "e"))
+sentence = "sometimes you win sometimes you learn"
+print(count_letter(sentence, "e"))
 ```
 
 <div dir="rtl">
 
-הפעולה אמורה להחזיר `5`. חזו מה היא מחזירה, הריצו, והסבירו למה. תקנו על ידי הזזת שורה אחת.
+הפעולה אמורה להחזיר את המספר 5. חזו מה היא מחזירה, הריצו, והסבירו למה.
+תקנו על ידי הזזת שורה אחת.
 
 </div>
 
@@ -167,56 +211,94 @@ print(count_letter("sometimes you win sometimes you learn", "e"))
 |---|---|---|
 | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp; | &nbsp;<br>&nbsp;<br>&nbsp; |
 
-### ב2: count_char (7 דקות)
+<pagebreak>
+
+### ב2: סופרים אות (7 דקות)
 
 <div dir="rtl">
 
-כתבו `count_char(text, letter)` שמחזירה כמה פעמים האות מופיעה בטקסט. **בלי** להשתמש ב-`count()`.
+כתבו פעולה בשם הבא. היא מחזירה כמה פעמים האות מופיעה בטקסט.
 
 </div>
 
+```python
+count_char(text, letter)
+```
+
+<div dir="rtl">
+
+אסור להשתמש בשיטה המובנית הבאה. עוברים על המחרוזת בלולאה:
+
+</div>
+
+```python
+text.count(letter)
+```
+
 | כתבו כאן את הפעולה |
 |---|
-| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+
+<div dir="rtl">
+
+הטקסט לבדיקות:
+
+</div>
+
+```python
+sentence = "sometimes you win sometimes you learn"
+```
 
 | קריאה | צפוי | בפועל |
 |---|---|---|
-| `count_char("sometimes you win sometimes you learn", "e")` | 5 | &nbsp; |
+| `count_char(sentence, "e")` | 5 | &nbsp; |
 | `count_char("banana", "a")` | 3 | &nbsp; |
 | `count_char("banana", "x")` | 0 | &nbsp; |
 | `count_char("", "a")` | 0 | &nbsp; |
+
+<pagebreak>
 
 ### ב3: שלוש פעמים כל אות (8 דקות)
 
 <div dir="rtl">
 
-כתבו `triple(text)` שבונה מחרוזת חדשה שבה כל אות מופיעה שלוש פעמים, **ומחזירה** אותה (לא מדפיסה).
+כתבו פעולה בשם הבא. היא בונה מחרוזת חדשה שבה כל אות מופיעה שלוש פעמים, **ומחזירה** אותה (לא מדפיסה).
 
 </div>
 
+```python
+triple(text)
+```
+
 | כתבו כאן את הפעולה |
 |---|
-| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 | קריאה | צפוי | בפועל |
 |---|---|---|
-| `triple("Learn")` | LLLeeeaaarrrnnn | &nbsp; |
+| `triple("Learn")` | `LLLeeeaaarrrnnn` | &nbsp; |
 | `triple("")` | (מחרוזת ריקה) | &nbsp; |
 
 <div dir="rtl">
 
-למה צריך לכתוב `result = ""` **לפני** הלולאה? מה היה קורה אילו כתבנו אותה בתוך הלולאה? (משפט אחד)
+למה צריך לכתוב את השורה הבאה **לפני** הלולאה? מה היה קורה אילו כתבנו אותה בתוך הלולאה? (משפט אחד)
 
 </div>
 
+```python
+result = ""
+```
+
 | &nbsp;<br>&nbsp; |
 |---|
+
+<pagebreak>
 
 ### ב4: מה יש בתשובה של הבינה המלאכותית? (8 דקות)
 
 <div dir="rtl">
 
-הטקסט הבא נכתב על ידי מודל שפה. כתבו שתי פעולות: `count_letters(text)` סופרת תווים שהם אותיות (`isalpha`), ו-`count_digits(text)` סופרת תווים שהם ספרות (`isdigit`).
+הטקסט הבא נכתב על ידי מודל שפה:
 
 </div>
 
@@ -224,9 +306,20 @@ print(count_letter("sometimes you win sometimes you learn", "e"))
 ai = "In 2024 the model answered 3 questions."
 ```
 
+<div dir="rtl">
+
+כתבו שתי פעולות. הראשונה סופרת תווים שהם אותיות, והשנייה סופרת תווים שהם ספרות:
+
+</div>
+
+```python
+count_letters(text)     # use isalpha
+count_digits(text)      # use isdigit
+```
+
 | כתבו כאן את שתי הפעולות |
 |---|
-| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 | קריאה | צפוי | בפועל |
 |---|---|---|
@@ -235,24 +328,55 @@ ai = "In 2024 the model answered 3 questions."
 
 <div dir="rtl">
 
-אפשר לספור ספרות בעזרת `ai.count("5")`? למה זה לא מספיק כאן? (משפט אחד)
+אפשר לספור ספרות בעזרת ההוראה הבאה? למה זה לא מספיק כאן? (משפט אחד)
 
 </div>
 
+```python
+ai.count("5")
+```
+
 | &nbsp;<br>&nbsp; |
 |---|
+
+<pagebreak>
 
 ### ב5: כמה תנועות? (8 דקות)
 
 <div dir="rtl">
 
-כתבו `count_vowels(text)` שמחזירה כמה תווים בטקסט הם אחת מהאותיות `a e i o u`, בין אם הן קטנות ובין אם גדולות. רמז: `.lower()` ו-`ch in "aeiou"`.
+כתבו פעולה בשם הבא. היא מחזירה כמה תווים בטקסט הם תנועות, בין אם הן קטנות ובין אם גדולות:
 
 </div>
 
+```python
+count_vowels(text)
+```
+
+<div dir="rtl">
+
+התנועות הן:
+
+</div>
+
+```python
+a e i o u
+```
+
+<div dir="rtl">
+
+רמז: שתי ההוראות הבאות יעזרו לכם.
+
+</div>
+
+```python
+text.lower()
+ch in "aeiou"
+```
+
 | כתבו כאן את הפעולה |
 |---|
-| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
+| &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
 | קריאה | צפוי | בפועל |
 |---|---|---|
@@ -260,15 +384,22 @@ ai = "In 2024 the model answered 3 questions."
 | `count_vowels("rhythm")` | 0 | &nbsp; |
 | `count_vowels("AEIOU")` | 5 | &nbsp; |
 
+<pagebreak>
+
 ## חלק ג': לבית, או לכיתה למי שסיים
 
 ### ג1: רק הספרות
 
 <div dir="rtl">
 
-כתבו `only_digits(text)` שבונה ומחזירה מחרוזת שמכילה רק את הספרות של הטקסט. `only_digits("In 2027 I turn 15")` ← `"202715"`.
+כתבו פעולה בשם הבא. היא בונה ומחזירה מחרוזת שמכילה רק את הספרות של הטקסט. לדוגמה:
 
 </div>
+
+```python
+only_digits(text)
+only_digits("In 2027 I turn 15")      # "202715"
+```
 
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 |---|
@@ -277,7 +408,17 @@ ai = "In 2024 the model answered 3 questions."
 
 <div dir="rtl">
 
-כתבו `hide_digits(text)` שמחזירה את הטקסט כשכל ספרה מוחלפת בכוכבית. `hide_digits("Room 12 floor 3")` ← `"Room ** floor *"`.
+כתבו פעולה בשם הבא. היא מחזירה את הטקסט כשכל ספרה מוחלפת בכוכבית. לדוגמה:
+
+</div>
+
+```python
+hide_digits(text)
+hide_digits("Room 12 floor 3")        # "Room ** floor *"
+```
+
+<div dir="rtl">
+
 חשבו: למה כדאי להסתיר מספרים לפני ששולחים טקסט למודל שפה?
 
 </div>
@@ -285,7 +426,9 @@ ai = "In 2024 the model answered 3 questions."
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 |---|
 
-### ג3: בודקים תשובה של AI
+<pagebreak>
+
+### ג3: בודקים תשובה של בינה מלאכותית
 
 ```python
 answer = "The Moon orbits the Earth. It takes about 27 days. Some answers are wrong, so we check."
@@ -293,10 +436,22 @@ answer = "The Moon orbits the Earth. It takes about 27 days. Some answers are wr
 
 <div dir="rtl">
 
-הריצו על הטקסט: `count_char(answer, ".")` (כמה משפטים?), `count_char(answer, " ") + 1` (כמה מילים?) ו-`count_digits(answer)`. אחר כך ענו:
+הריצו על הטקסט את שלוש ההוראות הבאות וכתבו מה קיבלתם:
+
+</div>
+
+```python
+count_char(answer, ".")           # how many sentences?
+count_char(answer, " ") + 1       # how many words?
+count_digits(answer)              # how many digits?
+```
+
+<div dir="rtl">
+
+אחר כך ענו:
 
 1. מה התוכנית שלנו **יכולה** לבדוק על התשובה?
-2. מה היא **לא יכולה** לבדוק? (רמז: האם 27 ימים נכון?)
+2. מה היא **לא יכולה** לבדוק? (רמז: האם 27 ימים זה נכון?)
 
 </div>
 
@@ -307,21 +462,61 @@ answer = "The Moon orbits the Earth. It takes about 27 days. Some answers are wr
 
 <div dir="rtl">
 
-כתבו `count_each_vowel(text)` שמדפיסה כמה פעמים הופיעה כל אחת מחמש התנועות (חמישה מונים ו-`elif`). `count_each_vowel("Education is the key")` ← `a: 1 e: 3 i: 2 o: 1 u: 1`.
+כתבו פעולה בשם הבא. היא מדפיסה כמה פעמים הופיעה כל אחת מחמש התנועות (חמישה מונים ושרשרת תנאים). לדוגמה:
 
 </div>
+
+```python
+count_each_vowel(text)
+count_each_vowel("Education is the key")
+# a: 1 e: 3 i: 2 o: 1 u: 1
+```
+
+<pagebreak>
 
 ## שומרים ומסכמים
 
 <div dir="rtl">
 
-1. שומרים: `File › Save As` ← `G8_U5_M3_Classwork_<Name>.py`
-2. מניחים את דף העבודה (עם התיקונים בצבע אחר) בתיק, ומביאים אותו לשיעור הבא.
+שומרים את הקובץ בשם הבא (בתפריט File ← Save As):
+
+</div>
+
+```python
+G8_U5_M3_Classwork_<Name>.py
+```
+
+<div dir="rtl">
+
+מניחים את דף העבודה (עם התיקונים בצבע אחר) בתיק, ומביאים אותו לשיעור הבא.
 
 **בדיקת יציאה** (על הנייר, בלי מחשב):
 
-1. איפה כותבים `count = 0` בלולאת ספירה, ולמה שם?
-2. מה מודפס אחרי `for ch in "abc": print(ch * 2, end="")`?
-3. במה שונה `print(result)` בסוף פעולה מ-`return result`?
+1. באיזה מקום בפעולה כותבים את השורה הבאה בלולאת ספירה, ולמה שם?
 
 </div>
+
+```python
+count = 0
+```
+
+<div dir="rtl">
+
+2. מה מודפס אחרי הקוד הבא?
+
+</div>
+
+```python
+for ch in "abc": print(ch * 2, end="")
+```
+
+<div dir="rtl">
+
+3. במה שונה ההוראה הראשונה מהשנייה בסוף פעולה?
+
+</div>
+
+```python
+print(result)
+return result
+```

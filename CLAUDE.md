@@ -138,6 +138,12 @@ and make the README and course map describe the current state.
   Calibri or any proportional font; never right-aligned or RTL-ordered code; one consistent weight (not bold in some
   blocks and regular in others). In `.docx`, set the font on all four slots (ascii, hAnsi, cs, eastAsia) so Word and
   Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
+- **Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with
+  `python tools/md_to_docx.py in.md out.docx --worksheet`. Every code block is its own **boxed grey square**, set in **bold
+  Courier New**, left-aligned and left-to-right; **no code inside a Hebrew sentence** (put it in its own block; Hebrew comments
+  never go inside code); Hebrew paragraphs, headings and table cells are right-to-left and right-aligned; A4, one task per
+  page, answer boxes tall enough for handwriting. Before saying it is done, render the .docx to PDF and look at every page
+  (`soffice --headless --convert-to pdf`), and audit the file (fonts on all four slots, bidi flags, no wrapped code).
 - **AI safety in every file:** no API keys, no student names, faces or personal data; model output is always shown
   as something to check, not as the truth (program rationale, p. 2).
 - Every `.py` compiles before it is committed (except a documented intentional syntax bug in a starter).
