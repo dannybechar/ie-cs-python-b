@@ -70,7 +70,7 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 10 | 4.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | |
 | 11 | 5.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | |
 | 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | |
-| 13 | 5.3 Strings | L+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | |
+| 13 | 5.3 Strings | L+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition (date to confirm) |
 | 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ✅ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ✅ | | |
@@ -128,12 +128,13 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 
 ## Assessments
 
-Written tests made outside the 30-meeting plan (they do not change the time budget).
+Written tests made outside the 30-meeting plan (they do not change the time budget), and graded classwork.
 
 | Unit | Test | Length | Status | Files |
 |---|---|---:|---|---|
 | 1 | Python A Review — Grade 9 test | 60 min, 100 points | ✅ given 18/24 Oct 2026, graded (mean 77.1, median 80.75); Q5b wording and Q6b answer space fixed in Form B — see the key | [`unit-1-test-he.md`](units/u1-python-a-review/unit-1-test-he.md), [key](units/u1-python-a-review/unit-1-test-answer-key.md), [`Test_Reference.py`](units/u1-python-a-review/Test_Reference.py) |
 | 1 | Python A Review — Form B (retest, 2 students) | 60 min, 100 points | 🔶 prepared 29 Oct 2026; mirrors Form A, Q5b/Q6b wording fixed; Word copies in `Downloads\python-b` | [`unit-1-test-form-b-he.md`](units/u1-python-a-review/unit-1-test-form-b-he.md), [key](units/u1-python-a-review/unit-1-test-form-b-answer-key.md), [`Test_B_Reference.py`](units/u1-python-a-review/Test_B_Reference.py) |
+| 5 | 5.3 Strings — paper classwork (worksheet) | 45-min lesson + ~46 min classwork, rest at home; 100 points + 10 bonus | 🔶 taught; worksheets handed in next week, to be graded with the rubric | [worksheet](units/u5-strings/m3-classwork-worksheet-he.md), [key and rubric](units/u5-strings/m3-classwork-answer-key.md), [`Classwork_Reference.py`](units/u5-strings/Classwork_Reference.py) |
 
 ## Keeping this up to date
 

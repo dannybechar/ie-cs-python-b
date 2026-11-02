@@ -138,3 +138,74 @@ answers the question. A model's answer is something to check, not the truth.
 | `TypeError` on `result + 3` style code | forgot that `ch * 3` is repeating the letter, not adding |
 | One tripled letter only | `result = ""` inside the loop |
 | `count_vowels("AEIOU")` is `0` | no `.lower()` |
+
+## Grading rubric (100 points + up to 10 bonus)
+
+**What is graded.** The handed-in paper worksheet: Parts A and B and the exit check (100 points). Part C is homework / early
+finishers and earns **up to 10 bonus points; the grade is capped at 100**. The `.py` file is not graded (it is the
+students' check tool).
+
+**How to read the sheet.** The work cycle is *write on paper → run → compare → correct in another colour*, so:
+
+- **Grade the final answer**, including corrections in another colour. A wrong *prediction* loses nothing, as long as
+  a prediction was written. A missing prediction where the sheet asks for one costs **1 point** (A1–A3, B1).
+- **Handwritten code:** grade the logic. A missing colon, bracket or quote is a slip: **−1 once per function**, not per line.
+  Accept indentation that is roughly right if it is clear which lines belong to the loop.
+- **Accept equivalent code:** `count = count + 1` or `+=`; `for i in range(len(text))` with `text[i]`; a `while` loop with an
+  index; `ch == "a" or ch == "e" or …`; `ch in "aeiouAEIOU"` without `.lower()` (B5 — it is correct).
+- **`print` instead of `return`** in a function that should return: −2 for that function (once).
+- **Blank items** score 0. Partly-filled items get partial credit as in the table.
+
+### Part A — read and predict (30)
+
+| Item | Points | Full marks for |
+|---|---:|---|
+| A1 | 4 | `s,o,m,e,t,i,m,e,s,` on **one line** (2), a comma after **every** letter including the last (2) |
+| A2 | 8 | output `eaece` (4); explanation: a capital letter is *smaller* than `"a"` (2) and `p` is *larger* than `"e"` (2). "Capitals don't count" with no comparison = 1 |
+| A3 | 6 | both printed lines, `Number of words: 5` (2); the counter counts **spaces** (2); +1 because words = spaces + 1 (2) |
+| A4 | 12 | 2 per round (6 rounds): character, True/False and counter value all right = 2, one cell wrong = 1. A counter written as the value *before* the round all the way down: max 6 |
+
+### Part B — write functions (60)
+
+| Item | Points | Full marks for |
+|---|---:|---|
+| B1 | 10 | actual result `0` written (2); explanation: `count = 0` runs **every round**, so the counter is reset (4); fix: move `count = 0` above the `for` (4) |
+| B2 | 12 | `count = 0` before the loop (3), `for ch in text` (2), `if ch == letter` (2), counter + 1 inside the `if` (2), `return count` **after** the loop (2), the 4 "actual" cells filled (1). Uses `text.count(...)`: max 2 |
+| B3 | 12 | `result = ""` before the loop (2), loop over `text` (2), `result += ch * 3` (or `ch + ch + ch`) (3), `return result` after the loop (2); explanation: inside the loop it would be emptied every round / only the last letter would stay (3) |
+| B4 | 14 | `count_letters` with `isalpha()` (5) and `count_digits` with `isdigit()` (5) — counter before, test, +1, return; explanation: `count("5")` counts only the character `5`, a digit can be any of `0`–`9` (4) |
+| B5 | 12 | counter + loop + return (4), `.lower()` on the text or the character, or both cases listed (4), `ch in "aeiou"` or an equivalent `or` chain (4). Works only for lowercase input: max 8 |
+
+### Exit check (10)
+
+| Item | Points | Full marks for |
+|---|---:|---|
+| 1 | 3 | before the loop, once (1) — so it is not reset every round (2) |
+| 2 | 3 | `aabbcc` (one line, no spaces). `a a b b c c` or one pair per line: 1 |
+| 3 | 4 | `print` shows the value on the screen (and the function returns `None`) (2); `return` hands the value back to the calling code to store or use (2) |
+
+### Part C — bonus (up to 10, total capped at 100)
+
+| Item | Points | Full marks for |
+|---|---:|---|
+| C1 | 2 | `only_digits` builds and returns the digit string |
+| C2 | 3 | `hide_digits` with `if`/`else` (2); a reason: numbers may be private (address, ID, phone) and should not leave the computer (1) |
+| C3 | 3 | the three results 3 / 17 / 2 (1); one thing the program **can** check (1); it **cannot** tell whether "27 days" is true — check a reliable source (1) |
+| C4 | 2 | five counters, `if`/`elif`, the printed line `a: 1 e: 3 i: 2 o: 1 u: 1` |
+
+### Grading scale (suggestion)
+
+| Points | Meaning |
+|---|---|
+| 90–100 | Full command of string traversal |
+| 75–89 | Solid, small slips |
+| 56–74 | Basic; revisit where the counter / `result = ""` goes and `return` vs `print` before 5.4 |
+| below 56 | Needs support before 5.4 (the cipher and the unit checkpoint) |
+
+### Marking sheet (one row per student — keep it outside the repository)
+
+| Student | A1 /4 | A2 /8 | A3 /6 | A4 /12 | B1 /10 | B2 /12 | B3 /12 | B4 /14 | B5 /12 | Exit /10 | Bonus /10 | Total /100 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| | | | | | | | | | | | | |
+
+After grading, record **aggregates only** here (mean, median, range, strongest and weakest items, common errors), as
+for the Unit 1 test.
