@@ -6,10 +6,10 @@
  "starter": "Countdown_Starter.py",
  "output": "m4-countdown-he.html",
  "steps": [
-  "פותחים את תיקיית הכיתה",
-  "מורידים את הקובץ Countdown_Starter.py (פעם אחת – כל ארבעת התיקים בו)",
-  "פותחים אותו ב-Thonny",
-  "כותבים את הפעולה של התיק הזה במקום המילה pass, בלולאה שעל הלוח",
+  "נכנסים למשו\"ב ומורידים את הקובץ Unit 5.4 - Strings.zip",
+  "פותחים את ה-zip (Extract All) לתיקייה במחשב",
+  "פותחים ב-Thonny את הקובץ Countdown_Starter.py – כל ארבעת התיקים בו",
+  "בכל תיק כותבים את הפעולה במקום המילה pass, בלולאה שעל הלוח",
   "מריצים (F5) ומשווים לשורה expected"
  ],
  "cases": [
@@ -20,7 +20,10 @@
    "objective": "הפעולה מחזירה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.",
    "minutes": 6,
    "ops": "range(len(text) - 1) · text[index:index + 2] · find(\"is\", start)",
-   "calls": ["count_is(\"this is his list\")", "count_is(\"Mississippi is big\")"],
+   "calls": [
+    "count_is(\"this is his list\")",
+    "count_is(\"Mississippi is big\")"
+   ],
    "contrast": "בגרסת for בודקים כל מקום בטקסט: האם שני התווים שמתחילים בו הם is. בגרסת while קופצים ישר ל-is הבא בעזרת find עם מקום התחלה, עד ש-find מחזירה ‎-1. ולמה 4 ולא 1? is מסתתר גם בתוך this ו-his."
   },
   {
@@ -30,7 +33,10 @@
    "objective": "הפעולה בונה ומחזירה מחרוזת מהאות הראשונה של כל מילה.",
    "minutes": 7,
    "ops": "previous · text[index - 1] == \" \" · +=",
-   "calls": ["initials(\"American Standard Code Information Interchange\")", "initials(\"grade eight python\")"],
+   "calls": [
+    "initials(\"American Standard Code Information Interchange\")",
+    "initials(\"grade eight python\")"
+   ],
    "contrast": "בגרסת for עוברים על התווים וזוכרים את התו הקודם במשתנה previous (בהתחלה רווח, כדי שגם האות הראשונה תיכנס). בגרסת while עוברים על המקומות ומסתכלים אחורה על text[index - 1]; האות הראשונה נכנסת לפני הלולאה."
   },
   {
@@ -40,7 +46,11 @@
    "objective": "כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. הטקסט באותיות קטנות בלבד.",
    "minutes": 7,
    "ops": "ord · chr · isalpha · % 26",
-   "calls": ["next_letters(\"abcd\")", "next_letters(\"zoo\")", "next_letters(\"i like python\")"],
+   "calls": [
+    "next_letters(\"abcd\")",
+    "next_letters(\"zoo\")",
+    "next_letters(\"i like python\")"
+   ],
    "contrast": "בגרסת for האות z היא מקרה מיוחד עם if משלו. בגרסת while אין מקרה מיוחד: מחשבים את מקום האות באלפבית (0 עד 25), מוסיפים 1, ו-% 26 מחזיר את 26 ל-0 – כלומר z הופכת ל-a. וזכרו: צופן כזה לא מגן על כלום, כל אחד יכול להזיז אחורה."
   },
   {
@@ -50,8 +60,12 @@
    "objective": "הפעולה מחזירה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מוחזר כמו שהוא.",
    "minutes": 8,
    "ops": "find(\" \") · text[:first_space] · index -= 1",
-   "calls": ["first_and_last_word(\"Cats and dogs are great friends\")", "first_and_last_word(\"Hello\")"],
+   "calls": [
+    "first_and_last_word(\"Cats and dogs are great friends\")",
+    "first_and_last_word(\"Hello\")"
+   ],
    "contrast": "בגרסת for עוברים על כל הטקסט וזוכרים את הרווח האחרון שראינו. בגרסת while מתחילים מהסוף והולכים אחורה עד הרווח הראשון שפוגשים – ועוצרים מיד. שתיהן מוצאות את הרווח הראשון בעזרת find."
   }
- ]
+ ],
+ "instructions": "m4-countdown-cases-he.md"
 }

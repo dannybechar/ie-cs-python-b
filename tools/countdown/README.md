@@ -18,6 +18,10 @@ The page is one standalone HTML file per lesson (no login, no internet). It is *
 python tools/countdown/build_countdown.py units/u5-strings/m4-countdown-cases.json
 ```
 
+If the JSON names an `instructions` file, the build also writes the students' instructions as Markdown (goal,
+function stub, test calls and expected results — no solutions); turn it into a PDF with
+`python tools/md_to_docx.py <md> <docx> --worksheet` and `soffice --headless --convert-to pdf`.
+
 The build runs every test call on both versions, stops if they disagree, and writes the results as the expected output.
 Python 3, standard library only. Rebuild and commit after any change to the JSON, the reference or the template.
 

@@ -26,10 +26,14 @@ Files:
 | [`m4-countdown-he.html`](m4-countdown-he.html) | Teacher (projected) | The countdown page: 4 cases, `for`/`while` choice, clock, reveal. Standalone — open it in any browser, no internet needed |
 | [`Countdown_Starter.py`](Countdown_Starter.py) | Students | One file with the four case stubs and their checks |
 | [`Countdown_Reference.py`](Countdown_Reference.py) | Teacher | Each case solved with `for` and with `while`, by a different idea; the page's reveal screen is built from it |
+| [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | Students | The four cases as instructions (goal, function, test calls, expected results — no solutions); generated with the page, printed to `Countdown_Cases.pdf` for the Mashov zip |
 | [`m4-countdown-cases.json`](m4-countdown-cases.json) | Teacher | The page's content (Hebrew titles, goals, minutes, test calls, how the two solutions differ) |
 | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Students | The worksheet (Word copy for printing in `Downloads\python-b`) |
 | [`Worksheet_Starter.py`](Worksheet_Starter.py) / [`Worksheet_Reference.py`](Worksheet_Reference.py) | Students / Teacher | Question 1's bug and stubs; solutions with expected values |
 | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Teacher | Answers, rubric (100 points + 5 bonus), marking sheet, what to look for |
+
+**Mashov upload:** `Downloads\python-b\Unit 5.4 - Strings.zip` = `Countdown_Cases.pdf` + `Countdown_Starter.py` + `Worksheet_Starter.py`
+(no solutions). The worksheet itself is printed. The page's "how to start" steps tell students to download this zip from Mashov.
 
 To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` or the reference and rebuild the page:
 `python tools/countdown/build_countdown.py units/u5-strings/m4-countdown-cases.json` (see [`tools/countdown/README.md`](../../tools/countdown/README.md)).

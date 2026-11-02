@@ -45,6 +45,26 @@ def functions(source):
     return found
 
 
+def write_instructions(meta, cases, path):
+    """The students' instructions (Markdown, for tools/md_to_docx.py --worksheet): no solutions."""
+    out = ["# " + meta["title"], "", meta["subtitle"], "", '<div dir="rtl">', ""]
+    out += ["%d. %s" % (i + 1, step) for i, step in enumerate(meta["steps"])]
+    out += ["", "</div>"]
+    for c in cases:
+        out += ["", "<pagebreak>"] if c["num"] != cases[0]["num"] else []
+        out += ["", "## תיק %d (%d דקות): %s" % (c["num"], c["minutes"], c["title"]), "",
+                '<div dir="rtl">', "", c["objective"], "", "</div>", "", '<div dir="rtl">', "",
+                "הפעולה בקובץ:", "", "</div>", "", "```python", c["starter"][c["starter"].index("def "):], "```", "", '<div dir="rtl">', "",
+                "בדיקות – כשהפעולה נכונה, התוצאה שווה לצפוי:", "", "</div>", "", "```python"]
+        for line in c["expected"].split("\n"):
+            call, result = line.split("  ->  ")
+            out += [call, "# expected: " + result]
+        out += ["```"]
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(out) + "\n")
+    print("wrote %s" % path)
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -91,6 +111,8 @@ def main():
     with open(out, "w", encoding="utf-8", newline="\n") as f:
         f.write(page)
     print("wrote %s (%d cases, %d KB)" % (out, len(cases), len(page) // 1024))
+    if meta.get("instructions"):
+        write_instructions(meta, cases, os.path.join(folder, meta["instructions"]))
     for c in cases:
         print("  case %d %s:\n    %s" % (c["num"], c["func"], c["expected"].replace("\n", "\n    ")))
 

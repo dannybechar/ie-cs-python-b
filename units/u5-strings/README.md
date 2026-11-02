@@ -80,6 +80,7 @@ page, each solved with `for` and with `while`; then a graded five-question works
 |---|---|---|
 | Teacher | [`m4-countdown-lesson-plan.md`](m4-countdown-lesson-plan.md) | Lesson plan: 48 min of cases, 37 min of worksheet, 5 min exit check |
 | Teacher | [`m4-countdown-he.html`](m4-countdown-he.html) | The countdown page (open in a browser and project; generated — rebuild with [`tools/countdown`](../../tools/countdown/README.md)) |
+| Student | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | The four cases as instructions, no solutions (generated; as `Countdown_Cases.pdf` in the Mashov zip `Downloads\python-b\Unit 5.4 - Strings.zip`) |
 | Teacher | [`m4-countdown-cases.json`](m4-countdown-cases.json) | The page's content: Hebrew titles and goals, minutes, test calls, how the two solutions differ |
 | Student | [`Countdown_Starter.py`](Countdown_Starter.py) | Stubs and checks for the four cases |
 | Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas |
