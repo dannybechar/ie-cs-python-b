@@ -6,7 +6,7 @@
 **Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes = 45-minute lesson + about 46 minutes of paper-and-computer classwork (the rest finishes at home)
 **Structure:** Knowledge + Lab. The lesson teaches exactly what the worksheet needs, in four short demos, each followed by a student action.
-**Minutes (theory / practice):** 45 / 45 (the unit plan has 5.3 as Lab + Lab 0 / 90; see "Decision for the teacher" below)
+**Minutes (theory / practice):** 45 / 45 (the teacher chose this split for 5.3 — see "Decision" below)
 **Current tool:** Thonny, with a printed worksheet
 **Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
 decks **8.0 / 8.1** slides 7–15 (walking over a string with `for`, `end=`, the three read-the-code slides, exercises **#1, #2, #7**)
@@ -35,10 +35,9 @@ reference [`Classwork_Reference.py`](Classwork_Reference.py). The existing 90-mi
 | **5.3 (this edition)** | **`for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` inside a loop** | **45 / 45** |
 | 5.4 | exercises 4–7, `ord`/`chr`, `split`/`join` (shown), worksheet 8.2, checkpoint | 0 / 90 |
 
-**Decision for the teacher.** The unit plan gives 5.3 a 0 / 90 split (all practice, short demos). A 45-minute lesson followed by
-classwork makes it 45 / 45. The unit then totals 135 theory / 225 practice instead of 90 / 270. Either accept that,
-or treat the first 45 minutes as a guided demo-and-try block (it already has a student action every 7–10 minutes) and keep the
-course map unchanged. This edition changes no other file.
+**Decision (teacher, 2 Nov 2026).** This edition is the one taught, and it is recorded as 45 / 45. The unit plan had 5.3 as
+Lab + Lab 0 / 90, so Unit 5 now totals 135 theory / 225 practice instead of the official 90 / 270 (same 360 minutes;
+recorded in the course map and the unit strategy).
 
 ---
 

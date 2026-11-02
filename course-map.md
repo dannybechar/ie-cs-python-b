@@ -21,12 +21,12 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 2 | [AI2 Year Opening](units/u2-ai2-year-opening) | 4 (2 / 2) | 180 (90 / 90) | 2 | 180 (90 / 90) | 0 | 🔶 2/2 (reworked) |
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | 🔶 3/3 (reworked) |
 | 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 (reworked) |
-| 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (90 / 270) | 0 | 🔶 4/4 (reworked) |
+| 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (135 / 225) | 0 | 🔶 4/4 (reworked); 5.3 taught as 45 / 45 (teacher's decision) — 45 more theory, 45 less practice than official |
 | 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
 | 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
 | 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
 | 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (945 / 1,755)** | **0** | **30/30 built; 12 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 18 approved (✅)** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (990 / 1,710)** | **0** | **30/30 built; 12 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 18 approved (✅)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -68,9 +68,9 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 8 | 3.3 Functions | K+L · Local and `global` variables, variable roles; checkpoint (Ministry 4.3, 4.5, 4.6) | 🔶 | | |
 | 9 | 4.1 Bringing AI into Code (API) | K+L · What is an API, the Gemini call, f-strings, the `ask_the_ai` wrapper (Ministry 5.0–5.2) | 🔶 | | |
 | 10 | 4.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | |
-| 11 | 5.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | |
-| 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | |
-| 13 | 5.3 Strings | L+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition (date to confirm) |
+| 11 | 5.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
+| 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
+| 13 | 5.3 Strings | K+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition, 45 / 45 (date to confirm) |
 | 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ✅ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ✅ | | |
@@ -107,7 +107,7 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 4 | 4.2 Bringing AI into Code (API) | 90 | 0 / 90 | Lab + Lab | [`m2-lesson-notes.md`](units/u4-api/m2-lesson-notes.md) | Reworked to Ministry 6.1, 6.2 ("Balanced Day"); unit checkpoint; stand-in for verification; slides: superseded — pending new NotebookLM deck (prep folder ready, 17 slides, 90 min). |
 | 5 | 5.1 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u5-strings/m1-lesson-notes.md) | Reworked to Ministry 7.1, 7.2; slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
 | 5 | 5.2 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u5-strings/m2-lesson-notes.md) | Reworked to Ministry 7.1, 7.2; now Knowledge + Lab (official 90 / 270 split); slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). |
-| 5 | 5.3 Strings | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Reworked to Ministry 8.0, 8.1; paper-classwork edition (45-min lesson + worksheet, [plan](units/u5-strings/m3-classwork-lesson-plan.md)) prepared 31 Oct 2026 (its own 20-slide NotebookLM prep files, loose in `Downloads\python-b\`; the Word worksheet is `Downloads\Unit 5.3 - Strings classwork worksheet.docx`; plus a one-page [string commands table](units/u5-strings/string-commands-table-he.md) for the whole unit); slides of the 90-minute lab version: superseded — pending new NotebookLM deck (prep folder ready, 16 slides, 90 min). |
+| 5 | 5.3 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab (paper-classwork edition, as taught) | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Reworked to Ministry 8.0, 8.1; paper-classwork edition (45-min lesson + worksheet, [plan](units/u5-strings/m3-classwork-lesson-plan.md)) prepared 31 Oct 2026 (its own 20-slide NotebookLM prep files, loose in `Downloads\python-b\`; the Word worksheet is `Downloads\Unit 5.3 - Strings classwork worksheet.docx`; plus a one-page [string commands table](units/u5-strings/string-commands-table-he.md) for the whole unit); slides of the 90-minute lab version: superseded — pending new NotebookLM deck (prep folder ready, 16 slides, 90 min). |
 | 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u5-strings/m4-lesson-notes.md) | Reworked to Ministry 8.1, 8.2, 8.7; unit checkpoint; slides: superseded — pending new NotebookLM deck (prep folder ready, 18 slides, 90 min). |
 | 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u6-advanced-language-model/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
 | 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u6-advanced-language-model/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
