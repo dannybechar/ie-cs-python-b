@@ -18,7 +18,7 @@ The old slide decks stay in the folder, marked superseded in the README, until t
 | What a string is, quotes, indices (positive and negative), `len`, `+`, `*`, `int`/`str` | 5.1 (45 T + 45 P) | 45 / 45 | 🔶 |
 | Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` | 5.2 (45 T + 45 P) | 45 / 45 | 🔶 |
 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`; `for` over a string, counting, building with `+=` | 5.3 (45 T + 45 P, paper-classwork edition as taught) | 45 / 45 | 🔶 |
-| Exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint | 5.4 (90 P) | 0 / 90 | 🔶 |
+| Exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint | 5.4 (90 P; [countdown edition](m4-countdown-lesson-plan.md): exercises 4–6 + cipher as timed cases, worksheet 8.2 graded; `split`/`join` left to 7.2) | 0 / 90 | 🔶 |
 | **Total** | | **135 / 225** (official 90 / 270; teacher's decision, 2 Nov 2026: 5.3 was taught as the paper-classwork edition, 45 / 45) | |
 
 Chapter goals (ten in all — the official numbering):

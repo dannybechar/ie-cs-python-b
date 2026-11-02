@@ -83,6 +83,27 @@ The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<
    and the course-map meeting-log note → `slides: `m<M>-slides-he.pdf` (N slides, 90 min; NotebookLM, patched)`.
 6. Commit ("Add Unit U.M slide deck (patched NotebookLM PDF)"), push, report what was patched, slide by slide.
 
+### "countdown lab U.M" (the teacher's lab format, first used in 5.4)
+
+A 90-minute Lab + Lab: **four timed cases done together** on a projected countdown page (the method of the teacher's
+IB DP1/PDP classes), then **a graded five-question worksheet**. Copy the shape of Unit 5.4
+([`m4-countdown-lesson-plan.md`](units/u5-strings/m4-countdown-lesson-plan.md)):
+
+- `m<M>-countdown-cases.json` + `Countdown_Starter.py` (one stub per case) + `Countdown_Reference.py` (`<func>_for` and
+  `<func>_while` per case, **different ideas**, not a syntax swap). Build with
+  `python tools/countdown/build_countdown.py units/<unit>/m<M>-countdown-cases.json` → `m<M>-countdown-he.html` (the page)
+  and `m<M>-countdown-cases-he.md` (students' instructions, no solutions). Never edit the generated files by hand.
+- `m<M>-countdown-worksheet-he.md` (Word copy with `--worksheet`, render and look at every page), `Worksheet_Starter.py`
+  (question 1 is a find-the-bug), `Worksheet_Reference.py`, `m<M>-countdown-answer-key.md` with a **rubric (100 points)
+  and a marking sheet**; bonus items capped at 100.
+- **Students get files from Mashov** (משו"ב): build `Downloads\python-b\Unit U.M - <name>.zip` = the instructions PDF
+  (`Countdown_Cases.pdf`) + both starters, no solutions. The page's "how to start" steps say so.
+- Records: unit README section, lesson plan, course-map meeting-log note and an **Assessments** row.
+
+**Graded classwork** (5.3 classwork, the countdown worksheets): grade the final answer including corrections in another
+colour; a wrong prediction loses nothing; handwritten slips −1 once per function; `print` instead of `return` −2.
+Record only aggregates in the repo; per-student marks stay outside it.
+
 ### "approve unit N"
 
 - Every `m*-lesson-notes.md` of the unit: `**Status:** Approved by the teacher`.
@@ -179,6 +200,6 @@ and the exact exam date (see "Deadline and pace" in the course map).
 ## Git
 
 - Remote `dannybechar/ie-cs-python-b`. The machine's global gh account (`danny-gh-is`) gets 403; this repo's
-  `.git/config` has a credential helper that supplies `dannybechar` + `gh auth token --user dannybechar`, so plain
+  `.git/config` (on each machine — Windows and the Linux laptop) has a credential helper that supplies `dannybechar` + `gh auth token --user dannybechar`, so plain
   `git push` works. If a push 403s, check that config.
 - Work on `main`, one commit per routine, message in the style above.

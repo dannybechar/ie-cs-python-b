@@ -21,7 +21,7 @@ See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedul
 - [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
 - [Unit 3 — Functions](units/u3-functions) — 🔶 reworked to the Ministry materials, awaiting approval (3/3)
 - [Unit 4 — Bringing AI into Code (API)](units/u4-api) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
-- [Unit 5 — Strings](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4)
+- [Unit 5 — Strings](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4); 5.1–5.3 taught, 5.4 next (countdown edition ready)
 - [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
 - [Unit 7 — Lists](units/u7-lists) — ✅ approved (5/5 meetings)
 - [Unit 8 — Classification](units/u8-classification) — ✅ approved (4/4 meetings)
