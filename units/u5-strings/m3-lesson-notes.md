@@ -4,6 +4,7 @@
 ### Topic: More String Methods and Walking Over a String with `for`
 
 **Status:** Built, awaiting teacher approval 🔶
+**No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
 **Duration:** 90 minutes
 **Structure:** Lab + Lab (short demo → task → short demo → task)
 **Minutes (theory / practice):** 0 / 90
@@ -16,8 +17,9 @@ read-the-code slides, exercises **#1, #2, #3**). **Changed from the previous ver
 (`find` is taught in 5.2; building a string with `+=` now appears as the Ministry's "keep letters a–e" slide); the
 `range(len(text) + 1)` warm-up is replaced by the counter-reset bug. **Fixes to the Ministry text:** the exercise-1
 solution prints with `print(count = ', count)`, which is an extraction/typing slip (it is a syntax error) — the course uses
-`print("num =", count)`; the exercises are rewritten as functions that **take a string and return a value**
-(program goal 9), with the Ministry's `input`-based form kept only where the exercise asks for input (#3).
+`print("num =", count)`; the exercises are written as plain code under a variable that holds the test text (no
+functions — the class has not learned `def` yet), with the Ministry's `input`-based form kept only where the exercise
+asks for input (#3). The warm-up bug is unchanged; it is now plain code (a variable, the buggy loop, `print`).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -40,8 +42,8 @@ labeled **Tool Note – Thonny**.
 |---|---|
 | Goal 6: `upper`, `lower`, `startswith`, `endswith`, `isalpha`, `isnumeric` | ✅ (`isdigit`, which the Ministry uses; for digit characters it agrees with `isnumeric` — mention once) |
 | Goal 7: traverse a string's characters with `for` | ✅ exercises 1–2, three read-the-code slides |
-| Goal 8: counting and validation algorithms | ✅ `count_char`, `is_year`, `count_cohen` |
-| Goal 9: functions that take a string and return a value | ✅ every task |
+| Goal 8: counting and validation algorithms | ✅ count a letter (Task 2), is it a year (Task 1), count the Cohens (Task 4) |
+| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after Unit 3 |
 
 ### Deliberate exclusions
 Loops over `range(len(text))` (5.4, where position matters); `ord`/`chr`, `split`/`join` (5.4); lists; nested loops.
@@ -59,12 +61,13 @@ Loops over `range(len(text))` (5.4, where position matters); `ord`/`chr`, `split
 ## 4. Core Mental Models
 
 ```python
-def count_char(text, letter):
-    count = 0                      # set ONCE, before the loop
-    for character in text:         # character is a different letter each time
-        if character == letter:
-            count += 1
-    return count
+text = "sometimes you win sometimes you learn"
+letter = "e"
+count = 0                      # set ONCE, before the loop
+for character in text:         # character is a different letter each time
+    if character == letter:
+        count += 1
+print(count)                   # 5 - printed ONCE, after the loop
 ```
 
 ```python
@@ -79,6 +82,7 @@ print(new_text)                                   # eaece  (the capital W and th
 - `print(letter * 3, end="")` keeps the next print on the same line; a plain `print()` afterwards ends the line.
 - `startswith(s, start, end)` and `endswith(s, start, end)` look only between the two places.
 - `isdigit()` is `False` for `"1.9.2027"` (the dots are not digits) and for `""`.
+- To test another value, change the variable at the top of the block and run again.
 
 ---
 
@@ -89,14 +93,14 @@ Starter: [`Traverse_Starter.py`](Traverse_Starter.py). Reference: [`Traverse_Ref
 | Clock | Activity |
 |---|---|
 | 0–8 | **Demo (5 min) + predict:** `lower()` / `upper()` (7.1 slides 29–31), `startswith`, `endswith`, `isalpha`, `isdigit` (slides 32–36). Predict `"1.9.2027".isdigit()` and `"2027".isdigit()`; `"Piano And Drums".upper()` |
-| 8–18 | **Task 1:** predict/run worksheet Q14, then `is_year(text)` |
+| 8–18 | **Task 1:** predict/run worksheet Q14, then is `text` a year? |
 | 18–26 | **Demo (6 min) — `for` over a string** (8.0 slides 8–10): run the comma-printing code, **predict** the output of the "letters a–e" code and complete the sentence `num of ____ is:` |
 | 26–32 | **Warm-up bug:** the counter that restarts |
-| 32–42 | **Task 2:** `count_char` — Ministry exercise 1 |
-| 42–52 | **Task 3:** `triple_print`, then `triple` — exercise 2 |
-| 52–64 | **Task 4:** `count_cohen_a` and `count_cohen_b` — exercise 3 |
-| 64–74 | **Task 5:** `keep_a_to_e` — the slide-9 code as a function |
-| 74–84 | **If time:** `count_words` — the slide-10 code; why two spaces in a row break it |
+| 32–42 | **Task 2:** count a letter with a `for` loop — Ministry exercise 1 |
+| 42–52 | **Task 3:** every letter three times — print, then build with `+=` — exercise 2 |
+| 52–64 | **Task 4:** count the Cohens, versions a and b — exercise 3 |
+| 64–74 | **Task 5:** keep letters a–e — the slide-9 code on a new text |
+| 74–84 | **If time:** count the words — the slide-10 code; why two spaces in a row break it |
 | 84–90 | Save and exit check |
 
 ---
@@ -109,62 +113,73 @@ On `text = "I like to play drums"`: `text.startswith("I like")` is `True`; `text
 `text.startswith("to play", 10, 17)` is `False` (the checked part is `text[10:17]`, which is `"play dr"`;
 `"to play"` begins at place 7); `text.endswith("drums")` is `True`. Letter case matters: `"I Like"` is not `"I like"`.
 
-## 8–18 — Task 1: `is_year(text)`
+## 8–18 — Task 1: is `text` a year?
 
-First predict and run the three `startswith` lines from the demo. Then write `is_year(text)`: `True` only when the text is
-digits only **and** has four characters. `"2027"` → `True`, `"1.9.2027"` → `False`, `"20x7"` → `False`, `"99"` → `False`.
+First predict and run the three `startswith` lines from the demo. Then, under `text = "2027"`, write code that prints
+`True` only when the text is digits only **and** has four characters:
+
+```python
+text = "2027"
+print(text.isdigit() and len(text) == 4)
+```
+
+Test values (change the variable, run again): `"2027"` → `True`, `"1.9.2027"` → `False`, `"20x7"` → `False`, `"99"` → `False`.
 Ask: what would a program checking an AI answer's *date* need to check beyond this? (The year could be four digits and
 still wrong.)
 
 ## 18–26 — Demo: `for` over a string
 
 ```python
-def ex(text):
-    for ot in text:
-        print(ot, end=",")
+text = "sometimes"
+for ot in text:
+    print(ot, end=",")
 ```
 
-`ex("sometimes")` prints `s,o,m,e,t,i,m,e,s,`. Predict the other two slides: `"We play on the computer"` →
+This prints `s,o,m,e,t,i,m,e,s,`. Predict the other two slides: `"We play on the computer"` →
 `eaece`; `"We are learning to program"` prints the sentence and `num of words is: 5` (spaces + 1).
 
 ## 26–32 — Warm-up: the counter that restarts
 
 ```python
-def count_letter(text, letter):
-    for character in text:
-        count = 0
-        if character == letter:
-            count += 1
-    return count
-
-print(count_letter("sometimes you win sometimes you learn", "e"))   # should be 5
+text = "sometimes you win sometimes you learn"
+letter = "e"
+for character in text:
+    count = 0
+    if character == letter:
+        count += 1
+print(count)   # should be 5
 ```
 
 Predict, then run: `0`. The `count = 0` line is inside the loop, so the counter restarts for every character; at the
 end it is the answer for the *last* character only. Fix: move `count = 0` above the loop. (If the last character happens
 to match, the answer is `1` — equally wrong.)
 
-## 32–42 — Task 2: `count_char(text, letter)` (Ministry exercise 1)
+## 32–42 — Task 2: count a letter (Ministry exercise 1)
 
-Write it again as `count_char`, with a `for` loop and **without** `count()`. The sentence above with `"e"` gives `5`. Check against `text.count("e")`.
+Under the two variables `text` and `letter`, write the counter again, correctly, with a `for` loop and **without**
+`count()`; print the answer once, **after** the loop. The sentence above with `"e"` gives `5`; `"banana"` with `"a"`
+gives `3`; `"banana"` with `"z"` gives `0`. Check against `text.count(letter)`.
 
-## 42–52 — Task 3: `triple_print(text)` and `triple(text)` (Ministry exercise 2)
+## 42–52 — Task 3: every letter three times (Ministry exercise 2)
 
-`triple_print("Learn")` prints `LLLeeeaaarrrnnn` on one line (`end=""`, then a `print()` at the end). Then `triple(text)`
-builds the same text with `+=` and **returns** it — which one is easier to test? (The returning one.)
+With `text = "Learn"`: (a) print every letter three times on one line — `LLLeeeaaarrrnnn` (`end=""`, then a `print()` at
+the end). (b) Build the same text in a new variable `result` with `+=` and print it once, after the loop. Ask: what can
+you do with `result` that you cannot do with letters already printed? (Use it again — `len(result)`, compare it, print it
+twice.) Test value: `"ab"` → `aaabbb`.
 
-## 52–64 — Task 4: `count_cohen_a(number)`, `count_cohen_b(number)` (Ministry exercise 3)
+## 52–64 — Task 4: count the Cohens (Ministry exercise 3)
 
-Each function reads `number` surnames with `input()` and returns how many contain `cohen` (any letter case). Version a: use
-`count`. Version b: without `count` — use `in`. **Use invented surnames only; never type the name of a real student.**
+Under `number = 3`, the code reads `number` surnames with `input()` and prints how many contain `cohen` (any letter case).
+Version a: use `count`. Version b: without `count` — use `in`. Test: `Cohen`, `Levi`, `BenCOHEN` → `2`. **Use invented surnames only; never type the name of a real student.**
 
-## 64–74 — Task 5: `keep_a_to_e(text)`
+## 64–74 — Task 5: keep letters a–e
 
-Return a new string with only the characters between `"a"` and `"e"`. `"We play on the computer"` → `"eaece"`.
+Build a new string with only the characters between `"a"` and `"e"` and print it. `"We play on the computer"` →
+`eaece`; `"abcdefg"` → `abcde`.
 
-## 74–84 — If time: `count_words(text)`
+## 74–84 — If time: count the words
 
-Spaces plus one. `"We are learning to program"` → `5`; `"two  spaces"` → `3` (a double space counts twice) — what real text breaks this, and what would fix it? (Discuss; the fix, `split`, comes in 5.4.)
+Count the spaces, then print the spaces plus one. `"We are learning to program"` → `5`; `"two  spaces"` → `3` (a double space counts twice) — what real text breaks this, and what would fix it? (Discuss; the fix, `split`, comes in 5.4.)
 
 ## 84–90 — Save and exit check
 
@@ -193,6 +208,7 @@ restarting counter visible.
 | `isdigit()` on `""` is `True` | It is `False` for an empty string |
 | `print(x, end="")` also removes the final newline later | Add a plain `print()` when the line should end |
 | A loop changes the original string | A string never changes; the loop builds a new one |
+| The `print` can go inside the loop | The answer must be printed after the loop, not inside it — inside, it prints a running count on every turn |
 
 ---
 
@@ -200,5 +216,5 @@ restarting counter visible.
 
 - The three read-the-code predictions written before running
 - The warm-up explained (why `0`, why moving one line fixes it)
-- `is_year`, `count_char`, `triple`, `count_cohen_b`, `keep_a_to_e` passing their test inputs
+- Tasks 1–5 printing the expected answer for every test value (the variable changed and run again)
 - Exit check

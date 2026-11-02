@@ -4,6 +4,7 @@
 ### Topic: Slicing and Searching — `[start:end:jump]`, `count`, `replace`, `in`, `find`
 
 **Status:** Built, awaiting teacher approval 🔶
+**No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
@@ -38,10 +39,10 @@ labeled **Tool Note – Thonny**.
 | Goal 2: the operator `in` | ✅ |
 | Goal 5: slicing of the form `[start:end:step]` (the Ministry calls the third part *jump*) | ✅ |
 | Goal 6 (part): `find`, `count`, `replace` | ✅ |
-| Goal 8 (start): searching and counting | ✅ `count_the`, `looks_like_email` |
+| Goal 8 (start): searching and counting | ✅ Task 2 (count `the`), If time (email shape) |
 
 ### Deliberate exclusions
-`startswith`/`endswith`, `isalpha`/`isdigit` (5.3); `lower`/`upper` appear here only as the tool for the recap and for `has_yes` (their full lesson, with the Ministry's examples, is 5.3); loops (5.3); `index()` from worksheet Q16 (it is the
+`startswith`/`endswith`, `isalpha`/`isdigit` (5.3); `lower`/`upper` appear here only as the tool for the recap and for Task 4 (their full lesson, with the Ministry's examples, is 5.3); loops (5.3); `index()` from worksheet Q16 (it is the
 same as `find` but raises `ValueError` when nothing is found — mentioned in one sentence, not practised).
 
 ---
@@ -49,7 +50,7 @@ same as `find` but raises `ValueError` when nothing is found — mentioned in on
 ## 3. Lesson Goal
 
 **`text[start:end:jump]` cuts a piece out of a string (the `end` place is not included); `count`, `replace`, `in` and `find`
-look inside a string — and none of them changes the original: each returns something new.**
+look inside a string — and none of them changes the original: each gives back something new.**
 
 ---
 
@@ -67,7 +68,7 @@ print(text[::-1])      # a negative jump walks backwards
 
 ```python
 title = "strings are sequences"
-title.upper()           # a new string is returned ... and thrown away
+title.upper()           # a new string is given back ... and thrown away
 print(title)            # strings are sequences
 title = title.upper()   # keep it by assigning
 ```
@@ -83,9 +84,9 @@ title = title.upper()   # keep it by assigning
 
 | Clock | Activity |
 |---|---|
-| 0–5 | **Recap + a surprise:** `upper()` and `lower()` in one line each (they return the text in capitals / small letters), then predict `title.upper()` followed by `print(title)` (unchanged). One sentence: strings can't be changed; operations give back a new string |
+| 0–5 | **Recap + a surprise:** `upper()` and `lower()` in one line each (they give back the text in capitals / small letters), then predict `title.upper()` followed by `print(title)` (unchanged). One sentence: strings can't be changed; operations give back a new string |
 | 5–19 | **Slicing** (7.1 slides 14–17): the board shows `"think big be bold show your color"` with both numberings. Demo `text[3:]`, `text[:4]`, `text[5:12:2]`; then **predict, then run:** `text[10:16]`, `text[10:18]`, `text[-5:]`, `text[-23:-15]`, `text[::2]`, `text[4:25:4]`. Two minutes on "how many characters?" (`end - start`) and the reversed string `text[::-1]` |
-| 19–26 | **`count`** (slide 18): `"I love bananas, banana are my favorite fruit".count("banana")` is `2`. Students copy the code and update the print line: `print(f"banana in text is : {x}")`. How many times is `"an"` in `"banana"`? (2) and `"ana"`? (1 — no overlap) |
+| 19–26 | **`count`** (slide 18): `"I love bananas, banana are my favorite fruit".count("banana")` is `2`. Students copy the code and update the print line: `print("banana in text is :", x)`. How many times is `"an"` in `"banana"`? (2) and `"ana"`? (1 — no overlap) |
 | 26–33 | **`replace(old, new)` and `replace(old, new, count)`** (slides 20–23): `text.replace("day", "DAY", 2)`; the original is unchanged — compare `print(text)` before and after |
 | 33–38 | **`in`** (slide 25): `"win" in "sometimes you win sometimes you learn"` is `True`, `"lose" in …` is `False`; `"x" in "jerusalem"`; `"2" in str(12345)` |
 | 38–45 | **`find`** (slides 26–27 and worksheet Q11): on `"sometimes you win sometimes you learn"` — `find("win")` is `14`, `find("lose")` is `-1`, `find("some")` is `0` (why 0?), `find("some", 1)` is `18`. One sentence on `index()` (like `find`, but an error when missing) |
@@ -112,23 +113,46 @@ For `text = "I like to play drums"` print `drums` (`text[-5:]`), `to play` (`tex
 `number = "345124987"` (a string!) print `124` (`[3:6]`), `49` (`[-4:-2]`), `4512` (`[1:5]`), `987` (`[6:]`). Any slice that
 gives the same output is correct — compare the different answers in the room.
 
-## 58–66 — Task 2: `count_the(text)` (worksheet Q15)
+## 58–66 — Task 2: count `the` (worksheet Q15)
 
-Return how many times the characters `the` appear. `"the other theme is there"` → `4`. Then run `"aaaa".count("aa")`
-and explain the `2`.
+```python
+text = "the other theme is there"
+print(text.count("the"))     # 4
+```
 
-## 66–74 — Task 3: `replace_first_three(text)` (worksheet Q9)
+Print how many times the characters `the` appear. Then run `print("aaaa".count("aa"))` and explain the `2`.
 
-Replace the character `|` with the two letters `we`, only in the first three places. `"a|b|c|d|e"` → `"awebwecwed|e"`.
+## 66–74 — Task 3: replace in the first three places (worksheet Q9)
 
-## 74–82 — Task 4: `has_yes(text)` (worksheet Q13)
+```python
+text = "a|b|c|d|e"
+print(text.replace("|", "we", 3))     # awebwecwed|e
+```
 
-Return `True` when the text contains `yes` in any letter case. `"Maybe YES maybe no"` → `True`; `"no way"` → `False`.
+Replace the character `|` with the two letters `we`, only in the first three places, and print the new string.
 
-## 82–87 — If time: `looks_like_email(address)` (worksheet Q10b)
+## 74–82 — Task 4: does the text contain `yes`? (worksheet Q13)
 
-`True` when the text has an `@` **and** a `.` somewhere after it. `"dana@school.org"` → `True`; `"dana@school"` and `"dana.school"` →
-`False`. Use `find` and its start position. (A real check would be much stricter — a program can verify the *shape* of an
+```python
+text = "Maybe YES maybe no"
+print("yes" in text.lower())     # True
+```
+
+Print `True` when the text contains `yes` in any letter case. Then change `text` to `"no way"` and run again → `False`.
+
+## 82–87 — If time: does the address look like an email? (worksheet Q10b)
+
+```python
+address = "dana@school.org"
+at = address.find("@")
+if at == -1:
+    print(False)
+else:
+    print(address.find(".", at + 1) != -1)     # True
+```
+
+Print `True` when the text has an `@` **and** a `.` somewhere after it. `"dana@school.org"` → `True`; change `address` to
+`"dana@school"` and to `"dana.school"` → `False`. Use `find` and its start position. (A real check would be much stricter — a program can verify the *shape* of an
 address, never that it exists or that a person owns it.)
 
 ## 87–90 — Save and exit check
@@ -152,9 +176,9 @@ Type slices in the **Shell** first (`text[5:12:2]`): the result appears at once,
 | Misconception | Correction |
 |---|---|
 | `text[2:5]` includes place 5 | The end place is never included — the slice has `end - start` characters |
-| `replace`/`upper` change the variable | They return a new string; assign it or print it |
+| `replace`/`upper` change the variable | They give back a new string; assign it or print it |
 | `count` finds overlapping matches | It does not: `"aaaa".count("aa")` is 2 |
-| `find` returns `True`/`False` | It returns a place, or `-1`; `in` is the one that returns `True`/`False` |
+| `find` gives `True`/`False` | It gives a place, or `-1`; `in` is the one that gives `True`/`False` |
 | `in` ignores letter case | It is case-sensitive — normalise with `lower()` (5.3 completes the picture) |
 | A digit string is a number | `"345124987"[0:3]` is the string `"345"` |
 
@@ -164,5 +188,5 @@ Type slices in the **Shell** first (`text[5:12:2]`): the result appears at once,
 
 - The slicing predictions written before running
 - The warm-up explained, not only fixed
-- `count_the`, `replace_first_three`, `has_yes` passing their test inputs
+- Tasks 2–4 printing the right answer for every test value (students change the variable and run again)
 - Exit check

@@ -4,6 +4,7 @@
 ### Topic: A String Is an Ordered Sequence
 
 **Status:** Built, awaiting teacher approval 🔶
+**No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
@@ -43,13 +44,15 @@ Unit total 90 theory / 270 practice (master table: 8 h = 2 + 6).
 | Goal 3: access by a positive or a negative index | ✅ 7.1 slides 9–11, worksheet Q4 |
 | Goal 4: why the first index is `0` | ✅ "the first character is zero steps from the start" |
 | Goal 6 (part): `len` | ✅ |
+| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after Unit 3 |
 
 ### What Grade 7 already did
 Python A (Unit 6) taught `len`, `word[0]`, `word[len(word) - 1]`, `+`, `*` — but **no negative indices**. So `+`, `*`,
 `len` are a fast review here, and negative indices are the new idea.
 
 ### Deliberate exclusions
-Slicing and the string methods (5.2–5.3), loops over a string (5.3), lists.
+Slicing and the string methods (5.2–5.3), loops over a string (5.3), lists. Functions (`def`, parameters, `return`): the class
+has not learned them yet, so every lab task is plain code under a variable that ends in `print`.
 
 ---
 
@@ -101,6 +104,9 @@ Predict-first rule: at 29–38 students write their prediction for `msg1 = "abc"
 # 6. Second 45 Minutes — Lab
 
 Starter: [`Indices_Starter.py`](Indices_Starter.py). Reference: [`Indices_Reference.py`](Indices_Reference.py).
+Each task in the starter is a comment (goal, test values, expected output) and a variable holding the first test value;
+students write the code under it, ending in `print`, then change the variable and run again for the other test values.
+The reference runs top to bottom (`python3 Indices_Reference.py`). The warm-up is unchanged (it never used a function).
 
 ## 45–52 — Warm-up: one index too far
 
@@ -119,23 +125,33 @@ Predict the eight printed lines in the starter on paper, then run. Expected: `I 
 `I like to play, guitar` · `guitarguitar` · `abcdddef` · `6` · `8` · `77` · `1`. *Teacher note: the Ministry printout of Q2
 has a broken quote (`'abc' + d' * 3`); the starter uses the intended `"abc" + "d" * 3`.*
 
-## 60–68 — Task 2: `add_as_numbers(first, second)` and `join_as_text(first, second)`
+## 60–68 — Task 2: a sum and a join
 
-Both parameters are strings of digits. The first returns the sum as a number, the second the joined text.
-`"12"`, `"30"` → `42` and `"1230"`.
+```python
+first = "12"
+second = "30"
+print(int(first) + int(second))   # 42
+print(first + second)             # 1230
+```
 
-## 68–76 — Task 3: `show_edges(st)` (worksheet Q4)
+Both variables are strings of digits. Students print the sum as a number, then the two strings joined.
+`"12"`, `"30"` → `42` and `1230`; then `"5"`, `"5"` → `10` and `55`.
 
-For `"PYTHON"`, print each wanted letter twice, once with a positive and once with a negative index:
-`P`/`P`, `N`/`N`, `T`/`T` (positions 0 and −6, 5 and −1, 2 and −4).
+## 68–76 — Task 3: the edges of `"PYTHON"` (worksheet Q4)
 
-## 76–84 — Task 4: `first_and_last(word)`
+Under `text = "PYTHON"`, print each wanted letter twice, once with a positive and once with a negative index, one per line:
+`P`/`P`, `N`/`N`, `T`/`T` (positions 0 and −6, 5 and −1, 2 and −4). Then change the variable to another six-letter word,
+`"ORANGE"` → `O`/`O`, `E`/`E`, `A`/`A` — the same indices work only because the length is the same.
 
-Return the first letter followed by the last letter. `"ROBOT"` → `"RT"`; `"A"` → `"AA"`.
+## 76–84 — Task 4: the first and the last letter
 
-## 84–87 — If time: `stars_for(word)`
+Under `word = "ROBOT"`, print the first letter followed by the last letter: `print(word[0] + word[-1])`.
+`"ROBOT"` → `RT`; change to `"A"` → `AA` (the first and the last letter are the same character).
 
-Return as many `*` as the word has characters: `"hello"` → `"*****"`.
+## 84–87 — If time: one star per character
+
+Under `word = "hello"`, print as many `*` as the word has characters: `print("*" * len(word))`.
+`"hello"` → `*****`; `"AI"` → `**`.
 
 ## 87–90 — Save and exit check
 
@@ -162,6 +178,7 @@ Hover a string in the **Variables** view to see its quotes — a stray leading o
 | `"7"` and `7` are the same | One is text, one is a number: `"7" * 2` is `"77"`, `7 * 2` is `14` |
 | `input()` returns a number | It always returns a string; convert with `int()` when you need a number |
 | `len` counts only letters | It counts every character, including spaces and punctuation |
+| A task is done after one run | Change the variable to the next test value and run again — `"A"` in Task 4 is the edge case |
 
 ---
 
@@ -170,5 +187,5 @@ Hover a string in the **Variables** view to see its quotes — a stray leading o
 - Both index pictures answered before running anything (`text[16]`, `text[-17]`)
 - The task 1 predictions written down before the run
 - The warm-up error explained, not just patched
-- `add_as_numbers`, `join_as_text`, `show_edges`, `first_and_last` passing their test inputs
+- Tasks 2–4 print the expected answer for every listed test value (the student changed the variable and ran again)
 - Exit check

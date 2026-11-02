@@ -31,7 +31,7 @@ Chapter goals (ten in all — the official numbering):
 6. `len`, `find`, `upper`, `lower`, `count`, `startswith`, `endswith`, `isalpha`, `isnumeric` (the Ministry uses `isdigit`), `replace` → 5.1–5.3
 7. Traverse with `for`, and with `range(len(text))` when the place matters → 5.3, 5.4
 8. Counting, searching, validation and text-cleaning algorithms → 5.3, 5.4
-9. Functions that take a string and return a value → 5.3, 5.4
+9. Functions that take a string and return a value → **not yet**: the class learns functions after this unit (Unit 3 comes later); revisit the Unit 5 exercises as functions then
 10. Apply string skills to prompts and AI text → framing in every meeting; closing discussion in 5.4
 
 ## Unit 5.1 — Knowledge + Lab: A String Is an Ordered Sequence
@@ -59,19 +59,20 @@ Chapter goals (ten in all — the official numbering):
 - **`split`/`join` are shown and printed only** — the result is a list; no indexing, looping or changing it (Unit 7 revisits them).
 - **Not taught:** lists as a topic, nested loops, dictionaries, tuples, comprehensions, regular expressions, `index()` beyond a sentence.
 - **The "Smart Text Checker" project was dropped**: its building blocks (counting loops, `startswith`, building a string) now
-  come straight from the Ministry exercises, and the checkpoint is three worksheet-8.2 functions. The "what a program can and
+  come straight from the Ministry exercises, and the checkpoint is three worksheet-8.2 exercises. The "what a program can and
   cannot check about AI text" discussion is kept as the framing for goal 10 (no new AI content in this unit).
 - **Ministry text fixed, not copied:** the exercise-1 solution's `print(count = ', count)`; the cipher solution's stray `print('a')`;
   worksheet Q2's broken quotes; worksheet Q7's index-parity hint (gives different capitals than the printed example);
   Q6 (the word `it` vs the characters `it`).
-- Exercise functions take a string and return a value (program goal 9); the Ministry's `input`-based `ex()` is kept
-  only for exercise 3.
+- **No functions (teacher, 2 Nov 2026):** this unit is taught before Unit 3, so every exercise is plain code — a variable
+  with the text, a loop, `print`; students change the variable to test another value. Goal 9 (functions on strings) waits
+  for Unit 3. The Ministry's `input`-based `ex()` is kept as plain `input` code only for exercise 3.
 - No real students' names: the surname exercise (#3) uses invented surnames.
 
 ## Exit criteria
 The student explains a string as an ordered sequence, reads and writes positive and negative indices and `[start:end:jump]`
 slices (the end place excluded), uses `count`, `replace`, `in`, `find`, `startswith`/`endswith` and the `is…` methods,
-walks over a string with `for`, counts and builds strings, writes small functions that take a string and return a value,
+walks over a string with `for` and over its places with `range(len(text))` or `while`, counts and builds strings and prints the result,
 and says what a text check can and cannot tell about an AI-generated answer.
 
 ## Checkpoint

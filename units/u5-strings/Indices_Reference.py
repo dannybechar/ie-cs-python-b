@@ -1,84 +1,49 @@
-# Unit 5.1 - reference for the teacher.
-# One task per function; run ONE at a time by removing the # from its call at the bottom.
+# Unit 5.1 - reference for the teacher. No functions: the class has not learned def yet.
+# Each task: a variable with the test value, the code, and print. The file runs top to bottom;
+# change a variable's value to try the other test values.
 
 
 # Warm-up, explained: the last valid index is len(word) - 1 (or -1). word[len(word)] is one past the end:
 # IndexError: string index out of range
-def warmup():
-    word = "ROBOT"
-    last_letter = word[len(word) - 1]
-    print(last_letter)
-
+word = "ROBOT"
+last_letter = word[len(word) - 1]
+print(last_letter)                             # T   (word[-1] gives the same)
 
 # Task 1: predict-and-check (Ministry worksheet 7.2, questions 1-2)
-def task1():
-    text1 = "I like to play, "
-    text2 = "piano"
-    text3 = "guitar"
-    print(text1 + text2)
-    print(text1 + text3)
-    print(text3 * 2)
-    msg1 = "abc" + "d" * 3
-    msg2 = "ef"
-    msg3 = "7"
-    print(msg1 + msg2)
-    print(len(msg1))
-    print(len(msg1 + msg2))
-    print(msg3 * 2)
-    print(len(msg3))
-
+text1 = "I like to play, "
+text2 = "piano"
+text3 = "guitar"
+print(text1 + text2)                           # I like to play, piano
+print(text1 + text3)                           # I like to play, guitar
+print(text3 * 2)                               # guitarguitar
+msg1 = "abc" + "d" * 3
+msg2 = "ef"
+msg3 = "7"
+print(msg1 + msg2)                             # abcdddef
+print(len(msg1))                               # 6
+print(len(msg1 + msg2))                        # 8
+print(msg3 * 2)                                # 77
+print(len(msg3))                               # 1
 
 # Task 2: int() and str() (worksheet question 3) - "+" adds numbers, joins strings
-def add_as_numbers(first, second):
-    return int(first) + int(second)
-
-
-def join_as_text(first, second):
-    return first + second
-
-
-def task2():
-    print(add_as_numbers("12", "30"))
-    print(join_as_text("12", "30"))
-
+first = "12"
+second = "30"
+print(int(first) + int(second))                # 42   ("5", "5" -> 10)
+print(first + second)                          # 1230 ("5", "5" -> 55)
 
 # Task 3: positive and negative indices on "PYTHON" (worksheet question 4)
-def show_edges(st):
-    print(st[0])
-    print(st[-6])
-    print(st[5])
-    print(st[-1])
-    print(st[2])
-    print(st[-4])
+text = "PYTHON"
+print(text[0])                                 # P
+print(text[-6])                                # P
+print(text[5])                                 # N
+print(text[-1])                                # N
+print(text[2])                                 # T
+print(text[-4])                                # T    ("ORANGE" -> O O E E A A)
 
+# Task 4: the first letter followed by the last letter
+word = "ROBOT"
+print(word[0] + word[-1])                      # RT   ("A" -> AA)
 
-def task3():
-    show_edges("PYTHON")
-
-
-# Task 4: a returning function
-def first_and_last(word):
-    return word[0] + word[-1]
-
-
-def task4():
-    print(first_and_last("ROBOT"))
-    print(first_and_last("A"))
-
-
-# If time
-def stars_for(word):
-    return "*" * len(word)
-
-
-def task5():
-    print(stars_for("hello"))
-
-
-
-warmup()
-# task1()
-# task2()
-# task3()
-# task4()
-# task5()
+# If time: one "*" per character
+word = "hello"
+print("*" * len(word))                         # *****   ("AI" -> **)

@@ -20,12 +20,13 @@ print("Piano".upper(), "DRUMS".lower())
 ```
 
 ```python
-def count_char(text, letter):
-    count = 0                       # פעם אחת, לפני הלולאה
-    for character in text:
-        if character == letter:
-            count += 1
-    return count
+text = "sometimes you win sometimes you learn"
+letter = "e"
+count = 0                       # פעם אחת, לפני הלולאה
+for character in text:
+    if character == letter:
+        count += 1
+print(count)                    # פעם אחת, אחרי הלולאה
 ```
 
 ```python
@@ -34,55 +35,133 @@ for character in "Learn":
 print()                             # ירידת שורה בסוף
 ```
 
+<div dir="rtl">
+
+- בכל משימה כותבים קוד מתחת למשתנה, ומדפיסים את התשובה עם `print`.
+- כדי לבדוק ערך אחר משנים את ערך המשתנה ומריצים שוב.
+- בזמן שעובדים על משימה אחת, שמים `#` לפני הקוד של המשימות האחרות (או עובדים בקובץ חדש).
+
+</div>
+
 ## 1. חימום: המונה שמתאפס
 
-פתחו את `Traverse_Starter.py`. הפעולה אמורה להחזיר `5`.
+פתחו את `Traverse_Starter.py`. הקוד אמור להדפיס `5`.
 
 ```python
-def count_letter(text, letter):
-    for character in text:
-        count = 0
-        if character == letter:
-            count += 1
-    return count
-
-print(count_letter("sometimes you win sometimes you learn", "e"))
+text = "sometimes you win sometimes you learn"
+letter = "e"
+for character in text:
+    count = 0
+    if character == letter:
+        count += 1
+print(count)
 ```
 
 חזו מה יודפס, הריצו, והסבירו למה. תקנו על ידי העברת שורה אחת למקום אחר.
 
-## 2. משימה 1: is_year(text)
+## 2. משימה 1: האם זו שנה?
 
-קודם חזו והריצו את שלוש הוראות `startswith` שבקובץ. אחר כך כתבו `is_year(text)` — מחזירה `True` רק כשהטקסט מורכב מספרות בלבד **ואורכו 4**.
-`"2027"` ← `True`; `"1.9.2027"`, `"20x7"`, `"99"` ← `False`.
+קודם חזו והריצו את שלוש הוראות `startswith` שבקובץ. אחר כך כתבו קוד שמדפיס `True` רק כשהטקסט מורכב מספרות בלבד **ואורכו 4**:
 
-## 3. משימה 2: count_char(text, letter)
+```python
+text = "2027"
+```
 
-פעולה שסופרת כמה פעמים אות מופיעה במחרוזת — **בלי** `count()`, בעזרת לולאת `for`. הבדיקה: במשפט שבחימום עם `"e"` מתקבל `5`.
+<div dir="rtl">
+
+| ערך המשתנה | צפוי | בפועל |
+|---|---|---|
+| `text = "2027"` | `True` | &nbsp; |
+| `text = "1.9.2027"` | `False` | &nbsp; |
+| `text = "20x7"` | `False` | &nbsp; |
+| `text = "99"` | `False` | &nbsp; |
+
+</div>
+
+## 3. משימה 2: סופרים אות
+
+כתבו קוד שסופר כמה פעמים האות שב-`letter` מופיעה ב-`text` — **בלי** `count()`, בעזרת לולאת `for` — ומדפיס את התשובה **אחרי** הלולאה.
+
+```python
+text = "sometimes you win sometimes you learn"
+letter = "e"
+```
+
+<div dir="rtl">
+
+| ערך המשתנה | צפוי | בפועל |
+|---|---|---|
+| `text = "sometimes you win sometimes you learn"`, `letter = "e"` | `5` | &nbsp; |
+| `text = "banana"`, `letter = "a"` | `3` | &nbsp; |
+| `text = "banana"`, `letter = "z"` | `0` | &nbsp; |
+
+</div>
 
 ## 4. משימה 3: שלוש פעמים כל אות
 
-- `triple_print(text)` — מדפיסה כל אות שלוש פעמים, הכול בשורה אחת: `"Learn"` ← `LLLeeeaaarrrnnn`.
-- `triple(text)` — בונה את אותה מחרוזת בעזרת `+=` **ומחזירה** אותה במקום להדפיס.
+```python
+text = "Learn"
+```
+
+<div dir="rtl">
+
+- א. כתבו קוד שמדפיס כל אות שלוש פעמים, הכול בשורה אחת: `LLLeeeaaarrrnnn`.
+- ב. כתבו קוד שבונה את אותה מחרוזת במשתנה חדש `result` בעזרת `+=`, ומדפיס אותה פעם אחת, אחרי הלולאה.
+
+| ערך המשתנה | צפוי | בפועל |
+|---|---|---|
+| `text = "Learn"` | `LLLeeeaaarrrnnn` | &nbsp; |
+| `text = "ab"` | `aaabbb` | &nbsp; |
+
+</div>
 
 ## 5. משימה 4: שמות משפחה
 
-כתבו שתי פעולות שמקבלות את `number`, קולטות `number` שמות משפחה עם `input()` ומחזירות כמה מהם מכילים את `cohen` (בכל צורת אותיות):
+כתבו קוד שקולט `number` שמות משפחה עם `input()` ומדפיס כמה מהם מכילים את `cohen` (בכל צורת אותיות):
 
-- `count_cohen_a` — בעזרת `count`.
-- `count_cohen_b` — בלי `count` (השתמשו ב-`in`).
+```python
+number = 3
+```
+
+<div dir="rtl">
+
+- גרסה א — בעזרת `count`.
+- גרסה ב — בלי `count` (השתמשו ב-`in`).
+
+</div>
+
+בדיקה: מקלידים `Cohen`, `Levi`, `BenCOHEN` ← מודפס `2`.
 
 > [!NOTE]
 > מקלידים שמות **בדויים** בלבד — לא שמות של תלמידים אמיתיים.
 
 ## 6. משימה 5: שומרים רק אותיות מ-a עד e
 
-כתבו `keep_a_to_e(text)` — בונה ומחזירה מחרוזת חדשה שמכילה רק את התווים שבין `"a"` ל-`"e"` (`>= "a"` ו-`<= "e"`).
-חזו קודם מה תקבלו מ-`"We play on the computer"`.
+כתבו קוד שבונה מחרוזת חדשה שמכילה רק את התווים שבין `"a"` ל-`"e"` (`>= "a"` ו-`<= "e"`), ומדפיס אותה.
+חזו קודם מה יודפס עבור הטקסט הזה:
 
-## 7. אם נשאר זמן: count_words(text)
+```python
+text = "We play on the computer"
+```
 
-מספר הרווחים ועוד 1. `"We are learning to program"` ← `5`. מה קורה ב-`"two  spaces"` (שני רווחים רצופים)? למה?
+<div dir="rtl">
+
+| ערך המשתנה | צפוי | בפועל |
+|---|---|---|
+| `text = "We play on the computer"` | (חזו קודם) | &nbsp; |
+| `text = "abcdefg"` | `abcde` | &nbsp; |
+
+</div>
+
+## 7. אם נשאר זמן: כמה מילים?
+
+כתבו קוד שמדפיס את מספר הרווחים ועוד 1.
+
+```python
+text = "We are learning to program"
+```
+
+צפוי: `5`. מה קורה ב-`"two  spaces"` (שני רווחים רצופים)? למה?
 
 ## 8. מתעדים ושומרים
 

@@ -124,7 +124,7 @@ next lesson (teacher's choice).
 | 85–90 | Save As `G8_U5_M4_Worksheet_<Name>.py`; **exit check** on paper (`chr(ord("b") + 2)`, `"this is his".count("is")`, the line a `while` must not forget); collect |
 
 ### Tool Note – Thonny
-While working on one question, put a `#` before the other questions' code (or select it and press **Alt+3** to comment it out), so only one answer prints. When a `while` loop
+While working on one question, put a `#` before the other questions' code (or select it and press **Ctrl+3** (Edit › Toggle comment) to comment it out), so only one answer prints. When a `while` loop
 never ends, press **Stop** (the red button) and look for the missing `index += 1`.
 
 ---
