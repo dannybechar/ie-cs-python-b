@@ -1,6 +1,6 @@
 # Warm-up: this code should count only a, e, i, o and u - but it counts every character. Predict, run, then fix ONE line.
 # Tasks: write your code under each variable, ending with print. Run, compare with the comment, then change the value and run again.
-# Tip: while you work on one task, put a # before the code of the others (in Thonny: select the lines, Alt+3).
+# Tip: while you work on one task, put a # before the code of the others (in Thonny: select the lines, Ctrl+3).
 
 text = "sometimes you learn"
 total = 0
