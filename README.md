@@ -38,6 +38,7 @@ docs/
   ministry-teaching-materials.md — index of the Ministry decks/worksheets (source of truth) and the rulebook
 tools/
   deck-patch-kit/           — scripts for reviewing and patching the NotebookLM slide decks
+  countdown/                — builds a projected countdown page of timed cases (for/while reveal) from a unit JSON
 units/
   u{N}-{official-unit-slug}/
     README.md               — index of the unit's meetings and their files

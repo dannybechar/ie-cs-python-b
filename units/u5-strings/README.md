@@ -72,3 +72,18 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`Cipher_Starter.py`](Cipher_Starter.py) | `or "e"` warm-up bug, stubs for Tasks 1–6 and the checkpoint |
 | Teacher | [`Cipher_Reference.py`](Cipher_Reference.py) | Solutions, one function per task, plus worksheet 8.2 enrichment |
 | Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 13 slides) |
+
+**Countdown edition of 5.4** (the countdown method of the teacher's DP1/PDP classes: four timed cases done together on a projected
+page, each solved with `for` and with `while`; then a graded five-question worksheet):
+
+| For | File | What it is |
+|---|---|---|
+| Teacher | [`m4-countdown-lesson-plan.md`](m4-countdown-lesson-plan.md) | Lesson plan: 48 min of cases, 37 min of worksheet, 5 min exit check |
+| Teacher | [`m4-countdown-he.html`](m4-countdown-he.html) | The countdown page (open in a browser and project; generated — rebuild with [`tools/countdown`](../../tools/countdown/README.md)) |
+| Teacher | [`m4-countdown-cases.json`](m4-countdown-cases.json) | The page's content: Hebrew titles and goals, minutes, test calls, how the two solutions differ |
+| Student | [`Countdown_Starter.py`](Countdown_Starter.py) | Stubs and checks for the four cases |
+| Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas |
+| Student | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Hebrew worksheet: the `or` bug, `middle`, `edges`, `last_letters`, `alternate_case`, bonus, exit check (Word copy for printing in `Downloads\python-b`) |
+| Student | [`Worksheet_Starter.py`](Worksheet_Starter.py) | The `or "e"` bug (Q1) and stubs for Q2–Q5 and the bonus |
+| Teacher | [`Worksheet_Reference.py`](Worksheet_Reference.py) | Solutions with expected values |
+| Teacher | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Answers, grading rubric (100 points + 5 bonus), marking sheet, what to look for |
