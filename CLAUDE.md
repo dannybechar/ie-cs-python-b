@@ -83,30 +83,46 @@ The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<
    and the course-map meeting-log note → `slides: `m<M>-slides-he.pdf` (N slides, 90 min; NotebookLM, patched)`.
 6. Commit ("Add Unit U.M slide deck (patched NotebookLM PDF)"), push, report what was patched, slide by slide.
 
-### "countdown lab U.M" (the teacher's lab format, first used in 5.4)
+### "countdown lab U.M" (also: "countdown practice U.M", "build a countdown for U.M") — the teacher's lab format
 
 A 90-minute Lab + Lab: **four timed cases done together** on a projected countdown page (the method of the teacher's
-IB DP1/PDP classes), then **a graded five-question worksheet**. Copy the shape of Unit 5.4
-([`m4-countdown-lesson-plan.md`](units/u5-strings/m4-countdown-lesson-plan.md)):
+IB DP1/PDP classes: a big clock that turns amber then red, "ננעל!" at zero, then a reveal of a `for` solution and a
+`while` solution that use **different ideas**), then **a graded five-question worksheet** done in class on paper + Thonny.
+**Unit 5.4 is the complete working example — open it and copy its shape:**
+[`m4-countdown-lesson-plan.md`](units/u5-strings/m4-countdown-lesson-plan.md), `m4-countdown-cases.json`,
+`Countdown_Reference.py`, `m4-countdown-worksheet-he.md`, `Worksheet_Starter.py` / `Worksheet_Reference.py`,
+`m4-countdown-answer-key.md`, and [`tools/countdown/README.md`](tools/countdown/README.md).
 
-- **Only what the class has been taught.** 5.4 was taught *before* functions (teacher, 2 Nov 2026), so its cases and
-  worksheet are plain code — `text = "…"`, a loop, `print` — no `def`. Check the course map's "Taught on" column for
-  what the class has actually learned, not only the meeting order.
-- `m<M>-countdown-cases.json` + `Countdown_Reference.py` (`# === case N for ===` / `while` sections, each starting with
-  `text = "…"`; **different ideas**, not a syntax swap). Build with
-  `python tools/countdown/build_countdown.py units/<unit>/m<M>-countdown-cases.json` → `m<M>-countdown-he.html` (the page),
-  `m<M>-countdown-cases-he.md` (students' instructions, no solutions) and one `<Topic>_Starter.py` per case.
-  Never edit the generated files by hand.
-- `m<M>-countdown-worksheet-he.md` (Word copy with `--worksheet`, render and look at every page), `Worksheet_Starter.py`
-  (question 1 is a find-the-bug; a variable to write under for each other question), `Worksheet_Reference.py`, `m<M>-countdown-answer-key.md` with a **rubric (100 points)
-  and a marking sheet**; bonus items capped at 100.
-- **Students get files from Mashov** (משו"ב): build `Downloads\python-b\Unit U.M - <name>.zip` = the instructions PDF
-  (`Countdown_Cases.pdf`) + both starters, no solutions. The page's "how to start" steps say so.
-- Records: unit README section, lesson plan, course-map meeting-log note and an **Assessments** row.
+1. **Ask first** (one short question) if not given: which meeting/topic, and what the class has been taught so far.
+   **Use only what the class has actually learned** — see "Code style" (no functions until the teacher says Unit 3 is done).
+2. **Choose 4 cases + 5 worksheet questions** from the Ministry materials for that meeting
+   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)): cases easy → hard, clocks 6–8 minutes;
+   worksheet Q1 is a find-the-bug, then four write-the-code questions, plus one "if time" bonus and a 3-item exit check.
+   Timing: ~48 min cases (with a 4-minute demo where a new tool is needed), ~37 min worksheet, 5 min exit check = 90.
+3. **Cases:** `m<M>-countdown-cases.json` (Hebrew title/goal/contrast, English goal, minutes, test values, starter file
+   name, zip name in the "how to start" steps) + `<Prefix>Countdown_Reference.py` with `# === case N for ===` / `while`
+   sections, each starting with `text = "…"`. Build: `python tools/countdown/build_countdown.py units/<unit>/m<M>-countdown-cases.json`
+   → the page `m<M>-countdown-he.html`, the students' instructions `m<M>-countdown-cases-he.md` (no solutions) and one
+   `<Topic>_Starter.py` per case. Never edit generated files by hand; the build refuses if `for` and `while` disagree.
+   Mark code inside Hebrew contrast text with backticks (the page shows it left-to-right).
+4. **Worksheet:** `m<M>-countdown-worksheet-he.md`, `<Prefix>Worksheet_Starter.py` / `_Reference.py`, and
+   `m<M>-countdown-answer-key.md` with answers, a **rubric (100 points, bonus capped at 100)**, a marking sheet and
+   "what to look for". **File names must be unique in the unit folder** — 5.4 used `Countdown_*` / `Worksheet_*`;
+   later meetings use a topic prefix (e.g. `ListsCountdown_Reference.py`, `ListsWorksheet_Starter.py`).
+5. **Word/PDF:** `python tools/md_to_docx.py <md> <docx> --worksheet` (needs `python-docx`; install it, or use a venv in
+   the scratchpad). Worksheet → `Downloads\python-b\Unit U.M - <name> countdown worksheet.docx`; the instructions →
+   `Countdown_Cases.pdf`. PDF via `soffice --headless --convert-to pdf`; if LibreOffice is missing (Windows), make the
+   .docx and ask the teacher to Save as PDF in Word. Look at every page (no wrapped code lines, one task per page).
+6. **Mashov zip** `Downloads\python-b\Unit U.M - <name>.zip` = `Countdown_Cases.pdf` + every case starter +
+   the worksheet starter. **No solutions, no reference files.** Unzip it once and compare the files with the repo.
+7. **Check the page** in a browser (headless Chrome screenshot if available): card grid, briefing, clock, reveal — code
+   panels must not scroll sideways (split long lines in the reference).
+8. **Records:** unit README section, lesson plan, course-map meeting-log note and an **Assessments** row; commit and push.
 
 **Graded classwork** (5.3 classwork, the countdown worksheets): grade the final answer including corrections in another
-colour; a wrong prediction loses nothing; handwritten slips −1 once per function or question; `print` instead of `return` −2 (once functions are taught).
-Record only aggregates in the repo; per-student marks stay outside it.
+colour; a wrong prediction loses nothing; handwritten slips −1 once per question; plain code without `def` gets full
+marks while functions are not taught (a value built but never printed: −1). Record only aggregates in the repo;
+per-student marks stay outside it.
 
 ### "approve unit N"
 
@@ -153,6 +169,10 @@ and make the README and course map describe the current state.
   this course. **Lists are new in Unit 7** — no lists before it (Units 1–6 accumulate into strings and counters).
   Never, in any unit: nested loops (dropped from the new program — clarifications p. 3), tuples, sets, dictionaries,
   list comprehensions, lists of lists (all moved to Part C), your own functions with default or keyword arguments, classes.
+  **Teaching order differs from the schedule:** as of 2 Nov 2026 Unit 5 is taught **before** Unit 3, so the class has
+  **not learned functions** — no `def`, `return` or parameters in anything students see until the teacher says Unit 3
+  is done (all Unit 5 labs are plain code: a variable, the code, `print`). Always check the course map's "Taught on"
+  column and its "Teaching order" note for what the class has actually learned.
   f-strings are new in Unit 4 (the program lists them there, p. 12). If Turtle is used, follow Python A
   (module-level `turtle.` calls, no `turtle.Turtle()`). **As the Ministry materials do:** `global` (Unit 3.3), `+=`,
   `print(..., end="")`, `ord`/`chr` and `split`/`join` (Unit 5; the result is only shown, lists proper are Unit 7) —
