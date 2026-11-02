@@ -91,7 +91,7 @@ to the next place); without it the condition never changes and the loop never en
   roughly right is fine if it is clear which lines belong to the loop or the `if`.
 - **Accept equivalent code:** `+=` or `x = x + …`; a `while` loop with an index instead of `for`; `text[len(text) - 4:]`
   instead of `text[-4:]`; in Q4, a `previous`/`next` variable or adding a space at the end of the text.
-- **The answer must be printed:** code that builds the right value but never prints it: −2 (once).
+- **The answer must be printed:** code that builds the right value but never prints it: −1 for that question (once).
 
 | Item | Points | Full marks for |
 |---|---:|---|

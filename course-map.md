@@ -59,6 +59,15 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 - Every official topic is covered (see each unit's `unit-strategy.md`). The tool choices flagged during planning were
   settled during each unit's build; the live-service steps are in each unit's README (Unit 4 now uses Gemini).
 
+## Waiting for the teacher (as of 2 Nov 2026)
+
+- Dates 5.1–5.3 were taught, the weekly meeting day and the first meeting date (for the pace check).
+- Whether 1.3 and Units 2–4 were taught (if Unit 3 was not, Unit 4 also uses functions and must wait or be converted).
+- Re-approval of the 12 reworked meetings (1.3, 2.1–2.2, 3.1–3.3, 4.1–4.2, 5.1–5.4) and their new NotebookLM decks.
+- 5.4 countdown: which loop per case is shown first, whether the worksheet is collected at the end of class, whether a deck is wanted.
+- Thonny's comment shortcut (Ctrl+3, written in `Cipher_Starter.py`) — confirm.
+- After grading: 5.3 classwork and 5.4 worksheet aggregates (in their keys); Form B results after 11 Nov 2026.
+
 ## Schedule
 
 All meetings in teaching order. **Content** is the provisional outline from the annual strategy; it is refined when the unit
