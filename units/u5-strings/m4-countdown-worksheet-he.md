@@ -10,7 +10,7 @@
 
 - קודם חושבים וכותבים **על הנייר**, ורק אחר כך מקלידים. המחשב בודק אותכם, הוא לא פותר במקומכם.
 - חמש השאלות הן עבודת הכיתה (כ-37 דקות). מה שלא הסתיים – משלימים בבית.
-- כל פעולה **מחזירה** ערך (לא מדפיסה).
+- בכל שאלה כותבים קוד מתחת למשתנה, ומדפיסים את התשובה עם print. אחר כך משנים את ערך המשתנה ומריצים שוב.
 - בכל הדוגמאות כותבים טקסטים **בדויים** בלבד – לא שמות או מספרי טלפון אמיתיים.
 
 </div>
@@ -68,19 +68,17 @@ for index in range(len(text)):
 ## שאלה 1: מצאו את הבאג (6 דקות)
 
 ```python
-def count_vowels(text):
-    total = 0
-    for character in text:
-        if character == "a" or "e" or "i" or "o" or "u":
-            total += 1
-    return total
-
-print(count_vowels("sometimes you learn"))
+text = "sometimes you learn"
+total = 0
+for character in text:
+    if character == "a" or "e" or "i" or "o" or "u":
+        total += 1
+print(total)
 ```
 
 <div dir="rtl">
 
-הפעולה אמורה להחזיר את המספר 8. חזו מה היא מחזירה, הריצו, והסבירו למה.
+הקוד אמור להדפיס את המספר 8. חזו מה הוא מדפיס, הריצו, והסבירו למה.
 
 </div>
 
@@ -103,12 +101,12 @@ print(count_vowels("sometimes you learn"))
 
 <div dir="rtl">
 
-כתבו פעולה בשם הבא. היא מחזירה את האות האמצעית של המילה. כשאורך המילה זוגי, היא מחזירה את **שתי** האותיות האמצעיות.
+כתבו קוד שמדפיס את האות האמצעית של המילה שבמשתנה הבא. כשאורך המילה זוגי, הוא מדפיס את **שתי** האותיות האמצעיות.
 
 </div>
 
 ```python
-middle(word)
+word = "robot"
 ```
 
 <div dir="rtl">
@@ -122,15 +120,15 @@ len(word) // 2
 len(word) % 2
 ```
 
-| כתבו כאן את הפעולה |
+| כתבו כאן את הקוד |
 |---|
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
-| קריאה | צפוי | בפועל |
+| ערך המשתנה | צפוי | בפועל |
 |---|---|---|
-| `middle("robot")` | `b` | &nbsp; |
-| `middle("python")` | `th` | &nbsp; |
-| `middle("a")` | `a` | &nbsp; |
+| `word = "robot"` | `b` | &nbsp; |
+| `word = "python"` | `th` | &nbsp; |
+| `word = "a"` | `a` | &nbsp; |
 
 <pagebreak>
 
@@ -138,24 +136,24 @@ len(word) % 2
 
 <div dir="rtl">
 
-כתבו פעולה בשם הבא. היא מחזירה את 4 התווים הראשונים ואחריהם את 4 התווים האחרונים, צמודים.
-אם בטקסט יש פחות מ-4 תווים, היא מחזירה ארבע כוכביות.
+כתבו קוד שמדפיס את 4 התווים הראשונים של הטקסט ואחריהם את 4 התווים האחרונים, צמודים.
+אם בטקסט יש פחות מ-4 תווים, הוא מדפיס ארבע כוכביות.
 
 </div>
 
 ```python
-edges(text)
+text = "I like to play drums"
 ```
 
-| כתבו כאן את הפעולה |
+| כתבו כאן את הקוד |
 |---|
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
-| קריאה | צפוי | בפועל |
+| ערך המשתנה | צפוי | בפועל |
 |---|---|---|
-| `edges("I like to play drums")` | `I lirums` | &nbsp; |
-| `edges("abc")` | `****` | &nbsp; |
-| `edges("abcd")` | `abcdabcd` | &nbsp; |
+| `text = "I like to play drums"` | `I lirums` | &nbsp; |
+| `text = "abc"` | `****` | &nbsp; |
+| `text = "abcd"` | `abcdabcd` | &nbsp; |
 
 <div dir="rtl">
 
@@ -172,12 +170,12 @@ edges(text)
 
 <div dir="rtl">
 
-כתבו פעולה בשם הבא. היא בונה ומחזירה מחרוזת מהאות **האחרונה** של כל מילה.
+כתבו קוד שבונה ומדפיס מחרוזת מהאות **האחרונה** של כל מילה בטקסט:
 
 </div>
 
 ```python
-last_letters(text)
+text = "I like to play drums"
 ```
 
 <div dir="rtl">
@@ -190,14 +188,14 @@ last_letters(text)
 for index in range(len(text)):
 ```
 
-| כתבו כאן את הפעולה |
+| כתבו כאן את הקוד |
 |---|
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
-| קריאה | צפוי | בפועל |
+| ערך המשתנה | צפוי | בפועל |
 |---|---|---|
-| `last_letters("I like to play drums")` | `Ieoys` | &nbsp; |
-| `last_letters("Hello")` | `o` | &nbsp; |
+| `text = "I like to play drums"` | `Ieoys` | &nbsp; |
+| `text = "Hello"` | `o` | &nbsp; |
 
 <div dir="rtl">
 
@@ -214,22 +212,22 @@ for index in range(len(text)):
 
 <div dir="rtl">
 
-כתבו פעולה בשם הבא. האותיות בתוצאה מתחלפות: גדולה, קטנה, גדולה, קטנה... רווח נשאר רווח, **ולא נספר** בהחלפה.
+כתבו קוד שבונה ומדפיס את הטקסט כשהאותיות מתחלפות: גדולה, קטנה, גדולה, קטנה... רווח נשאר רווח, **ולא נספר** בהחלפה.
 
 </div>
 
 ```python
-alternate_case(text)
+text = "trust yourself"
 ```
 
-| כתבו כאן את הפעולה |
+| כתבו כאן את הקוד |
 |---|
 | &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp; |
 
-| קריאה | צפוי | בפועל |
+| ערך המשתנה | צפוי | בפועל |
 |---|---|---|
-| `alternate_case("trust yourself")` | `TrUsT yOuRsElF` | &nbsp; |
-| `alternate_case("ai")` | `Ai` | &nbsp; |
+| `text = "trust yourself"` | `TrUsT yOuRsElF` | &nbsp; |
+| `text = "ai"` | `Ai` | &nbsp; |
 
 <div dir="rtl">
 
@@ -250,13 +248,12 @@ index % 2 == 0
 
 <div dir="rtl">
 
-כתבו פעולה בשם הבא. היא מחזירה כמה פעמים מופיעה **המילה** it בטקסט – כמילה שלמה, לא כחלק ממילה אחרת.
+כתבו קוד שמדפיס כמה פעמים מופיעה **המילה** it בטקסט – כמילה שלמה, לא כחלק ממילה אחרת. הצפוי: 2.
 
 </div>
 
 ```python
-count_word_it(text)
-count_word_it("it is a little bit with it")      # 2
+text = "it is a little bit with it"
 ```
 
 <div dir="rtl">

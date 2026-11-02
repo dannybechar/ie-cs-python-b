@@ -82,9 +82,9 @@ page, each solved with `for` and with `while`; then a graded five-question works
 | Teacher | [`m4-countdown-he.html`](m4-countdown-he.html) | The countdown page (open in a browser and project; generated — rebuild with [`tools/countdown`](../../tools/countdown/README.md)) |
 | Student | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | The four cases as instructions, no solutions (generated; as `Countdown_Cases.pdf` in the Mashov zip `Downloads\python-b\Unit 5.4 - Strings.zip`) |
 | Teacher | [`m4-countdown-cases.json`](m4-countdown-cases.json) | The page's content: Hebrew titles and goals, minutes, test calls, how the two solutions differ |
-| Student | [`Countdown_Starter.py`](Countdown_Starter.py) | Stubs and checks for the four cases |
-| Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas |
+| Student | [`CountIs_Starter.py`](CountIs_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NextLetters_Starter.py`](NextLetters_Starter.py), [`FirstLastWord_Starter.py`](FirstLastWord_Starter.py) | One file per case (generated): goal, test values, expected output — no `def`, the class has not learned functions yet |
+| Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas (plain code, no functions) |
 | Student | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Hebrew worksheet: the `or` bug, `middle`, `edges`, `last_letters`, `alternate_case`, bonus, exit check (Word copy for printing in `Downloads\python-b`) |
-| Student | [`Worksheet_Starter.py`](Worksheet_Starter.py) | The `or "e"` bug (Q1) and stubs for Q2–Q5 and the bonus |
+| Student | [`Worksheet_Starter.py`](Worksheet_Starter.py) | The `or "e"` bug (Q1) and a variable to write under for Q2–Q5 and the bonus (no functions) |
 | Teacher | [`Worksheet_Reference.py`](Worksheet_Reference.py) | Solutions with expected values |
 | Teacher | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Answers, grading rubric (100 points + 5 bonus), marking sheet, what to look for |

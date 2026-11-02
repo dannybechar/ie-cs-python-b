@@ -5,6 +5,8 @@
 
 **Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
+**No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every case and question is a few statements
+under a variable (`text = "…"`), ending in `print`; to test another value, students change the variable and run again.
 **Structure:** Lab + Lab: 48 minutes of timed cases done together (countdown page), then 37 minutes of worksheet and a 5-minute exit check
 **Minutes (theory / practice):** 0 / 90 (the same as the unit plan for 5.4)
 **Current tool:** Thonny, the countdown page in a browser (projected), a printed worksheet
@@ -24,15 +26,15 @@ Files:
 | File | For | What |
 |---|---|---|
 | [`m4-countdown-he.html`](m4-countdown-he.html) | Teacher (projected) | The countdown page: 4 cases, `for`/`while` choice, clock, reveal. Standalone — open it in any browser, no internet needed |
-| [`Countdown_Starter.py`](Countdown_Starter.py) | Students | One file with the four case stubs and their checks |
-| [`Countdown_Reference.py`](Countdown_Reference.py) | Teacher | Each case solved with `for` and with `while`, by a different idea; the page's reveal screen is built from it |
-| [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | Students | The four cases as instructions (goal, function, test calls, expected results — no solutions); generated with the page, printed to `Countdown_Cases.pdf` for the Mashov zip |
+| [`CountIs_Starter.py`](CountIs_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NextLetters_Starter.py`](NextLetters_Starter.py), [`FirstLastWord_Starter.py`](FirstLastWord_Starter.py) | Students | One file per case: the goal, the test values with expected output, and the `text = …` line to write under (generated with the page) |
+| [`Countdown_Reference.py`](Countdown_Reference.py) | Teacher | Each case solved with `for` and with `while`, by a different idea (`# === case N for ===` sections); the page's reveal and expected output are built from it |
+| [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | Students | The four cases as instructions (goal, file, test values, expected output — no solutions); generated with the page, printed to `Countdown_Cases.pdf` for the Mashov zip |
 | [`m4-countdown-cases.json`](m4-countdown-cases.json) | Teacher | The page's content (Hebrew titles, goals, minutes, test calls, how the two solutions differ) |
 | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Students | The worksheet (Word copy for printing in `Downloads\python-b`) |
-| [`Worksheet_Starter.py`](Worksheet_Starter.py) / [`Worksheet_Reference.py`](Worksheet_Reference.py) | Students / Teacher | Question 1's bug and stubs; solutions with expected values |
+| [`Worksheet_Starter.py`](Worksheet_Starter.py) / [`Worksheet_Reference.py`](Worksheet_Reference.py) | Students / Teacher | Question 1's bug and a variable to write under for each question; solutions with expected values |
 | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Teacher | Answers, rubric (100 points + 5 bonus), marking sheet, what to look for |
 
-**Mashov upload:** `Downloads\python-b\Unit 5.4 - Strings.zip` = `Countdown_Cases.pdf` + `Countdown_Starter.py` + `Worksheet_Starter.py`
+**Mashov upload:** `Downloads\python-b\Unit 5.4 - Strings.zip` = `Countdown_Cases.pdf` + the four case starters + `Worksheet_Starter.py`
 (no solutions). The worksheet itself is printed. The page's "how to start" steps tell students to download this zip from Mashov.
 
 To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` or the reference and rebuild the page:
@@ -57,7 +59,7 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 |---|---|
 | Goal 7: traverse with `for`, and with an index when the place matters | ✅ every case twice (`for` / `while`); worksheet Q4 |
 | Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ cases 1, 2, 4; worksheet Q2–Q5 |
-| Goal 9: functions that take a string and return a value | ✅ every case and question |
+| Goal 9: functions that take a string and return a value | ❌ not yet — **the class has not learned functions** (teacher, 2 Nov 2026), so every case and question is plain code: a variable, a loop, `print`. Revisit these exercises as functions after Unit 3 |
 | Goal 10: apply string skills to AI text | ✅ case 3's debrief (a cipher protects nothing); the exit discussion |
 | Ministry addition: `ord` / `chr` | ✅ case 3, exit check 1 |
 
@@ -69,7 +71,7 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 ## 3. Lesson Goal
 
 **When the place in the text matters, the loop walks over places, not characters — with `for index in range(len(text))` or with
-`while` and an index you move yourself; the same problem can be solved by two different ideas, and a function returns its answer.**
+`while` and an index you move yourself; the same problem can be solved by two different ideas.**
 
 ---
 
@@ -94,7 +96,7 @@ and 3, `while` for cases 2 and 4 — or let the faster students write the other 
 
 | Clock | Activity |
 |---|---|
-| 0–3 | Open the page and `Countdown_Starter.py`; how the countdown works (clock, lock-out, reveal); run the starter: every line says `None` |
+| 0–3 | Open the page; how the countdown works (clock, lock-out, reveal); open case 1's file and run it: it prints nothing yet |
 | 3–13 | **Case 1 — `count_is`** (clock 6): `"this is his list"` → 4. Reveal: every place vs `find` jumps. Why 4, not 1? |
 | 13–24 | **Case 2 — `initials`** (clock 7): `"American Standard Code…"` → `"ASCII"`. Reveal: remember `previous` vs look back at `text[index - 1]` |
 | 24–28 | **Demo — letters are numbers.** Predict first: `ord("a")`? (`97`.) `ord("b")`? `chr(98)`? `chr(ord("c") + 1)`? Then `ord("A")` (`65`) — capitals are different numbers |
@@ -113,7 +115,7 @@ next lesson (teacher's choice).
 
 | Clock | Question | Ministry source |
 |---|---|---|
-| 48–54 | **Q1 — find the bug:** `character == "a" or "e" or …` returns 19, not 8 | the 5.4 warm-up |
+| 48–54 | **Q1 — find the bug:** `character == "a" or "e" or …` prints 19, not 8 | the 5.4 warm-up |
 | 54–60 | **Q2 — `middle(word)`** | 8.2 Q3 |
 | 60–67 | **Q3 — `edges(text)`** | 8.2 Q4 |
 | 67–75 | **Q4 — `last_letters(text)`** | 8.2 Q5 |
@@ -122,7 +124,7 @@ next lesson (teacher's choice).
 | 85–90 | Save As `G8_U5_M4_Worksheet_<Name>.py`; **exit check** on paper (`chr(ord("b") + 2)`, `"this is his".count("is")`, the line a `while` must not forget); collect |
 
 ### Tool Note – Thonny
-Run each function alone in the **Shell** first (`middle("python")`) — faster than running the whole file. When a `while` loop
+While working on one question, put a `#` before the other questions' code (or select it and press **Alt+3** to comment it out), so only one answer prints. When a `while` loop
 never ends, press **Stop** (the red button) and look for the missing `index += 1`.
 
 ---

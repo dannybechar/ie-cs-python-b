@@ -42,6 +42,11 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 
 ## Open coverage gaps
 
+- **Teaching order differs from the schedule (teacher, 2 Nov 2026):** Unit 5 (strings) is being taught **before Unit 3
+  (functions)** — the class has not learned `def` yet. The 5.4 countdown edition is written without functions. The other
+  Unit 5 materials (5.1–5.4 lab versions, the 5.3 classwork) use functions; check with the teacher before reusing them,
+  and revisit the Unit 5 "function that takes a string" goal (goal 9) after Unit 3. Which of Units 2–4 were taught is still
+  to confirm.
 - **Source of truth (31 Oct 2026):** the Ministry's published teaching materials
   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)). Units 1.3, 2, 3, 4 and 5 were reworked to
   match them (🔶, awaiting re-approval; new NotebookLM decks pending — the old patched decks are marked superseded).

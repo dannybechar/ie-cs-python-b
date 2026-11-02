@@ -6,9 +6,9 @@
 
 1. נכנסים למשו"ב ומורידים את הקובץ Unit 5.4 - Strings.zip
 2. פותחים את ה-zip (Extract All) לתיקייה במחשב
-3. פותחים ב-Thonny את הקובץ Countdown_Starter.py – כל ארבעת התיקים בו
-4. בכל תיק כותבים את הפעולה במקום המילה pass, בלולאה שעל הלוח
-5. מריצים (F5) ומשווים לשורה expected
+3. פותחים ב-Thonny את הקובץ של התיק (השם שלו על הכרטיס)
+4. כותבים את הקוד מתחת לשורה של text, בלולאה שעל הלוח
+5. מריצים (F5) ומשווים לצפוי. אחר כך משנים את הטקסט לערך הבא ומריצים שוב
 
 </div>
 
@@ -16,31 +16,30 @@
 
 <div dir="rtl">
 
-הפעולה מחזירה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.
+התוכנית מדפיסה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.
 
 </div>
 
 <div dir="rtl">
 
-הפעולה בקובץ:
+פותחים את הקובץ הבא:
 
 </div>
 
 ```python
-def count_is(text):
-    pass
+CountIs_Starter.py
 ```
 
 <div dir="rtl">
 
-בדיקות – כשהפעולה נכונה, התוצאה שווה לצפוי:
+בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
 
 </div>
 
 ```python
-count_is("this is his list")
+text = "this is his list"
 # expected: 4
-count_is("Mississippi is big")
+text = "Mississippi is big"
 # expected: 3
 ```
 
@@ -50,32 +49,31 @@ count_is("Mississippi is big")
 
 <div dir="rtl">
 
-הפעולה בונה ומחזירה מחרוזת מהאות הראשונה של כל מילה.
+התוכנית בונה ומדפיסה מחרוזת מהאות הראשונה של כל מילה.
 
 </div>
 
 <div dir="rtl">
 
-הפעולה בקובץ:
+פותחים את הקובץ הבא:
 
 </div>
 
 ```python
-def initials(text):
-    pass
+Initials_Starter.py
 ```
 
 <div dir="rtl">
 
-בדיקות – כשהפעולה נכונה, התוצאה שווה לצפוי:
+בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
 
 </div>
 
 ```python
-initials("American Standard Code Information Interchange")
-# expected: "ASCII"
-initials("grade eight python")
-# expected: "gep"
+text = "American Standard Code Information Interchange"
+# expected: ASCII
+text = "grade eight python"
+# expected: gep
 ```
 
 <pagebreak>
@@ -84,34 +82,33 @@ initials("grade eight python")
 
 <div dir="rtl">
 
-כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. הטקסט באותיות קטנות בלבד.
+כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. התוכנית מדפיסה את התוצאה. הטקסט באותיות קטנות בלבד.
 
 </div>
 
 <div dir="rtl">
 
-הפעולה בקובץ:
+פותחים את הקובץ הבא:
 
 </div>
 
 ```python
-def next_letters(text):
-    pass
+NextLetters_Starter.py
 ```
 
 <div dir="rtl">
 
-בדיקות – כשהפעולה נכונה, התוצאה שווה לצפוי:
+בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
 
 </div>
 
 ```python
-next_letters("abcd")
-# expected: "bcde"
-next_letters("zoo")
-# expected: "app"
-next_letters("i like python")
-# expected: "j mjlf qzuipo"
+text = "i like python"
+# expected: j mjlf qzuipo
+text = "abcd"
+# expected: bcde
+text = "zoo"
+# expected: app
 ```
 
 <pagebreak>
@@ -120,30 +117,29 @@ next_letters("i like python")
 
 <div dir="rtl">
 
-הפעולה מחזירה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מוחזר כמו שהוא.
+התוכנית מדפיסה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מודפס כמו שהוא.
 
 </div>
 
 <div dir="rtl">
 
-הפעולה בקובץ:
+פותחים את הקובץ הבא:
 
 </div>
 
 ```python
-def first_and_last_word(text):
-    pass
+FirstLastWord_Starter.py
 ```
 
 <div dir="rtl">
 
-בדיקות – כשהפעולה נכונה, התוצאה שווה לצפוי:
+בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
 
 </div>
 
 ```python
-first_and_last_word("Cats and dogs are great friends")
-# expected: "Cats friends"
-first_and_last_word("Hello")
-# expected: "Hello"
+text = "Cats and dogs are great friends"
+# expected: Cats friends
+text = "Hello"
+# expected: Hello
 ```

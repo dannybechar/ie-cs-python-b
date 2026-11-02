@@ -2,70 +2,74 @@
  "title": "יחידה 5.4 – מחרוזות",
  "subtitle": "ספירה לאחור: ארבעה תיקים על מחרוזות",
  "footer": "יחידה 5.4 – מחרוזות · עבודה משותפת בכיתה, ללא ציון",
+ "unit": "Unit 5.4",
  "reference": "Countdown_Reference.py",
- "starter": "Countdown_Starter.py",
  "output": "m4-countdown-he.html",
+ "instructions": "m4-countdown-cases-he.md",
  "steps": [
   "נכנסים למשו\"ב ומורידים את הקובץ Unit 5.4 - Strings.zip",
   "פותחים את ה-zip (Extract All) לתיקייה במחשב",
-  "פותחים ב-Thonny את הקובץ Countdown_Starter.py – כל ארבעת התיקים בו",
-  "בכל תיק כותבים את הפעולה במקום המילה pass, בלולאה שעל הלוח",
-  "מריצים (F5) ומשווים לשורה expected"
+  "פותחים ב-Thonny את הקובץ של התיק (השם שלו על הכרטיס)",
+  "כותבים את הקוד מתחת לשורה של text, בלולאה שעל הלוח",
+  "מריצים (F5) ומשווים לצפוי. אחר כך משנים את הטקסט לערך הבא ומריצים שוב"
  ],
  "cases": [
   {
    "n": 1,
-   "func": "count_is",
+   "file": "CountIs_Starter.py",
+   "goal_en": "print how many times \"is\" appears in the text. Do not use count.",
    "title": "כמה פעמים מופיע is",
-   "objective": "הפעולה מחזירה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.",
+   "objective": "התוכנית מדפיסה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.",
    "minutes": 6,
    "ops": "range(len(text) - 1) · text[index:index + 2] · find(\"is\", start)",
-   "calls": [
-    "count_is(\"this is his list\")",
-    "count_is(\"Mississippi is big\")"
+   "inputs": [
+    "this is his list",
+    "Mississippi is big"
    ],
-   "contrast": "בגרסת for בודקים כל מקום בטקסט: האם שני התווים שמתחילים בו הם is. בגרסת while קופצים ישר ל-is הבא בעזרת find עם מקום התחלה, עד ש-find מחזירה ‎-1. ולמה 4 ולא 1? is מסתתר גם בתוך this ו-his."
+   "contrast": "בגרסת for בודקים כל מקום בטקסט: האם שני התווים שמתחילים בו הם is. בגרסת while קופצים ישר ל-is הבא בעזרת find עם מקום התחלה, עד ש-find מחזירה `-1`. ולמה 4 ולא 1? is מסתתר גם בתוך this ו-his."
   },
   {
    "n": 2,
-   "func": "initials",
+   "file": "Initials_Starter.py",
+   "goal_en": "build and print the first letter of every word.",
    "title": "ראשי תיבות",
-   "objective": "הפעולה בונה ומחזירה מחרוזת מהאות הראשונה של כל מילה.",
+   "objective": "התוכנית בונה ומדפיסה מחרוזת מהאות הראשונה של כל מילה.",
    "minutes": 7,
    "ops": "previous · text[index - 1] == \" \" · +=",
-   "calls": [
-    "initials(\"American Standard Code Information Interchange\")",
-    "initials(\"grade eight python\")"
+   "inputs": [
+    "American Standard Code Information Interchange",
+    "grade eight python"
    ],
-   "contrast": "בגרסת for עוברים על התווים וזוכרים את התו הקודם במשתנה previous (בהתחלה רווח, כדי שגם האות הראשונה תיכנס). בגרסת while עוברים על המקומות ומסתכלים אחורה על text[index - 1]; האות הראשונה נכנסת לפני הלולאה."
+   "contrast": "בגרסת for עוברים על התווים וזוכרים את התו הקודם במשתנה `previous` (בהתחלה רווח, כדי שגם האות הראשונה תיכנס). בגרסת while עוברים על המקומות ומסתכלים אחורה על `text[index - 1]`; האות הראשונה נכנסת לפני הלולאה."
   },
   {
    "n": 3,
-   "func": "next_letters",
+   "file": "NextLetters_Starter.py",
+   "goal_en": "every letter becomes the next one; z becomes a; a space stays.",
    "title": "צופן האות הבאה",
-   "objective": "כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. הטקסט באותיות קטנות בלבד.",
+   "objective": "כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. התוכנית מדפיסה את התוצאה. הטקסט באותיות קטנות בלבד.",
    "minutes": 7,
    "ops": "ord · chr · isalpha · % 26",
-   "calls": [
-    "next_letters(\"abcd\")",
-    "next_letters(\"zoo\")",
-    "next_letters(\"i like python\")"
+   "inputs": [
+    "i like python",
+    "abcd",
+    "zoo"
    ],
-   "contrast": "בגרסת for האות z היא מקרה מיוחד עם if משלו. בגרסת while אין מקרה מיוחד: מחשבים את מקום האות באלפבית (0 עד 25), מוסיפים 1, ו-% 26 מחזיר את 26 ל-0 – כלומר z הופכת ל-a. וזכרו: צופן כזה לא מגן על כלום, כל אחד יכול להזיז אחורה."
+   "contrast": "בגרסת for האות z היא מקרה מיוחד עם if משלו. בגרסת while אין מקרה מיוחד: מחשבים את מקום האות באלפבית (0 עד 25), מוסיפים 1, ו-`% 26` מחזיר את 26 ל-0 – כלומר z הופכת ל-a. וזכרו: צופן כזה לא מגן על כלום, כל אחד יכול להזיז אחורה."
   },
   {
    "n": 4,
-   "func": "first_and_last_word",
+   "file": "FirstLastWord_Starter.py",
+   "goal_en": "print the first word and the last word, with one space between.",
    "title": "המילה הראשונה והאחרונה",
-   "objective": "הפעולה מחזירה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מוחזר כמו שהוא.",
+   "objective": "התוכנית מדפיסה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מודפס כמו שהוא.",
    "minutes": 8,
    "ops": "find(\" \") · text[:first_space] · index -= 1",
-   "calls": [
-    "first_and_last_word(\"Cats and dogs are great friends\")",
-    "first_and_last_word(\"Hello\")"
+   "inputs": [
+    "Cats and dogs are great friends",
+    "Hello"
    ],
    "contrast": "בגרסת for עוברים על כל הטקסט וזוכרים את הרווח האחרון שראינו. בגרסת while מתחילים מהסוף והולכים אחורה עד הרווח הראשון שפוגשים – ועוצרים מיד. שתיהן מוצאות את הרווח הראשון בעזרת find."
   }
- ],
- "instructions": "m4-countdown-cases-he.md"
+ ]
 }
