@@ -20,6 +20,8 @@ taught) still asks for functions; its rubric gives plain code full marks.
 | Teacher | [`m1-lesson-notes.md`](m1-lesson-notes.md) | Lesson plan |
 | Teacher | [`m1-live-problem-he.md`](m1-live-problem-he.md), [`m1-live-program.py`](m1-live-program.py) | Frontal live-coding problem (6 stages) and full solution (Robot ID Card) |
 | Teacher | [`m1-live-slides-he.pdf`](m1-live-slides-he.pdf) | Live-lesson deck, 20 slides, 54 min (built with [`tools/live-deck`](../../tools/live-deck/README.md), not NotebookLM) |
+| Student | [`m1-paper-lab-worksheet-he.md`](m1-paper-lab-worksheet-he.md), [`PaperLab_Starter.py`](PaperLab_Starter.py) | Handwritten 45-minute lab (5 questions + exit check), handed in on paper |
+| Teacher | [`m1-paper-lab-answer-key.md`](m1-paper-lab-answer-key.md), [`PaperLab_Reference.py`](PaperLab_Reference.py) | Answer key, rubric (100 + 5), reference solutions |
 | Teacher | `Live_Step1_…` to `Live_Step5_…` (5 files) | Live-demo code that grows step by step; the last one is the full program |
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Indices_Starter.py`](Indices_Starter.py) | `word[len(word)]` warm-up bug, stubs for Tasks 1–4 |

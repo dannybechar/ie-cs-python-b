@@ -28,7 +28,7 @@ Status: ✅ taught · ▶ next · ⏭ skipped for now (to be taught later) · �
 | 8 | 3.3 Functions | ⏭ | Built; not taught yet |
 | 9 | 4.1 Bringing AI into Code (API) | ⏭ | Built; needs Unit 3 first and a live run with a real key |
 | 10 | 4.2 Bringing AI into Code (API) | ⏭ | Built; needs Unit 3 first |
-| 11 | 5.1 Strings | ✅ | Date to confirm; live-lesson edition prepared 6 Nov 2026 |
+| 11 | 5.1 Strings | ✅ | Date to confirm; live-lesson edition and a handwritten paper lab (45 min, [worksheet](units/u5-strings/m1-paper-lab-worksheet-he.md)) prepared 6 Nov 2026 |
 | 12 | 5.2 Strings | ✅ | Date to confirm |
 | 13 | 5.3 Strings | ✅ | Paper-classwork edition (45 / 45); worksheets to be graded |
 | 14 | 5.4 Strings | ▶ | Next lesson: countdown edition (4 timed cases, then the graded worksheet) |
