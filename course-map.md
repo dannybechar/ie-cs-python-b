@@ -47,8 +47,8 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
   versions (5.1–5.4) were converted to plain code the same day (a variable, the code, `print`). Only the 5.3 classwork
   worksheet (already taught) still asks for functions; its rubric gives plain code full marks. Revisit the Unit 5 "function
   that takes a string" goal (goal 9) after Unit 3. **The NotebookLM prep folders for 5.1–5.4 (on the Windows machine) were
-  made before this change** — regenerate their slide content before building the new decks. Which of Units 2–4 were taught is still
-  to confirm.
+  made before this change** — regenerate their slide content before building the new decks. Units 2–4 were skipped for now (6 Nov 2026, see
+  [`class-progress.md`](class-progress.md)).
 - **Source of truth (31 Oct 2026):** the Ministry's published teaching materials
   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)). Units 1.3, 2, 3, 4 and 5 were reworked to
   match them (🔶, awaiting re-approval; new NotebookLM decks pending — the old patched decks are marked superseded).
@@ -62,7 +62,7 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 ## Waiting for the teacher (as of 2 Nov 2026)
 
 - Dates 5.1–5.3 were taught, the weekly meeting day and the first meeting date (for the pace check).
-- Whether 1.3 and Units 2–4 were taught (if Unit 3 was not, Unit 4 also uses functions and must wait or be converted).
+- When Units 2–4 will be taught (skipped so far, 6 Nov 2026; Unit 4 uses functions, so it must follow Unit 3) — see [`class-progress.md`](class-progress.md).
 - Re-approval of the 12 reworked meetings (1.3, 2.1–2.2, 3.1–3.3, 4.1–4.2, 5.1–5.4) and their new NotebookLM decks.
 - 5.1 live lesson: it brings `for … in range(len(name))` and `while` into 5.1 (the unit plan teaches the `for` loop over strings in 5.3–5.4) — confirm that is wanted, and whether the deck stays at 54 minutes.
 - 5.4 countdown: which loop per case is shown first, whether the worksheet is collected at the end of class, whether a deck is wanted.
@@ -72,24 +72,24 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 ## Schedule
 
 All meetings in teaching order. **Content** is the provisional outline from the annual strategy; it is refined when the unit
-is built. Fill in **Target week** once the school calendar is known, and **Taught on** after each lesson.
+is built. Fill in **Target week** once the school calendar is known, and **Taught on** after each lesson. What the class has actually completed is tracked in [`class-progress.md`](class-progress.md).
 
 | # | Meeting | Content | Built | Target week | Taught on |
 |---:|---|---|---|---|---|
-| 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | ✅ | | |
-| 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | ✅ | | |
-| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, the stop condition, loops that never end; unit checkpoint (Ministry 2.0, 2.1, loop-trap deck) | 🔶 | | |
-| 4 | 2.1 AI2 Year Opening | K+L · AI or not? Definition, revolutions, classic vs AI greeting (Ministry deck 3.1) | 🔶 | | |
-| 5 | 2.2 AI2 Year Opening | K+L · Quick, Draw!, data and bias worksheet (Ministry 3.2), consumers to creators | 🔶 | | |
-| 6 | 3.1 Functions | K+L · Several parameters and `return` (Ministry 4.1, 4.2) | 🔶 | | |
-| 7 | 3.2 Functions | L+L · Practice: returning functions and loops inside functions (Ministry 4.2, 4.4, 4.5) | 🔶 | | |
-| 8 | 3.3 Functions | K+L · Local and `global` variables, variable roles; checkpoint (Ministry 4.3, 4.5, 4.6) | 🔶 | | |
-| 9 | 4.1 Bringing AI into Code (API) | K+L · What is an API, the Gemini call, f-strings, the `ask_the_ai` wrapper (Ministry 5.0–5.2) | 🔶 | | |
-| 10 | 4.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | |
+| 1 | 1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | ✅ | | ✅ |
+| 2 | 1.2 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | ✅ | | ✅ |
+| 3 | 1.3 Python A Review | L+L · Until it's done: `while`, the stop condition, loops that never end; unit checkpoint (Ministry 2.0, 2.1, loop-trap deck) | 🔶 | | ✅ |
+| 4 | 2.1 AI2 Year Opening | K+L · AI or not? Definition, revolutions, classic vs AI greeting (Ministry deck 3.1) | 🔶 | | ⏭ skipped for now |
+| 5 | 2.2 AI2 Year Opening | K+L · Quick, Draw!, data and bias worksheet (Ministry 3.2), consumers to creators | 🔶 | | ⏭ skipped for now |
+| 6 | 3.1 Functions | K+L · Several parameters and `return` (Ministry 4.1, 4.2) | 🔶 | | ⏭ skipped for now |
+| 7 | 3.2 Functions | L+L · Practice: returning functions and loops inside functions (Ministry 4.2, 4.4, 4.5) | 🔶 | | ⏭ skipped for now |
+| 8 | 3.3 Functions | K+L · Local and `global` variables, variable roles; checkpoint (Ministry 4.3, 4.5, 4.6) | 🔶 | | ⏭ skipped for now |
+| 9 | 4.1 Bringing AI into Code (API) | K+L · What is an API, the Gemini call, f-strings, the `ask_the_ai` wrapper (Ministry 5.0–5.2) | 🔶 | | ⏭ skipped for now |
+| 10 | 4.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | ⏭ skipped for now |
 | 11 | 5.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
 | 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
 | 13 | 5.3 Strings | K+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition, 45 / 45 (date to confirm) |
-| 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | |
+| 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | ▶ next |
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ✅ | | |
 | 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ✅ | | |
 | 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ✅ | | |

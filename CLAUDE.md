@@ -8,7 +8,8 @@ reference code, and a Hebrew slide deck — the same way the Grade 7 **Python A*
 That repository is complete (31 meetings, all approved, all decks patched) and is **the working example**:
 when a format is unclear, open the matching file there and copy its shape.
 
-Start every session by reading `course-map.md` (what is built, approved and pending) and the memory index.
+Start every session by reading `class-progress.md` (what the class has actually been taught), `course-map.md` (what is built,
+approved and pending) and the memory index. After every lesson, update `class-progress.md`.
 
 ## The teacher's commands
 

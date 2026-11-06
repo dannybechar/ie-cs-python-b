@@ -14,6 +14,7 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 ## Current build status
 
 **All 30 of 30 official double meetings are built** (Units 1–9). Units 6–9 and Units 1.1–1.2 are approved; Units 1.3 and 2–5 were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
+Where the class actually is in the course: [`class-progress.md`](class-progress.md).
 See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
 [`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
 
