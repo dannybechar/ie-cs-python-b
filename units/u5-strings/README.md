@@ -37,6 +37,11 @@ taught) still asks for functions; its rubric gives plain code full marks.
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m2-lesson-notes.md`](m2-lesson-notes.md) | Lesson plan |
+| Teacher | [`m2-live-problem-he.md`](m2-live-problem-he.md), [`m2-live-program.py`](m2-live-program.py) | Live-lesson problem "Email Desk" (6 stages) and full solution |
+| Teacher | [`m2-live-slides-he.pdf`](m2-live-slides-he.pdf) | Live-lesson deck, 20 slides, 54 min (built with [`tools/live-deck`](../../tools/live-deck/README.md)) |
+| Teacher | `Live2_Step1_…` to `Live2_Step5_…` (5 files) | Live-demo code that grows step by step; the last one is the full program |
+| Student | [`m2-paper-lab-worksheet-he.md`](m2-paper-lab-worksheet-he.md), [`PaperLab2_Starter.py`](PaperLab2_Starter.py) | Handwritten 45-minute lab: one sheet, two sides, 2 questions × 4 sub-questions (file name and item code) |
+| Teacher | [`m2-paper-lab-answer-key.md`](m2-paper-lab-answer-key.md), [`PaperLab2_Q1_Solution.py`](PaperLab2_Q1_Solution.py), [`PaperLab2_Q2_Solution.py`](PaperLab2_Q2_Solution.py) | Answer key, rubric (100), full solutions |
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Slicing_Starter.py`](Slicing_Starter.py) | Discarded-`upper()` warm-up bug, stubs for Tasks 1–4 |
 | Teacher | [`Slicing_Reference.py`](Slicing_Reference.py) | Solutions, one block of plain code per task (no functions) |
@@ -51,6 +56,11 @@ taught) still asks for functions; its rubric gives plain code full marks.
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m3-lesson-notes.md`](m3-lesson-notes.md) | Lesson plan |
+| Teacher | [`m3-live-problem-he.md`](m3-live-problem-he.md), [`m3-live-program.py`](m3-live-program.py) | Live-lesson problem "Account safety checker" (6 stages) and full solution |
+| Teacher | [`m3-live-slides-he.pdf`](m3-live-slides-he.pdf) | Live-lesson deck, 20 slides, 54 min (built with [`tools/live-deck`](../../tools/live-deck/README.md)) |
+| Teacher | `Live3_Step1_…` to `Live3_Step5_…` (5 files) | Live-demo code that grows step by step; the last one is the full program |
+| Student | [`m3-paper-lab-worksheet-he.md`](m3-paper-lab-worksheet-he.md), [`PaperLab3_Starter.py`](PaperLab3_Starter.py) | Handwritten 45-minute lab: one sheet, two sides, 2 questions × 4 sub-questions (message analysis and ticket code) |
+| Teacher | [`m3-paper-lab-answer-key.md`](m3-paper-lab-answer-key.md), [`PaperLab3_Q1_Solution.py`](PaperLab3_Q1_Solution.py), [`PaperLab3_Q2_Solution.py`](PaperLab3_Q2_Solution.py) | Answer key, rubric (100), full solutions |
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Traverse_Starter.py`](Traverse_Starter.py) | Counter-reset warm-up bug, stubs for Tasks 1–5 |
 | Teacher | [`Traverse_Reference.py`](Traverse_Reference.py) | Solutions, one block of plain code per task (no functions; Task 4 reads input) |

@@ -14,6 +14,6 @@ Options: `--footer` (also the title), `--subtitle` and `--emoji` (title slide), 
 `--boxes` (slide numbers that show the letter boxes with indices, for the word given by `--boxes-word`), `--numbered`
 (slides whose bullets are a numbered list, e.g. the exit check).
 
-- Used for the Unit 5.1 live lesson ([`m1-live-slides-he.pdf`](../../units/u5-strings/m1-live-slides-he.pdf)).
+- Used for the Unit 5.1, 5.2 and 5.3 live lessons ([`m1-live-slides-he.pdf`](../../units/u5-strings/m1-live-slides-he.pdf), [`m2-`](../../units/u5-strings/m2-live-slides-he.pdf), [`m3-`](../../units/u5-strings/m3-live-slides-he.pdf)).
 - A code block followed by its output is shown side by side when the lines are short; very tall outputs split in two columns.
 - Look at every page after building (the font size is computed per slide, long lines can still come out small).
