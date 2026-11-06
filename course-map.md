@@ -64,6 +64,7 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 - Dates 5.1–5.3 were taught, the weekly meeting day and the first meeting date (for the pace check).
 - When Units 2–4 will be taught (skipped so far, 6 Nov 2026; Unit 4 uses functions, so it must follow Unit 3) — see [`class-progress.md`](class-progress.md).
 - Re-approval of the 12 reworked meetings (1.3, 2.1–2.2, 3.1–3.3, 4.1–4.2, 5.1–5.4) and their new NotebookLM decks.
+- 5.2 and 5.3: the same lesson + lab package as 5.1 (live problem, deck, cumulative files, two-question handwritten lab — recipe in `CLAUDE.md`) is requested; both meetings were already taught, so ask which parts are still wanted.
 - 5.1 live lesson: it brings `for … in range(len(name))` and `while` into 5.1 (the unit plan teaches the `for` loop over strings in 5.3–5.4) — confirm that is wanted, and whether the deck stays at 54 minutes.
 - 5.4 countdown: which loop per case is shown first, whether the worksheet is collected at the end of class, whether a deck is wanted.
 - Thonny's comment shortcut (Ctrl+3, written in `Cipher_Starter.py`) — confirm.
