@@ -81,6 +81,28 @@ Build the deck either through NotebookLM (the "prepare slides" routine) or direc
 [`tools/live-deck`](tools/live-deck/README.md). Verify every file with sample inputs; put the PDF and the code folder under
 `Downloads` for review. The problem must use only what the class has learned (no functions until Unit 3 is done).
 
+### Lesson + lab package (the Unit 5.1 recipe; repeat it for 5.2 and 5.3)
+
+The teacher's pedagogical ratio for a Knowledge + Lab meeting is **~45-54 minutes of frontal live coding, then a 45-minute handwritten lab**.
+Unit 5.1 is the template; build 5.2 (slicing, `count`, `replace`, `in`, `find`) and 5.3 (`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`,
+`for` over a string, counting, `+=`) the same way, using only what the class has been taught up to that meeting (no functions until Unit 3 is done).
+
+1. **Live lesson** (routine above): ONE challenging problem with requirements, solved in **six stages** that each add one idea (input checks with `while`,
+   the new tools of the meeting, a loop, building new strings, a frame/report, a final input stage). Files: `m<M>-live-problem-he.md` (problem + stages),
+   `m<M>-live-program.py` (full solution), **five cumulative files** `Live_Step1_…`–`Live_Step5_…` (each runnable, new lines marked), a **~20-slide deck**
+   (problem, sample run, stage table, one slide per step with code + output + a discussion question, two predict slides with their answers, an errors slide,
+   summary table, exit check + answers; minutes sum to the lesson length; built with `tools/live-deck`, or NotebookLM on request).
+2. **Paper lab, 45 minutes:** ONE sheet, two sides: **two challenging questions, four sub-questions each (א–ד, each continues the previous)**, about 22 minutes
+   per question; the question in a box on the right, a large empty box for the handwritten code on the left; example outputs in the question box. Source
+   `m<M>-paper-lab-worksheet-he.md`, built with `python tools/problem_sheet_docx.py in.md out.docx 1`. The questions are similar to the live problem but on a
+   new theme. Students write by hand first, check in Thonny (`PaperLab_Starter.py`-style starter), correct in another colour, **hand in the paper**.
+3. **Teacher files:** `m<M>-paper-lab-answer-key.md` (answers, equivalent code to accept, 100-point rubric split per sub-question, grading scale, marking sheet
+   without names, what to look for while circulating) and **one full solution file per question** (`PaperLab_Q1_Solution.py`, `PaperLab_Q2_Solution.py`-style
+   names, unique in the unit folder).
+4. **Verify** every file with sample inputs and every sample output printed on slides and worksheet; look at every rendered page.
+5. **Deliver:** the deck PDF, the worksheet `.docx` + `.pdf` (Downloads root) and the solution `.py` files for the teacher to review; update the unit README,
+   `course-map.md` (meeting-log note and Assessments row), `class-progress.md`, memory; commit and push.
+
 ### "review U.M" (a deck came back from NotebookLM)
 
 1. Take the **newest PDF in Downloads** — its file name is thematic, not the unit number — and confirm from the
