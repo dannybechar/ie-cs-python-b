@@ -18,6 +18,7 @@ taught) still asks for functions; its rubric gives plain code full marks.
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m1-lesson-notes.md`](m1-lesson-notes.md) | Lesson plan |
+| Teacher | [`m1-live-script-he.md`](m1-live-script-he.md), [`m1-live-program.py`](m1-live-program.py) | Frontal live-coding script and program (Robot ID Card) |
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Indices_Starter.py`](Indices_Starter.py) | `word[len(word)]` warm-up bug, stubs for Tasks 1–4 |
 | Teacher | [`Indices_Reference.py`](Indices_Reference.py) | Solutions, one block of plain code per task (no functions) |
