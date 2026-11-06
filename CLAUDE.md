@@ -81,7 +81,7 @@ Build the deck either through NotebookLM (the "prepare slides" routine) or direc
 [`tools/live-deck`](tools/live-deck/README.md). Verify every file with sample inputs; put the PDF and the code folder under
 `Downloads` for review. The problem must use only what the class has learned (no functions until Unit 3 is done).
 
-### Lesson + lab package (the Unit 5.1 recipe; repeat it for 5.2 and 5.3)
+### Lesson + lab package (the Unit 5.1 recipe; also built for 5.2 and 5.3 on 6 Nov 2026)
 
 The teacher's pedagogical ratio for a Knowledge + Lab meeting is **~45-54 minutes of frontal live coding, then a 45-minute handwritten lab**.
 Unit 5.1 is the template; build 5.2 (slicing, `count`, `replace`, `in`, `find`) and 5.3 (`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`,
@@ -100,6 +100,11 @@ Unit 5.1 is the template; build 5.2 (slicing, `count`, `replace`, `in`, `find`) 
    without names, what to look for while circulating) and **one full solution file per question** (`PaperLab_Q1_Solution.py`, `PaperLab_Q2_Solution.py`-style
    names, unique in the unit folder).
 4. **Verify** every file with sample inputs and every sample output printed on slides and worksheet; look at every rendered page.
+   **Naming for later meetings:** `m<M>-live-*`, `Live<M>_Step1_<Name>.py` … `Step5`, `PaperLab<M>_Starter.py`, `PaperLab<M>_Q1_Solution.py`,
+   `PaperLab<M>_Q2_Solution.py` (unique in the unit folder). The teacher keeps a copy per meeting in
+   `Downloads\פדגוגיה\python-b\מעבדות-יחידה-5.<M>\` (`5.<M>-code`, `5.<M>-lab`, the deck PDF, the full program); the deck source is
+   `Downloads\פדגוגיה\python-b\lessons\unit5-m<M>-live-slides\1-source-slide-content.md`. The 5.2 and 5.3 packages were built by two parallel
+   sub-agents that did not touch shared documents; the main agent then updated the README, course map, class progress and memory and committed.
 5. **Deliver:** the deck PDF, the worksheet `.docx` + `.pdf` (Downloads root) and the solution `.py` files for the teacher to review; update the unit README,
    `course-map.md` (meeting-log note and Assessments row), `class-progress.md`, memory; commit and push.
 
