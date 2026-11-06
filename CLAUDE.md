@@ -68,6 +68,18 @@ The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<
   Keep it to **≤ 20 slides** (NotebookLM drops slides past ~21). Question and answer on separate slides.
 - Copies of `m<M>-lesson-notes.md` and `m<M>-lab-brief-he.md`.
 
+### "live lesson U.M" (also: a frontal lesson built around one problem)
+
+The teacher presents one problem split into a few incremental stages and builds it live in Thonny on the projector.
+**Unit 5.1 is the working example:** [`m1-live-problem-he.md`](units/u5-strings/m1-live-problem-he.md) (problem + stages, no
+line-by-line script — the teacher leads the discussion), [`m1-live-program.py`](units/u5-strings/m1-live-program.py) (full
+solution), `Live_Step1_…`–`Live_Step5_…` (cumulative files, each runnable, new lines marked), and the deck
+([`m1-live-slides-he.pdf`](units/u5-strings/m1-live-slides-he.pdf)). Slides: problem and sample run, a stage table, then one
+slide per step with code, output and a discussion question; predict slides are question-only; error demos get their own slide.
+Build the deck either through NotebookLM (the "prepare slides" routine) or directly with
+[`tools/live-deck`](tools/live-deck/README.md). Verify every file with sample inputs; put the PDF and the code folder under
+`Downloads` for review. The problem must use only what the class has learned (no functions until Unit 3 is done).
+
 ### "review U.M" (a deck came back from NotebookLM)
 
 1. Take the **newest PDF in Downloads** — its file name is thematic, not the unit number — and confirm from the

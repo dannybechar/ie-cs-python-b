@@ -5,6 +5,7 @@
 
 **Status:** Built, awaiting teacher approval 🔶
 **No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
+**Live-lesson edition (6 Nov 2026):** the frontal 45 minutes can be taught as one problem built in six stages — see [`m1-live-problem-he.md`](m1-live-problem-he.md) (problem and stages), [`m1-live-program.py`](m1-live-program.py), the five cumulative files `Live_Step1_…`–`Live_Step5_…` and the deck [`m1-live-slides-he.pdf`](m1-live-slides-he.pdf) (20 slides, 54 minutes). It uses `while` and `for … in range(len(name))` (known from Python A) and no functions. The clock table below is the original lesson.
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
