@@ -1,4 +1,4 @@
-# Slide 5 - Stage 1: a valid name
+# Step 1 (slide 5): a valid name
 # Run: type ab (too short), then ROBOT.
 
 # Stage 1 - read the name; ask again until it has at least 3 characters

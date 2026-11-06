@@ -1,5 +1,5 @@
-# Slide 18 - Stage 6: the age (the full program)
-# Run the whole machine with ROBOT, 2, O, 200, then 7.
+# Step 5 (slides 16-18): the code, the framed card and the age - the full program
+# Run with ROBOT, 2, O, 200 (too old), then 7.
 
 # Stage 1 - read the name; ask again until it has at least 3 characters
 name = input("Robot name: ")
@@ -13,7 +13,6 @@ first = name[0]
 last = name[-1]
 print("First letter:", first)
 print("Last letter:", last)
-
 pos = int(input("Which position? "))
 if pos < len(name) and pos >= -len(name):
     print("The letter at position", pos, "is", name[pos])
@@ -34,7 +33,6 @@ for i in range(len(name)):
     backwards = name[i] + backwards
 print("Dashed:", dashed)
 print("Backwards:", backwards)
-
 if name == backwards:
     print("The name reads the same in both directions")
 letter = input("Which letter to count? ")
@@ -44,6 +42,7 @@ for i in range(len(name)):
         count += 1
 print(letter, "appears", count, "times")
 
+# ---------- new in this step ----------
 # Stage 5 - the code and the framed card (the frame fits the longest line)
 code = first + last + "-" + str(len(name))
 print("Code:", code)
@@ -60,7 +59,6 @@ print("* " + line1 + gap1 + " *")
 print("* " + line2 + gap2 + " *")
 print(border)
 
-# ---------- new in this step ----------
 # Stage 6 - the age: ask until it is between 1 and 120; input is text, so convert it
 age = int(input("Robot age: "))
 while age < 1 or age > 120:
