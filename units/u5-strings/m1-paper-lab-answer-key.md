@@ -4,7 +4,7 @@ For [`m1-paper-lab-worksheet-he.md`](m1-paper-lab-worksheet-he.md): **one sheet,
 (א–ד, each continues the previous one). On each side the question is in a box on the right and a large empty box for the handwritten code is on
 the left. Students write by hand first, then type the code in Thonny ([`PaperLab_Starter.py`](PaperLab_Starter.py)), check, and correct in
 another colour; they hand in the **paper** at the end of the 45 minutes (about 22 minutes per question).
-Every answer below was run from [`PaperLab_Reference.py`](PaperLab_Reference.py). **No functions:** the class has not learned `def` yet.
+Every answer below was run from the full solutions [`PaperLab_Q1_Solution.py`](PaperLab_Q1_Solution.py) and [`PaperLab_Q2_Solution.py`](PaperLab_Q2_Solution.py). **No functions:** the class has not learned `def` yet.
 Print with `python tools/problem_sheet_docx.py m1-paper-lab-worksheet-he.md out.docx 1` (one question per side).
 
 ## Answers
