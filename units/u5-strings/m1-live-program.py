@@ -62,18 +62,11 @@ print("Next year:", age + 1)
 # name[0] = "r"
 
 
-# STEP 9 - functions
-def first_and_last(word):
-    return word[0] + word[-1]
-
-
-def stars_for(word):
-    return "*" * len(word)
-
-
-print(first_and_last(name))
-print(first_and_last("A"))
-print(stars_for(name))
+# STEP 9 - the same idea on other words (plain code, no functions yet)
+word = "A"
+print(word[0] + word[-1])
+word = "hello"
+print("*" * len(word))
 
 
 # STEP 10 - exit check

@@ -20,7 +20,7 @@
 | 6 | מה יוצא מ-`first + last`? | `code = first + last` | `RT`. שגיאה מכוונת: `"Length: " + len(name)` ← `TypeError: can only concatenate str (not "int") to str`; תיקון עם `str(...)` |
 | 7 | הגיל: מה ידפיס `age + age` עבור 7? | קודם `age = input(...)`, אחר כך `int(input(...))` ו-`age + 1` | `77` (הפתעה) ואז `8`. `input` תמיד מחזירה מחרוזת |
 | 8 | נתקן את האות הראשונה: `name[0] = "r"` (הצבעה) | שורה אחת, הרצה, מחיקה | `TypeError: 'str' object does not support item assignment`. אפשר לקרוא תו, אי אפשר להחליף |
-| 9 | קוד חוזר פעמיים — מה עושים? | `first_and_last`, `stars_for`, בדיקה `first_and_last("A")` | `RT`, `AA`, `*****`. תצוגה מקדימה של משימות 3–4 במעבדה |
+| 9 | האם הרעיון עובד גם על מילה של אות אחת? ועל `hello`? | `word = "A"`, `print(word[0] + word[-1])`; `word = "hello"`, `print("*" * len(word))` | `AA`, `*****`. תצוגה מקדימה של משימה 4 במעבדה, בלי פעולות (הכיתה עוד לא למדה) |
 | 10 | בדיקת יציאה עם `text = "MODEL"` | `text[1]`, `text[-1]`, `len(text)`, ואז `text[len(text)]` | `O`, `L`, `5`, `IndexError`. שמירה: `G8_U5_M1_Indices_<Name>.py` |
 
 </div>
