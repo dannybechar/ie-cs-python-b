@@ -1,24 +1,29 @@
 # Unit 5.1 paper lab: write each answer by hand first, then type it under its question and run to check.
-# Put a # in front of the lines of a question you are not checking now.
+# Question 1 and Question 2 are separate programs: put a # in front of the lines of the one you are not checking.
 
-# Question 1 - reverse a word (expected: RATS)
-word = "STAR"
-
-
-# Question 2 - count a letter (expected: 3)
+# ===================== Question 1 =====================
 word = "BANANA"
-letter = "A"
+
+# a.
 
 
-# Question 3 - dashes between the characters (expected: S-T-A-R)
-word = "STAR"
+# b.
 
 
-# Question 4 - identity code (expected: FN-6)
-word = "FALCON"
+# c.
 
 
-# Question 5 - password: ask again until it has at least 6 characters, then print Welcome
+# d.
 
 
-# Question 6 - a name in a frame (input: LUNA)
+# ===================== Question 2 =====================
+# a.
+
+
+# b.
+
+
+# c.
+
+
+# d.

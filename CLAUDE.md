@@ -197,7 +197,7 @@ and make the README and course map describe the current state.
   blocks and regular in others). In `.docx`, set the font on all four slots (ascii, hAnsi, cs, eastAsia) so Word and
   Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
 - **Problem sheet (handwriting lab, 6 Nov 2026):** one A4 sheet, two sides at most; every problem is a row with the problem in a box on the
-right and an empty box for handwritten code beside it. Source: Markdown with one `## ` per problem; build with
+right and an empty box for handwritten code beside it (the 5.1 sheet: two questions with four sub-questions each, one per side, `... out.docx 1`). Source: Markdown with one `## ` per problem; build with
 `python tools/problem_sheet_docx.py in.md out.docx 3`. Example: [`m1-paper-lab-worksheet-he.md`](units/u5-strings/m1-paper-lab-worksheet-he.md).
 
 **Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with

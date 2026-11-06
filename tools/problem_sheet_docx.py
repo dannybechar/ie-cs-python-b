@@ -181,8 +181,7 @@ def build(src, dst, rows_per_page=3):
     first = True
     for n, p in enumerate(problems):
         if n % rows_per_page == 0:
-            if n > 0:
-                doc.add_page_break()
+            start = len(doc.paragraphs)
             for item in header:
                 if item[0] == "text":
                     t = item[1]
@@ -192,9 +191,8 @@ def build(src, dst, rows_per_page=3):
                         hebrew_par(doc, t, 9.5, False, 0, 1)
                 else:
                     code_par(doc, item[2], 9)
-            if n > 0:  # the second side repeats only the title and the name line
-                pass
-            first = False
+            if n > 0:  # a new side: start on a new page, header repeated
+                doc.paragraphs[start].paragraph_format.page_break_before = True
         table = doc.add_table(rows=1, cols=2)
         table.style = "Table Grid"
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
