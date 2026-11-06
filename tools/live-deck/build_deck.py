@@ -1,6 +1,20 @@
 import re, html, sys
-src = open(sys.argv[1], encoding="utf-8").read().split("\n")
-FOOT = "יחידה 5.1 – מחרוזות"
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument("source")
+ap.add_argument("out")
+ap.add_argument("--footer", default="יחידה 5.1 – מחרוזות")
+ap.add_argument("--subtitle", default="")
+ap.add_argument("--emoji", default="🤖")
+ap.add_argument("--card", default="", help="a word shown in a card on the title slide")
+ap.add_argument("--boxes", default="", help="slides that get the letter boxes, e.g. 7,8")
+ap.add_argument("--boxes-word", default="ROBOT")
+ap.add_argument("--numbered", default="", help="slides whose bullets are a numbered list, e.g. 19")
+args = ap.parse_args()
+BOX_SLIDES = [int(x) for x in args.boxes.split(",") if x]
+NUM_SLIDES = [int(x) for x in args.numbered.split(",") if x]
+src = open(args.source, encoding="utf-8").read().split("\n")
+FOOT = args.footer
 
 def inl(t):
     t = html.escape(t)
@@ -50,16 +64,17 @@ def render(s):
     cls = "big" if lines <= 6 else ("mid" if lines <= 11 else "small")
     h = [f'<section class="slide n{n}">']
     if n == 1:
-        h.append('<div class="titlebox"><div class="robot">🤖</div>'
-                 f'<h1>{FOOT}</h1><h2>מכונת תעודות זהות לרובוטים</h2>'
-                 '<div class="card">ROBOT</div></div>')
+        h.append(f'<div class="titlebox"><div class="robot">{args.emoji}</div>'
+                 f'<h1>{FOOT}</h1><h2>{args.subtitle}</h2>'
+                 + (f'<div class="card">{args.card}</div>' if args.card else '') + '</div>')
     else:
         h.append(f'<header><h1>{inl(s["title"])}</h1>' + (f'<div class="timer">⏱ {s["timer"]} דקות</div>' if s["timer"] else "") + "</header>")
         h.append(f'<main class="{cls}">')
         texts = [x for x in items if x[0] == "text"]
         for t in texts: h.append(f'<p class="lead">{inl(t[1])}</p>')
-        if n in (8, 9) and False or n in (7, 8):
-            h.append(boxes("ROBOT", range(5), range(-5, 0)))
+        if n in BOX_SLIDES:
+            w = args.boxes_word
+            h.append(boxes(w, range(len(w)), range(-len(w), 0)))
         # build rows: label / pair(src,out) / single / table
         rows = []; k = 0
         its = [x for x in items if x[0] in ("label", "code", "table")]
@@ -87,7 +102,7 @@ def render(s):
                 else: hh += 330
             return hh
         nb = len([x for x in items if x[0] == "bullet"]); nt = len(texts)
-        budget = 630 - 60 - nt * 50 - nb * 50 - (160 if n in (8, 9) and False or n in (7, 8) else 0)
+        budget = 630 - 60 - nt * 50 - nb * 50 - (160 if n in BOX_SLIDES else 0)
         f = 1.0
         while height(rows, f) > budget and f > 0.3: f -= 0.05
         area = []
@@ -108,7 +123,7 @@ def render(s):
         h.append('<div class="area">' + "".join(area) + "</div>")
         bl = [x for x in items if x[0] == "bullet"]
         if bl:
-            tg = "ol" if n == 19 else "ul"
+            tg = "ol" if n in NUM_SLIDES else "ul"
             h.append(f"<{tg}>" + "".join(f"<li>{inl(x[1])}</li>" for x in bl) + f"</{tg}>")
         h.append("</main>")
     h.append(f'<footer>{FOOT}<span class="pg">{n}</span></footer></section>')
@@ -147,5 +162,5 @@ footer{position:absolute;left:0;right:0;bottom:0;height:40px;background:#1a365d;
 .n1{background:linear-gradient(#e6f0ff,#fff)}
 """
 out = f'<!DOCTYPE html><html lang="he" dir="rtl"><meta charset="utf-8"><title>{FOOT}</title><style>{css}</style><body>' + "\n".join(render(s) for s in slides) + "</body></html>"
-open(sys.argv[2], "w", encoding="utf-8").write(out)
+open(args.out, "w", encoding="utf-8").write(out)
 print(len(slides), "slides")
