@@ -196,7 +196,11 @@ and make the README and course map describe the current state.
   Calibri or any proportional font; never right-aligned or RTL-ordered code; one consistent weight (not bold in some
   blocks and regular in others). In `.docx`, set the font on all four slots (ascii, hAnsi, cs, eastAsia) so Word and
   Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
-- **Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with
+- **Problem sheet (handwriting lab, 6 Nov 2026):** one A4 sheet, two sides at most; every problem is a row with the problem in a box on the
+right and an empty box for handwritten code beside it. Source: Markdown with one `## ` per problem; build with
+`python tools/problem_sheet_docx.py in.md out.docx 3`. Example: [`m1-paper-lab-worksheet-he.md`](units/u5-strings/m1-paper-lab-worksheet-he.md).
+
+**Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with
   `python tools/md_to_docx.py in.md out.docx --worksheet`. Every code block is its own **boxed grey square**, set in **bold
   Courier New**, left-aligned and left-to-right; **no code inside a Hebrew sentence** (put it in its own block; Hebrew comments
   never go inside code); Hebrew paragraphs, headings and table cells are right-to-left and right-aligned; A4, one task per
