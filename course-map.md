@@ -22,11 +22,11 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 3 | [Functions](units/u3-functions) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | 🔶 3/3 (reworked) |
 | 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 (reworked) |
 | 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (135 / 225) | 0 | 🔶 4/4 (reworked); 5.3 taught as 45 / 45 (teacher's decision) — 45 more theory, 45 less practice than official |
-| 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | ✅ 3/3 |
+| 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | 🔶 3/3 (reworked 8 Nov 2026 to Ministry 10–11) |
 | 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
 | 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
 | 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (990 / 1,710)** | **0** | **30/30 built; 12 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 18 approved (✅)** |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (990 / 1,710)** | **0** | **30/30 built; 15 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 15 approved (✅)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -52,8 +52,10 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 - **Source of truth (31 Oct 2026):** the Ministry's published teaching materials
   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)). Units 1.3, 2, 3, 4 and 5 were reworked to
   match them (🔶, awaiting re-approval; new NotebookLM decks pending — the old patched decks are marked superseded).
-- **Units 6–9:** built from the Ministry program text and the teacher's own sources; the matching Ministry decks have not
-  arrived yet. When they do, compare and rework the same way.
+- **Ministry lessons 10–22 arrived 8 Nov 2026** and were audited (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md),
+  "Audit of lessons 10–22"). **Unit 6 is reworked (🔶, new NotebookLM decks pending).** Units 7–9 still stand as built and need the same
+  rework; files are still missing (Lists parts A and E, many worksheets and keys), and the rule conflicts (`def`, nested loops, lists of
+  lists, tuples and default arguments in Unit 9) need the teacher's decisions.
 - **Unit 7 notes** need a small update *if* the 90-minute lab version of 5.4 is taught (it shows `split`/`join` first). The
   countdown edition of 5.4 leaves `split`/`join` to Unit 7.2, so no change is needed if that edition is taught.
 - Every official topic is covered (see each unit's `unit-strategy.md`). The tool choices flagged during planning were
@@ -91,9 +93,9 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 12 | 5.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
 | 13 | 5.3 Strings | K+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition, 45 / 45 (date to confirm) |
 | 14 | 5.4 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | ▶ next |
-| 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs | ✅ | | |
-| 16 | 6.2 Advanced Language Model | K+L · The context window, the meaning map, self-attention | ✅ | | |
-| 17 | 6.3 Advanced Language Model | L+L · Semantic similarity + the "Semantle" checkpoint | ✅ | | |
+| 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs (Ministry 10.0–10.2) | 🔶 | | |
+| 16 | 6.2 Advanced Language Model | K+L · The meaning map, self-attention, context window, `calculate_similarity` (Ministry 11.1, 11.2) | 🔶 | | |
+| 17 | 6.3 Advanced Language Model | L+L · The "Semantle" project, unit checkpoint (Ministry 11.3) | 🔶 | | |
 | 18 | 7.1 Lists | K+L · What a list is: indices, traversal | ✅ | | |
 | 19 | 7.2 Lists | K+L · List operations: append/extend/insert, remove/pop, sort/reverse, split/join | ✅ | | |
 | 20 | 7.3 Lists | K+L · Advanced operations + the accumulation pattern | ✅ | | |
@@ -128,9 +130,9 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 5 | 5.2 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u5-strings/m2-lesson-notes.md) | Reworked to Ministry 7.1, 7.2; now Knowledge + Lab (official 90 / 270 split); slides: superseded — pending new NotebookLM deck (prep folder ready, 20 slides, 90 min). **Live-lesson edition** prepared 6 Nov 2026: problem "Email Desk" in six stages (slicing, `find`, `count`, `in`, `replace`), 20-slide deck [`m2-live-slides-he.pdf`](units/u5-strings/m2-live-slides-he.pdf) (54 min), five `Live2_Step` files, handwritten paper lab (file name and item code; [key](units/u5-strings/m2-paper-lab-answer-key.md)). |
 | 5 | 5.3 Strings | 90 | 45 / 45 | 45 knowledge + 45 lab (paper-classwork edition, as taught) | [`m3-lesson-notes.md`](units/u5-strings/m3-lesson-notes.md) | Reworked to Ministry 8.0, 8.1; paper-classwork edition (45-min lesson + worksheet, [plan](units/u5-strings/m3-classwork-lesson-plan.md)) prepared 31 Oct 2026 (its own 20-slide NotebookLM prep files, loose in `Downloads\python-b\`; the Word worksheet is `Downloads\Unit 5.3 - Strings classwork worksheet.docx`; plus a one-page [string commands table](units/u5-strings/string-commands-table-he.md) for the whole unit); slides of the 90-minute lab version: superseded — pending new NotebookLM deck (prep folder ready, 16 slides, 90 min). **Live-lesson edition** prepared 6 Nov 2026 (separate from the paper-classwork edition): problem "Account safety checker" in six stages (`lower`, `startswith`, `endswith`, `isalpha`, `isdigit`, `for` over a string, `+=`), 20-slide deck [`m3-live-slides-he.pdf`](units/u5-strings/m3-live-slides-he.pdf) (54 min), five `Live3_Step` files, handwritten paper lab (message analysis and ticket code; [key](units/u5-strings/m3-paper-lab-answer-key.md)). |
 | 5 | 5.4 Strings | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u5-strings/m4-lesson-notes.md) | Reworked to Ministry 8.1, 8.2, 8.7; unit checkpoint; **countdown edition** prepared 2 Nov 2026 (4 timed cases on a projected page, `for` and `while` solutions — the DP1/PDP countdown method — then a graded 5-question worksheet; [plan](units/u5-strings/m4-countdown-lesson-plan.md), Word worksheet `Downloads\python-b\Unit 5.4 - Strings countdown worksheet.docx`; Mashov zip `Downloads\python-b\Unit 5.4 - Strings.zip`); slides of the lab version: superseded — pending new NotebookLM deck (prep folder ready, 18 slides, 90 min). |
-| 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u6-advanced-language-model/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
-| 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u6-advanced-language-model/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched) |
-| 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u6-advanced-language-model/m3-lesson-notes.md) | Unit checkpoint ("Semantle"); classroom-mode similarity function (no model download needed); slides: `m3-slides-he.pdf` (11 slides, 90 min; NotebookLM, patched) |
+| 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u6-advanced-language-model/m1-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 10.0–10.2: real tokenizer (`model.tokenizer`), token quiz, playground; slides: superseded — pending new NotebookLM deck. |
+| 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u6-advanced-language-model/m2-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 11.1, 11.2: meaning map, self-attention, real `calculate_similarity`, thresholds, playground; slides: superseded — pending new NotebookLM deck. |
+| 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u6-advanced-language-model/m3-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 11.3: unit checkpoint ("Semantle", real model, 20-emoji thermometer); slides: superseded — pending new NotebookLM deck. |
 | 7 | 7.1 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u7-lists/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
 | 7 | 7.2 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u7-lists/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
 | 7 | 7.3 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u7-lists/m3-lesson-notes.md) | Slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |

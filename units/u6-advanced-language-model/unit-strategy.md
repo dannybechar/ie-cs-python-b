@@ -4,9 +4,9 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 6 (pp. 15–16); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** ✅ complete — all 3 meetings built and approved by the teacher.
-No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit06_advanced_language_models_complete_unit.md` —
-one detailed document covering all three meetings, including its own exact 90-minute clock tables and meeting split.
+**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (files 10.0–11.3.0); awaiting re-approval. The v1 build
+(approved earlier) came from `Downloads\python-b-codex\python_b_unit06_advanced_language_models_complete_unit.md` and ran on a classroom mock;
+the Ministry's materials use the real model, so code, notes and briefs were rewritten. Decks: superseded, new NotebookLM decks pending.
 
 ## Official topics and hours
 
@@ -15,9 +15,9 @@ meaning-map + attention + project 1/2, total 2/4 — for once both agree).
 
 | Topic | Planned in | Minutes (T / P) | Status |
 |---|---|---:|---|
-| Tokens, tokenization, token IDs; a simple learning tokenizer | 6.1 (45 T + 45 P) | 45 / 45 | ✅ |
-| Context window, the meaning map, self-attention | 6.2 (45 T + 45 P) | 45 / 45 | ✅ |
-| Semantic similarity + the "Semantle" project | 6.3 (0 T + 90 P) | 0 / 90 | ✅ |
+| Tokens, tokenization, token IDs (Ministry 10.0–10.2) | 6.1 (45 T + 45 P) | 45 / 45 | 🔶 |
+| Meaning map, self-attention, context window, `calculate_similarity` (Ministry 11.1, 11.2) | 6.2 (45 T + 45 P) | 45 / 45 | 🔶 |
+| The "Semantle" project (Ministry 11.3) | 6.3 (0 T + 90 P) | 0 / 90 | 🔶 |
 | **Total** | | **90 / 180** | |
 
 Chapter goals (source §1, eleven in all):
@@ -65,26 +65,23 @@ Chapter goals (source §1, eleven in all):
   `calculate_similarity`, then the "Semantle" game itself — the unit's capstone.
 
 ### Scope decisions
-- **The source document is the only material and is unusually complete** — clock tables (verified to sum to 90 for
-  each meeting), worked code, common mistakes, a no-model fallback, a project rubric and closing summary questions.
-  Followed closely; adapted into the house lesson-notes/lab-brief split and warm-up-bug convention.
-- **The real embeddings model is not used in the built/verified code, by design.** The source itself gives exactly
-  this fallback — `calculate_similarity_demo`, "not an AI model … only to allow practicing the game" — and warns
-  the first download is large and must happen before class, with a no-internet alternative ready. Every code file
-  here defaults to **classroom (mock) mode**: `calculate_similarity()` uses the source's own rule-based stand-in
-  (renamed `meaning_score_demo`, reused unchanged in 6.2 and 6.3), so files run and are verifiable with plain
-  `python`, no download or internet required. The real `sentence-transformers` call is a clearly marked, commented
-  block, ready to fill in once the teacher has installed and cached the model. This mirrors Unit 4's `ask_the_ai()` stand-in
-  pattern exactly.
-- **6.1's teacher demo with a real HuggingFace tokenizer** (`AutoTokenizer`) is kept in the lesson notes as an
-  **optional live demonstration**, not something students run or that the built code depends on — the source frames
-  it the same way ("a demonstration tool … students focus on the output, not the structure"). The graded student
-  work is entirely the hand-written `simple_tokenize`, which needs no download at all.
+- **The Ministry materials are the source (8 Nov 2026).** Deck 10.1, worksheets 10.2 / 11.2 / 11.3 and the teacher solutions set the
+  topics, examples and code. The Ministry fits the unit in **two** meetings; we keep **three** (the master table gives 6 hours):
+  6.1 = 10.x, 6.2 = 11.1 + 11.2, 6.3 = 11.3. Our extra time goes to the real-model playground and the checkpoint rubric.
+- **The real model is used everywhere; the classroom mock is gone.** The v1 `meaning_score_demo` returned invented scores
+  (`כדורגל` 0.19, real 0.48), which taught wrong conclusions. All files use `sentence-transformers`
+  (`paraphrase-multilingual-MiniLM-L12-v2`, `model.tokenizer`, `util.cos_sim`). The teacher installs the library and downloads the model
+  once at school before 6.1; every file was run with it on Python 3.14. A class with no internet can use Colab, as the Ministry does.
+- **The Ministry deck's token quiz numbers differ from the worksheet's tokenizer** (10.1 says 6 / 6 / 5 / 10 tokens; the worksheet's MiniLM
+  gives 6 / 7 / 5 / 5). The notes tell the teacher to run the quiz live and quote measured numbers.
+- **Functions:** the Ministry worksheets use `def`; Unit 6 follows Unit 3 in the schedule. If `def` is still untaught, give the functions
+  ready-made. f-strings are not needed (the reference builds messages with `+` and `str()`).
+- **Kept from v1:** the context "suitcase", the spelling-vs-meaning comparison, the 20-point project rubric, the `quit` / short-guess hardening
+  (optional), our toy tokenizer (a 6.1 extension), and "a win is decided by the word, not the score".
 - **Not taught:** the cosine-similarity formula, attention math (Q/K/V, positional encoding), embedding training,
   transformer architecture details — the source's own depth boundaries, matching `docs/annual-strategy.md` §7.
-- **Not taught yet:** lists (Unit 7) — `calculate_similarity`'s real version returns a tensor that would normally be
-  indexed as a two-item collection; the source's own code already isolates that behind `.item()`/indexing the
-  teacher demo provides, so no list syntax is required from students here.
+- **Not taught yet:** lists (Unit 7). `model.encode([word])` passes a one-item list literal; students copy that form without needing list
+  syntax, and `.item()` is explained as "turns the result into a plain number".
 
 ## Exit criteria
 The student distinguishes characters, words and tokens; explains the context window and why it's measured in

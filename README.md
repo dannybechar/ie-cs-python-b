@@ -13,7 +13,7 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**All 30 of 30 official double meetings are built** (Units 1–9). Units 6–9 and Units 1.1–1.2 are approved; Units 1.3 and 2–5 were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
+**All 30 of 30 official double meetings are built** (Units 1–9). Units 7–9 and Units 1.1–1.2 are approved; Unit 6 was reworked on 8 Nov 2026 to the Ministry materials (🔶, awaiting approval); Units 1.3 and 2–5 were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
 Where the class actually is in the course: [`class-progress.md`](class-progress.md).
 See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
 [`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
@@ -23,7 +23,7 @@ See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedul
 - [Unit 3 — Functions](units/u3-functions) — 🔶 reworked to the Ministry materials, awaiting approval (3/3)
 - [Unit 4 — Bringing AI into Code (API)](units/u4-api) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
 - [Unit 5 — Strings](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4); 5.1–5.3 taught, 5.4 next (countdown edition ready)
-- [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — ✅ approved (3/3 meetings)
+- [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval; new decks pending
 - [Unit 7 — Lists](units/u7-lists) — ✅ approved (5/5 meetings)
 - [Unit 8 — Classification](units/u8-classification) — ✅ approved (4/4 meetings)
 - [Unit 9 — Recommender Systems](units/u9-recommender-systems) — ✅ approved (4/4 meetings)

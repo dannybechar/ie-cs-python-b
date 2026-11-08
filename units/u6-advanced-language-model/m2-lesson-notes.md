@@ -1,20 +1,21 @@
 # Unit 6.2 — Advanced Language Model
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: The Context Window, the Meaning Map, Self-Attention
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+### Topic: The Meaning Map, Self-Attention and the Similarity Function
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
-**Current tool:** Thonny
-**Source of inspiration:** `python_b_unit06_advanced_language_models_complete_unit.md`, meeting 2 — its own clock
-table, the "suitcase" context-window activity, the spelling-vs-meaning word comparison, the embedding definition and
-class meaning-map activity, the conceptual cosine-similarity notes, the `bank`/`bank` self-attention example with
-its "threads" activity, the polysemy comprehension exercise, the bias/limits discussion and the exit card kept
-nearly unchanged.
+**Current tool:** Thonny with `sentence-transformers` installed (or Colab) — see Tool Note
+**Source of inspiration:** Ministry **11.1** (deck: meaning map and self-attention, 28 slides), **11.2** and **11.2.0**
+(worksheet #1, "preparation for the Semantle hackathon", and its teacher solution). Kept from v1: the context-window
+"suitcase" activity, the spelling-vs-meaning comparison (now with real scores), the `bank` example. See
+[`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
+**Prerequisite:** functions (Unit 3) — the worksheet defines `calculate_similarity`. The Ministry hands the function over with blanks
+to fill; if `def` is not yet taught, hand it over complete and let students only call it.
 
 ---
 
@@ -22,79 +23,77 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 6.1 | tokens, tokenization, token IDs, a learning tokenizer | 45 / 45 |
-| **6.2 (this)** | **context window, the meaning map, self-attention** | 45 / 45 |
-| 6.3 | semantic similarity + the "Semantle" project | 0 / 90 |
+| 6.1 | tokens, tokenization, token IDs | 45 / 45 |
+| **6.2 (this)** | **meaning map, self-attention, context window, `calculate_similarity`** | 45 / 45 |
+| 6.3 | the "Semantle" project | 0 / 90 |
 
 ---
 
 ## 2. Official Scope Used in This Meeting
 
-| Official goal (python-b-ai.pdf p. 15–16) | Covered here |
+| Official goal (python-b-ai.pdf pp. 15–16) | Covered here |
 |---|---|
-| Goal 4: the context window and why it's limited in tokens | ✅ the suitcase activity |
-| Goal 5: an embedding as a numeric vector of learned meaning features | ✅ the meaning-map activity |
-| Goal 6: vector closeness as an estimate of semantic similarity | ✅ cosine similarity, conceptually |
-| Goal 7: self-attention, conceptually, updating a word's representation via context | ✅ the `bank` example, the threads activity |
-| Goal 11: a similarity score is not a probability, a truth, or human understanding | ✅ closing discussion |
+| Goal 4: the context window and why it is limited in tokens | ✅ the suitcase; 2M tokens (11.1 pp. 22–24) |
+| Goal 5: an embedding as a numeric vector of learned meaning features | ✅ the map (11.1 pp. 8–13) |
+| Goal 6: vector closeness estimates semantic similarity | ✅ `util.cos_sim` in the worksheet |
+| Goal 7: self-attention, conceptually | ✅ "mouse" and the listening window (11.1 pp. 13–21) |
+| Goal 9: implement `calculate_similarity` returning a number | ✅ worksheet task 2 |
+| Goal 11: a similarity score is not a probability, a truth, or understanding | ✅ closing discussion |
 
 ### Deliberate exclusions
-The cosine-similarity formula, attention mathematics (Q/K/V, positional encoding), any code that computes a real
-similarity score (6.3).
+The cosine formula, attention mathematics, training. The project itself (6.3).
 
 ---
 
 ## 3. Lesson Goal
 
-**An embedding is a learned numeric vector; vectors that are close together often represent related meanings — and
-self-attention lets the same spelling take on a different contextual representation depending on the words around
-it.**
+**A model gives every token a fixed address on a "meaning map" — close addresses, close meanings; self-attention lets the
+neighbouring words move a word's address; and one function, `calculate_similarity`, measures the closeness of two words.**
 
 ---
 
 ## 4. Core Mental Models
 
-```text
-טקסט → מודל embedding → [0.12, -0.48, 0.77, ...]
+```python
+meaning_pos1 = model.encode(["dog"])        # the word's address on the map
+meaning_pos2 = model.encode(["cat"])
+score = util.cos_sim(meaning_pos1, meaning_pos2).item()   # 0.30 here; closer to 1 = closer in meaning
 ```
 
-- A 2D class map is a simplified illustration for talking about distance and direction — a real embedding has
-  hundreds of dimensions, not two.
-- Spelling closeness and meaning closeness are different things: `חתול`/`חתולה` are close in both; `חתול`/`כלב` are
-  further apart in spelling but related in meaning (both pets).
-- Self-attention gives each token a different contextual representation depending on the other tokens around it —
-  the same word `bank` means something different next to `money` than next to `river`.
-- A high similarity score reflects the model's and the metric's estimate — it is **not** a probability that an
-  answer is correct.
+- The 2D map on the board is a simplified drawing. A real map has hundreds of dimensions (11.1 p. 8).
+- A token's map position is **fixed**. "mouse" (animal or computer?) is the same point until self-attention lets the
+  words around it move it (11.1 pp. 13–21).
+- Closeness of **spelling** and closeness of **meaning** are independent — and the model is not perfect either.
+- A score is the model's estimate of closeness, not a probability and not the truth.
 
 ---
 
-# 5. First 45 Minutes — Knowledge + Guided Practice
+# 5. First 45 Minutes — Knowledge + Guided Practice (deck 11.1)
 
 | Clock | Activity |
 |---|---|
-| 0–10 | **Recap:** tokens and token IDs |
-| 10–25 | **The "context suitcase" (groups):** ten information cards, a suitcase that holds only six — which are essential for the task? What's lost by leaving the rest out? Conclusion: a bigger context window isn't human memory and doesn't guarantee correct use of every detail |
-| 25–38 | Spelling similarity vs. semantic similarity: `חתול`–`חתולה` vs. `חתול`–`כלב` vs. `חתול`–`מחשב` |
-| 38–53 | **The "meaning map" (groups):** place word cards (cat, dog, tiger, car, bus, piano, guitar, song, apple, banana) close or far on paper by meaning, mark clusters, pick one disputed pair and explain the reasoning — no single map is "correct"; a model's map comes from its training data and task |
-| 53–67 | Cosine similarity, conceptually — closer direction, higher score; not computed by hand here; a score is model- and metric-dependent, and a threshold that works for one task doesn't automatically fit another |
-| 67–81 | Self-attention: `"She deposited money in the bank."` vs. `"They sat on the bank of the river."` — same spelling, different contextual meaning; the "threads" activity: cards for each word in a sentence, thick thread for a strong connection, thin for weak, then swap one word and see which threads change |
-| 81–87 | Limits and bias: embeddings reflect their training data's patterns and gaps; under-represented languages and groups may get lower-quality representations; socially loaded words can reflect stereotypes; closeness in vector space is not a moral or scientific justification |
-| 87–90 | Exit check |
+| 0–8 | **Recap and "watch" quiz** (pp. 5–6): tokens and IDs from 6.1 |
+| 8–23 | **The meaning map** (pp. 8–13): a token is a fixed point; groups; **students place** "four", "orange" and "mouse" on the board map; disputed placements explained |
+| 23–38 | **Self-attention** (pp. 13–21): "mouse" cannot have only one point; each word "listens" to the previous words (the 4-word window) and moves on the map. Predict first: *where does "mouse" go after "I clicked the…"?* |
+| 38–45 | **How much can a model hold?** (pp. 22–24): Gemini's window is about 2M tokens ≈ 1.5M English words ≈ 800K Hebrew words. The **suitcase** (v1 activity, 5 min): six of ten cards fit — a bigger window is not memory and does not guarantee the details are used. Short "AI tips" (pp. 25–27) |
+
+### Tool Note – Thonny
+Same setup as 6.1 (`pip install sentence-transformers`, model downloaded once at school). Print Hebrew directly in the Shell.
 
 ---
 
-# 6. Second 45 Minutes — Lab
+# 6. Second 45 Minutes — Lab (worksheet 11.2)
 
 Starter: [`Meanings_Starter.py`](Meanings_Starter.py). Reference: [`Meanings_Reference.py`](Meanings_Reference.py).
+Brief: [`m2-lab-brief-he.md`](m2-lab-brief-he.md). The Ministry's task 1 (set up the environment) is done in 6.1 — skip it.
 
-## Warm-up: measuring the wrong thing
+## 45–52 — Warm-up: measuring the wrong thing
 
 ```python
 def shared_letters(word_a, word_b):
     count = 0
     for character in word_a:
-        if character == word_b:
+        if character == word_b:      # <- the bug
             count += 1
     return count
 
@@ -102,43 +101,53 @@ def shared_letters(word_a, word_b):
 print(shared_letters("מזוודה", "מוזיקה"))
 ```
 
-Predict a positive number (the two words do share several letters), run it, get `0` — comparing one character to
-the **whole** second word can never match. Fix: `character in word_b`.
+Predict a positive number (the words share letters), run, get `0`: one character can never equal the **whole** second word.
+Fix: `character in word_b` → **5**.
 
-## Task: spelling score vs. a "meaning" stand-in
+## 52–62 — Task 1: complete `calculate_similarity` (worksheet task 2 a–b)
 
-The file provides `meaning_score_demo(guess, target)` — explicitly **not** a real AI model, a rule-based stand-in
-with a few fixed answers (all for the target word `מוזיקה`) and one default for everything else. For each word
-below, print its spelling score against `מוזיקה` (fixed `shared_letters`) and its meaning score
-(`meaning_score_demo`), then write one sentence explaining what the comparison shows:
+The starter gives the function with `___` blanks: `meaning_pos1 = model.encode([word1])`, `meaning_pos2 = model.encode([word2])`,
+`score_distance = util.cos_sim(meaning_pos1, meaning_pos2).item()`, `return score_distance`. Why must the function
+**return** the score and not print it? (6.3 uses it inside a loop.)
+
+## 62–70 — Task 2: the verdict program (worksheet task 3)
+
+Read two words, print the score, then: `>= 0.5` → "המילים האלו קרובות במשמעות!"; between `0.3` and `0.5` → "יש קשר מסוים";
+`<= 0.3` → "המילים האלו מעולמות שונים לחלוטין". (The reference uses `>= 0.5`, `> 0.3`, else — the worksheet says "less than
+or equal 0.3" for the last case.) `dog`/`cat` = 0.303 → "יש קשר מסוים"; `dog`/`dog` = 1.0.
+
+## 70–78 — Task 3: spelling or meaning? (kept from v1, with real scores)
 
 <div dir="rtl">
 
-| מילה | תווים משותפים עם "מוזיקה" | ציון "משמעות" (מדומה) |
+| מילה | תווים משותפים עם "מוזיקה" | ציון המודל |
 |---|---:|---:|
-| פסנתר | 0 | 0.82 |
-| שיר | 1 | 0.76 |
-| כדורגל | 1 | 0.19 |
-| מזוודה | 5 | 0.35 |
+| פסנתר | 0 | 0.56 |
+| שיר | 1 | 0.86 |
+| כדורגל | 1 | 0.48 |
+| מזוודה | 5 | 0.55 |
 
 </div>
 
-`פסנתר` shares no letters with `מוזיקה` at all, yet scores close in "meaning" — spelling and meaning are
-independent. `מזוודה` shares five letters (spelling looks close!) but has nothing to do with music — the demo
-correctly falls back to its default score for it.
+`שיר` is very close, `פסנתר` shares no letters yet is close. **Honest point:** `מזוודה` (suitcase) scores 0.55, almost as high as
+`פסנתר` — a score is an estimate and the model is not perfect; never read it as the truth. (The v1 mock table said 0.82 / 0.76 /
+0.19 / 0.35 — invented numbers; they are gone.)
 
-## Save and exit check
+## 78–87 — Task 4: the playground (worksheet "מעבדת ניסויים")
 
-Save As `G8_U6_M2_Meanings_<Name>.py`.
+Real results, rounded — yours may differ by a little with the model version:
 
-1. The context window is measured in…
-2. An embedding is…
-3. Why isn't the board's meaning map the model's actual map?
-4. How does self-attention help with a word that has more than one meaning?
+| Experiment | Pair | Score |
+|---|---|---:|
+| language test | `computer` / `מחשב` | 0.994 |
+| opposites | `happy` / `sad` | 0.614 (opposites are **close**: they appear in the same sentences) |
+| unrelated | `london` / `monkey` | 0.172 (searching all pairs of a 16-word list found −0.002: `spoon` / `orbit` — students get 10 tries, so they will not match it) |
+| brands | `McDonald's` / `Burger King` | 0.641 |
 
-### Tool Note – Thonny
-Print the Hebrew strings directly in the Shell rather than in a message box — Thonny's Shell renders right-to-left
-text correctly; some plugins and dialogs do not.
+## 87–90 — Save and exit check
+
+Save As `G8_U6_M2_Meanings_<Name>.py`. Exit check: 1. What is the meaning map? 2. Why isn't "mouse" enough without self-attention?
+3. What does `calculate_similarity` return, and what does 1 mean? 4. Why is a score not a probability?
 
 ---
 
@@ -146,19 +155,19 @@ text correctly; some plugins and dialogs do not.
 
 | Misconception | Correction |
 |---|---|
-| An embedding is literally a point on a 2D map | It's a vector with hundreds of dimensions — the map is only a simplified illustration |
-| Spelling closeness implies meaning closeness | They're independent; `מזוודה`/`מוזיקה` share many letters but nothing else |
-| Self-attention means the model "understands" a word like a person | It's a weighted, context-dependent representation — never describe it as human-like thought |
-| A similarity score is a probability the guess is correct | It's a model- and metric-dependent estimate of closeness, nothing more |
-| A bigger context window means the model remembers everything perfectly | It only bounds what fits in — it's not memory and gives no usage guarantee |
+| An embedding is a point on a 2D map | A real one has hundreds of dimensions; the map is only a drawing |
+| Spelling closeness implies meaning closeness | They are independent (`פסנתר` has 0 shared letters, score 0.56) |
+| Opposites get a low score | They are used in the same contexts, so they are often **close** (`happy`/`sad` 0.61) |
+| A high score is the truth | It is an estimate; `מזוודה` / `מוזיקה` is 0.55 |
+| Self-attention means the model understands like a person | It is a context-dependent representation, never human-like thought |
+| A bigger context window means perfect memory | It only bounds what fits |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The context-suitcase activity: which six cards were kept, and why
-- The meaning-map activity: one disputed placement explained
-- The warm-up bug explained (character vs. whole-word comparison), not just fixed
-- The four-word spelling-vs-meaning comparison completed with a written conclusion
-- The polysemy/threads activity: at least one correctly identified disambiguating word
+- The map activity: where "four", "orange" and "mouse" were placed, and one disputed placement explained
+- The warm-up bug explained (character vs whole word)
+- `calculate_similarity` completed and returning a number; the verdict program on three pairs
+- The spelling-vs-meaning table with a written conclusion; two playground results with a conclusion
 - Exit check

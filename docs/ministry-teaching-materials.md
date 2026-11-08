@@ -11,7 +11,8 @@ The PDFs are not copied into the repo (size, and they remain the Ministry's file
 (`python`, not `python -I`, so user-site packages load); Hebrew text extracts in visual order — check the page image
 when a line looks scrambled. The Ministry's file numbers (2.0 … 8.7) are **its own lesson numbers, not our unit numbers.**
 
-More files are coming from the teacher (Ministry units after strings). Units 6–9 stay as built until they arrive.
+The files for the Ministry's lessons 10–22 arrived on **8 Nov 2026** (our Units 6–9). They were audited the same day (section
+"Audit of lessons 10–22" below); Unit 6 was reworked first, Units 7–9 are next. Some files are still missing (list below).
 
 ## File inventory and where each file lands
 
@@ -33,6 +34,16 @@ More files are coming from the teacher (Ministry units after strings). Units 6�
 | 6.1 מצגת — פרויקטון יום מאוזן; 6.2 / 6.2.0 תרגול (+ solution) | deck 13 slides + worksheet | 4.2 |
 | 7.1 מחרוזות חלק א׳; 7.2 דף עבודה מחרוזות | deck 40 slides + worksheet (Python A material, revisited) | 5.1, 5.2 |
 | 8.0 מצגת למורה — מחרוזות; 8.1 פייתון ב׳ מחרוזות; 8.2 תרגול; 8.7 סיכום בקטנה | decks 27 + 33 slides, worksheet, one-page summary | 5.3, 5.4 |
+| 10.0 דגשים למורה; 10.1 מצגת — טוקנים (35 slides); 10.2 / 10.2.0 דף עבודה — טוקנייזר (+ solution) | teacher notes, deck, worksheet | 6.1 |
+| 11.1 מצגת — מפת המשמעויות והקשב העצמי (28 slides); 11.2 / 11.2.0 דף עבודה #1 הכנה לפרויקטון סמנטעל (+ solution) | deck, worksheet | 6.2 |
+| 11.3 / 11.3.0 דף עבודה #2 פרויקטון סמנטעל (+ solution) | project worksheet | 6.3 |
+| 12.0 / 12.1 רשימות חלק ב׳ (27 / 42 slides); 12.5 תרגול #2; 12.6 מאסטר פייתון; 12.7 סיכום | decks, worksheets, summary | 7.x (not yet reworked) |
+| 13.0 / 13.1 רשימות חלק ג׳ (18 / 19); 13.6 סיכום | decks, summary | 7.x (not yet reworked) |
+| 14.0 / 14.1 רשימות חלק ד׳ (30 / 27) | decks | 7.x (not yet reworked) |
+| 16.0 / 16.1 / 16.2.0 סיווג לפי תכונות (1 / 68 / 9) | teacher notes, deck, teacher solution | 8.1 (not yet reworked) |
+| 17.0 / 17.0.1 / 17.1 אימון ומבחן של מודל סיווג; 18.0 / 18.1 פרויקט סיווג; 19.0 / 19.1 חיבור מודל מאומן לפייתון | notes, Teachable Machine helper deck, decks | 8.2–8.4 (not yet reworked) |
+| 20.0 / 20.1 הכרות עם מערכות המלצה; 21.1 בונים מערכת המלצה; 22.1 סכנות במערכות המלצה | notes, decks | 9.1–9.4 (not yet reworked) |
+| `תמונות לאימון` zip (269 AI-generated images: `ok/` 114, `fist/` 155) and `תמונות למבחן` zip (7 test images) | the fist/OK project data | 8.3, 8.4 |
 
 ## Rulebook changes (they replace the older restrictions in `CLAUDE.md`)
 
@@ -71,3 +82,33 @@ The Ministry's own materials do these, so the course does too:
 
 Reworked units are 🔶 (built, awaiting approval) until the teacher approves them again. Slide decks built from the
 older content are marked superseded in each unit README until the new NotebookLM deck is reviewed.
+
+## Audit of lessons 10–22 (8 Nov 2026)
+
+Method: the text of every PDF was extracted and read, image-only slides were rendered where it mattered, and our Unit 6–9 files were
+compared with it (one reviewer per unit group; findings for Units 7–9 are the reviewers' reports, not yet re-checked line by line).
+**Unit 6 is reworked (🔶)**; the findings for Units 7–9 below are the to-do list.
+
+**Numbering:** the Ministry's numbers are its own lessons. 10–11 = our Unit 6 (2 Ministry meetings; we keep 3), 12–14 = Unit 7,
+16–19 = Unit 8 (4 meetings, as ours), 20–22 = Unit 9 (3 Ministry meetings; ours has 4).
+
+**Still missing from the folder (to ask the teacher for):** Lists part A (part B opens with "as we learned") and part E (14.0 p. 30:
+"next lesson, a list of lists"); the numbered worksheets and keys 12.2–12.4, 13.2–13.5, 14.2 onward, 15, 16.2 (only its key 16.2.0
+exists), 17.2, 18.2, 19.2, 19.3 (Colab), 20.2, 21.2 (it holds the real recommender code), 22.2, and the teacher notes 21.0 and 22.0.
+
+**Rule conflicts to settle:**
+- `def` / `return` appear in almost every Ministry worksheet (Units 6–9) while the class has not learned functions. Unit 6 assumes Unit 3 first.
+- The Ministry previews **nested loops** (14.0 pp. 25–29, "will be learned later") and announces **lists of lists** (part E). CLAUDE.md says never.
+- Our Unit 9 uses tuples and default arguments, both banned; to rewrite when the unit is reworked.
+
+**Unit 6 (done):** the Ministry uses the real `paraphrase-multilingual-MiniLM-L12-v2`; our v1 mock (with invented scores) is replaced.
+Deck 10.1's token-quiz numbers come from a different tokenizer than the worksheet's (6 / 6 / 5 / 10 in the deck, 6 / 7 / 5 / 5 measured
+with the worksheet's tokenizer).
+**Unit 7 (open):** add list slicing (`[a:b:c]`, `[::-1]`), `list()`, `index()`, `+`, the flat name/price menu and parallel lists. The Ministry
+decks contain bugs (`append(i)` for `append(item)`, 12.0 p. 10; curly quotes; stray parentheses) — never copy them as they are.
+**Unit 8 (open):** the Ministry loads `converted_savedmodel.zip` with `tf.keras.layers.TFSMLayer` (we use `keras_Model.h5` and a mock);
+add the two-feature scatter and separating line, the bias examples, the 85% confidence rule, the Teachable Machine guide 17.0.1 and the two
+image zips.
+**Unit 9 (open):** the survey uses V / X / 0 (we use 0–3); add the YouTube-feed riddle, the "culinary twin" game, Plato's cave, the three
+traps (filter bubble, echo chamber, addiction engineering) and the incognito demo; the Ministry's twin is simply the participant with the
+most identical non-0 answers.

@@ -1,19 +1,21 @@
 # Unit 6.1 — Advanced Language Model
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Tokens, Tokenization and IDs
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
-**Current tool:** Thonny; optionally a downloaded tokenizer library for the teacher demo (see Tool Note)
-**Source of inspiration:** `python_b_unit06_advanced_language_models_complete_unit.md`, meeting 1 — its own clock
-table, the three-sentence comparison hook, the token pipeline diagram, the real-tokenizer teacher demo, the
-controlled-experiment table, the learning tokenizer's own trace table, the space-marking extension exercise and
-the exit card kept nearly unchanged.
+**Current tool:** Thonny with `sentence-transformers` installed (or Google Colab, as the Ministry does) — see Tool Note
+**Source of inspiration:** Ministry teaching materials **10.0** (teacher emphases), **10.1** (deck: tokens), **10.2** and **10.2.0**
+(worksheet and teacher solution). The v1 build (from `python_b_unit06_…_complete_unit.md`) is kept only where the
+Ministry is silent: the three-sentence hook, the controlled-experiment table, and our own toy tokenizer (now an
+"if time" extension). See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the tokenizer library**.
+**Prerequisite:** functions (Unit 3). The Ministry worksheet is written with `def`; the unit comes after Unit 3 in the
+schedule. If the class has not learned `def`, give the three functions ready-made and let students only call them.
 
 ---
 
@@ -21,9 +23,12 @@ labeled **Tool Note – the tokenizer library**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **6.1 (this)** | **tokens, tokenization, token IDs, a learning tokenizer** | 45 / 45 |
-| 6.2 | context window, the meaning map, self-attention | 45 / 45 |
-| 6.3 | semantic similarity + the "Semantle" project | 0 / 90 |
+| **6.1 (this)** | **tokens, tokenization, token IDs — with the real tokenizer** | 45 / 45 |
+| 6.2 | the meaning map, self-attention, the context window; `calculate_similarity` | 45 / 45 |
+| 6.3 | the "Semantle" project (unit checkpoint) | 0 / 90 |
+
+The Ministry fits the unit in **two** meetings (10.x tokens; 11.x meaning map and project). We keep three because the
+master table gives 6 hours: 6.2 takes deck 11.1 and worksheet 11.2, 6.3 takes the project 11.3.
 
 ---
 
@@ -31,19 +36,19 @@ labeled **Tool Note – the tokenizer library**.
 
 | Official goal (python-b-ai.pdf p. 15) | Covered here |
 |---|---|
-| Goal 1: a token is a processing unit, not necessarily a whole word | ✅ hook, pipeline |
-| Goal 2: a tokenizer converts text to tokens and numeric IDs | ✅ teacher demo |
-| Goal 3: distinguish characters, words and tokens | ✅ the three-sentence comparison |
+| Goal 1: a token is a processing unit, not necessarily a whole word | ✅ deck 10.1 pp. 17–34, the quiz |
+| Goal 2: a tokenizer converts text to tokens and numeric IDs | ✅ worksheet 10.2: `tokenize`, `convert_tokens_to_ids` |
+| Goal 3: distinguish characters, words and tokens | ✅ `len`, `count(" ")` against the token count |
 
 ### Deliberate exclusions
-Context window (6.2), embeddings and attention (6.2), any similarity computation (6.3).
+Embeddings, the meaning map and attention (6.2), any similarity computation (6.2–6.3).
 
 ---
 
 ## 3. Lesson Goal
 
-**A token is a model's own unit of text — not necessarily a whole word — and different tokenizers can split the
-same text differently.**
+**A token is a model's own unit of text — a word, part of a word, a number, a space or a punctuation mark — and the
+number of tokens depends on the tokenizer, the language and even the capital letters.**
 
 ---
 
@@ -53,92 +58,95 @@ same text differently.**
 טקסט → טוקנייזר → טוקנים → מזהים מספריים → המודל
 ```
 
+Real output of the worksheet's tokenizer (`paraphrase-multilingual-MiniLM-L12-v2`), checked on Python 3.14:
+
 ```text
-"unbelievable!" → ["un", "believ", "able", "!"] → [418, 9201, 642, 12]
+"hello world"  → ['▁hell', 'o', '▁world']          → [33600, 31, 8999]
+"שלום עולם"    → ['▁שלום', '▁עולם']                → [56976, 71107]
+"The park is near the park" → ['▁The', '▁park', '▁is', '▁near', '▁the', '▁park'] → [581, 9201, 83, 43573, 70, 9201]
 ```
 
-(A conceptual example — the actual split and numbers depend entirely on which tokenizer is used.)
-
-- A token ID is just an index into one particular tokenizer's vocabulary; a higher number does not mean "more
-  important" or "more meaningful."
-- The number of tokens in a text cannot be predicted from its character or word count alone — it depends on the
-  tokenizer.
+- The `▁` marks "a word starts here" (a space before it); it is part of the token.
+- **The same token always gets the same ID** (`park` = 9201 twice) — the ID is an index into this tokenizer's vocabulary.
+  A higher number does not mean "more important".
+- `apple` is `[108787]` and `APPLE` is `['▁APP', 'LE']` = `[66440, 15300]`: capital letters change the tokens.
+- The model's three stages (deck 10.1 p. 17): **tokens → meaning map → self-attention**. Today is stage one.
 
 ---
 
-# 5. First 45 Minutes — Knowledge + Guided Practice
+# 5. First 45 Minutes — Knowledge + Guided Practice (deck 10.1)
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Hook:** compare `"AI helps."`, `"Artificial intelligence can help."`, and a Hebrew sentence with similar meaning — which has more characters? More words by spaces? Can you know the token count without knowing the tokenizer? (No.) |
-| 8–20 | Character, word, token, token ID — the four concepts, with the pipeline diagram |
-| 20–32 | **Teacher demo** (real tokenizer, if available — see Tool Note): tokenizing a sentence, showing tokens, IDs and the token count; otherwise walk the conceptual `"unbelievable!"` example |
-| 32–48 | **Controlled experiments (pairs):** change **one** factor at a time and predict first — case (`hello`/`Hello`), punctuation (`hello`/`hello!`), a space (`icecream`/`ice cream`), a number (`2026`/`20 26`), language (a short English sentence vs. its Hebrew translation), word length |
-| 48–61 | Record each experiment: hypothesis → result → conclusion, on a worksheet |
-| 61–90 | *(rolls into the lab — see below)* |
+| 0–7 | **Hook — the Semantle demo** (10.1 pp. 2–7): the teacher plays the real game (the link is in the deck) and the class guesses. "By the end of next week you build this." Also the 10.0 requirement: **everyone has `sentence-transformers` installed** (Terminal or Colab) |
+| 7–15 | **Old language models** (10.1 pp. 10–14): autocomplete, N-grams until 2014; three limits — poor memory, no flexibility (dog / puppy), double meaning ("mouse"). Predict first: *what would an autocomplete do with "mouse"?* |
+| 15–22 | **Three stages** (p. 17) and the definition of a token (p. 20): a word, a part of a word, a number, a space, a punctuation mark; a fixed vocabulary. Prediction question (pp. 21–22): *how many tokens can Gemini hold at once?* — answered in 6.2 |
+| 22–35 | **Token quiz** (pp. 23–33): students guess the number of tokens, then the teacher runs the sentence live and shows the tokens and IDs. Use *"nice to see you again!"*, *"It is a xylophone"*, *"I will definitly try"* (spelling mistakes cost tokens), *"כשהלכתי הביתה אתמול"* and the `park` pair (same ID twice) |
+| 35–45 | **Name it and compare** (p. 34): the token count of your name; `apple` vs `APPLE`. Bridge to the lab: *the worksheet lets you do exactly this* |
+
+> **Numbers differ by tokenizer.** The Ministry deck's quiz answers (6, 6, 5, 10 tokens) were made with a different
+> tokenizer than the worksheet's. With the worksheet's MiniLM tokenizer, run live, the same four sentences give
+> **6, 7, 5, 5**. Always run the quiz sentences yourself and show your own numbers; tell the class that another tokenizer
+> gives other numbers — that is part of the lesson. Hebrew was about twice as expensive as English in the Ministry's
+> quiz (deck p. 31); with MiniLM it costs more too, but less (5 vs 4 tokens for "I walked home yesterday", 8 vs 6 in the worksheet pair), so quote the numbers you measure, not a general rule.
 
 ### Tool Note – the tokenizer library
-The real-tokenizer demo needs `pip install transformers` and a downloaded model (the same multilingual model used
-in 6.3 — download it once, well before class). If unavailable, run the demo conceptually on the board using the
-`"unbelievable!"` example, and let the lab's `simple_tokenize` carry the hands-on part entirely.
+`pip install sentence-transformers`, then the first run downloads the model (hundreds of MB): **do it once at school, before
+class**, on every computer (or use Colab as in the Ministry deck: `!pip install -U sentence-transformers`). Check at
+home that `SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")` loads. On Windows a harmless symlink warning
+appears. No outside text, names or personal data go into the model.
 
 ---
 
-# 6. Second 45 Minutes — Lab
+# 6. Second 45 Minutes — Lab (worksheet 10.2)
 
 Starter: [`Tokenizer_Starter.py`](Tokenizer_Starter.py). Reference: [`Tokenizer_Reference.py`](Tokenizer_Reference.py).
-This meeting's own learning tokenizer is **not** a stand-in for a real model's vocabulary — say so explicitly (see
-Misconceptions below).
+Brief: [`m1-lab-brief-he.md`](m1-lab-brief-he.md).
 
-## 61–70 — Warm-up: the last token gets lost
+## 45–52 — Warm-up: the IDs come out as one number
 
 ```python
-def simple_tokenize(text):
-    result = ""
-    current = ""
-    for character in text:
-        if character.isalpha() or character.isnumeric():
-            current += character.lower()
-        else:
-            if current != "":
-                result += "[" + current + "]"
-                current = ""
-            if character != " ":
-                result += "[" + character + "]"
-    return result
-
-
-print(simple_tokenize("AI helps"))
+def tokens_sentence(sentence):
+    tokens = tokenizer.tokenize(sentence)
+    print("tokens:", tokens)
+    token_ids = tokenizer.convert_tokens_to_ids(sentence)   # <- the bug
+    print("token_ids:", token_ids)
+    return tokens
 ```
 
-Predict `[ai][helps]`, run, get only `[ai]` — the loop only flushes `current` when it hits a non-letter character;
-if the text ends mid-word, that last piece never gets flushed. Fix: add the same flush **after** the loop.
+Predict a list of eight numbers, run, get `token_ids: 3`. `convert_tokens_to_ids` expects the **list of tokens**; given
+the whole sentence as a string it treats it as one unknown token (ID 3). Fix: `convert_tokens_to_ids(tokens)`.
 
-## 70–82 — Task 1: marking spaces as their own token
+## 52–60 — Task 1: characters and spaces
 
-Write `simple_tokenize_with_spaces(text)` — every space becomes its own `[SPACE]` token instead of being dropped.
-Test on `"AI helps"` → `[ai][SPACE][helps]`.
+`print_sentence_info(sentence)`: the length in characters and the number of spaces. For
+`"אני אוהב ללמוד פייתון בבית הספר"`: **31** characters, **5** spaces, and **8 tokens** — characters, words and tokens are three different counts.
 
-## 82–87 — Task 2: counting tokens
+## 60–66 — Task 2: look at the tokens
 
-Write `token_count(text)` — how many tokens `simple_tokenize` produced (count the `"["` characters in its result).
-Use it on a few of the guided-practice experiment pairs and compare the counts.
+`tokens_sentence` on the same sentence. Which tokens are whole words and which are parts (`פי`, `ית`, `ון`)? Expected tokens:
+`['▁אני', '▁אוהב', '▁ללמוד', '▁פי', 'ית', 'ון', '▁בבית', '▁הספר']`.
 
-```text
-hello    -> 1
-hello!   -> 2
-ice cream -> 2
-icecream  -> 1
-```
+## 66–70 — Task 3: `count_tokens`
 
-## 87–90 — Save and exit check
+`count_tokens(text)` returns `len(tokenizer.tokenize(text))`. `count_tokens("hello world")` = 3, `count_tokens("שלום עולם")` = 2.
 
-Save As `G8_U6_M1_Tokenizer_<Name>.py`.
+## 70–84 — Task 4: the playground (explore; no need to solve everything)
 
-1. A token can be…
-2. A token ID is…
-3. Why can't you always guess the token count from the word count?
-4. Name one limitation of the simple tokenizer built today.
+| Experiment | What to try | Real result (MiniLM) |
+|---|---|---|
+| 1. my name | English vs Hebrew | `Danny Bechar` 3 tokens, `דן בכר` 4 |
+| 2. a sentence in two languages | `אני אוהב ללמוד פייתון בבית הספר` vs `I love learning Python at school` | 8 vs 6 |
+| 3. a 5-letter word that breaks the most | 10 tries | `qxzjw` and `פצצצץ` = 5 tokens (one per letter); `Mississippi` = 1 |
+| 4. capital letters | `apple` vs `APPLE` | `[108787]` vs `[66440, 15300]` |
+
+Conclusion to write: *the number of tokens is not the number of words, and it changes with language, spelling and capital letters.*
+
+## 84–90 — Extension, save, exit check
+
+- **If time:** `simple_tokenize` — our own toy tokenizer (in the reference, with its old flush-the-last-token fix). Compare its output with the real one; it has no vocabulary and no IDs.
+- Save As `G8_U6_M1_Tokenizer_<Name>.py`.
+- Exit check: 1. A token can be… 2. A token ID is… 3. Why can't you guess the token count from the word count? 4. Why does `apple` differ from `APPLE`?
 
 ---
 
@@ -146,18 +154,17 @@ Save As `G8_U6_M1_Tokenizer_<Name>.py`.
 
 | Misconception | Correction |
 |---|---|
-| Every token is a word | A token can be a word, part of a word, a punctuation mark, or something else |
-| A higher token ID means a more important word | It's just an index into a vocabulary list — the number carries no meaning by itself |
-| The same text always gets the same IDs in every model | Different tokenizers, different vocabularies, different results |
-| Comparing two languages' token counts tells you about model quality | It only reflects tokenization for that text — no broader conclusion follows from one experiment |
-| Today's simple tokenizer works like a real model's tokenizer | It's a learning tool: no trained vocabulary, no real IDs, no subword rules |
+| Every token is a word | A token can be a word, part of a word, a number, a space or a punctuation mark |
+| A higher token ID means a more important word | It's an index into a vocabulary — the number carries no meaning by itself |
+| The same text gets the same IDs in every model | Different tokenizers, different vocabularies and counts (see the Ministry quiz vs the worksheet) |
+| Hebrew costs exactly twice the tokens of English | It depends on the tokenizer: about 2x in the Ministry deck, about 1.3x with MiniLM |
+| Capital letters don't matter | `apple` and `APPLE` are different tokens with different IDs |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- At least one controlled experiment recorded as hypothesis → result → conclusion
-- The token vs. word vs. character distinction stated in the student's own words
-- The warm-up bug explained (why the *last* token specifically was lost)
-- `simple_tokenize_with_spaces()` and `token_count()` passing their tests
+- The warm-up bug explained (what `convert_tokens_to_ids` expects), not just fixed
+- `print_sentence_info`, `tokens_sentence` and `count_tokens` working on the sample sentence
+- At least two playground experiments recorded as prediction → result → conclusion
 - Exit check

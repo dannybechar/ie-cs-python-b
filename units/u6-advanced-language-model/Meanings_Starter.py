@@ -1,5 +1,9 @@
-# Warm-up: this should measure how similar two words LOOK (their spelling), not what they mean.
-# Predict, run, then fix one comparison.
+# Warm-up: shared_letters should count how many letters of word_a also appear in word_b (spelling,
+# not meaning). Predict a positive number for the pair below, run, then fix one comparison.
+# Needs: pip install sentence-transformers (the first run downloads the model - the teacher does it before class).
+from sentence_transformers import SentenceTransformer, util
+
+model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 
 def shared_letters(word_a, word_b):
@@ -13,26 +17,31 @@ def shared_letters(word_a, word_b):
 print(shared_letters("מזוודה", "מוזיקה"))
 
 
-# The function below is NOT a real AI model - it is a rule-based stand-in the unit provides,
-# with a few fixed answers (all about the target word "מוזיקה") and one default for everything else.
-def meaning_score_demo(guess, target):
-    clean_guess = guess.strip().lower()
-    clean_target = target.strip().lower()
-    if clean_guess == clean_target:
-        return 1.0
-    elif clean_guess == "פסנתר" and clean_target == "מוזיקה":
-        return 0.82
-    elif clean_guess == "שיר" and clean_target == "מוזיקה":
-        return 0.76
-    elif clean_guess == "כדורגל" and clean_target == "מוזיקה":
-        return 0.19
-    else:
-        return 0.35
+# Task 1: complete the function - replace every ___ with a variable name (word1, word2, meaning_pos1, meaning_pos2, score_distance).
+def calculate_similarity(word1, word2):
+    # the model turns the first word into its "address" on the meaning map
+    meaning_pos1 = model.encode([___])        # <- replace ___ with the right variable
+    # the same for the second word
+    meaning_pos2 = model.encode([___])        # <- and here
+    # the distance between the two addresses
+    score_distance = util.cos_sim(___, ___).item()   # <- and here (two variables)
+    # the closer to 1, the closer in meaning
+    return ___                                # <- what do we return?
 
 
-# Task: for each word below, print its spelling score against "מוזיקה" (shared_letters) and its
-# meaning score (meaning_score_demo), then write one sentence explaining what the comparison shows.
-#   פסנתר   - 0 shared letters, but the demo scores it close in meaning (0.82)
-#   שיר     - 1 shared letter, still scored close in meaning (0.76)
-#   כדורגל  - 1 shared letter, scored far in meaning (0.19)
-#   מזוודה  - 5 shared letters (spelling looks close!), but no special meaning rule for it
+# Task 2: write a program that reads two words, prints the score between them, and then prints:
+#   score >= 0.5            -> "המילים האלו קרובות במשמעות!"
+#   score between 0.3 and 0.5 -> "יש קשר מסוים"
+#   score <= 0.3            -> "המילים האלו מעולמות שונים לחלוטין"
+
+
+# Task 3: for each word below print its spelling score against "מוזיקה" (shared_letters) and its
+# meaning score (calculate_similarity), then write one sentence about what the comparison shows:
+#   פסנתר, שיר, כדורגל, מזוודה
+
+
+# Task 4 - the playground (explore; it is fine not to solve everything):
+#   1. language test: the same word in Hebrew and English (dog / כלב)
+#   2. opposites test: happy / sad - far or close?
+#   3. unrelated words: the pair closest to 0 you can find in 10 tries
+#   4. brands: two brands from the same world (adidas / nike)

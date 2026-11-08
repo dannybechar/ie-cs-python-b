@@ -1,19 +1,21 @@
 # Unit 6.3 — Advanced Language Model
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Semantic Similarity + the "Semantle" Project (Unit Checkpoint)
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+### Topic: The "Semantle" Project (Unit Checkpoint)
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
-**Structure:** Lab + Lab (20 min guided practice, then 70 min lab, including the capstone project)
+**Structure:** Lab + Lab (10 min guided practice, then 80 min lab, including the capstone project)
 **Minutes (theory / practice):** 0 / 90
-**Current tool:** Thonny; a multilingual embeddings model for the live version (see Tool Note)
-**Source of inspiration:** `python_b_unit06_advanced_language_models_complete_unit.md`, meeting 3 — its own clock
-table, the model-loading example, `calculate_similarity`, the display-score and percent functions, the meter
-function with its two worked examples, the full game skeleton and solution, the seven-case test table, the peer
-checklist and closing reflection kept nearly unchanged.
+**Current tool:** Thonny with `sentence-transformers` installed (or Colab)
+**Source of inspiration:** Ministry **11.3** and **11.3.0** (worksheet #2 and its teacher solution: the basic game, the attempts
+counter, and the advanced features — percent, the emoji thermometer, welcome and victory messages). Kept from v1: the project
+rubric, the `quit` / short-guess hardening (now optional), the "a win is decided by the word, not the score" rule, and the
+seven test cases. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the embeddings model**.
+**Prerequisite:** functions (Unit 3) and f-strings are **not** needed: the reference uses `calculate_similarity` as a given function
+and builds messages with `+` and `str()`.
 
 ---
 
@@ -21,9 +23,9 @@ labeled **Tool Note – the embeddings model**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 6.1 | tokens, tokenization, token IDs, a learning tokenizer | 45 / 45 |
-| 6.2 | context window, the meaning map, self-attention | 45 / 45 |
-| **6.3 (this)** | **semantic similarity + the "Semantle" project** | 0 / 90 |
+| 6.1 | tokens, tokenization, token IDs | 45 / 45 |
+| 6.2 | meaning map, self-attention, `calculate_similarity` | 45 / 45 |
+| **6.3 (this)** | **the "Semantle" project — unit checkpoint** | 0 / 90 |
 
 ---
 
@@ -31,136 +33,128 @@ labeled **Tool Note – the embeddings model**.
 
 | Official goal (python-b-ai.pdf p. 16) | Covered here |
 |---|---|
-| Goal 8: install and import a multilingual embeddings model for local use | ✅ (framed for the live version; see Tool Note and `unit-strategy.md`) |
-| Goal 9: implement `calculate_similarity(text_a, text_b)` returning a numeric score | ✅ Task 1 |
+| Goal 8: install and use a multilingual embeddings model locally | ✅ done in 6.1; used here |
+| Goal 9: `calculate_similarity` returning a numeric score | ✅ copied from 6.2 |
 | Goal 10: a game with a guess loop, an attempt counter, a percent display, a graphical meter | ✅ the project |
-| Goal 11: a similarity score is not a probability, a truth, or human understanding | ✅ discussion, exit check |
+| Goal 11: a score is not a probability, a truth or understanding | ✅ discussion, exit check |
 
 ### Deliberate exclusions
-Any new AI concept — this meeting applies 6.1–6.2's ideas in code, it doesn't introduce new theory.
+New AI concepts — this meeting applies 6.1–6.2 in code.
 
 ---
 
 ## 3. Lesson Goal
 
-**Load an embeddings model once, outside any function or loop; a similarity function takes two strings and returns
-a number; a percent display is a game readout, not a probability.**
+**Build a guessing game on top of one function: loop until the guess equals the secret word, show how close every guess was, and
+count the attempts. A percent is a display value, not a probability.**
 
 ---
 
 ## 4. Core Mental Models
 
-```text
-שתי מחרוזות
-    ↓
-שני embeddings
-    ↓
-cosine similarity
-    ↓
-מספר מוחזר לתוכנית הראשית
-```
-
 ```python
-def calculate_similarity(text_a, text_b):
-    ...
-    return float(score)          # always a plain number, not a tensor or a raw model object
-
-
-def score_for_display(raw_score):
-    return max(0.0, min(1.0, raw_score))   # cosine similarity CAN be negative - clamp before displaying
-
-
-def create_meter(raw_score):
-    display_score = score_for_display(raw_score)
-    filled = int(display_score * 10)
-    empty = 10 - filled
-    return "🟩" * filled + "⬜" * empty      # always exactly 10 characters long
+secret_word = "אוקינוס"
+guess = ""
+while guess != secret_word:
+    guess = input("הכניסו ניחוש: ")
+    score = calculate_similarity(secret_word, guess)
+    print(score)
 ```
 
-- The model loads **once**. Loading it inside a function or a loop wastes time and memory on every call.
-- A win is decided by matching the secret word exactly — never by score alone (a very high score is still a guess,
-  not a match).
+- A win is decided by **matching the secret word**, never by the score (a very high score is still a guess: `ים` = 0.94).
+- An exact match scores about 1.0 (the model prints `0.9999998`), so `round(score * 100)` gives 100%.
+- A cosine score can be slightly negative, so clamp it before building the bar (`"❄️" * (20 - fires)` would otherwise exceed 20).
+- The thermometer is always exactly 20 characters: `"🔥" * fires + "❄️" * (20 - fires)`.
 
 ---
 
-# 5. Guided Practice (0–20)
+# 5. Guided Practice (0–10)
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap:** embeddings, closeness, cosine similarity (conceptual) |
-| 8–20 | **Demo (live, or classroom mode — see Tool Note):** load the model once, encode a pair of strings, compute and print a similarity score for a few pairs; no fixed order across pairs should be assumed — record results and explain them cautiously |
+| 0–10 | **Recap and demo:** the teacher shows the target output (the 4-guess run below); the class predicts what each stage adds. Real guesses for `אוקינוס`: `עכבר` 1%, `דג` 64%, `מים` 62%, `ים` 94%, `אוקינוס` 100% |
 
 ---
 
-# 6. Lab (20–90)
+# 6. Lab (10–90)
 
 Starter: [`Semantle_Starter.py`](Semantle_Starter.py). Reference: [`Semantle_Reference.py`](Semantle_Reference.py).
-Classroom mode by default — `calculate_similarity()` uses the rule-based stand-in from 6.2 (`meaning_score_demo`),
-so nothing here needs a download to build and test (Tool Note below).
+Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md).
 
-## 20–28 — Warm-up: the meter's colors are swapped
+## 10–18 — Warm-up: the thermometer's symbols are swapped
 
 ```python
-def create_meter(raw_score):
-    display_score = score_for_display(raw_score)
-    filled = int(display_score * 10)
-    empty = 10 - filled
-    return "⬜" * filled + "🟩" * empty
+def make_thermometer(score):
+    fires = round(20 * score)
+    return "❄️" * fires + "🔥" * (20 - fires)
 
-
-print(create_meter(0.70))
-print(create_meter(0.20))
+print(make_thermometer(0.70))
 ```
 
-Predict `🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜` for `0.70` (7 green, 3 white); run and compare — the colors are backwards. Fix: swap
-which symbol multiplies `filled` and which multiplies `empty`.
+Predict 14 fires then 6 snowflakes, run, get the reverse. Fix: swap which symbol multiplies `fires` and which `20 - fires`.
 
-## 28–40 — Task 1: completing `calculate_similarity`
+## 18–25 — Task 1: copy `calculate_similarity` from 6.2
 
-In classroom mode, `calculate_similarity(text_a, text_b)` should return `meaning_score_demo(text_a, text_b)`. Fill
-it in and confirm the meter and percent both react correctly to a close pair and a far pair.
+## 25–40 — Task 2: the basic game (worksheet 11.3, stage 3)
 
-## 40–75 — Task 2 (project): the "Semantle" guessing game — unit checkpoint
+`secret_word`, a loop `while guess != secret_word`, print the score of every guess, print "סיום" at the end. Trap to discuss:
+`guess` must exist before the loop (`guess = ""`).
 
-`secret_word = "מוזיקה"`, an attempt counter starting at `0`, a `playing` flag. While playing, read a guess:
-`"quit"` ends the game; a guess under 2 characters prints a correction and does **not** count as an attempt;
-otherwise the attempt counter grows by one, the similarity score and its percent are computed and shown with the
-meter, and an exact match to the secret word ends the game with the attempt count.
+## 40–48 — Task 3: the attempts counter (stage 4)
 
-## 75–85 — Testing, using all seven of the source's own cases
+Count guesses and show them in the victory message. The Ministry starts at 1 and prints `attempts - 1`; the reference starts
+at 0 and adds 1 before each guess — same result, fewer surprises.
+
+## 48–75 — Task 4: the advanced features — **the unit checkpoint** (stages "advanced features")
+
+1. the score as a percentage (`round(score * 100)` and a `%` sign);
+2. the 20-emoji thermometer from the fixed warm-up function;
+3. a welcome message and a victory message. Expected run:
+
+```text
+--------------------------------------------------
+🎮 ברוכים הבאים למשחק סמנטעל! 🎮
+המחשב בחר מילה סודית. נסו לנחש אותה.
+בכל תור תקבלו ציון דמיון מ-0 (קר מאוד) עד 100 (לוהט!).
+--------------------------------------------------
+הכניסו ניחוש מספר 1: עכבר
+📊 מדחום קירבה: [❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️] 1%
+…
+הכניסו ניחוש מספר 5: אוקינוס
+📊 מדחום קירבה: [🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥] 100%
+
+🏆 כל הכבוד! פיצחתם את המילה הסודית 'אוקינוס' ב-5 ניחושים!
+```
+
+## 75–85 — Testing, using the seven cases (the optional hardening)
 
 <div dir="rtl">
 
 | מקרה | קלט | תוצאה צפויה |
 |---|---|---|
-| ניצחון | מילת היעד המדויקת | המשחק מסתיים ומספר הניסיונות מוצג |
-| יציאה | `quit` | המשחק מסתיים בלי לחשב דמיון |
-| קלט ריק | Enter | הודעת תיקון; המונה אינו גדל |
-| תו יחיד | אות אחת | הודעת תיקון; המונה אינו גדל |
-| מילה קרובה | מילה מאותו תחום | מתקבל ציון ומד מתאים |
-| מילה רחוקה | מילה מתחום אחר | ציון נמוך יותר, אך לא מובטח |
-| שפה אחרת | תרגום של מושג | בודקים איך המודל הרב-לשוני מתנהג (רק בהרצה חיה עם המודל האמיתי) |
+| ניצחון | המילה הסודית | המשחק מסתיים ומספר הניסיונות מוצג |
+| יציאה | `quit` | המשחק מסתיים (רק בגרסה המוגנת) |
+| קלט ריק | Enter | הודעת תיקון; המונה אינו גדל (גרסה מוגנת) |
+| תו יחיד | אות אחת | הודעת תיקון; המונה אינו גדל (גרסה מוגנת) |
+| מילה קרובה | `ים` | ציון גבוה, 94% |
+| מילה רחוקה | `עכבר` | ציון נמוך, 1% |
+| שפה אחרת | `ocean` | ציון גבוה מאוד (98%), אבל אין ניצחון — המילה שונה |
 
 </div>
 
-## 85–90 — Peer review and closing reflection
+`semantle_game_safe` in the reference adds `quit` and the short-guess check. Without it, an empty guess still gets a score (0.38 for `אוקינוס`) — a good
+question for the class.
 
-Checklist: is the model (or in classroom mode, the stand-in) used the same way every time, not reloaded per call?
-does the function take two strings and return a `float`? does the counter only grow on a valid guess? is the meter
-always exactly 10 characters? can `quit` end the game? is a win decided by the word itself, not the score?
+## 85–90 — Peer review, save and exit check
 
-Exit check:
-
-1. Why load the model only once?
-2. What does `calculate_similarity` return?
-3. Why clamp the score before building the meter?
-4. Why is a win decided by the word, not just a high score?
+Checklist: is the model loaded once, outside any loop? does the function take two words and return a number? does the loop end by
+comparing the **word**? is the thermometer always 20 characters? Save As `G8_U6_M3_Semantle_<Name>.py`.
+Exit check: 1. Why load the model only once? 2. Why is a win decided by the word, not the score? 3. Why is the percent not a
+probability? 4. Why can `ים` score 94% and still not win?
 
 ### Tool Note – the embeddings model
-For a real run: `pip install -U sentence-transformers`, then load
-`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` once, well before class — the first download is large.
-Cache it locally and test it once beforehand; keep the classroom-mode fallback ready in case the connection fails
-during the lesson. Do not enter any real personal or sensitive text, even though the computation runs locally.
+`sentence-transformers` and the model are installed and downloaded once at school before the lesson (see 6.1). Verified with the
+real model on Python 3.14 (8 Nov 2026): scores above are from that run. Do not enter personal or sensitive text.
 
 ---
 
@@ -168,23 +162,19 @@ during the lesson. Do not enter any real personal or sensitive text, even though
 
 | Misconception | Correction |
 |---|---|
-| Loading the model inside the function is simpler | It reloads on every single call — load once, outside any function or loop |
-| A returned tensor or model object is fine to use directly | Convert to a plain `float` before returning, so the calling code gets a normal number |
-| The percent shown is the probability the guess is right | It's a display value derived from a clamped similarity score — not a probability |
-| A very high score should end the game by itself | A win is decided by matching the exact secret word |
-| The meter's length can vary with the score | It's always exactly 10 characters — only the split between filled and empty changes |
+| Loading the model inside the loop is simpler | It reloads on every guess; load once, at the top |
+| The percent is the probability the guess is right | It is a display value from a similarity score |
+| A very high score should end the game | A win is decided by matching the secret word (`ים` = 94%) |
+| The thermometer's length can vary | Always 20 characters; only the split changes |
+| `guess` does not need a starting value | The loop condition reads it before the first `input` |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The warm-up's swapped colors explained against the two worked examples (0.70, 0.20)
-- `calculate_similarity()` correctly wired to the classroom-mode stand-in
-- **Unit 6 checkpoint — "Semantle"**, scored against the source's 20-point rubric: loading the model once 2, the
-  similarity function 4, the game loop 3, the attempt counter 2, score display 3, input handling 2, testing 2,
-  conceptual explanation 2. Bands: 18–20 complete, efficient, tested and precisely explained · 14–17 works, one
-  small flaw in display, testing, or explanation · 10–13 partial, the similarity function or loop needs a fix ·
-  0–9 needs support separating into functions, the counter, or the similarity computation.
-- All seven test cases run and matched against the table above (the cross-language case discussed conceptually if
-  no live model is available)
-- The peer review and closing reflection
+- The warm-up's swapped symbols explained against two worked values (0.70 and 0.20)
+- **Unit 6 checkpoint — "Semantle"**, scored against the 20-point rubric (kept from v1): loading the model once 2, the similarity
+  function 4, the game loop 3, the attempt counter 2, score display 3 (percent + thermometer), input handling 2 (optional hardening),
+  testing 2, conceptual explanation 2. Bands: 18–20 complete, efficient, tested and precisely explained · 14–17 works, one small
+  flaw · 10–13 partial · 0–9 needs support.
+- The test table run; the peer review; the exit check

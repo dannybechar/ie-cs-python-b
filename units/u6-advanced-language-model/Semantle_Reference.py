@@ -1,69 +1,87 @@
-# Unit 6.3 - reference for the teacher.
-# CLASSROOM MODE: calculate_similarity() calls a stand-in, not a real model, so this file runs with
-# plain Python and needs no download. Before class, swap MOCK_MODE to False and fill in the real
-# model call below - then test it live in Thonny with the model installed and downloaded once.
+# Unit 6.3 - reference for the teacher (Ministry worksheet 11.3, real model).
+# Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
+# One task per block; run ONE task at a time by removing the # from its call at the bottom.
+from sentence_transformers import SentenceTransformer, util
 
-MOCK_MODE = True
-
-
-# Warm-up, fixed: the fill color and the empty color were swapped.
-def score_for_display(raw_score):
-    return max(0.0, min(1.0, raw_score))
+model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 
-def create_meter(raw_score):
-    display_score = score_for_display(raw_score)
-    filled = int(display_score * 10)
-    empty = 10 - filled
-    return "\U0001F7E9" * filled + "⬜" * empty
+# Task 1: given to the students (copied from 6.2)
+def calculate_similarity(word1, word2):
+    meaning_pos1 = model.encode([word1])
+    meaning_pos2 = model.encode([word2])
+    score_distance = util.cos_sim(meaning_pos1, meaning_pos2).item()
+    return score_distance
 
 
-# Not a real AI model - the same rule-based stand-in from Unit 6.2, reused here.
-def meaning_score_demo(guess, target):
-    clean_guess = guess.strip().lower()
-    clean_target = target.strip().lower()
-    if clean_guess == clean_target:
-        return 1.0
-    elif clean_guess == "פסנתר" and clean_target == "מוזיקה":
-        return 0.82
-    elif clean_guess == "שיר" and clean_target == "מוזיקה":
-        return 0.76
-    elif clean_guess == "כדורגל" and clean_target == "מוזיקה":
-        return 0.19
-    else:
-        return 0.35
+# Warm-up, fixed: the fire and the snowflake were swapped - a close guess must be mostly fire.
+# Extra safety: a cosine score can be slightly below 0, so it is clamped before it builds the bar.
+def make_thermometer(score):
+    fires = round(20 * max(0.0, min(1.0, score)))
+    return "🔥" * fires + "❄️" * (20 - fires)
 
 
-# Task 1: calculate_similarity, completed
-def calculate_similarity(text_a, text_b):
-    if MOCK_MODE:
-        return meaning_score_demo(text_a, text_b)
+# Task 2: the basic game - a secret word, a guess loop, the score after every guess
+def basic_game():
+    secret_word = "אוקינוס"
+    guess = ""
 
-    # Real model (needs `pip install -U sentence-transformers`; the first download is large -
-    # do it once, before class, not during):
-    #
-    # from sentence_transformers import SentenceTransformer, util
-    # MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-    # model = SentenceTransformer(MODEL_NAME)  # load ONCE, outside this function and outside any loop
-    # embeddings = model.encode([text_a, text_b], convert_to_tensor=True)
-    # return float(util.cos_sim(embeddings[0], embeddings[1]).item())
-    raise NotImplementedError("Fill in the real model above and set MOCK_MODE = False.")
+    while guess != secret_word:
+        guess = input("הכניסו ניחוש: ")
+        score = calculate_similarity(secret_word, guess)
+        print(score)
+
+    print("סיום")
 
 
-def score_to_percent(raw_score):
-    return round(score_for_display(raw_score) * 100)
+# Task 3: the attempts counter, shown in the victory message
+def game_with_attempts():
+    secret_word = "אוקינוס"
+    attempts = 0
+    guess = ""
+
+    while guess != secret_word:
+        attempts += 1
+        guess = input("הכניסו ניחוש מספר " + str(attempts) + ": ")
+        score = calculate_similarity(secret_word, guess)
+        print(score)
+
+    print("כל הכבוד הצלחתם לגלות את המילה הסודית ב", attempts, "ניחושים!")
 
 
-# Task 2 (project - the checkpoint): the semantic guessing game
+# Task 4 (project - the checkpoint): the full game with the advanced features
 def semantle_game():
-    secret_word = "מוזיקה"
+    secret_word = "אוקינוס"
+    attempts = 0
+    guess = ""
+
+    print("-" * 50)
+    print("🎮 ברוכים הבאים למשחק סמנטעל! 🎮")
+    print("המחשב בחר מילה סודית. נסו לנחש אותה.")
+    print("בכל תור תקבלו ציון דמיון מ-0 (קר מאוד) עד 100 (לוהט!).")
+    print("-" * 50)
+
+    while guess != secret_word:
+        attempts += 1
+        guess = input("הכניסו ניחוש מספר " + str(attempts) + ": ")
+        score = calculate_similarity(secret_word, guess)
+        percent = round(score * 100)
+        print("📊 מדחום קירבה: [" + make_thermometer(score) + "] " + str(percent) + "%")
+
+    print()
+    print("🏆 כל הכבוד! פיצחתם את המילה הסודית '" + secret_word + "' ב-" + str(attempts) + " ניחושים!")
+
+
+# Extension (hardening): "quit" ends the game, and a guess shorter than 2 characters is not counted.
+def semantle_game_safe():
+    secret_word = "אוקינוס"
     attempts = 0
     playing = True
 
     print("נחשו את המילה הסודית. הקלידו quit ליציאה.")
 
     while playing:
-        guess = input("ניחוש: ").strip().lower()
+        guess = input("ניחוש: ").strip()
 
         if guess == "quit":
             print("המשחק הסתיים.")
@@ -72,23 +90,16 @@ def semantle_game():
             print("יש להזין לפחות שני תווים.")
         else:
             attempts += 1
-            score = calculate_similarity(guess, secret_word)
-            percent = score_to_percent(score)
-
-            print("קרבה:", percent, "%")
-            print(create_meter(score))
-
+            score = calculate_similarity(secret_word, guess)
+            print("📊 [" + make_thermometer(score) + "] " + str(round(score * 100)) + "%")
             if guess == secret_word:
                 print("ניצחתם לאחר", attempts, "ניסיונות!")
                 playing = False
-            elif percent >= 75:
-                print("חם מאוד")
-            elif percent >= 50:
-                print("מתקרבים")
-            else:
-                print("עדיין רחוק")
 
 
-print(create_meter(0.70))
-print(create_meter(0.20))
+print(make_thermometer(0.70))
+print(make_thermometer(0.20))
+# basic_game()
+# game_with_attempts()
 # semantle_game()
+# semantle_game_safe()
