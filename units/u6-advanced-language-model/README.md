@@ -9,7 +9,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 > `paraphrase-multilingual-MiniLM-L12-v2` model through `sentence-transformers` (the old classroom mock and its invented scores are
 > gone). The teacher installs the library and downloads the model **once, at school, before 6.1**; every file was run with the real
 > model on Python 3.14. The worksheets use `def` (Unit 3 comes first in the schedule). The three NotebookLM decks are **superseded** —
-> new decks are pending.
+> new NotebookLM prep folders are ready (`unit6-m1-slides` … `unit6-m3-slides`, 17 / 16 / 13 slides).
 
 ## Unit 6.1 — Advanced Language Model
 
