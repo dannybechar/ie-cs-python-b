@@ -1,45 +1,72 @@
 # Unit 9.4 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
+# The model is a TOY: the numbers (+1 related card per round, at most 4 of 5) are our own choice,
+# not the real rule of any platform. It shows the direction of the effect, nothing more.
 
 
-# Warm-up, fixed: count matches (==), not mismatches (!=).
-def count_related(recommendations, topic):
+# Warm-up, fixed: count the cards that ARE the topic (==), not the ones that are not (!=).
+def count_related(feed, topic):
     count = 0
-    for rec in recommendations:
-        if rec == topic:
+    for card in feed:
+        if card == topic:
             count += 1
     return count
 
 
-# Task 1: one round of the card rule - 2 copies of the current topic, 1 "other" (deterministic,
-# not random, so the simulation is reproducible)
-def simulate_feed_round(current_topic, other_topics, round_number):
-    other = other_topics[round_number % len(other_topics)]
-    return [current_topic, current_topic, other]
+# Task 1: one round of the toy feed (5 cards): more and more cards of the watched topic
+def simulate_feed_round(topic, other_topics, round_number):
+    related = round_number + 1
+    if related > 4:
+        related = 4
+    feed = []
+    for slot in range(5):
+        if slot < related:
+            feed.append(topic)
+        else:
+            feed.append(other_topics[(slot - related) % len(other_topics)])
+    return feed
 
 
 def task1():
-    print(simulate_feed_round("space", ["cooking", "sports", "art"], 0))
-    print(simulate_feed_round("space", ["cooking", "sports", "art"], 1))
+    other_topics = ["cooking", "sports", "art"]
+    print(simulate_feed_round("space", other_topics, 0))
+    print(simulate_feed_round("space", other_topics, 2))
+    print(simulate_feed_round("space", other_topics, 6))
 
 
-# Task 2: repeat the round, tracking how "related" the feed stays
-def run_bubble_experiment(start_topic, other_topics, rounds):
+# Task 2: repeat the round and follow how "related" the feed gets
+def run_bubble_experiment(topic, other_topics, rounds):
     related_counts = []
     for round_number in range(rounds):
-        recommendations = simulate_feed_round(start_topic, other_topics, round_number)
-        related = count_related(recommendations, start_topic)
-        print("Round", round_number, "- related:", related, "of", len(recommendations))
+        feed = simulate_feed_round(topic, other_topics, round_number)
+        related = count_related(feed, topic)
+        print("Round", round_number, "- related:", related, "of", len(feed))
         related_counts.append(related)
     return related_counts
 
 
 def task2():
-    counts = run_bubble_experiment("space", ["cooking", "sports", "art"], 5)
-    print(counts)
-    print("Every round at least 2 of 3 related:", all(c >= 2 for c in counts))
+    print(run_bubble_experiment("space", ["cooking", "sports", "art"], 5))
+
+
+# Task 3 (if time): how many different topics are left in the feed?
+def count_different(feed):
+    seen = []
+    for card in feed:
+        if card not in seen:
+            seen.append(card)
+    return len(seen)
+
+
+def task3():
+    other_topics = ["cooking", "sports", "art"]
+    print(count_different(["space", "space", "cooking", "space", "cooking"]))
+    for round_number in range(5):
+        feed = simulate_feed_round("space", other_topics, round_number)
+        print("Round", round_number, "- different topics:", count_different(feed))
 
 
 print(count_related(["space", "space", "cooking", "space", "sports"], "space"))
 # task1()
 # task2()
+# task3()

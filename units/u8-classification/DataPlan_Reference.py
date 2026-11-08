@@ -1,5 +1,5 @@
 # Unit 8.3 - reference for the teacher.
-# One task per block; run ONE task at a time by removing the # from its call at the bottom.
+# One task per function; run ONE task at a time by removing the # from its call at the bottom.
 
 
 # Warm-up, fixed: a share far below 50% is the sign of under-representation, not above it.
@@ -13,7 +13,20 @@ def check_balance(fist_count, ok_count):
         print("Balanced enough")
 
 
-# Task 1: a warning per under-filled category
+# Task 1: accuracy = successes / attempts (deck 18.1), as a percent
+def calculate_accuracy(successes, attempts):
+    if attempts == 0:
+        return 0
+    return successes / attempts * 100
+
+
+def task1():
+    print(calculate_accuracy(2, 4))                  # the lesson example: 50.0
+    print(round(calculate_accuracy(6, 7), 1))        # 85.7
+    print(calculate_accuracy(0, 0))                  # no attempts: 0
+
+
+# Task 2: a warning per under-filled factor
 def check_variety(labels, counts, minimum):
     warnings = 0
     for index in range(len(labels)):
@@ -21,16 +34,16 @@ def check_variety(labels, counts, minimum):
             print("Warning:", labels[index], "has only", counts[index], "images")
             warnings += 1
     if warnings == 0:
-        print("Every category meets the minimum")
+        print("Every factor meets the minimum")
 
 
-def task1():
+def task2():
     labels = ["bright background", "dark background", "side light", "new user"]
     counts = [40, 5, 15, 3]
     check_variety(labels, counts, 10)
 
 
-# Task 2: checklist coverage, using "in" over a list - the same pattern as Unit 7's search
+# If time: checklist coverage, using "in" over a list
 def count_covered(required, tested):
     count = 0
     for item in required:
@@ -39,7 +52,7 @@ def count_covered(required, tested):
     return count
 
 
-def task2():
+def task_if_time():
     required = ["background", "lighting", "user", "angle"]
     tested = ["lighting", "angle"]
     print(count_covered(required, tested))
@@ -49,3 +62,4 @@ check_balance(20, 80)
 check_balance(48, 52)
 # task1()
 # task2()
+# task_if_time()

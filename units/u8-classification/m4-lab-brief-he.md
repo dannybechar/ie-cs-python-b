@@ -1,65 +1,119 @@
 # יחידה 8.4 – סיווג
 
-כיתה ח׳ · AI + Python B · **דיוק, ייצוא וטעינת המודל ב-Python — בדיקת סיום היחידה**
+כיתה ח׳ · AI + Python B · **מחברים את המודל המאומן לפייתון — ביטחון ופעולה**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> Accuracy הוא שיעור התחזיות הנכונות על כל סט המבחן. שורת `labels.txt` אמיתית נושאת לעיתים רווח מיותר — `.strip()` לפני השוואה, אחרת תחזית **נכונה** יכולה להיראות שגויה.
+> מודל סיווג יודע רק לומר לאיזו קטגוריה שייכת תמונה. תוכנית פייתון הופכת את ההחלטה לפעולה: היא קוראת את הקטגוריה **וגם** את רמת הביטחון, ופועלת רק כשהביטחון גבוה מספיק.
 
 ## דף עזר
 
+<div dir="rtl">
+
+הקוד של המודל האמיתי (`Ministry_Model_Code.py`) הוא "קופסה שחורה": לא נבהלים מקוד ארוך, ומשנים רק **שלוש שורות**:
+
+</div>
+
 ```python
-def calculate_accuracy(actual, predicted):
-    if len(actual) == 0 or len(actual) != len(predicted):
-        return 0
-    correct = 0
-    for index in range(len(actual)):
-        if actual[index].strip() == predicted[index].strip():
-            correct += 1
-    return correct / len(actual) * 100
+model_path = "model.savedmodel"
+labels_path = "labels.txt"
+image_path = "test_image.png"
 ```
 
 <div dir="rtl">
 
-עיבוד תמונה לפני חיזוי, לפי הסדר: פתיחה והמרה ל-RGB ← התאמה ל-224×224 ← המרה למערך מספרי ← נרמול ← אצווה בגודל 1 ← `predict` ← `argmax` ← מיפוי האינדקס לשם קטגוריה.
+תיקיית `converted_savedmodel.zip` מחולצת (קליק ימני ← Extract All) לתיקייה `model.savedmodel` ולקובץ `labels.txt`. שורה בקובץ התוויות נראית כך: `1 ok`.
 
 </div>
 
+```python
+def calculate_accuracy(successes, attempts):
+    if attempts == 0:
+        return 0
+    return successes / attempts * 100
+```
+
 > [!NOTE]
-> `classify_image()` פועלת ב**מצב כיתה** — מנחשת לפי שם הקובץ, בלי הורדת מודל אמיתי.
+> אם אין TensorFlow במחשב, עובדים עם **מודל מדומה**: `classify_image()` בקובץ `Model_Starter.py` מחזירה תשובות קבועות לשבעה שמות תמונה. זה לא מודל אמיתי. ההשוואה עם המודל האמיתי נעשית בכיתה או ב-Colab.
 
-## 1. חימום: תחזית "שגויה" שהייתה נכונה
+## 1. חימום: סימן ה-OK שלא פתח את הדלת
 
-פתחו את `Accuracy_Starter.py`.
-
-```python
-actual_labels = ["fist", "ok", "fist"]
-predicted_labels = ["fist", "ok ", "fist"]   # רווח בסוף, כמו בשורת labels.txt אמיתית
-print(calculate_accuracy(actual_labels, predicted_labels))
-```
-
-חזו `100.0` (כל השלוש תואמות בפועל), הריצו — מקבלים `66.7`. `"ok "` (עם רווח) לא שווה ל-`"ok"`. תקנו: `.strip()` על שני הצדדים לפני ההשוואה.
-
-## 2. אישור על הדוגמה הרשמית המלאה
+פתחו את `Model_Starter.py` (והקובץ `labels_standin.txt` באותה תיקייה).
 
 ```python
-actual_full = ["fist", "ok", "fist", "ok", "ok", "fist", "ok"]
-predicted_full = ["fist", "ok", "ok", "ok", "ok", "fist", "ok"]
-print(round(calculate_accuracy(actual_full, predicted_full), 1))
+result = classify_image("test_1_ok.png")
+label = result[0]
+confidence = result[1]
+print("label:", label)
+if label == "ok":
+    print("Gesture recognized: OK - opening the door")
+else:
+    print("Not an OK sign - the door stays closed")
 ```
 
-צפו ל-≈85.7, כמו בחישוב הידני.
+<div dir="rtl">
 
-## 3. משימה (פרויקט): טעינה וחיזוי — בדיקת סיום היחידה
+חזו שיודפס `opening the door`, הריצו — והדלת נשארת סגורה. הסתכלו על `label`: מה כתוב בו? תקנו כך שתישאר רק התווית עצמה (רמז: מה שבא אחרי הרווח הראשון, `text[text.find(" ") + 1:]`).
 
-השלימו את `classify_image(image_path)` — במצב כיתה: `image_path` באותיות קטנות; אם מכיל `"fist"` ← `("fist", 0.9)`; אם מכיל `"ok"` ← `("ok", 0.9)`; אחרת ← `("unknown", 0.5)`. כתבו `predict_test_set(test_images, actual_labels)`: קוראת ל-`classify_image` על כל נתיב, מדפיסה נתיב/תחזית/confidence, אוספת את התחזיות, ומדפיסה בסוף את ה-accuracy הכולל.
+</div>
 
-## 4. דוח מודל ומתעדים
+## 2. משימה 1: מחליפים נתיבים וכותבים report
 
-כל קבוצה מדווחת: מטרת הסיווג והקטגוריות, התכונה הרצויה, שתי תכונות מקריות שנבדקו, מספרי דוגמאות האימון, תיאור סט המבחן, accuracy כולל, דוגמת טעות אחת, שינוי נתונים אחד, מגבלה אחת שנותרה.
+<div dir="rtl">
 
-שומרים: `File › Save As` ← `G8_U8_M4_Accuracy_<Name>.py`
+**עם מודל אמיתי:** ב-`Ministry_Model_Code.py` שנו רק את `model_path`, `labels_path` ו-`image_path`, והריצו על אחת מתמונות המבחן.
+
+**בשני המצבים:** כתבו `report(image_path)` שמסווגת את התמונה ומדפיסה שורה אחת, למשל `test_1_ok.png -> ok (99%)` (רמת הביטחון כאחוז שלם: `round(confidence * 100)`). הריצו על `"test_1_ok.png"` ועל `"test_4_ok_drawing.png"`.
+
+</div>
+
+## 3. משימה 2: מחליטים אם לפעול
+
+<div dir="rtl">
+
+כתבו `decide(label, confidence)` שמחזירה:
+
+- ביטחון 0.85 ומעלה: `"ACT: <label>"`
+- ביטחון נמוך יותר: `"NOT SURE: ask for another photo"`
+
+בדקו על `("ok", 0.99)` ועל `("fist", 0.73)`.
+
+</div>
+
+## 4. משימה 3: דיוק על כל תמונות המבחן
+
+<div dir="rtl">
+
+כתבו `evaluate(test_images, true_labels)`: סווגו כל תמונה, הדפיסו `correct` או `WRONG`, ספרו הצלחות, והחזירו את הדיוק בעזרת `calculate_accuracy`.
+
+</div>
+
+```python
+test_images = ["test_1_ok.png", "test_2_fist.png", "test_3_fist_dark.png", "test_4_ok_drawing.png",
+               "test_5_ok_side.png", "test_6_fist_blurry.png", "test_7_ok_far.png"]
+true_labels = ["ok", "fist", "fist", "ok", "ok", "fist", "ok"]
+```
+
+<div dir="rtl">
+
+עם המודל האמיתי: השתמשו ב-7 תמונות המבחן של המורה ובתוויות האמת שלהן.
+
+**אם נשאר זמן:** על כמה תמונות התוכנית **תפעל** לפי כלל ה-85%, והאם היא צדקה בכולן?
+
+</div>
+
+## 5. דוח מודל
+
+<div dir="rtl">
+
+כל קבוצה מדווחת: מטרת הסיווג והקטגוריות; התכונה הרצויה ושתי תכונות מקריות שנבדקו; מספר תמונות האימון בכל קטגוריה; הדיוק על 7 תמונות המבחן; דוגמה אחת לטעות עם רמת הביטחון שלה; שינוי נתונים אחד שהייתם עושים; ומגבלה אחת שנשארה (מה המודל עושה ליד שאינה אגרוף ואינה OK?).
+
+</div>
+
+## 6. מתעדים ושומרים
+
+שומרים: `File › Save As` ← `G8_U8_M4_Model_<Name>.py`
 
 ---
 
@@ -67,9 +121,9 @@ print(round(calculate_accuracy(actual_full, predicted_full), 1))
 
 <div dir="rtl">
 
-1. כיצד מחשבים accuracy?
-2. מה ההבדל בין confidence ל-accuracy?
-3. מדוע מנרמלים את התמונה?
-4. איזה כשל זיהיתם ואיזה שינוי נתונים עשוי לצמצם אותו?
+1. מה מודל לבדו עושה, ומה הקוד מוסיף?
+2. אילו שלוש שורות משנים כדי לבדוק תמונה משלכם?
+3. מה ההבדל בין דיוק (accuracy) לרמת ביטחון (confidence)?
+4. למה פועלים רק כשהביטחון מעל 85%?
 
 </div>

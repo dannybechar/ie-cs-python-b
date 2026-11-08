@@ -1,63 +1,115 @@
 # יחידה 9.3 – מערכות המלצה
 
-כיתה ח׳ · AI + Python B · **מהתאום הדיגיטלי להמלצה — בדיקת סיום היחידה**
+כיתה ח׳ · AI + Python B · **מהתאום להמלצה — פרויקט הסיכום**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> משתמש היעד לעולם לא מושווה לעצמו. `(rate, common)` — השיעור קובע ראשון, מספר הדירוגים המשותפים שובר שוויון.
+> ממליצים על פריט ששני התנאים מתקיימים בו: **התאום אהב אותו** (`V`) ו**המשתמש לא מכיר אותו** (`0`). אם אין תאום או אין פריט כזה — מדפיסים הודעה ברורה, לא קורסים.
 
 ## דף עזר
 
 ```python
-def find_digital_twin(target_index, all_ratings, minimum_common=2):
+def find_twin(target_index):
     best_index = None
-    best_key = (-1.0, -1)
-    for candidate_index in range(len(all_ratings)):
-        if candidate_index == target_index:
-            continue
-        matches, common = similarity_score(all_ratings[target_index], all_ratings[candidate_index])
-        if common < minimum_common:
-            continue
-        rate = matches / common
-        candidate_key = (rate, common)
-        if candidate_key > best_key:
-            best_key = candidate_key
-            best_index = candidate_index
-    return best_index, best_key
+    best_score = 0
+    for index in range(len(answers)):
+        # ... בודקים את המשתתף, ושומרים את הטוב ביותר עד כה
+    return best_index
 ```
-
-## 1. חימום: התאום של עצמו
-
-פתחו את `TwinRecommend_Starter.py`. הריצו `find_digital_twin(0, ratings)` על נתוני הבדיקה בקובץ. חזו משתמש אחר אמיתי; מקבלים `(0, (1.0, 3))` — משתמש 0 הותאם ל**עצמו**. תקנו: `if candidate_index == target_index: continue`.
-
-## 2. משימה 1: recommend_item(target_ratings, twin_ratings, item_names, liked_threshold=3)
-
-מוצאת את הפריט שהיעד דירג `0` והתאום דירג `>= liked_threshold`, בוחרת את הדירוג הגבוה ביותר מביניהם; מחזירה `None` אם אין פריט כזה.
-
-## 3. משימה 2 (פרויקט): main() — בדיקת סיום היחידה
-
-טוענת `items`/`aliases`/`all_ratings` מ-`ratings.csv`, מוצאת את התאום של `target_index = 0` (`minimum_common=2`); אם לא נמצא — מדפיסה הודעה וברורה ועוצרת; אחרת ממליצה ומדפיסה כינוי היעד, כינוי התאום, שיעור הדמיון, מספר הדירוגים המשותפים וההמלצה (או הודעה ברורה שאין המלצה מתאימה).
-
-## 4. בדיקות — שבעת המקרים
 
 <div dir="rtl">
 
-| מקרה | התנהגות מצופה |
-|---|---|
-| אין דירוגים משותפים | לא נמצא תאום דיגיטלי |
-| יש רק דירוג משותף אחד | המועמד נדחה כאשר `minimum_common=2` |
-| התאום אינו אוהב אף פריט חדש | אין המלצה מתאימה |
-| המשתמש כבר מכיר את כל הפריטים | אין המלצה מתאימה |
-| שני תאומים בעלי אותו שיעור | מספר הדירוגים המשותפים שובר שוויון |
-| שוויון מלא | המועמד הראשון נשמר |
-| אורכי רשימות שונים | הפונקציה דוחה את הנתונים |
+`None` אומר "לא נמצא". `continue` מדלג לסיבוב הבא של הלולאה. כשיש שוויון — נשאר המשתתף הראשון שנמצא.
 
 </div>
 
-## 5. דיון: שלוש מגבלות
+## 1. חימום: האדם הוא התאום של עצמו
 
-**התחלה קרה** — למשתמש או פריט חדש אין מספיק נתונים. **דלות נתונים** — רוב המשתמשים לא מדרגים את רוב הפריטים. **דמיון אינו זהות** — דמיון בדירוגי טיולים לא מוכיח דבר על דעות או אופי.
+פתחו את `TwinRecommend_Starter.py`, חזו מה יודפס, והריצו.
+
+```python
+print(find_twin(3))
+```
+
+<div dir="rtl">
+
+התאום של `user_04` (מקום 3) אמור להיות `user_03` — מקום 2. מקבלים `3`. מי הוא התאום שנמצא? מדוע? תקנו בעזרת `continue`.
+
+</div>
+
+## 2. משימה 1: recommend_item(target_answers, twin_answers)
+
+<div dir="rtl">
+
+כתבו פעולה שמחזירה את **שם** הפריט הראשון שהתאום אהב (`V`) והמטרה לא מכירה (`0`). אם אין פריט כזה — מחזירה `None`. בדקו:
+
+</div>
+
+```python
+print(recommend_item("00XVV", "V0XXV"))   # sushi
+print(recommend_item("V0XXV", "V0XXV"))   # None
+```
+
+## 3. משימה 2 (פרויקט): main()
+
+<div dir="rtl">
+
+כתבו `main()` שמבצעת:
+
+1. המטרה היא המשתתף האחרון: `target_index = len(aliases) - 1`.
+2. מוצאים תאום. אם אין — מדפיסים `No twin found.` ועוצרים (`return`).
+3. מדפיסים את כינוי המטרה, כינוי התאום ומספר הנקודות.
+4. מדפיסים את ההמלצה, או `Nothing new to recommend.`
+
+</div>
+
+<div dir="rtl">
+
+הפלט הצפוי עם נתוני הדוגמה:
+
+</div>
+
+```text
+Target: user_04
+Twin: user_03
+Points: 2
+Recommendation: sushi
+```
+
+<div dir="rtl">
+
+הריצו גם על נתוני הכיתה (שלוש השורות שהמורה נותן). האם ההמלצה נשמעת לכם הגיונית? למה כן או לא?
+
+</div>
+
+## 4. בדיקת מקרי קצה
+
+<div dir="rtl">
+
+| מקרה | מה מצפים |
+|---|---|
+| אף אחד לא חולק תשובה עם המטרה | אין תאום — `No twin found.` |
+| התאום לא אוהב דבר שהמטרה לא מכירה | `Nothing new to recommend.` |
+| המטרה כבר מכירה הכול | `Nothing new to recommend.` |
+| שני משתתפים עם אותו מספר נקודות | נשאר הראשון |
+| `0` מול `0` בלבד | אין נקודה |
+
+</div>
+
+<div dir="rtl">
+
+בחרו שני מקרים, הכינו להם נתונים משלכם, והריצו.
+
+</div>
+
+## 5. אם נשאר זמן: כל ההמלצות
+
+<div dir="rtl">
+
+כתבו `recommend_all(target_answers, twin_answers)` שמחזירה **מחרוזת אחת** עם כל הפריטים המומלצים, מופרדים ב-`", "` (מחרוזת ריקה אם אין).
+
+</div>
 
 ## 6. מתעדים ושומרים
 
@@ -69,8 +121,8 @@ def find_digital_twin(target_index, all_ratings, minimum_common=2):
 
 <div dir="rtl">
 
-1. מדוע אסור להשוות את משתמש היעד לעצמו?
-2. מהם שני התנאים לבחירת פריט מומלץ?
-3. מהי בעיית ההתחלה הקרה?
+1. מדוע אסור להשוות את המטרה לעצמה?
+2. מהם שני התנאים להמלצה על פריט?
+3. מהי בעיית ההתחלה הקרה (cold start)?
 
 </div>

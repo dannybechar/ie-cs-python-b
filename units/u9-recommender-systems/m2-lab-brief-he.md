@@ -1,88 +1,93 @@
 # יחידה 9.2 – מערכות המלצה
 
-כיתה ח׳ · AI + Python B · **מקריאת CSV לחישוב דמיון**
+כיתה ח׳ · AI + Python B · **הטבלה, נקודות דמיון והתאום**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> שני `0` באותו מיקום לא נחשבים התאמה — שניהם "לא מכיר/ה". בודקים ששני הדירוגים שונים מ-0 לפני שמשווים.
+> נקודת דמיון = שתי תשובות **זהות** ושאינן `0`. שני `X` הם נקודה. שני `0` אינם נקודה — אף אחד לא מכיר, ואין דעה משותפת. התאום הוא מי שיש לו הכי הרבה נקודות.
 
 ## דף עזר
 
 ```python
-def similarity_score(first, second):
-    matches = 0
-    common = 0
-    for index in range(len(first)):
-        if first[index] != 0 and second[index] != 0:
-            common += 1
-            if first[index] == second[index]:
-                matches += 1
-    return matches, common
+item_names = ["sushi", "beet", "dal", "pasta", "pizza"]
+aliases = ["user_01", "user_02", "user_03", "user_04"]
+answers = ["XV0XX", "0VV0X", "V0XXV", "00XVV"]
 ```
 
 <div dir="rtl">
 
-- `aliases[i]` ו-`ratings[i]` מתארים אותו משתמש — לכן הן רשימות מקבילות.
-- `matches` גולמי מעדיף משתמש עם יותר פריטים משותפים. `matches / common` (**השיעור**) מתקן זאת.
+המקום ברשימה זהה אצל כולם: `aliases[2]` ו-`answers[2]` שייכים לאותו אדם. התשובות של כל אדם הן מחרוזת, תו אחד לכל פריט: `answers[3][2]` היא תשובתו של `user_04` על `dal`.
 
 </div>
 
-## 1. טבלת מעקב — חזו לפני שמריצים
+## 1. חימום: אפס ואפס נחשבים נקודה
+
+פתחו את `Similarity_Starter.py`, חזו מה יודפס, והריצו.
 
 ```python
-user_a = [3, 1, 0, 3, 2]
-user_b = [3, 1, 3, 2, 2]
-```
-
-<div dir="rtl">
-
-| `i` | `user_a[i]` | `user_b[i]` | משותף? | שווה? | `matches` | `common` |
-|---:|---:|---:|---|---|---:|---:|
-| 0 | 3 | 3 | | | | |
-| 1 | 1 | 1 | | | | |
-| 2 | 0 | 3 | | | | |
-| 3 | 3 | 2 | | | | |
-| 4 | 2 | 2 | | | | |
-
-</div>
-
-## 2. חימום: `0 == 0` נראה כמו הסכמה, אבל לא
-
-פתחו את `Similarity_Starter.py`.
-
-```python
-def broken_similarity(first, second):
-    matches = 0
+def count_same(first, second):
+    same = 0
     for index in range(len(first)):
         if first[index] == second[index]:
-            matches += 1
-    return matches
+            same += 1
+    return same
 
 
-print(broken_similarity([0, 1, 3], [0, 1, 2]))
+print(count_same("00XVV", "V0XXV"))
 ```
 
-חזו `1` (רק אינדקס 1 הוא הסכמה אמיתית), הריצו — מקבלים `2`. שני "לא מכיר/ה" נספרים כאילו הסכימו. תקנו: השוו רק כששני הערכים שונים מ-0.
+<div dir="rtl">
 
-## 3. משימה 1: load_ratings("ratings.csv")
+התשובה הנכונה היא `2`. מקבלים `3`. באיזה פריט נספרה נקודה שלא הייתה צריכה להיספר? תקנו שורה אחת.
 
-השלימו את הפונקציה (הוסיפו את הכינוי ואת שורת הדירוגים הממירה ללולאה) והדפיסו את שלוש התוצאות.
+</div>
 
-## 4. משימה 2: similarity_score(first, second)
+## 2. משימה 1: טבלת מעקב
 
-אשרו על `similarity_score([3, 1, 0, 3, 2], [3, 1, 3, 2, 2])` ← `(3, 4)`, ואז הריצו את הבדיקות:
+<div dir="rtl">
 
-```python
-assert similarity_score([3, 1], [3, 1]) == (2, 2)
-assert similarity_score([0, 1], [0, 1]) == (1, 1)
-assert similarity_score([0, 0], [3, 2]) == (0, 0)
-assert similarity_score([3, 1], [1, 3]) == (0, 2)
+מלאו ביד את הטבלה עבור `"00XVV"` מול `"V0XXV"`, ואז כתבו `show_comparison(first, second)` שמדפיסה את אותה טבלה: שם הפריט, שתי התשובות, ו-`point` או `-`.
+
+</div>
+
+| פריט | first | second | נקודה? |
+|---|:-:|:-:|:-:|
+| sushi | 0 | V | |
+| beet | | | |
+| dal | | | |
+| pasta | | | |
+| pizza | | | |
+
+## 3. משימה 2: print_scores(target_index)
+
+<div dir="rtl">
+
+כתבו פעולה שמדפיסה לכל משתתף **חוץ מהמטרה** את הכינוי ואת מספר הנקודות המשותפות איתה. הקריאה `print_scores(3)` מדפיסה:
+
+</div>
+
+```text
+user_01 0
+user_02 0
+user_03 2
 ```
 
-## 5. משימה 3: similarity_rate(first, second)
+## 4. משימה 3: best_score(target_index)
 
-`matches / common`, או `0.0` אם `common` הוא 0. אשרו: `similarity_rate([3, 1, 0], [3, 1, 2])` ← `1.0`.
+<div dir="rtl">
+
+כתבו פעולה שמחזירה את מספר הנקודות הגבוה ביותר בין המטרה לבין כל משתתף אחר. בדקו: `best_score(3)` מחזירה `2`. חשבו ביד: מה מחזירה `best_score(0)`?
+
+</div>
+
+## 5. משימה 4 (אם נשאר זמן): הסקר של הכיתה
+
+<div dir="rtl">
+
+המורה נותן שלוש שורות (`item_names`, `aliases`, `answers`) שנבנו מתשובות הסקר שלנו. הדביקו אותן במקום נתוני הדוגמה והריצו את משימה 2. מי התאום של המשתתף האחרון?
+
+</div>
 
 ## 6. מתעדים ושומרים
 
@@ -94,8 +99,8 @@ assert similarity_score([3, 1], [1, 3]) == (0, 2)
 
 <div dir="rtl">
 
-1. מדוע נדרש התנאי `first[index] != 0 and second[index] != 0`?
-2. מה ההבדל בין `matches` ל-`common`?
-3. מה הסיכון בשיעור התאמה של 100% המבוסס על פריט יחיד?
+1. מתי שתי תשובות נותנות נקודת דמיון?
+2. `"0"` מול `"0"` — נקודה או לא, ולמה?
+3. מיהו ה"תאום" של אדם?
 
 </div>

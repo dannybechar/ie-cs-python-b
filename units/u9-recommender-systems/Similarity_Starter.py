@@ -1,41 +1,42 @@
-# Warm-up: this counts a shared "don't know" (0 and 0) as a match, which it should not be.
-# Predict, run, then fix it.
+# Warm-up: this counts a shared "0" (both people don't know the item) as a point. It should not.
+# The expected answer for the test below is 2. Predict, run, then fix it.
 
-def broken_similarity(first, second):
-    matches = 0
+def count_same(first, second):
+    same = 0
     for index in range(len(first)):
         if first[index] == second[index]:
-            matches += 1
-    return matches
+            same += 1
+    return same
 
 
-print(broken_similarity([0, 1, 3], [0, 1, 2]))
+print(count_same("00XVV", "V0XXV"))
 
 
-# Task 1: complete load_ratings(filename) - reads a CSV file shaped like ratings.csv (a header row
-# "alias,item1,item2,..." then one row per user) and returns (item_names, aliases, ratings): the
-# item names from the header, a list of aliases, and a list of rating lists (each value an int).
-import csv
+# The survey data (Task 4 shows how the lists are made from the Forms file).
+item_names = ["sushi", "beet", "dal", "pasta", "pizza"]
+aliases = ["user_01", "user_02", "user_03", "user_04"]
+answers = ["XV0XX", "0VV0X", "V0XXV", "00XVV"]
 
 
-def load_ratings(filename):
-    aliases = []
-    ratings = []
-    with open(filename, "r", encoding="utf-8-sig", newline="") as file:
-        reader = csv.reader(file)
-        header = next(reader)
-        item_names = header[1:]
-        for row in reader:
-            if not row:
-                continue
-            # complete: append the alias and the row's ratings (as integers) to the right lists
-    return item_names, aliases, ratings
+# Task 1: write show_comparison(first, second) - for every item print its name, the two answers and
+# the word "point" (if it is a point) or "-" (if not). Test: show_comparison("00XVV", "V0XXV") prints
+#   sushi 0 V -
+#   beet 0 0 -
+#   dal X X point
+#   pasta V X -
+#   pizza V V point
 
 
-# Task 2: write similarity_score(first, second) - returns (matches, common): common counts
-# positions where NEITHER rating is 0; matches counts, among those, how many are equal.
-# Test: similarity_score([3, 1, 0, 3, 2], [3, 1, 3, 2, 2]) should be (3, 4).
+# Task 2: write print_scores(target_index) - for every participant EXCEPT the target print the alias
+# and the number of points shared with the target. Test: print_scores(3) prints
+#   user_01 0
+#   user_02 0
+#   user_03 2
 
 
-# Task 3: write similarity_rate(first, second) - matches / common from similarity_score, or 0.0
-# if common is 0. Test: similarity_rate([3, 1, 0], [3, 1, 2]) should be 1.0.
+# Task 3: write best_score(target_index) - the highest number of points between the target and
+# any other participant. Test: best_score(3) -> 2.
+
+
+# Task 4 (if time): the teacher runs CsvToLists_Teacher.py on the class survey and gives you three
+# lines (item_names, aliases, answers). Paste them above, replace the sample data, and run Task 2.

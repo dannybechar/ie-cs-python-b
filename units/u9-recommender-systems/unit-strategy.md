@@ -4,118 +4,107 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 9 (pp. 21–23); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** ✅ complete — all 4 meetings built and approved by the teacher.
-No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit09_recommendation_systems_complete_unit.md` —
-one detailed document covering all four meetings, including its own exact 90-minute clock tables and meeting split.
+**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (files 20.0, 20.1, 21.1, 22.1); awaiting re-approval. The v1 build
+(approved earlier) came from `Downloads\python-b-codex\python_b_unit09_recommendation_systems_complete_unit.md`; the Ministry's materials use a
+different survey scale (V / X / 0), a simpler twin (the most identical non-0 answers) and a different content for the last meeting, so notes,
+briefs, code and data were rewritten. Decks: superseded, new NotebookLM decks pending (prep folders `unit9-m1-slides` … `unit9-m4-slides`).
+No raw teacher material exists for this unit.
 
 ## Official topics and hours
 
-Unit totals from the master table (4 theory / 4 practice), matching the chapter's own table exactly (intro +
-survey design 1/1, coding the recommender 1/2, algorithm pitfalls + ethics + the attention economy 2/1, total 4/4 —
-for once both agree, same as Units 4, 6 and 8).
+Unit totals from the master table (4 theory / 4 practice), matching the chapter's own table (intro + survey design 1/1, coding the
+recommender 1/2, algorithm pitfalls + ethics + the attention economy 2/1, total 4/4).
 
-| Topic | Planned in | Minutes (T / P) | Status |
-|---|---|---:|---|
-| Recommender systems intro, project design, Google Forms data collection | 9.1 (45 T + 45 P) | 45 / 45 | ✅ |
-| Reading CSV data, computing similarity between users | 9.2 (45 T + 45 P) | 45 / 45 | ✅ |
-| Finding a digital twin, producing a recommendation | 9.3 (45 T + 45 P) | 45 / 45 | ✅ |
-| Filter bubble experiment, ethics, the attention economy | 9.4 (45 T + 45 P) | 45 / 45 | ✅ |
-| **Total** | | **180 / 180** | |
+| Topic | Planned in | Minutes (T / P) | Ministry source | Status |
+|---|---|---:|---|---|
+| Recommender systems intro, the feed riddle, content-based vs user-based, the culinary-twin game, the Google Forms survey | 9.1 (45 T + 45 P) | 45 / 45 | 20.0, 20.1 | 🔶 |
+| The participants × items table (V / X / 0), counting similarity points, the twin; `count_same` | 9.2 (45 T + 45 P) | 45 / 45 | 21.1 first half | 🔶 |
+| Recommending what the twin liked, `find_twin`, `recommend_item`, `main` (checkpoint) | 9.3 (45 T + 45 P) | 45 / 45 | 21.1 second half | 🔶 |
+| Dangers: fact or fake, business model, Plato's cave, three traps, controls; a toy bubble in code | 9.4 (45 T + 45 P) | 45 / 45 | 20.0 p. 2, 22.1 | 🔶 |
+| **Total** | | **180 / 180** | | |
 
 Chapter goals (source §1, fourteen in all):
 
 1. Explain why digital services use recommender systems → 9.1
 2. Distinguish content-based from user-based recommendation → 9.1
-3. Represent preferences with parallel rating lists → 9.1–9.2
-4. Explain a shared rating and why an unknown item is excluded → 9.1–9.2
-5. Trace a similarity-score calculation with a trace table → 9.2
-6. Implement a similarity function with a loop and compound conditions → 9.2
-7. Find the most similar user — the "digital twin" → 9.3
+3. Represent preferences as data (a table, parallel lists, a string of V / X / 0) → 9.1–9.2
+4. Explain a shared answer and why "don't know" (`0`) is excluded → 9.1–9.2
+5. Trace a similarity count with a trace table → 9.2
+6. Implement the similarity count with a loop and a compound condition → 9.2
+7. Find the most similar user — the "digital twin" → 9.2–9.3
 8. Recommend an item unknown to the current user but liked by the twin → 9.3
-9. Read rating data from a CSV file and combine several functions in a main program → 9.2–9.3
-10. Test the system on normal cases and edge cases → 9.2–9.3
-11. Define a filter bubble, an echo chamber, and the attention economy → 9.4
+9. Combine several functions in a main program → 9.3
+10. Test on normal cases and edge cases → 9.3
+11. Define a filter bubble, an echo chamber and addiction engineering / the attention economy → 9.4
 12. Analyze how behavioral signals can shape recommendations → 9.4
 13. Propose practical tools for better feed control → 9.4
-14. Identify ethical limits: privacy, consent, data scarcity, bias → 9.1, 9.4
+14. Identify ethical limits: privacy, consent, data scarcity, bias → 9.1, 9.3, 9.4
 
-## Unit 9.1 — Knowledge + Lab: What Is a Recommender System? + Data Collection
-- input/process/output in a recommendation system; content-based (by item features) vs. user-based (by similar
-  users' preferences) filtering, with a "which approach?" classification drill.
-- a manual "digital twin" simulation with rating cards, before any code; the agreed rating scale
-  (`0`=don't know, `1`=disliked, `2`=neutral, `3`=liked) and why a shared, closed scale matters for code.
-- designing a short, anonymous class survey (an alias, not a name; a neutral topic; 6–10 items; the same scale for
-  every item) and exporting it to a clean CSV.
-- lab: an inverted-rating-meaning warm-up bug, a row validator, a "known items" counter.
+## Unit 9.1 — Knowledge + Lab: Feed Riddle, Two Kinds of Recommender, Survey
+- the viewing-habits discussion, the YouTube-feed riddle (three people, three home pages — our own text), a regular algorithm vs AI,
+  content-based (signals) vs user-based (the ice-cream seller), the four-scenario classification drill.
+- the **culinary-twin class game** (a volunteer answers V / X / 0 on 12 foods; a point only for identical, non-0 answers).
+- lab: the warm-up bug (the last `else` swallows `"v"`), `is_valid_answers`, `count_known`, then the Google Forms survey with the
+  scale **V / X / 0 (capital English letters only)** and the privacy rules.
 
-## Unit 9.2 — Knowledge + Lab: From CSV to a Similarity Score
-- reading `ratings.csv` into three parallel structures (item names, aliases, rating lists) with `csv.reader`.
-- a similarity function's plan in pseudocode, then a hand-traced table, then Python: count `common` items (neither
-  rating is `0`) and `matches` (equal ratings) in one loop; a match **rate**, guarded against division by zero.
-- lab: the source's own "counts `0 == 0` as a match" bug as the warm-up, completing `load_ratings` on a real
-  `ratings.csv`, `similarity_score`, `similarity_rate` — checked against the source's own asserts.
+## Unit 9.2 — Knowledge + Lab: the Table and the Twin
+- the Ministry's table (four participants, five foods), reading a row, counting similarity points one item at a time, the twin = the most points.
+- lab: the warm-up bug (`0` and `0` counted), `show_comparison` (the trace table printed), `print_scores`, `best_score`; the class's own
+  survey pasted in as three lines.
 
-## Unit 9.3 — Knowledge + Lab: From Digital Twin to Recommendation (unit checkpoint)
-- comparing the target user to every other user (never itself), keeping the best `(rate, common)` pair — the rate
-  is primary, shared-count breaks ties.
-- recommending an item the target rated `0` where the twin's rating is at least a threshold, choosing the twin's
-  highest such rating; returning `None` explicitly rather than crashing when no twin or no recommendation exists.
-- combining `load_ratings`, `similarity_score`, `find_digital_twin` and `recommend_item` into one `main()`.
-- three real limits, named explicitly: cold start, data sparsity, and "similar preferences" not implying similar
-  people.
-- lab: the source's own "compared to itself" bug as the warm-up, completing `recommend_item`, then the checkpoint —
-  the full pipeline, verified against all seven of the source's own test cases.
+## Unit 9.3 — Knowledge + Lab: From the Twin to a Recommendation (unit checkpoint)
+- recommend an item the twin liked (`V`) and the target does not know (`0`); `find_twin` (skip yourself, `None` when nobody shares anything,
+  first on a tie); `recommend_item`; `main`; three named limits (cold start, sparse data, similar ≠ same).
+- lab: the self-comparison warm-up bug, `recommend_item`, the project `main()`, six edge cases; a 20-point rubric.
 
-## Unit 9.4 — Knowledge + Lab: Filter Bubbles, Echo Chambers, the Attention Economy
-- what is and isn't known about a real platform's ranking signals — the point of a short controlled experiment is a
-  **local observation**, not proof of the full algorithm.
-- a controlled "building a bubble" experiment (safe-topic private browsing, or an offline card simulation using the
-  exact rule the source specifies — two same-topic cards plus one other per round), logging observation separately
-  from interpretation.
-- filter bubble (algorithmic filtering narrows what's shown) vs. echo chamber (social reinforcement narrows what's
-  believed) — related but distinct; the attention economy (engagement as the optimized metric, not necessarily
-  learning or well-being).
-- connecting the class's own code decisions (a single twin, a low `minimum_common`, a fixed tie-break rule) to their
-  real downstream effects; a concrete feed-control toolkit.
-- lab: an inverted related/unrelated-count warm-up bug, then a deterministic simulation of the card rule
-  (`simulate_feed_round`, `run_bubble_experiment`) that reproduces the bubble effect numerically, without needing
-  a real account, network access, or a random module.
+## Unit 9.4 — Knowledge + Lab: The Trap of Recommendations
+- fact or fake (five posts), the business model ("who is the product"), the five-step incognito demo, Plato's cave, the three traps (filter bubble,
+  echo chamber, addiction engineering), the 2014 polarisation graph (as a question about correlation), practical controls, pros and cons.
+- lab: pairs build a bubble (live incognito, or cards), observation vs interpretation; warm-up bug (`!=`), `simulate_feed_round` and
+  `run_bubble_experiment` (a toy that grows the related share), `count_different`; controls and the responsibility card.
 
 ### Scope decisions
-- **The source document is the only material and is unusually complete** — clock tables (verified to sum to 90 for
-  each meeting), worked code, a full privacy section for the survey, a thorough YouTube-experiment safety section,
-  a project rubric and closing summary questions. Followed closely; adapted into the house lesson-notes/lab-brief
-  split and warm-up-bug convention.
-- **A real `ratings.csv` is used and genuinely read from disk** (unlike Units 4, 6 and 8's external-service code):
-  reading a local CSV file needs no network, no API key, and no installed package beyond the standard library, so
-  9.2–9.3's `load_ratings()` is verified for real, not with a stand-in. The sample file matches the source's own
-  example data (three users, four travel destinations) and holds no real personal information — aliases only.
-- **9.1's Google Forms / survey collection and 9.4's YouTube experiment are real-world activities, not code.** The
-  lesson notes describe both in full, including every privacy and safety rule from the source verbatim, but neither
-  is something to "run" in a `.py` file. 9.4's lab instead gives a **deterministic** in-code simulation of the
-  source's own offline card-simulation rule (Option B) — a legitimate, fully testable stand-in for the live
-  experiment that needs no account, network, or `random` module.
-- **Not taught:** dictionaries (an obvious fit for name→rating lookups, but not in this course — parallel lists are
-  used throughout, exactly as the source itself does), content-based filtering in code (named and contrasted with
-  user-based filtering, but only user-based is implemented, matching the source's own scope), matrix factorization
-  or any real collaborative-filtering algorithm.
+- **The Ministry materials are the source (8 Nov 2026).** The Ministry has **three** lessons (20, 21, 22); we keep **four** and 360 minutes
+  (master table). 9.1 = 20.0 + 20.1; 9.2 = the first half of 21.1; 9.3 = the second half of 21.1 plus the code; 9.4 = 22.0 + 22.1.
+  Where the Ministry is thin, the v1 content stays: the classification drill, the survey privacy rules, the three limits, the edge-case table,
+  the experiment safety rules, the offline card simulation, the responsibility card.
+- **Not delivered:** worksheets 20.2, 21.2 (the Ministry's recommender code), 22.2 and teacher notes 21.0, 22.0. Nothing from them is invented
+  as Ministry content. Assumed and flagged in the notes: the Forms options are literally `V`, `X`, `0`; the programming step is our own code.
+- **The survey scale is V / X / 0** (liked / disliked / don't know), capital English letters only (20.0 p. 1). v1's 0–3 scale and the
+  rate / minimum-common machinery are gone. The twin is the participant with the **most identical non-0 answers** (21.1); a shared `X` counts,
+  a shared `0` does not; a tie keeps the first; a best score of 0 means no twin.
+- **Rulebook (from the teacher):** `def` and lists are allowed (Unit 9 comes after Units 3 and 7). **Forbidden in our own code:** tuples
+  (also tuple returns and `in (0, 1, 2, 3)`), default arguments, sets, dictionaries, comprehensions and generator expressions, nested loops,
+  lists of lists, classes. v1's `best_key = (-1.0, -1)`, `minimum_common=2`, `liked_threshold=3`, `return matches, common`, `all(c >= 2 for c in counts)`
+  and `csv.reader` are therefore replaced: each person's answers are **one string** (`"00XVV"`), the data are three flat parallel lists
+  (`item_names`, `aliases`, `answers`), every function returns one value (`None` for "nothing found").
+- **No file reading in student code.** Nothing in Python A or the Ministry decks teaches `open`, and the Ministry shows no CSV code on its slides
+  (it lives in the missing 21.2). The data are typed in as lists; [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) (a teacher tool using
+  `open` / `split`) turns the Forms CSV into the three lines the students paste. [`ratings.csv`](ratings.csv) is the Ministry's sample table with
+  aliases instead of first names.
+- **9.4 simulation redesigned.** v1's card rule (two same-topic cards plus one other each round) gave a constant 2 of 3 and showed no
+  growth. The new toy grows the related share (1, 2, 3, 4, 4 of 5) and adds `count_different`; it is flagged everywhere as a toy with invented numbers.
+  v1's `all(...)` generator was removed. The live demo keeps the v1 safety rules; the cards stay as the fallback.
+- **Ministry-deck points we did not copy:** the AI-generated people of the riddle (we use text only); the Elon Musk made-up quote (no
+  real person is quoted); the named-camp 2020 election example (we teach the principle, named examples only by the teacher's choice);
+  p. 37's causal claim ("in 2014 the platforms switched to AI and the slope grew") is shown as a hypothesis, "correlation is not proof";
+  p. 30 repeats the filter-bubble text box on the echo-chamber slide; p. 36–37 text overlaps the picture. The "dopamine" wording of 20.0
+  is simplified and flagged as a popular explanation.
+- **Privacy:** aliases only, no names, faces or personal data; the survey privacy rules of v1 are kept and extended (no e-mail collection,
+  teacher check, deletion at the end of the unit).
+- **Not taught:** dictionaries, content-based filtering in code (named and contrasted only), matrix factorization, similarity rates.
 
 ## Exit criteria
-The student distinguishes content-based from user-based recommendation, represents preferences as parallel rating
-lists and correctly excludes unshared (`0`) ratings from a similarity calculation, implements a similarity function
-and finds the most similar user, produces and tests a recommendation (including its `None` cases), and explains
-filter bubbles, echo chambers and the attention economy with at least one concrete, practical response to each.
+The student distinguishes content-based from user-based recommendation, explains why a `0` ("don't know") is not a shared answer, counts
+similarity points, writes `count_same`, `find_twin` and `recommend_item` and handles "no twin / nothing new" without crashing, and explains
+filter bubble, echo chamber and addiction engineering with at least one practical response to each.
 
 ## Checkpoint
-9.3's user-based recommender (`load_ratings`, `similarity_score`, `find_digital_twin`, `recommend_item`, `main`) is
-the unit's capstone, with the source's own 20-point rubric across five weighted bands (data & privacy, similarity
-calculation, twin & recommendation, code quality, critical thinking) — see the lesson notes for the full rubric.
-Verified here against all seven of the source's own test cases: no shared ratings, exactly one shared rating (below
-and at the minimum), a twin with no new liked item, a target who already knows everything, a tie broken by shared
-count, a full tie (first candidate kept), and mismatched list lengths (rejected).
+9.3's recommender (`count_same`, `find_twin`, `recommend_item`, `main`) is the unit's capstone, scored on the 20-point rubric in `m3-lesson-notes.md`
+(data and privacy 3, similarity count 4, twin and recommendation 6, code quality 3, critical thinking 4). Verified here on the sample table
+and on five edge cases (no twin, nothing new, target knows everything, a tie, a shared `0`).
 
 ## Enrichment
-From the source: partial credit for close (not just equal) ratings; recommending from several similar neighbors
-instead of one twin; returning three ranked recommendations with reasons; testing how `minimum_common` changes the
-result; a diversity measure over the recommendation list; comparing a user-based result to a content-based one; a
-"model card" documenting the system's data, limits and prohibited uses.
+Partial credit for close answers; recommending from several neighbours; returning ranked recommendations with reasons; a similarity rate
+(points divided by the items both answered); comparing a user-based result to a content-based one; a "model card" documenting the
+data, limits and prohibited uses.

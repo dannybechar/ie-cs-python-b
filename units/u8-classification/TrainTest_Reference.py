@@ -1,5 +1,5 @@
 # Unit 8.2 - reference for the teacher.
-# One task per block; run ONE task at a time by removing the # from its call at the bottom.
+# One task per function; run ONE task at a time by removing the # from its call at the bottom.
 
 
 # Warm-up, fixed: check whether any single test id also appears in train - not whether the two
@@ -40,6 +40,20 @@ def task2():
     print(count_correct(true_labels, predicted_labels))
 
 
+# If time: the model must always pick one of its categories ("no category fits" has no answer).
+def best_label(labels, scores):
+    best_index = 0
+    for index in range(len(scores)):
+        if scores[index] > scores[best_index]:
+            best_index = index
+    return labels[best_index]
+
+
+def task_if_time():
+    # A peace-sign picture: neither category fits, but the scores still add up to 1 - the model picks fist.
+    print(best_label(["fist", "ok"], [0.62, 0.38]))   # fist
+
+
 train_ids = ["img1", "img2", "img3"]
 test_ids = ["img2", "img9"]
 print(has_leak(train_ids, test_ids))
@@ -47,3 +61,4 @@ test_ids_clean = ["img7", "img9"]
 print(has_leak(train_ids, test_ids_clean))
 # task1()
 # task2()
+# task_if_time()

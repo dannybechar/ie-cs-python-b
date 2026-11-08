@@ -23,10 +23,10 @@ Status: ✅ built and approved by the teacher · 🔶 built, awaiting teacher ap
 | 4 | [Bringing AI into Code (API)](units/u4-api) | 4 (1 / 3) | 180 (45 / 135) | 2 | 180 (45 / 135) | 0 | 🔶 2/2 (reworked) |
 | 5 | [Strings](units/u5-strings) | 8 (2 / 6) | 360 (90 / 270) | 4 | 360 (135 / 225) | 0 | 🔶 4/4 (reworked); 5.3 taught as 45 / 45 (teacher's decision) — 45 more theory, 45 less practice than official |
 | 6 | [Advanced Language Model](units/u6-advanced-language-model) | 6 (2 / 4) | 270 (90 / 180) | 3 | 270 (90 / 180) | 0 | 🔶 3/3 (reworked 8 Nov 2026 to Ministry 10–11) |
-| 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | ✅ 5/5 |
-| 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-| 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | ✅ 4/4 |
-|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (990 / 1,710)** | **0** | **30/30 built; 15 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 15 approved (✅)** |
+| 7 | [Lists](units/u7-lists) | 10 (3 / 7) | 450 (135 / 315) | 5 | 450 (135 / 315) | 0 | 🔶 5/5 (reworked 8 Nov 2026 to Ministry 12–14) |
+| 8 | [Classification](units/u8-classification) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | 🔶 4/4 (reworked 8 Nov 2026 to Ministry 16–19) |
+| 9 | [Recommender Systems](units/u9-recommender-systems) | 8 (4 / 4) | 360 (180 / 180) | 4 | 360 (180 / 180) | 0 | 🔶 4/4 (reworked 8 Nov 2026 to Ministry 20–22) |
+|  | **TOTAL** | **60 (21 / 39)** | **2,700 (945 / 1,755)** | **30** | **2,700 (990 / 1,710)** | **0** | **30/30 built; 28 meetings reworked to the Ministry materials (🔶 awaiting re-approval), 2 approved (✅: 1.1, 1.2)** |
 
 A unit has one Knowledge + Lab meeting (45 / 45) per theory hour; its other meetings are Lab + Lab (0 / 90).
 Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUDE.md` for the slugs.
@@ -52,10 +52,12 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
 - **Source of truth (31 Oct 2026):** the Ministry's published teaching materials
   ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)). Units 1.3, 2, 3, 4 and 5 were reworked to
   match them (🔶, awaiting re-approval; new NotebookLM decks pending — the old patched decks are marked superseded).
-- **Ministry lessons 10–22 arrived 8 Nov 2026** and were audited (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md),
-  "Audit of lessons 10–22"). **Unit 6 is reworked (🔶, new NotebookLM decks pending).** Units 7–9 still stand as built and need the same
-  rework; files are still missing (Lists parts A and E, many worksheets and keys), and the rule conflicts (`def`, nested loops, lists of
-  lists, tuples and default arguments in Unit 9) need the teacher's decisions.
+- **Ministry lessons 10–22 arrived 8 Nov 2026**, were audited (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md),
+  "Audit of lessons 10–22") and **Units 6, 7, 8 and 9 were all reworked the same day (🔶; new NotebookLM prep folders ready, decks pending)**.
+  Still open: Lists parts A and E and many worksheets and keys were not delivered (the reworks assume nothing the Ministry did not show);
+  defaults chosen without the teacher (change if wrong): `def` allowed in Units 6–9 (they follow Unit 3 in the schedule); no nested loops and no lists
+  of lists in Unit 7; Unit 9 keeps 4 meetings (the Ministry has 3). Live runs needed before class: Unit 8.4 (TensorFlow + a real exported model),
+  Unit 9.1 (Google Forms export) and 9.4 (incognito demo), the Unit 6 model download.
 - **Unit 7 notes** need a small update *if* the 90-minute lab version of 5.4 is taught (it shows `split`/`join` first). The
   countdown edition of 5.4 leaves `split`/`join` to Unit 7.2, so no change is needed if that edition is taught.
 - Every official topic is covered (see each unit's `unit-strategy.md`). The tool choices flagged during planning were
@@ -96,19 +98,19 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 15 | 6.1 Advanced Language Model | K+L · Tokens, tokenization and token IDs (Ministry 10.0–10.2) | 🔶 | | |
 | 16 | 6.2 Advanced Language Model | K+L · The meaning map, self-attention, context window, `calculate_similarity` (Ministry 11.1, 11.2) | 🔶 | | |
 | 17 | 6.3 Advanced Language Model | L+L · The "Semantle" project, unit checkpoint (Ministry 11.3) | 🔶 | | |
-| 18 | 7.1 Lists | K+L · What a list is: indices, traversal | ✅ | | |
-| 19 | 7.2 Lists | K+L · List operations: append/extend/insert, remove/pop, sort/reverse, split/join | ✅ | | |
-| 20 | 7.3 Lists | K+L · Advanced operations + the accumulation pattern | ✅ | | |
-| 21 | 7.4 Lists | L+L · Counting, minimum, maximum, a report | ✅ | | |
-| 22 | 7.5 Lists | L+L · Linear search + the "AI Experiment Analyzer" checkpoint | ✅ | | |
-| 23 | 8.1 Classification | K+L · Classification, features, a decision boundary | ✅ | | |
-| 24 | 8.2 Classification | K+L · The ML process + Teachable Machine | ✅ | | |
-| 25 | 8.3 Classification | K+L · Project planning, data, bias | ✅ | | |
-| 26 | 8.4 Classification | K+L · Accuracy, export, loading the model — checkpoint | ✅ | | |
-| 27 | 9.1 Recommender Systems | K+L · What is a recommender system? + data collection | ✅ | | |
-| 28 | 9.2 Recommender Systems | K+L · From CSV to a similarity score | ✅ | | |
-| 29 | 9.3 Recommender Systems | K+L · From digital twin to recommendation — checkpoint | ✅ | | |
-| 30 | 9.4 Recommender Systems | K+L · Filter bubbles, echo chambers, the attention economy | ✅ | | |
+| 18 | 7.1 Lists | K+L · Lists: `[]`, `list()`, indices, `in`, `+`, slicing (Ministry 12.0, 12.1) | 🔶 | | |
+| 19 | 7.2 Lists | K+L · List methods, `split`/`join`, `random.choice`, building new lists (Ministry 12.0–12.7) | 🔶 | | |
+| 20 | 7.3 Lists | K+L · Traversal by index vs value, accumulation, average, the change-while-looping trap (Ministry 13.0, 13.1) | 🔶 | | |
+| 21 | 7.4 Lists | L+L · Counters, maximum, filters, the flat name/price menu, parallel lists (Ministry 13.1, 14.0, 14.1) | 🔶 | | |
+| 22 | 7.5 Lists | L+L · Linear search, `index()`, phone numbers + the "AI Experiment Analyzer" checkpoint | 🔶 | | |
+| 23 | 8.1 Classification | K+L · Rule-based classification, features, the separating line (Ministry 16.0–16.2.0) | 🔶 | | |
+| 24 | 8.2 Classification | K+L · Training vs test, bias, the first Teachable Machine try (Ministry 17.0–17.1) | 🔶 | | |
+| 25 | 8.3 Classification | K+L · Accuracy, the fist/OK project, saving the model (Ministry 18.0, 18.1) | 🔶 | | |
+| 26 | 8.4 Classification | K+L · The trained model in Python, confidence, "act only above 85%" — checkpoint (Ministry 19.0, 19.1) | 🔶 | | |
+| 27 | 9.1 Recommender Systems | K+L · The feed riddle, content-based vs user-based, the culinary twin, the V/X/0 survey (Ministry 20.0, 20.1) | 🔶 | | |
+| 28 | 9.2 Recommender Systems | K+L · The table, similarity points, the twin (Ministry 21.1) | 🔶 | | |
+| 29 | 9.3 Recommender Systems | K+L · `find_twin`, `recommend_item` — checkpoint (Ministry 21.1) | 🔶 | | |
+| 30 | 9.4 Recommender Systems | K+L · Fact or fake, who is the product, filter bubble, echo chamber, addiction engineering (Ministry 22.0, 22.1) | 🔶 | | |
 
 ## Meeting log
 
@@ -133,19 +135,19 @@ One row per built meeting. Minutes come from the **Duration** and **Structure** 
 | 6 | 6.1 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u6-advanced-language-model/m1-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 10.0–10.2: real tokenizer (`model.tokenizer`), token quiz, playground; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit6-m1-slides`, 17 slides, 90 min). |
 | 6 | 6.2 Advanced Language Model | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u6-advanced-language-model/m2-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 11.1, 11.2: meaning map, self-attention, real `calculate_similarity`, thresholds, playground; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit6-m2-slides`, 16 slides, 90 min). |
 | 6 | 6.3 Advanced Language Model | 90 | 0 / 90 | Lab + Lab | [`m3-lesson-notes.md`](units/u6-advanced-language-model/m3-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 11.3: unit checkpoint ("Semantle", real model, 20-emoji thermometer); slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit6-m3-slides`, 13 slides, 90 min). |
-| 7 | 7.1 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u7-lists/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
-| 7 | 7.2 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u7-lists/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
-| 7 | 7.3 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u7-lists/m3-lesson-notes.md) | Slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 7 | 7.4 Lists | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u7-lists/m4-lesson-notes.md) | Slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 7 | 7.5 Lists | 90 | 0 / 90 | Lab + Lab | [`m5-lesson-notes.md`](units/u7-lists/m5-lesson-notes.md) | Unit checkpoint ("AI Experiment Analyzer"); slides: `m5-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.1 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u8-classification/m1-lesson-notes.md) | Slides: `m1-slides-he.pdf` (15 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u8-classification/m2-lesson-notes.md) | Slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u8-classification/m3-lesson-notes.md) | Real photography (hands only; full privacy/consent rules in the lesson notes); slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u8-classification/m4-lesson-notes.md) | Unit checkpoint; classroom-mode `classify_image()`; slides: `m4-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u9-recommender-systems/m1-lesson-notes.md) | Real class survey (full privacy rules in the lesson notes); slides: `m1-slides-he.pdf` (16 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u9-recommender-systems/m2-lesson-notes.md) | Real `ratings.csv` sample data (no mock needed); slides: `m2-slides-he.pdf` (12 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u9-recommender-systems/m3-lesson-notes.md) | Unit checkpoint; slides: `m3-slides-he.pdf` (13 slides, 90 min; NotebookLM, patched). |
-| 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u9-recommender-systems/m4-lesson-notes.md) | Live-browsing option with its own safety rules (offline card-simulation fallback); slides: `m4-slides-he.pdf` (14 slides, 90 min; NotebookLM, patched). |
+| 7 | 7.1 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u7-lists/m1-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 12.0, 12.1: `[]`, `list()`, `in`, `+`, slicing `[a:b:c]` and `[::-1]`; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit7-m1-slides`, 19 slides, 90 min). |
+| 7 | 7.2 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u7-lists/m2-lesson-notes.md) | Reworked to Ministry 12.0–12.7: list methods, `split`/`join`, `random.choice`; the Ministry's `append(i)` bug as the warm-up; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit7-m2-slides`, 18 slides, 90 min). |
+| 7 | 7.3 Lists | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u7-lists/m3-lesson-notes.md) | Reworked to Ministry 13.0, 13.1: index vs value traversal, accumulation, the change-while-looping trap; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit7-m3-slides`, 19 slides, 90 min). |
+| 7 | 7.4 Lists | 90 | 0 / 90 | Lab + Lab | [`m4-lesson-notes.md`](units/u7-lists/m4-lesson-notes.md) | Reworked to Ministry 13.1, 14.0, 14.1: counters, filters, the flat menu, parallel lists; Ministry slide errors noted in the lesson notes; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit7-m4-slides`, 13 slides, 90 min). |
+| 7 | 7.5 Lists | 90 | 0 / 90 | Lab + Lab | [`m5-lesson-notes.md`](units/u7-lists/m5-lesson-notes.md) | Reworked: linear search, `index()`, phone numbers with `random`; unit checkpoint ("AI Experiment Analyzer", 20-point rubric); slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit7-m5-slides`, 14 slides, 90 min). |
+| 8 | 8.1 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u8-classification/m1-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 16.0–16.2.0: Louvre boundary-bug trace, two-feature separating line, `classify_fruit(softness, color)`; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit8-m1-slides`, 20 slides, 90 min). |
+| 8 | 8.2 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u8-classification/m2-lesson-notes.md) | Reworked to Ministry 17.0–17.1: training vs test, bias, first Teachable Machine try; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit8-m2-slides`, 20 slides, 90 min). |
+| 8 | 8.3 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u8-classification/m3-lesson-notes.md) | Reworked to Ministry 18.0, 18.1: accuracy, the fist/OK project (the Ministry's image zips stay outside the repo); photography privacy rules kept; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit8-m3-slides`, 20 slides, 90 min). |
+| 8 | 8.4 Classification | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u8-classification/m4-lesson-notes.md) | Reworked to Ministry 19.0, 19.1: SavedModel + `TFSMLayer`, 85% rule; **needs a live run with TensorFlow and a real exported model**; stand-in `classify_image()` keeps the files runnable; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit8-m4-slides`, 20 slides, 90 min). |
+| 9 | 9.1 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m1-lesson-notes.md`](units/u9-recommender-systems/m1-lesson-notes.md) | Reworked 8 Nov 2026 to Ministry 20.0, 20.1: feed riddle, culinary-twin game, V/X/0 survey (privacy rules kept); slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit9-m1-slides`, 20 slides, 90 min). |
+| 9 | 9.2 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m2-lesson-notes.md`](units/u9-recommender-systems/m2-lesson-notes.md) | Reworked to Ministry 21.1: table, similarity points, the twin (V/X/0; no tuples or defaults); slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit9-m2-slides`, 19 slides, 90 min). |
+| 9 | 9.3 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m3-lesson-notes.md`](units/u9-recommender-systems/m3-lesson-notes.md) | Reworked to Ministry 21.1: `find_twin`, `recommend_item`; unit checkpoint with a new 20-point rubric; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit9-m3-slides`, 18 slides, 90 min). |
+| 9 | 9.4 Recommender Systems | 90 | 45 / 45 | 45 knowledge + 45 lab | [`m4-lesson-notes.md`](units/u9-recommender-systems/m4-lesson-notes.md) | Reworked to Ministry 22.0, 22.1: fact or fake, incognito demo, Plato's cave, three traps; offline card-simulation fallback; slides: superseded — pending new NotebookLM deck (prep folder ready in `Downloads\פדגוגיה\python-b\lessons\unit9-m4-slides`, 19 slides, 90 min). |
 
 ## Assessments
 

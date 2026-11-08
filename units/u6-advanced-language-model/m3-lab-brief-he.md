@@ -41,7 +41,7 @@ print(make_thermometer(0.70))
 
 <div dir="rtl">
 
-העתיקו את `calculate_similarity` מהשיעור הקודם לקובץ.
+העתיקו את `calculate_similarity` מהפעם הקודמת לקובץ.
 
 </div>
 

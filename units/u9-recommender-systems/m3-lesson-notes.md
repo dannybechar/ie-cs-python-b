@@ -1,19 +1,23 @@
 # Unit 9.3 — Recommender Systems
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: From Digital Twin to Recommendation (Unit Checkpoint)
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+### Topic: From the Twin to a Recommendation — the Unit Checkpoint
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit09_recommendation_systems_complete_unit.md`, meeting 3 — its own clock
-table, `find_digital_twin` (with the `(rate, common)` tie-break key), `recommend_item`, the full `main()` program,
-the no-CSV test data, the seven-case test table, the three named limitations, and the exit card kept nearly
-unchanged.
-**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
-labeled **Tool Note – Thonny**.
+**Source of inspiration:** Ministry deck **21.1**, second half (pp. 24–30): the twin is the participant with the most points; *an item the
+twin liked and the new user does not know* becomes the recommendation (p. 26–27: user_03 likes sushi, user_04 does not know it); the
+programming step (p. 28, worksheet 21.2 — **not delivered**). The Ministry's own code is therefore **assumed**: ours is a plain
+`find_twin` + `recommend_item` + `main` on strings and flat lists. From v1 we keep the three named limits (cold start, sparse data, similar
+preferences ≠ similar people), the edge-case testing table and the 20-point project rubric. The v1 code (tuples such as
+`best_key = (-1.0, -1)`, default arguments `minimum_common=2`, `liked_threshold=3`, `csv.reader`) is replaced: the course forbids tuples and
+default arguments in our own functions, and the Ministry's twin is simply "the most identical non-0 answers", so no rate is needed.
+See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
+**Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny**.
+**Prerequisite:** `def`, `return`, `None`, strings, flat lists (Units 3, 5, 7).
 
 ---
 
@@ -21,10 +25,10 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 9.1 | content-based vs. user-based recommendation; survey design | 45 / 45 |
-| 9.2 | reading CSV data; computing similarity between users | 45 / 45 |
-| **9.3 (this)** | **finding a digital twin; producing a recommendation (checkpoint)** | 45 / 45 |
-| 9.4 | filter bubbles, echo chambers, the attention economy | 45 / 45 |
+| 9.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
+| 9.2 | the table, similarity points, `count_same` | 45 / 45 |
+| **9.3 (this)** | **`find_twin`, `recommend_item`, `main` — the checkpoint** | 45 / 45 |
+| 9.4 | dangers of recommender systems | 45 / 45 |
 
 ---
 
@@ -32,147 +36,147 @@ labeled **Tool Note – Thonny**.
 
 | Official goal (python-b-ai.pdf p. 22–23) | Covered here |
 |---|---|
-| Goal 7: find the most similar user | ✅ `find_digital_twin` |
-| Goal 8: recommend an unknown-but-twin-liked item | ✅ `recommend_item` |
-| Goal 9: combine several functions in a main program | ✅ `main()` |
-| Goal 10: test on normal cases and edge cases | ✅ the checkpoint |
+| Goal 7: find the most similar user — the "digital twin" | ✅ `find_twin` |
+| Goal 8: recommend an item unknown to the user but liked by the twin | ✅ `recommend_item` |
+| Goal 9: combine several functions in one main program | ✅ `main()` |
+| Goal 10: test on normal and edge cases | ✅ the six cases |
+| Goal 14: limits (data scarcity, consent) | ✅ the three limits |
 
 ### Deliberate exclusions
-Any new similarity concept (built in 9.2, reused unchanged here).
+Similarity rates, weights, several neighbours, reading files (all enrichment).
 
 ---
 
 ## 3. Lesson Goal
 
-**Compare the target to every other user (never itself), keep the best `(rate, common)` pair as the digital twin,
-then recommend the twin's highest-rated item the target doesn't yet know — and handle "no twin" or "no
-recommendation" explicitly, without crashing.**
+**Compare the target with every *other* participant, keep the one with the most points (the twin; nobody with 0 points), then recommend an
+item the twin liked (`V`) and the target does not know (`0`) — and print a clear message, instead of crashing, when there is no twin or nothing to recommend.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-def find_digital_twin(target_index, all_ratings, minimum_common=2):
+def find_twin(target_index):
     best_index = None
-    best_key = (-1.0, -1)
-    for candidate_index in range(len(all_ratings)):
-        if candidate_index == target_index:
-            continue                                  # never compare a user to itself
-        matches, common = similarity_score(all_ratings[target_index], all_ratings[candidate_index])
-        if common < minimum_common:
-            continue                                  # too little evidence
-        rate = matches / common
-        candidate_key = (rate, common)                # rate first, common breaks ties
-        if candidate_key > best_key:
-            best_key = candidate_key
-            best_index = candidate_index
-    return best_index, best_key
+    best_score = 0
+    for index in range(len(answers)):
+        if index == target_index:
+            continue                          # never compare a person with themselves
+        score = count_same(answers[target_index], answers[index])
+        if score > best_score:                # strictly greater: on a tie the first one stays
+            best_score = score
+            best_index = index
+    return best_index                         # None when nobody shares anything
+
+
+def recommend_item(target_answers, twin_answers):
+    for index in range(len(target_answers)):
+        if target_answers[index] == "0" and twin_answers[index] == "V":
+            return item_names[index]
+    return None
 ```
 
-```python
-def recommend_item(target_ratings, twin_ratings, item_names, liked_threshold=3):
-    # among items the target rated 0 AND the twin rated >= liked_threshold,
-    # pick the one with the twin's highest rating - or return None
-```
+Trace of `find_twin(3)` on the class table (9.2): user_01 → 0, user_02 → 0, user_03 → 2 → `best_index = 2`.
+`recommend_item("00XVV", "V0XXV")`: index 0 → target `0` and twin `V` → `"sushi"`.
 
-- `aliases[best_index]` and `all_ratings[best_index]` both refer to the twin — that's why the function returns an
-  **index**, not a name or a list directly.
-- A tuple `(rate, common)` compares rate first, then common — exactly the tie-break rule the project needs, with no
-  extra `if`.
+- `best_score` starts at `0` on purpose: somebody who shares nothing is never a twin.
+- A recommendation needs **both** conditions: the twin liked it (`V`) and the target does not know it (`0`). Twin `X` → no. Target already
+  answered `V` or `X` → no (the target knows it).
+- `None` is a valid answer ("no twin", "nothing to recommend"); `main` must handle it.
+- `return` inside the loop stops at the **first** item found. (If time, Task 3 collects all.)
 
 ---
 
-# 5. First 45 Minutes — Knowledge + Guided Practice
+# 5. First 45 Minutes — Knowledge + Guided Practice (deck 21.1, pp. 24–30)
 
 | Clock | Activity |
 |---|---|
-| 0–10 | **Recap:** run 9.2's `similarity_score` asserts again — all green before continuing |
-| 10–25 | Planning `find_digital_twin`: compare the target to everyone else, skip itself, skip low-evidence candidates, keep the best `(rate, common)` |
-| 25–43 | Writing `find_digital_twin`, tracing it on the four-user, five-item test data below |
-| 43–45 | Transition to the lab |
-
-```python
-items = ["museum", "beach", "park", "city", "forest"]
-aliases = ["user_01", "user_02", "user_03", "user_04"]
-ratings = [
-    [3, 1, 0, 3, 0],
-    [3, 1, 3, 2, 3],
-    [1, 3, 2, 1, 0],
-    [3, 2, 2, 3, 0],
-]
-```
+| 0–8 | **Recap:** the class table; predict the twin of user_04 (pairs), then run `count_same` on the three pairs — all as before |
+| 8–16 | **From twin to recommendation** (pp. 26–27): is there a food the twin liked and user_04 does not know? Predict first (which food?), then the answer (sushi). Counter-cases: twin disliked it (`X`); user_04 already has an opinion |
+| 16–30 | **Plan `find_twin`:** pseudocode (the "best so far" pattern of `best_score` from 9.2, now also remembering *who*), then a trace on the class table. Why start `best_score` at 0? What if everyone has 0? **The code is not shown:** the starter holds a version with the classic mistake (warm-up), so the bug is found by the students |
+| 30–40 | **Plan `recommend_item`** in pseudocode, with the three cases (twin `V` + target `0` → recommend; twin `X` → no; target already answered → no); then the plan of `main()`: target = the last participant, find the twin, print or print a message. Students write `recommend_item` themselves in the lab |
+| 40–45 | **Three limits (kept from v1):** *cold start* — a new person with only `0`s has no twin; *sparse data* — a score of 2 from 3 shared answers is weak evidence; *similar ≠ same* — the twin shares food opinions, not necessarily anything else. A recommendation is a prediction, not a fact |
 
 ---
 
 # 6. Second 45 Minutes — Lab
 
 Starter: [`TwinRecommend_Starter.py`](TwinRecommend_Starter.py). Reference: [`TwinRecommend_Reference.py`](TwinRecommend_Reference.py).
+Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md). Data: the sample table is in the starter (or the class survey, pasted as in 9.2).
 
-## 45–53 — Warm-up: your own twin
+| Clock | Block |
+|---|---|
+| 45–52 | Warm-up bug: your own twin |
+| 52–62 | Task 1: `recommend_item(target_answers, twin_answers)` |
+| 62–80 | Task 2 (project, checkpoint): `main()` |
+| 80–86 | Testing the edge cases |
+| 86–90 | Save and exit check |
 
-```python
-def find_digital_twin(target_index, all_ratings, minimum_common=2):
-    best_index = None
-    best_key = (-1.0, -1)
-    for candidate_index in range(len(all_ratings)):
-        matches, common = similarity_score(all_ratings[target_index], all_ratings[candidate_index])
-        if common < minimum_common:
-            continue
-        rate = matches / common
-        candidate_key = (rate, common)
-        if candidate_key > best_key:
-            best_key = candidate_key
-            best_index = candidate_index
-    return best_index, best_key
+## 45–52 — Warm-up: a person is their own twin
+
+The starter's `find_twin` has no `continue`. `print(find_twin(3))` should be `2` (user_03) and prints **`3`**: user_04 shares every non-0 answer with
+themselves (3 points), more than with anyone else. Fix: `if index == target_index: continue`.
+
+## 52–62 — Task 1: `recommend_item(target_answers, twin_answers)`
+
+Return the **name** of the first item the twin liked and the target does not know, otherwise `None`. `recommend_item("00XVV", "V0XXV")` → `sushi`.
+
+## 62–80 — Task 2 (project — the checkpoint): `main()`
+
+Target = the last participant (`len(aliases) - 1`). Find the twin; if there is none print `No twin found.` and stop; print the target, the twin
+and the points; print the recommendation or `Nothing new to recommend.` Expected with the sample data:
+
+```text
+Target: user_04
+Twin: user_03
+Points: 2
+Recommendation: sushi
 ```
 
-Run `find_digital_twin(0, ratings)` on the test data above. Predict a real other user; get `(0, (1.0, 3))` — user 0
-matched with **itself**, a perfect (but meaningless) score. Fix: `if candidate_index == target_index: continue`.
-
-## 53–65 — Task 1: `recommend_item(target_ratings, twin_ratings, item_names, liked_threshold=3)`
-
-Finds the item the target rated `0` where the twin's rating is `>= liked_threshold`, choosing the highest such
-rating; returns `None` if there is no such item.
-
-## 65–80 — Task 2 (project — the checkpoint): `main()`
-
-Load `items`/`aliases`/`all_ratings` from `ratings.csv` (9.2), find `target_index = 0`'s twin
-(`minimum_common=2`); if none was found, print a clear message and stop; otherwise recommend an item and print the
-target's alias, the twin's alias, the similarity rate, the shared-rating count, and the recommendation (or a clear
-"no suitable recommendation" message).
-
-## 80–86 — Testing, using all seven of the source's own cases
+## 80–86 — Testing the edge cases
 
 <div dir="rtl">
 
-| מקרה | התנהגות מצופה |
-|---|---|
-| אין דירוגים משותפים | לא נמצא תאום דיגיטלי |
-| יש רק דירוג משותף אחד | המועמד נדחה כאשר `minimum_common=2` |
-| התאום אינו אוהב אף פריט חדש | אין המלצה מתאימה |
-| המשתמש כבר מכיר את כל הפריטים | אין המלצה מתאימה |
-| שני תאומים בעלי אותו שיעור | מספר הדירוגים המשותפים שובר שוויון |
-| שוויון מלא | המועמד הראשון נשמר; יש לתעד זאת |
-| אורכי רשימות שונים | הפונקציה דוחה את הנתונים (`ValueError`) |
+| מקרה | נתונים לדוגמה | התנהגות מצופה |
+|---|---|---|
+| אף אחד לא חולק תשובה | `"00000"` מול `"0000V"` ו-`"XXXX0"` | אין תאום (`None`) |
+| התאום אינו אוהב דבר חדש | `recommend_item("V0XXV", "V0XXV")` | `None` — אין המלצה |
+| המטרה מכירה הכול | `recommend_item("VXVXV", "VXXXV")` | `None` — אין המלצה |
+| שוויון | שני משתתפים עם 2 נקודות | הראשון נשאר (מתועד) |
+| `0` ו-`0` בלבד | `count_same("0V", "0X")` | `0` — אין נקודה |
+| מחרוזות באורכים שונים | `count_same("V0", "V0X")` מול `count_same("V0X", "V0")` | הראשון מחזיר 1; השני `IndexError: string index out of range` — לכן בודקים אורך ב-`has_all_answers` (9.1) |
 
 </div>
 
-## 86–90 — Discuss three limits + exit check
+The reference has `run_edge_cases()` that prints the first five; the mismatched-length row is a discussion (the second call raises
+`IndexError: string index out of range` on Python 3.14).
 
-**Cold start** — a new user or a new item has too little data for a reliable match. **Data sparsity** — most users
-rate most items `0`; a high rate from very little data can mislead. **Similar preferences ≠ identical people** —
-travel-rating similarity proves nothing about opinions, personality, or any other domain.
+## 86–90 — Save and exit check
 
 Save As `G8_U9_M3_TwinRecommend_<Name>.py`.
 
-1. Why must the target never be compared to itself?
-2. What are the two conditions for choosing a recommended item?
+1. Why must the target never be compared with itself?
+2. What are the two conditions for recommending an item?
 3. What is the cold-start problem?
 
 ### Tool Note – Thonny
-Run `find_digital_twin` and `recommend_item` alone in the Shell against the four-user test data before wiring them
-into `main()` — much faster to isolate a bug in one function than inside the full program.
+Run `find_twin` and `recommend_item` alone in the Shell before wiring them into `main()`. If a student's `main` prints `None` instead of
+a message, they forgot the `if ... is None` check.
+
+### Project rubric — 20 points (the checkpoint; our own scale, v1 had no table)
+
+<div dir="rtl">
+
+| תחום | נקודות | מה בודקים |
+|---|---:|---|
+| נתונים ופרטיות | 3 | הנתונים בסקאלה V / X / 0 בלבד; כינויים בלבד; אין שם או פרט מזהה |
+| חישוב הדמיון | 4 | `count_same` נכונה: זהות ולא `0`; שני `X` נספרים; שני `0` לא |
+| תאום והמלצה | 6 | `find_twin` לא משווה לעצמו; `None` כשאין תאום; `recommend_item` בודקת את שני התנאים |
+| איכות הקוד | 3 | פעולה לכל משימה, שמות ברורים, `main` מטפלת ב-`None` |
+| חשיבה ביקורתית | 4 | מסבירים לפחות שניים משלושת המגבלות ומה זה אומר על אמינות ההמלצה |
+
+</div>
 
 ---
 
@@ -180,21 +184,19 @@ into `main()` — much faster to isolate a bug in one function than inside the f
 
 | Misconception | Correction |
 |---|---|
-| A user can be its own best match | Always skip `candidate_index == target_index` |
-| Higher `common` alone should win over a higher `rate` | The rate comes first in the tie-break key; `common` only breaks a tie |
-| Any twin rating above 0 counts as "liked" | Only ratings meeting `liked_threshold` (default `3`) count |
-| `None` results are bugs to eliminate | They're valid, expected outcomes — the program must handle them explicitly, not crash |
-| A tie should be "resolved" by picking randomly | The source's rule keeps the first candidate found — a documented, reproducible design choice |
+| A person can be their own best match | Always skip `index == target_index` |
+| `0` points can still be "the best" | `best_score` starts at 0, so nobody with 0 points is a twin |
+| Every `V` of the twin is a recommendation | Only if the target answered `0` |
+| `None` is a bug to remove | It is a valid result; the program must print a clear message |
+| A tie is resolved randomly | We keep the first one found: a reproducible, documented rule |
+| The recommendation is true for me | It is a prediction from a few answers |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- `find_digital_twin`'s trace on the four-user test data matching a real (non-self) twin
-- The warm-up's self-comparison bug explained, not just fixed
-- `recommend_item()` correct, including its `None` path
-- **Unit 9 checkpoint** — the full recommender (`load_ratings`, `similarity_score`, `find_digital_twin`,
-  `recommend_item`, `main`), scored against the source's 20-point rubric across five weighted bands (data &
-  privacy, similarity calculation, twin & recommendation, code quality, critical thinking — see `unit-strategy.md`
-  for the full table and performance bands). Verified here against all seven of the source's own test cases.
-- The cold-start / sparsity / similarity-isn't-identity discussion, in the student's own words
+- `find_twin` traced on the class table, giving user_03
+- The warm-up (self-comparison) explained, not only fixed
+- `recommend_item` correct including its `None` path
+- **Unit 9 checkpoint** — `count_same`, `find_twin`, `recommend_item`, `main`, scored on the 20-point rubric above, run on the sample data and on the class data
+- The three limits explained in the student's own words

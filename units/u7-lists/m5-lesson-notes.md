@@ -1,19 +1,27 @@
 # Unit 7.5 — Lists
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Linear Search + the "AI Experiment Analyzer" (Unit Checkpoint)
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+### Topic: Linear Search, "A New Phone Number", and the "AI Experiment Analyzer" (Unit Checkpoint)
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
-**Structure:** Lab + Lab (24 min guided practice, then 66 min lab, including the capstone project)
+**Structure:** Lab + Lab (a short recap, then three tasks and the project)
 **Minutes (theory / practice):** 0 / 90
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit07_lists_complete_unit.md`, meeting 5 — its own clock table, the
-linear-search example (with the index-`0`-as-`False` warning), the early-stop sorted search with its trace table,
-the full project brief, skeleton, solution and seven-case test table, the peer-review checklist and the closing
-reflection kept nearly unchanged.
+**Source of inspiration:** Ministry **12.5** (worksheet "Practice #2, a new phone number", steps a–c) with **12.1 pp. 28–35**
+(the phone-number solution with `random.choice`, `random.randint`, `in`, a list of special numbers; random student), **12.6** Q5 (duplicate
+names, already used in 7.2) and the Ministry's own `index()` in the operations table (12.0 p. 18). Linear search itself, the early-stop
+version on a sorted list, the "AI Experiment Analyzer" project, its seven test cases and the 20-point rubric are **kept from v1**
+(the Ministry files are silent on search). **New (audit):** `list.index()` and its error, the phone-number task with `random.choice`,
+a taken list and a special list, and the project split into functions (step c of 12.5).
+**Ministry bugs not copied:** the 12.1 p. 31–32 solution has an extra closing parenthesis (`if(new_phone_num in list_special)):`) and checks
+the special list **after** the number was already added to the taken list; the `str = ...` variable hides the built-in `str`.
+Our `new_phone_number` checks first and loops until the number is acceptable. See
+[`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
+**Prerequisite:** functions (Unit 3). Part E of the Ministry's lists lessons (list of lists, nested loops; 14.0 p. 25–30) was not delivered
+and is left out of this course.
 
 ---
 
@@ -21,11 +29,11 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | a list as an ordered, dynamic collection; indices; traversal | 45 / 45 |
-| 7.2 | list operations: append/extend/insert, remove/pop, sort/reverse, split/join | 45 / 45 |
-| 7.3 | advanced operations + the accumulation pattern | 45 / 45 |
-| 7.4 | counting, minimum, maximum, a report | 0 / 90 |
-| **7.5 (this)** | **linear search + the "AI Experiment Analyzer" checkpoint** | 0 / 90 |
+| 7.1 | what a list is; indices; slicing | 45 / 45 |
+| 7.2 | list operations | 45 / 45 |
+| 7.3 | walking a list; accumulation | 45 / 45 |
+| 7.4 | counting, filters, maximum, flat menu, parallel lists | 0 / 90 |
+| **7.5 (this)** | **linear search, `index()`, phone numbers, the "AI Experiment Analyzer"** | 0 / 90 |
 
 ---
 
@@ -33,21 +41,21 @@ labeled **Tool Note – Thonny**.
 
 | Official goal (python-b-ai.pdf p. 18) | Covered here |
 |---|---|
-| Goal 9: implement linear search, returning an index or `-1` | ✅ every task |
+| Goal 9: linear search, returning an index or `-1` | ✅ warm-up, Task 1 |
 | Goal 10: a sorted list's order allows an early stop | ✅ Task 1 |
-| Goal 11: split a solution into functions used as black boxes | ✅ the whole project |
-| Goal 12: apply lists to AI experiment results | ✅ the project's subject matter |
-| Assessment (source §4): a graded modular list project | ✅ the checkpoint |
+| Goal 11: functions as black boxes | ✅ Tasks 2 and 3 |
+| Goal 12: lists of AI experiment results | ✅ the project |
+| Assessment (chapter): a graded modular list project | ✅ the checkpoint |
 
 ### Deliberate exclusions
-Any new list method or pattern — this meeting applies 7.1–7.4's tools in one combined project.
+A new list method or pattern — this meeting applies 7.1–7.4. Binary search is not built.
 
 ---
 
 ## 3. Lesson Goal
 
-**Linear search checks elements in order and returns the first matching index, or `-1` if none match — checked
-explicitly against `-1`, never used as a plain yes/no condition.**
+**Linear search checks elements in order and returns the first matching index, or `-1` if none match — checked explicitly against
+`-1`, never used as a plain yes/no condition; and a program is built from small functions tested one by one.**
 
 ---
 
@@ -62,7 +70,7 @@ def linear_search(values, target):
 
 
 position = linear_search(scores, 81)
-if position != -1:              # explicit comparison - index 0 is a valid, successful result
+if position != -1:              # index 0 is a real success
     print("Found at", position)
 ```
 
@@ -70,15 +78,19 @@ if position != -1:              # explicit comparison - index 0 is a valid, succ
 def linear_search_sorted(values, target):
     index = 0
     while index < len(values) and values[index] < target:
-        index += 1                          # stop advancing once we've gone far enough
+        index += 1
     if index < len(values) and values[index] == target:
         return index
     return -1
 ```
 
-- `if linear_search(...):` is a bug waiting to happen — Python treats `0` as `False`, but index `0` means "found at
-  the very first position," a success.
-- On a **sorted** list, once the current value is no longer less than the target, there's no point checking further.
+- `if linear_search(...):` is a bug — `0` is falsy, but index `0` means "found at the very first position".
+- `values.index(40)` on a missing value raises `ValueError: list.index(x): x not in list` (verified); our search returns `-1` instead.
+- On a **sorted** list, stop once the current value is no longer less than the target.
+- A number is *special* when it is in the special list, or its seven digits contain `"5"` more than once, or they are a rising or falling run
+  (`digits in "0123456789"` is a string-membership trick the class knows from Unit 5).
+
+Verified: `linear_search_sorted([10, 20, 35, 50, 80], 35)` → `2`, with `40` → `-1`; the warm-up fixed prints `Found at 0`.
 
 ---
 
@@ -86,19 +98,13 @@ def linear_search_sorted(values, target):
 
 Starter: [`Analyzer_Starter.py`](Analyzer_Starter.py). Reference: [`Analyzer_Reference.py`](Analyzer_Reference.py).
 
-## 0–10 — Recap + hook
-Searching for one particular card in a row of cards — check them in order.
+## 0–8 — Recap + hook
 
-## 10–18 — Warm-up: found at 0, reported as not found
+A row of cards face down: find a particular card, one by one, in order.
+
+## 8–14 — Warm-up: found at 0, reported as not found
 
 ```python
-def linear_search(values, target):
-    for index in range(len(values)):
-        if values[index] == target:
-            return index
-    return -1
-
-
 scores = [81, 24, 67, 91]
 if linear_search(scores, 81):
     print("Found")
@@ -106,13 +112,12 @@ else:
     print("Not found")
 ```
 
-Predict `Found` (81 is right there, at index 0), run, get `Not found` — `if 0:` is `False` in Python, even though
-index `0` is a genuine, successful result. Fix: `position = linear_search(scores, 81); if position != -1: ...`.
+Predict `Found`, run, get `Not found` — `if 0:` is `False`. Fix: `position = linear_search(scores, 81)` and `if position != -1:`.
 
-## 18–32 — Task 1: `linear_search_sorted(values, target)`
+## 14–26 — Task 1: `linear_search_sorted(values, target)` and `index()`
 
-Stops as soon as the current element is no longer less than the target. Test on `[10, 20, 35, 50, 80]` with target
-`35` (present) and target `40` (absent).
+Stops as soon as the current element is no longer less than the target. Test on `[10, 20, 35, 50, 80]` with `35` and `40`. Then run
+`[10, 20, 35, 50, 80].index(35)` (`2`) and `.index(40)` (the `ValueError` above): what does our search do better?
 
 <div dir="rtl">
 
@@ -124,20 +129,41 @@ Stops as soon as the current element is no longer less than the target. Test on 
 
 </div>
 
-## 32–35 — Planning the project
+## 26–42 — Task 2: "A new phone number" (Ministry 12.5)
 
-Input → list operations → statistics → search → output. Which function handles each step, and what does each one
-take in and return?
+Prefixes `["050", "052", "053", "054"]`; a number looks like `052-8819853`. (a) `random_number(prefixes)`; (b) `is_special(number, special)`;
+(c) `new_phone_number(taken, special)` loops until the number is not taken and not special; (d) build 10 different numbers.
+A sample run (random, so **yours will differ**; this one is `random.seed(3)`):
 
-## 35–62 — Task 2 (project): "AI Experiment Analyzer" — unit checkpoint
+```text
+['052-3188131', '053-8953298', '050-1220922', '052-4216932', '054-8991880', '054-3526924', '052-3543801', '054-1254120', '050-3674287', '050-6054432']
+```
 
-Build a program that: reads similarity scores with `input()` until `-1` (the sentinel — not stored), keeping only
-scores from `0` to `100`; prints the count, average, minimum and maximum; makes a sorted **copy** without changing
-the original; reads a threshold and prints how many scores are at or above it; reads a target score and prints its
-position in the sorted copy. Reuse every function from 7.1–7.4 as a black box — don't reimplement any of their
-logic inline.
+Step c of the Ministry worksheet is exactly this: split the problem into functions and solve it again.
 
-## 62–75 — Testing, using all seven of the source's own cases
+## 42–70 — Task 3 (project): the "AI Experiment Analyzer" — unit checkpoint
+
+Reads similarity scores with `input()` until `-1` (the sentinel, not stored), keeping only scores from `0` to `100`; prints the original list,
+a sorted **copy**, the average, minimum and maximum; reads a threshold and prints how many scores are at or above it; reads a target and prints its
+position in the sorted copy. Reuse the functions of 7.3–7.4 as black boxes.
+
+Sample run (inputs `81, 120, -5, 24, 67, 91, 73, -1`, threshold `70`, target `67`):
+
+```text
+Invalid score
+Invalid score
+Original: [81, 24, 67, 91, 73]
+Ordered: [24, 67, 73, 81, 91]
+Average: 67.2
+Minimum: 24
+Maximum: 91
+At or above threshold: 3
+Position in ordered list: 1
+```
+
+(the prompts, e.g. `Score from 0 to 100, or -1:`, appear on the same lines as the typed numbers).
+
+## 70–80 — Testing with the seven cases
 
 <div dir="rtl">
 
@@ -153,26 +179,21 @@ logic inline.
 
 </div>
 
-## 75–84 — Peer review
+## 80–86 — Peer review
 
-Checklist: does only valid input enter the list? is the sentinel value itself kept out? does every function do one
-clear job, taking a parameter and returning a value? is the empty list handled? is the original list still
-unsorted after making the sorted copy? does search receive the sorted list? does a failed search give `-1`? is a
-similarity score explicitly explained as not a probability?
+Does only valid input enter the list? Is the sentinel kept out? Does every function do one job (parameter in, value out)? Is the empty list handled? Is the original still unsorted? Does the search get the sorted list? Does a failed search give `-1`? Is a similarity score explained as **not** a probability?
 
-## 84–90 — Presentation and exit check
+## 86–90 — Save and exit check
 
-Each pair explains one function's job to another pair — what it takes in, what it returns, and why it's separate
-from the others.
+Save As `G8_U7_M5_Analyzer_<Name>.py`.
 
 1. Why is linear search called "linear"?
-2. What's returned when the value isn't found?
-3. When can a sorted-list search stop early?
-4. What's the advantage of splitting the project into functions?
+2. What is returned when the value is not found?
+3. When can a search on a sorted list stop early?
+4. What is the advantage of splitting a program into functions?
 
 ### Tool Note – Thonny
-Test each function alone in the Shell (`find_maximum([1, 2, 3])`, `linear_search_sorted([1,2,3], 2)`) before
-running the full project — much faster to isolate a problem in one function than inside the whole flow.
+Test each function alone in the Shell (`find_maximum([1, 2, 3])`, `linear_search_sorted([1, 2, 3], 2)`) before running the whole project.
 
 ---
 
@@ -180,22 +201,23 @@ running the full project — much faster to isolate a problem in one function th
 
 | Misconception | Correction |
 |---|---|
-| A search result can be tested as a plain `if` condition | Index `0` is `False`-y but a real success — always compare explicitly to `-1` |
-| `linear_search_sorted` works on any list | It assumes the list is already sorted — sort first, or use plain `linear_search` |
-| The sentinel value (`-1`) should be stored like any other input | It signals "stop," and is never added to the list |
-| `-5` (an invalid score) also ends the input loop | Only the exact sentinel `-1` ends it — other invalid values are rejected and the loop continues |
-| Reimplementing logic inline is fine if it's quick | Reuse the tested functions from earlier meetings — that's the point of building them as black boxes |
+| A search result can be tested as a plain `if` | Index `0` is falsy but a real success — compare to `-1` |
+| `linear_search_sorted` works on any list | It assumes the list is already sorted |
+| `index()` and our search behave the same when the value is missing | `index()` raises `ValueError`; ours returns `-1` |
+| The sentinel (`-1`) should be stored | It signals "stop" and is never added |
+| `-5` also ends the input loop | Only `-1` does; other invalid values are rejected and the loop goes on |
+| Random numbers cannot repeat | They can — that is why `new_phone_number` checks the taken list |
+| Re-implementing logic inline is fine | Reuse the tested functions |
 
 ---
 
-# 8. Assessment Evidence (formative)
+# 8. Assessment Evidence
 
-- The warm-up's index-`0` bug explained precisely (why `0` is falsy but still a real success), not just fixed
-- `linear_search_sorted()` correct for both a present and an absent target, matching the trace table
-- **Unit 7 checkpoint — "AI Experiment Analyzer"**, scored against the source's 20-point rubric: list creation and
-  input 3, list operations 3, accumulation and average 3, minimum and maximum 3, linear search 3, modularity 3,
-  testing and explanation 2. Bands: 18–20 complete, modular, tested and well explained · 14–17 works, one small
-  flaw in an operation, an edge case, or the explanation · 10–13 partial, missing a core pattern or clear function
-  split · 0–9 needs support with lists, accumulation, search, or `return`.
-- All seven test cases run and matched against the table above
-- The peer review and the one-function presentation
+- The warm-up explained precisely (why `0` is falsy but a real success)
+- `linear_search_sorted()` correct for a present and an absent target, matching the trace table
+- `new_phone_number()` never repeats a number and never returns a special one
+- **Unit 7 checkpoint — "AI Experiment Analyzer"**, scored against the 20-point rubric: list creation and input 3, list operations 3,
+  accumulation and average 3, minimum and maximum 3, linear search 3, modularity 3, testing and explanation 2. Bands: 18–20 complete,
+  modular, tested and well explained · 14–17 works, one small flaw · 10–13 partial, missing a core pattern or the function split · 0–9 needs support.
+- All seven test cases matched against the table above
+- The peer review

@@ -4,9 +4,24 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 7 (pp. 17–18); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** ✅ complete — all 5 meetings built and approved by the teacher.
-No raw teacher material exists for this unit. Built from `Downloads\python-b-codex\python_b_unit07_lists_complete_unit.md` —
-one detailed document covering all five meetings, including its own exact 90-minute clock tables and meeting split.
+**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (Lists parts B, C, D: files 12.0, 12.1, 12.5, 12.6, 12.7, 13.0, 13.1, 13.6,
+14.0, 14.1); awaiting re-approval. The v1 build (approved earlier) came from `Downloads\python-b-codex\python_b_unit07_lists_complete_unit.md`;
+its linear search and capstone are kept because the Ministry files are silent there. Decks: superseded, new NotebookLM decks pending.
+
+### Ministry file mapping
+
+| Ministry file | What it holds | Used in |
+|---|---|---|
+| 12.0 / 12.1 (part B) | `list()`, `append`, `insert`, indexing, `[a:b:c]`, `[::-1]`, max, average, the temperature filter, `in`, `+`, `join`/`split`, colours with `%`, operations summary, palindrome list, name occurrence, name-letter comparison, phone numbers, `random.choice` | 7.1, 7.2, 7.5 |
+| 12.5 (worksheet #2) | "A new phone number" steps a–c | 7.5 |
+| 12.6 (master Python) | Q5 duplicate names, Q6 clothes (flat name/price list, total by index and by value) | 7.2, 7.4 |
+| 12.7, 13.6 | short summaries | 7.2, 7.3 (closing slides) |
+| 13.0 / 13.1 (part C) | traversal by index and by value, `sum_listA/B`, class names, Roni's prices, grades, presents, names, menu | 7.3, 7.4 |
+| 14.0 / 14.1 (part D) | Robber language, IP address, encryption, three parallel lists, presents/grades/menu, evens first, 20% discount, `remove_even`, `remove_place_num`, grouped grades, "magic list", nested-loop preview | 7.3 (`remove_even`), 7.4 (parallel lists, filters, menu, evens first, discount, grouped grades) |
+| **Not delivered** | Lists part A, part E (list of lists), worksheets 12.2–12.4, 13.2–13.5, 14.2 onward, and the Colab projects "dance party" / "hangman" of 13.x | assumed: part A = our 7.1 basics; part E and the projects are left out |
+
+Robber language, IP address validation and the encryption exercise (14.0 pp. 4–11) use string methods and `split`; they are **not** built here
+(they belong to the strings theme, Unit 5); they are enrichment for fast students.
 
 ## Official topics and hours
 
@@ -18,10 +33,10 @@ Lab); that pattern is adjusted here to fit the master table's 3/7 instead — se
 
 | Topic (Ministry) | Chapter-table hours (T / P) | Planned in | Minutes (T / P) | Status |
 |---|---:|---|---:|---|
-| מהי רשימה — what a list is | 1 / 1 | 7.1 (45 T + 45 P) | 45 / 45 | ✅ |
-| פעולות על רשימה — list operations | 1 / 2 | 7.2 (45 T + 45 P) | 45 / 45 | ✅ |
-| סכימת איברים — the accumulation pattern | 1 / 2 | 7.3 (45 T + 45 P), 7.4 (90 P) | 45 / 135 | ✅ |
-| חיפוש סדרתי — linear search | 1 / 1 | 7.5 (90 P) | 0 / 90 | ✅ |
+| מהי רשימה — what a list is, slicing | 1 / 1 | 7.1 (45 T + 45 P) | 45 / 45 | 🔶 |
+| פעולות על רשימה — list operations | 1 / 2 | 7.2 (45 T + 45 P) | 45 / 45 | 🔶 |
+| סכימת איברים — traversal, accumulation, counting, filters | 1 / 2 | 7.3 (45 T + 45 P), 7.4 (90 P) | 45 / 135 | 🔶 |
+| חיפוש סדרתי — linear search, phone numbers, capstone | 1 / 1 | 7.5 (90 P) | 0 / 90 | 🔶 |
 | **Total (master table)** | **3 / 7** | | **135 / 315** | |
 
 Chapter goals (source §1, twelve in all):
@@ -40,57 +55,54 @@ Chapter goals (source §1, twelve in all):
 12. Apply lists to AI experiment results, preparing for classification and recommenders → every meeting
 
 ## Unit 7.1 — Knowledge + Lab: What Is a List?
-- why separate variables don't scale for a growing collection of results; creating a list (empty, or with initial
-  values); `len`, indexing (positive and negative), updating an element.
-- `in` / `not in`, `count`; a direct loop vs. an index loop, same distinction as strings (Unit 5).
-- lab: an `==`-instead-of-`=` warm-up bug, a small AI-results report, a bounds-checked update function.
+- why separate variables don't scale; `[]`, `list()`, a literal; `len`, indexing (positive and negative), updating an element and `IndexError`.
+- `in` / `not in`; `+` (a new list); slicing `[start:stop:step]` and `[::-1]` (the same notation as strings, Unit 5).
+- the two ways to walk a list, as a preview (full treatment in 7.3).
+- lab: an `==`-instead-of-`=` warm-up bug, an AI-results report, a bounds-checked update, a slicing report, `+` and `list()`.
 
 ## Unit 7.2 — Knowledge + Lab: List Operations
-- `append` (one item) vs. `extend` (items from a collection) vs. `insert` (at a position); `remove` (by value,
-  check first) vs. `pop` (by index, returns the removed value); `sort`/`reverse` mutate in place and return `None`.
-- `split` (a string method returning a list) and `join` (a string method that joins list items with a separator).
-- lab: a `sort()`-returns-`None` warm-up bug, a safe-remove function, a task-queue built with `pop(0)`, a
-  split/join round trip.
+- `append` / `insert` / `extend`; `count` / `index` (with the `ValueError` and the `in` guard); `remove` / `pop`; `sort` / `reverse` (in place, return `None`).
+- building a new list in a loop; `split` / `join`; `list("text")`; `random.choice`.
+- lab: the Ministry's `append(i)` NameError as the warm-up, `colder_than`, `join_class` (duplicate names), `all_palindromes`, split/join/random.
 
-## Unit 7.3 — Knowledge + Lab: Advanced Operations + the Accumulation Pattern
-- why removing from a list while directly looping over it skips elements — build a new list instead; `.copy()` (or
-  `[:]`) before sorting when the original order must survive.
-- the accumulation pattern: initialize before the loop, update every iteration, use the result after the loop;
-  `calculate_total` and `calculate_average` (with an empty-list guard).
-- lab: a remove-while-iterating warm-up bug (with a dramatic wrong result), a sort-without-losing-the-original task,
-  the summation/average functions.
+## Unit 7.3 — Knowledge + Lab: Walking a List and Accumulation
+- by index (`range(len(...))`) vs. by value; what `item` holds in each; the accumulation pattern; the average with an empty-list guard.
+- the "change while looping" trap and its two fixes; `b = a` vs. `.copy()`; a sorted copy.
+- lab: a `remove_even` warm-up bug (with its trace), `sum_by_index` / `sum_by_value`, `calculate_average`, Roni's prices, `without_even`, `sorted_copy`.
 
-## Unit 7.4 — Lab + Lab: Counting, Minimum, Maximum, a Report
-- a counter that grows only when its condition holds; minimum/maximum initialized from the list's **own first
-  element** — never from `0`, which silently breaks on an all-negative list.
-- combining several small functions into one text report.
-- lab: a max-initialized-to-`0` warm-up bug (using the source's own all-negative edge case), counting functions,
-  `find_minimum`, `build_report` — tested against the source's own four edge cases.
+## Unit 7.4 — Lab + Lab: Counting, Filters, Maximum, Flat Menus, Parallel Lists
+- a counter that grows only when its condition holds; maximum from the first element, never from `0`.
+- reports: grades (average, above average, at most 60, "Excellent!"), presents, `count_in_range`.
+- one flat list name/price/name/price with even/odd index logic and the slices `[0::2]`, `[1::2]`; parallel lists and an average per student.
+- if time: `evens_first`, `discount_20`, a bug hunt in the grouped-grades solution.
 
-## Unit 7.5 — Lab + Lab: Linear Search + the "AI Experiment Analyzer" (unit checkpoint)
-- linear search: check each element in order, return its index on the first match, `-1` if the loop finishes
-  without one; never test the result as a plain boolean (index `0` is falsy in Python, but a valid, successful
-  result).
-- on a **sorted** list, stop as soon as the current element is no longer less than the target.
-- lab: an index-`0`-treated-as-`False` warm-up bug, early-stop search, then the "AI Experiment Analyzer" — the
-  unit's capstone, combining every pattern from the unit.
+## Unit 7.5 — Lab + Lab: Linear Search, a New Phone Number, the "AI Experiment Analyzer"
+- linear search returns an index or `-1`, never tested as a plain boolean; early stop on a sorted list; the built-in `index()` and its `ValueError`.
+- "A new phone number": `random.choice`, `random.randint`, a taken list, a special list, `str.count`, a rising/falling run; split into functions.
+- the unit's capstone, combining every pattern from the unit, with the 20-point rubric.
 
 ### Scope decisions
-- **The source document is the only material and is unusually complete** — clock tables (verified to sum to 90 for
-  each meeting), worked code, common mistakes, a project rubric and closing summary questions. Followed closely;
-  adapted into the house lesson-notes/lab-brief split and warm-up-bug convention.
-- **Meeting structure changed from the source's own table to fit the master-table hours.** The source's own plan
-  gives meetings 1–3 Knowledge + Lab and meetings 4–5 mixed/Lab + Lab in a way that sums to 4 theory + 6 practice
-  hours (its chapter table's own total, not the master table's 3/7). Since the hours rule (`CLAUDE.md`) requires the
-  master table's split, this build instead makes 7.1–7.3 Knowledge + Lab and 7.4–7.5 Lab + Lab (3 × 45 min theory =
-  135 min = 3 h; 3 × 45 + 2 × 90 = 315 min = 7 h practice). This keeps every one of the source's own examples, tasks
-  and edge cases in the same relative place — only the theory/practice label per meeting changes, and 7.5's search
-  explanation moves into that meeting's guided-practice minutes rather than a separate 45-minute Knowledge block
-  (linear search is a small addition to an already-familiar loop-and-compare pattern, the same way Unit 5's slicing
-  and traversal meetings handled new syntax within Lab + Lab).
-- **Not taught:** lists of lists, list comprehensions, tuples, sets, dictionaries — all outside this course (moved
-  to Part C, per `clarifications-tashpaz-he.pdf` p. 3, or simply not in this program). Binary search is deliberately
-  **not** built; only the early-stop linear search the source specifies.
+1. **Five meetings and 450 minutes are kept** (3 Knowledge + Lab, 2 Lab + Lab, from the master table). The Ministry's parts B, C, D (about three
+   of its own meetings plus worksheets) are mapped onto them in the table above; where the Ministry is silent (linear search, the capstone) the
+   v1 content stays.
+2. **Missing items added** (the audit of 8 Nov 2026): list slicing `[a:b:c]` and `[::-1]`, `list()`, `[]`, `index()`, `+`, `random.choice`, the flat
+   alternating name/price menu with even/odd index logic, parallel lists and the average per student, the duplicate-name input check, the
+   above-average and at-most-60 filters, the "evens first" list, the 20% discount, the `remove_even` mutation trap, the palindrome-list task.
+3. **`def` is allowed**: Unit 7 follows Unit 3 in the schedule, and the Ministry worksheets are written with `def`.
+4. **Rulebook unchanged — no nested loops, no lists of lists, no tuples, sets, dictionaries, comprehensions, `enumerate`, `sorted(key=...)`.** The Ministry
+   previews nested loops (14.0 pp. 25–29, "will be learned later") and announces a list of lists in part E (not delivered); the course leaves both out. The
+   restaurant menu is one **flat** list, as the Ministry's own exercise #7 gives it. Functions return **one** value (no tuples).
+5. **Ministry-deck bugs are never copied as they stand**: `append(i)` for `append(item)` (12.0 p. 10) is used only as the 7.2 warm-up; the
+   curly quotes, stray parentheses, the stale `print(item, ...)` in the palindrome `else` branch, the wrong example averages on 14.0 p. 12 and the
+   `begin += (1 + i)` solution on p. 23 are documented in the lesson notes (7.4's bug hunt uses the last one deliberately).
+6. **Not delivered, not invented**: Lists part A (assumed to be the 7.1 basics), part E, the numbered worksheets and their keys, and the Colab
+   projects "dance party" and "hangman" (13.2–13.5). Ask the teacher for them before the next rework.
+7. **Ministry exercises left as enrichment**: Robber language, IP address validation, the replace-based encryption (14.0 pp. 4–11, string work), `remove_place_num`, the
+   "magic list" and the Turtle colour list (12.0 pp. 16–17, which uses `turtle.Turtle()`, against the course's Turtle rule).
+8. **Kept from v1**: the `==` / `=` warm-up, the max-from-`0` warm-up, the index-0 search warm-up, linear search with early stop, the capstone
+   "AI Experiment Analyzer", its seven test cases and the 20-point rubric. **Dropped from v1**: the stand-alone safe-remove and `pop(0)` queue tasks and
+   `build_report` (replaced by Ministry exercises of the same weight).
+9. **Meeting structure** follows the master table's 3 / 7 split (the chapter table's 4 / 6 is used only for the weight of topics), as in v1.
 
 ## Exit criteria
 The student creates, indexes, updates and traverses a list; chooses correctly among `append`/`extend`/`insert` and

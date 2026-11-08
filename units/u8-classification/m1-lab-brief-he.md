@@ -1,76 +1,138 @@
 # יחידה 8.1 – סיווג
 
-כיתה ח׳ · AI + Python B · **סיווג, תכונות וקו מפריד**
+כיתה ח׳ · AI + Python B · **סיווג לפי תכונות וקו מפריד**
 
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> סיווג משייך דוגמה לאחת מקטגוריות קבועות, לפי התכונות שלה. קו מפריד הוא בחירה של מתכנן המערכת — לא עובדה שהתגלתה בטבע.
+> סיווג משייך דוגמה לאחת מקטגוריות קבועות, לפי התכונות שלה. תכונה טובה היא **רלוונטית** וגם **מבדילה**. קו מפריד הוא בחירה של מי שמתכנן את המערכת — לא עובדה שהתגלתה בטבע.
 
 ## דף עזר
 
 ```python
-def classify_fruit(color, shape, hardness):
-    color = color.lower()
-    shape = shape.lower()
-    hardness = hardness.lower()
+def classifier():
+    years = [1889, 1519, 1906, 1893]
+    paintings = ["Starry Night", "Mona Lisa", "Water Lilies", "The Scream"]
+    classic = []
+    modern = []
+    for i in range(len(paintings)):
+        if years[i] < 1860:
+            classic.append(paintings[i])
+        else:
+            modern.append(paintings[i])
+    print("classic:", classic)
+    print("modern:", modern)
+```
 
-    if color == "yellow" and shape == "long":
-        return "banana"
-    elif color == "red" and shape == "round":
+```python
+def classify_fruit(softness, color):
+    if softness < 2 and color in ["red", "green", "yellow"]:
         return "apple"
-    elif shape == "long" and hardness == "soft":
+    elif softness > 2 and color in ["yellow", "green"]:
         return "banana"
     else:
-        return "unknown"
+        return "unknown fruit"
 ```
 
 <div dir="rtl">
 
-תכונה טובה היא גם **רלוונטית** (קשורה לקטגוריה) וגם **מבדילה** (באמת משתנה בין הקטגוריות).
+כל דוגמה חייבת לקבל קטגוריה: בדקו תמיד את ערכי הגבול.
 
 </div>
 
-## 1. חימום: המקרה שלא התאים
+## 1. חימום: היצירה שנעלמה
 
 פתחו את `Classifier_Starter.py`.
 
 ```python
-def classify_fruit(color, shape, hardness):
-    if color == "yellow" and shape == "long":
-        return "banana"
-    elif color == "red" and shape == "round":
-        return "apple"
-    elif shape == "long" and hardness == "soft":
-        return "banana"
-    else:
-        return "unknown"
-
-
-print(classify_fruit("Yellow", "Long", "Soft"))
+for i in range(len(paintings)):
+    if years[i] < 1860:
+        classic.append(paintings[i])
+    elif years[i] > 1860:
+        modern.append(paintings[i])
 ```
 
-חזו `banana`, הריצו — מקבלים `unknown`. אותיות רישיות בקלט לא תואמות את המחרוזות הקטנות שבחוקים. תקנו: נרמלו עם `.lower()` על כל קלט.
+<div dir="rtl">
 
-## 2. משימה 1: מסווג לפי מזג אוויר
+ארבע יצירות צריכות להיכנס לשתי הרשימות. חזו כמה יהיו בכל רשימה, הריצו, ומצאו את הבאג. אחת היצירות היא משנת 1860 בדיוק. תקנו ובדקו.
 
-כתבו `classify_activity(temperature, raining, strong_wind)`, שמחזירה `"indoor"` או `"outdoor"`: גשם או רוח חזקה ← indoor; אחרת טמפרטורה בין 18 ל-30 (כולל) ← outdoor, אחרת indoor. מצאו **שני** מקרי קצה שבהם ההחלטה מרגישה שגויה או חסרה, וציינו את התכונה החסרה בכל אחד.
+</div>
 
-## 3. משימה 2: מעקב לפני הרצה
+## 2. משימה 1: מסווג פלייליסטים
+
+<div dir="rtl">
+
+שני שירים נכנסים לרשימה `nostalgia` אם יצאו **לפני** שנת הפיצול, ואחרת לרשימה `hits`. כתבו לולאה עם שתי רשימות מקבילות (שירים ושנים) ושתי רשימות ריקות. הריצו עם שנת פיצול 2015, ואחר כך שנו לשנה אחרת. הוסיפו שני שירים משלכם ובדקו שהם מסווגים נכון.
+
+</div>
 
 ```python
-def classify_level(score, attempts):
-    if score >= 80 and attempts <= 3:
-        return "advanced"
-    elif score >= 50:
-        return "intermediate"
-    else:
-        return "beginner"
+years = [2008, 2022, 2015, 1999, 2017, 2026]
+songs = ["Song A", "Song B", "Song C", "Song D", "Song E", "Song F"]
 ```
 
-עקבו על דף אחר `(90, 2)`, `(90, 6)`, `(55, 8)`, `(40, 1)` לפני שמריצים.
+## 3. משימה 2: תכונה אחרת
 
-## 4. מתעדים ושומרים
+<div dir="rtl">
+
+איזו תכונה נוספת אפשר לסווג לפיה שירים (אורך, זמר, קצב, ז׳אנר, מצב רוח)? כתבו תוכנית שמסווגת את אותם שירים לפי **אורך בשניות**: קצר (פחות מ-200) וארוך (200 ומעלה). צריך רשימה מקבילה חדשה.
+
+</div>
+
+```python
+lengths = [180, 240, 150, 310, 200, 199]
+```
+
+## 4. משימה 3: בוחרים תכונות (על הנייר)
+
+<div dir="rtl">
+
+הנה תכונות שנאספו על פירות: צבע, תאריך קנייה, ארץ ייצור, מידת רכות (1 עד 5), מחיר לקילו.
+
+א. בחרו **שתי** תכונות שיעזרו למחשב להבדיל בין תפוח לבננה, ונמקו למה הן טובות.
+
+ב. תנו דוגמה לתכונה שאינה טובה, והסבירו למה.
+
+</div>
+
+## 5. משימה 4: פעולת סיווג ומקרי קצה
+
+<div dir="rtl">
+
+כתבו `classify_fruit(softness, color)`. הכללים:
+
+- תפוח: רכות קטנה מ-2 והצבע אדום, ירוק או צהוב.
+- בננה: רכות גדולה מ-2 והצבע צהוב או ירוק.
+- כל השאר: `"unknown fruit"`.
+
+קראו לפעולה שלוש פעמים והדפיסו את התוצאה עבור הקלטים שבטבלה. אחר כך נסו לשבור אותה.
+
+</div>
+
+| softness | color | מה לדעתכם יודפס? | מה הודפס? |
+|---|---|---|---|
+| 1 | "green" | | |
+| 4 | "yellow" | | |
+| 3 | "purple" | | |
+| 2 | "yellow" | | |
+
+<div dir="rtl">
+
+בננה שעוד לא הבשילה היא קשה וירוקה: מה הפעולה תחזיר עבורה? האם המחשב צדק? ומה קורה כשהרכות היא בדיוק 2? החליטו איזה פרי זה, וכתבו למה זו **החלטה** שלכם.
+
+</div>
+
+## 6. משימה 5: שאלה למחשבה
+
+<div dir="rtl">
+
+מתכנת הציע את החוק: אם קצב השיר גבוה מ-120 הוא "שמח", אחרת הוא "עצוב". מצאו שיר או סגנון שבו החוק נכשל, והסבירו למה קשה להגדיר "מצב רוח" בעזרת `if/else`.
+
+**אם נשאר זמן:** כתבו `classify_activity(temperature, raining, strong_wind)` שמחזירה `"indoor"` או `"outdoor"` (גשם או רוח חזקה: indoor; אחרת טמפרטורה בין 18 ל-30 כולל: outdoor), ומצאו שני מקרי קצה.
+
+</div>
+
+## 7. מתעדים ושומרים
 
 שומרים: `File › Save As` ← `G8_U8_M1_Classifier_<Name>.py`
 
@@ -80,9 +142,9 @@ def classify_level(score, attempts):
 
 <div dir="rtl">
 
-1. מהי תכונה?
+1. מהי תכונה, ומה הופך אותה לטובה?
 2. מהו קו מפריד?
-3. תנו דוגמה לתכונה מקרית.
-4. מדוע בננה ירוקה היא מקרה קצה למסווג צבע פשוט?
+3. מדוע בננה שעוד לא הבשילה היא מקרה קצה לחוק של הפירות?
+4. מדוע אי אפשר לכתוב חוקי `if/else` לכל תמונה בעולם?
 
 </div>

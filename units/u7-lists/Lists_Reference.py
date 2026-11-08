@@ -32,6 +32,33 @@ def task2():
     print(update_score(scores, 5, 99), scores)
 
 
-warmup()
-# ai_report([81, 24, 67, 91])
-# task2()
+# Task 3: slicing [start:stop:step] - the stop index is not included
+def slice_report(values):
+    print("All:", values)
+    print("First five:", values[:5])
+    print("From index 2 up to 5:", values[2:5])
+    print("Every third, from index 2:", values[2::3])
+    print("Reversed:", values[::-1])
+
+
+# Task 4 (if time): + builds a new list, the originals stay as they were; list() splits text
+def combine(first, second):
+    return first + second
+
+
+def task4():
+    morning = [81, 24]
+    evening = [67, 91]
+    both = combine(morning, evening)
+    print(both, len(both))
+    print(morning, evening)
+    print(list("cat"))
+    print(list())
+
+
+if __name__ == "__main__":
+    warmup()
+    # ai_report([81, 24, 67, 91])
+    # task2()
+    # slice_report([25, 20, 21, 24, 21, 24, 21, 16, 23])
+    # task4()

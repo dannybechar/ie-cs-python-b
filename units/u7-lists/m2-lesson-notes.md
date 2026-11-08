@@ -1,19 +1,24 @@
 # Unit 7.2 — Lists
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: List Operations
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
-**Source of inspiration:** `python_b_unit07_lists_complete_unit.md`, meeting 2 — its own clock table, the
-append/extend/insert examples (with the append-a-list-as-one-item pitfall), the remove/pop examples (with the
-check-before-remove pattern), the sort/reverse examples (with the `sort()`-returns-`None` pitfall), the split/join
-example, the step-by-step trace drill, the task-queue challenge and the exit card kept nearly unchanged.
+**Source of inspiration:** Ministry **12.0 / 12.1** (the operations summary p. 18 and 13.0 p. 2: `append`, `count`, `index`, `insert`,
+`remove`, `reverse`, `sort`, `pop`, `list()`, `join`, `split`; the temperature filter p. 9–10; the palindrome-list exercise pp. 19–23;
+`random.choice` p. 34–35; the fruit lists with `join`/`split`, p. 12–15) and worksheet **12.6** (master Python, Q5: duplicate names).
+Kept from v1: `extend`, `sort()` returns `None`, copy before sort. **Dropped from v1:** the stand-alone safe-remove and `pop(0)`
+task-queue tasks (the behaviour is shown in the demo; `join_class` is the Ministry's duplicate-name task). **New (audit):**
+`index()`, `list()`, `random.choice`, the palindrome-list task, the duplicate-name check.
+**Ministry bug not copied:** 12.0 p. 10 writes `new_list.append(i)` inside `for item in temperature` (a `NameError`). Used here as the
+**warm-up**, deliberately. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
+**Prerequisite:** functions (Unit 3) — tasks are `def` functions that take a list and return a value, as in the Ministry worksheets.
 
 ---
 
@@ -21,11 +26,11 @@ labeled **Tool Note – Thonny**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | a list as an ordered, dynamic collection; indices; traversal | 45 / 45 |
-| **7.2 (this)** | **list operations: append/extend/insert, remove/pop, sort/reverse, split/join** | 45 / 45 |
-| 7.3 | advanced operations + the accumulation pattern | 45 / 45 |
-| 7.4 | counting, minimum, maximum, a report | 0 / 90 |
-| 7.5 | linear search + the "AI Experiment Analyzer" checkpoint | 0 / 90 |
+| 7.1 | what a list is; indices; slicing | 45 / 45 |
+| **7.2 (this)** | **`append`/`insert`/`extend`, `count`/`index`, `remove`/`pop`, `sort`/`reverse`, new lists in a loop, `split`/`join`, `random.choice`** | 45 / 45 |
+| 7.3 | traversal by index and by value; accumulation; the "change while looping" trap | 45 / 45 |
+| 7.4 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
+| 7.5 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
 
 ---
 
@@ -33,46 +38,64 @@ labeled **Tool Note – Thonny**.
 
 | Official goal (python-b-ai.pdf p. 17) | Covered here |
 |---|---|
-| Goal 5: `append`, `extend`, `insert`, `remove`, `pop`, `count`, `sort`, `reverse` | ✅ every task |
-| Goal 6: `split` (text → list) and `join` (list → text) — first met in Unit 5.4 (shown and printed only); here revisited and used as a list | ✅ Task 3 |
+| Goal 5: `append`, `extend`, `insert`, `remove`, `pop`, `count`, `sort`, `reverse` appropriately | ✅ demo + tasks |
+| Goal 6: `split` and `join` | ✅ |
+| Goal 8 (start): build a new list from a condition | ✅ Task 1 |
+| Goal 12: lists in AI contexts | ✅ names, results |
 
 ### Deliberate exclusions
-The accumulation pattern (7.3), any list-modification-during-traversal pitfall (7.3), search (7.5).
+Accumulation and the "remove while looping" trap (7.3). Sorting with a key function, `sorted()`, dictionaries, comprehensions: out of the course.
 
 ---
 
 ## 3. Lesson Goal
 
-**Choose `append` for one item, `extend` for several, `insert` for a position; `remove` deletes by value, `pop`
-deletes by index and returns what it removed; `sort`/`reverse` change the list in place and return `None`.**
+**Every list operation has one job and one exact result: choose `append`/`insert`/`extend` to add, `remove`/`pop` to delete,
+`count`/`index` to ask, and remember that `sort`/`reverse` change the list itself and give back `None`.**
 
 ---
 
 ## 4. Core Mental Models
 
 ```python
-tasks = ["study", "exercise"]
-tasks.append("rest")               # one item added
-tasks.extend(["read", "sleep"])      # each item of the collection added separately
-tasks.insert(1, "eat")                # inserted at position 1
+my_lst = list()          # same as []
+my_lst.append(1)         # [1]
+my_lst.insert(0, 4)      # [4, 1]  - position first, value second
+my_lst.extend([7, 8])    # [4, 1, 7, 8]  - each item added
+my_lst.append([7, 8])    # [4, 1, 7, 8, [7, 8]] - ONE item that happens to be a list (shown only as a warning)
 ```
 
-```python
-values = [1, 2]
-values.append([3, 4])
-print(values)   # [1, 2, [3, 4]] - one list added as a single item, not two numbers
+- `append(x)` adds one item at the end; `insert(position, x)` adds at a position; `extend(items)` adds every item of another list.
+- `count(x)` — how many times; `index(x)` — the first position (an error if absent: check `x in values` first).
+- `remove(x)` deletes the first item equal to `x`; `pop()` deletes the last and **returns** it; `pop(position)` deletes that position.
+- `values.sort()` and `values.reverse()` change the list and return `None`; so `result = values.sort()` leaves `result` empty-handed.
+- A **new list** is built with `result = []` before the loop and `result.append(item)` inside it.
+
+Verified demo (`Operations_Reference.py`, function `demo`):
+
+```text
+[1, 2, 3]
+[4, 1, 2, 3]
+[4, 1, 2, 3, 7, 8]
+[4, 1, 2, 3, 7, 8, [7, 8]]
+2 1                       # letters.count("a"), letters.index("a") on ["c", "a", "d", "a"]
+['c', 'd', 'a']           # letters.remove("a") removed the FIRST "a" only
+a ['c', 'd']              # last = letters.pop()
+c ['d']                   # first = letters.pop(0)
+None [10, 20, 30]         # result = numbers.sort() on [30, 10, 20]
+[30, 20, 10]              # numbers.reverse()
+['c', 'a', 't']           # list("cat")
+a-b-c                     # "-".join(["a", "b", "c"])
+['a', 'b', 'c']           # "a-b-c".split("-")
 ```
 
-```python
-scores = [72, 95, 61]
-ordered = scores.sort()   # sorts scores in place - and returns None
-print(ordered)              # None - a very common surprise
-```
+Errors, exact text on Python 3.14:
 
-- `remove(value)` deletes the first match by **value**; check `value in items` first, or it raises `ValueError`.
-- `pop(index)` deletes by **position** and **returns** the removed item — useful when you need that value.
-- `text.split(sep)` (met in Unit 5.4, where the result was only printed) is a **string** method that returns a list; `split()` with no argument splits on any run of spaces, so `len(text.split())` counts words even with double spaces; `sep.join(list_of_strings)` is a **string** method
-  (called on the separator) that returns text.
+```text
+[1, 2].index(9)   ValueError: list.index(x): x not in list
+[1, 2].remove(9)  ValueError: list.remove(x): x not in list
+[].pop()          IndexError: pop from empty list
+```
 
 ---
 
@@ -80,11 +103,16 @@ print(ordered)              # None - a very common surprise
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap:** creating a list, indexing, updating |
-| 8–24 | Adding: `append`, `extend`, `insert` — and the `append([3, 4])` pitfall (one item, not two) |
-| 24–33 | Removing: `remove` (by value, with a check-first pattern) vs. `pop` (by index, returns the value) |
-| 33–41 | Sorting and reversing in place; the `ordered = scores.sort()` pitfall and its fix with `.copy()` |
-| 41–45 | `split` / `join` recalled from 5.4 (2 min: `dash_words` on the board), then used on the list: indexing and looping over what `split` returns; `" | ".join(...)` → back to text; `words[0]` and `words[-1]` replace the `find` code of 5.4's first-and-last-word task |
+| 0–4 | Quick recall from 7.1: one prediction on slicing, `[::-1]` and `in` |
+| 4–10 | Growing a list: `list()`, `append`, `insert(0, x)`, `extend` vs. `append([...])` |
+| 10–15 | `count`, `index`, the `ValueError` and the `in` guard |
+| 15–20 | `remove` (first match only), `pop()` / `pop(0)` returning the removed value |
+| 20–22 | **Predict (question only):** `result = numbers.sort()` then `print(result)` |
+| 22–26 | The answer `None`; `sort`/`reverse` change the list in place; `list("cat")` |
+| 26–32 | Building a **new** list in a loop: the temperatures below 21 → `[20, 16]` |
+| 32–37 | `split` and `join`: text ⇄ list |
+| 37–41 | `random.choice(names)` — a random student |
+| 41–45 | The summary table (12.0 p. 18) and the lab missions |
 
 ---
 
@@ -92,52 +120,58 @@ print(ordered)              # None - a very common surprise
 
 Starter: [`Operations_Starter.py`](Operations_Starter.py). Reference: [`Operations_Reference.py`](Operations_Reference.py).
 
-## 45–53 — Warm-up: sorted, but into nothing
+## 45–51 — Warm-up: the `NameError` (the Ministry's own bug)
 
 ```python
-scores = [72, 95, 61]
-ordered = scores.sort()
-print(ordered)
+temperature = [25, 20, 21, 24, 21, 24, 21, 16, 23]
+new_list = []
+for item in temperature:
+    if item < 21:
+        new_list.append(i)
+print(new_list)
 ```
 
-Predict a sorted list, run, get `None` — `sort()` sorts `scores` in place and returns `None`, nothing to store. Fix:
-copy first, then sort the copy: `ordered = scores.copy(); ordered.sort()`.
+Predict `[20, 16]`, run: `NameError: name 'i' is not defined. Did you mean: 'id'?` — the loop variable is `item`; there is no `i`.
+Teach reading the message: the last line names the problem, the arrow points at the line. Fix: `append(item)`.
 
-## 53–63 — Task 1: `safe_remove(items, target)`
+## 51–60 — Task 1: `colder_than(values, limit)`
 
-Checks `target in items` before removing; if present, removes it and returns `True`, otherwise prints
-`"Task not found"` and returns `False`. Test on `["study", "exercise"]` with `"exercise"` and with `"rest"`.
+Returns a **new** list with the values smaller than `limit`. `colder_than(temperature, 21)` → `[20, 16]`; with limit `10` → `[]`.
 
-## 63–74 — Task 2: `process_queue(tasks)`
+## 60–70 — Task 2: `join_class(students, name)` (Ministry 12.6 Q5)
 
-While the list isn't empty, `pop(0)` the first task and print `"Working on: <task>"`. Test on
-`["collect data", "run model", "check result"]`.
+If `name` is already in the list, print `We cannot place you in this class` and return `False`; otherwise add it and return `True`.
 
 ```text
-Working on: collect data
-Working on: run model
-Working on: check result
+We cannot place you in this class
+False ['Dana', 'Avi', 'Noa']
+True ['Dana', 'Avi', 'Noa', 'Lior']
 ```
 
-## 74–83 — Task 3: `csv_round_trip(text)`
+## 70–82 — Task 3: `all_palindromes(words)` (Ministry 12.1 p. 20–22)
 
-Splits `text` on `","` and rejoins the pieces with `" | "`. Test on `"cat,dog,bird"` → `"cat | dog | bird"`.
+`True` when every word reads the same backwards, ignoring capital letters (hint: `word[::-1]`, `lower()`).
+`["ABA", "1221", "A12321A"]` → `True`; `["ACA", "AcCA"]` → `True` (with the case upgrade); `["ACA", "ACB"]` → `False`.
+**Ministry bug not copied:** the 12.0 p. 19–20 solutions leave a stale `print(item, "Is not a palindrome")` in the `else` branch of the
+second version, and the strings use curly quotes. Our task returns a value instead of printing.
 
-## 83–90 — Save and exit check
+## 82–87 — Task 4: `split` and `join`, `random.choice`
 
-Save As `G8_U7_M2_Operations_<Name>.py`. Match each operation to its purpose:
+`to_sentence("One#Apple#a#day#keeps#the#doctor#away")` → `One Apple a day keeps the doctor away`; `random_word(text)` returns one random word.
 
-1. Add one item at the end
-2. Add several items at the end
-3. Delete by value
-4. Take out by index and return the value
-5. Sort in place
+## 87–90 — Save and exit check
 
-**Answers:** `append`, `extend`, `remove`, `pop`, `sort`.
+Save As `G8_U7_M2_Operations_<Name>.py`.
+
+1. Which method adds to the end of a list? To a chosen position?
+2. What does `pop()` return?
+3. What is printed by `result = [3, 1].sort(); print(result)`?
+4. How do you avoid the error of `index()` on a missing value?
+
+**Answers:** `append`, `insert(position, value)`; the removed value; `None`; check `value in values` first.
 
 ### Tool Note – Thonny
-Step through `process_queue()` in the debugger and watch the **Variables** view — `tasks` visibly shrinks by one
-element each time `pop(0)` runs.
+Type each method in the Shell after a list and watch the **Variables** view: `append` changes `my_lst` immediately, a slice does not.
 
 ---
 
@@ -145,17 +179,19 @@ element each time `pop(0)` runs.
 
 | Misconception | Correction |
 |---|---|
-| `append` and `extend` are interchangeable | `append` adds one item (even a whole list, as one item); `extend` adds each item of a collection separately |
-| `sort()` returns a new sorted list | It sorts in place and returns `None` — copy first if the original order is also needed |
-| `remove` and `pop` both take an index | `remove` takes a **value**; `pop` takes an **index** |
-| `remove` on a missing value just does nothing | It raises `ValueError` — check `in` first |
-| `join` works on a list of any type | Every item must already be a string |
+| `append` and `extend` are the same | `append([7, 8])` adds one item (a list); `extend([7, 8])` adds two |
+| `values = values.sort()` sorts the list | It sorts, then replaces the list with `None` |
+| `insert(5)` adds the number 5 | `insert` needs a position **and** a value |
+| `remove(x)` removes every `x` | Only the first one |
+| `pop()` and `remove()` both take a value | `remove(value)` takes a value, `pop(position)` takes a position and returns the item |
+| A variable you never created exists inside the loop | Use exactly the loop variable's name (`item`, not `i`) |
 
 ---
 
 # 8. Assessment Evidence (formative)
 
-- The `append`/`extend` pitfall explained in the student's own words
-- The warm-up's `None` explained (not just the copy-first fix applied)
-- `safe_remove()`, `process_queue()`, `csv_round_trip()` all passing their tests
+- The warm-up error message read aloud and fixed
+- `colder_than()` returns a new list and leaves the original alone
+- `join_class()` correct for a duplicate and a new name
+- `all_palindromes()` correct on the three samples
 - Exit check

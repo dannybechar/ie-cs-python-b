@@ -5,69 +5,99 @@
 **קוראים ← חוזים ← מריצים ← בודקים ← מתקנים**
 
 > [!IMPORTANT]
-> `append` מוסיפה איבר אחד, `extend` מוסיפה כמה איברים. `remove` מוחקת לפי ערך, `pop` מוציאה לפי אינדקס ומחזירה את הערך.
+> לכל פעולה על רשימה יש תפקיד אחד ותוצאה אחת מדויקת. `sort()` ו-`reverse()` משנות את הרשימה עצמה ומחזירות `None`. רשימה **חדשה** בונים עם `result = []` לפני הלולאה ו-`result.append(item)` בתוכה.
 
 ## דף עזר
 
 ```python
-tasks = ["study", "exercise"]
-tasks.append("rest")
-tasks.extend(["read", "sleep"])
-tasks.insert(1, "eat")
+my_lst = list()               # כמו []
+my_lst.append(4)              # הוספה לסוף
+my_lst.insert(0, 9)           # הוספה במקום 0: קודם מקום, אחר כך ערך
+my_lst.extend([7, 8])         # מוסיפה כל פריט מהרשימה השנייה
+my_lst.count(4)               # כמה פעמים
+my_lst.index(4)               # המקום הראשון (שגיאה אם אין)
+my_lst.remove(4)              # מוחקת את הראשון שערכו 4
+last = my_lst.pop()           # מוחקת את האחרון ומחזירה אותו
+first = my_lst.pop(0)         # מוחקת את מקום 0 ומחזירה אותו
+my_lst.sort()                 # ממיינת במקום, מחזירה None
+my_lst.reverse()              # הופכת במקום, מחזירה None
+
+list("cat")                   # ['c', 'a', 't']
+"-".join(["a", "b", "c"])     # a-b-c
+"a-b-c".split("-")            # ['a', 'b', 'c']
+
+import random
+random.choice(["a", "b", "c"])   # איבר אקראי
 ```
+
+## 1. חימום: משתנה שלא קיים
+
+פתחו את `Operations_Starter.py`. התוכנית אמורה לבנות רשימה חדשה של הטמפרטורות הנמוכות מ-21, אך היא קורסת.
 
 ```python
-scores = [72, 95, 61]
-ordered = scores.sort()   # ממיינת במקום, ומחזירה None
-print(ordered)              # None
+temperature = [25, 20, 21, 24, 21, 24, 21, 16, 23]
+new_list = []
+for item in temperature:
+    if item < 21:
+        new_list.append(i)
+print(new_list)
 ```
 
-<div dir="rtl">
+חזו מה אמור להיות מודפס. הריצו, קראו את הודעת השגיאה (השורה האחרונה ומה שהחץ מצביע עליו) ותקנו.
 
-- `remove(value)` מוחקת לפי **ערך**; בדקו `in` לפני, אחרת `ValueError`.
-- `pop(index)` מוחקת לפי **אינדקס** ו**מחזירה** את הערך שהוצא.
-- `text.split(sep)` מחזירה רשימה; `sep.join(list)` מחברת רשימת מחרוזות חזרה לטקסט.
+## 2. משימה 1: רשימה חדשה מתנאי
 
-</div>
+כתבו `colder_than(values, limit)` שמחזירה רשימה **חדשה** של הערכים הקטנים מ-`limit`. בדקו על `[25, 20, 21, 24, 21, 24, 21, 16, 23]` עם 21 ועם 10.
 
-## 1. חימום: ממוינת, אבל לתוך כלום
+## 3. משימה 2: אין שמות כפולים
 
-פתחו את `Operations_Starter.py`.
+כתבו `join_class(students, name)`. אם השם כבר ברשימה — מדפיסים `"We cannot place you in this class"` ומחזירים `False`. אחרת מוסיפים אותו לסוף ומחזירים `True`. בדקו על `["Dana", "Avi", "Noa"]` עם `"Avi"` ועם `"Lior"`.
+
+```text
+We cannot place you in this class
+False ['Dana', 'Avi', 'Noa']
+True ['Dana', 'Avi', 'Noa', 'Lior']
+```
+
+## 4. משימה 3: כולן פלינדרומים?
+
+כתבו `all_palindromes(words)` שמחזירה `True` אם **כל** המילים נקראות אותו דבר מימין ומשמאל, בלי להבדיל בין אותיות גדולות לקטנות (רמז: חיתוך עם צעד `-1` ו-`lower()`). בדקו:
 
 ```python
-scores = [72, 95, 61]
-ordered = scores.sort()
-print(ordered)
+["ABA", "1221", "A12321A"]
+["ACA", "AcCA"]
+["ACA", "ACB"]
 ```
 
-חזו רשימה ממוינת, הריצו — מקבלים `None`. `sort()` ממיינת את `scores` במקום ומחזירה `None`. תקנו: קודם העתיקו, ואז מיינו את העותק.
+כתבו קודם על הדף מה תחזיר כל קריאה.
 
-## 2. משימה 1: safe_remove(items, target)
+## 5. משימה 4: split, join ואקראיות
 
-בודקת `target in items` לפני המחיקה; אם קיים — מוחקת ומחזירה `True`, אחרת מדפיסה `"Task not found"` ומחזירה `False`. בדקו על `["study", "exercise"]` עם `"exercise"` ועם `"rest"`.
+כתבו `to_sentence(text)` שהופכת `"One#Apple#a#day#keeps#the#doctor#away"` למשפט עם רווחים. אחר כך כתבו `random_word(text)` שמחזירה מילה אקראית אחת מהטקסט, והריצו אותה שלוש פעמים.
 
-## 3. משימה 2: process_queue(tasks)
-
-כל עוד הרשימה לא ריקה, `pop(0)` את המשימה הראשונה ומדפיסים `"Working on: <task>"`. בדקו על `["collect data", "run model", "check result"]`.
-
-## 4. משימה 3: csv_round_trip(text)
-
-מפצלת את `text` לפי `","` ומחברת מחדש עם `" | "`. בדקו על `"cat,dog,bird"`.
-
-## 5. מתעדים ושומרים
+## 6. מתעדים ושומרים
 
 שומרים: `File › Save As` ← `G8_U7_M2_Operations_<Name>.py`
 
 ---
 
-**בדיקת יציאה — התאימו פעולה למטרה:**
+**בדיקת יציאה:**
 
 <div dir="rtl">
 
-1. הוספת איבר יחיד בסוף
-2. הוספת כמה איברים בסוף
-3. מחיקה לפי ערך
-4. הוצאה לפי אינדקס והחזרת הערך
-5. מיון במקום
+1. איזו פעולה מוסיפה לסוף הרשימה? ואיזו למקום שנבחר?
+2. מה מחזירה `pop()`?
+3. מה יודפס אחרי הקוד הבא?
+
+</div>
+
+```python
+result = [3, 1].sort()
+print(result)
+```
+
+<div dir="rtl">
+
+4. איך נמנעים מהשגיאה של `index()` על ערך שלא קיים?
 
 </div>

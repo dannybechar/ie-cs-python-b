@@ -1,20 +1,21 @@
 # Unit 8.3 — Classification
 
-## Grade 8 / AI + Python B · Lesson Strategy v1
-### Topic: Project Planning, Data, Bias
+## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+### Topic: Accuracy and the Classification Project — Fist or OK
 
-**Status:** Approved by the teacher
+**Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
 **Duration:** 90 minutes
-**Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
+**Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab (mostly the project)
 **Minutes (theory / practice):** 45 / 45
-**Current tool:** Thonny; Teachable Machine and a camera (see Tool Note); this meeting handles real photographs —
-read the Photography Safety note before class
-**Source of inspiration:** `python_b_unit08_classification_complete_unit.md`, meeting 3 — its own clock table, the
-category definitions (`fist`/`ok`), the diversity matrix, the collection plan, the pre-training data audit
-questions, the test-set plan, the four bias experiments, the experiment log and the targeted-improvement steps kept
-nearly unchanged, including its full photography privacy and consent rules.
+**Current tool:** Thonny; Teachable Machine and a camera (see Tool Note); this meeting handles real photographs — read the Photography Safety note before class
+**Source of inspiration:** Ministry teaching materials **18.0** (teacher emphases) and **18.1** (deck, 39 slides: accuracy, everyday classification, the
+project, saving the model), plus the two image archives `תמונות לאימון` (269 AI-generated pictures: `fist/` 155, `ok/` 114) and `תמונות למבחן` (7 test
+images, `תמונה1`–`תמונה7`). Worksheet **18.2** was **not delivered**: the lab below follows 18.0 / 18.1 (import the supplied training pictures, add your own, train, test on the
+teacher's 7 images, **save the model**). The v1 build is kept for the category-definition rule, the diversity matrix, the pre-training audit, the
+bias experiments, the privacy rules, `check_variety` and `check_balance`. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Teachable Machine**.
+**Prerequisite:** functions (Unit 3) and lists (Unit 7).
 
 ---
 
@@ -22,10 +23,10 @@ labeled **Tool Note – Teachable Machine**.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 8.1 | classification, features, decision boundary, a naive rule-based classifier | 45 / 45 |
-| 8.2 | the ML process; training vs. test; first Teachable Machine try | 45 / 45 |
-| **8.3 (this)** | **project planning, 100+ images per category, bias experiments** | 45 / 45 |
-| 8.4 | accuracy, export, loading the model in Python | 45 / 45 |
+| 8.1 | classification by rules, features, a separating line | 45 / 45 |
+| 8.2 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
+| **8.3 (this)** | **accuracy, the fist / OK project, export** | 45 / 45 |
+| 8.4 | the trained model inside Python, confidence | 45 / 45 |
 
 ---
 
@@ -33,12 +34,14 @@ labeled **Tool Note – Teachable Machine**.
 
 | Official goal (python-b-ai.pdf p. 20) | Covered here |
 |---|---|
-| Goal 8: build an image classifier in Teachable Machine | ✅ the training step |
-| Goal 9: plan a diverse image collection | ✅ the diversity matrix, collection plan |
-| Goal 13: identify a visual bias and propose a concrete data change | ✅ the bias experiments |
+| Goal 8: build an image classifier in Teachable Machine | ✅ the project with the supplied pictures plus your own |
+| Goal 9: plan a diverse image collection | ✅ category rule, diversity matrix, collection plan, audit |
+| Goal 10: calculate accuracy | ✅ accuracy = successes / attempts (18.1 pp. 7–19), `calculate_accuracy` |
+| Goal 11: confidence vs accuracy | ✅ one prediction vs the whole test set |
+| Goal 13: identify a visual bias and propose a concrete data change | ✅ the bias experiment, the unbalanced supplied set |
 
 ### Deliberate exclusions
-Accuracy computation (8.4), model export and Python loading (8.4).
+Loading the model in Python (8.4). A confusion matrix, precision and recall are not taught.
 
 ---
 
@@ -46,21 +49,33 @@ Accuracy computation (8.4), model export and Python loading (8.4).
 
 - Photograph **hands only** — faces are never required.
 - Get consent before photographing anyone else.
-- No names, ID documents, personal screens, or other private information visible in the background.
+- No names, ID documents, personal screens or other private information visible in the background.
 - Store images per school policy; delete them when no longer needed.
-- Never publish a link to the model or image collection without permission.
+- Never publish a link to the model or an image collection without permission.
 - Confirm the chosen hand gestures are culturally appropriate for the class.
+- The supplied training pictures are AI-generated (no real people). **Never copy them, or any student picture, into this repository.**
 
 ---
 
 ## 4. Lesson Goal
 
-**A category needs an agreed labeling rule decided before collection; a diverse image set (not an exhaustive one)
-prevents a category from being identifiable by one incidental factor alone.**
+**Accuracy = successes ÷ attempts (× 100 for a score). A good project is judged on a test set the model has never seen, and a diverse training set — not just many pictures — is what makes it
+succeed on them.**
 
 ---
 
 ## 5. Core Mental Models
+
+```python
+def calculate_accuracy(successes, attempts):
+    if attempts == 0:
+        return 0
+    return successes / attempts * 100
+```
+
+```text
+4 test pictures, 2 classified correctly, 2 not:   accuracy = 2 / 4 = 0.5   score = 0.5 * 100 = 50
+```
 
 <div dir="rtl">
 
@@ -79,38 +94,42 @@ prevents a category from being identifiable by one incidental factor alone.**
 
 </div>
 
-- The goal isn't photographing every combination — it's preventing a category from being guessable by one
-  incidental factor (a fixed background, one hand, one lighting setup) alone.
-- Before training: at least 100 images per category, similar counts across categories, several separate shooting
-  bursts (not one continuous take), shared backgrounds/lighting across **both** categories, and external test
-  images set aside from the very start.
+- The goal is not photographing every combination: it is preventing a category from being guessable by one incidental factor (a fixed background, one hand, one light).
+- Before training: similar counts across categories, several separate shooting bursts (not one continuous take), shared backgrounds and lighting across **both** categories,
+  and test images set aside from the very start (here: the teacher's 7 images, which the students do **not** see until the end).
+- **The supplied set is not balanced:** 155 `fist` against 114 `ok` (fist is 57.6%). It still passes `check_balance` (40–60%), but the students can add `ok` pictures; the log of
+  such a decision is part of the project.
+- Real output of the lab functions ([`DataPlan_Reference.py`](DataPlan_Reference.py), Python 3.14):
+
+```text
+check_balance(20, 80)   -> Categories are not balanced - fist is 20.0 %
+check_balance(48, 52)   -> Balanced enough
+calculate_accuracy(2, 4)  -> 50.0        calculate_accuracy(6, 7) -> 85.7        calculate_accuracy(0, 0) -> 0
+check_variety([...], [40, 5, 15, 3], 10) -> Warning: dark background has only 5 images
+                                            Warning: new user has only 3 images
+```
 
 ---
 
-# 6. First 45 Minutes — Knowledge + Guided Practice
+# 6. First 45 Minutes — Knowledge + Guided Practice (deck 18.1)
 
 | Clock | Activity |
 |---|---|
-| 0–8 | Present the project's goal and the photography safety rules (§3) |
-| 8–20 | Define the two categories and their labeling rule; agree **now** how to label an ambiguous case, and never change the definition mid-collection without documenting it |
-| 20–32 | The diversity matrix (above) |
-| 32–45 | The collection plan; the pre-training audit questions: does one category share one background? Does one hand appear in only one category? Are the counts similar? Any blurry or mislabeled images? Did a test image slip into training? Can you guess the category from the background alone? |
+| 0–4 | **Recap** (pp. 3–6): we played with Teachable Machine; training makes the line, the test checks it on pictures it has not seen |
+| 4–16 | **Accuracy** (pp. 7–19): how do we know the model is good? Count the successes out of the attempts. Walk the four test pictures one by one on the plane (1 / 1, 2 / 2, 2 / 3, 2 / 4). *Predict-first, question only:* how many pictures did we try, how many were right, how many wrong? (pp. 17–18, then the answer) → 2 / 4 = 0.5, × 100 = 50 |
+| 16–22 | **Classification in daily life** (pp. 20–25): Google Lens, a car-park gate reading license plates, face filters, face unlock, photo albums by topic, finding disease in medical scans. "AI amplifies our abilities in whatever we do" |
+| 22–25 | **Your idea** (p. 37): what could you build tomorrow morning with AI? (a sink that notices it is full, a bin that praises paper…) |
+| 25–40 | **Planning our project** (v1 content, Ministry silent): the two categories and the **labeling rule for ambiguous cases, decided before shooting**; the diversity matrix; the collection plan; the supplied pictures and the privacy rules; the **audit before training** (does one category share one background? one hand? similar counts? blurry or mislabeled pictures? did a test picture slip into training? can you guess the category from the background alone?) |
+| 40–45 | **Launch + saving the model** (pp. 26–33): the project brief; and the three export steps in advance — `Export Model`, the options marked in red in order, **check that `converted_savedmodel.zip` was downloaded** and send it to yourself (mail, Drive). **Mandatory** (18.0): without it the next meeting cannot start |
 
 ---
 
-# 7. Second 45 Minutes — Lab
+# 7. Second 45 Minutes — Lab (worksheet 18.2 — not delivered; rebuilt)
 
 Starter: [`DataPlan_Starter.py`](DataPlan_Starter.py). Reference: [`DataPlan_Reference.py`](DataPlan_Reference.py).
+Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md).
 
-## 45–55 — Collecting (groups, subject to Tool Note)
-
-100+ images per category, following the diversity matrix and the collection plan above.
-
-### Tool Note – Teachable Machine
-Needs a browser, camera permission, and network access. If a live shoot isn't possible, use a teacher-prepared,
-approved image set instead — every downstream step (training, testing, bias experiments) works the same way.
-
-## 55–63 — Warm-up: balanced, according to the wrong direction
+## 45–50 — Warm-up: balanced, in the wrong direction
 
 ```python
 def check_balance(fist_count, ok_count):
@@ -125,33 +144,44 @@ def check_balance(fist_count, ok_count):
 check_balance(20, 80)
 ```
 
-Predict a warning (`fist` is only 20% of the data — clearly under-represented), run, get `"Balanced enough"` — the
-condition checks for a **high** share, not a low one. Fix: flag either category when its share drifts too far from
-an even split (e.g., under 40% or over 60%).
+Predict a warning (fist is only 20%), run:
 
-## 63–73 — Task 1: `check_variety(labels, counts, minimum)`
+```text
+Balanced enough
+```
 
-Warns, by name, about any category (in this case: a diversity factor like "dark background") whose count is below
-`minimum`; tallies the warnings; prints a clean "every category meets the minimum" if there were none. Test on
-`labels = ["bright background", "dark background", "side light", "new user"]`, `counts = [40, 5, 15, 3]`,
-`minimum = 10`.
+The condition looks at a **high** share, not a low one, and the message even says the opposite. Fix: flag either category when its share leaves an even split (under 40% or over 60%).
 
-## 73–80 — Task 2: `count_covered(required, tested)`
+## 50–56 — Task 1: `calculate_accuracy(successes, attempts)`
 
-How many of the `required` bias-experiment conditions also appear in `tested` — a simple checklist-coverage count,
-reusing the `in`-over-a-list pattern from Unit 7's search. Test on
-`required = ["background", "lighting", "user", "angle"]`, `tested = ["lighting", "angle"]` → `2`.
+Returns the percent; `0` when there were no attempts. Test: `(2, 4)` → `50.0`, `(6, 7)` → `85.7` (rounded). Keep it: it will be used on the real model's 7 test pictures at the end of this meeting.
 
-## 80–90 — Bias experiments + exit check
+## 56–62 — Task 2: `check_variety(labels, counts, minimum)`
 
-Run at least one of the four controlled experiments (background, lighting, user, angle — changing one factor at a
-time) and log it: image, true label, prediction, confidence, factor tested, conclusion.
+Prints a warning for every factor below `minimum`, counts the warnings, prints a clean message if there were none. Test: `["bright background", "dark background", "side light", "new user"]`,
+`[40, 5, 15, 3]`, minimum `10` → two warnings. (If the class is slow, Task 2 becomes homework; the export is **not** optional.)
+**If time:** `count_covered(required, tested)` for the bias experiments, expected `2`.
 
-Save As `G8_U8_M3_DataPlan_<Name>.py`.
+## 62–84 — The project (groups)
 
-1. What is the desired feature in this project?
-2. Name two possible incidental features.
-3. How do you keep an external test set truly external?
+1. Open an `Image Project` with two categories, `fist` and `ok`. Upload the supplied training pictures into the right categories (the archive `תמונות לאימון` from the Drive).
+2. Add **your own** pictures (hands only), following the diversity matrix and the audit questions; check the balance; log what you changed.
+3. Run **one controlled bias experiment** (change one factor — background, light, hand, or angle): log the picture, the true label, the prediction, the confidence, the factor and the conclusion.
+4. Train. The teacher then hands out the **7 test pictures** (`תמונה1`–`תמונה7`) — the model has never seen them. Classify each one, count the successes, and compute the accuracy
+   with Task 1's function (for example 6 of 7 gives 85.7).
+5. **Save the model** (the three export steps) and check that `converted_savedmodel.zip` is on your computer. If there is no camera, use only the supplied and teacher-approved pictures.
+
+### Tool Note – Teachable Machine
+Needs a browser and network access. The export may take a few minutes. If no group finishes the bias experiment, run it together on the teacher's computer. The Ministry advises bringing colored card,
+markers, gloves and pencils to build backgrounds and lighting for the shoot (18.0).
+
+## 84–90 — Record and exit check
+
+Write the accuracy and one example of a mistake with its confidence. Save As `G8_U8_M3_DataPlan_<Name>.py`.
+
+1. How do you calculate accuracy?
+2. What is the difference between accuracy and confidence?
+3. Name one incidental feature your pictures might contain.
 4. If the model fails on a dark background, what data change would you try?
 
 ---
@@ -160,19 +190,22 @@ Save As `G8_U8_M3_DataPlan_<Name>.py`.
 
 | Misconception | Correction |
 |---|---|
-| More images always means more diversity | 100 nearly identical images from one continuous take add little diversity |
-| A unique background per category is a shortcut, not a problem | It's exactly the kind of incidental feature that causes hidden bias |
-| The category definition can be adjusted quietly if collection gets hard | Any change must be documented and applied consistently, not made silently mid-collection |
-| One failed image proves the whole model is broken | It's evidence for a hypothesis — test more images before concluding anything |
-| Fixing a bias means starting the data collection over | Usually a targeted addition (more examples of the failing condition, in both categories) is enough |
+| More pictures always means more diversity | 100 nearly identical pictures from one continuous take add little |
+| A unique background per category is harmless | It is exactly the kind of incidental feature that causes hidden bias |
+| The category definition can be adjusted quietly | Any change must be documented and applied consistently |
+| High accuracy on 7 pictures proves the model is good | It is a small, informative check; state the sample size |
+| One failed picture breaks the whole model | It is evidence for a hypothesis; test more before concluding |
+| Accuracy and confidence are the same number | One is a single prediction's certainty; the other summarizes a whole test set |
+| A 50-50 split is required | The supplied set (155 / 114) is close enough; balance matters most for the factors the model could shortcut on |
 
 ---
 
 # 9. Assessment Evidence (formative)
 
-- The category definitions with an explicit rule for ambiguous cases
-- The pre-training audit questions answered honestly about the actual collected set
+- The category definition with an explicit rule for ambiguous cases
+- The audit questions answered about the actual collected set
 - The warm-up's inverted condition explained, not just fixed
-- `check_variety()` and `count_covered()` both passing their tests
-- At least one completed bias-experiment log row with a stated conclusion
+- `calculate_accuracy()` and `check_variety()` passing their tests
+- One completed bias-experiment log row with a conclusion; the accuracy on the 7 test pictures
+- The saved `converted_savedmodel.zip` (checked at the end of the lesson)
 - Exit check

@@ -1,5 +1,6 @@
 # Unit 7.5 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
+import random
 
 
 def linear_search(values, target):
@@ -36,7 +37,48 @@ def task1():
     print(linear_search_sorted(values, 40))
 
 
-# Task 2 (project - the checkpoint): "AI Experiment Analyzer"
+
+# Task 1, second part: the built-in index() raises an error when the value is missing
+def index_demo():
+    values = [10, 20, 35, 50, 80]
+    print(values.index(35))
+    print(values.index(40))
+
+
+# Task 2: a new phone number
+def random_number(prefixes):
+    prefix = random.choice(prefixes)
+    return prefix + "-" + str(random.randint(1000000, 9999999))
+
+
+def is_special(number, special):
+    digits = number[4:]
+    if number in special:
+        return True
+    if digits.count("5") > 1:
+        return True
+    if digits in "0123456789" or digits in "9876543210":
+        return True
+    return False
+
+
+def new_phone_number(taken, special):
+    prefixes = ["050", "052", "053", "054"]
+    number = random_number(prefixes)
+    while number in taken or is_special(number, special):
+        number = random_number(prefixes)
+    return number
+
+
+def task2():
+    special = ["050-5555555", "050-1234777"]
+    taken = []
+    for turn in range(10):
+        taken.append(new_phone_number(taken, special))
+    print(taken)
+
+
+# Task 3 (project - the checkpoint): "AI Experiment Analyzer"
 def calculate_total(values):
     total = 0
     for value in values:
@@ -114,6 +156,9 @@ def experiment_analyzer():
     print("Position in ordered list:", position)
 
 
-warmup()
-# task1()
-# experiment_analyzer()
+if __name__ == "__main__":
+    warmup()
+    # task1()
+    # index_demo()
+    # task2()
+    # experiment_analyzer()
