@@ -9,7 +9,7 @@ these materials set **what is taught, in which examples and with which exercises
 
 The PDFs are not copied into the repo (size, and they remain the Ministry's files). Read them with PyMuPDF
 (`python`, not `python -I`, so user-site packages load); Hebrew text extracts in visual order — check the page image
-when a line looks scrambled. The Ministry's file numbers (2.0 … 8.7) are **its own lesson numbers, not our unit numbers.**
+when a line looks scrambled. The Ministry's file numbers (2.0 … 22.1) are **its own lesson numbers, not our unit numbers.**
 
 The files for the Ministry's lessons 10–22 arrived on **8 Nov 2026** (our Units 6–9). They were audited the same day (section
 "Audit of lessons 10–22" below); Units 6–9 were all reworked the same day. Some files are still missing (list below).

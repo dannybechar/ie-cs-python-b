@@ -32,7 +32,7 @@ Build every meeting of the unit (or one meeting), one at a time.
    tools to settle). The teacher's raw materials are **inspiration only**:
    `Downloads\python-b-raw-meterials\ie-cs-python-b\` — `U<N>_M<M>\` folders (strategy `.md`, raw deck `.pptx`, lab brief,
    starter and reference `.py`, exit-check `.png`) for meetings 1.1–1.3, 2.1–2.2 and 3.1, plus a year strategy.
-   The raw year strategy is wrong wherever it says the syllabus leaves a unit open (Units 4, 6, 8, 9): the official
+   The Ministry's lessons 10–22 (our Units 6–9) arrived on 8 Nov 2026 and all four units were reworked to them the same day (see "Audit of lessons 10–22" in the Ministry doc; NotebookLM prep folders for 6.1–9.4 are in `Downloads\פדגוגיה\python-b\lessons\`). Some Ministry files are still missing (lists parts A and E, many worksheets and keys) — never invent them. The raw year strategy is wrong wherever it says the syllabus leaves a unit open (Units 4, 6, 8, 9): the official
    chapters name the activities — follow them. For meetings with no raw material, build from the Ministry program alone.
 2. **Plan the unit first** (`units/u<N>-<slug>/unit-strategy.md`): official topics with theory/practice hours from the
    Ministry master table, which meeting covers each topic, meeting-by-meeting outline, scope decisions (what the raw decks
