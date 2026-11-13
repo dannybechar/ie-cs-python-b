@@ -1,30 +1,9 @@
-# Unit 5.4 paper lab - Question 2: a secret word (full solution, plain code, no functions).
-word = "bike"
+# Unit 5.4 paper lab - Question 2: count the words (the spaces plus one).
+sentence = "the quick brown fox jumps"
 
-# a. letters are numbers: the number of the first letter and the next letter
-print("Number of first letter:", ord(word[0]))
-print("Next letter:", chr(ord(word[0]) + 1))
-
-# b. shift every letter 3 places forward
-secret = ""
-for ch in word:
-    secret += chr(ord(ch) + 3)
-print("Secret word:", secret)
-
-# c. number code: the place of every letter in the alphabet, with dashes between
-numbers = ""
-for ch in word:
-    if numbers != "":
-        numbers += "-"
-    numbers += str(ord(ch) - 96)
-print("Number code:", numbers)
-
-# d. decode: shift the secret word 3 places back and compare with the original
-decoded = ""
-for ch in secret:
-    decoded += chr(ord(ch) - 3)
-print("Decoded:", decoded)
-if decoded == word:
-    print("The code works")
+words = sentence.count(" ") + 1
+print("Words:", words)
+if words > 4:
+    print("Long sentence")
 else:
-    print("The code is broken")
+    print("Short sentence")
