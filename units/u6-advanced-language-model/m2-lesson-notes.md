@@ -14,8 +14,12 @@
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3) — the worksheet defines `calculate_similarity`. The Ministry hands the function over with blanks
-to fill; if `def` is not yet taught, hand it over complete and let students only call it.
+**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit — the worksheet defines `calculate_similarity`
+(`def` with two parameters and `return`). The Ministry hands the function over with blanks to fill; if `def` is not yet taught, hand it over
+complete and let students only call it. The only list-like syntax students meet is the "copy the form" call `model.encode([word])` (the
+library wants a list; lists proper are Unit 7) — students copy it exactly and are not asked to build lists.
+**Official naming caveat:** the Ministry calls the result `score_distance` and its comments say "distance", but a **higher** score means
+**closer** (1 = same meaning). We keep the official name (so files match the worksheet) and say it aloud: it is a closeness score, not a distance.
 
 ---
 
@@ -75,7 +79,7 @@ score = util.cos_sim(meaning_pos1, meaning_pos2).item()   # 0.30 here; closer to
 | 0–8 | **Recap and "watch" quiz** (pp. 5–6): tokens and IDs from 6.1 |
 | 8–23 | **The meaning map** (pp. 8–13): a token is a fixed point; groups; **students place** "four", "orange" and "mouse" on the board map; disputed placements explained |
 | 23–38 | **Self-attention** (pp. 13–21): "mouse" cannot have only one point; each word "listens" to the previous words (the 4-word window) and moves on the map. Predict first: *where does "mouse" go after "I clicked the…"?* |
-| 38–45 | **How much can a model hold?** (pp. 22–24): Gemini's window is about 2M tokens ≈ 1.5M English words ≈ 800K Hebrew words. The **suitcase** (v1 activity, 5 min): six of ten cards fit — a bigger window is not memory and does not guarantee the details are used. Short "AI tips" (pp. 25–27) |
+| 38–45 | **How much can a model hold?** (pp. 22–24): Gemini's window is about 2M tokens. **Official equivalents (11.1 p. 24):** 1.5M English words (≈ 20 thick books) · 800K Hebrew words (≈ 11 thick books) · 60,000 lines of code · 22 hours of audio · 2 hours of video ("audio and video can enter a language model too — but we won't learn that now"). Footnote for stage 2: here a token is treated roughly as a word. The **suitcase** (v1 activity, 5 min): six of ten cards fit — a bigger window is not memory and does not guarantee the details are used. Short "AI tips" (pp. 25–27): (1) tokens — spelling mistakes waste tokens, and Hebrew costs more than English in a long chat; (2) meaning map — "you are a physics professor" sends the chat to a very different area of the map than "you are a 5-year-old"; (3) self-attention — give the chat as many examples, links and documents as you can, so it can be accurate |
 
 ### Tool Note – Thonny
 Same setup as 6.1 (`pip install sentence-transformers`, model downloaded once at school). Print Hebrew directly in the Shell.
@@ -133,7 +137,9 @@ or equal 0.3" for the last case.) `dog`/`cat` = 0.303 → "יש קשר מסוי�
 `פסנתר` — a score is an estimate and the model is not perfect; never read it as the truth. (The v1 mock table said 0.82 / 0.76 /
 0.19 / 0.35 — invented numbers; they are gone.)
 
-## 78–87 — Task 4: the playground (worksheet "מעבדת ניסויים")
+## 78–87 — Task 4: the playground (worksheet "מעבדת ניסויים" — the Ministry's "מגרש משחקים")
+
+Teacher emphasis (10.0): let students experiment freely and independently with the playground corners ("the language test", "the opposites test"); this also practises critical thinking about what the slides taught. Ask after each: *is the model right? how do you know?*
 
 Real results, rounded — yours may differ by a little with the model version:
 

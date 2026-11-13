@@ -1,4 +1,5 @@
 # Unit 6.2 - reference for the teacher (Ministry worksheet 11.2, real model).
+# Precondition: Unit 3 (def) is taught first; otherwise hand calculate_similarity to the students ready-made.
 # Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 from sentence_transformers import SentenceTransformer, util

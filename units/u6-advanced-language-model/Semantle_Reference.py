@@ -1,4 +1,5 @@
 # Unit 6.3 - reference for the teacher (Ministry worksheet 11.3, real model).
+# Precondition: Unit 3 (def) is taught first. round() is used for the percent and the bar; the Ministry uses int() - see the lesson notes (checked table).
 # Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 from sentence_transformers import SentenceTransformer, util

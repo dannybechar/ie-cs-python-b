@@ -14,8 +14,10 @@ rubric, the `quit` / short-guess hardening (now optional), the "a win is decided
 seven test cases. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the embeddings model**.
-**Prerequisite:** functions (Unit 3) and f-strings are **not** needed: the reference uses `calculate_similarity` as a given function
-and builds messages with `+` and `str()`.
+**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit. `calculate_similarity` (copied from 6.2) and
+`make_thermometer` are `def` functions with parameters and `return`, so the starter and reference use `def`. If Unit 3 is not yet taught, hand out both
+functions ready-made and let students write only the game loop in plain code (the loop itself needs no `def`). f-strings are **not** needed: the
+reference builds messages with `+` and `str()` (the Ministry solution uses f-strings; both are fine).
 
 ---
 
@@ -64,6 +66,23 @@ while guess != secret_word:
 - A win is decided by **matching the secret word**, never by the score (a very high score is still a guess: `ים` = 0.94).
 - An exact match scores about 1.0 (the model prints `0.9999998`), so `round(score * 100)` gives 100%.
 - A cosine score can be slightly negative, so clamp it before building the bar (`"❄️" * (20 - fires)` would otherwise exceed 20).
+- **`round()` or the Ministry's `int()`?** The Ministry solution truncates: `int(score * 100)` and `int(20 * score)`. We use `round()`. Checked on the real
+  model (`paraphrase-multilingual-MiniLM-L12-v2`, sentence-transformers 6.2.0) for the secret word `אוקינוס`:
+
+```text
+guess     score       percent int/round   fires int/round
+עכבר      0.0130      1 / 1               0 / 0
+דג        0.6426      64 / 64             12 / 13
+מים       0.6241      62 / 62             12 / 12
+ים        0.9418      94 / 94             18 / 19
+אוקינוס   0.9999998   99 / 100            19 / 20
+```
+
+  So the percentages are the same except the exact match, but the **bar can differ by one symbol** (64% = 12 fires with `int`, 13 with `round`).
+  The Ministry sample shows 12 and 18 fires and 100% / 20 fires for the win because its sample score was exactly `1.0`; the installed library returns
+  `0.9999998`, so a student who follows the Ministry's `int()` literally sees **99%** and **19 fires** on the winning guess. With `round()` the win always
+  shows 100% and a full bar. Accept both from students; explain the difference once (truncating cuts, rounding goes to the nearest). Do not
+  copy the sample bar to the board as "the" answer.
 - The thermometer is always exactly 20 characters: `"🔥" * fires + "❄️" * (20 - fires)`.
 
 ---
@@ -72,7 +91,7 @@ while guess != secret_word:
 
 | Clock | Activity |
 |---|---|
-| 0–10 | **Recap and demo:** the teacher shows the target output (the 4-guess run below); the class predicts what each stage adds. Real guesses for `אוקינוס`: `עכבר` 1%, `דג` 64%, `מים` 62%, `ים` 94%, `אוקינוס` 100% |
+| 0–10 | **Recap and demo:** the teacher shows the target output (the 4-guess run below); the class predicts what each stage adds. Real guesses for `אוקינוס`: `עכבר` 1%, `דג` 64%, `מים` 62%, `ים` 94%, `אוקינוס` 100%. Show a few turns of the **daily Semantle game** ("an example with a new secret word every day", official 11.3). ⚠️ **Link missing:** the Ministry gives it only as a hyperlink in the worksheet; it is not in any text file we have — **teacher: add the Semantle site URL here and in the brief** (not guessed) |
 
 ---
 
@@ -102,12 +121,12 @@ Predict 14 fires then 6 snowflakes, run, get the reverse. Fix: swap which symbol
 
 ## 40–48 — Task 3: the attempts counter (stage 4)
 
-Count guesses and show them in the victory message. The Ministry starts at 1 and prints `attempts - 1`; the reference starts
-at 0 and adds 1 before each guess — same result, fewer surprises.
+Count guesses and show them in the victory message. The Ministry starts at 1 and prints `attempts - 1` (it adds 1 **after** the input, so the number shown in the prompt is right but the counter is one too high at the end — the "off-by-one trick"); the reference starts
+at 0 and adds 1 before each guess — same result, fewer surprises. Discussion for the fast students: *why does the Ministry version print `attempts - 1`?*
 
 ## 48–75 — Task 4: the advanced features — **the unit checkpoint** (stages "advanced features")
 
-1. the score as a percentage (`round(score * 100)` and a `%` sign);
+1. the score as a percentage (`round(score * 100)` and a `%` sign; the Ministry example is `0.34873 * 100 = 34.873` — then `int` or `round`, see the table above);
 2. the 20-emoji thermometer from the fixed warm-up function;
 3. a welcome message and a victory message. Expected run:
 
@@ -151,6 +170,9 @@ Checklist: is the model loaded once, outside any loop? does the function take tw
 comparing the **word**? is the thermometer always 20 characters? Save As `G8_U6_M3_Semantle_<Name>.py`.
 Exit check: 1. Why load the model only once? 2. Why is a win decided by the word, not the score? 3. Why is the percent not a
 probability? 4. Why can `ים` score 94% and still not win?
+
+### Tip for the project: emoji
+The Ministry hint: to type an emoji press the **Windows key + `.` (period)** and pick one (on a Mac: Ctrl + Cmd + Space). Use `*` to repeat an emoji: `"🔥" * 5`.
 
 ### Tool Note – the embeddings model
 `sentence-transformers` and the model are installed and downloaded once at school before the lesson (see 6.1). Verified with the

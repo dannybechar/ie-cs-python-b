@@ -14,8 +14,10 @@ Ministry is silent: the three-sentence hook, the controlled-experiment table, an
 "if time" extension). See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the tokenizer library**.
-**Prerequisite:** functions (Unit 3). The Ministry worksheet is written with `def`; the unit comes after Unit 3 in the
-schedule. If the class has not learned `def`, give the three functions ready-made and let students only call them.
+**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit. The Ministry worksheet is written with `def`
+(`print_sentence_info`, `tokens_sentence`; `count_tokens` is our addition), so `def`/`return`/parameters appear here only on that condition. If the class
+has not learned `def`, give the three functions ready-made and let students only call them. No list is written by students in this meeting:
+the printed token lists are only shown, like `split` in Unit 5 (lists proper start in Unit 7), and the playground calls one word per line instead of looping over a list.
 
 ---
 
@@ -70,6 +72,10 @@ Real output of the worksheet's tokenizer (`paraphrase-multilingual-MiniLM-L12-v2
 - **The same token always gets the same ID** (`park` = 9201 twice) — the ID is an index into this tokenizer's vocabulary.
   A higher number does not mean "more important".
 - `apple` is `[108787]` and `APPLE` is `['▁APP', 'LE']` = `[66440, 15300]`: capital letters change the tokens.
+- **Vocabularies grow with every model (deck 10.1 p. 31):** a word that used to be split into several tokens becomes one token in a newer model.
+  Example from the deck: the Hebrew word "אני" is **3 tokens in GPT-4** and **a single token in GPT-5**. Hebrew still "costs" almost twice
+  English in the deck's quiz, but the gap narrows with each model. (We cannot run GPT here; MiniLM gives `['▁אני']` = 1 token. Say that the
+  number is a property of a specific tokenizer.)
 - The model's three stages (deck 10.1 p. 17): **tokens → meaning map → self-attention**. Today is stage one.
 
 ---
@@ -89,6 +95,12 @@ Real output of the worksheet's tokenizer (`paraphrase-multilingual-MiniLM-L12-v2
 > **6, 7, 5, 5**. Always run the quiz sentences yourself and show your own numbers; tell the class that another tokenizer
 > gives other numbers — that is part of the lesson. Hebrew was about twice as expensive as English in the Ministry's
 > quiz (deck p. 31); with MiniLM it costs more too, but less (5 vs 4 tokens for "I walked home yesterday", 8 vs 6 in the worksheet pair), so quote the numbers you measure, not a general rule.
+
+### The Ministry's introduction (worksheet 10.2, read aloud before the lab)
+`sentence-transformers` is a **toolbox** for running AI models that turn human language into mathematical calculations. At the heart of the project is
+the model `paraphrase-multilingual`, a multilingual "brain" trained on billions of sentences to understand Hebrew and English on **one shared meaning map**.
+Before the model works, the **tokenizer** (the translator) splits our text into small units called tokens and gives each one a number from a ready-made
+dictionary; that lets the model measure the "distance of meaning" between the guesses and the secret word (the project of 6.3).
 
 ### Tool Note – the tokenizer library
 `pip install sentence-transformers`, then the first run downloads the model (hundreds of MB): **do it once at school, before
@@ -135,9 +147,9 @@ the whole sentence as a string it treats it as one unknown token (ID 3). Fix: `c
 
 | Experiment | What to try | Real result (MiniLM) |
 |---|---|---|
-| 1. my name | English vs Hebrew | `Danny Bechar` 3 tokens, `דן בכר` 4 |
-| 2. a sentence in two languages | `אני אוהב ללמוד פייתון בבית הספר` vs `I love learning Python at school` | 8 vs 6 |
-| 3. a 5-letter word that breaks the most | 10 tries | `qxzjw` and `פצצצץ` = 5 tokens (one per letter); `Mississippi` = 1 |
+| 1. my name | English vs Hebrew | `Danny Bechar` 3 tokens, `דן בכר` 4; the Ministry teacher solution: `עפרי` = **2** tokens (checked: `['▁ע', 'פרי']`) |
+| 2. **challenge:** in 10 tries find a Hebrew sentence with **fewer** tokens than the same sentence in English | one pair per try | the Ministry answer: `hello world` = 3, `שלום עולם` = 2 (checked: 3 and 2). The long pair `אני אוהב ללמוד פייתון בבית הספר` vs `I love learning Python at school` goes the other way: 8 vs 6 — a good discussion |
+| 3. a 5-letter word that breaks the most | 10 tries; write down your record | Ministry example: `ארצנו` = 3 tokens (checked: `['▁א', 'רצ', 'נו']`); `qxzjw` and `פצצצץ` = 5 tokens (one per letter, record); `Mississippi` = 1 |
 | 4. capital letters | `apple` vs `APPLE` | `[108787]` vs `[66440, 15300]` |
 
 Conclusion to write: *the number of tokens is not the number of words, and it changes with language, spelling and capital letters.*

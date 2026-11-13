@@ -1,6 +1,7 @@
 # Unit 6.1 - reference for the teacher (Ministry worksheet 10.2, real tokenizer).
 # Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
+# Precondition: Unit 3 (def) is taught first. If not, hand the three functions to the students ready-made.
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
@@ -33,11 +34,16 @@ def count_tokens(text):
 # Task 4: the playground (four experiments)
 def playground():
     print("1. השם שלי:", count_tokens("Danny Bechar"), "|", count_tokens("דן בכר"))
-    print("2. עברית:", count_tokens("אני אוהב ללמוד פייתון בבית הספר"),
-          "אנגלית:", count_tokens("I love learning Python at school"))
+    print("   השם בדף הפתרון של המשרד: עפרי =", count_tokens("עפרי"), "טוקנים")
+    print("2. משפט בעברית עם פחות טוקנים מאנגלית (אתגר - 10 ניסיונות):")
+    print("   hello world =", count_tokens("hello world"), "| שלום עולם =", count_tokens("שלום עולם"))
+    print("   (הזוג הארוך: עברית", count_tokens("אני אוהב ללמוד פייתון בבית הספר"),
+          "אנגלית", count_tokens("I love learning Python at school"), ")")
     print("3. מילה בת 5 אותיות:")
-    for word in ["qxzjw", "פצצצץ", "Mississippi", "strawberry"]:
-        print("  ", word, count_tokens(word), tokenizer.tokenize(word))
+    print("  ", "qxzjw", count_tokens("qxzjw"), tokenizer.tokenize("qxzjw"))
+    print("  ", "פצצצץ", count_tokens("פצצצץ"), tokenizer.tokenize("פצצצץ"))
+    print("  ", "ארצנו", count_tokens("ארצנו"), tokenizer.tokenize("ארצנו"), "(הדוגמה של המשרד: 3)")
+    print("  ", "Mississippi", count_tokens("Mississippi"), tokenizer.tokenize("Mississippi"))
     print("4. אותיות גדולות:")
     print("  ", tokenizer.tokenize("apple"), tokenizer.convert_tokens_to_ids(tokenizer.tokenize("apple")))
     print("  ", tokenizer.tokenize("APPLE"), tokenizer.convert_tokens_to_ids(tokenizer.tokenize("APPLE")))
