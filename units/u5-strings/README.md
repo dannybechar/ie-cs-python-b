@@ -96,13 +96,13 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 
 **Live lesson + paper lab edition of 5.4** (the 5.1–5.3 recipe, built 13 Nov 2026): problem "Secret Message Machine" in six stages
 (`while` checks, `ord`/`chr`, shift cipher with wrap-around, number cipher and initials with `+=`, frame with `split`/`join` shown only,
-decode); a 23-slide deck and a one-sheet paper lab (song title; secret word).
+decode); a 10-slide deck (five pairs: content slide, then a code-examples slide to copy into Thonny) and a one-sheet paper lab (song title; secret word).
 
 | Audience | File | Purpose |
 |---|---|---|
 | Teacher | [`m4-live-problem-he.md`](m4-live-problem-he.md) | The problem and the six stages |
 | Teacher | [`m4-live-program.py`](m4-live-program.py), `Live4_Step1_Checks.py` … `Live4_Step5_ReportAndReceiver.py` | Full solution and five cumulative demo files |
-| Teacher | [`m4-live-slides-he.pdf`](m4-live-slides-he.pdf) | 23-slide deck (54 min; source [`m4-live-source-slides.md`](m4-live-source-slides.md)) |
+| Teacher | [`m4-live-slides-he.pdf`](m4-live-slides-he.pdf) | 10-slide deck, five content + code-example pairs, no title slide (54 min; source [`m4-live-source-slides.md`](m4-live-source-slides.md)) |
 | Student | [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md), `PaperLab4_Starter.py` | One-sheet handwritten lab, two questions × four sub-questions (45 min) |
 | Teacher | [`m4-paper-lab-answer-key.md`](m4-paper-lab-answer-key.md), `PaperLab4_Q1_Solution.py`, `PaperLab4_Q2_Solution.py` | Key, 100-point rubric, solutions |
 

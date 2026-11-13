@@ -10,7 +10,7 @@ python -X utf8 tools/live-deck/build_deck.py <1-source-slide-content.md> deck.ht
 msedge --headless --no-pdf-header-footer --print-to-pdf=deck.pdf file:///<path>/deck.html
 ```
 
-Options: `--footer` (also the title), `--subtitle` and `--emoji` (title slide), `--card` (a word in a card on the title slide),
+Options: `--no-title` (slide 1 is a normal slide, not the title slide; used by the 5.4 deck), `--footer` (also the title), `--subtitle` and `--emoji` (title slide), `--card` (a word in a card on the title slide),
 `--boxes` (slide numbers that show the letter boxes with indices, for the word given by `--boxes-word`), `--numbered`
 (slides whose bullets are a numbered list, e.g. the exit check).
 

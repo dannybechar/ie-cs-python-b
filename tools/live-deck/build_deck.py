@@ -9,6 +9,7 @@ ap.add_argument("--emoji", default="🤖")
 ap.add_argument("--card", default="", help="a word shown in a card on the title slide")
 ap.add_argument("--boxes", default="", help="slides that get the letter boxes, e.g. 7,8")
 ap.add_argument("--boxes-word", default="ROBOT")
+ap.add_argument("--no-title", action="store_true", help="slide 1 is a normal slide, not the title slide")
 ap.add_argument("--numbered", default="", help="slides whose bullets are a numbered list, e.g. 19")
 args = ap.parse_args()
 BOX_SLIDES = [int(x) for x in args.boxes.split(",") if x]
@@ -63,7 +64,7 @@ def render(s):
     lines = sum(x[2].count("\n") + 1 for x in codes)
     cls = "big" if lines <= 6 else ("mid" if lines <= 11 else "small")
     h = [f'<section class="slide n{n}">']
-    if n == 1:
+    if n == 1 and not args.no_title:
         h.append(f'<div class="titlebox"><div class="robot">{args.emoji}</div>'
                  f'<h1>{FOOT}</h1><h2>{args.subtitle}</h2>'
                  + (f'<div class="card">{args.card}</div>' if args.card else '') + '</div>')
