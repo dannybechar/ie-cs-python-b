@@ -129,7 +129,51 @@ Unit 9 Forms export and incognito demo, Unit 7 `input()` tasks in Thonny.
 
 ## Reconciliation with the classroom-downloader program (opened 13 Nov 2026)
 
-**Status: not started.** The folder `classroom-downloader\downloads\פייתון_ב\` holds 67 `Materials` items (decks, teacher
-notes, solutions, guided-practice videos, summaries, exam helper sheets) and 22 `Classwork` worksheets. Next step: map every
-file to a meeting, diff each built unit against it, list contradictions and missing pieces here, and rework only after the
-teacher decides per unit.
+**Status: audit done (13 Nov 2026), rework not started.** The folder `classroom-downloader\downloads\פייתון_ב\` holds 67
+`Materials` items and 22 `Classwork` worksheets; all 89 files were extracted to text (4 are image-only: `0.6`, `2.3`, `9.5`,
+`13.6`). Nine read-only audits compared each unit with the official lessons. Verdict key: OK / PATCH (small edits) / REWORK.
+Limits: the audits mostly read lesson notes, not every brief, starter, answer key or slide PDF, so a verdict of OK is
+"no conflict found in the notes".
+
+| Meeting | Verdict | Main findings |
+|---|---|---|
+| 1.1, 1.2 | OK | No official counterpart; official 1.0–1.4 for-loop tasks are optional enrichment |
+| 1.3 | OK | Covers 2.0 and part of 2.1; add the other 2.1 series tasks and the Forms links |
+| 2.1 | PATCH (minor) | Add the Pichai quote (3.1 slide 23) and the Gemini-window privacy tip (3.0) |
+| 2.2 | PATCH | Add the Amazon CV-screening story, make the Sapir video question explicit, check our key against 3.2.0 |
+| 3.1, 3.2 | OK | Follow 4.1/4.2/4.4/4.5 closely |
+| 3.3 | PATCH | Official 4.6 q3/q4 return several values (tuple); we replaced them with globals. Teacher decides |
+| 4.1, 4.2 | OK | Live run with a real key still needed; 6.2 snippet has an unquoted `api_key=`; official 4.7 H5P (default argument) is undocumented here |
+| 5.1, 5.2 | OK | Small adds: official string definition, "two ways" `st[5]`/`st[-1]`, `find` with begin/end |
+| 5.3, 5.4 | PATCH | 45/45 vs 0/90 labels disagree across files (strategy total 135/225 vs official 90/270); `split`/`join` placement inconsistent; 5.4 countdown can use official 8.2 Q2, 8.4 task 1 (middle character), the ord-number cipher |
+| 6.1–6.3 | PATCH | Reference code matches official solutions 10.2.0, 11.2.0, 11.3.0; missing the GPT-4/5 token example, the Hebrew-vs-English token challenge, Gemini 2M-token equivalents; 6.3 `int()` vs `round()` bar; list literal in 6.1 |
+| 7.1, 7.2, 7.4 | PATCH | Lists part A (9.1, 9.3, 9.4, 9.5) is now delivered but our docs still say missing; add 9.1/12.x demos, the 13-row operations table, magic list and `avg_stud` (not lists of lists), 14.2/14.4 tasks |
+| 7.3, 7.5 | OK | Small patches only |
+| 8.1 | PATCH | Official 16.2 worksheet now delivered (four docs still say missing); add its advanced-features ideas, real song titles, use "פעולה" |
+| 8.2, 8.4 | PATCH (light) | 17.2, 19.2 and the 19.3 Colab notebook still missing; TensorFlow may not support Python 3.14; `Ministry_Model_Code.py` differs from the deck |
+| 8.3 | OK | Minor patch; images match (155 fist, 114 ok, 7 test) |
+| 9.1–9.4 | PATCH | Official has 3 lessons (20, 21, 22), our 4th meeting splits deck 21.1; 21.0, 21.2, 22.0, 22.2 missing so 9.3 code and 9.4 activity are unverified; poll figures in 9.4 notes are our estimates from a chart (label approximate or verify) |
+
+**Cross-cutting findings**
+- No meeting needs a full REWORK; the units were already built from the same Ministry lessons. The gain is in patches, stale
+  "missing file" claims (lists part A, worksheet 16.2) and verifying against the solutions that are now available.
+- Official lessons 0.1–0.6 are Google Classroom onboarding (no Python, no hours): no meeting; optional use of the 0.1 deck.
+  The short deck "מה נלמד השנה" is not in the repo (possible opener for 2.2).
+- Rulebook conflicts inside the official files: nested loops (14.0 pp.25–29), a list-of-lists preview (14.0 p.30),
+  `turtle.Turtle()` (12.0 p.17), a list inside a list (9.4 Q1), `sort(key=)` on the exam help sheet, default arguments (4.7 H5P),
+  multiple return values (4.6). The teacher decides each; until then the rulebook stands.
+- `def` is used everywhere in the official files; our code uses it from Unit 3 on, which is only valid once Unit 3 is taught.
+  Units 6 (and parts of 5.x classwork) use `def` before Unit 3 is taught: a policy is needed.
+- Official files with errors or stale wording: 4.4 `secret4` (`while number > 1`), 6.2 unquoted `api_key`, 9.1 p.14 old error
+  text, 14.0 `avg_stud` solution bug (`begin += (1+i)`).
+- Still missing from the download (never invent): 17.2, 18.2 worksheet, 19.2, 19.3, 21.0, 21.2, 22.0, 22.2, and the
+  exercises that exist only as links in `links.md`.
+
+**Decisions needed from the teacher** (defaults in brackets)
+1. Rework order [5.4 → Unit 7 → Units 3/4/2 → Units 6/8/9 → 1.3, as the class reaches them].
+2. Rulebook exceptions: multiple return values (3.3), default arguments (4.7 H5P), nested loops and list of lists (14.0),
+   `sort(key=)`; `def` in Unit 6 before Unit 3 [rulebook stands].
+3. 5.3/5.4: one agreed time split, and `split`/`join` in 5.4 or only in 7.2 [rulebook allows showing it in 5.4].
+4. Unit 9: keep 4 meetings (hours from the master table) [yes].
+5. Slides: NotebookLM as now, or adapt the official `.pptx` decks [NotebookLM].
+6. Ask the teacher to rerun the downloader and capture output if 17.2, 19.x, 21.x, 22.x should exist.
