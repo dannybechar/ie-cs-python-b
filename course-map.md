@@ -58,7 +58,12 @@ Unit folders (`units/u<N>-<slug>/`) are created when a unit is built; see `CLAUD
   defaults chosen without the teacher (change if wrong): `def` allowed in Units 6–9 (they follow Unit 3 in the schedule); no nested loops and no lists
   of lists in Unit 7; Unit 9 keeps 4 meetings (the Ministry has 3). Live runs needed before class: Unit 8.4 (TensorFlow + a real exported model),
   Unit 9.1 (Google Forms export) and 9.4 (incognito demo), the Unit 6 model download.
-- **Unit 7 notes** need a small update *if* the 90-minute lab version of 5.4 is taught (it shows `split`/`join` first). The
+- **Converged to the classroom-downloader program (13 Nov 2026):** every unit was audited against the official files
+  (`docs/ministry-teaching-materials.md`, "Reconciliation") and patched; 5.4 was rebuilt (cases: first-star-last, middle character,
+  initials, number cipher); Unit 7 now integrates lists part A and the official worksheets (slide prep folders: 20/20/20/15/16);
+  5.3 is recorded as 45/45 as taught vs 0/90 official (unit total 360 min either way). Decks for all patched meetings need
+  regeneration. Open teacher decisions are listed in the Reconciliation section.
+- **Unit 7 notes** (superseded by the 13 Nov rework above) need a small update *if* the 90-minute lab version of 5.4 is taught (it shows `split`/`join` first). The
   countdown edition of 5.4 leaves `split`/`join` to Unit 7.2, so no change is needed if that edition is taught.
 - Every official topic is covered (see each unit's `unit-strategy.md`). The tool choices flagged during planning were
   settled during each unit's build; the live-service steps are in each unit's README (Unit 4 now uses Gemini).

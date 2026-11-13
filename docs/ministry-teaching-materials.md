@@ -99,9 +99,10 @@ compared with it (one reviewer per unit group). **Units 6–9 are reworked (🔶
 **Numbering:** the Ministry's numbers are its own lessons. 10–11 = our Unit 6 (2 Ministry meetings; we keep 3), 12–14 = Unit 7,
 16–19 = Unit 8 (4 meetings, as ours), 20–22 = Unit 9 (3 Ministry meetings; ours has 4).
 
-**Still missing from the folder (to ask the teacher for):** Lists part A (part B opens with "as we learned") and part E (14.0 p. 30:
-"next lesson, a list of lists"); the numbered worksheets and keys 12.2–12.4, 13.2–13.5, 14.2 onward, 15, 16.2 (only its key 16.2.0
-exists), 17.2, 18.2, 19.2, 19.3 (Colab), 20.2, 21.2 (it holds the real recommender code), 22.2, and the teacher notes 21.0 and 22.0.
+**Still missing (updated 13 Nov 2026 after the classroom-downloader folder arrived; lists part A 9.x and the worksheets 12.5, 12.6,
+13.2, 14.2, 14.4, 16.2 are now delivered):** list part E (14.0 p. 30: "next lesson, a list of lists"); 12.2–12.4, 13.3–13.5 and
+14.3 (links or videos only), 15.x, 17.2, 18.2 as a worksheet (its images are present), 19.2, 19.3 (Colab), 20.2, 21.0, 21.2 (it holds
+the real recommender code), 22.0 and 22.2.
 
 **Rule conflicts to settle:**
 - `def` / `return` appear in almost every Ministry worksheet (Units 6–9) while the class has not learned functions. Unit 6 assumes Unit 3 first.
@@ -129,7 +130,7 @@ Unit 9 Forms export and incognito demo, Unit 7 `input()` tasks in Thonny.
 
 ## Reconciliation with the classroom-downloader program (opened 13 Nov 2026)
 
-**Status: audit done (13 Nov 2026), rework not started.** The folder `classroom-downloader\downloads\פייתון_ב\` holds 67
+**Status: audit done and all units reworked (13 Nov 2026, commits b1302b2, 5e38c18, 45e0c44, 96cbfbf, 08a7d78, 26f2e7d, 6dc9681; every unit 🔶 awaiting re-approval, new decks pending).** The table below is the audit as it was before the rework; "PATCH" rows have since been applied. The folder `classroom-downloader\downloads\פייתון_ב\` holds 67
 `Materials` items and 22 `Classwork` worksheets; all 89 files were extracted to text (4 are image-only: `0.6`, `2.3`, `9.5`,
 `13.6`). Nine read-only audits compared each unit with the official lessons. Verdict key: OK / PATCH (small edits) / REWORK.
 Limits: the audits mostly read lesson notes, not every brief, starter, answer key or slide PDF, so a verdict of OK is
