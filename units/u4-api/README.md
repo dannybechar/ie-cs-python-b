@@ -10,10 +10,19 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 The service is **Gemini** (`google-genai`, model `gemini-2.5-flash`, exactly as in the Ministry's text — check that the
 name still works before class). Full steps are in `m1-lesson-notes.md`, "Tool Note – the AI service". In short:
 
-1. **Keys:** the teacher creates up to 10 keys in Google AI Studio (one project each; about 15 requests/minute and 1,500/day per key) and shares each key among 3–4 students.
+1. **Keys:** the teacher creates up to 10 keys in Google AI Studio (one project each; about 15 requests/minute, 1,000,000 tokens/minute and 1,500/day per key) and shares each key among 3–4 students.
 2. **Keeping the key secret:** *Colab* — Secrets (`GEMINI_API_KEY`, "Notebook access" on) and `userdata.get(...)`; *Thonny* — install `google-genai`, set the environment variable `GEMINI_API_KEY` on the computer and read it with `os.environ[...]`. Never a key in a file, slide, screenshot or the repo.
 3. **Every `.py` file here runs by default with a classroom stand-in** (ZONE A, a fake client with fixed `[stand-in]` answers): plain `python`, no key, no internet. The live replacement is in comments inside the files.
 4. **Files that need a live run with a real key before class:** `AskTheAI_Reference.py` (warm-up, `task1`, `task3`), `BalancedDay_Reference.py` (`task3`, `task4_features`). Check the model name, the answer text, and a 429/503 message once.
+
+**Live-run checklist (teacher, before class — everything else is verified offline with the stand-in):**
+
+- [ ] Model name `gemini-2.5-flash` still accepted (it may be retired; the one-line test is in `m1-lesson-notes.md`).
+- [ ] Library: `pip install -U google-genai` for Thonny (Tools › Manage packages) — **not** in the Ministry text, taken from the Gemini quickstart; Colab has it installed.
+- [ ] Decide once: Colab (Ministry method, Secrets, nothing to install) or Thonny + environment variable.
+- [ ] `AskTheAI_Reference.py`: warm-up (`print(response)`), `task1`, `task3` with the real client; check that `response.text` is the answer and read one real 429/503 message.
+- [ ] `BalancedDay_Reference.py`: `task3` and `task4_features` with the real client; the call count must be 1.
+- [ ] The key is in no file, slide or screenshot; the Ministry's own 6.2 snippet has an unquoted `YOUR_API_KEY` (a `NameError`, see `m2-lesson-notes.md`).
 
 ## Unit 4.1 — Bringing AI into Code (API)
 

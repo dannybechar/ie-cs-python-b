@@ -23,7 +23,7 @@ f-string and question 4 returns two values at once (`return sumOfDonations, numb
 parking function returns a short phrase (the main program prints the hours), and the donation checkpoint uses two
 global variables that `add_donation` changes — which also fits this meeting's topic. Question 3 (the calculator that returns
 four values) is held out for the same reason; the "if time" block has the four-function version. The error text on the
-Ministry's slide 21 is older than Python 3.14; the lab uses the real message (see Misconception Risks).
+Ministry's slide 21 is older than Python 3.14; the lab uses the real message (see Misconception Risks). Official typo: deck slide 17 says "inside the loop" where it means "inside the function". **Left out on purpose (teacher decision, see section 2):** returning several values (4.6 q3/q4) and the 4.7 default-argument H5P.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -49,7 +49,45 @@ labeled **Tool Note – Thonny**.
 | Assessment: tracing; developing and implementing | ✅ checkpoint |
 
 ### Deliberate exclusions
-`nonlocal`, nested functions, returning several values (tuple), f-strings (Unit 4), lists as global variables (Unit 7).
+`nonlocal`, nested functions, f-strings (Unit 4), lists as global variables (Unit 7), and the two Ministry items below.
+
+**TEACHER DECISION NEEDED before the May 2027 exam — official items left out by the rulebook default.**
+
+1. **Returning several values.** The Ministry's 4.6 question 3 (`return add, sub, mul, div`, called as
+   `a, b, c, d = calculator(num1, num2)`) and question 4 (`return sumOfDonations, numberOfHighDonors`, called as
+   `totalSum, highDonors = add_donations(...)`), with their solutions in **4.5.0**, return a tuple and unpack it. The course
+   rulebook bans tuples in anything students see, so these two questions are **not given as written**. Replacement: question 3
+   survives only as the "if time" block with four single-value functions; question 4 became the donation checkpoint with
+   **two global variables** changed by `add_donation` (it practises exactly this meeting's topic, but it is a different
+   solution from the official one). 4.5.0 also uses f-strings in its answers (Unit 4). **Risk:** the Ministry exam bank
+   may expect the multiple-return form. The program text (python-b-ai.pdf p. 10) lists scope and `return`, not tuples, and
+   the raw clarifications drop tuples — but this is not confirmed against the exam. If the teacher decides to teach it,
+   add a 10-minute section after the checkpoint (`return a, b` and `x, y = f(...)`, shown as "two values come back at once",
+   no word "tuple"), give 4.6 questions 3 and 4 as written, and use the 4.5.0 solutions (replace the f-strings with commas
+   in `print`).
+2. **Default argument (lesson 4.7).** The Ministry classroom lists **4.7 "מאסטר פייתון (עבודה בזוגות)"**, an H5P
+   (`https://h5p.org/node/1498619`, titled in `links.md` "ערך ברירת מחדל כארגומנט בפעולה" — a default value for a
+   parameter, `def f(x, y=10)`). It follows 4.6, so it belongs to Unit 3. It was **not built**: the rulebook forbids default
+   arguments in our own functions, and the H5P itself is not among the delivered files (only its link). Options: skip
+   (default), show it as 5 minutes of enrichment in 3.3 "if time" (`def greet(name, greeting="Hello")`), or lift the rule
+   for this item and give the H5P as pairs homework. This too must be settled before the exam.
+
+Teacher-side only (not for students): the official question 4 in the form 4.5.0 gives, to check against any exam paper:
+
+```python
+def add_donations(number_of_donors):
+    sum_of_donations = 0
+    number_of_high_donors = 0
+    for i in range(number_of_donors):
+        donation = int(input("Enter donation: "))
+        sum_of_donations += donation
+        if donation > 100:
+            number_of_high_donors += 1
+    return sum_of_donations, number_of_high_donors
+
+
+total_sum, high_donors = add_donations(3)
+```
 Style note for the teacher: a program that depends on many globals is harder to read than one that passes values with
 parameters and `return`. The lab teaches `global` because the program and the exam use it, and the last slide says
 "prefer parameters and `return`; use `global` when several calls must share one running value".
@@ -99,7 +137,7 @@ def show_square(num):
 | 24–30 | **A global variable (slides 13–15):** `score = 0`; `print_score()` reads it. **Predict:** `change_score()` sets `score = 100` and prints inside; what do the two prints show? → inside 100, outside 0 |
 | 30–36 | **Why:** the assignment made a new local. **The fix:** `global score` → inside 100, outside 100 |
 | 36–41 | **The trap:** `counter = counter + 1` without `global` → `UnboundLocalError`. Read the real message on Python 3.14; Python decides at compile time that `counter` is local because it is assigned in the function |
-| 41–44 | The local / global table: where defined, who can see it, when it disappears, how to change it from inside |
+| 41–44 | The local / global table: where defined, who can see it, when it disappears, how to change it from inside. Close with deck slide 23's last line: `global` lets **several functions, even a loop, update one shared variable** (a score, a counter) |
 | 44–45 | The lab missions |
 
 ---

@@ -95,5 +95,5 @@ print(prompt)
 #   3. a task name shorter than 3 letters is not added (len)
 #   4. total_task_time += task_time; if the tasks take more hours than today, do not call the AI - print a warning
 #   5. ask the AI to add one short motivation sentence to every task
-#   6. print a summary in percent: task_percent = total_task_time / today_time * 100
+#   6. print a summary in percent: task_percent = round(total_task_time / today_time * 100)
 #   7. privacy: a task that contains the word password, phone or address is not added (with a warning)

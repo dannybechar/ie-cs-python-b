@@ -22,6 +22,7 @@ unit meets the exam — functions that return, and loops that live inside functi
 (shadows a Python function) → `total`; question 2's blanks follow the definition in the question
 (`digit > total / 2`; in the Ministry file the `if` slot is a drop-down that shows `num != 0`, which does not match the
 definition); question 4's blanks use `range(1, 10)` for a nine-digit ID.
+**Answer keys:** the Ministry delivered **no key for the 4.4 exam questions** (the document has only empty answer tables; 4.5.0 covers 4.5 and 4.6 only). The answers in this meeting's notes, brief and `Practice_Reference.py` are ours, checked by running them — flag them as "not official" if a colleague compares.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
@@ -163,7 +164,7 @@ Four functions, `secret1`–`secret4`, in the starter. On paper, predict each ou
 | `secret3(1024)` | `The digit sum is: 7` — it also returns 7 |
 | `secret4(1024)` | `The digit product is: 0` |
 
-`secret4` loops `while number > 1`, so the leading `1` is skipped — which happens not to matter here, because `4 * 2 * 0` is already 0. Ask: what would `secret4(12)` give? (`result = 1 * 2 = 2`, then `number = 1`, the loop stops: 2 — the leading digit 1 would not change a product anyway.)
+**Ministry defect:** the official `secret4` loops `while number > 1`, the natural condition is `> 0`; as written the leading `1` is skipped — which happens not to matter here, because `4 * 2 * 0` is already 0. Ask: what would `secret4(12)` give? (`result = 1 * 2 = 2`, then `number = 1`, the loop stops: 2 — the leading digit 1 would not change a product anyway.)
 
 ## 58–66 — Task 6: `special_number()` (question 2)
 

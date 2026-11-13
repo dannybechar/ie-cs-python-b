@@ -46,3 +46,5 @@ Content follows the Ministry's teaching materials (files 4.1–4.6): [`../../doc
 | Student | [`Scope_Starter.py`](Scope_Starter.py) | Forgotten-`global` warm-up bug, stubs for Tasks 1–4 and the checkpoint |
 | Teacher | [`Scope_Reference.py`](Scope_Reference.py) | Solutions, one function per task |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck: `return` and scope, 19 slides) |
+
+**Teacher decisions open (before the May 2027 exam):** multiple return values (Ministry 4.6 q3/q4, key 4.5.0) and the 4.7 default-argument H5P are deliberately left out by the rulebook; see `m3-lesson-notes.md` section 2. The 4.4 exam questions have no official key.

@@ -46,7 +46,7 @@ labeled **Tool Note – Thonny**.
 
 ### Deliberate exclusions
 Scope and `global` (3.3), exam-style loops inside functions (3.2), default and keyword arguments, returning more than
-one value (the Ministry's worksheet 4.6 does it; it is a tuple and is not taught here), recursion, lists.
+one value (the Ministry's worksheet 4.6 does it; it is a tuple and is not taught here — deliberate, a **teacher decision before the May 2027 exam**, see 3.3 section 2), the 4.7 H5P "default value for an argument" (`def f(x, y=10)`, also deliberately left out, see 3.3 section 2). Ministry slide 16 is a "template" slide (`def name(param1, param2, ...): return(...)`); the four-kinds table in the lesson covers the same ground. Also not taught: recursion, lists.
 
 ---
 

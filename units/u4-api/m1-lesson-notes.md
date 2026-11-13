@@ -49,7 +49,7 @@ data in a prompt; the answer is checked, not trusted".
 | Goal 3: import a library and set up a client | ✅ the Gemini code, line by line |
 | Goal 4: a wrapper function that takes a prompt and returns the answer | ✅ Tasks 1 and the whole lab |
 | Goal 5 (start): a dynamic prompt with an f-string | ✅ `+` versus f-string, Task 2 (continued in 4.2) |
-| Goal 9: rate limits, overload errors, inaccurate answers | ✅ 15/min, 1,500/day, 429, 503; the answer is checked |
+| Goal 9: rate limits, overload errors, inaccurate answers | ✅ 15/min, 1M tokens/min, 1,500/day, 429, 503; the answer is checked |
 | Goal 10: privacy | ✅ golden rule 2 ("send only what is needed"); no personal data in a prompt |
 
 ### Deliberate exclusions
@@ -103,13 +103,13 @@ print(answer)
 | 14–24 | **Two ways to build the prompt (slides 11–12) — students type.** First `+` (trace the output: where did the spaces go?), then the f-string (`f` before the quote, variables inside `{ }`). Pairs type both versions in Thonny and print the prompt — **no AI needed yet.** |
 | 24–31 | **The Gemini code, line by line (slides 13–23).** `from google import genai` · `client = genai.Client(api_key=…)` (the key — we get it from the teacher) · `model="gemini-2.5-flash"` (**we do not change it**) · `contents=` is the prompt, the only line we change · `response = …` keeps the answer · `print(response.text)`. **Teacher demo, live (4–5 min):** run it with the real key, or with the stand-in; run twice — same answer? (A real model does not always repeat itself.) |
 | 31–37 | **Wrap it in a function (slides 24–25).** `ask_the_ai(my_prompt)`: the prompt becomes a parameter; `return response.text`. **Predict (own step):** "what would `answer` be if the function used `print` instead of `return`?" — `None`, and the text appears on the screen only. Why wrap: (1) clean code — the main program says `answer = ask_the_ai(prompt)`; (2) reuse — ask again and again without copying lines; (3) a black box — the main program does not need to know how the API works; changing the model happens in one place. |
-| 37–43 | **Use it wisely (slides 27–29).** Limits: about **15 requests per minute and 1,500 per day per key** (it varies between models and periods) — so we work in groups. Errors **429** (quota exceeded) and **503** (server busy) mean the code is fine: wait, call less, test the prompt in an online chat before the code. **The three golden rules:** plan the prompt first (context + task + wanted output) and test it in a chat; send only what is needed; **never call the API inside a loop** — collect first, send once. The key: never in the file (see the setup notes). |
+| 37–43 | **Use it wisely (slides 27–29).** Limits: about **15 requests per minute, 1,000,000 tokens per minute and 1,500 requests per day per key** (guide 5.0.1; a token is a small piece of text — a short class prompt is a few dozen, so the request limit is the one students hit) (it varies between models and periods) — so we work in groups. Errors **429** (quota exceeded) and **503** (server busy) mean the code is fine: wait, call less, test the prompt in an online chat before the code. **The three golden rules:** plan the prompt first (context + task + wanted output) and test it in a chat; send only what is needed; **never call the API inside a loop** — collect first, send once. The key: never in the file (see the setup notes). |
 | 43–45 | **Bridge:** key groups, the lab sheet, "warm-up first". |
 
 ### Tool Note – the AI service (setup, before the lesson — teacher)
 1. **Create the keys** (guide 5.0.1): Google AI Studio → *Get API key* → *Create API key* → *Create project*. Up to
    **10 independent keys** (each in its own project, each with its own limit). A key is about 15 requests/minute,
-   1,500/day — so 3–4 students share a key and take turns. Free keys cost nothing; still, treat each key as a secret.
+   1,000,000 tokens/minute (guide 5.0.1) and 1,500 requests/day — so 3–4 students share a key and take turns. Free keys cost nothing; still, treat each key as a secret.
 2. **Check the model name** before class. The Ministry's text uses `gemini-2.5-flash`; run the one-line test below
    once with your own key. If Google has retired the name, change the string in the single `ask_the_ai` line and tell
    the students it was changed.

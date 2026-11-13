@@ -169,9 +169,9 @@ def task4_features():
 
     fun_time = today_time - total_task_time
     if today_time > 0:
-        task_percent = total_task_time / today_time * 100
+        task_percent = round(total_task_time / today_time * 100)
         rest_percent = 100 - task_percent
-        print(f"Your tasks take {task_percent:.1f}% of your time, {rest_percent:.1f}% is left for rest.")
+        print(f"Your tasks take {task_percent}% of your time, {rest_percent}% is left for rest.")
 
     if fun_time < 0:
         print("Warning: there are more tasks than hours today - no call was sent.")

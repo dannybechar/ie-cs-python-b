@@ -26,6 +26,8 @@ template, the answer-critique and the 20-point rubric are kept; the warm-up is a
 the exit check); the sentinel and the stand-in are in English (see Tool Note).
 **Dropped on purpose:** colored output (`"\033[31m"` escape codes) — Thonny's Shell does not render them; they work in Colab
 only. The banned-words list (4.1 worksheet) — lists come in Unit 7; our `or` chain does the same job.
+**Ministry defects, not copied:** (1) the worksheet 6.2 setup snippet writes `genai.Client(api_key=YOUR_API_KEY)` with **no quotes** around the name — as written it raises `NameError`, and pasting a real key there is exactly what the golden rules forbid; our files never put a key in code (stand-in, `os.environ` or Colab Secrets, see 4.1) — if a student copies the official snippet, tell them to read the key from Colab Secrets or the environment, never to type it. (2) The official call is `answer = client.models.generate_content(...)`; printing `answer` instead of `answer.text` prints an object — the 4.1 warm-up bug already trains this, and `ask_the_ai` returns `.text`. (3) Parameter name: the Ministry decks use `my_prompt`, the 6.2.0 solution `prompt`; we use `my_prompt` throughout.
+**Live-run list for 4.2 (not verifiable offline):** `BalancedDay_Reference.py` `task3` and `task4_features` with a real key (model `gemini-2.5-flash`, `pip install -U google-genai` or Colab) — see the unit README checklist.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled
 **Tool Note – Thonny vs Colab** or **Tool Note – the AI service**.
 
@@ -167,7 +169,7 @@ returns 429 or 503: the code is fine — wait a minute and run again (the stand-
 Choose from the worksheet's list: (1) emojis for every task; (2) a language choice; (3) `len(task_name) >= 3` before
 adding a task; (4) `total_task_time += task_time`, net fun time `today_time - total_task_time`, and **no call** if it
 is negative; (5) a motivation sentence for every task; (6) a percentage summary
-(`task_percent = total_task_time / today_time * 100`, printed with `:.1f`). Our addition, (7) privacy: a task that
+(`task_percent = round(total_task_time / today_time * 100)` — a whole percent. The first draft printed with `:.1f`, but the format spec `:.1f` is taught nowhere before this meeting, so it was replaced by the one-argument `round`, as Units 6 and 8 do). Our addition, (7) privacy: a task that
 contains `password`, `phone` or `address` is not added. Colors (the worksheet's feature 7) are Colab-only — optional there.
 The worksheet calls this "the real hi-tech challenge: adding code to an existing program" — say so.
 

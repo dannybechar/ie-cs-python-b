@@ -64,6 +64,7 @@ algorithm that uses procedural abstraction; developing and implementing one → 
 - **Not used from the Ministry's files:** returning several values and unpacking (`a, b, c, d = calculator(...)`; 4.6 questions 3 and 4) — a tuple, not taught; f-strings (4.6 question 1; Unit 4); `%d` formatting and `int(number / 10)` in 4.4 (replaced by a comma in `print` and `//`).
   4.6 question 3 appears only as an "if time" idea in four single-value functions; question 4 is the checkpoint, with global variables instead of a pair of returned values.
 - The previous version's task-calculator checkpoint, the control-panel mini-project and the refactor tasks are dropped.
+- **Teacher decision before the May 2027 exam:** the two official items above (multiple return values, 4.6 q3/q4 and key 4.5.0) and the **4.7 H5P "default argument in a function"** (https://h5p.org/node/1498619, only the link was delivered) are left out by the rulebook default; replacement for 4.6 q4 is two global variables. Details in `m3-lesson-notes.md` section 2. The 4.4 exam questions have no official key.
 - **Not taught:** default or keyword arguments in our own functions, `*args`, docstrings, type hints, recursion, `nonlocal`, nested functions, lists (Unit 7), classes.
 
 ## Exit criteria

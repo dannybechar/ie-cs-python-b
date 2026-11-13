@@ -70,7 +70,7 @@ homework (2.0 hours), sport (1.5 hours),
 3. מטלה בשם קצר מ-3 אותיות לא נוספת (`len`).
 4. `total_task_time += task_time`; אם המטלות תופסות יותר שעות מהיום — לא קוראים ל-AI, אלא מדפיסים אזהרה.
 5. לבקש משפט מוטיבציה קצר לכל מטלה.
-6. סיכום באחוזים: `task_percent = total_task_time / today_time * 100`.
+6. סיכום באחוזים: `task_percent = round(total_task_time / today_time * 100)`.
 7. פרטיות: מטלה שמכילה `password`, `phone` או `address` לא נוספת (עם אזהרה).
 
 </div>
