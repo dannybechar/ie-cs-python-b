@@ -21,7 +21,9 @@ checked, any decision the teacher must make.
 
 Build every meeting of the unit (or one meeting), one at a time.
 
-1. **Sources.** **The Ministry's published teaching materials are the source of truth**
+1. **Sources.** **The official Python B program in `C:\Users\Guitar\Workspace\classroom-downloader\downloads\פייתון_ב\`
+   (`Materials\`, `Classwork\`, `links.md`) is the primary source of truth for the whole repository** (teacher, 13 Nov 2026);
+   read the matching file there first, before any other source. **The Ministry's other published teaching materials are the source of truth too**
    ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md): file inventory, which file feeds which
    meeting, rulebook changes). Read the matching Ministry deck and worksheet first and follow their topics, examples
    and exercises; the files live in `Downloads\השתלמות\מצגות-השתלמות\`. The Ministry program [`docs/ministry-source/python-b-ai.pdf`](docs/ministry-source/python-b-ai.pdf)

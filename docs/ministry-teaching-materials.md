@@ -7,6 +7,14 @@ materials (`python-b-raw-meterials`, inspiration only) and the units we first bu
 alone. The program ([`ministry-source/python-b-ai.pdf`](ministry-source/python-b-ai.pdf)) still sets goals and hours;
 these materials set **what is taught, in which examples and with which exercises**.
 
+**Primary source (teacher's decision, 13 Nov 2026):** the whole repository works under the official Python B program as
+downloaded from the Ministry's classroom into
+`C:\Users\Guitar\Workspace\classroom-downloader\downloads\פייתון_ב\` (`Materials\` — decks, teacher notes and solutions,
+guided-practice videos, summaries; `Classwork\` — worksheets as `.docx`; `links.md` — Forms, H5P, genially, YouTube and the
+three virtual exams). Where it and the `מצגות-השתלמות` PDFs differ, this folder wins; it also supplies files the PDFs lacked
+(lists parts B–D, worksheets and teacher solutions). Every build, review and rework starts there. Reconciliation of the
+built units against it is tracked in the "Reconciliation" section below.
+
 The PDFs are not copied into the repo (size, and they remain the Ministry's files). Read them with PyMuPDF
 (`python`, not `python -I`, so user-site packages load); Hebrew text extracts in visual order — check the page image
 when a line looks scrambled. The Ministry's file numbers (2.0 … 22.1) are **its own lesson numbers, not our unit numbers.**
@@ -118,3 +126,10 @@ TensorFlow); Unit 9 keeps four meetings, uses V / X / 0 and flat lists (no tuple
 Ministry slide errors found while verifying (never to be copied): 14.0 p. 12 wrong example averages, 14.0 p. 23 `begin += 1 + i` skips a grade, 12.1 pp. 31–32
 stray parenthesis and a late special-list check, 12.0 p. 10 `append(i)`. Files that still need a live run: Unit 8 `Ministry_Model_Code.py` and the Teachable Machine export,
 Unit 9 Forms export and incognito demo, Unit 7 `input()` tasks in Thonny.
+
+## Reconciliation with the classroom-downloader program (opened 13 Nov 2026)
+
+**Status: not started.** The folder `classroom-downloader\downloads\פייתון_ב\` holds 67 `Materials` items (decks, teacher
+notes, solutions, guided-practice videos, summaries, exam helper sheets) and 22 `Classwork` worksheets. Next step: map every
+file to a meeting, diff each built unit against it, list contradictions and missing pieces here, and rework only after the
+teacher decides per unit.
