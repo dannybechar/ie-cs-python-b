@@ -9,7 +9,7 @@ Status: ✅ taught · ▶ next · ⏭ skipped for now (to be taught later) · �
 
 - **Done:** **Unit 1 — Python A Review** (1.1–1.3) **including its written test** (given 18/24 Oct 2026 and graded; the Form B retest for two students is set for 11 Nov 2026).
 - **Skipped for now:** **Units 2, 3 and 4** (AI2 Year Opening, Functions, Bringing AI into Code). They are built and will be taught later, before the Ministry exam (May 2027).
-- **In progress:** **Unit 5 — Strings.** 5.1, 5.2 and 5.3 are taught; **5.4 is next** (its countdown edition and worksheet were rebuilt on 13 Nov 2026 from the official 8.1/8.2/8.4 exercises).
+- **In progress:** **Unit 5 — Strings.** 5.1, 5.2 and 5.3 are taught; **5.4 is next** (live lesson + deck + paper lab built 13 Nov 2026; the countdown edition and worksheet, rebuilt from official 8.1/8.2/8.4 exercises, remain as an alternative). 5.3 was taught the week before 13 Nov.
 - **Teaching-order consequence:** the class has **not learned functions** (Unit 3) or the API / f-strings (Unit 4). Everything students see in Unit 5 is plain code — no `def`, `return` or parameters — until the teacher says Unit 3 is done. Unit 5.1 now also has a live-lesson edition ([`m1-live-problem-he.md`](units/u5-strings/m1-live-problem-he.md)).
 - **After Unit 5:** the schedule continues with Unit 6, but Units 2–4 still have to be fitted in; Unit 4 uses functions, so it must come after Unit 3.
 
