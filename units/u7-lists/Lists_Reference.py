@@ -9,6 +9,43 @@ def warmup():
     print(scores)
 
 
+# Predict table (Ministry 9.4 Q1-Q3 in our version; the answers are in the lesson notes).
+# Run it AFTER the students wrote their predictions.
+def predict_table():
+    data = [4, 5, 6, "Yael", "Ester", 7, 8]
+    print(data[1])
+    print(data[-3])
+    data[2] = "Amir"
+    print(data)
+    print(len(data))
+    data = [4, 5, "Amir", "Yael", "Adi", 12, 988, 20, "20", 97]
+    print(data[::2])
+    print(data[::-1])
+    print(data[2:7:2])
+    print(data[-8:-3])
+    print(data[1:])
+    print(data[-4:-1])
+    my_list = [4] * 3
+    print(my_list)
+    print(data[:2] + my_list)
+
+
+# The Ministry 9.1 pp. 4-9 demo list: mixed types, index table, slices, + of three lists
+def official_demo():
+    everything = [24.56, "Itamar", 340, -7]
+    print(everything, len(everything))
+    my_list = [24.56, "Itamar", 340, -7, "Yael"]
+    print(my_list[0], my_list[1], my_list[-1], my_list[-2])
+    print(my_list[1:3])
+    print(my_list[-4:-1])
+    print(my_list[1:])
+    print(my_list[2:])
+    list1 = ["A", "B", "C", "D", "E"]
+    list2 = ["F", "G", "H", "I", "J"]
+    print(list1 + list2 + ["K", "L"])
+    print(list1, list2)
+
+
 # Task 1: length, first, last, membership
 def ai_report(scores):
     print("Number of tests:", len(scores))
@@ -58,6 +95,8 @@ def task4():
 
 if __name__ == "__main__":
     warmup()
+    # predict_table()
+    # official_demo()
     # ai_report([81, 24, 67, 91])
     # task2()
     # slice_report([25, 20, 21, 24, 21, 24, 21, 16, 23])

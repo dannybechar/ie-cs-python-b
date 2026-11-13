@@ -5,6 +5,15 @@ scores[1] == 75
 print(scores)
 
 
+# Predict table (Ministry 9.4 Q1-Q3): on paper, write the output of every line BEFORE you run it.
+# data = [4, 5, 6, "Yael", "Ester", 7, 8]
+#   print(data[1])      print(data[-3])      data[2] = "Amir"  then print(data)      print(len(data))
+# data = [4, 5, "Amir", "Yael", "Adi", 12, 988, 20, "20", 97]
+#   print(data[::2])    print(data[::-1])    print(data[2:7:2])   print(data[-8:-3])
+#   print(data[1:])     print(data[-4:-1])   my_list = [4] * 3    print(my_list)
+# Then type the lines here, run them, and mark every prediction that was wrong.
+
+
 # Task 1: write ai_report(scores) - prints: how many scores, the first score, the last score,
 # and whether 100 is among them. Test on [81, 24, 67, 91].
 

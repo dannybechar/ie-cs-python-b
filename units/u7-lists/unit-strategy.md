@@ -4,24 +4,28 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 7 (pp. 17–18); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (Lists parts B, C, D: files 12.0, 12.1, 12.5, 12.6, 12.7, 13.0, 13.1, 13.6,
-14.0, 14.1); awaiting re-approval. The v1 build (approved earlier) came from `Downloads\python-b-codex\python_b_unit07_lists_complete_unit.md`;
-its linear search and capstone are kept because the Ministry files are silent there. Decks: superseded, new NotebookLM decks pending.
+**Build status:** 🔶 reconciled 9 Nov 2026 to the official Python B program (Lists parts A, B, C, D: files 9.1, 9.3, 9.4, 9.5, the printable operations help sheet,
+12.0, 12.1, 12.5, 12.6, 12.7, 13.0, 13.1, 13.2, 13.6, 14.0, 14.1, 14.2, 14.4, 14.5); awaiting re-approval. The v1 build (approved earlier) came from
+`Downloads\python-b-codex\python_b_unit07_lists_complete_unit.md`; its linear search with `-1` and its capstone are kept as **course additions** (the Ministry files
+never name them; the exam-bank question 14.4 Q10 is the official early-stop analogue). Decks: superseded, new NotebookLM decks pending (prep folders refreshed).
 
 ### Ministry file mapping
 
 | Ministry file | What it holds | Used in |
 |---|---|---|
-| 12.0 / 12.1 (part B) | `list()`, `append`, `insert`, indexing, `[a:b:c]`, `[::-1]`, max, average, the temperature filter, `in`, `+`, `join`/`split`, colours with `%`, operations summary, palindrome list, name occurrence, name-letter comparison, phone numbers, `random.choice` | 7.1, 7.2, 7.5 |
+| 9.1 (part A deck), 9.4 (worksheet) | the hook, `list()`/`[]`, mixed types, index table, slices `[1:3]`, `[-4:-1]`, `+`, `len`; the "write the output" tables Q1–Q3 | 7.1 |
+| 9.1 pp. 9–43, help sheet, 9.3 | `count`, `in`, `index`, `remove`, `pop`, `append`, `insert`, `sort`, `reverse`, `list(text)`, `split`, `join`, the 13-row table; the **Sandwich** challenge; the "even list" | 7.2 |
+| 12.0 / 12.1 (part B) | maximum, average, the temperature filter, `in`, `+`, `join`/`split`, colours with `%`, palindrome list, name occurrence, name letters, phone numbers, `random.choice`, songs `sort()`, bug severities | 7.2, 7.4, 7.5 |
 | 12.5 (worksheet #2) | "A new phone number" steps a–c | 7.5 |
-| 12.6 (master Python) | Q5 duplicate names, Q6 clothes (flat name/price list, total by index and by value) | 7.2, 7.4 |
-| 12.7, 13.6 | short summaries | 7.2, 7.3 (closing slides) |
-| 13.0 / 13.1 (part C) | traversal by index and by value, `sum_listA/B`, class names, Roni's prices, grades, presents, names, menu | 7.3, 7.4 |
-| 14.0 / 14.1 (part D) | Robber language, IP address, encryption, three parallel lists, presents/grades/menu, evens first, 20% discount, `remove_even`, `remove_place_num`, grouped grades, "magic list", nested-loop preview | 7.3 (`remove_even`), 7.4 (parallel lists, filters, menu, evens first, discount, grouped grades) |
-| **Not delivered** | Lists part A, part E (list of lists), worksheets 12.2–12.4, 13.2–13.5, 14.2 onward, and the Colab projects "dance party" / "hangman" of 13.x | assumed: part A = our 7.1 basics; part E and the projects are left out |
-
-Robber language, IP address validation and the encryption exercise (14.0 pp. 4–11) use string methods and `split`; they are **not** built here
-(they belong to the strings theme, Unit 5); they are enrichment for fast students.
+| 12.6 (master Python) | Q4 same-or-different `item`, Q5 duplicate names, Q6 clothes (flat name/price list) | 7.3, 7.4 |
+| 12.7, 13.6, 9.5 | short summaries | 7.2, 7.3 (closing slides) |
+| 13.0 / 13.1 (part C), 13.2 | traversal by index and by value, `sum_listA/B`, class names, Roni's prices, grades, presents, names, menu | 7.3, 7.4 |
+| 14.0 / 14.1 (part D) | Robber language, IP address, encryption, three parallel lists, presents/grades/menu, evens first, 20% discount, `remove_even`, `remove_place_num`, `avg_stud`, the "magic list" | 7.3 (`remove_even`), 7.4 (everything else; Robber/IP/encryption as stretch) |
+| 14.2 (worksheet) | Q1 half 0 / half 1, Q4 ascending, Q5 two lists equal, Q6 best grade, Q7 pass/fail (Q2, Q3: the above-average pattern) | 7.4 |
+| 14.4 (exam bank) | Q3 shift right, Q4 strictly ascending (code is an image, ⚠️ not in the text), Q8 permutation, Q9 improvement, **Q10 early-stop ranking** | 7.5 |
+| 14.5 (guided video slides) | words in a sentence with `split` | 7.4 |
+| **Links only** | 9.2, 9.3 video, 12.2, 12.3, 12.4, 13.4 "dance party", 13.5 "hangman", 14.3 | titles in the README; nothing invented |
+| **Not delivered** | Lists part E (list of lists) | left out anyway (rulebook) |
 
 ## Official topics and hours
 
@@ -58,50 +62,50 @@ Chapter goals (source §1, twelve in all):
 - why separate variables don't scale; `[]`, `list()`, a literal; `len`, indexing (positive and negative), updating an element and `IndexError`.
 - `in` / `not in`; `+` (a new list); slicing `[start:stop:step]` and `[::-1]` (the same notation as strings, Unit 5).
 - the two ways to walk a list, as a preview (full treatment in 7.3).
-- lab: an `==`-instead-of-`=` warm-up bug, an AI-results report, a bounds-checked update, a slicing report, `+` and `list()`.
+- the part-A hook and mixed types, the index table, `[1:3]`, `[-4:-1]`, `+` of three lists (9.1 pp. 3–9).
+- lab: an `==`-instead-of-`=` warm-up bug, the 9.4 predict table, an AI-results report, a bounds-checked update, a slicing report, `+`.
 
 ## Unit 7.2 — Knowledge + Lab: List Operations
-- `append` / `insert` / `extend`; `count` / `index` (with the `ValueError` and the `in` guard); `remove` / `pop`; `sort` / `reverse` (in place, return `None`).
-- building a new list in a loop; `split` / `join`; `list("text")`; `random.choice`.
-- lab: the Ministry's `append(i)` NameError as the warm-up, `colder_than`, `join_class` (duplicate names), `all_palindromes`, split/join/random.
+- `append` / `insert` / `extend`; `count` / `in` / `index` (case-sensitive, first match, the `ValueError` and the `in` guard); `remove` / `pop` (returns the value); `sort` / `reverse` (in place, return `None`); `sort(reverse=True)`.
+- building a new list in a loop; `list("text")`; `split` / `join`; `random.choice`; the 13-row table (9.1 pp. 42–43, help sheet).
+- lab: the Ministry's `append(i)` NameError as the warm-up, `colder_than`, `name_check`, `all_palindromes`, the Sandwich challenge, the even list; if time: name letters, split/join/random.
 
 ## Unit 7.3 — Knowledge + Lab: Walking a List and Accumulation
 - by index (`range(len(...))`) vs. by value; what `item` holds in each; the accumulation pattern; the average with an empty-list guard.
 - the "change while looping" trap and its two fixes; `b = a` vs. `.copy()`; a sorted copy.
-- lab: a `remove_even` warm-up bug (with its trace), `sum_by_index` / `sum_by_value`, `calculate_average`, Roni's prices, `without_even`, `sorted_copy`.
+- lab: a `remove_even` warm-up bug (with its trace), `sum_by_index` / `sum_by_value` (+ the 12.6 Q4 question), `calculate_average`, class names (13.2 #1), Roni's prices (13.2 #2); if time `without_even`, `sorted_copy`.
 
 ## Unit 7.4 — Lab + Lab: Counting, Filters, Maximum, Flat Menus, Parallel Lists
 - a counter that grows only when its condition holds; maximum from the first element, never from `0`.
 - reports: grades (average, above average, at most 60, "Excellent!"), presents, `count_in_range`.
 - one flat list name/price/name/price with even/odd index logic and the slices `[0::2]`, `[1::2]`; parallel lists and an average per student.
-- if time: `evens_first`, `discount_20`, a bug hunt in the grouped-grades solution.
+- names report (13.2 #5); worksheet 14.2 (Q1, Q4, Q6, Q7; Q5 as challenge); Odelia's clothes (12.6 Q6).
+- challenge menu: `evens_first`, `discount_20`, `remove_place_num`, `magic`, `count_words`, `can_release`, an `avg_stud` bug hunt; stretch: Robber, IP address, encryption.
 
 ## Unit 7.5 — Lab + Lab: Linear Search, a New Phone Number, the "AI Experiment Analyzer"
-- linear search returns an index or `-1`, never tested as a plain boolean; early stop on a sorted list; the built-in `index()` and its `ValueError`.
+- linear search returns an index or `-1`, never tested as a plain boolean; early stop on a sorted list (and the official 14.4 Q10 ranking); the built-in `index()` and its `ValueError`.
 - "A new phone number": `random.choice`, `random.randint`, a taken list, a special list, `str.count`, a rising/falling run; split into functions.
-- the unit's capstone, combining every pattern from the unit, with the 20-point rubric.
+- the unit's capstone (a course addition), combining every pattern from the unit, with the 20-point rubric; one exam-bank question (14.4 Q3 / Q4 / Q8 / Q9).
 
 ### Scope decisions
-1. **Five meetings and 450 minutes are kept** (3 Knowledge + Lab, 2 Lab + Lab, from the master table). The Ministry's parts B, C, D (about three
-   of its own meetings plus worksheets) are mapped onto them in the table above; where the Ministry is silent (linear search, the capstone) the
-   v1 content stays.
-2. **Missing items added** (the audit of 8 Nov 2026): list slicing `[a:b:c]` and `[::-1]`, `list()`, `[]`, `index()`, `+`, `random.choice`, the flat
-   alternating name/price menu with even/odd index logic, parallel lists and the average per student, the duplicate-name input check, the
-   above-average and at-most-60 filters, the "evens first" list, the 20% discount, the `remove_even` mutation trap, the palindrome-list task.
+1. **Five meetings and 450 minutes are kept** (3 Knowledge + Lab, 2 Lab + Lab, from the master table: 135 theory + 315 practice). The Ministry's four lists lessons (parts A–D, 360 minutes)
+   plus their worksheets and the exam bank are mapped onto them in the table above; the Ministry's own exercises are used wherever they exist.
+2. **Part A is built in** (9 Nov 2026): the hook, mixed types, the index table, negative slices and the 9.4 predict table in 7.1; the 13-row table, `count`/`index`/`remove`
+   first-match and case-sensitivity demos, `pop` returning its value, `sort(reverse=True)`, the Sandwich challenge and the even list in 7.2.
 3. **`def` is allowed**: Unit 7 follows Unit 3 in the schedule, and the Ministry worksheets are written with `def`.
-4. **Rulebook unchanged — no nested loops, no lists of lists, no tuples, sets, dictionaries, comprehensions, `enumerate`, `sorted(key=...)`.** The Ministry
-   previews nested loops (14.0 pp. 25–29, "will be learned later") and announces a list of lists in part E (not delivered); the course leaves both out. The
-   restaurant menu is one **flat** list, as the Ministry's own exercise #7 gives it. Functions return **one** value (no tuples).
-5. **Ministry-deck bugs are never copied as they stand**: `append(i)` for `append(item)` (12.0 p. 10) is used only as the 7.2 warm-up; the
-   curly quotes, stray parentheses, the stale `print(item, ...)` in the palindrome `else` branch, the wrong example averages on 14.0 p. 12 and the
-   `begin += (1 + i)` solution on p. 23 are documented in the lesson notes (7.4's bug hunt uses the last one deliberately).
-6. **Not delivered, not invented**: Lists part A (assumed to be the 7.1 basics), part E, the numbered worksheets and their keys, and the Colab
-   projects "dance party" and "hangman" (13.2–13.5). Ask the teacher for them before the next rework.
-7. **Ministry exercises left as enrichment**: Robber language, IP address validation, the replace-based encryption (14.0 pp. 4–11, string work), `remove_place_num`, the
-   "magic list" and the Turtle colour list (12.0 pp. 16–17, which uses `turtle.Turtle()`, against the course's Turtle rule).
-8. **Kept from v1**: the `==` / `=` warm-up, the max-from-`0` warm-up, the index-0 search warm-up, linear search with early stop, the capstone
-   "AI Experiment Analyzer", its seven test cases and the 20-point rubric. **Dropped from v1**: the stand-alone safe-remove and `pop(0)` queue tasks and
-   `build_report` (replaced by Ministry exercises of the same weight).
+4. **Rulebook unchanged — no nested loops, no lists of lists, no tuples, sets, dictionaries, comprehensions, `enumerate`, `sort(key=...)`/`sorted(key=...)`.** Official items
+   deliberately left out, each recorded in the lesson notes: nested loops (14.0 pp. 25–29), the list of lists (14.0 p. 30), `turtle.Turtle()` (12.0 p. 17), the 9.4 Q1 row that
+   puts `list(range(2, 5))` inside a list, `sort(key=...)` of the exam help sheet. The restaurant menu is one **flat** list, as the Ministry's own exercise #7 gives it.
+   Functions return **one** value (no tuples). The "magic list" (14.0 #13) and `avg_stud` (#12) are **not** lists of lists — they are in 7.4.
+5. **Ministry-deck bugs are never copied as they stand**: `append(i)` for `append(item)` (12.0 p. 10) is used only as the 7.2 warm-up; the old `index` error text (9.1 p. 14), the garbled
+   `pop` default, `index = input()` into `insert`, `text.join(list)` worded backwards, curly quotes, stray parentheses, the stale `print(item, ...)` in the palindrome `else` branch,
+   the wrong example averages on 14.0 p. 12 and the `begin += (1 + i)` solution on p. 23 (7.4's bug hunt uses the last one deliberately; our `avg_stud` is fixed).
+6. **Not offline, not invented**: 9.2, the 9.3 solution video, 12.2–12.4, 13.3–13.5, 14.3 (links only); part E; the answer keys of the worksheets; the image of the 14.4 Q4 code.
+7. **Ministry stretch exercises placed in 7.4**: Robber language, IP address validation, the `replace` encryption (14.0 pp. 4–11), `remove_place_num`, `magic`, `avg_stud` bug hunt,
+   `count_words` (14.5), bug-severity counting (12.1 p. 40).
+8. **Kept from v1**: the `==` / `=` warm-up, the max-from-`0` warm-up, the index-0 search warm-up, linear search returning `-1` with early stop, the capstone
+   "AI Experiment Analyzer" (**a course addition**, not Ministry material), its seven test cases and the 20-point rubric. **Dropped from v1**: the stand-alone safe-remove and `pop(0)`
+   queue tasks and `build_report`.
 9. **Meeting structure** follows the master table's 3 / 7 split (the chapter table's 4 / 6 is used only for the weight of topics), as in v1.
 
 ## Exit criteria

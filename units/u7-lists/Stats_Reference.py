@@ -136,15 +136,201 @@ def discount_20(prices):
     return result
 
 
-# the bug (begin += 1 + count skips one grade per student), fixed
-def group_averages(grades, counts):
+# Ministry 14.0 #12 avg_stud: l1 holds the grades of all students one after another, l2 says how many grades each has.
+# The bug of the official solution (begin += 1 + i) is fixed here
+def avg_stud(l1, l2):
     result = []
     begin = 0
-    for count in counts:
-        part = grades[begin:begin + count]
+    for count in l2:
+        part = l1[begin:begin + count]
         result.append(round(sum(part) / count, 2))
-        begin += count
+        begin += count      # NOT begin += 1 + count (the Ministry 14.0 p. 23 solution skips a grade per student)
     return result
+
+
+
+# Task 3, step (a) (Ministry 13.2 #6): read a flat menu: name, price, name, price ...
+def read_menu(count):
+    menu = []
+    for turn in range(count):
+        name = input("Dish name: ")
+        price = int(input("Price: "))
+        menu.append(name)
+        menu.append(price)
+    return menu
+
+
+# Task 3, step (d) (Ministry 12.6 Q6): the clothes of Odelia - one flat list name, price, name, price ...
+# (the Ministry's sample list has broken quotes and some prices as text; here the prices are numbers)
+def clothes_by_index(buy):
+    total = 0
+    for index in range(len(buy)):
+        if index % 2 == 1:
+            total += buy[index]
+    return round(total, 2)
+
+
+def clothes_by_value(buy):
+    total = 0
+    for item in buy:
+        if type(item) != str:
+            total += item
+    return round(total, 2)
+
+
+def clothes_names(buy):
+    for index in range(0, len(buy), 2):
+        print(buy[index])
+
+
+# Task 3, step (e) (Ministry 13.2 #5): names are full names "First Last" with one space between them
+def names_report(full_names):
+    with_el = 0
+    long_names = 0
+    same_letter = 0
+    for full_name in full_names:
+        if "el" in full_name.lower():
+            with_el += 1
+        if len(full_name) > 7:
+            long_names += 1
+        parts = full_name.split()
+        if parts[0][0].lower() == parts[1][0].lower():
+            same_letter += 1
+    print("Names with el:", with_el)
+    print("Names longer than 7:", long_names)
+    print("Same first letter:", same_letter)
+
+
+# Task 6 (Ministry 14.2): choose two of Q1, Q4, Q6, Q7
+def half_zero_one(size):
+    result = []
+    for index in range(size):
+        if index < size // 2:
+            result.append(0)
+        else:
+            result.append(1)
+    return result
+
+
+def is_ascending(values):
+    for index in range(len(values) - 1):
+        if values[index] > values[index + 1]:
+            return False
+    return True
+
+
+def is_strictly_ascending(values):
+    for index in range(len(values) - 1):
+        if values[index] >= values[index + 1]:
+            return False
+    return True
+
+
+def same_items_loop(first, second):
+    if len(first) != len(second):
+        return False
+    for index in range(len(first)):
+        if first[index] != second[index]:
+            return False
+    return True
+
+
+def same_items(first, second):
+    return first == second
+
+
+def best_grades(grade_a, grade_b):
+    grade_c = []
+    for index in range(len(grade_a)):
+        if grade_a[index] > grade_b[index]:
+            grade_c.append(grade_a[index])
+        else:
+            grade_c.append(grade_b[index])
+    return grade_c
+
+
+def pass_fail(numbers):
+    passed = []
+    failed = []
+    for number in numbers:
+        if number > 55:
+            passed.append(number)
+        else:
+            failed.append(number)
+    print("pass:", passed)
+    print("fail:", failed)
+
+
+# Challenge menu - Ministry 14.5: how many words in a sentence (split is required, count is forbidden)
+def count_words(text):
+    return len(text.split())
+
+
+# Challenge menu - Ministry 12.1 p. 40: bug severities
+def can_release(bugs):
+    kinds = ["Highly Critical", "Critical", "Major", "Medium", "Minor"]
+    for kind in kinds:
+        print(kind + ":", bugs.count(kind))
+    return (bugs.count("Highly Critical") == 0 and bugs.count("Critical") == 0
+            and bugs.count("Major") <= 1 and bugs.count("Medium") <= 5 and bugs.count("Minor") <= 10)
+
+
+# Challenge menu - Ministry 14.0 #11: delete the items whose POSITION is divisible by 3 (positions 0, 3, 6 ...)
+def remove_place_num(values):
+    result = []
+    for index in range(len(values)):
+        if index % 3 != 0:
+            result.append(values[index])
+    return result
+
+
+def remove_place_num_in_place(values):
+    # deleting in place is safe when the loop walks from the END: the positions still to visit do not move
+    for index in range(len(values) - 1, -1, -1):
+        if index % 3 == 0:
+            values.pop(index)
+
+
+# Challenge menu - Ministry 14.0 #13: the "magic list" is NOT a list of lists, it only compares three slices
+def magic(my_list):
+    if len(my_list) == 0 or len(my_list) % 3 != 0:
+        return False
+    size = len(my_list) // 3
+    first = my_list[:size]
+    second = my_list[size:size * 2]
+    third = my_list[size * 2:]
+    return first == second and second == third
+
+
+# Stretch - Ministry 14.0 pp. 4-11 (strings and split only; no nested loops, no lists of lists)
+def robber(text):
+    vowels = "aeiou "
+    robber_text = ""
+    for item in text:
+        if item in vowels:
+            robber_text = robber_text + item
+        else:
+            robber_text = robber_text + item + "o" + item
+    return robber_text
+
+
+def valid_ip(ip_text):
+    parts = ip_text.split(".")
+    if len(parts) != 4:
+        return False
+    for part in parts:
+        if not part.isdigit():          # the Ministry's version crashes on "a.b.c.d" (int() on text)
+            return False
+        if int(part) > 255:
+            return False
+    return True
+
+
+def encrypt(text):
+    text = text.replace("E", "&").replace("e", "&")
+    text = text.replace("T", "@").replace("t", "@")
+    text = text.replace("A", "%").replace("a", "%")
+    return text
 
 
 if __name__ == "__main__":
@@ -154,5 +340,6 @@ if __name__ == "__main__":
     # print(count_in_range([81, 24, 67, 91], 60, 90))
     # print_most_expensive(["milk", 15, "bread", 10, "cornflakes", 20, "eggs", 18])
     # print(student_averages([100, 77, 85, 98, 100], [95, 83, 77, 90, 100], [76, 87, 84, 93, 100]))
+    # print(magic([1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]), remove_place_num([0, 1, 2, 3, 4, 5, 6]))
     # print(evens_first([5, 2, 8, 1, 4]), discount_20([100, 50]))
-    # print(group_averages([80, 35, 90, 85, 55, 75, 60, 80, 90], [3, 2, 4]))
+    # print(avg_stud([80, 35, 90, 85, 55, 75, 60, 80, 90], [3, 2, 4]))

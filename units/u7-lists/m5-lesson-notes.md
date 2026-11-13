@@ -1,6 +1,6 @@
 # Unit 7.5 — Lists
 
-## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
+## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official Python B program, 9 Nov 2026)
 ### Topic: Linear Search, "A New Phone Number", and the "AI Experiment Analyzer" (Unit Checkpoint)
 
 **Status:** 🔶 Reworked, awaiting teacher approval (the v1 build was approved before the Ministry files arrived)
@@ -9,19 +9,24 @@
 **Minutes (theory / practice):** 0 / 90
 **Current tool:** Thonny
 **Source of inspiration:** Ministry **12.5** (worksheet "Practice #2, a new phone number", steps a–c) with **12.1 pp. 28–35**
-(the phone-number solution with `random.choice`, `random.randint`, `in`, a list of special numbers; random student), **12.6** Q5 (duplicate
-names, already used in 7.2) and the Ministry's own `index()` in the operations table (12.0 p. 18). Linear search itself, the early-stop
-version on a sorted list, the "AI Experiment Analyzer" project, its seven test cases and the 20-point rubric are **kept from v1**
-(the Ministry files are silent on search). **New (audit):** `list.index()` and its error, the phone-number task with `random.choice`,
-a taken list and a special list, and the project split into functions (step c of 12.5).
+(the phone-number solution with `random.choice`, `random.randint`, `in`, a list of special numbers; random student), **14.4** (the exam question bank:
+**Q10** is the Ministry's own **early-stop linear search on a sorted list** — the position of a result among the 25 best: the index if equal, else the index of the
+first larger one; plus Q3 shift right, Q4 strictly ascending, Q8 permutation, Q9 improvement) and the Ministry's `index()` in the operations table (9.1 p. 43).
+Linear search returning `-1`, the "AI Experiment Analyzer" project, its seven test cases and the 20-point rubric are **course additions kept from v1**
+(the Ministry files never name a linear-search function or a capstone; the 14.4 questions are its analogues). **New (audit):** `list.index()` and its error, the
+phone-number task with `random.choice`, a taken list and a special list, the project split into functions (step c of 12.5), `position_in_ranking` (14.4 Q10),
+the exam-bank choices. **Moved out:** 12.6 Q5 (duplicate names) lives in 7.3 Task 3 and 12.6 Q6 (Odelia's clothes) in 7.4 Task 4e.
 **Ministry bugs not copied:** the 12.1 p. 31–32 solution has an extra closing parenthesis (`if(new_phone_num in list_special)):`) and checks
 the special list **after** the number was already added to the taken list; the `str = ...` variable hides the built-in `str`.
-Our `new_phone_number` checks first and loops until the number is acceptable. See
+Our `new_phone_number` checks first and loops until the number is acceptable. The 14.4 Q4 snippet (a buggy "strictly ascending" check for a list of 10) is an
+image inside the Word file and is **not in the delivered text** (⚠️ gap): the buggy function in the starter is ours, with two typical mistakes. See
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
+**Official items deliberately left out (rulebook):** 14.0 pp. 25–29 nested loops and p. 30 the list of lists (part E, not delivered); 14.4 Q12 (the longest
+ascending run) is long but flat and may be given as a take-home; nothing else of the exam bank conflicts.
+**Links only (not offline):** 12.2 and 12.4 (guided videos on exam questions), 14.3 (H5P) — titles in the unit README.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3). Part E of the Ministry's lists lessons (list of lists, nested loops; 14.0 p. 25–30) was not delivered
-and is left out of this course.
+**Prerequisite:** functions (Unit 3). Part E of the Ministry's lists lessons (list of lists) was not delivered; the nested loops of 14.0 p. 25–29 are left out of this course.
 
 ---
 
@@ -42,7 +47,7 @@ and is left out of this course.
 | Official goal (python-b-ai.pdf p. 18) | Covered here |
 |---|---|
 | Goal 9: linear search, returning an index or `-1` | ✅ warm-up, Task 1 |
-| Goal 10: a sorted list's order allows an early stop | ✅ Task 1 |
+| Goal 10: a sorted list's order allows an early stop | ✅ Task 1 (and the official 14.4 Q10) |
 | Goal 11: functions as black boxes | ✅ Tasks 2 and 3 |
 | Goal 12: lists of AI experiment results | ✅ the project |
 | Assessment (chapter): a graded modular list project | ✅ the checkpoint |
@@ -98,11 +103,11 @@ Verified: `linear_search_sorted([10, 20, 35, 50, 80], 35)` → `2`, with `40` �
 
 Starter: [`Analyzer_Starter.py`](Analyzer_Starter.py). Reference: [`Analyzer_Reference.py`](Analyzer_Reference.py).
 
-## 0–8 — Recap + hook
+## 0–5 — Recap + hook
 
 A row of cards face down: find a particular card, one by one, in order.
 
-## 8–14 — Warm-up: found at 0, reported as not found
+## 5–10 — Warm-up: found at 0, reported as not found
 
 ```python
 scores = [81, 24, 67, 91]
@@ -114,10 +119,12 @@ else:
 
 Predict `Found`, run, get `Not found` — `if 0:` is `False`. Fix: `position = linear_search(scores, 81)` and `if position != -1:`.
 
-## 14–26 — Task 1: `linear_search_sorted(values, target)` and `index()`
+## 10–22 — Task 1: early stop on a sorted list, `index()` and the running ranking
 
-Stops as soon as the current element is no longer less than the target. Test on `[10, 20, 35, 50, 80]` with `35` and `40`. Then run
+`linear_search_sorted(values, target)` stops as soon as the current element is no longer less than the target. Test on `[10, 20, 35, 50, 80]` with `35` and `40`. Then run
 `[10, 20, 35, 50, 80].index(35)` (`2`) and `.index(40)` (the `ValueError` above): what does our search do better?
+Then the Ministry's own version, **14.4 Q10**: `position_in_ranking(best, result)` returns the index if the result equals one of the results, otherwise the index of the first
+larger one (the early stop), and `len(best)` when nothing is larger. Verified on `[10, 20, 35, 50, 80]`: `35` → `2`, `40` → `3`, `5` → `0`, `99` → `5`.
 
 <div dir="rtl">
 
@@ -129,7 +136,7 @@ Stops as soon as the current element is no longer less than the target. Test on 
 
 </div>
 
-## 26–42 — Task 2: "A new phone number" (Ministry 12.5)
+## 22–36 — Task 2: "A new phone number" (Ministry 12.5)
 
 Prefixes `["050", "052", "053", "054"]`; a number looks like `052-8819853`. (a) `random_number(prefixes)`; (b) `is_special(number, special)`;
 (c) `new_phone_number(taken, special)` loops until the number is not taken and not special; (d) build 10 different numbers.
@@ -141,7 +148,7 @@ A sample run (random, so **yours will differ**; this one is `random.seed(3)`):
 
 Step c of the Ministry worksheet is exactly this: split the problem into functions and solve it again.
 
-## 42–70 — Task 3 (project): the "AI Experiment Analyzer" — unit checkpoint
+## 36–60 — Task 3 (project): the "AI Experiment Analyzer" — unit checkpoint
 
 Reads similarity scores with `input()` until `-1` (the sentinel, not stored), keeping only scores from `0` to `100`; prints the original list,
 a sorted **copy**, the average, minimum and maximum; reads a threshold and prints how many scores are at or above it; reads a target and prints its
@@ -163,7 +170,7 @@ Position in ordered list: 1
 
 (the prompts, e.g. `Score from 0 to 100, or -1:`, appear on the same lines as the typed numbers).
 
-## 70–80 — Testing with the seven cases
+## 60–68 — Testing with the seven cases
 
 <div dir="rtl">
 
@@ -179,11 +186,18 @@ Position in ordered list: 1
 
 </div>
 
-## 80–86 — Peer review
+## 68–78 — Exam bank (Ministry 14.4): choose one
+
+Verified in `Analyzer_Reference.py` (`exam_demo`): **Q3** `shift_right([1, 2, 3, 4])` → `[4, 1, 2, 3]` (`pop()` then `insert(0, ...)`); **Q8** `is_permutation([2, 4, 5, 1, 3])` →
+`True`, `[2, 4, 4, 1, 3]` → `False` (`count` of every number from 1 to N); **Q9** `improved([14.2, 13.9, 13.5])` → `True`, a repeated time → `False`; **Q4** the bug hunt on
+`strictly_ascending` in the starter: the first run crashes with `IndexError: list index out of range` (`values[index + 1]` on the last position — loop to `len(values) - 1`); after that fix
+`[1, 1, 2]` still passes, because `>` should be `>=` (equal neighbours are not strictly ascending). Q10 was Task 1; Q12 (the longest ascending run) is a take-home.
+
+## 78–84 — Peer review
 
 Does only valid input enter the list? Is the sentinel kept out? Does every function do one job (parameter in, value out)? Is the empty list handled? Is the original still unsorted? Does the search get the sorted list? Does a failed search give `-1`? Is a similarity score explained as **not** a probability?
 
-## 86–90 — Save and exit check
+## 84–90 — Save and exit check
 
 Save As `G8_U7_M5_Analyzer_<Name>.py`.
 
@@ -220,4 +234,5 @@ Test each function alone in the Shell (`find_maximum([1, 2, 3])`, `linear_search
   accumulation and average 3, minimum and maximum 3, linear search 3, modularity 3, testing and explanation 2. Bands: 18–20 complete,
   modular, tested and well explained · 14–17 works, one small flaw · 10–13 partial, missing a core pattern or the function split · 0–9 needs support.
 - All seven test cases matched against the table above
+- (if time) one exam-bank question solved; `position_in_ranking` correct on `35`, `40`, `5`, `99`
 - The peer review

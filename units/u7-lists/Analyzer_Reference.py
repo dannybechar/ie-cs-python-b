@@ -38,6 +38,24 @@ def task1():
 
 
 
+# Task 1, third part (Ministry 14.4 Q10): the position of a result in a SORTED ranking - the index if it is equal to one
+# of the results, otherwise the index of the first result that is larger (the early stop). If nothing is larger,
+# the position is len(best): the result would be last.
+def position_in_ranking(best, result):
+    for index in range(len(best)):
+        if best[index] >= result:
+            return index
+    return len(best)
+
+
+def ranking_demo():
+    best = [10, 20, 35, 50, 80]
+    print(position_in_ranking(best, 35))
+    print(position_in_ranking(best, 40))
+    print(position_in_ranking(best, 5))
+    print(position_in_ranking(best, 99))
+
+
 # Task 1, second part: the built-in index() raises an error when the value is missing
 def index_demo():
     values = [10, 20, 35, 50, 80]
@@ -76,6 +94,51 @@ def task2():
     for turn in range(10):
         taken.append(new_phone_number(taken, special))
     print(taken)
+
+
+# Exam bank (Ministry 14.4, choose one): Q3 shift right, Q4 find the bug, Q8 permutation, Q9 improvement
+def shift_right(values):
+    last = values.pop()
+    values.insert(0, last)
+
+
+# Q4: strictly ascending. The official snippet is an image that is not in the delivered text, so this buggy version is
+# OURS (two typical mistakes: the loop runs one step too far, and equal neighbours are accepted). The fixed version follows.
+def strictly_ascending_bug(values):
+    for index in range(len(values)):
+        if values[index] > values[index + 1]:
+            return False
+    return True
+
+
+def strictly_ascending(values):
+    for index in range(len(values) - 1):
+        if values[index] >= values[index + 1]:
+            return False
+    return True
+
+
+def is_permutation(values):
+    for number in range(1, len(values) + 1):
+        if values.count(number) != 1:
+            return False
+    return True
+
+
+def improved(times):
+    for index in range(1, len(times)):
+        if times[index] >= times[index - 1]:
+            return False
+    return True
+
+
+def exam_demo():
+    numbers = [1, 2, 3, 4]
+    shift_right(numbers)
+    print(numbers)
+    print(strictly_ascending([1, 2, 3]), strictly_ascending([1, 1, 2]), strictly_ascending([]))
+    print(is_permutation([2, 4, 5, 1, 3]), is_permutation([2, 4, 4, 1, 3]), is_permutation([1, 2, 4]))
+    print(improved([14.2, 13.9, 13.5]), improved([14.2, 14.2, 13.5]))
 
 
 # Task 3 (project - the checkpoint): "AI Experiment Analyzer"
@@ -159,6 +222,8 @@ def experiment_analyzer():
 if __name__ == "__main__":
     warmup()
     # task1()
+    # ranking_demo()
+    # exam_demo()
     # index_demo()
     # task2()
     # experiment_analyzer()
