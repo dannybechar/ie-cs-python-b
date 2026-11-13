@@ -22,7 +22,7 @@ def classify_paintings():
 # Task 1: a playlist classifier, one feature (the year)
 def task1_songs(split_year):
     years = [2008, 2022, 2015, 1999, 2017, 2026]
-    songs = ["Song A", "Song B", "Song C", "Song D", "Song E", "Song F"]
+    songs = ["Halo", "As It Was", "Shape of You", "All Star", "Believer", "Michelle"]
     nostalgia = []
     hits = []
     for i in range(len(songs)):
@@ -37,7 +37,7 @@ def task1_songs(split_year):
 # Task 2: another feature, the same pattern
 def task2_length():
     lengths = [180, 240, 150, 310, 200, 199]
-    songs = ["Song A", "Song B", "Song C", "Song D", "Song E", "Song F"]
+    songs = ["Halo", "As It Was", "Shape of You", "All Star", "Believer", "Michelle"]
     short_songs = []
     long_songs = []
     for i in range(len(songs)):
@@ -79,7 +79,29 @@ def task4_fruit():
 # A year is one dry number; a mood is many things at once (scale, words, instruments, tempo).
 
 
-# If time: a weather classifier. Rain or strong wind: indoor; otherwise 18 to 30 degrees: outdoor, else indoor.
+# If time, the Ministry's "advanced features" (worksheet 16.2): classify vehicles, animals or geometric shapes by features.
+# One sample answer (a vehicle classifier with parallel lists; any similar student program is fine):
+def task_if_time_vehicles():
+    names = ["bicycle", "car", "motorcycle", "scooter", "bus"]
+    wheels = [2, 4, 2, 2, 6]
+    engine = [False, True, True, True, True]
+    pedal_powered = []
+    motor_two_wheels = []
+    motor_other = []
+    for i in range(len(names)):
+        if not engine[i]:
+            pedal_powered.append(names[i])
+        elif wheels[i] == 2:
+            motor_two_wheels.append(names[i])
+        else:
+            motor_other.append(names[i])
+    print("no engine:", pedal_powered)
+    print("engine, two wheels:", motor_two_wheels)
+    print("engine, other:", motor_other)
+    # Edge cases: a three-wheeled tuk-tuk goes to "other"; an electric bicycle has an engine AND pedals.
+
+
+# Also if time: a weather classifier (our own addition, not in the Ministry worksheet). Rain or strong wind: indoor; otherwise 18 to 30 degrees: outdoor, else indoor.
 def classify_activity(temperature, raining, strong_wind):
     if raining or strong_wind:
         return "indoor"
@@ -141,5 +163,6 @@ classify_paintings()
 # task2_length()
 # task4_fruit()
 # task_if_time()
+# task_if_time_vehicles()
 # demo_louvre()
 # demo_line()

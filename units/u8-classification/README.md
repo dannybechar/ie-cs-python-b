@@ -5,8 +5,8 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 8 academic hours = 4 meetings = 360 minutes (180 theory / 180 practice).
 
 > **Reworked 8 Nov 2026 to the Ministry materials** (files 16.0–19.1 — see
-> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Worksheets 16.2, 17.2, 18.2, 19.2 and 19.3 were not delivered; their labs are rebuilt from the decks, the teacher notes
-> and the teacher solution 16.2.0 (the unit strategy lists what is assumed). The model code is now the Ministry's `converted_savedmodel.zip` + `TFSMLayer` code (`Ministry_Model_Code.py`,
+> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Worksheet 16.2 is delivered (the 8.1 lab follows it); worksheets 17.2, 18.2, 19.2 and 19.3 (Colab) are still missing ⚠️ and their labs are rebuilt from the decks and the teacher notes
+> (the unit strategy lists what is assumed). The model code is now the Ministry's `converted_savedmodel.zip` + `TFSMLayer` code (`Ministry_Model_Code.py`,
 > **not run here: it needs TensorFlow and a live run with a real exported model before class**); the lab functions run on a clearly-labelled **stand-in** `classify_image()` with fixed answers.
 > The four NotebookLM decks are **superseded** — new prep folders are ready (`unit8-m1-slides` … `unit8-m4-slides`).
 >
@@ -24,7 +24,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Classifier_Starter.py`](Classifier_Starter.py) | Louvre 1860 warm-up bug, stubs for Tasks 1–5 |
 | Teacher | [`Classifier_Reference.py`](Classifier_Reference.py) | Solutions, one function per task, plus the two teacher demos |
-| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — pending a new NotebookLM deck |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 8.2 — Classification
 
@@ -38,7 +38,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m2-lab-brief-he.md`](m2-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`TrainTest_Starter.py`](TrainTest_Starter.py) | List-equality warm-up bug, stubs for Tasks 1–2 and the if-time task |
 | Teacher | [`TrainTest_Reference.py`](TrainTest_Reference.py) | Solutions, one function per task |
-| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — pending a new NotebookLM deck |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 8.3 — Classification
 
@@ -52,7 +52,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`DataPlan_Starter.py`](DataPlan_Starter.py) | Inverted-balance-check warm-up bug, stubs for `calculate_accuracy` and `check_variety` |
 | Teacher | [`DataPlan_Reference.py`](DataPlan_Reference.py) | Solutions, one function per task |
-| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — pending a new NotebookLM deck |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 8.4 — Classification
 
@@ -67,5 +67,5 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`Model_Starter.py`](Model_Starter.py) | `1 ok` label warm-up bug, stand-in `classify_image()`, stubs for Tasks 1–3 |
 | Student | [`labels_standin.txt`](labels_standin.txt) | A made-up `labels.txt` in the Teachable Machine format, for the stand-in |
 | Teacher | [`Model_Reference.py`](Model_Reference.py) | Solutions (stand-in model), verified: accuracy 85.7% on the seven made-up pictures |
-| Teacher | [`Ministry_Model_Code.py`](Ministry_Model_Code.py) | The Ministry's real `TFSMLayer` code + our `classify_image()` wrapper — **needs a live run with TensorFlow** |
-| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — pending a new NotebookLM deck |
+| Teacher | [`Ministry_Model_Code.py`](Ministry_Model_Code.py) | The Ministry's real `TFSMLayer` code + our `classify_image()` wrapper — **needs a live run with TensorFlow (Python 3.14 may lack it: venv with an older Python or Colab; 19.3 Colab notebook missing ⚠️; checklist in the 8.4 notes)** |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |

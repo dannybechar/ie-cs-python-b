@@ -3,9 +3,16 @@
 # NOT verified here: it needs TensorFlow, Pillow, NumPy and a model exported from Teachable Machine
 # ("Tensorflow" -> "Savedmodel" -> converted_savedmodel.zip, extracted: a folder model.savedmodel and labels.txt).
 # The Ministry treats this code as a black box: the students edit ONLY the three paths below.
-# Changes from the Ministry deck: the three paths moved to the top (so classify_image can share them),
-# the deck's typo `__name__ _= "__main__"` fixed, English comments, and the classify_image() block at the
-# bottom is OUR addition (it returns the same label and confidence that main() prints).
+# Differences from the Ministry deck (19.1 pp. 15-24), each with its reason:
+#  1. The three paths are at the TOP of the file; the deck has them inside main(). Reason: classify_image()
+#     (our addition, used by the lab functions) shares them, so the students still edit the paths in ONE place.
+#     Tell the class: "the deck shows them inside main(); here they are above it - same three lines".
+#  2. The deck's typo `__name__ _= "__main__"` is fixed.
+#  3. Comments are in English; the two print messages are in Hebrew, as in the deck.
+#  4. The model is loaded once per run: main() loads it itself (as in the deck); classify_image() loads it the
+#     first time it is called and then keeps it (the first draft of this file loaded it twice at import).
+#  5. The classify_image() block at the bottom is OUR addition (it returns the same label and confidence
+#     that main() prints, as a list [label, confidence]).
 
 import tensorflow as tf
 import numpy as np
@@ -53,17 +60,21 @@ def main():
     confidence = predictions_tensor[0][predicted_class_idx].numpy()
 
     # Show the results
-    print("The category of the image according to the model:", predicted_label)
-    print("The model's confidence level:", round(confidence, 2))
+    print("הקטגוריה אליה התמונה שייכת לפי המודל:", predicted_label)
+    print("רמת הביטחון של המודל:", round(confidence, 2))
 
 
 # ---- OUR ADDITION: the same steps as main(), packaged so the lab functions can call it ----
-model = tf.keras.layers.TFSMLayer(model_path, call_endpoint="serving_default")
-labels = load_labels(labels_path)
+loaded = []   # filled on the first call: [model, labels]
 
 
 def classify_image(image_path):
     # Returns a list: [label as written in labels.txt, confidence from 0 to 1]
+    if len(loaded) == 0:
+        loaded.append(tf.keras.layers.TFSMLayer(model_path, call_endpoint="serving_default"))
+        loaded.append(load_labels(labels_path))
+    model = loaded[0]
+    labels = loaded[1]
     image = preprocess_image(image_path, (224, 224))
     predictions = model(image)
     predictions_tensor = list(predictions.values())[0]

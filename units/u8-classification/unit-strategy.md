@@ -4,7 +4,7 @@
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 8 (pp. 19–21); hours from the master table (p. 3).
 Framing: [`../../docs/annual-strategy.md`](../../docs/annual-strategy.md).
 
-**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (files 16.0–19.1; the worksheets 16.2, 17.2, 18.2, 19.2 and 19.3 were not delivered);
+**Build status:** 🔶 reworked 8 Nov 2026 to the Ministry teaching materials (files 16.0–19.1; worksheet 16.2 is delivered; 17.2, 18.2, 19.2 and 19.3 are still missing ⚠️);
 awaiting re-approval. The v1 build (approved earlier) came from `Downloads\python-b-codex\python_b_unit08_classification_complete_unit.md`, used `keras_Model.h5` and a
 mock model, and ordered the topics differently. Decks: superseded, new NotebookLM decks pending.
 
@@ -15,7 +15,7 @@ four hours 2/2).
 
 | Topic | Planned in | Ministry files | Minutes (T / P) | Status |
 |---|---|---|---:|---|
-| Classification by rules, features, the separating line; `classify_fruit` | 8.1 (45 T + 45 P) | 16.0, 16.1, 16.2.0 | 45 / 45 | 🔶 |
+| Classification by rules, features, the separating line; `classify_fruit` | 8.1 (45 T + 45 P) | 16.0, 16.1, 16.2 (worksheet), 16.2.0 | 45 / 45 | 🔶 |
 | Training set and test set, challenging cases, bias, first Teachable Machine try | 8.2 (45 T + 45 P) | 17.0, 17.0.1, 17.1 | 45 / 45 | 🔶 |
 | Accuracy; the fist / OK project; saving the model | 8.3 (45 T + 45 P) | 18.0, 18.1 + the two image archives | 45 / 45 | 🔶 |
 | The trained model inside Python (`TFSMLayer`), confidence, "act only above 85%" | 8.4 (45 T + 45 P) | 19.0, 19.1 | 45 / 45 | 🔶 |
@@ -59,9 +59,9 @@ Chapter goals (source §1, thirteen in all):
 ### Scope decisions
 - **The Ministry materials are the source (8 Nov 2026).** 16.x, 17.x, 18.x and 19.x map one-to-one to our four meetings, in order: **8.1 = 16.0 / 16.1 / 16.2.0, 8.2 = 17.0 / 17.0.1 / 17.1, 8.3 = 18.0 / 18.1
   (+ the image archives), 8.4 = 19.0 / 19.1.** We keep our four meetings and 360 minutes (teacher's decision: hours from the master table).
-- **Worksheets 16.2, 17.2, 18.2, 19.2 and 19.3 were not delivered.** 16.2's tasks are rebuilt from its teacher solution 16.2.0. The 17.2 / 18.2 / 19.2 labs are **assumed** from the teacher notes and decks
+- **Worksheet 16.2 is delivered** (with its teacher solution 16.2.0): the 8.1 lab follows its five questions, the fruit exercise and the advanced-features ideas. **Worksheets 17.2, 18.2, 19.2 and 19.3 are still missing ⚠️.** The 17.2 / 18.2 / 19.2 labs are **assumed** from the teacher notes and decks
   (17.0: two hand-gesture categories, train, test, discussion; 18.0: import the supplied pictures, add your own, train, test on the 7 teacher pictures, save the model; 19.0: extract the ZIP, edit the paths, run).
-  No Ministry content was invented for them; the notes say what is assumed. 19.3 (the Colab notebook) is missing.
+  No Ministry content was invented for them; the notes say what is assumed. 19.3 (the Colab notebook) is missing ⚠️: never invent it; for the live run use a local Python that supports TensorFlow or build a Colab notebook yourself after the teacher has seen the Ministry's.
 - **`def` and lists are used** (Unit 8 follows Units 3 and 7), as the Ministry does. Still never: nested loops, lists of lists, tuples, sets, dictionaries, comprehensions, classes, default arguments.
   Our code returns a **list** `[label, confidence]` instead of a pair. The Ministry's own `load_labels` uses a list comprehension: it is part of the black-box file, never a student task.
 - **The old `keras_Model.h5` / `load_model` flow and the mock-only design are replaced** by the Ministry's `converted_savedmodel.zip` and `tf.keras.layers.TFSMLayer(model_path, call_endpoint="serving_default")`,

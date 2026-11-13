@@ -9,7 +9,7 @@
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny with TensorFlow installed, **or Google Colab as the Ministry does** (19.1 p. 31 points to a Colab notebook, 19.3) — see Tool Note
 **Source of inspiration:** Ministry teaching materials **19.0** (teacher emphases) and **19.1** (deck, 33 slides: the exported ZIP, why connect a model to code, the
-code as a black box, confidence). The worksheets **19.2** and **19.3** (Colab) were **not delivered**; the lab follows 19.0 / 19.1: extract the ZIP, find the three paths, edit
+code as a black box, confidence). The worksheets **19.2** and **19.3** (the Colab notebook) are still missing ⚠️ (never invented); the lab follows 19.0 / 19.1: extract the ZIP, find the three paths, edit
 only them, run on test pictures. The v1 `keras_Model.h5` / `load_model` flow and its mock are **replaced** by the Ministry's `converted_savedmodel.zip` and `TFSMLayer`; a small
 clearly-labelled stand-in is kept so the lab functions can be verified and run without TensorFlow. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
@@ -99,18 +99,35 @@ acted on 4 of 7 images; 4 were right
 | 0–3 | **Recap** (p. 3): the project we saved last time — fist or OK |
 | 3–10 | **What did we download?** (pp. 4–7): the folder holds everything the model needs, like a backpack; what is a ZIP; demo: *Extract All*, look inside — the folder `model.savedmodel` and the file `labels.txt` |
 | 10–16 | **Why connect a model to code?** (pp. 9–13): a model decides a category; a program acts. The forest-fire example: picture → category and confidence → alert; "without code: a classification; with code: a fire prevented". More: ripeness sorting, X-ray, recycling bins, climate pictures, driver fatigue |
-| 16–32 | **The code, as a black box** (pp. 14–25): the four blocks (table above), line by line in plain words; **only the three paths change** (p. 22) — how to find the path of a folder or file. "Programmers in big companies work in teams on millions of lines; nobody writes it all" |
+| 16–32 | **The code, as a black box** (pp. 14–25): the four blocks (table above), line by line in plain words; **only the three paths change** (p. 22) — how to find the path of a folder or file. "Programmers in big companies work in teams on millions of lines; nobody writes it all" (19.1 p. 33, "programmers as in hi-tech": the hi-tech teamwork slide — say it aloud, it is the point of the black box) |
 | 32–42 | **Reading the result** (pp. 26–30): the wanted result, the confidence level (99% → act), a second picture (the OK drawing): wrong category at 73% — *what went wrong?* (not trained on drawings? only fists?) → back to the data; and the rule in our program: **act only above 85%** |
 | 42–45 | **Bridge to the lab** (p. 31): we connect the model we saved and finish the unit |
 
 ### Tool Note – the exported model
 **Not verified in this repository** (no TensorFlow here; the stand-in file runs with plain Python): `Ministry_Model_Code.py` needs `tensorflow`, `numpy` and `pillow`, the extracted `model.savedmodel` folder
-and `labels.txt`. The Ministry runs it in Google Colab (the 19.3 notebook was not delivered). TensorFlow may not install on every Python version — **do a live run before class** with a model exported from
+and `labels.txt`. The Ministry runs it in Google Colab (the 19.3 notebook is missing ⚠️). TensorFlow may not install on every Python version — **do a live run before class** with a model exported from
 Teachable Machine (choose the Tensorflow tab, SavedModel option). Edit only the three paths at the top of the file. Teachable Machine export options and TensorFlow versions change over time.
+
+**Differences between `Ministry_Model_Code.py` and the deck (19.1 pp. 15–24)** — say them out loud so a student comparing the slide with the file is not confused:
+- The deck has the three paths **inside `main()`**; our file has them at the **top** (so `classify_image()` shares them and there is one place to edit). Same three lines, same names.
+- The deck's `__name__ _= "__main__"` is a typo; ours is fixed. Official error, not copied.
+- The deck prints Hebrew messages (`הקטגוריה אליה התמונה שייכת לפי המודל`, `רמת הביטחון של המודל`); ours prints the same two Hebrew messages. Comments are English.
+- The deck's `main()` loads the model itself; so does ours. `classify_image()` (our addition) loads it **once, on its first call** — an earlier draft of the file loaded it twice at import; that is fixed.
+- The file uses `with open`, a list comprehension, `.numpy()` and `if __name__` — all inside the black box, never a student task (the rulebook's documented exception).
+- Option from 19.0: **an extra meeting** can be added if the students build a second classification project of their own (and if time remains at the end of the year). Not planned in our 4 meetings.
+
+### Live-run checklist (before class, teacher) — nothing in this unit's real-model path has been run here
+1. **TensorFlow may not exist for Python 3.14** (the installed version here). Use a Python that TensorFlow supports (check the TensorFlow release notes) in a venv, **or** Google Colab, as the Ministry does.
+2. `pip install tensorflow pillow numpy` (Keras 3 is required for `TFSMLayer`); `import tensorflow as tf` works.
+3. Export a model from Teachable Machine: *Export Model → Tensorflow → Savedmodel → Download*; extract `converted_savedmodel.zip` (Extract All): the folder `model.savedmodel` and `labels.txt`.
+4. Put `Ministry_Model_Code.py` beside them; edit the three paths; run on one test picture. Expected: the label with its number (for example `1 ok`) and a confidence between 0 and 1.
+5. Run `Model_Starter.py` with `USE_REAL_MODEL = True` and check that `classify_image()` returns `[label, confidence]`.
+6. **Colab path:** the Ministry's 19.3 notebook (mounting Drive, uploading the zip, finding paths) is **missing ⚠️**. Do not invent it from memory in front of the class; try the upload-to-Colab route yourself first, or run locally.
+7. Fall back to the stand-in (`USE_REAL_MODEL = False`) for the lab functions if any step fails; the unit still works.
 
 ---
 
-# 6. Second 45 Minutes — Lab (worksheets 19.2 / 19.3 — not delivered; rebuilt)
+# 6. Second 45 Minutes — Lab (worksheets 19.2 / 19.3 — missing ⚠️; rebuilt from 19.0 / 19.1)
 
 Starter: [`Model_Starter.py`](Model_Starter.py) (with [`labels_standin.txt`](labels_standin.txt)). Reference: [`Model_Reference.py`](Model_Reference.py). The real model: [`Ministry_Model_Code.py`](Ministry_Model_Code.py).
 Brief: [`m4-lab-brief-he.md`](m4-lab-brief-he.md).

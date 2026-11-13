@@ -119,17 +119,21 @@ check_variety([...], [40, 5, 15, 3], 10) -> Warning: dark background has only 5 
 | 4–16 | **Accuracy** (pp. 7–19): how do we know the model is good? Count the successes out of the attempts. Walk the four test pictures one by one on the plane (1 / 1, 2 / 2, 2 / 3, 2 / 4). *Predict-first, question only:* how many pictures did we try, how many were right, how many wrong? (pp. 17–18, then the answer) → 2 / 4 = 0.5, × 100 = 50 |
 | 16–22 | **Classification in daily life** (pp. 20–25): Google Lens, a car-park gate reading license plates, face filters, face unlock, photo albums by topic, finding disease in medical scans. "AI amplifies our abilities in whatever we do" |
 | 22–25 | **Your idea** (p. 37): what could you build tomorrow morning with AI? (a sink that notices it is full, a bin that praises paper…) |
-| 25–40 | **Planning our project** (v1 content, Ministry silent): the two categories and the **labeling rule for ambiguous cases, decided before shooting**; the diversity matrix; the collection plan; the supplied pictures and the privacy rules; the **audit before training** (does one category share one background? one hand? similar counts? blurry or mislabeled pictures? did a test picture slip into training? can you guess the category from the background alone?) |
-| 40–45 | **Launch + saving the model** (pp. 26–33): the project brief; and the three export steps in advance — `Export Model`, the options marked in red in order, **check that `converted_savedmodel.zip` was downloaded** and send it to yourself (mail, Drive). **Mandatory** (18.0): without it the next meeting cannot start |
+| 25–35 | **Planning our project (10 minutes, kept short: the Ministry says most of this lesson is hands-on)** (v1 content, Ministry silent): the two categories and the **labeling rule for ambiguous cases, decided before shooting**; the diversity matrix; the collection plan; the supplied pictures and the privacy rules; the **audit before training** (does one category share one background? one hand? similar counts? blurry or mislabeled pictures? did a test picture slip into training? can you guess the category from the background alone?) |
+| 35–45 | **Launch (open Teachable Machine, import the supplied pictures) + saving the model** (pp. 26–33): the project brief; and the three export steps in advance — `Export Model`, the options marked in red in order, **check that `converted_savedmodel.zip` was downloaded** and send it to yourself (mail, Drive). **Mandatory** (18.0): without it the next meeting cannot start |
 
 ---
 
-# 7. Second 45 Minutes — Lab (worksheet 18.2 — not delivered; rebuilt)
+# 7. Second 45 Minutes — Lab (worksheet 18.2 — missing ⚠️; rebuilt from 18.0 / 18.1)
+
+> **Time rule (audit, Nov 2026):** at least **45 minutes of the 90 are hands-on in Teachable Machine** (35–45 launch + 58–85 project, plus the export). The audit questions are a printed checklist
+> used *during* the project, not a long talk; Task 2 is homework by default. The test pictures are mixed `.png` / `.jpg` files (6 png, 1 jpg): Teachable Machine accepts both. Before projecting the 7 test
+> pictures, look at all of them once: they must be AI-made hands only, no faces.
 
 Starter: [`DataPlan_Starter.py`](DataPlan_Starter.py). Reference: [`DataPlan_Reference.py`](DataPlan_Reference.py).
 Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md).
 
-## 45–50 — Warm-up: balanced, in the wrong direction
+## 45–49 — Warm-up: balanced, in the wrong direction
 
 ```python
 def check_balance(fist_count, ok_count):
@@ -152,17 +156,17 @@ Balanced enough
 
 The condition looks at a **high** share, not a low one, and the message even says the opposite. Fix: flag either category when its share leaves an even split (under 40% or over 60%).
 
-## 50–56 — Task 1: `calculate_accuracy(successes, attempts)`
+## 49–54 — Task 1: `calculate_accuracy(successes, attempts)`
 
 Returns the percent; `0` when there were no attempts. Test: `(2, 4)` → `50.0`, `(6, 7)` → `85.7` (rounded). Keep it: it will be used on the real model's 7 test pictures at the end of this meeting.
 
-## 56–62 — Task 2: `check_variety(labels, counts, minimum)`
+## 54–58 — Task 2 (homework by default): `check_variety(labels, counts, minimum)`
 
 Prints a warning for every factor below `minimum`, counts the warnings, prints a clean message if there were none. Test: `["bright background", "dark background", "side light", "new user"]`,
 `[40, 5, 15, 3]`, minimum `10` → two warnings. (If the class is slow, Task 2 becomes homework; the export is **not** optional.)
 **If time:** `count_covered(required, tested)` for the bias experiments, expected `2`.
 
-## 62–84 — The project (groups)
+## 58–85 — The project (groups)
 
 1. Open an `Image Project` with two categories, `fist` and `ok`. Upload the supplied training pictures into the right categories (the archive `תמונות לאימון` from the Drive).
 2. Add **your own** pictures (hands only), following the diversity matrix and the audit questions; check the balance; log what you changed.
@@ -175,7 +179,7 @@ Prints a warning for every factor below `minimum`, counts the warnings, prints a
 Needs a browser and network access. The export may take a few minutes. If no group finishes the bias experiment, run it together on the teacher's computer. The Ministry advises bringing colored card,
 markers, gloves and pencils to build backgrounds and lighting for the shoot (18.0).
 
-## 84–90 — Record and exit check
+## 85–90 — Record and exit check
 
 Write the accuracy and one example of a mistake with its confidence. Save As `G8_U8_M3_DataPlan_<Name>.py`.
 

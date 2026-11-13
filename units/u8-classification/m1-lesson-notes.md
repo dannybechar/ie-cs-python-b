@@ -10,8 +10,8 @@
 **Current tool:** Thonny
 **Source of inspiration:** Ministry teaching materials **16.0** (teacher emphases), **16.1** (deck, 68 slides: dog or bagel, the Louvre
 classifier, good features, two features and a separating line, `classify_fruit`) and **16.2.0** (teacher solution of worksheet 16.2: Spotify
-playlists, choosing features, `classify_fruit`, an edge case). The worksheet 16.2 itself was **not delivered**; its tasks are rebuilt from
-the teacher solution. The v1 build (from `python_b_unit08_…_complete_unit.md`) is kept only where the Ministry is silent: the
+playlists, choosing features, `classify_fruit`, an edge case) and the **worksheet 16.2** itself (now delivered, `Classwork 16.2`; the lab follows its
+five questions, the fruit-function exercise and the "advanced features" ideas). The v1 build (from `python_b_unit08_…_complete_unit.md`) is kept only where the Ministry is silent: the
 relevant-vs-distinguishing language, the weather classifier (now "if time") and the "a boundary is a developer's decision" idea.
 See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
@@ -115,7 +115,7 @@ The numbers are invented for the demo (ear stand-up 1–5, eye darkness 1–5): 
 
 ---
 
-# 6. Second 45 Minutes — Lab (worksheet 16.2, rebuilt from the teacher solution 16.2.0)
+# 6. Second 45 Minutes — Lab (worksheet 16.2 with its teacher solution 16.2.0)
 
 Starter: [`Classifier_Starter.py`](Classifier_Starter.py). Reference: [`Classifier_Reference.py`](Classifier_Reference.py).
 Brief: [`m1-lab-brief-he.md`](m1-lab-brief-he.md).
@@ -147,27 +147,39 @@ modern: ['Starry Night', 'The Scream']
 `"The Urchin"` (1860) is neither `< 1860` nor `> 1860`. Fix: `elif years[i] >= 1860:` or a plain `else`. The cure for this whole family of bugs:
 every example must land in a category, so check the boundary values.
 
-## 53–61 — Task 1: a playlist classifier (16.2.0 Q1–2)
+## 53–61 — Task 1: a playlist classifier (16.2 Q1–2)
 
-Two parallel lists (`songs`, `years`), two empty lists, a loop: songs before the split year go to `nostalgia`, the others to `hits`. Run with 2015, then
-with 2020 (the Ministry lets the students choose the year):
+Official data: `years = [2008, 2022, 2015, 1999]`, `songs = ["Halo", "As It Was", "Shape of You", "All Star"]` (the worksheet gives the finished
+`classifier()` with split year 2015; our brief asks the students to write it, the Ministry gives it ready: use the Ministry version on the board if the class is slow).
+**Q1:** the students **choose their own split year** (examples 2010, 2020), predict with the trace table (columns `i`, `songs[i]`, `years[i]`, condition True / False, the two lists),
+run and check. **Q2:** add two songs they like to both lists (the starter already has the Ministry's additions `Believer` 2017 and `Michelle` 2026).
+The worksheet's two list names are `classic` / `modern`; our starter uses `nostalgia` / `hits` (accept both).
+
+Trace table, split year 2020 (the Ministry solution's example):
+
+| i | songs[i] | years[i] | condition | classic | modern |
+|---|---|---|---|---|---|
+| 0 | Halo | 2008 | True | ["Halo"] | [] |
+| 1 | As It Was | 2022 | False | ["Halo"] | ["As It Was"] |
+| 2 | Shape of You | 2015 | True | ["Halo", "Shape of You"] | ["As It Was"] |
+| 3 | All Star | 1999 | True | ["Halo", "Shape of You", "All Star"] | ["As It Was"] |
+
+Real output on all six songs (`task1_songs`, Python 3.14):
 
 ```text
-split 2015:  nostalgia: ['Song A', 'Song D']   hits: ['Song B', 'Song C', 'Song E', 'Song F']
-split 2020:  nostalgia: ['Song A', 'Song C', 'Song D', 'Song E']   hits: ['Song B', 'Song F']
+split 2015:  nostalgia: ['Halo', 'All Star']   hits: ['As It Was', 'Shape of You', 'Believer', 'Michelle']
+split 2020:  nostalgia: ['Halo', 'Shape of You', 'All Star', 'Believer']   hits: ['As It Was', 'Michelle']
 ```
 
-(`years = [2008, 2022, 2015, 1999, 2017, 2026]`, titles `Song A`…`Song F`; the Ministry solution uses real titles, we use placeholders.)
-Add two songs of your own to both lists and check them.
+## 61–67 — Task 2: another feature (16.2 Q3–4)
 
-## 61–67 — Task 2: another feature (16.2.0 Q3–4)
-
-Which other feature could Spotify use (length, singer, tempo, genre, mood)? Classify the same songs by length: short under 200 seconds, long otherwise
-(`lengths = [180, 240, 150, 310, 200, 199]`):
+Q3: which other feature could Spotify use (length, singer, tempo, genre, mood)? Q4: classify the songs by one of the suggested features with **two parallel lists**
+and an empty list per category. Our model: length, short under 200 seconds, long otherwise (`lengths = [180, 240, 150, 310, 200, 199]`; the lengths are made up for practice,
+the Ministry's own example uses `[180, 240, 150, 310]` with placeholder titles):
 
 ```text
-short: ['Song A', 'Song C', 'Song F']
-long: ['Song B', 'Song D', 'Song E']
+short: ['Halo', 'Shape of You', 'Michelle']
+long: ['As It Was', 'All Star', 'Believer']
 ```
 
 ## 67–72 — Task 3: choose features (on paper, 16.2.0 "Choosing features")
@@ -191,10 +203,13 @@ classify_fruit(2, "yellow")  -> unknown fruit  (softness exactly 2 matches neith
 
 Discuss: a boundary like "softness 2" is the designer's decision, not a fact of nature; every new rule creates new edge cases.
 
-## 82–86 — Task 5: think, no code (16.2.0 Q5)
+## 82–86 — Task 5: think, no code (16.2 Q5)
 
 A programmer writes: *if the song's speed is above 120 it is "happy", otherwise "sad"*. Find a song or style where it fails (a fast, sad rock song; a slow, happy
-lullaby) and explain why a year is easier to turn into an `if` than a mood. **If time:** the v1 weather classifier `classify_activity` (reference file) and its two edge cases.
+lullaby) and explain why a year is easier to turn into an `if` than a mood. **If time — the Ministry's "advanced features":** another classifier of the student's choice. Ministry ideas:
+**vehicles** (number of wheels, where it travels, speed, engine, handlebar or round steering wheel), **animals** (mammal / bird / fish by number of legs, body covering, color, way of moving),
+**geometric shapes** (number of sides, sum of angles) or their own idea; a sample vehicle classifier is `task_if_time_vehicles` in the reference. Our own extra, the v1 weather classifier
+`classify_activity` (reference file, two edge cases), stays as a second option.
 
 ## 86–90 — Save and exit check
 
@@ -204,6 +219,13 @@ Save As `G8_U8_M1_Classifier_<Name>.py`.
 2. What is a separating line?
 3. Why is an unripe banana an edge case for the fruit rule?
 4. Why can't we write `if/else` rules for every picture in the world?
+
+### Wording and language notes (worksheet 16.2 vs our files)
+- **Student-facing Hebrew says "פעולה" (as the Ministry does), never "פונקציה"**; the brief says so in its reference box.
+- The Ministry is itself inconsistent about the unknown fruit: the deck prints `"לא ידוע"`, the worksheet text says `"פרי לא מוכר"`, the teacher key adds emoji. We print English strings
+  (`apple`, `banana`, `unknown fruit`); the outputs for `(1, "green")`, `(4, "yellow")`, `(3, "purple")` match the key. Hebrew return strings are an acceptable variant.
+- Q1 of the second exercise ("choose two features") and the three test calls: the worksheet leaves two calls blank (`classify_fruit(________)`); the key fills them with `(4, "yellow")` and `(3, "purple")`.
+- Ministry pictures of 16.1 (dog or bagel, cat/dog scatter, eye colour and ear axis) are in the deck; the teacher sources them from the deck itself.
 
 ### Tool Note – Thonny
 Use `print(...)` inside the loop (`print(i, years[i])`) to see which painting skips both branches. Run the same function twice with different split years to see the

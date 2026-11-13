@@ -10,7 +10,7 @@
 **Current tool:** Thonny; Teachable Machine (web, a camera or uploaded images — see Tool Note)
 **Source of inspiration:** Ministry teaching materials **17.0** (teacher emphases and answers to the discussion questions), **17.0.1** (teacher helper deck:
 Teachable Machine, 30 slides, mostly screenshots), **17.1** (deck, 53 slides: training and test, challenging cases, bias, hand gestures, sign
-language, demo). Worksheet **17.2** was **not delivered**: the hands-on lab below is rebuilt from 17.0 and 17.1 (two hand-gesture categories, train, test,
+language, demo). Worksheet **17.2** is still missing ⚠️ (never invented): the hands-on lab below is rebuilt from 17.0 and 17.1 (two hand-gesture categories, train, test,
 the discussion questions) and flagged as an assumption. The v1 build is kept for the data-leakage idea, the background-bias experiment,
 `describe_trial` and `count_correct`. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
@@ -93,6 +93,15 @@ best_label(["fist", "ok"], [0.62, 0.38]) -> fist
 | 35–39 | **What do we classify today?** (pp. 45–47): two hand gestures — like / dislike, point / victory, fist / OK (next meeting: fist and OK). A real example: sign-language recognition (a Google competition in 2023 with 1,165 participants) — and of course sign language has far more than 2 categories |
 | 39–45 | **Teachable Machine live demo** (17.0.1): new image project, the three-part screen, rename a category, add a category, add pictures by holding the webcam button or by upload, train, test and read the confidence. Show the trap (17.0.1 pp. 20–25): a model trained on pen and pencil pictures says "pen" with high confidence for a pencil (hints: look at how it was trained, and at the **background**), and a "marker" category trained on a **single** picture also gets called "pen". |
 
+### Optional talk, additions from the Ministry files (17.0 "for the curious", 17.1 pp. 51–52)
+- **The dog analogy (17.0):** teach a dog to tell apples from oranges: many pictures first (the training set), then new pictures it has never seen (the test set).
+- **Three reasons to keep the sets apart (17.0):** (1) no self-deception — a model tested on its own training data looks good even if it learned nothing; (2) we measure **generalisation**,
+  how it handles new data; (3) we improve the model by studying its mistakes on the test set.
+- **Marker and unbalanced data (17.0.1 pp. 24–25):** a "marker" category trained on a single picture is called "pen" with high confidence — too little and too similar data is a bias too.
+- **Video (17.1 p. 51):** "Noam, a research engineer at Google" — a video slide; the link was not delivered (`links.md` has nothing for 16–19), so show the slide or skip it ⚠️.
+- **Next meeting (17.1 p. 52):** ask the class to bring coloured bristol boards, markers, gloves and anything that helps make different backgrounds and lighting for photographing hand signs.
+- **Face-bias slides (17.1 pp. 39–41, glasses and dark skin) are discussion-only:** project them as a question about the data; **never** photograph or upload the faces of students or staff, not even as a demo.
+
 ### Tool Note – Teachable Machine
 Needs a browser, camera permission and access to `teachablemachine.withgoogle.com`. The Ministry's advice (17.0): work in a room where the computers have working cameras,
 at least one per pair; with no cameras, upload pictures (this takes longer: find them online or photograph with a phone); with one camera (the teacher's), do the hands-on
@@ -100,7 +109,7 @@ in plenary — "it's only the first lesson of a series". The teacher plays with 
 
 ---
 
-# 6. Second 45 Minutes — Lab (worksheet 17.2 — not delivered; rebuilt)
+# 6. Second 45 Minutes — Lab (worksheet 17.2 — missing ⚠️; rebuilt from 17.0 / 17.1)
 
 Starter: [`TrainTest_Starter.py`](TrainTest_Starter.py). Reference: [`TrainTest_Reference.py`](TrainTest_Reference.py).
 Brief: [`m2-lab-brief-he.md`](m2-lab-brief-he.md).
