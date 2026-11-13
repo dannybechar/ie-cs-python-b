@@ -39,6 +39,8 @@ reference [`Classwork_Reference.py`](Classwork_Reference.py). The existing 90-mi
 Lab + Lab 0 / 90, so Unit 5 now totals 135 theory / 225 practice instead of the official 90 / 270 (same 360 minutes;
 recorded in the course map and the unit strategy).
 
+**Time reconciliation (official 90 / 270).** The official plan for the unit is two Knowledge + Lab meetings (5.1, 5.2: 45 T + 45 P each) and two Lab + Lab meetings (5.3, 5.4: 0 / 90 each) = 90 theory / 270 practice, 360 minutes. 5.3 was **taught** as the paper-classwork edition (a ~45-minute live lesson, then a 45-minute handwritten lab); the teacher chose to record it as 45 / 45, so the unit as taught totals 135 / 225. The meeting is still 90 minutes and the unit is still 360 minutes; only the theory/practice label differs. The lab edition ([`m3-lesson-notes.md`](m3-lesson-notes.md), 0 / 90) is the official-plan version and is kept as the alternative; 5.4 is 0 / 90 in every edition.
+
 ---
 
 ## 2. What the Worksheet Needs (and therefore what the lesson must teach)

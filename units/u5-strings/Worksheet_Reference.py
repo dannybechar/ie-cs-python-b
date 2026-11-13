@@ -12,13 +12,14 @@ for character in text:
         total += 1
 print(total)                                   # 8
 
-# Question 2: the middle letter; two letters when the length is even (worksheet 8.2 Q3)
-word = "python"
-half = len(word) // 2
-if len(word) % 2 == 1:
-    print(word[half])
-else:
-    print(word[half - 1:half + 1])             # th   ("robot" -> b, "a" -> a)
+# Question 2: count the characters "is" without count (deck 8.1 exercise 6). Every place: do the two characters
+# that start here make "is"? On the last place the slice is one character long (no crash) and never equals "is".
+text = "this is his list"
+total = 0
+for index in range(len(text)):
+    if text[index:index + 2] == "is":
+        total += 1
+print(total)                                   # 4   ("Mississippi" -> 2, "xyz" -> 0)
 
 # Question 3: the first 4 and the last 4 characters; **** when the text is shorter than 4 (8.2 Q4)
 text = "I like to play drums"

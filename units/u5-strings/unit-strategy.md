@@ -18,8 +18,11 @@ The old slide decks stay in the folder, marked superseded in the README, until t
 | What a string is, quotes, indices (positive and negative), `len`, `+`, `*`, `int`/`str` | 5.1 (45 T + 45 P) | 45 / 45 | 🔶 |
 | Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` | 5.2 (45 T + 45 P) | 45 / 45 | 🔶 |
 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`; `for` over a string, counting, building with `+=` | 5.3 (45 T + 45 P, paper-classwork edition as taught) | 45 / 45 | 🔶 |
-| Exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint | 5.4 (90 P; [countdown edition](m4-countdown-lesson-plan.md): exercises 4–6 + cipher as timed cases, worksheet 8.2 graded; `split`/`join` left to 7.2) | 0 / 90 | 🔶 |
-| **Total** | | **135 / 225** (official 90 / 270; teacher's decision, 2 Nov 2026: 5.3 was taught as the paper-classwork edition, 45 / 45) | |
+| Exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint | 5.4 (90 P; [countdown edition](m4-countdown-lesson-plan.md): exercises 4–6 + cipher as timed cases, worksheet 8.2 graded; `split`/`join` only shown — see the decision below) | 0 / 90 | 🔶 |
+| **Total as taught** | | **135 / 225** (teacher's decision, 2 Nov 2026: 5.3 was taught as the paper-classwork edition, recorded 45 / 45) | |
+| **Total, official plan** | | **90 / 270** (5.1 and 5.2 at 45 / 45, 5.3 and 5.4 at 0 / 90) = 360 minutes either way | |
+
+**Time reconciliation (official 90 / 270).** The official plan for the unit is two Knowledge + Lab meetings (5.1, 5.2: 45 T + 45 P each) and two Lab + Lab meetings (5.3, 5.4: 0 / 90 each) = 90 theory / 270 practice, 360 minutes. 5.3 was **taught** as the paper-classwork edition (a ~45-minute live lesson, then a 45-minute handwritten lab); the teacher chose to record it as 45 / 45, so the unit as taught totals 135 / 225. The meeting is still 90 minutes and the unit is still 360 minutes; only the theory/practice label differs. The lab edition ([`m3-lesson-notes.md`](m3-lesson-notes.md), 0 / 90) is the official-plan version and is kept as the alternative; 5.4 is 0 / 90 in every edition.
 
 Chapter goals (ten in all — the official numbering):
 

@@ -5,9 +5,11 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 8 academic hours = 4 meetings = 360 minutes (**90 theory / 270 practice**). Reworked from the Ministry's teaching materials 🔶
 (built, awaiting approval).
 
+**Theory / practice labels.** Official plan: 5.1 and 5.2 are Knowledge + Lab (45 / 45), 5.3 and 5.4 are Lab + Lab (0 / 90) = 90 / 270. 5.3 was taught as the paper-classwork edition (live lesson + 45-minute paper lab) and the teacher recorded it as 45 / 45, so the unit as taught is 135 / 225; the 360 minutes are the same. Details: [`unit-strategy.md`](unit-strategy.md).
+
 **No functions in this unit (teacher, 2 Nov 2026):** the class learns `def` after Unit 5, so every lab, worksheet and
 countdown case is plain code — a variable with the text, the code under it, `print`. The 5.3 classwork worksheet (already
-taught) still asks for functions; its rubric gives plain code full marks.
+taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def` / `return` (the one documented exception to the rulebook; the official exercises are all functions); its rubric gives plain code full marks.
 
 ## Unit 5.1 — Strings
 
@@ -51,7 +53,7 @@ taught) still asks for functions; its rubric gives plain code full marks.
 
 **Topic:** More Methods and Walking Over a String with `for`
 
-90 minutes: Lab + Lab · **`lower`/`upper` → `startswith`/`endswith` → `isalpha`/`isdigit` → `for` → counters → `+=`**
+90 minutes: Lab + Lab (official plan; taught as the paper-classwork edition, recorded 45 / 45) · **`lower`/`upper` → `startswith`/`endswith` → `isalpha`/`isdigit` → `for` → counters → `+=`**
 
 | For | File | What it is |
 |---|---|---|
@@ -101,9 +103,9 @@ page, each solved with `for` and with `while`; then a graded five-question works
 | Teacher | [`m4-countdown-he.html`](m4-countdown-he.html) | The countdown page (open in a browser and project; generated — rebuild with [`tools/countdown`](../../tools/countdown/README.md)) |
 | Student | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | The four cases as instructions, no solutions (generated; as `Countdown_Cases.pdf` in the Mashov zip `Downloads\python-b\Unit 5.4 - Strings.zip`) |
 | Teacher | [`m4-countdown-cases.json`](m4-countdown-cases.json) | The page's content: Hebrew titles and goals, minutes, test calls, how the two solutions differ |
-| Student | [`CountIs_Starter.py`](CountIs_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NextLetters_Starter.py`](NextLetters_Starter.py), [`FirstLastWord_Starter.py`](FirstLastWord_Starter.py) | One file per case (generated): goal, test values, expected output — no `def`, the class has not learned functions yet |
+| Student | [`FirstStarLast_Starter.py`](FirstStarLast_Starter.py), [`MiddleChar_Starter.py`](MiddleChar_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NumberCipher_Starter.py`](NumberCipher_Starter.py) | One file per case (generated): goal, test values, expected output — no `def`, the class has not learned functions yet |
 | Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas (plain code, no functions) |
-| Student | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Hebrew worksheet: the `or` bug, `middle`, `edges`, `last_letters`, `alternate_case`, bonus, exit check (Word copy for printing in `Downloads\python-b`) |
+| Student | [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md) | Hebrew worksheet: the `or` bug, count `is` without `count`, first and last four characters, last letter of every word, alternating case, bonus, exit check (Word copy for printing in `Downloads\python-b`) |
 | Student | [`Worksheet_Starter.py`](Worksheet_Starter.py) | The `or "e"` bug (Q1) and a variable to write under for Q2–Q5 and the bonus (no functions) |
 | Teacher | [`Worksheet_Reference.py`](Worksheet_Reference.py) | Solutions with expected values |
 | Teacher | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Answers, grading rubric (100 points + 5 bonus), marking sheet, what to look for |

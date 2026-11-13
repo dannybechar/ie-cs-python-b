@@ -140,6 +140,8 @@ Both variables are strings of digits. Students print the sum as a number, then t
 
 ## 68–76 — Task 3: the edges of `"PYTHON"` (worksheet Q4)
 
+*Worksheet 7.2 Q4 is the table "output → two ways" (`st[5]` and `st[-1]`): every character is reached by a positive and a negative index; make students write both and check they agree. The official definition to say aloud (7.1 slides 2 and 40): "a string is a sequence of characters, usually used to express words or sentences".*
+
 Under `text = "PYTHON"`, print each wanted letter twice, once with a positive and once with a negative index, one per line:
 `P`/`P`, `N`/`N`, `T`/`T` (positions 0 and −6, 5 and −1, 2 and −4). Then change the variable to another six-letter word,
 `"ORANGE"` → `O`/`O`, `E`/`E`, `A`/`A` — the same indices work only because the length is the same.
@@ -179,6 +181,8 @@ Hover a string in the **Variables** view to see its quotes — a stray leading o
 | `"7"` and `7` are the same | One is text, one is a number: `"7" * 2` is `"77"`, `7 * 2` is `14` |
 | `input()` returns a number | It always returns a string; convert with `int()` when you need a number |
 | `len` counts only letters | It counts every character, including spaces and punctuation |
+| Single and double quotes are different | Identical: `"love"` and `'love'` are the same string. The Ministry deck writes single quotes; the course writes double quotes — say it once. **Triple quotes** (`"""…"""`, 7.1 slide 3 teacher notes) are *not* taught here: they make a multi-line string, optional for one sentence |
+| The quotes are part of the string | "The quotes are not part of the string; they only mark where it starts and ends" (official, 7.1 slide 3). `len("love")` is 4 |
 | A task is done after one run | Change the variable to the next test value and run again — `"A"` in Task 4 is the edge case |
 
 ---

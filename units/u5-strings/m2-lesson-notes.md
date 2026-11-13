@@ -87,9 +87,9 @@ title = title.upper()   # keep it by assigning
 | 0–5 | **Recap + a surprise:** `upper()` and `lower()` in one line each (they give back the text in capitals / small letters), then predict `title.upper()` followed by `print(title)` (unchanged). One sentence: strings can't be changed; operations give back a new string |
 | 5–19 | **Slicing** (7.1 slides 14–17): the board shows `"think big be bold show your color"` with both numberings. Demo `text[3:]`, `text[:4]`, `text[5:12:2]`; then **predict, then run:** `text[10:16]`, `text[10:18]`, `text[-5:]`, `text[-23:-15]`, `text[::2]`, `text[4:25:4]`. Two minutes on "how many characters?" (`end - start`) and the reversed string `text[::-1]` |
 | 19–26 | **`count`** (slide 18): `"I love bananas, banana are my favorite fruit".count("banana")` is `2`. Students copy the code and update the print line: `print("banana in text is :", x)`. How many times is `"an"` in `"banana"`? (2) and `"ana"`? (1 — no overlap) |
-| 26–33 | **`replace(old, new)` and `replace(old, new, count)`** (slides 20–23): `text.replace("day", "DAY", 2)`; the original is unchanged — compare `print(text)` before and after |
-| 33–38 | **`in`** (slide 25): `"win" in "sometimes you win sometimes you learn"` is `True`, `"lose" in …` is `False`; `"x" in "jerusalem"`; `"2" in str(12345)` |
-| 38–45 | **`find`** (slides 26–27 and worksheet Q11): on `"sometimes you win sometimes you learn"` — `find("win")` is `14`, `find("lose")` is `-1`, `find("some")` is `0` (why 0?), `find("some", 1)` is `18`. One sentence on `index()` (like `find`, but an error when missing) |
+| 26–33 | **`replace(old, new)` and `replace(old, new, count)`** (slides 21–23): `text.replace("day", "DAY", 2)`; the original is unchanged — compare `print(text)` before and after |
+| 33–38 | **`in`** (slide 25; the teacher notes ask "how would you implement `in` with `count`?" — `s.count("win") > 0` gives the same `True`/`False`; discuss which is clearer):  `"win" in "sometimes you win sometimes you learn"` is `True`, `"lose" in …` is `False`; `"x" in "jerusalem"`; `"2" in str(12345)` |
+| 38–45 | **`find`** (slides 26–27 and worksheet Q11; also `find(text, begin, end)`: `s.find("win", 10, 20)` is `14`, `s.find("win", 10, 16)` is `-1` because the match must end before place 16): on `"sometimes you win sometimes you learn"` — `find("win")` is `14`, `find("lose")` is `-1`, `find("some")` is `0` (why 0?), `find("some", 1)` is `18`. One sentence on `index()` (like `find`, but an error when missing) |
 
 ---
 
@@ -167,7 +167,7 @@ Save As `G8_U5_M2_Slicing_<Name>.py`. For `text = "think big"`, write what each 
 **Answers:** `think`, `big`, `6`, `think small` — and `think big` (unchanged).
 
 ### Tool Note – Thonny
-Type slices in the **Shell** first (`text[5:12:2]`): the result appears at once, with its quotes, so a stray space shows up.
+Type slices in the **Shell** first (`text[5:12:2]`; also a slice with negative places at both ends, worksheet 7.2 Q5: with `text = "think big be bold show your color"`, `text[-20:-14]` is `"bold s"` and `text[-20:-14:2]` is `"bl "`): the result appears at once, with its quotes, so a stray space shows up.
 
 ---
 
@@ -179,6 +179,7 @@ Type slices in the **Shell** first (`text[5:12:2]`): the result appears at once,
 | `replace`/`upper` change the variable | They give back a new string; assign it or print it |
 | `count` finds overlapping matches | It does not: `"aaaa".count("aa")` is 2 |
 | `find` gives `True`/`False` | It gives a place, or `-1`; `in` is the one that gives `True`/`False` |
+| A negative end place is an error | `text[-20:-14]` is fine: both places count from the right, the end is still not included |
 | `in` ignores letter case | It is case-sensitive — normalise with `lower()` (5.3 completes the picture) |
 | A digit string is a number | `"345124987"[0:3]` is the string `"345"` |
 

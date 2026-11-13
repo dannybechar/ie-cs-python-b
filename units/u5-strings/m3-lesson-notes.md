@@ -7,7 +7,7 @@
 **No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
 **Duration:** 90 minutes
 **Structure:** Lab + Lab (short demo → task → short demo → task)
-**Minutes (theory / practice):** 0 / 90
+**Minutes (theory / practice):** 0 / 90 (official plan). 5.3 was taught as the paper-classwork edition and is recorded 45 / 45 (teacher's choice); the unit then totals 135 / 225 instead of the official 90 / 270 — see [`m3-classwork-lesson-plan.md`](m3-classwork-lesson-plan.md) and [`unit-strategy.md`](unit-strategy.md)
 **Current tool:** Thonny
 **Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
 deck **7.1** slides 29–38 and worksheet **7.2** Q12, Q14, Q16 (`lower`, `upper`, `startswith`/`endswith` with start and
@@ -31,7 +31,7 @@ labeled **Tool Note – Thonny**.
 |---|---|---|
 | 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
 | 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| **5.3 (this)** | **`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string, counting and building with `+=`** | 0 / 90 |
+| **5.3 (this, lab edition)** | **`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string, counting and building with `+=`** | 0 / 90 official (taught as 45 / 45, paper-classwork edition) |
 | 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
 
 ---
@@ -209,6 +209,12 @@ restarting counter visible.
 | `print(x, end="")` also removes the final newline later | Add a plain `print()` when the line should end |
 | A loop changes the original string | A string never changes; the loop builds a new one |
 | The `print` can go inside the loop | The answer must be printed after the loop, not inside it — inside, it prints a running count on every turn |
+
+---
+
+**Homework / self-check (official 8.3):** the Ministry Google Form "בוחן פעולות על מחרוזות" (listed in the Ministry `links.md`; ⚠️ the repo does not hold the form, and the link in that file is an editor link — ask the teacher for the student link before giving it out).
+
+**Official items covered here:** 8.1 slide 10 ("spaces + 1 = words") is the "count the words" task; slide 36's `isdigit("1.9.2027")` / `isdigit("2027")` predict is in the 0–8 demo. The official 8.1 slide 12 prints with `print(count  = ', count )` (a syntax error): we write it correctly. Official 8.1 slides 24–25 still refer to old component numbers 6.2/6.3 — ignore them.
 
 ---
 

@@ -16,20 +16,37 @@
  "cases": [
   {
    "n": 1,
-   "file": "CountIs_Starter.py",
-   "goal_en": "print how many times \"is\" appears in the text. Do not use count.",
-   "title": "כמה פעמים מופיע is",
-   "objective": "התוכנית מדפיסה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.",
-   "minutes": 6,
-   "ops": "range(len(text) - 1) · text[index:index + 2] · find(\"is\", start)",
+   "file": "FirstStarLast_Starter.py",
+   "goal_en": "print the first character, a star, then the last character (\"Cats\" becomes \"C*s\").",
+   "title": "ראשון כוכבית אחרון",
+   "objective": "התוכנית מדפיסה את התו הראשון של הטקסט, אחריו כוכבית, ואחריה את התו האחרון. למשל Cats הופך ל-C*s.",
+   "minutes": 5,
+   "ops": "text[0] · text[-1] · len(text) - 1 · +",
    "inputs": [
-    "this is his list",
-    "Mississippi is big"
+    "Cats",
+    "Python",
+    "a"
    ],
-   "contrast": "בגרסת for בודקים כל מקום בטקסט: האם שני התווים שמתחילים בו הם is. בגרסת while קופצים ישר ל-is הבא בעזרת find עם מקום התחלה, עד ש-find מחזירה `-1`. ולמה 4 ולא 1? is מסתתר גם בתוך this ו-his."
+   "contrast": "בגרסת for עוברים על כל התווים, והתו האחרון שנראה הוא התו האחרון של הטקסט. בגרסת while מחשבים את המקום האחרון, `len(text) - 1`, ופונים אליו ישירות. בטקסט של תו אחד הראשון והאחרון הם אותו תו."
   },
   {
    "n": 2,
+   "file": "MiddleChar_Starter.py",
+   "goal_en": "print the middle character; two characters when the length is even; a word shorter than 3 is printed whole.",
+   "title": "התו האמצעי",
+   "objective": "התוכנית מדפיסה את התו האמצעי של המילה. כשמספר התווים זוגי היא מדפיסה את שני התווים האמצעיים. מילה קצרה מ-3 תווים מודפסת כולה.",
+   "minutes": 6,
+   "ops": "len(text) // 2 · len(text) % 2 · slicing · while",
+   "inputs": [
+    "robot",
+    "python",
+    "a",
+    "ab"
+   ],
+   "contrast": "בגרסת for מחשבים את האמצע: `len(text) // 2`, ובודקים זוגי או אי-זוגי עם `% 2`. בגרסת while אין חישוב: שני מקומות, אחד בהתחלה ואחד בסוף, מתקרבים זה לזה בכל סיבוב עד שנשארים אחד או שניים, ומדפיסים את מה שביניהם."
+  },
+  {
+   "n": 3,
    "file": "Initials_Starter.py",
    "goal_en": "build and print the first letter of every word.",
    "title": "ראשי תיבות",
@@ -43,33 +60,19 @@
    "contrast": "בגרסת for עוברים על התווים וזוכרים את התו הקודם במשתנה `previous` (בהתחלה רווח, כדי שגם האות הראשונה תיכנס). בגרסת while עוברים על המקומות ומסתכלים אחורה על `text[index - 1]`; האות הראשונה נכנסת לפני הלולאה."
   },
   {
-   "n": 3,
-   "file": "NextLetters_Starter.py",
-   "goal_en": "every letter becomes the next one; z becomes a; a space stays.",
-   "title": "צופן האות הבאה",
-   "objective": "כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. התוכנית מדפיסה את התוצאה. הטקסט באותיות קטנות בלבד.",
-   "minutes": 7,
-   "ops": "ord · chr · isalpha · % 26",
-   "inputs": [
-    "i like python",
-    "abcd",
-    "zoo"
-   ],
-   "contrast": "בגרסת for האות z היא מקרה מיוחד עם if משלו. בגרסת while אין מקרה מיוחד: מחשבים את מקום האות באלפבית (0 עד 25), מוסיפים 1, ו-`% 26` מחזיר את 26 ל-0 – כלומר z הופכת ל-a. וזכרו: צופן כזה לא מגן על כלום, כל אחד יכול להזיז אחורה."
-  },
-  {
    "n": 4,
-   "file": "FirstLastWord_Starter.py",
-   "goal_en": "print the first word and the last word, with one space between.",
-   "title": "המילה הראשונה והאחרונה",
-   "objective": "התוכנית מדפיסה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מודפס כמו שהוא.",
+   "file": "NumberCipher_Starter.py",
+   "goal_en": "new cipher: every English letter becomes its ASCII number followed by one space; a space becomes 3 spaces; every other character stays.",
+   "title": "הצפנה חדשה",
+   "objective": "כל אות באנגלית הופכת למספר שלה (קוד ASCII) ואחריו רווח אחד. רווח הופך לשלושה רווחים. כל תו אחר נשאר כמו שהוא. התוכנית מדפיסה את התוצאה.",
    "minutes": 8,
-   "ops": "find(\" \") · text[:first_space] · index -= 1",
+   "ops": "ord · str · isalpha · 65 <= ord(c) <= 90",
    "inputs": [
-    "Cats and dogs are great friends",
-    "Hello"
+    "Big Secret!",
+    "x=1;",
+    "go home!"
    ],
-   "contrast": "בגרסת for עוברים על כל הטקסט וזוכרים את הרווח האחרון שראינו. בגרסת while מתחילים מהסוף והולכים אחורה עד הרווח הראשון שפוגשים – ועוצרים מיד. שתיהן מוצאות את הרווח הראשון בעזרת find."
+   "contrast": "בגרסת for שואלים `isalpha()`. בגרסת while בודקים את הקוד עצמו: האות היא אות באנגלית רק אם `ord` שלה בין 65 ל-90 (גדולות) או בין 97 ל-122 (קטנות). ההבדל חשוב: `isalpha()` נכון גם לאות בעברית, והצופן הזה מוגדר רק ל-a עד z. וזכרו: מספרים במקום אותיות הם לא סוד, כל אחד מפענח עם `chr`."
   }
  ]
 }

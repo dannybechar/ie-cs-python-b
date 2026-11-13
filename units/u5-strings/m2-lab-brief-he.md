@@ -25,6 +25,8 @@ print(s.replace("you", "we", 1))
 print("win" in s)               # True
 print(s.find("win"))            # 14
 print(s.find("lose"))           # -1 - לא נמצא
+print(s.find("win", 10, 20))    # 14 - חיפוש רק בין המקומות 10 ל-20
+print("think big be bold show your color"[-20:-14:2])   # bl  - מקומות שליליים בשני הקצוות
 ```
 
 <div dir="rtl">

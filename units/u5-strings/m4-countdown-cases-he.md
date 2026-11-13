@@ -12,11 +12,11 @@
 
 </div>
 
-## תיק 1 (6 דקות): כמה פעמים מופיע is
+## תיק 1 (5 דקות): ראשון כוכבית אחרון
 
 <div dir="rtl">
 
-התוכנית מדפיסה כמה פעמים מופיעים התווים is בטקסט – בלי השיטה count.
+התוכנית מדפיסה את התו הראשון של הטקסט, אחריו כוכבית, ואחריה את התו האחרון. למשל Cats הופך ל-C*s.
 
 </div>
 
@@ -27,7 +27,7 @@
 </div>
 
 ```python
-CountIs_Starter.py
+FirstStarLast_Starter.py
 ```
 
 <div dir="rtl">
@@ -37,15 +37,54 @@ CountIs_Starter.py
 </div>
 
 ```python
-text = "this is his list"
-# expected: 4
-text = "Mississippi is big"
-# expected: 3
+text = "Cats"
+# expected: C*s
+text = "Python"
+# expected: P*n
+text = "a"
+# expected: a*a
 ```
 
 <pagebreak>
 
-## תיק 2 (7 דקות): ראשי תיבות
+## תיק 2 (6 דקות): התו האמצעי
+
+<div dir="rtl">
+
+התוכנית מדפיסה את התו האמצעי של המילה. כשמספר התווים זוגי היא מדפיסה את שני התווים האמצעיים. מילה קצרה מ-3 תווים מודפסת כולה.
+
+</div>
+
+<div dir="rtl">
+
+פותחים את הקובץ הבא:
+
+</div>
+
+```python
+MiddleChar_Starter.py
+```
+
+<div dir="rtl">
+
+בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
+
+</div>
+
+```python
+text = "robot"
+# expected: b
+text = "python"
+# expected: th
+text = "a"
+# expected: a
+text = "ab"
+# expected: ab
+```
+
+<pagebreak>
+
+## תיק 3 (7 דקות): ראשי תיבות
 
 <div dir="rtl">
 
@@ -78,11 +117,11 @@ text = "grade eight python"
 
 <pagebreak>
 
-## תיק 3 (7 דקות): צופן האות הבאה
+## תיק 4 (8 דקות): הצפנה חדשה
 
 <div dir="rtl">
 
-כל אות הופכת לאות הבאה באלפבית, z הופכת ל-a, ורווח נשאר רווח. התוכנית מדפיסה את התוצאה. הטקסט באותיות קטנות בלבד.
+כל אות באנגלית הופכת למספר שלה (קוד ASCII) ואחריו רווח אחד. רווח הופך לשלושה רווחים. כל תו אחר נשאר כמו שהוא. התוכנית מדפיסה את התוצאה.
 
 </div>
 
@@ -93,7 +132,7 @@ text = "grade eight python"
 </div>
 
 ```python
-NextLetters_Starter.py
+NumberCipher_Starter.py
 ```
 
 <div dir="rtl">
@@ -103,43 +142,10 @@ NextLetters_Starter.py
 </div>
 
 ```python
-text = "i like python"
-# expected: j mjlf qzuipo
-text = "abcd"
-# expected: bcde
-text = "zoo"
-# expected: app
-```
-
-<pagebreak>
-
-## תיק 4 (8 דקות): המילה הראשונה והאחרונה
-
-<div dir="rtl">
-
-התוכנית מדפיסה את המילה הראשונה ואת המילה האחרונה, עם רווח אחד ביניהן. טקסט של מילה אחת מודפס כמו שהוא.
-
-</div>
-
-<div dir="rtl">
-
-פותחים את הקובץ הבא:
-
-</div>
-
-```python
-FirstLastWord_Starter.py
-```
-
-<div dir="rtl">
-
-בדיקות – בכל פעם משנים את הטקסט ומריצים. כשהקוד נכון, הפלט שווה לצפוי:
-
-</div>
-
-```python
-text = "Cats and dogs are great friends"
-# expected: Cats friends
-text = "Hello"
-# expected: Hello
+text = "Big Secret!"
+# expected: 66 105 103    83 101 99 114 101 116 !
+text = "x=1;"
+# expected: 120 =1;
+text = "go home!"
+# expected: 103 111    104 111 109 101 !
 ```

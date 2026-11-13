@@ -3,7 +3,7 @@
 For [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md). Every value below was produced by running
 [`Worksheet_Reference.py`](Worksheet_Reference.py) and changing its variables. Students' wording will differ; accept any
 correct reason. **No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026), so every answer is a few
-statements under a variable, ending in `print`. The four countdown cases of the first half are ungraded; their solutions
+statements under a variable, ending in `print`. The four countdown cases of the first half (first\*last, middle character, initials, the new number cipher) are ungraded; their solutions
 are in [`Countdown_Reference.py`](Countdown_Reference.py) and on the reveal screen of the countdown page.
 
 ## Answers
@@ -15,15 +15,17 @@ is counted. Fixed condition: `if character in "aeiou":` (or five full comparison
 **Q2.**
 
 ```python
-word = "python"
-half = len(word) // 2
-if len(word) % 2 == 1:
-    print(word[half])
-else:
-    print(word[half - 1:half + 1])
+text = "this is his list"
+total = 0
+for index in range(len(text)):
+    if text[index:index + 2] == "is":
+        total += 1
+print(total)
 ```
 
-`"robot"` → `b` · `"python"` → `th` · `"a"` → `a`.
+`"this is his list"` → `4` · `"Mississippi"` → `2` · `"xyz"` → `0`. The question: at the last place the slice
+`text[index:index + 2]` is one character long; slices never crash, and one character is never `"is"`, so the program works
+(`range(len(text) - 1)` is also fine). Accept a `while` with `find("is", place + 1)` (the case 1 idea of the earlier edition) and `index` loops.
 
 **Q3.**
 
@@ -96,7 +98,7 @@ to the next place); without it the condition never changes and the loop never en
 | Item | Points | Full marks for |
 |---|---:|---|
 | Q1 | 15 | actual result `19` written (3); explanation: `"e"` alone counts as true, so every character is counted (6); a fixed condition that works (6). "The `or` is wrong" with no reason: 2 of the 6 |
-| Q2 | 15 | `len(word) // 2` for the middle place (4); odd/even test with `% 2` (4); one letter for odd (3); the **two** middle letters for even, the right slice (4) |
+| Q2 | 15 | `total = 0` before the loop (2); loop over the places (3); the two characters that start at the place, `text[index:index + 2]` (4); compare with `"is"` and `+= 1` (3); `print` after the loop (1); reason: a short slice does not crash and is never `"is"` (2) |
 | Q3 | 20 | the `< 4` test before slicing (4), prints `"****"` (2), `text[:4]` (4), `text[-4:]` (4), joined with `+` and printed (2); reason: a space is a character (4) |
 | Q4 | 20 | loop over the places (3), `result = ""` before the loop (2), the "last in the word" test with both parts (6), `+=` the character (3), `print` after the loop (2); reason: no next character at the end / `IndexError` (4). Works for every word except the last: max 13 |
 | Q5 | 20 | `result = ""` and a loop (3); a space is added unchanged (3); a variable that remembers whose turn it is, flipped only on letters (8); `upper()` / `lower()` (3); reason: the space takes a turn / index counts spaces (3). Index parity used in the code: max 11 |
@@ -125,7 +127,7 @@ After grading, record **aggregates only** here (mean, median, range, strongest a
 | Sign | Likely cause |
 |---|---|
 | Q1 fixed by adding brackets: `(character == "a" or "e")` | still always true — brackets don't change it |
-| `"python"` → `h` | only the odd case written; or `word[half:half + 2]` (gives `ho`) |
+| Q2 gives `3` or `1` | `count` or `in` used, or `text[index] == "is"` (one character never equals two) |
 | `"abc"` → `abcabc` | the `< 4` test is missing (slices never crash) |
 | `IndexError` in Q4 | `text[index + 1]` tested before the end check |
 | `TrUsT YoUrSeLf` | index parity instead of a turn variable |

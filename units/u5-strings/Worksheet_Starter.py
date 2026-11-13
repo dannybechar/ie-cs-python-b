@@ -12,8 +12,8 @@ for character in text:
 print(total)
 
 
-# Question 2: the middle letter; two letters when the length is even.
-word = "robot"
+# Question 2: how many times do the characters "is" appear? Do not use count.
+text = "this is his list"
 
 
 # Question 3: the first 4 and the last 4 characters; **** when the text is shorter than 4.

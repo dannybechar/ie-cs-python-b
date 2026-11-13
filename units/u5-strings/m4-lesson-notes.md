@@ -32,7 +32,7 @@ labeled **Tool Note – Thonny**.
 |---|---|---|
 | 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
 | 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 official (taught as 45 / 45) |
 | **5.4 (this)** | **exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint** | 0 / 90 |
 
 ---
@@ -100,7 +100,7 @@ If the class is slow, skip the second version of Tasks 3 and 4 (the version with
 | 19–27 | **Task 2:** initials (#5) |
 | 27–36 | **Task 3:** count `"is"` with and without `count` (#6) |
 | 36–47 | **Task 4:** count the vowels with and without `count` (#7) |
-| 47–52 | **Demo:** `ord`, `chr`, the numbers behind letters (8.0 slides 22–25) |
+| 47–52 | **Demo:** `ord`, `chr`, the numbers behind letters (8.0 slides 22–25; in the student deck 8.1 the ASCII slides are 26–32) |
 | 52–63 | **Task 5:** the next-letter cipher |
 | 63–70 | **Demo + Task 6:** `split` and `join` — shown and printed only |
 | 70–85 | **Checkpoint:** the middle letter, the edges, alternating case (worksheet 8.2 Q3, Q4, Q7) |

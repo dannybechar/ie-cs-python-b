@@ -1,7 +1,7 @@
 # Unit 5.4 — Strings: Countdown Cases + Worksheet
 
 ## Grade 8 / AI + Python B · Countdown edition of 5.4
-### Topic: String algorithms — four timed cases together, then a five-question worksheet
+### Topic: String algorithms — four timed cases together, then a five-question worksheet (v2: cases rebuilt from the official exercises not used before)
 
 **Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes
@@ -14,11 +14,9 @@ under a variable (`text = "…"`), ending in `print`; to test another value, stu
 (`ib-cs-java-dp1/units/b2-programming/test-prep-2026-11-10/countdown/`): one case at a time is projected, a big clock runs
 (green, amber, red), the room is "locked out" at zero, and the reveal shows a `for` solution and a `while` solution that use
 **different ideas**. The cases and questions come from the Ministry's teaching materials
-([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)): decks **8.0 / 8.1** exercises **#4, #5, #6**
-and the `ord`/`chr` next-letter cipher (the cases); worksheet **8.2** Q3, Q4, Q5, Q6, Q7 (the worksheet); the `or` bug of the
+([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)): worksheet **8.2** Q2 (case 1), guided practice **8.4** task 1 (case 2), deck **8.1** exercise #5 (case 3) and the enrichment video "new cipher" (case 4, not for the exam); worksheet exercise **8.1 #6** (count `is`, worksheet Q2) and **8.2** Q4, Q5, Q6, Q7 (the worksheet); the `or` bug of the
 existing 5.4 warm-up (worksheet question 1). **Changed from the 90-minute lab version** ([`m4-lesson-notes.md`](m4-lesson-notes.md)):
-exercise #7 (five vowel counters) is left out — the 5.3 classwork did vowels; `split`/`join` are not shown (Unit 7 teaches them
-with lists — 7.2); the checkpoint (`middle`, `edges`, `alternate_case`) is now part of a graded worksheet.
+exercise #7 (five vowel counters) is left out — the 5.3 classwork did vowels; `split`/`join` (8.1 slides 20–23) are shown only in the lab edition, not here (decision: shown and printed only, never used on a task; lists proper start in Unit 7); the checkpoint (`middle`, `edges`, `alternate_case`) is now part of a graded worksheet.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled **Tool Note – Thonny**.
 
 Files:
@@ -26,7 +24,7 @@ Files:
 | File | For | What |
 |---|---|---|
 | [`m4-countdown-he.html`](m4-countdown-he.html) | Teacher (projected) | The countdown page: 4 cases, `for`/`while` choice, clock, reveal. Standalone — open it in any browser, no internet needed |
-| [`CountIs_Starter.py`](CountIs_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NextLetters_Starter.py`](NextLetters_Starter.py), [`FirstLastWord_Starter.py`](FirstLastWord_Starter.py) | Students | One file per case: the goal, the test values with expected output, and the `text = …` line to write under (generated with the page) |
+| [`FirstStarLast_Starter.py`](FirstStarLast_Starter.py), [`MiddleChar_Starter.py`](MiddleChar_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NumberCipher_Starter.py`](NumberCipher_Starter.py) | Students | One file per case: the goal, the test values with expected output, and the `text = …` line to write under (generated with the page) |
 | [`Countdown_Reference.py`](Countdown_Reference.py) | Teacher | Each case solved with `for` and with `while`, by a different idea (`# === case N for ===` sections); the page's reveal and expected output are built from it |
 | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | Students | The four cases as instructions (goal, file, test values, expected output — no solutions); generated with the page, printed to `Countdown_Cases.pdf` for the Mashov zip |
 | [`m4-countdown-cases.json`](m4-countdown-cases.json) | Teacher | The page's content (Hebrew titles, goals, minutes, test calls, how the two solutions differ) |
@@ -48,7 +46,7 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 |---|---|---|
 | 5.1 | what a string is, indices (+/−), `len`, `+`, `*` | 45 / 45 |
 | 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| 5.3 | `for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` (paper-classwork edition) | 45 / 45 |
+| 5.3 | `for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` (paper-classwork edition, as taught) | 45 / 45 (official plan 0 / 90; see [`unit-strategy.md`](unit-strategy.md)) |
 | **5.4 (this edition)** | **loops over places (`for` with `range(len(text))` and `while` with an index), `ord`/`chr`, string algorithms; graded worksheet** | **0 / 90** |
 
 ---
@@ -58,13 +56,13 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 | Official goal (python-b-ai.pdf pp. 13–15) | Covered here |
 |---|---|
 | Goal 7: traverse with `for`, and with an index when the place matters | ✅ every case twice (`for` / `while`); worksheet Q4 |
-| Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ cases 1, 2, 4; worksheet Q2–Q5 |
+| Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ cases 1–4; worksheet Q2–Q5 |
 | Goal 9: functions that take a string and return a value | ❌ not yet — **the class has not learned functions** (teacher, 2 Nov 2026), so every case and question is plain code: a variable, a loop, `print`. Revisit these exercises as functions after Unit 3 |
-| Goal 10: apply string skills to AI text | ✅ case 3's debrief (a cipher protects nothing); the exit discussion |
-| Ministry addition: `ord` / `chr` | ✅ case 3, exit check 1 |
+| Goal 10: apply string skills to AI text | ✅ case 4's debrief (a cipher protects nothing); the exit discussion |
+| Ministry addition: `ord` / `chr` | ✅ case 4 (the number cipher), exit check 1 |
 
 ### Deliberate exclusions
-`split` / `join` (Unit 7.2 teaches them with lists), lists, nested loops, `break` / `continue`, dictionaries.
+`split` / `join` (official 8.1 slides 20–23: shown in the lab edition only; the result is a list, so no task uses it here), the official 8.4 task 2 (middle letters of every word — needs `split` and a list), lists, nested loops, `break` / `continue`, dictionaries.
 
 ---
 
@@ -92,16 +90,19 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 Students work alone or in pairs at the computer; every case is projected. For each case: open the briefing (1 min — read the goal
 and the test calls aloud; choose `for` or `while`), start the clock, circulate, and at "ננעל" reveal both solutions (3 min: what
 did the two versions do differently? which would you write?). **Choose the loop per case:** a suggested order is `for` for cases 1
-and 3, `while` for cases 2 and 4 — or let the faster students write the other version while the others finish.
+and 3, `while` for cases 2 and 4 (case 2's `while` is the clever one — nice for the faster students) — or let the faster students write the other version while the others finish.
 
 | Clock | Activity |
 |---|---|
 | 0–3 | Open the page; how the countdown works (clock, lock-out, reveal); open case 1's file and run it: it prints nothing yet |
-| 3–13 | **Case 1 — `count_is`** (clock 6): `"this is his list"` → 4. Reveal: every place vs `find` jumps. Why 4, not 1? |
-| 13–24 | **Case 2 — `initials`** (clock 7): `"American Standard Code…"` → `"ASCII"`. Reveal: remember `previous` vs look back at `text[index - 1]` |
-| 24–28 | **Demo — letters are numbers.** Predict first: `ord("a")`? (`97`.) `ord("b")`? `chr(98)`? `chr(ord("c") + 1)`? Then `ord("A")` (`65`) — capitals are different numbers |
-| 28–38 | **Case 3 — `next_letters`** (clock 7): `"zoo"` → `"app"`. Reveal: `if` for `"z"` vs `% 26`. A cipher like this protects nothing |
-| 38–48 | **Case 4 — `first_and_last_word`** (clock 8): `"Cats and dogs are great friends"` → `"Cats friends"`. Reveal: remember the last space vs walk back from the end |
+| 3–11 | **Case 1 — first, star, last** (clock 5, worksheet 8.2 Q2): `"Cats"` → `C*s`. Reveal: the last character seen in a loop vs the place `len(text) - 1`. A one-character text gives `a*a` |
+| 11–20 | **Case 2 — middle character** (clock 6, guided practice 8.4 task 1): `"robot"` → `b`, `"python"` → `th`. Reveal: `// 2` and `% 2` vs two places moving inward |
+| 20–31 | **Case 3 — initials** (clock 7, deck 8.1 exercise 5): `"American Standard Code…"` → `"ASCII"`. Reveal: remember `previous` vs look back at `text[index - 1]` |
+| 31–35 | **Demo — letters are numbers.** Predict first: `ord("a")`? (`97`.) `ord("b")`? `chr(98)`? `chr(ord("c") + 1)`? Then `ord("A")` (`65`) — capitals are different numbers; `str(97)` makes text of a number |
+| 35–48 | **Case 4 — the new cipher** (clock 8, the official enrichment video): `"Big Secret!"` → `66 105 103    83 101 99 114 101 116 !`. Reveal: `isalpha()` vs the number range 65–90 / 97–122 (`isalpha` is true for Hebrew letters too). A cipher like this protects nothing: `chr` undoes it |
+
+Cipher rule used here (the official slide's last line shows the spaces collapsed): every English letter becomes its number followed by **one space**;
+a space becomes **three spaces**; every other character stays. The earlier next-letter cipher (`zoo` → `app`) is in the lab edition ([`m4-lesson-notes.md`](m4-lesson-notes.md)).
 
 If the class is slow, set case 4's clock to 6 minutes or do it as a live demo; do not cut the worksheet time.
 
@@ -116,11 +117,11 @@ next lesson (teacher's choice).
 | Clock | Question | Ministry source |
 |---|---|---|
 | 48–54 | **Q1 — find the bug:** `character == "a" or "e" or …` prints 19, not 8 | the 5.4 warm-up |
-| 54–60 | **Q2 — `middle(word)`** | 8.2 Q3 |
-| 60–67 | **Q3 — `edges(text)`** | 8.2 Q4 |
-| 67–75 | **Q4 — `last_letters(text)`** | 8.2 Q5 |
-| 75–85 | **Q5 — `alternate_case(text)`** | 8.2 Q7 |
-| if time | **`count_word_it(text)`** (bonus) | 8.2 Q6 |
+| 54–60 | **Q2 — count `is` without `count`** | 8.1 exercise 6 |
+| 60–67 | **Q3 — first 4 and last 4 characters** | 8.2 Q4 |
+| 67–75 | **Q4 — last letter of every word** | 8.2 Q5 |
+| 75–85 | **Q5 — alternating case** | 8.2 Q7 |
+| if time | **the word `it`** (bonus) | 8.2 Q6 |
 | 85–90 | Save As `G8_U5_M4_Worksheet_<Name>.py`; **exit check** on paper (`chr(ord("b") + 2)`, `"this is his".count("is")`, the line a `while` must not forget); collect |
 
 ### Tool Note – Thonny
