@@ -1,7 +1,10 @@
-# Unit 5.4 paper lab - Question 3: letters are numbers.
-letter = "m"
+# Unit 5.4 paper lab - Question 3: the number of words and the initials in capitals.
+band = "red hot chili peppers"
 
-print("Number:", ord(letter))
-print("Previous:", chr(ord(letter) - 1))
-print("Next:", chr(ord(letter) + 1))
-print("Place in alphabet:", ord(letter) - 96)
+words = band.count(" ") + 1
+initials = band[0].upper()
+for i in range(1, len(band)):
+    if band[i - 1] == " ":
+        initials += band[i].upper()
+print("Words:", words)
+print("Initials:", initials)

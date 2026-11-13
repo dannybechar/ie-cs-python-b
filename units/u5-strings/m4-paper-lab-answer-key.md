@@ -1,12 +1,12 @@
 # Unit 5.4 paper lab — answer key and rubric
 
-For [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md): **one sheet, two sides, eight separate questions** (four per side), each with its **own string and its own
-task**; the questions do not continue each other and can be solved in any order. Side one (questions 1–4) is the lighter side: indices, `count`, `ord`/`chr` and a `while` input
-check. Side two (questions 5–8) uses a loop over a string: initials, counting, a shift cipher and a number code. In each row the question is in a box on the right and a large empty
+For [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md): **one sheet, two sides, five separate questions**, each with its **own string and its own task**; the questions do not
+continue each other. Side one has the three lighter questions (1 indices, 2 a `while` input check, 3 `count` and initials with a loop); side two has the two heavier ones, with more room
+(4 a shift cipher with `ord`/`chr`, 5 a number code with dashes and a total). The font is enlarged (printed at 1.3 × the usual size). In each row the question is in a box on the right and a large empty
 box for the handwritten code is on the left. Students write by hand first, then type the code in Thonny ([`PaperLab4_Starter.py`](PaperLab4_Starter.py)), check, and correct in another colour;
-they hand in the **paper** at the end of the 45 minutes (about 20 minutes for side one, 25 for side two; the final question of each side can be left for homework only if the teacher says so).
-Every answer below was run from the solution files `PaperLab4_Q1_Solution.py` … `PaperLab4_Q8_Solution.py` (one per question; question 4 needs typed input). **No functions:** the class has not learned `def` yet.
-Print with `python tools/problem_sheet_docx.py m4-paper-lab-worksheet-he.md out.docx 4` (four questions per side).
+they hand in the **paper** at the end of the 45 minutes (about 9 minutes per question).
+Every answer below was run from the solution files `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` (one per question; question 2 needs typed input). **No functions:** the class has not learned `def` yet.
+Print with `python tools/problem_sheet_docx.py m4-paper-lab-worksheet-he.md out.docx 3,2 1.3 9.0` (three questions on the first side, two on the second; font ×1.3; writing box 9 cm).
 New in 5.4 and needed here: `ord`, `chr`, `range(len(...))` with `text[i - 1]`. `split`/`join` are **not** used on this sheet.
 
 ## Answers
@@ -24,7 +24,7 @@ print("Middle:", city[len(city) // 2])
 
 Results: `j`, `m`, `9`, `s` (place 4).
 
-**Question 2** — `sentence = "the quick brown fox jumps"`
+**Question 2** — no given string (the user types `ab`, then `pixel7`)
 
 ```python
 sentence = "the quick brown fox jumps"
@@ -37,64 +37,25 @@ else:
     print("Short sentence")
 ```
 
-Results: `Words: 5`, `Long sentence`.
-
-**Question 3** — `letter = "m"`
-
-```python
-letter = "m"
-
-print("Number:", ord(letter))
-print("Previous:", chr(ord(letter) - 1))
-print("Next:", chr(ord(letter) + 1))
-print("Place in alphabet:", ord(letter) - 96)
-```
-
-Results: `109`, `l`, `n`, `13`.
-
-**Question 4** — no given string (the user types `ab`, then `pixel7`)
-
-```python
-username = input("Username: ")
-while len(username) < 4:
-    print("Too short, try again")
-    username = input("Username: ")
-print("Hello", username[0].upper())
-print("Length:", len(username))
-```
-
 Results: `Too short, try again` once, then `Hello P`, `Length: 6`.
 
-**Question 5** — `band = "red hot chili peppers"`
+**Question 3** — `band = "red hot chili peppers"`
 
 ```python
 band = "red hot chili peppers"
 
+words = band.count(" ") + 1
 initials = band[0].upper()
 for i in range(1, len(band)):
     if band[i - 1] == " ":
         initials += band[i].upper()
+print("Words:", words)
 print("Initials:", initials)
 ```
 
-Results: `Initials: RHCP`.
+Results: `Words: 4`, `Initials: RHCP`.
 
-**Question 6** — `word = "education"`
-
-```python
-word = "education"
-
-vowels = 0
-for ch in word:
-    if ch in "aeiou":
-        vowels += 1
-print("Vowels:", vowels)
-print("Consonants:", len(word) - vowels)
-```
-
-Results: `Vowels: 5`, `Consonants: 4`.
-
-**Question 7** — `text = "hello world"`
+**Question 4** — `text = "hello world"`
 
 ```python
 text = "hello world"
@@ -110,7 +71,7 @@ print("Coded:", coded)
 
 Results: `Coded: jgnnq yqtnf`.
 
-**Question 8** — `word = "snow"`
+**Question 5** — `word = "snow"`
 
 ```python
 word = "snow"
@@ -130,9 +91,9 @@ print("Total:", total)
 Results: `Number code: 19-14-15-23`, `Total: 71`.
 
 Accept equivalent code: `+=` or `x = x + …`; `city[len(city) - 1]` for `city[-1]`; `len(city) // 2` or `int(len(city) / 2)`; a `while` loop with an index instead of `for`/`range`;
-for question 2 `len(sentence.split(" "))` is **not** expected (`split` is shown only, not tested) but is accepted for full marks; for question 6 `ch == "a" or ch == "e" …` instead of `ch in "aeiou"`;
-for question 8 a trailing-dash version that removes the last character (`numbers[:-1]`); `ord(ch) - ord("a") + 1` for `ord(ch) - 96`; for question 5 `title()`-style shortcuts are not available (not taught).
-Question 7 has no wrap-around by design (no letter after `u` in the example reaches `z`); a student who adds the `if code > ord("z")` check from the live lesson gets the same answer and full marks.
+for question 3 `len(band.split(" "))` is **not** expected (`split` is shown only, not tested) but is accepted for full marks; for question 5 a trailing-dash version that removes the last character
+(`numbers[:-1]`), and `ord(ch) - ord("a") + 1` for `ord(ch) - 96`. Question 4 has no wrap-around by design (no letter of the example reaches `z`); a student who adds the
+`if code > ord("z")` check from the live lesson gets the same answer and full marks.
 
 ## Grading rubric (100 points)
 
@@ -141,16 +102,13 @@ Handwritten code: grade the logic. A missing colon, bracket or quote: **−1 onc
 
 | Question | Points | Full marks for |
 |---|---:|---|
-| 1 | 8 | `city[0]` (2); `city[-1]` or `city[len(city) - 1]` (2); `len(city)` (2); the middle at `len(city) // 2` (2). `len(city) / 2` is a float and raises `TypeError`: max 6 |
-| 2 | 8 | `sentence.count(" ")` (3); plus one (2); the comparison with 4 and both messages (3). The number of spaces printed as the words: max 4 |
-| 3 | 10 | `ord(letter)` (2); `chr(ord(letter) - 1)` (2); `chr(ord(letter) + 1)` (3); `ord(letter) - 96` (3). `letter + 1` raises `TypeError`: max 1 for that line |
-| 4 | 10 | `input` before the loop (2); `while len(username) < 4` (3); `input` again inside the loop with the message (2); `username[0].upper()` (2); the length printed (1). A loop that never asks again (an `if`): max 4 |
-| 5 | 14 | `initials` starts with the first letter, in capitals (3); `range(1, len(band))` or a loop that does not read before place 0 (3); the test `band[i - 1] == " "` (4); the letter added with `upper()` and `+=` (2); printed after the loop (2). Using the space itself instead of the letter after it: max 7 |
-| 6 | 14 | a counter set to 0 before the loop (2); `for ch in word` (3); the test for a vowel (4); `+= 1` inside the `if` (2); consonants as `len(word) - vowels` or a second counter (2); both printed (1). `word.count("a")` for one vowel only: max 4 |
-| 7 | 18 | `coded = ""` before the loop (2); `for ch in text` (3); `ch.isalpha()` or a test against the space (3); `ord(ch) + 2` converted back with `chr` (5); the else adds the character unchanged (3); printed after the loop (2). `coded += ord(ch) + 2` raises `TypeError`: max 8. Shifting the space too (`jgnnq"yqtnf`): max 12 |
-| 8 | 18 | `numbers = ""` and `total = 0` before the loop (3); the place `ord(ch) - 96` (4); `str(...)` before adding (3); the dash only between numbers (5); the total added up (2); both printed (1). A dash after every number (`19-14-15-23-`): max 13 |
+| 1 | 14 | `city[0]` (3); `city[-1]` or `city[len(city) - 1]` (3); `len(city)` (3); the middle at `len(city) // 2` (5). `len(city) / 2` is a float and raises `TypeError`: max 9 |
+| 2 | 14 | `input` before the loop (3); `while len(username) < 4` (4); `input` again inside the loop with the message (3); `username[0].upper()` (3); the length printed (1). A loop that never asks again (an `if`): max 6 |
+| 3 | 22 | words: `band.count(" ")` plus one (6); `initials` starts with the first letter, in capitals (3); `range(1, len(band))` or a loop that does not read before place 0 (3); the test `band[i - 1] == " "` (5); the letter added with `upper()` and `+=` (3); both printed after the loop (2). The number of spaces printed as the words: max 3 for the first part. Using the space itself instead of the letter after it: max 12 |
+| 4 | 25 | `coded = ""` before the loop (3); `for ch in text` (4); `ch.isalpha()` or a test against the space (4); `ord(ch) + 2` converted back with `chr` (7); the else adds the character unchanged (4); printed after the loop (3). `coded += ord(ch) + 2` raises `TypeError`: max 11. Shifting the space too (`jgnnq"yqtnf`): max 17 |
+| 5 | 25 | `numbers = ""` and `total = 0` before the loop (4); the place `ord(ch) - 96` (5); `str(...)` before adding (4); the dash only between numbers (7); the total added up (3); both printed (2). A dash after every number (`19-14-15-23-`): max 18 |
 
-Total: 8 + 8 + 10 + 10 + 14 + 14 + 18 + 18 = 100.
+Total: 14 + 14 + 22 + 25 + 25 = 100.
 
 ### Grading scale (suggestion)
 
@@ -163,9 +121,9 @@ Total: 8 + 8 + 10 + 10 + 14 + 14 + 18 + 18 = 100.
 
 ### Marking sheet (one row per student — keep it outside the repository)
 
-| Student | Q1 /8 | Q2 /8 | Q3 /10 | Q4 /10 | Q5 /14 | Q6 /14 | Q7 /18 | Q8 /18 | Total /100 |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| | | | | | | | | | |
+| Student | Q1 /14 | Q2 /14 | Q3 /22 | Q4 /25 | Q5 /25 | Total /100 |
+|---|---:|---:|---:|---:|---:|---:|
+| | | | | | | |
 
 After grading, record **aggregates only** here (mean, median, range, strongest and weakest items, common errors).
 
@@ -174,14 +132,11 @@ After grading, record **aggregates only** here (mean, median, range, strongest a
 | Sign | Likely cause |
 |---|---|
 | Q1 `TypeError ... must be integers, not 'float'` | `len(city) / 2` instead of `//` |
-| Q2 prints `4` | forgot the `+ 1` (spaces are one fewer than words) |
-| Q3 `TypeError: can only concatenate str` | `letter + 1`: a letter is not a number, needs `ord` |
-| Q3 prints `Place in alphabet: 109` | forgot `- 96` |
-| Q4 the loop never runs again after a short name | an `if` instead of `while`, or no second `input` inside the loop |
-| Q5 the initials are `HCP` | the first word was missed: nothing comes before place 0, so the first letter must be added separately |
-| Q5 the initials contain spaces | the space itself was added instead of the next letter |
-| Q6 vowels print `0` | the counter is reset inside the loop, or the test `ch == "aeiou"` compares with the whole string |
-| Q7 `TypeError` inside the loop | `coded += ord(ch) + 2`: the number was not turned back with `chr` |
-| Q7 the space becomes `"` | the space was shifted too: needs `isalpha()` |
-| Q8 `TypeError` | `numbers += ord(ch) - 96` without `str(...)` |
-| Q8 `19-14-15-23-` | a dash added after every number; ask: "what is different about the first number?" |
+| Q2 the loop never runs again after a short name | an `if` instead of `while`, or no second `input` inside the loop |
+| Q3 prints `Words: 3` | forgot the `+ 1` (spaces are one fewer than words) |
+| Q3 the initials are `HCP` | the first word was missed: nothing comes before place 0, so the first letter must be added separately |
+| Q3 the initials contain spaces | the space itself was added instead of the next letter |
+| Q4 `TypeError` inside the loop | `coded += ord(ch) + 2`: the number was not turned back with `chr` |
+| Q4 the space becomes `"` | the space was shifted too: needs `isalpha()` |
+| Q5 `TypeError` | `numbers += ord(ch) - 96` without `str(...)` |
+| Q5 `19-14-15-23-` | a dash added after every number; ask: "what is different about the first number?" |

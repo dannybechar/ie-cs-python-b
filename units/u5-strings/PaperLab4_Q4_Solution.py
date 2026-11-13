@@ -1,7 +1,10 @@
-# Unit 5.4 paper lab - Question 4: ask again until the input is good (type the sample run to check).
-username = input("Username: ")
-while len(username) < 4:
-    print("Too short, try again")
-    username = input("Username: ")
-print("Hello", username[0].upper())
-print("Length:", len(username))
+# Unit 5.4 paper lab - Question 4: a shift cipher (letters move 2 places, the space stays).
+text = "hello world"
+
+coded = ""
+for ch in text:
+    if ch.isalpha():
+        coded += chr(ord(ch) + 2)
+    else:
+        coded += ch
+print("Coded:", coded)

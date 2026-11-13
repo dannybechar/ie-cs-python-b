@@ -1,5 +1,6 @@
 # Build a "problem + writing box" worksheet (.docx) from a small Markdown file.
-# Usage: python tools/problem_sheet_docx.py in.md out.docx [rows_per_page=3]
+# Usage: python tools/problem_sheet_docx.py in.md out.docx [rows_per_page=3 | "3,2"] [font_scale=1.0] [writing_box_cm=9.8]
+# rows_per_page may be a list ("3,2" = three problems on the first side, two on the second); font_scale enlarges all text.
 #
 # Layout (A4 portrait): one table row per problem. The problem is in a box on the RIGHT (Hebrew, right-to-left,
 # code and expected output in bold Courier New, left-to-right, grey boxes); next to it, on the LEFT, an empty box
@@ -168,8 +169,13 @@ def parse(path):
     return header, problems
 
 
-def build(src, dst, rows_per_page=3):
+def build(src, dst, rows_per_page=3, scale=1.0, left_cm=9.8):
     header, problems = parse(src)
+    pages = rows_per_page if isinstance(rows_per_page, list) else [rows_per_page] * (len(problems) // rows_per_page + 1)
+    starts, acc = [], 0
+    for cnt in pages:
+        starts.append(acc)
+        acc += cnt
     doc = Document()
     sec = doc.sections[0]
     sec.page_width, sec.page_height = Cm(21), Cm(29.7)
@@ -180,17 +186,18 @@ def build(src, dst, rows_per_page=3):
     st.font.size = Pt(10.5)
     first = True
     for n, p in enumerate(problems):
-        if n % rows_per_page == 0:
+        if n in starts:
+            page_rows = pages[starts.index(n)]
             start = len(doc.paragraphs)
             for item in header:
                 if item[0] == "text":
                     t = item[1]
                     if t.startswith("# "):
-                        hebrew_par(doc, t[2:], 15, True, 0, 1)
+                        hebrew_par(doc, t[2:], 15 * min(scale, 1.2), True, 0, 1)
                     else:
-                        hebrew_par(doc, t, 9.5, False, 0, 1)
+                        hebrew_par(doc, t, 9.5 * scale, False, 0, 1)
                 else:
-                    code_par(doc, item[2], 9)
+                    code_par(doc, item[2], 9 * scale)
             if n > 0:  # a new side: start on a new page, header repeated
                 doc.paragraphs[start].paragraph_format.page_break_before = True
         table = doc.add_table(rows=1, cols=2)
@@ -199,11 +206,14 @@ def build(src, dst, rows_per_page=3):
         table.autofit = False
         cell_margins(table)
         usable = 21 - 2.4
-        left_w, right_w = 9.8, usable - 9.8
+        left_w, right_w = left_cm, usable - left_cm
         row = table.rows[0]
-        height = (29.7 - 2.0 - 2.6 - 0.35 * rows_per_page) / rows_per_page
+        height = (29.7 - 2.0 - 2.6 * scale - 0.45 * page_rows) / page_rows
         row_height(row, height)
         left, right = row.cells
+        # the table grid must carry the widths too (LibreOffice reads the grid, Word the cell widths)
+        # columns of a right-to-left table are listed visually from the left: writing box first
+        table.columns[0].width, table.columns[1].width = Cm(left_w), Cm(right_w)
         set_cell_width(left, left_w)
         set_cell_width(right, right_w)
         # left cell: empty writing box with a small label
@@ -218,15 +228,15 @@ def build(src, dst, rows_per_page=3):
         title = right.paragraphs[0]
         set_bidi(title)
         spacing(title, 0, 3)
-        add_text(title, f"**{p['title']}**", 11.5)
+        add_text(title, f"**{p['title']}**", 11.5 * scale)
         for item in p["items"]:
             if item[0] == "text":
-                hebrew_par(right, item[1], 10.5, False, 0, 3)
+                hebrew_par(right, item[1], 10.5 * scale, False, 0, 3)
             elif item[1] == "text":
-                hebrew_par(right, "דוגמת פלט:", 9, True, 2, 1)
-                code_par(right, item[2], 9.5)
+                hebrew_par(right, "דוגמת פלט:", 9 * scale, True, 2, 1)
+                code_par(right, item[2], 9.5 * scale)
             else:
-                code_par(right, item[2], 10)
+                code_par(right, item[2], 10 * scale)
         gap = doc.add_paragraph()
         spacing(gap, 0, 0)
         gap.paragraph_format.line_spacing = Pt(6)
@@ -235,4 +245,7 @@ def build(src, dst, rows_per_page=3):
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    build(a[0], a[1], int(a[2]) if len(a) > 2 else 3)
+    rows = 3
+    if len(a) > 2:
+        rows = [int(x) for x in a[2].split(",")] if "," in a[2] else int(a[2])
+    build(a[0], a[1], rows, float(a[3]) if len(a) > 3 else 1.0, float(a[4]) if len(a) > 4 else 9.8)

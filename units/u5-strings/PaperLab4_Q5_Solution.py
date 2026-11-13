@@ -1,8 +1,13 @@
-# Unit 5.4 paper lab - Question 5: initials in capitals.
-band = "red hot chili peppers"
+# Unit 5.4 paper lab - Question 5: a number code with dashes, and the total.
+word = "snow"
 
-initials = band[0].upper()
-for i in range(1, len(band)):
-    if band[i - 1] == " ":
-        initials += band[i].upper()
-print("Initials:", initials)
+numbers = ""
+total = 0
+for ch in word:
+    place = ord(ch) - 96
+    if numbers != "":
+        numbers += "-"
+    numbers += str(place)
+    total += place
+print("Number code:", numbers)
+print("Total:", total)
