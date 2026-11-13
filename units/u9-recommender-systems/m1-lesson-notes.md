@@ -44,7 +44,7 @@ The Ministry fits the unit in **three** meetings (20, 21, 22); we keep **four** 
 | Goal 14: privacy limits on data collection | ✅ the survey rules |
 
 ### Deliberate exclusions
-The table and the similarity count (9.2), the recommendation code (9.3), the traps and ethics (9.4).
+Note: 20.0 says the unit has "two meetings" but lists three (survey, code, dangers); the Ministry's three lessons (20, 21, 22) become our four meetings (see the unit strategy). Left to later meetings: the table and the similarity count (9.2), the recommendation code (9.3), the traps and ethics (9.4).
 
 ---
 
@@ -62,7 +62,9 @@ content-based: what I liked before -> features / signals of the item -> similar 
 user-based:    my answers -> people with similar answers (the "twin") -> what they liked and I don't know
 ```
 
-- **Signals** a content-based system collects: likes, comments, star ratings, watch time, shares, what we search (20.1 p. 23).
+- **Signals** a content-based system collects (20.1 p. 23, the five of the slide): **likes** (a like = I like it), **comments** (it made me want to say what I think),
+  **star ratings** (how interested I was), **long watch time** (otherwise I would have left after seconds), **sharing** (it was worth discussing with friends).
+  The slide's question: *what data do recommenders collect?* — the answer: "in this way the system checks how much we liked the content". (Ours, added: what we search.)
 - **The scale** (20.0 p. 1): `V` = liked, `X` = disliked, `0` = don't know. **Capital English letters only**, so the code can read them:
   `"v"` and `"V"` are different strings. A `0` is *not* an opinion: "don't know" gives the system nothing to compare.
 - **Regular algorithm vs AI** (20.1 pp. 17–18): a regular algorithm follows fixed rules and gives everybody the same
@@ -77,8 +79,8 @@ user-based:    my answers -> people with similar answers (the "twin") -> what th
 | Clock | Activity |
 |---|---|
 | 0–3 | **Title + plan.** Riddle, two kinds of recommender, a class game, then our own survey |
-| 3–6 | **Viewing habits** (20.1 p. 3, discussion): the last series or film you watched — how did you find it? Write answers on the board. Then: *would YouTube's home page look the same on every phone? why not?* |
-| 6–10 | **What is a feed** (pp. 6–13): the system learns from what we watched, clicked, liked and how long we stayed; the stream is the *feed*; it is different for everyone. Where we meet it: video, music, shopping, social networks (show your own screens, never a student's) |
+| 3–6 | **Viewing habits** (20.1 p. 3, discussion): *what is the last series or film you watched? how did you get to know it?* Write the answers on the board in **two columns**: heard from friends / saw something similar before. Then reveal: from friends = like a **user-based** system; similar content = like a **content-based** system. Then: *would YouTube's home page look the same on every phone? why not?* |
+| 6–10 | **What is a feed** (pp. 5–13): *why is YouTube's home page different from person to person?* YouTube does not read minds, it learns from behaviour: what we watched, clicked, liked, where we stayed longer. **Definition (p. 6):** a recommender is a smart (AI) tool that predicts our preferences and gives personalised content without our searching. The stream is the *feed* ("to feed"); it is different for everyone. Where we meet it: video, music, shopping, social networks (show your own screens, never a student's) |
 | 10–14 | **The riddle** (pp. 14–15, question only): three people, three YouTube home pages, who owns which? Pairs, one minute, finger vote |
 | 14–17 | **The riddle answered:** what clues did you use? (words in the titles = interests) — the system uses the same clues |
 | 17–21 | **Regular algorithm vs AI** (pp. 17–18): same rule for everybody vs a prediction for me; call back the grandma greeting from Unit 2 |
@@ -87,7 +89,7 @@ user-based:    my answers -> people with similar answers (the "twin") -> what th
 | 29–32 | **Classify** (question only, pairs): four sentences — content-based or user-based? |
 | 32–34 | **Answers** |
 | 34–43 | **Class game: the culinary twin** (rules and a five-food example 3 min, the 12 foods 6 min) (pp. 28–31): a volunteer answers V / X / 0 on 12 foods; every student scores against the volunteer: **a point only when the answers are identical and not 0**. Most points = the culinary twin |
-| 43–45 | **Recommend** (p. 32): is there a food the twin liked and the volunteer does not know? That is the recommendation. "This is how a recommender works." Bridge: *next we build one in Python* |
+| 43–45 | **Recommend** (p. 32): is there a food the twin liked and the volunteer does not know? That is the recommendation. "This is how a recommender works." **In reality** (p. 33): companies like Netflix keep huge tables and compare us with millions of users to find a whole group with a similar taste, not one twin. Bridge: *next we build one in Python* — **the project in two stages** (pp. 35–36): (1) choose a topic and run a survey among family and friends; (2) program a system that takes a user's data, finds the most similar survey participant and recommends accordingly. Summary (p. 40): apps do not read minds — every like, comment and watch time is a clue; method 1 = content already liked, method 2 = users with a similar taste |
 
 **Classification drill (question only, then answers):**
 
@@ -118,7 +120,7 @@ home pages; the class matches them.
 Show the three lists scrambled (A, B, C); answer: A = 3, B = 1, C = 2 (the scrambled order is fixed in the slide source).
 
 **The game, step by step.** Choose a volunteer (never push; use a food list and no personal topics). For each food the volunteer says
-`V`, `X` or `0`; every student writes their own answer next to it and keeps a score. Point rules, which the Ministry states on slide 29
+`V`, `X` or `0`; every student writes their own answer next to it and keeps a score (in the Ministry's game the answers are the words *like / dislike / didn't taste*; we use the letters `V` / `X` / `0` from the start so the game and the survey match). Point rules, which the Ministry states on slide 29
 and which we repeat on the board: **(1)** both liked → point; both disliked → point; **(2)** different answers → no point; **(3)** a `0`
 (by either of you) → no point, because "don't know" is not enough information. Count out loud who has the most; ties: both are twins, pick
 one to recommend from. The twin offers a food they liked (`V`) that the volunteer answered `0`.
@@ -127,6 +129,22 @@ one to recommend from. The twin offers a food they liked (`V`) that the voluntee
 The Ministry shows the 12 foods on slide 30 (peach, beet, egg salad, fries, broccoli, cilantro, pasta, sushi, kohlrabi, steak, sweet potato
 with tahini, pistachio ice cream). Our slide uses the same list; the teacher may change foods to the class's context. No names are written
 on the board: students may raise a hand for "my score is N".
+
+**The scoring table of p. 29 (five foods, a volunteer example; total 2 points):**
+
+<div dir="rtl">
+
+| אני | מתנדב | מאכל | נקודה? |
+|---|---|---|---|
+| אוהב | אוהב | פיצה | כן |
+| לא אוהב | לא אוהב | ברוקולי | כן |
+| לא אוהב | אוהב | סושי | לא |
+| לא מכיר | אוהב | טאקו | לא |
+| לא מכיר | לא מכיר | קיווי | לא |
+
+</div>
+
+Rule on the slide: a point only for a shared opinion (both like or both dislike); "don't know" = not enough information = no point. Students may count on fingers or step forward for each point.
 
 ---
 
@@ -201,6 +219,7 @@ One multiple-choice question per item with exactly three choices `V`, `X`, `0` (
 letters). Link responses to a sheet, then **File → Download → CSV**. The CSV header is `alias,item1,item2,…` — the sample
 [`ratings.csv`](ratings.csv) has this shape. Before 9.2 the teacher checks that every cell is `V`, `X` or `0` (the helper
 [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) warns about bad cells). If Forms is unavailable, use the sample file.
+**Wording difference to settle:** 20.1 p. 38 describes the survey options in words (*like / dislike / don't know*), while 20.0 requires the marks `V` / `X` / `0` in capital English letters. We assume the Forms options are literally `V`, `X`, `0` (with the legend); an alternative is words in the form that the teacher maps to the letters before 9.2. The Ministry asks students to spread the survey among **family and friends** (20.1 p. 42): we keep that, with the privacy rules above.
 The Ministry's worksheet 20.2 (not delivered) may give the exact form layout; follow it if it differs.
 
 ---

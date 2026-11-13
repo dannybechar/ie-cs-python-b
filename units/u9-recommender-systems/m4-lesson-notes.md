@@ -43,6 +43,14 @@ and the idea that our own code decisions (one twin, a tie-break rule) have conse
 ### Deliberate exclusions
 New recommender code (finished in 9.3). The simulation is a toy, not a model of any real platform.
 
+### What is official and what is ours
+Official (22.1, 20.0): the fact-or-fake quiz, the business model, the incognito demo, the cave, the three traps, polarisation, the controls, pros and cons.
+**Ours, enrichment (the Ministry's 22.2 is a browser activity, not code):** the Bubble code (`simulate_feed_round`, `run_bubble_experiment`,
+`count_different`, with invented numbers), the offline card fallback, the observation/interpretation table, the responsibility card.
+**⚠️ unverified against official 22.2 (and 22.0):** neither file was delivered, so the student activity in the lab is our reconstruction of "build a
+bubble"; if 22.2 differs, follow it and keep the code simulation as an optional extension. Note for the record: 20.0 says "two meetings" but
+describes three (survey, code, dangers); the unit follows the three described, split into our four.
+
 ---
 
 ## 3. Experiment Safety (read before class)
@@ -78,8 +86,9 @@ act: tell the app, search on our own, follow other views.**
 </div>
 
 - **The business model:** a free app earns from ads. Time on screen and data about us = more targeted ads = more money. "If you do not pay
-  for the product, you are the product."  The chain (22.1 p. 35): collect data → the AI learns what keeps us → maximise screen time (an
-  extreme or addictive item may win) → ads → profit.
+  for the product, you are the product."  The chain, as on 22.1 p. 35 (five steps): **(1) data collection** — the system tracks every click and watch time;
+  **(2)** the AI learns what keeps us on the screen; **(3) maximising screen time** (pushing extreme or addictive content) — filter bubble and echo chamber;
+  **(4) exposure to ads** (you see ads); **(5) profit** for the company. The slide's heading: "the business model: if you do not pay for the product, you are the product".
 - **Plato's cave** (22.1 pp. 20–24): prisoners = us, chains = the algorithms, shadows = the feed, shadow-makers = the companies, the blinding
   light = truths that are hard to accept.
 - **Observation vs interpretation:** "related videos increased" is an observation; "the app wants to trap me" is a claim the short demo cannot prove.
@@ -95,14 +104,14 @@ act: tell the app, search on our own, follow other views.**
 | 2–6 | **Fact or fake?** (pp. 5–13; question only): five posts, show fact or fake with the fingers |
 | 6–9 | **Answers**, with the lesson that the algorithm does not check truth — it sees what keeps people watching |
 | 9–14 | **The business model** (pp. 15–17, 35): "who is the product?" and the five-step chain |
-| 14–20 | **Live demo: building a bubble in five steps** (p. 18): (1) open a private window (Chrome: Ctrl + Shift + N) (2) go to YouTube — which videos appear? (3) search a neutral topic, e.g. jazz (4) watch two videos for half a minute each (5) go back to the home page — which videos appear *now*? Offline fallback: cards (Option B) |
+| 14–20 | **Live demo: building a bubble in five steps** (p. 18): the exact script of 22.1 p. 18, **on the teacher's computer**: (1) open an incognito window in the browser (Ctrl + Shift + N) (2) go to YouTube — *which videos appear on the home page?* (3) search for videos about jazz music (4) watch two videos, half a minute each (5) click the home icon to return to YouTube's home page — *which videos appear now?* Offline fallback: cards (Option B) |
 | 20–24 | **Observe and interpret:** what changed (observation) and why might it have (interpretation)? What can we *not* claim? |
 | 24–26 | **Plato's cave** (pp. 20–23, question only): who are the prisoners? what are the shadows? |
 | 26–29 | **The cave answered** (p. 24, table) |
 | 29–33 | **The three traps** (pp. 26–33): filter bubble, echo chamber, addiction engineering — a table, with the "surprise machine" example |
 | 33–36 | **Predict** (pp. 36–37, question only): a graph of how the two US political camps see each other: what happened to the slope in 2014? |
 | 36–41 | **Answer and caution, then why it matters:** the slope grows steeper. Ministry claim: in 2014 the platforms moved to AI recommendation. *Correlation is not proof* — many things changed. A shared reality (pp. 38–39) |
-| 41–45 | **What can we do?** (pp. 41–43): "not interested", search on your own, ask who gains, follow other views; pros (personal, convenient, interesting) and cons (bubble, privacy, influence on opinions and behaviour) |
+| 41–45 | **What can we do?** (pp. 41–43): the four controls of p. 42, in the Ministry's words — use the "not interested" button (tell the app when it is wrong; it retrains it); search proactively (do not wait for what the feed throws at you); ask questions (why did this video jump out now? who gains?); "burst the bubble" (follow creators who think differently). Closing line: the feed pulls you one way, but your head is yours — check, ask, think for yourself. (Ours, added: look at the source before sharing.) Then pros (personalisation, convenience, more interest in content) and cons (a non-diverse feed — "filter bubble", privacy harm from data collection, influence on opinions and behaviour), p. 43 |
 
 **Fact or fake — five posts (ours, based on 22.1 pp. 7–13; fictional people only):**
 
@@ -118,11 +127,16 @@ act: tell the app, search on our own, follow other views.**
 
 </div>
 
+**Official wording to keep on the slides (22.1):** agenda (p. 4): behind the scenes of the algorithm, ancient illusions (philosophy), build a bubble, digital control, fake or fact. *Clickbait* (p. 5): an exaggerated headline on purpose so that we click (Click = pressing, Bait = lure). *Fake News* (p. 5): wrong or invented information. Why would the feed show exaggerated or false things? (p. 14) — "no free gifts" (p. 15): apps earn billions, their aim is to keep us on the screen as long as possible; more screen time and data about us = more ads matched to us = more money. Extreme content sticks (p. 17). The surprise machine and dopamine (p. 32; a popular explanation, see the strategy). The flat-earth story (p. 34): many young people online believe the world is a flat disc and that NASA hides it — one example of extreme suspicion that causes a deep crisis of trust in science, medicine and state institutions. Closing (p. 44): be critical users, get out of the filter bubble, take command of your screen.
+
 The Ministry deck's Elon Musk item (a made-up quote of a real person) is not used. The 2020 US election slide (p. 39) names a political camp's
 beliefs; we teach the principle instead: *a debate needs agreement on what happened.* Ask the teacher before using named examples.
 
-**The polarisation graph** (22.1 p. 36; numbers read off the Ministry's chart, source Pew Research Center, US — **check them against the
-source before class**): share of each camp with a "very unfavorable" view of the other camp.
+**The polarisation graph** (22.1 pp. 36–37; the slide text gives **no numbers** and does not name a source — it says only that the graph is from
+the USA and shows people of both political camps coming to view the other side very negatively). The figures below are **approximate, estimated
+by us from the slide's chart image** (the chart looks like the Pew Research Center series on "very unfavorable" views of the other party, but
+that attribution is **unverified**): check them against the real source before quoting them to students, or show the chart without numbers
+and ask only about the slope.
 
 <div dir="rtl">
 
@@ -134,7 +148,7 @@ source before class**): share of each camp with a "very unfavorable" view of the
 
 </div>
 
-Growth per year: about 1.1–1.3 percentage points before 2014 and 2.0–2.4 after (the two camps). The slope is steeper; **whether the recommenders caused it is not
+Approximate growth per year, from these estimates: about 1.1–1.3 percentage points before 2014 and 2.0–2.4 after (the two camps). The slope is steeper; **whether the recommenders caused it is not
 shown by the graph.**
 
 ### Option B — offline card simulation (fallback)

@@ -91,8 +91,10 @@ Counting points, user_04 against user_03 (21.1 pp. 16–23):
 
 </div>
 
-Total **2**. Against user_01: **0**. Against user_02: **0**. The twin of user_04 is **user_03** (the most points).
+The Ministry's deck uses first names (Natalie, Aviv, Ariel and the new user Keren); user_01–user_04 are the same four people in the same order, so the teacher may write the Ministry's names on the board (fictional) — in code and files we keep aliases. Total **2**. Against user_01: **0**. Against user_02: **0**. The twin of user_04 is **user_03** (the most points).
 
+- **Ministry slips (do not copy):** p. 12 heads the table with *chips* where p. 13 on has *beet*; pp. 20–22 repeat the same slide three times; the word "דימיון" is spelled two ways. We use sushi, beet, dal, pasta, pizza throughout.
+- **⚠️ Code shape assumed:** the Ministry's own code (worksheet 21.2) and teacher notes 21.0 were not delivered, so `count_same` and the string-per-person layout are ours — unverified against official 21.2. If 21.2 uses a different data layout, compare before class.
 - **Identical, not `0`.** `X` and `X` *is* a point (a shared dislike is also similarity). `0` and `0` is **not** (21.1 p. 21: it teaches us nothing).
 - **Ties:** two participants with the same top score are both candidates; in code the first one found stays (a documented design choice, not
   a law of nature). If the best score is 0 there is no twin.
@@ -104,7 +106,7 @@ Total **2**. Against user_01: **0**. Against user_02: **0**. The twin of user_04
 
 | Clock | Activity |
 |---|---|
-| 0–9 | **Title and refresh quiz** (pp. 2–5, three questions, answer with fingers, then the answers): what is a feed; content-based vs user-based; does an app always say "this is a recommendation"? (no: TikTok and Instagram just stream) |
+| 0–9 | **Title and refresh quiz** (pp. 2–5, three questions, answer with fingers, then the answers). Q1 *what is the "feed"?* — answer 1: the home page of an app (TikTok, Instagram) with a stream of content personalised to you. Q2 *the main difference between content-based and user-based?* — answer 3: content-based checks what we liked and watched before; user-based checks what people similar to us (our digital twins) liked. Q3 *does an app say "this is a recommendation just for you" every time?* — answer 2: no, TikTok and Instagram just stream videos into one feed without saying so |
 | 9–12 | **The project in two steps** (pp. 6–10): step 1 collected data (the survey), step 2 programs the system |
 | 12–17 | **The table** (pp. 11–14): participants on one axis, foods on the other, `V` / `X` / `0`; read user_01 aloud: dislikes pizza, pasta and sushi, likes beet, does not know dal |
 | 17–20 | **A new participant** (p. 15), question only: user_04 fills the survey. *How will we know what to recommend?* Pairs predict a method |

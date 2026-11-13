@@ -8,6 +8,10 @@
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab
 **Minutes (theory / practice):** 45 / 45
 **Current tool:** Thonny
+**⚠️ Unverified against official 21.2 / 21.0:** the whole code shape of this meeting (`find_twin`, `recommend_item`, `main`, the edge cases, the rubric) is **ours**.
+All that the delivered Ministry deck 21.1 contains is pp. 24–27 (the twin, the recommendation of sushi) and p. 28 ("go to activity 21.2 in Classroom").
+Because the Ministry has only three lessons, our fourth meeting is **our split of deck 21.1** (9.2 = pp. 1–25, 9.3 = pp. 26–28 plus the code), supported by the master table's 8 hours only.
+If 21.2 arrives, compare its function names, data layout and expected output with this meeting and adapt before class; do not present our code as the Ministry's.
 **Source of inspiration:** Ministry deck **21.1**, second half (pp. 24–30): the twin is the participant with the most points; *an item the
 twin liked and the new user does not know* becomes the recommendation (p. 26–27: user_03 likes sushi, user_04 does not know it); the
 programming step (p. 28, worksheet 21.2 — **not delivered**). The Ministry's own code is therefore **assumed**: ours is a plain
@@ -61,12 +65,11 @@ def find_twin(target_index):
     best_index = None
     best_score = 0
     for index in range(len(answers)):
-        if index == target_index:
-            continue                          # never compare a person with themselves
-        score = count_same(answers[target_index], answers[index])
-        if score > best_score:                # strictly greater: on a tie the first one stays
-            best_score = score
-            best_index = index
+        if index != target_index:             # never compare a person with themselves
+            score = count_same(answers[target_index], answers[index])
+            if score > best_score:            # strictly greater: on a tie the first one stays
+                best_score = score
+                best_index = index
     return best_index                         # None when nobody shares anything
 
 
@@ -115,8 +118,9 @@ Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md). Data: the sample table is in 
 
 ## 45–52 — Warm-up: a person is their own twin
 
-The starter's `find_twin` has no `continue`. `print(find_twin(3))` should be `2` (user_03) and prints **`3`**: user_04 shares every non-0 answer with
-themselves (3 points), more than with anyone else. Fix: `if index == target_index: continue`.
+The starter's `find_twin` has no check for the target's own index. `print(find_twin(3))` should be `2` (user_03) and prints **`3`**: user_04 shares every non-0 answer with
+themselves (3 points), more than with anyone else. Fix: wrap the score and the "best so far" update in `if index != target_index:`.
+(`continue` is **not** used: it appears nowhere in Python A or in the Ministry materials, so the class has not been taught it; an earlier build of this meeting used it and was rewritten.)
 
 ## 52–62 — Task 1: `recommend_item(target_answers, twin_answers)`
 

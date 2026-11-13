@@ -14,18 +14,17 @@ def count_same(first, second):
     return same
 
 
-# Warm-up, fixed: skip the target's own index with continue, so nobody is their own twin.
+# Warm-up, fixed: skip the target's own index (no continue: the class has not learned it), so nobody is their own twin.
 # best_score starts at 0, so somebody with 0 points is never a twin; on a tie the first one stays.
 def find_twin(target_index):
     best_index = None
     best_score = 0
     for index in range(len(answers)):
-        if index == target_index:
-            continue
-        score = count_same(answers[target_index], answers[index])
-        if score > best_score:
-            best_score = score
-            best_index = index
+        if index != target_index:
+            score = count_same(answers[target_index], answers[index])
+            if score > best_score:
+                best_score = score
+                best_index = index
     return best_index
 
 

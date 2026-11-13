@@ -64,8 +64,16 @@ Chapter goals (source §1, fourteen in all):
   `run_bubble_experiment` (a toy that grows the related share), `count_different`; controls and the responsibility card.
 
 ### Scope decisions
+- **Why four meetings (13 Nov 2026 alignment).** The Ministry delivered **three** lessons (20, 21, 22; 20.0 even says "two meetings" and describes three). Only the
+  master table's 8 hours (4 T + 4 P = 4 x 90 minutes) supports four meetings, so **our fourth meeting is our own split of deck 21.1**: 9.2 = pp. 1–25 (quiz, table, points, twin),
+  9.3 = pp. 26–28 plus the code. 9.1 = 20.0 + 20.1 (+ the survey worksheet 20.2), 9.4 = 20.0 meeting 3 + 22.0 + 22.1 + 22.2.
+- **⚠️ Unverified against official 21.2 and 22.2.** 21.0, 21.2, 22.0 and 22.2 are missing from the download. The 9.3 code shape (`count_same`, `find_twin`,
+  `recommend_item`, `main`) and the 9.4 student activity (live incognito or cards, plus the Bubble code, our enrichment) are ours; compare them with the
+  Ministry files when they arrive. Nothing is invented as Ministry content.
+- **`continue` removed (13 Nov).** `find_twin` used `continue`, which the class has not been taught; it now wraps the body in `if index != target_index:`.
+- **9.4 polarisation figures** (1994 / 2014 / 2022) are approximate estimates from the slide chart, not Ministry text; labelled so in the notes.
 - **The Ministry materials are the source (8 Nov 2026).** The Ministry has **three** lessons (20, 21, 22); we keep **four** and 360 minutes
-  (master table). 9.1 = 20.0 + 20.1; 9.2 = the first half of 21.1; 9.3 = the second half of 21.1 plus the code; 9.4 = 22.0 + 22.1.
+  (master table). 9.1 = 20.0 + 20.1; 9.2 = the first half of 21.1; 9.3 = pp. 26–28 of 21.1 plus the code (our split); 9.4 = 22.0 + 22.1.
   Where the Ministry is thin, the v1 content stays: the classification drill, the survey privacy rules, the three limits, the edge-case table,
   the experiment safety rules, the offline card simulation, the responsibility card.
 - **Not delivered:** worksheets 20.2, 21.2 (the Ministry's recommender code), 22.2 and teacher notes 21.0, 22.0. Nothing from them is invented

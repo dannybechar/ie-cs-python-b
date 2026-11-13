@@ -7,9 +7,9 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 > **Reworked 8 Nov 2026 to the Ministry materials** (files 20.0, 20.1, 21.1, 22.1 — see
 > [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). The survey scale is now **V / X / 0** (liked / disliked /
 > don't know, capital English letters), the twin is the participant with the most identical non-0 answers, and the code uses only strings,
-> flat lists and `def` (no tuples, default arguments, dictionaries or comprehensions). The four NotebookLM decks are **superseded** — new
-> NotebookLM prep folders are ready (`unit9-m1-slides` … `unit9-m4-slides`, 20 / 19 / 18 / 19 slides). The Ministry's worksheets 20.2, 21.2, 22.2
-> and teacher notes 21.0, 22.0 were not delivered; see the scope decisions.
+> flat lists and `def` (no tuples, default arguments, dictionaries or comprehensions). The four NotebookLM decks are **superseded** — the
+> NotebookLM prep folders (`unit9-m1-slides` … `unit9-m4-slides`) were refreshed on 13 Nov 2026 to the aligned content — **all four decks need regeneration**. The Ministry's worksheets 20.2, 21.2, 22.2
+> and teacher notes 21.0, 22.0 were not delivered, so the 9.3 code shape and the 9.4 student activity are marked ⚠️ *unverified against official 21.2 / 22.2*; our fourth meeting is our own split of deck 21.1 (see the strategy).
 >
 > **Data note:** [`ratings.csv`](ratings.csv) is the Ministry's sample table (four participants, five foods; aliases only, no personal
 > information). Students do not read files: the data are three plain lists in the starter, and the teacher helper
@@ -28,7 +28,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m1-lab-brief-he.md`](m1-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`SurveyData_Starter.py`](SurveyData_Starter.py) | `else`-swallows-`"v"` warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`SurveyData_Reference.py`](SurveyData_Reference.py) | Solutions, one function per task |
-| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (16 slides) — pending a new NotebookLM deck |
+| Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (16 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 9.2 — Recommender Systems
 
@@ -44,7 +44,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`Similarity_Reference.py`](Similarity_Reference.py) | Solutions, one function per task |
 | Data | [`ratings.csv`](ratings.csv) | The Ministry's sample table (4 participants, 5 foods), V / X / 0 |
 | Teacher | [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) | Helper: Forms CSV → three lines of Python for the students to paste |
-| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — pending a new NotebookLM deck |
+| Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 9.3 — Recommender Systems
 
@@ -58,7 +58,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m3-lab-brief-he.md`](m3-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`TwinRecommend_Starter.py`](TwinRecommend_Starter.py) | Compared-to-itself warm-up bug, the project brief |
 | Teacher | [`TwinRecommend_Reference.py`](TwinRecommend_Reference.py) | Solutions and a `run_edge_cases()` check |
-| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — pending a new NotebookLM deck |
+| Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
 ## Unit 9.4 — Recommender Systems
 
@@ -72,4 +72,4 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`m4-lab-brief-he.md`](m4-lab-brief-he.md) | Hebrew lab brief |
 | Student | [`Bubble_Starter.py`](Bubble_Starter.py) | `!=`-counts-the-wrong-cards warm-up bug, stubs for Tasks 1–3 |
 | Teacher | [`Bubble_Reference.py`](Bubble_Reference.py) | Solutions, a deterministic toy simulation of a narrowing feed |
-| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (14 slides) — pending a new NotebookLM deck |
+| Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (14 slides) — needs regeneration (NotebookLM prep folder refreshed) |
