@@ -42,6 +42,8 @@ Neural-network internals, fairness metrics, the API code (shown only as a teaser
 
 ---
 
+Answer key check (13 Nov 2026): the model answers in §6 were compared with the Ministry's 3.2.0 solution (watermelon 124,481 drawings; the traditional vs electric kettle; "a person tries a similar meaning, the system looks for similarity"; the Israeli stop sign with a hand; the hiring / autonomous car / medical examples; "guessing the future" from patterns and stroke order; the four fill-in words) — they match.
+
 ## 3. Lesson Goal
 
 **A model learns from the examples it was given: more examples and more varied examples make it more accurate and fair, examples that miss a group make it fail on that group — and the people who build it are responsible.**
@@ -69,10 +71,10 @@ Neural-network internals, fairness metrics, the API code (shown only as a teaser
 | 18–22 | **Summary questions (pairs, then class; answers after):** At which stage did the game succeed? When did it not? Did it ever recognise before you finished (explained in the worksheet)? AI does not follow a fixed "rule book" — it learns from many examples; the data is the fuel; do the examples matter? (worksheet) |
 | 22–24 | Preview of the Data page: the game's drawings are public — we will investigate them in the lab |
 | 24–26 | **Predict (pairs):** what is the programmers' role in our world? (solving problems with technology; once with fixed rules, now with AI inside the code too) |
-| 26–29 | AI changes the world: learning, climate, environment, health, social. Optional: the Ministry's short video of an original social-field initiative (deck slide 44) |
+| 26–29 | AI changes the world: learning, climate, environment, health, social. The Ministry's short video of an original social-field initiative (deck slide 44; Sapir, an engineer at Google in Israel). **Ask explicitly after the video:** "What do you think of Sapir's initiative? What problem did she want to solve?" (model: to help people with hearing disability be more accessible). Skip the video only if time runs out |
 | 29–32 | **Consumers → creators:** most of us use Gemini, ChatGPT or Copilot as consumers; this year we build with AI |
 | 32–36 | **Teaser:** the Ministry's code that asks a language model for the greeting (below). "No need to understand it — we will, later this year." It is **not run**; no API key |
-| 36–45 | **The year's road map:** Python — functions, strings, lists; AI — language model, classification, recommender systems; bringing AI into code (API). Projects: a day planner, a guessing game, a hand-gesture recognition system. The worksheet mission |
+| 36–45 | **The year's road map:** Python — functions, strings, lists; AI — language model, classification, recommender systems; bringing AI into code (API). Projects: a day planner, a guessing game, a hand-gesture recognition system. The worksheet mission. **Optional, 5 minutes inside this block:** the Ministry's short deck "מצגת קצרצרה — מה נלמד השנה" (10 slides, a "guess what we learn this year" quiz: a chat uses half a litre of water → advanced language model; IntelligentX beer whose recipe changes by AI → recommender systems; a Scottish football camera that mistook a bald head for the ball → classification; slide 9 is the road map). If used, shorten the spoken road map to 4 minutes and start the worksheet at once |
 
 The teaser (Ministry deck slide 46, English strings; compiles, does not run without a key — `WRITE_YOUR_API_KEY_HERE` is a placeholder):
 
@@ -119,7 +121,7 @@ a) Play until the system fails on an object you drew clearly (Model: a kettle th
 
 ## 66–75 — Question 3: are the drawings representative?
 
-Search "Stop sign", "Bread" or "house". Does the data represent how these look **in Israel**? (Model: the Israeli stop sign has a drawing of a hand; in the data every example says STOP in English and no hand appears.) Then: an AI system with a real impact (an autonomous car, hiring software, a medical robot) — what can happen if its data represents only one culture or one kind of people? (Models: hiring software that learned only from men's résumés may not hire women; a car may not stop at the Israeli stop sign; a medical system trained on one group may detect diseases worse in women, children, older people or people of other origin. The AI learns from the examples it is given; if they are not diverse, its decisions may be inaccurate, unfair and sometimes dangerous.)
+Search "Stop sign", "Bread" or "house". Does the data represent how these look **in Israel**? (Model: the Israeli stop sign has a drawing of a hand; in the data every example says STOP in English and no hand appears.) Then: an AI system with a real impact (an autonomous car, hiring software, a medical robot) — what can happen if its data represents only one culture or one kind of people? (Models: hiring software that learned only from men's résumés may not hire women (this really happened: the Amazon story below); a car may not stop at the Israeli stop sign; a medical system trained on one group may detect diseases worse in women, children, older people or people of other origin. The AI learns from the examples it is given; if they are not diverse, its decisions may be inaccurate, unfair and sometimes dangerous.)
 
 ## 75–81 — Question 4: guessing the future
 
@@ -132,6 +134,8 @@ a) Why does the computer recognise drawings before you finish? b) Detective: on 
 Fast finishers: [`Audit_Starter.py`](Audit_Starter.py) — fix the warm-up bug (`>` should be `<`), then write `car_data_audit()`.
 
 ## 86–88 — Summary and responsibility (teacher)
+
+**Story to tell, 2 minutes (Ministry teacher notes 3.0, "important to share") — Amazon's CV-screening tool, 2014–2018:** Amazon built an AI tool to screen résumés. It was trained on past data in which most of the employees were men, so it learned to prefer men and rejected résumés of women. The project was shelved. Moral: AI only reflects the biases of the data it is given — the same lesson as the Israeli stop sign. Ask: which fill-in sentence is this story? (sentence 3: "bad fuel" gives biased results). Say it as a reported story, not as a detailed claim.
 
 The revolution is here: AI is already around us. AI is a computer's ability to learn from data, recognise patterns and improve — not only follow fixed rules. This year: from consumers to creators. **With great technology comes great responsibility: data is the fuel of AI; the more diverse the examples, the more accurate and fair the AI is for everyone.**
 

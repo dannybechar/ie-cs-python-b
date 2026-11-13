@@ -304,6 +304,7 @@ The teacher walks around and asks each student to trace one round aloud. **Diagn
 
 - `count_red()` — Ministry 2.1 question 2: colors typed one by one; after each color `Do you want to continue? yes/no`; at the end `The number of red beads is: N`. Test `red, yes, blue, yes, red, no` → `2`. The answer `"yes"` is the sentinel.
 - `twos()` — the series `2, 22, 222, 2222` while the term is below 10000: `term = term * 10 + 2`.
+- `alternating_squares()` and `factorial_sum()` — the other two series of Ministry 2.1 question 1, added as extra "if time" tasks (no minutes in the clock; the stop conditions are our choice, the worksheet leaves them open: "sum below …" or "next term below …"). `alternating_squares()`: `-1 + 4 - 9 + 16 - 25 + 36 …` with a `sign` that flips (`sign = -sign`), stop while `i * i < 50`; prints sums −1, 3, −6, 10, −15, 21, −28 and `Final sum: -28`. `factorial_sum()`: `1 + 2 + 6 + 24 + 120 …`, each term is the previous one times a growing counter, stop while the sum is below 1000; prints 1, 3, 9, 33, 153, 873, 5913 and `Stopped at 5913`. Only students who finished Task 8 attempt them.
 
 ## 83–85 — Document and save
 

@@ -46,6 +46,12 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`While_Reference.py`](While_Reference.py) | Solutions, one function per task |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded — pending new NotebookLM deck** (the old 16-slide deck of the previous 1.3; do not teach from it) |
 
+Cross-checked on 13 Nov 2026 against the Ministry's loop-trap deck (2.3, image-only; rendered to images): the four engine parts, the three traps (frozen clock, wrong direction, always-true condition), the user-typed sentinel and the four-point checklist are all covered by this meeting. Extra series tasks (alternating squares, factorial sum) were added to the if-time block from Ministry worksheet 2.1.
+
+**Ministry self-check forms (Master Python), for homework or Classroom:** [1.3 Master Python — `for` loop](https://docs.google.com/forms/d/1WUsETmUxov-vwmOvYFyUP2Z_DvkNL31lyC_0G7iGbbk/edit) (for 1.2) · [2.2 Master Python — `while` loop](https://docs.google.com/forms/d/1iVIu9A1WjI1BOVbBhOSiwelbBcOfQL38EZjM8INNy9A/edit) (for 1.3).
+
+**About the Ministry's lessons 0.1–0.6:** these are Google Classroom onboarding only (the Classroom, a screenshot, a file upload, a Google Form — no Python, no AI). They have no meeting and no hours in the master table; the class is past them. The 0.5 Forms task, if the teacher wants it: [0.5 Forms task](https://docs.google.com/forms/d/1yKQi6ZiFGpd7DH8khMaxQ2Qiq0IPaWJGJGkNqZBMuwU/edit).
+
 ## Unit 1 test (Grade 9)
 
 60-minute written test on the whole unit, 100 points (trace 24 · debug and `range` 16 · write three programs 60).

@@ -80,6 +80,8 @@ def compare_loops():
 
 
 # If time: count_red() (beads, ask "yes"/"no" to continue) and twos() (2, 22, 222, 2222 ... while the number is below 10000).
+# If time (Ministry 2.1 question 1): alternating_squares() for -1 + 4 - 9 + 16 - 25 ... while the next square is below 50,
+# and factorial_sum() for 1 + 2 + 6 + 24 + 120 ... while the sum is below 1000.
 
 
 ask_age()
@@ -97,3 +99,5 @@ ask_age()
 # cubes_sum()
 # count_red()
 # twos()
+# alternating_squares()
+# factorial_sum()

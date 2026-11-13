@@ -70,7 +70,7 @@ Neural-network internals, training mathematics, the language-model API (Unit 4),
 | 6–13 | **Quiz — is there AI inside? (pairs, thumbs up or down per product, then reveal):** calculator · text autocorrect · Netflix recommendations · voice assistant · automatic mall door · license-plate recognition in a parking lot |
 | 13–15 | Reveal the answers with reasons (table in the brief): the calculator and the automatic door follow fixed rules; the other four learn from data |
 | 15–19 | **Discussion (pairs, then class):** what do all the products with AI share? (they learn from examples — data — and get better over time). Then the definition of AI |
-| 19–22 | The four revolutions (steam, electricity, computers, AI) — "how would your life look if you were born before each?"; **predict:** how long did it take Netflix to reach 1 million subscribers? ChatGPT? (3.5 years; 5 days) |
+| 19–22 | The four revolutions (steam, electricity, computers, AI) — "how would your life look if you were born before each?"; the quote of Sundar Pichai, Google's CEO (deck slide 23): "AI is one of the most important things humanity is working on. It is more profound than fire or electricity." — ask: why would he compare it to fire?; **predict:** how long did it take Netflix to reach 1 million subscribers? ChatGPT? (3.5 years; 5 days) |
 | 22–25 | Why now: brain + power + fuel |
 | 25–27 | **The big question (pairs):** a computer landed a spacecraft on the moon in 1969 but could not write an original greeting for Grandma Sarah — what is the difference between the two tasks? (one has exact rules that can be written down; the other has none) |
 | 27–30 | **Live code 1:** the greeting in two `print` lines. Predict: what happens each time you run it? (the same two lines) |
@@ -120,7 +120,7 @@ Save: `File › Save As` → `G8_U2_M1_Greeting_<Name>.py`. Exit check (in the b
 Remove the `#` from one call at the bottom for each task and put it back on the previous one.
 
 ### Tool Note – Chatbot
-Use the chatbot the school allows. Never type a real person's name or personal details; the model's text is a draft that a person checks.
+**Before class (Ministry teacher notes 3.0):** open the Gemini (or school chatbot) window in advance and use a clean, signed-out or school account, so that no personal chat history, name or account details appear on the projector. Use the chatbot the school allows. Never type a real person's name or personal details; the model's text is a draft that a person checks.
 
 ---
 

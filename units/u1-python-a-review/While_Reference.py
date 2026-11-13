@@ -165,6 +165,32 @@ def twos():
         term = term * 10 + 2
 
 
+# If time: Ministry 2.1 question 1, the alternating series -1 + 4 - 9 + 16 - 25 + ... (stop: the next term's size is below 50)
+def alternating_squares():
+    total = 0
+    i = 1
+    sign = -1
+    while i * i < 50:
+        total += sign * i * i
+        print("Sum so far:", total)
+        sign = -sign
+        i += 1
+    print("Final sum:", total)
+
+
+# If time: Ministry 2.1 question 1, the series 1 + 2 + 6 + 24 + 120 + ... (each term is the previous one times the next counter)
+def factorial_sum():
+    total = 0
+    term = 1
+    i = 1
+    while total < 1000:
+        total += term
+        print("Sum so far:", total)
+        i += 1
+        term = term * i
+    print("Stopped at", total)
+
+
 # ask_age()
 # three_digit()
 # three_evens()
