@@ -1,7 +1,7 @@
-# Unit 6.1 - reference for the teacher (Ministry worksheet 10.2, real tokenizer).
+# Lessons 10.0–10.2 - reference for the teacher (Ministry worksheet 10.2, real tokenizer).
 # Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
-# Precondition: Unit 3 (def) is taught first. If not, hand the three functions to the students ready-made.
+# Precondition: the functions block (lessons 4.1–4.6) (def) is taught first. If not, hand the three functions to the students ready-made.
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")

@@ -1,4 +1,4 @@
-# Unit 8.1 — Classification
+# Lessons 16.0–16.2 — Classification
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Classification by Rules — Features and a Separating Line
@@ -16,18 +16,18 @@ relevant-vs-distinguishing language, the weather classifier (now "if time") and 
 See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3) and lists (Unit 7) — the Ministry code uses `def`, parallel lists, `append` and `range(len(...))`.
+**Prerequisite:** functions (lessons 4.1–4.6) and lists (lessons 9.1–9.5, 12.0–14.5) — the Ministry code uses `def`, parallel lists, `append` and `range(len(...))`.
 
 ---
 
-## 1. Position in Unit 8
+## 1. Position in the classification block (lessons 16.0–19.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **8.1 (this)** | **classification by rules, features, a separating line** | 45 / 45 |
-| 8.2 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
-| 8.3 | accuracy, the fist / OK project, export | 45 / 45 |
-| 8.4 | the trained model inside Python, confidence | 45 / 45 |
+| **Lessons 16.0–16.2 (this)** | **classification by rules, features, a separating line** | 45 / 45 |
+| Lessons 17.0–17.1 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
+| Lessons 18.0–18.1 | accuracy, the fist / OK project, export | 45 / 45 |
+| Lessons 19.0–19.1 | the trained model inside Python, confidence | 45 / 45 |
 
 The Ministry's four meetings are 16 (this), 17, 18 and 19, in the same order.
 
@@ -44,7 +44,7 @@ The Ministry's four meetings are 16 (this), 17, 18 and 19, in the same order.
 | Goal 5: identify edge cases where rigid rules fail | ✅ the 1860 gap, the unripe banana, softness 2, "happy" songs |
 
 ### Deliberate exclusions
-Training and test sets, Teachable Machine (8.2), accuracy (8.3), model code (8.4). No nested loops, no lists of lists, no comprehensions.
+Training and test sets, Teachable Machine (lessons 17.0–17.1), accuracy (lessons 18.0–18.1), model code (lessons 19.0–19.1). No nested loops, no lists of lists, no comprehensions.
 
 ---
 

@@ -1,4 +1,4 @@
-# Unit 5.2 paper lab - Question 1: a file name (full solution, plain code, no functions).
+# Lessons 7.1–7.2 paper lab - Question 1: a file name (full solution, plain code, no functions).
 file = "holiday_photo_2026.jpg"
 
 # a. the name without the extension, and the extension

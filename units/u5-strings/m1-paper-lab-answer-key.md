@@ -1,4 +1,4 @@
-# Unit 5.1 paper lab — answer key and rubric
+# Lesson 7.1 paper lab — answer key and rubric
 
 For [`m1-paper-lab-worksheet-he.md`](m1-paper-lab-worksheet-he.md): **one sheet, two sides, two challenging questions with four sub-questions each**
 (א–ד, each continues the previous one). On each side the question is in a box on the right and a large empty box for the handwritten code is on

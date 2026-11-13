@@ -1,4 +1,4 @@
-# Unit 5.4 paper lab - Question 1: first, last, length and middle (plain code, no functions).
+# Lessons 8.2–8.7 paper lab - Question 1: first, last, length and middle (plain code, no functions).
 city = "jerusalem"
 
 print("First:", city[0])

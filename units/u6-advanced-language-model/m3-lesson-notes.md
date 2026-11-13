@@ -1,4 +1,4 @@
-# Unit 6.3 — Advanced Language Model
+# Lesson 11.3 — Advanced Language Model
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: The "Semantle" Project (Unit Checkpoint)
@@ -14,20 +14,20 @@ rubric, the `quit` / short-guess hardening (now optional), the "a win is decided
 seven test cases. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the embeddings model**.
-**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit. `calculate_similarity` (copied from 6.2) and
-`make_thermometer` are `def` functions with parameters and `return`, so the starter and reference use `def`. If Unit 3 is not yet taught, hand out both
+**Prerequisite (precondition stated at the top):** the functions block (lessons 4.1–4.6) is taught **before** this unit. `calculate_similarity` (copied from lessons 11.1–11.2) and
+`make_thermometer` are `def` functions with parameters and `return`, so the starter and reference use `def`. If the functions block (lessons 4.1–4.6) is not yet taught, hand out both
 functions ready-made and let students write only the game loop in plain code (the loop itself needs no `def`). f-strings are **not** needed: the
 reference builds messages with `+` and `str()` (the Ministry solution uses f-strings; both are fine).
 
 ---
 
-## 1. Position in Unit 6
+## 1. Position in the advanced-language-model block (lessons 10.0–11.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 6.1 | tokens, tokenization, token IDs | 45 / 45 |
-| 6.2 | meaning map, self-attention, `calculate_similarity` | 45 / 45 |
-| **6.3 (this)** | **the "Semantle" project — unit checkpoint** | 0 / 90 |
+| Lessons 10.0–10.2 | tokens, tokenization, token IDs | 45 / 45 |
+| Lessons 11.1–11.2 | meaning map, self-attention, `calculate_similarity` | 45 / 45 |
+| **Lesson 11.3 (this)** | **the "Semantle" project — unit checkpoint** | 0 / 90 |
 
 ---
 
@@ -35,13 +35,13 @@ reference builds messages with `+` and `str()` (the Ministry solution uses f-str
 
 | Official goal (python-b-ai.pdf p. 16) | Covered here |
 |---|---|
-| Goal 8: install and use a multilingual embeddings model locally | ✅ done in 6.1; used here |
-| Goal 9: `calculate_similarity` returning a numeric score | ✅ copied from 6.2 |
+| Goal 8: install and use a multilingual embeddings model locally | ✅ done in lessons 10.0–10.2; used here |
+| Goal 9: `calculate_similarity` returning a numeric score | ✅ copied from lessons 11.1–11.2 |
 | Goal 10: a game with a guess loop, an attempt counter, a percent display, a graphical meter | ✅ the project |
 | Goal 11: a score is not a probability, a truth or understanding | ✅ discussion, exit check |
 
 ### Deliberate exclusions
-New AI concepts — this meeting applies 6.1–6.2 in code.
+New AI concepts — this meeting applies lessons 10.0–10.2; 11.1–11.2 in code.
 
 ---
 
@@ -112,7 +112,7 @@ print(make_thermometer(0.70))
 
 Predict 14 fires then 6 snowflakes, run, get the reverse. Fix: swap which symbol multiplies `fires` and which `20 - fires`.
 
-## 18–25 — Task 1: copy `calculate_similarity` from 6.2
+## 18–25 — Task 1: copy `calculate_similarity` from lessons 11.1–11.2
 
 ## 25–40 — Task 2: the basic game (worksheet 11.3, stage 3)
 
@@ -175,7 +175,7 @@ probability? 4. Why can `ים` score 94% and still not win?
 The Ministry hint: to type an emoji press the **Windows key + `.` (period)** and pick one (on a Mac: Ctrl + Cmd + Space). Use `*` to repeat an emoji: `"🔥" * 5`.
 
 ### Tool Note – the embeddings model
-`sentence-transformers` and the model are installed and downloaded once at school before the lesson (see 6.1). Verified with the
+`sentence-transformers` and the model are installed and downloaded once at school before the lesson (see lessons 10.0–10.2). Verified with the
 real model on Python 3.14 (8 Nov 2026): scores above are from that run. Do not enter personal or sensitive text.
 
 ---
@@ -195,7 +195,7 @@ real model on Python 3.14 (8 Nov 2026): scores above are from that run. Do not e
 # 8. Assessment Evidence (formative)
 
 - The warm-up's swapped symbols explained against two worked values (0.70 and 0.20)
-- **Unit 6 checkpoint — "Semantle"**, scored against the 20-point rubric (kept from v1): loading the model once 2, the similarity
+- **Advanced-language-model checkpoint (lessons 10.0–11.3) — "Semantle"**, scored against the 20-point rubric (kept from v1): loading the model once 2, the similarity
   function 4, the game loop 3, the attempt counter 2, score display 3 (percent + thermometer), input handling 2 (optional hardening),
   testing 2, conceptual explanation 2. Bands: 18–20 complete, efficient, tested and precisely explained · 14–17 works, one small
   flaw · 10–13 partial · 0–9 needs support.

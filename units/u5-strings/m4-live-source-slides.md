@@ -1,6 +1,6 @@
-# Unit 5.4 live lesson slide content — 10 slides, 54 minutes (five pairs)
+# Lessons 8.2–8.7 live lesson slide content — 10 slides, 54 minutes (five pairs)
 
-Compact deck for the frontal part of the meeting. It starts directly with the content (no title slide, no problem slides). It is built as five pairs: a **content slide** followed by a **code-examples slide**. The teacher goes from the slide to Thonny, copies each example from the slide, runs it, and shows the result. Every code example is complete and runs on its own (fixed strings, no `def`). Every slide has the footer "יחידה 5.4 – מחרוזות". Hebrew text is for the slides; code and program output stay exactly as written. Build: `python tools/live-deck/build_deck.py m4-live-source-slides.md deck.html --footer "יחידה 5.4 – מחרוזות" --no-title`.
+Compact deck for the frontal part of the meeting. It starts directly with the content (no title slide, no problem slides). It is built as five pairs: a **content slide** followed by a **code-examples slide**. The teacher goes from the slide to Thonny, copies each example from the slide, runs it, and shows the result. Every code example is complete and runs on its own (fixed strings, no `def`). Every slide has the footer "שיעורים 8.2–8.7 – מחרוזות". Hebrew text is for the slides; code and program output stay exactly as written. Build: `python tools/live-deck/build_deck.py m4-live-source-slides.md deck.html --footer "שיעורים 8.2–8.7 – מחרוזות" --no-title`.
 
 No timers on slides; the minutes are for the teacher (content slide 3 + code slide 8 = 11 per pair; the last pair is 10; 54 minutes in all).
 
@@ -138,7 +138,7 @@ No timer on the slide (teacher time: 3 minutes)
 - צופן מספרים: `str(ord(ch)) + " "`. צריך `str` לפני `+`.
 - ראשי תיבות: התו הראשון, ועוד כל תו שבא אחרי רווח. הלולאה מתחילה מ-1 כי בודקים `message[i - 1]`.
 - מסגרת: `"*" * n`. אורך המסגרת הוא אורך ההודעה ועוד 4.
-- `split` ו-`join`: רק מראים. התוצאה של `split` היא רשימה, ורשימות נלמדות ביחידה 7.
+- `split` ו-`join`: רק מראים. התוצאה של `split` היא רשימה, ורשימות נלמדות בשיעורים 9.1–14.5.
 - שאלה: למה המסגרת ארוכה ב-4 תווים מההודעה?
 ### Slide 8 — קוד להרצה: מספרים, ראשי תיבות ומסגרת
 

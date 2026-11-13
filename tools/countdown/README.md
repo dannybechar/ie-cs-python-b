@@ -5,7 +5,7 @@ A case is opened (goal, the starter file, its test values, how to get the files)
 the room is locked out at zero ("ננעל!"), and the reveal shows a `for` solution and a `while` solution that use different
 ideas, the expected output, and how the two differ. Hebrew, right-to-left; code in Courier New, left-to-right.
 
-Cases are **plain code, no functions** (Unit 5.4 was taught before the class learned `def`): a variable `text = "…"`,
+Cases are **plain code, no functions** (Lessons 8.2–8.7 were taught before the class learned `def`): a variable `text = "…"`,
 the student's code under it, and `print`. To test another value, students change the variable and run again, as DP1's
 "statements inside `main`" problems do.
 
@@ -28,4 +28,4 @@ starter file per case. Turn the instructions into a PDF with `python tools/md_to
 `soffice --headless --convert-to pdf`, and zip the PDF with the starters for Mashov. Python 3, standard library only.
 Rebuild and commit after any change to the JSON, the reference or the template.
 
-Used by: [Unit 5.4 countdown edition](../../units/u5-strings/m4-countdown-lesson-plan.md).
+Used by: [Lessons 8.2–8.7 countdown edition](../../units/u5-strings/m4-countdown-lesson-plan.md).

@@ -1,4 +1,4 @@
-# Unit 8.2 — Classification
+# Lessons 17.0–17.1 — Classification
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Training Set and Test Set, Challenging Cases, Bias — a First Teachable Machine Model
@@ -15,18 +15,18 @@ the discussion questions) and flagged as an assumption. The v1 build is kept for
 `describe_trial` and `count_correct`. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Teachable Machine**.
-**Prerequisite:** functions (Unit 3) and lists (Unit 7).
+**Prerequisite:** functions (lessons 4.1–4.6) and lists (lessons 9.1–9.5, 12.0–14.5).
 
 ---
 
-## 1. Position in Unit 8
+## 1. Position in the classification block (lessons 16.0–19.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 8.1 | classification by rules, features, a separating line | 45 / 45 |
-| **8.2 (this)** | **training set and test set, challenging cases, bias, first Teachable Machine try** | 45 / 45 |
-| 8.3 | accuracy, the fist / OK project, export | 45 / 45 |
-| 8.4 | the trained model inside Python, confidence | 45 / 45 |
+| Lessons 16.0–16.2 | classification by rules, features, a separating line | 45 / 45 |
+| **Lessons 17.0–17.1 (this)** | **training set and test set, challenging cases, bias, first Teachable Machine try** | 45 / 45 |
+| Lessons 18.0–18.1 | accuracy, the fist / OK project, export | 45 / 45 |
+| Lessons 19.0–19.1 | the trained model inside Python, confidence | 45 / 45 |
 
 ---
 
@@ -41,7 +41,7 @@ labeled **Tool Note – Teachable Machine**.
 | Goal 13: identify a visual bias | ✅ glasses, skin color, the background shortcut |
 
 ### Deliberate exclusions
-Accuracy as a number (8.3), the 100-image project and export (8.3), model code (8.4). A **sign-language recognition** example is shown, not built.
+Accuracy as a number (lessons 18.0–18.1), the 100-image project and export (lessons 18.0–18.1), model code (lessons 19.0–19.1). A **sign-language recognition** example is shown, not built.
 
 ---
 
@@ -105,7 +105,7 @@ best_label(["fist", "ok"], [0.62, 0.38]) -> fist
 ### Tool Note – Teachable Machine
 Needs a browser, camera permission and access to `teachablemachine.withgoogle.com`. The Ministry's advice (17.0): work in a room where the computers have working cameras,
 at least one per pair; with no cameras, upload pictures (this takes longer: find them online or photograph with a phone); with one camera (the teacher's), do the hands-on
-in plenary — "it's only the first lesson of a series". The teacher plays with the tool beforehand. **Privacy (full rules in the 8.3 notes):** hands only, never faces; no names or private screens in the background.
+in plenary — "it's only the first lesson of a series". The teacher plays with the tool beforehand. **Privacy (full rules in the lessons 18.0–18.1 notes):** hands only, never faces; no names or private screens in the background.
 
 ---
 
@@ -142,7 +142,7 @@ Comparing the two whole lists for equality is not checking whether **any** item 
    different. *Did the model learn the hand or the background?*
 3. **Improve:** add pictures of both categories on both backgrounds and in different light, train again, and test the same swapped pictures again.
 
-Do not export yet (8.3). If there is no camera, use a teacher-prepared approved picture set — the steps are the same.
+Do not export yet (lessons 18.0–18.1). If there is no camera, use a teacher-prepared approved picture set — the steps are the same.
 
 ## 69–75 — Discussion (17.0 and 17.1 p. 50, with the teacher's answers)
 

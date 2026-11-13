@@ -1,18 +1,18 @@
-# Unit 8 — Classification
+# Classification — lessons 16.0–19.1
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 8 academic hours = 4 meetings = 360 minutes (180 theory / 180 practice).
 
 > **Reworked 8 Nov 2026 to the Ministry materials** (files 16.0–19.1 — see
-> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Worksheet 16.2 is delivered (the 8.1 lab follows it); worksheets 17.2, 18.2, 19.2 and 19.3 (Colab) are still missing ⚠️ and their labs are rebuilt from the decks and the teacher notes
+> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Worksheet 16.2 is delivered (the lessons 16.0–16.2 lab follows it); worksheets 17.2, 18.2, 19.2 and 19.3 (Colab) are still missing ⚠️ and their labs are rebuilt from the decks and the teacher notes
 > (the unit strategy lists what is assumed). The model code is now the Ministry's `converted_savedmodel.zip` + `TFSMLayer` code (`Ministry_Model_Code.py`,
 > **not run here: it needs TensorFlow and a live run with a real exported model before class**); the lab functions run on a clearly-labelled **stand-in** `classify_image()` with fixed answers.
 > The four NotebookLM decks are **superseded** — new prep folders are ready (`unit8-m1-slides` … `unit8-m4-slides`).
 >
-> **Safety note:** Units 8.2 and 8.3 involve photographing hands — read the Photography Safety section of the 8.3 lesson notes before 8.2. Never put the Ministry image archives or student pictures in this repository.
+> **Safety note:** Lessons 17.0–17.1 and lessons 18.0–18.1 involve photographing hands — read the Photography Safety section of the lessons 18.0–18.1 lesson notes before lessons 17.0–17.1. Never put the Ministry image archives or student pictures in this repository.
 
-## Unit 8.1 — Classification
+## Lessons 16.0–16.2 — Classification
 
 **Topic:** Classification by Rules, Features, a Separating Line
 
@@ -26,7 +26,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`Classifier_Reference.py`](Classifier_Reference.py) | Solutions, one function per task, plus the two teacher demos |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 8.2 — Classification
+## Lessons 17.0–17.1 — Classification
 
 **Topic:** Training Set and Test Set, Challenging Cases, Bias — a First Teachable Machine Model
 
@@ -40,7 +40,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`TrainTest_Reference.py`](TrainTest_Reference.py) | Solutions, one function per task |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 8.3 — Classification
+## Lessons 18.0–18.1 — Classification
 
 **Topic:** Accuracy and the Classification Project — Fist or OK
 
@@ -54,7 +54,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`DataPlan_Reference.py`](DataPlan_Reference.py) | Solutions, one function per task |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 8.4 — Classification
+## Lessons 19.0–19.1 — Classification
 
 **Topic:** Connecting the Trained Model to Python — Confidence and Acting on It (unit checkpoint)
 
@@ -67,5 +67,5 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Student | [`Model_Starter.py`](Model_Starter.py) | `1 ok` label warm-up bug, stand-in `classify_image()`, stubs for Tasks 1–3 |
 | Student | [`labels_standin.txt`](labels_standin.txt) | A made-up `labels.txt` in the Teachable Machine format, for the stand-in |
 | Teacher | [`Model_Reference.py`](Model_Reference.py) | Solutions (stand-in model), verified: accuracy 85.7% on the seven made-up pictures |
-| Teacher | [`Ministry_Model_Code.py`](Ministry_Model_Code.py) | The Ministry's real `TFSMLayer` code + our `classify_image()` wrapper — **needs a live run with TensorFlow (Python 3.14 may lack it: venv with an older Python or Colab; 19.3 Colab notebook missing ⚠️; checklist in the 8.4 notes)** |
+| Teacher | [`Ministry_Model_Code.py`](Ministry_Model_Code.py) | The Ministry's real `TFSMLayer` code + our `classify_image()` wrapper — **needs a live run with TensorFlow (Python 3.14 may lack it: venv with an older Python or Colab; 19.3 Colab notebook missing ⚠️; checklist in the lessons 19.0–19.1 notes)** |
 | Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |

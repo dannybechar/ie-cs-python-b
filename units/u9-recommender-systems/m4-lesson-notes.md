@@ -1,4 +1,4 @@
-# Unit 9.4 — Recommender Systems
+# Lessons 22.0–22.1 — Recommender Systems
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: The Trap of Recommendations — Fact or Fake, the Cave, Three Traps, Controls
@@ -16,18 +16,18 @@ safety rules, the offline card simulation as a fallback, observation vs interpre
 and the idea that our own code decisions (one twin, a tie-break rule) have consequences. See
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – the live demo**.
-**Prerequisite:** `def`, `return`, flat lists, `append`, `not in` (Units 3, 5, 7).
+**Prerequisite:** `def`, `return`, flat lists, `append`, `not in` (lessons 4.1–4.6, 7.1–8.7, 9.1–9.5, 12.0–14.5).
 
 ---
 
-## 1. Position in Unit 9
+## 1. Position in the recommender-systems block (lessons 20.0–22.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 9.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
-| 9.2 | the table, similarity points | 45 / 45 |
-| 9.3 | the twin, the recommendation, the project | 45 / 45 |
-| **9.4 (this)** | **fact or fake, the business model, the cave, three traps, controls; a toy bubble in code** | 45 / 45 |
+| Lessons 20.0–20.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
+| Lesson 21.1 | the table, similarity points | 45 / 45 |
+| Lessons 21.1–21.2 | the twin, the recommendation, the project | 45 / 45 |
+| **Lessons 22.0–22.1 (this)** | **fact or fake, the business model, the cave, three traps, controls; a toy bubble in code** | 45 / 45 |
 
 ---
 
@@ -41,7 +41,7 @@ and the idea that our own code decisions (one twin, a tie-break rule) have conse
 | Goal 14: ethical limits — privacy, consent, bias | ✅ safety rules, the responsibility card, the shared-reality discussion |
 
 ### Deliberate exclusions
-New recommender code (finished in 9.3). The simulation is a toy, not a model of any real platform.
+New recommender code (finished in lessons 21.1–21.2). The simulation is a toy, not a model of any real platform.
 
 ### What is official and what is ours
 Official (22.1, 20.0): the fact-or-fake quiz, the business model, the incognito demo, the cave, the three traps, polarisation, the controls, pros and cons.

@@ -1,4 +1,4 @@
-# Unit 8.2 - reference for the teacher.
+# Lessons 17.0–17.1 - reference for the teacher.
 # One task per function; run ONE task at a time by removing the # from its call at the bottom.
 
 

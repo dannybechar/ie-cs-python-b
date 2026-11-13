@@ -1,4 +1,4 @@
-# Unit 9.3 - reference for the teacher.
+# Lessons 21.1–21.2 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 
 item_names = ["sushi", "beet", "dal", "pasta", "pizza"]

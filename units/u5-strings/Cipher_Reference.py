@@ -1,4 +1,4 @@
-# Unit 5.4 - reference for the teacher. No functions: the class has not learned def yet.
+# Lessons 8.2–8.7 - reference for the teacher. No functions: the class has not learned def yet.
 # Each task: a variable with the first test value, the code, and print. The whole file runs top to bottom;
 # change a variable to try the other test values listed in its comment.
 
@@ -90,7 +90,7 @@ for character in text:
         result += character
 print(result)                                  # bcde   ("zoo" -> app, "i like python" -> j mjlf qzuipo)
 
-# Task 6: split and join - the list is only shown and printed here (lists are Unit 7)
+# Task 6: split and join - the list is only shown and printed here (lists come in lessons 9.1–14.5)
 text = "guitar piano drums"
 print(text.split(" "))                         # ['guitar', 'piano', 'drums']
 print("-".join(text.split(" ")))               # guitar-piano-drums

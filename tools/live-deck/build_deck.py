@@ -3,7 +3,7 @@ import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument("source")
 ap.add_argument("out")
-ap.add_argument("--footer", default="יחידה 5.1 – מחרוזות")
+ap.add_argument("--footer", default="שיעור 7.1 – מחרוזות")
 ap.add_argument("--subtitle", default="")
 ap.add_argument("--emoji", default="🤖")
 ap.add_argument("--card", default="", help="a word shown in a card on the title slide")

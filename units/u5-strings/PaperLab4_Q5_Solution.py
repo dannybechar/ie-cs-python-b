@@ -1,4 +1,4 @@
-# Unit 5.4 paper lab - Question 5: a number code with dashes, and the total.
+# Lessons 8.2–8.7 paper lab - Question 5: a number code with dashes, and the total.
 word = "snow"
 
 numbers = ""

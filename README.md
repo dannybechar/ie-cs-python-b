@@ -13,20 +13,26 @@ and approved is described in [`CLAUDE.md`](CLAUDE.md).
 
 ## Current build status
 
-**All 30 of 30 official double meetings are built** (Units 1–9). Only Units 1.1–1.2 are approved; Units 6–9 were reworked on 8 Nov 2026 to the Ministry materials (🔶, awaiting approval); Units 1.3 and 2–5 were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
+**All 30 of 30 official double meetings are built** (9 program units, shown as blocks below). Only Lessons 1.0–1.1 and 1.2–1.4 are approved; the advanced-language-model, lists, classification and recommender blocks (lessons 9.1–9.5 and 10.0–22.1) were reworked on 8 Nov 2026 to the Ministry materials (🔶, awaiting approval); Lessons 2.0–2.3 and the AI2-opening, functions, API and strings blocks (lessons 3.0–8.7) were reworked on 31 Oct 2026 to follow the Ministry's published teaching materials (see [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)) and await approval.
 Where the class actually is in the course: [`class-progress.md`](class-progress.md).
 See [`course-map.md`](course-map.md) for the unit-by-unit breakdown, the schedule and the pace check, and
 [`docs/annual-strategy.md`](docs/annual-strategy.md) for the year plan.
 
-- [Unit 1 — Python A Review](units/u1-python-a-review) — ✅ approved (2/3); 🔶 1.3 reworked to the Ministry materials, awaiting approval
-- [Unit 2 — AI2 Year Opening](units/u2-ai2-year-opening) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
-- [Unit 3 — Functions](units/u3-functions) — 🔶 reworked to the Ministry materials, awaiting approval (3/3)
-- [Unit 4 — Bringing AI into Code (API)](units/u4-api) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
-- [Unit 5 — Strings](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4); 5.1–5.3 taught, 5.4 next (countdown edition ready)
-- [Unit 6 — Advanced Language Model](units/u6-advanced-language-model) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval; new decks pending
-- [Unit 7 — Lists](units/u7-lists) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (5/5); new decks pending
-- [Unit 8 — Classification](units/u8-classification) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (4/4); needs a live run with TensorFlow; new decks pending
-- [Unit 9 — Recommender Systems](units/u9-recommender-systems) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (4/4); new decks pending
+- [Python A Review, lessons 1.0–2.3](units/u1-python-a-review) — ✅ approved (2/3: Lessons 1.0–1.1, 1.2–1.4); 🔶 Lessons 2.0–2.3 reworked to the Ministry materials, awaiting approval
+- [AI2 Year Opening, lessons 3.0–3.2](units/u2-ai2-year-opening) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
+- [Functions, lessons 4.1–4.6](units/u3-functions) — 🔶 reworked to the Ministry materials, awaiting approval (3/3)
+- [Bringing AI into Code (API), lessons 5.0–6.2](units/u4-api) — 🔶 reworked to the Ministry materials, awaiting approval (2/2)
+- [Strings, lessons 7.1–8.7](units/u5-strings) — 🔶 reworked to the Ministry materials, awaiting approval (4/4); Lessons 7.1–8.1 taught, Lessons 8.2–8.7 next (countdown edition ready)
+- [Advanced Language Model, lessons 10.0–11.3](units/u6-advanced-language-model) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval; new decks pending
+- [Lists, lessons 9.1–9.5 and 12.0–14.5](units/u7-lists) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (5/5); new decks pending
+- [Classification, lessons 16.0–19.1](units/u8-classification) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (4/4); needs a live run with TensorFlow; new decks pending
+- [Recommender Systems, lessons 20.0–22.1](units/u9-recommender-systems) — 🔶 reworked to the Ministry materials (8 Nov 2026), awaiting approval (4/4); new decks pending
+
+## Numbering
+
+The official lesson numbers of the Ministry's Python B program (`8.1`, `8.2` …) are the numbers of this repository; the old "Unit U.M" numbers are retired.
+A 90-minute meeting is named by the range of official lessons it covers, e.g. **Lessons 8.2–8.7 — Strings**; the mapping of all 30 meetings is in
+[`docs/official-numbering.md`](docs/official-numbering.md). Folders and file names (`units/u5-strings/m4-…`) keep their names as internal keys.
 
 ## Repository layout
 
@@ -52,11 +58,12 @@ units/
 
 ## Repository conventions
 
-- **Naming rule:** a meeting is named by its curriculum unit, as
-  **Unit {U}.{M} — {unit name}** (e.g. *Unit 3.1 — Functions*);
-  in Hebrew, **יחידה {U}.{M} – {שם היחידה}** (e.g. *יחידה 3.1 – פעולות*).
-  Unit names follow the Ministry program (`python-b-ai.pdf`); the list is in
-  [`CLAUDE.md`](CLAUDE.md). A lesson's theme appears only as a subtitle, never
+- **Naming rule:** a meeting is named by the range of official lessons it covers, as
+  **Lessons {A}–{B} — {block name}** (e.g. *Lessons 4.1–4.2 — Functions*);
+  in Hebrew, **שיעורים {A}–{B} – {שם היחידה}** (e.g. *שיעורים 4.1–4.2 – פעולות*).
+  The rule and the mapping are in [`docs/official-numbering.md`](docs/official-numbering.md);
+  block names follow the Ministry program (`python-b-ai.pdf`, list in
+  [`CLAUDE.md`](CLAUDE.md)). A lesson's theme appears only as a subtitle, never
   as its name. This applies to headings, the course map, lab briefs, slide
   titles and footers, and NotebookLM notebook names.
 - Every `.py` example must compile cleanly before it's committed.
@@ -81,11 +88,11 @@ units/
   fenced blocks. Wrap tables and numbered/bulleted lists in
   `<div dir="rtl">` … `</div>` with blank lines inside, since GitHub
   doesn't set their direction automatically.
-- Code that calls an outside AI service or library (Units 4, 6 and 8) is
+- Code that calls an outside AI service or library (the API, advanced-language-model and classification blocks, lessons 5.0–6.2, 10.0–11.3 and 16.0–19.1) is
   verified with a stand-in that returns fixed answers, and needs a live run
   in Thonny with the real service before class.
 - **Never commit an API key**, student information, passwords, tokens, or
-  private school data. Survey and image data from Units 8–9 stay out of the repo.
+  private school data. Survey and image data from lessons 16.0–22.1 stay out of the repo.
 - Generated files (`__pycache__/`, etc.) are not committed.
 
 ## Course workflow

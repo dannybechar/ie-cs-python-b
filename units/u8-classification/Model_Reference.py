@@ -1,4 +1,4 @@
-# Unit 8.4 - reference for the teacher.
+# Lessons 19.0–19.1 - reference for the teacher.
 #
 # STAND-IN MODEL: classify_image() returns fixed answers for seven made-up image names (no TensorFlow,
 # no exported model, no photos) so this file can be verified with plain Python 3.14.
@@ -75,7 +75,7 @@ def task2():
     print(decide("fist", 0.73))
 
 
-# Task 3: accuracy over a whole test set = successes / attempts (Unit 8.3)
+# Task 3: accuracy over a whole test set = successes / attempts (lessons 18.0–18.1)
 def calculate_accuracy(successes, attempts):
     if attempts == 0:
         return 0

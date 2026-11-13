@@ -1,5 +1,5 @@
 # Warm-up: tokens_sentence should print the token IDs of the sentence. Predict, run, then fix one line.
-# Precondition: Unit 3 (def) is taught first; if not, the teacher hands out the three functions ready-made and students only call them.
+# Precondition: the functions block (lessons 4.1–4.6) (def) is taught first; if not, the teacher hands out the three functions ready-made and students only call them.
 # Needs: pip install sentence-transformers (the first run downloads the model - the teacher does it before class).
 from sentence_transformers import SentenceTransformer
 

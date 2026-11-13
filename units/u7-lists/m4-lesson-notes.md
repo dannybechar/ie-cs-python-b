@@ -1,4 +1,4 @@
-# Unit 7.4 — Lists
+# Lessons 13.2, 14.0–14.2 — Lists
 
 ## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official Python B program, 9 Nov 2026)
 ### Topic: Counting, Filters, Maximum, Flat Menus and Parallel Lists
@@ -28,20 +28,20 @@ nested loops were dropped from the new program (clarifications p. 3); 14.0 p. 30
 **Links only (not offline):** 13.3, 13.4 (dance party), 13.5 (hangman), 14.3 (H5P practice) — titles in the unit README.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3). Lists of lists and nested loops are **not** used: the menu is **one flat list** (name, price, name, price …),
+**Prerequisite:** the functions block (lessons 4.1–4.6). Lists of lists and nested loops are **not** used: the menu is **one flat list** (name, price, name, price …),
 exactly as the Ministry's own exercise #7 gives it.
 
 ---
 
-## 1. Position in Unit 7
+## 1. Position in the lists block (lessons 9.1–9.5, 12.0–14.5)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | what a list is; indices; slicing | 45 / 45 |
-| 7.2 | list operations | 45 / 45 |
-| 7.3 | walking a list; accumulation | 45 / 45 |
-| **7.4 (this)** | **counting, filters, maximum, flat menu, parallel lists** | 0 / 90 |
-| 7.5 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
+| Lessons 9.1, 9.4 | what a list is; indices; slicing | 45 / 45 |
+| Lessons 9.3, 9.5, 12.0–12.1 | list operations | 45 / 45 |
+| Lessons 12.6, 13.0–13.1 | walking a list; accumulation | 45 / 45 |
+| **Lessons 13.2, 14.0–14.2 (this)** | **counting, filters, maximum, flat menu, parallel lists** | 0 / 90 |
+| Lessons 12.5, 14.4 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
 
 ---
 
@@ -55,7 +55,7 @@ exactly as the Ministry's own exercise #7 gives it.
 | Goal 12: lists of AI experiment results | ✅ the closing question |
 
 ### Deliberate exclusions
-Search (7.5). Nested loops and the list of lists (14.0 pp. 25–30): official items left out, see the header. Challenge items g–j are enrichment.
+Search (lessons 12.5, 14.4). Nested loops and the list of lists (14.0 pp. 25–30): official items left out, see the header. Challenge items g–j are enrichment.
 
 ---
 
@@ -114,7 +114,7 @@ Time budget: tasks 1–6 are the core (about 75 minutes); the challenge menu and
 
 ## 0–5 — Recap and demo
 
-Counter (`count = 0`, grows only when the condition holds), accumulation (7.3), maximum from the first element (12.0 p. 6) — on the board with `[81, 24, 67, 91]`.
+Counter (`count = 0`, grows only when the condition holds), accumulation (lessons 12.6, 13.0–13.1), maximum from the first element (12.0 p. 6) — on the board with `[81, 24, 67, 91]`.
 
 ## 5–11 — Warm-up: the maximum that never updates
 
@@ -169,7 +169,7 @@ Returns a new list with every student's average rounded to 2 decimals: `[90.33, 
 
 ## 70–80 — Task 6: worksheet 14.2 (choose two)
 
-Q1 `half_zero_one(8)` → `[0, 0, 0, 0, 1, 1, 1, 1]`; Q4 `is_ascending` (`True` for `[11, 22, 33, 44]`, `False` for `[11, 22, 77, 44]`; the 14.4 Q4 in 7.5 asks for **strictly**
+Q1 `half_zero_one(8)` → `[0, 0, 0, 0, 1, 1, 1, 1]`; Q4 `is_ascending` (`True` for `[11, 22, 33, 44]`, `False` for `[11, 22, 77, 44]`; the 14.4 Q4 in lessons 12.5, 14.4 asks for **strictly**
 ascending, so say now that equal neighbours are allowed here); Q6 `best_grades(grade_a, grade_b)` (the 25-student input of the original is replaced by two ready lists:
 `[90, 60, 70]` and `[80, 75, 70]` → `[90, 75, 70]`); Q7 `pass_fail(numbers)` (above 55 passes; `[90, 55, 56, 40]` → pass `[90, 56]`, fail `[55, 40]`; a function returns
 one value, so it prints both lists). Q2 and Q3 are the "above the average" pattern of Task 2 and are not repeated; Q5 (two lists equal, two ways — `==` and a loop,
@@ -179,7 +179,7 @@ one value, so it prints both lists). Q2 and Q3 are the "above the average" patte
 
 Verified in `Stats_Reference.py`: (a) `evens_first([5, 2, 8, 1, 4])` → `[2, 8, 4, 5, 1]`; (b) `discount_20([100, 50])` → `[80.0, 40.0]`;
 (c) `remove_place_num([0, 1, 2, 3, 4, 5, 6])` → `[1, 2, 4, 5]` (positions are zero-based, so position 0 is deleted too; the in-place variant walks **backwards**
-and gives the same result — the answer to the 7.3 trap); (d) `magic` → `True` for `[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]`, `False` for `[]`, `[1, 2, 3, 1, 2, 4]`, `[1, 2]`;
+and gives the same result — the answer to the lessons 12.6, 13.0–13.1 trap); (d) `magic` → `True` for `[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]`, `False` for `[]`, `[1, 2, 3, 1, 2, 4]`, `[1, 2]`;
 (e) `count_words("the quick brown fox")` → `4` (14.5); (f) `can_release` on a list of bug kinds (12.1 p. 40) — the Ministry gives no list, so any list will do;
 (g) **bug hunt:** `avg_stud(l1, l2)` should give `[68.33, 70.0, 76.25]` for `[80, 35, 90, 85, 55, 75, 60, 80, 90]` and `[3, 2, 4]`; the broken version gives
 `[68.33333333333333, 65.0, 42.5]` — `begin += 1 + count` skips a grade.

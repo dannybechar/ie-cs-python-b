@@ -1,4 +1,4 @@
-# Unit 5.4 paper lab - Question 4: a shift cipher (letters move 2 places, the space stays).
+# Lessons 8.2–8.7 paper lab - Question 4: a shift cipher (letters move 2 places, the space stays).
 text = "hello world"
 
 coded = ""

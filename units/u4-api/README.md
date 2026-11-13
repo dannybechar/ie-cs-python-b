@@ -1,4 +1,4 @@
-# Unit 4 — Bringing AI into Code (API)
+# Lessons 5.0–6.2 — Bringing AI into Code (API)
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
@@ -24,7 +24,7 @@ name still works before class). Full steps are in `m1-lesson-notes.md`, "Tool No
 - [ ] `BalancedDay_Reference.py`: `task3` and `task4_features` with the real client; the call count must be 1.
 - [ ] The key is in no file, slide or screenshot; the Ministry's own 6.2 snippet has an unquoted `YOUR_API_KEY` (a `NameError`, see `m2-lesson-notes.md`).
 
-## Unit 4.1 — Bringing AI into Code (API)
+## Lessons 5.0–5.2 — Bringing AI into Code (API)
 
 **Topic:** What Is an API? The Gemini call, f-strings, the `ask_the_ai` wrapper
 
@@ -38,7 +38,7 @@ name still works before class). Full steps are in `m1-lesson-notes.md`, "Tool No
 | Teacher | [`AskTheAI_Reference.py`](AskTheAI_Reference.py) | Solutions, stand-in client, the live versions (Thonny, Colab) as comments |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 18 slides, from the previous version) |
 
-## Unit 4.2 — Bringing AI into Code (API)
+## Lessons 6.1–6.2 — Bringing AI into Code (API)
 
 **Topic:** The "Balanced Day" project
 

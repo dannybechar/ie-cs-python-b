@@ -18,7 +18,7 @@ Requirements: Python 3 with `pymupdf`, `pillow`, `numpy`, `opencv-python`, `pyth
 ## Review and patch one deck
 
 1. Copy `common.py` and `heb.py` to the session scratchpad and work there.
-2. Render the newest PDF in Downloads: `render(pdf, D)` (D is a short tag such as `21` for Unit 2.1).
+2. Render the newest PDF in Downloads: `render(pdf, D)` (D is a short tag such as `32` for Lessons 3.1–3.2, or the file key `u2m2`).
 3. **Check the title slide first** — the newest PDF may be a different meeting than the one asked for,
    and NotebookLM names files by theme (e.g. `Python_Scope_Mission.pdf`), not by unit.
 4. Check every slide against `Downloads/python-b/unit<U>-m<M>-slides/1-source-slide-content.md`

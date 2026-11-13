@@ -1,4 +1,4 @@
-# Unit 5.3 live program: Account Safety Checker - full solution.
+# Lessons 8.0–8.1 live program: Account Safety Checker - full solution.
 # The program is built in six stages; each stage adds lines and the program still runs.
 # Use only invented passwords and e-mail addresses.
 

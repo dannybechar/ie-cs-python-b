@@ -1,7 +1,7 @@
 # Warm-up: shared_letters should count how many letters of word_a also appear in word_b (spelling,
 # not meaning). Predict a positive number for the pair below, run, then fix one comparison.
-# Precondition: Unit 3 (def) is taught first; if not, the teacher hands out calculate_similarity ready-made (students only call it).
-# Note: model.encode([word]) - the square brackets are copied as written (the library asks for a list; lists are taught in Unit 7).
+# Precondition: the functions block (lessons 4.1–4.6) (def) is taught first; if not, the teacher hands out calculate_similarity ready-made (students only call it).
+# Note: model.encode([word]) - the square brackets are copied as written (the library asks for a list; lists are taught in the lists block (lessons 9.1–9.5, 12.0–14.5)).
 # Needs: pip install sentence-transformers (the first run downloads the model - the teacher does it before class).
 from sentence_transformers import SentenceTransformer, util
 

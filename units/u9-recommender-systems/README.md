@@ -1,4 +1,4 @@
-# Unit 9 — Recommender Systems
+# Recommender Systems — lessons 20.0–22.1
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
@@ -9,14 +9,14 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 > don't know, capital English letters), the twin is the participant with the most identical non-0 answers, and the code uses only strings,
 > flat lists and `def` (no tuples, default arguments, dictionaries or comprehensions). The four NotebookLM decks are **superseded** — the
 > NotebookLM prep folders (`unit9-m1-slides` … `unit9-m4-slides`) were refreshed on 13 Nov 2026 to the aligned content — **all four decks need regeneration**. The Ministry's worksheets 20.2, 21.2, 22.2
-> and teacher notes 21.0, 22.0 were not delivered, so the 9.3 code shape and the 9.4 student activity are marked ⚠️ *unverified against official 21.2 / 22.2*; our fourth meeting is our own split of deck 21.1 (see the strategy).
+> and teacher notes 21.0, 22.0 were not delivered, so the lessons 21.1–21.2 code shape and the lessons 22.0–22.1 student activity are marked ⚠️ *unverified against official 21.2 / 22.2*; our fourth meeting is our own split of deck 21.1 (see the strategy).
 >
 > **Data note:** [`ratings.csv`](ratings.csv) is the Ministry's sample table (four participants, five foods; aliases only, no personal
 > information). Students do not read files: the data are three plain lists in the starter, and the teacher helper
 > [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) turns the class's Forms CSV into those lists.
-> **Safety note:** Unit 9.1 involves a real class survey and Unit 9.4 a live-browsing demo — read each meeting's privacy/safety section before teaching it.
+> **Safety note:** Lessons 20.0–20.1 involves a real class survey and lessons 22.0–22.1 a live-browsing demo — read each meeting's privacy/safety section before teaching it.
 
-## Unit 9.1 — Recommender Systems
+## Lessons 20.0–20.1 — Recommender Systems
 
 **Topic:** The Feed Riddle, Two Kinds of Recommender, the Culinary Twin, the Survey
 
@@ -30,7 +30,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`SurveyData_Reference.py`](SurveyData_Reference.py) | Solutions, one function per task |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (16 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 9.2 — Recommender Systems
+## Lesson 21.1 — Recommender Systems
 
 **Topic:** The Table, Similarity Points, the Twin
 
@@ -46,7 +46,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) | Helper: Forms CSV → three lines of Python for the students to paste |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (12 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 9.3 — Recommender Systems
+## Lessons 21.1–21.2 — Recommender Systems
 
 **Topic:** From the Twin to a Recommendation — unit checkpoint
 
@@ -60,7 +60,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`TwinRecommend_Reference.py`](TwinRecommend_Reference.py) | Solutions and a `run_edge_cases()` check |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — needs regeneration (NotebookLM prep folder refreshed) |
 
-## Unit 9.4 — Recommender Systems
+## Lessons 22.0–22.1 — Recommender Systems
 
 **Topic:** The Trap of Recommendations — Fact or Fake, the Cave, Three Traps, Controls
 

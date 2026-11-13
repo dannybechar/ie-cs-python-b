@@ -1,4 +1,4 @@
-# Unit 5.4 - worksheet. Question 1: find the bug (predict first, then run).
+# Lessons 8.2–8.7 - worksheet. Question 1: find the bug (predict first, then run).
 # Questions 2-5: write your code under each variable. Run, compare with the worksheet, then change the value and run again.
 # Tip: while you work on one question, put a # before the code of the others, or work in a new file.
 

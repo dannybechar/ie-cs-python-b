@@ -1,4 +1,4 @@
-# Unit 1.3 — Python A Review
+# Lessons 2.0–2.3 — Python A Review
 
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Until It's Done — the `while` Loop, the Stop Condition and Loops That Never End (Unit Checkpoint)
@@ -10,10 +10,10 @@
 **Current tool:** Thonny  
 **Source of inspiration:** the **Ministry teaching materials** ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)) — three files:
 - **2.0 "מצגת למורה — לולאת תנאי while — חזרה"** (12 slides): the loop variable (the *sentinel*, "זקיף") that must get a start value **before** the loop and change **inside** it; the `while` structure with `n = 0 / while n < 10 / print("hi") / n = n + 1`; question 1 (a 3-digit number, ask again) and question 2 (count until 3 even numbers); counting forward (score) and backward (timer); finite vs infinite loops (three snippets א–ג); `for i in range(0, 5, 1)` beside the equivalent `while` (`+=` allowed); three snippets with the same output; the exam task "מספר מעורר" from the Python A exam, done as a shared trace-then-run; the summary (including compound conditions in a loop).
-- **2.1 "תרגול לפיצוח — לולאת while"** (4 questions): the series tasks with stop conditions (`1 + 8 + 27 + …` → Task 8; `2, 22, 222, …` → if time) and the red-beads counter with a "yes / no" sentinel (→ if time); question 3 (the four `num_even` snippets with a logic bug) and question 4 (primes, a nested loop) are **not** used — question 3 is left for Unit 3, where the course works with functions; question 4 is a nested loop.
+- **2.1 "תרגול לפיצוח — לולאת while"** (4 questions): the series tasks with stop conditions (`1 + 8 + 27 + …` → Task 8; `2, 22, 222, …` → if time) and the red-beads counter with a "yes / no" sentinel (→ if time); question 3 (the four `num_even` snippets with a logic bug) and question 4 (primes, a nested loop) are **not** used — question 3 is left for the functions block (lessons 4.1–4.6), where the course works with functions; question 4 is a nested loop.
 - **"מלכודת הלולאה האינסופית"** (14-slide deck): the engine picture (setup · gate · body · accelerator), the sentinel's two duties, the three traps (the clock that does not update, the wrong direction, the condition that is always true), the sentinel typed by the user (the input must also be **inside** the loop), and the four-point **Safe Loop Checklist** → the diagnosis method used in the warm-up and Task 4.
 
-**What changed from the previous version of 1.3** (built from the Ministry program text and a codex deck):
+**What changed from the previous version of 2.0–2.3** (built from the Ministry program text and a codex deck):
 - **Kept:** the Lab + Lab structure; the warm-up convention (a never-ending validation loop, `ask_age()`; the Ministry's special case "the input must also be inside the loop"); the three-try locker with a `success` flag (now Task 6 — the Ministry's "compound condition in a loop"); the checkpoint role (now Task 8 plus the exit check); the red Stop button note.
 - **Added:** the Ministry's vocabulary (loop variable / sentinel, "before the loop · condition · inside the loop"); trace tables for every loop; counting forward and backward; the four never-ending loops and the Safe Loop Checklist; `for` ↔ `while` conversion with `range(0, 5, 1)` and the three same-output snippets; the exam task "exciting number"; series with stop conditions on the sum.
 - **Dropped:** the robot-distance hook, the `value = 5` prediction and the "for or while?" pairs quiz (replaced by the Ministry's `hi` loop and the `for` ↔ `while` task); `guess_number()` (kept in the unit strategy as enrichment only); the `points_goal()` checkpoint (it used a `for` loop — this meeting's checkpoint is now a `while` task, `cubes_sum()`).
@@ -24,13 +24,13 @@
 
 ---
 
-## 1. Position in Unit 1
+## 1. Position in the Python A review block (lessons 1.0–2.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 1.1 | comparisons → `and` / `or` / `not` → `elif` → trace → input validation | 45 / 45 |
-| 1.2 | `for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer | 0 / 90 |
-| **1.3 (this)** | **`while`: sentinel, condition, update → trace → counting up and down → loops that never end → `for` ↔ `while` → exciting number → series** | 0 / 90 |
+| 1.0–1.1 | comparisons → `and` / `or` / `not` → `elif` → trace → input validation | 45 / 45 |
+| 1.2–1.4 | `for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer | 0 / 90 |
+| **2.0–2.3 (this)** | **`while`: sentinel, condition, update → trace → counting up and down → loops that never end → `for` ↔ `while` → exciting number → series** | 0 / 90 |
 
 ---
 
@@ -48,7 +48,7 @@
 | Assessment 1–3, 6: trace, identify the loop type, count rounds, write a conditional loop | ✅ trace tables, exit check |
 
 ### Deliberate exclusions
-`break`, `while True`, nested loops (not in the new program — the Ministry's prime-number worksheet question 4 is a nested loop and is **not** used), lists. Digit extraction (`num % 10`, `num // 10`) is used in Task 7: `%` was met in 1.2; `//` takes one minute to introduce at the board (it is part of the Python A exam task) — **teacher: confirm that your class has met `//`**; if not, say "`//` cuts off the last digit: `789 // 10` is `78`".
+`break`, `while True`, nested loops (not in the new program — the Ministry's prime-number worksheet question 4 is a nested loop and is **not** used), lists. Digit extraction (`num % 10`, `num // 10`) is used in Task 7: `%` was met in 1.2–1.4; `//` takes one minute to introduce at the board (it is part of the Python A exam task) — **teacher: confirm that your class has met `//`**; if not, say "`//` cuts off the last digit: `789 // 10` is `78`".
 
 ---
 
@@ -82,7 +82,7 @@ Starter: [`While_Starter.py`](While_Starter.py). Reference: [`While_Reference.py
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 1.3 – חזרה על פייתון א' · "עד שמסיימים" |
+| 0–2 | Title: שיעורים 2.0–2.3 – חזרה על פייתון א' · "עד שמסיימים" |
 | 2–8 | **Guided 1:** the four parts of `while` (the engine picture); **predict** (2 min, pairs): how many `hi`, how many condition checks? Answer with a trace table: 10 and 11 |
 | 8–14 | **Warm-up:** `ask_age()` never stops (the input is not inside the loop); Stop button; one line fixes it |
 | 14–21 | **Task 1:** `three_digit()` — the Ministry's question 1 |
@@ -342,4 +342,4 @@ Save As `G8_U1_M3_While_<Name>.py`.
 - Trace tables of Tasks 2 and 7 on paper (assessment 1)
 - `loop_a`–`loop_d` diagnosed and fixed: which checklist point was broken (teaching 4–5)
 - `locker()` passing all four tests, including "no fourth try" (CS 8)
-- **Unit 1 diagnostic checkpoint** — `cubes_sum()` built alone, tested, one round traced aloud; plus the exit check. Record per student: conditions (1.1), counted loops and totals (1.2), conditional loops (1.3). Evidence for planning, not a grade.
+- **Lessons 1.0–2.3 diagnostic checkpoint** — `cubes_sum()` built alone, tested, one round traced aloud; plus the exit check. Record per student: conditions (1.0–1.1), counted loops and totals (1.2–1.4), conditional loops (2.0–2.3). Evidence for planning, not a grade.

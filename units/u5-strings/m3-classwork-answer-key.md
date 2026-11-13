@@ -1,4 +1,4 @@
-# Unit 5.3 classwork — teacher's answer key
+# Lessons 8.0–8.1 classwork — teacher's answer key
 
 For [`m3-classwork-worksheet-he.md`](m3-classwork-worksheet-he.md). Every value below was produced by running
 [`Classwork_Reference.py`](Classwork_Reference.py) on Python 3.14. Students' wording will differ; accept any correct reason.
@@ -145,8 +145,8 @@ answers the question. A model's answer is something to check, not the truth.
 finishers and earns **up to 10 bonus points; the grade is capped at 100**. The `.py` file is not graded (it is the
 students' check tool).
 
-**Plain code is fully correct (teacher's decision, 2 Nov 2026).** The class has **not learned functions yet** (Unit 5 is
-taught before Unit 3), although the worksheet asks for `def` functions. Give full marks to **plain code that does the job** —
+**Plain code is fully correct (teacher's decision, 2 Nov 2026).** The class has **not learned functions yet** (the strings block (lessons 7.1–8.7) is
+taught before the functions block (lessons 4.1–4.6)), although the worksheet asks for `def` functions. Give full marks to **plain code that does the job** —
 a variable with the test text (`text = "banana"`), the loop, and `print` of the result — exactly as to a function. Never
 deduct for a missing `def` line, a missing `return`, `print` instead of `return`, or a fixed letter instead of a parameter
 (`ch == "e"` instead of `ch == letter`). Wherever the table below says "print / return", either one earns the points.
@@ -204,8 +204,8 @@ deduct for a missing `def` line, a missing `return`, `print` instead of `return`
 |---|---|
 | 90–100 | Full command of string traversal |
 | 75–89 | Solid, small slips |
-| 56–74 | Basic; revisit where the counter / `result = ""` goes before 5.4 |
-| below 56 | Needs support before 5.4 (the cipher and the unit checkpoint) |
+| 56–74 | Basic; revisit where the counter / `result = ""` goes before Lessons 8.2–8.7 |
+| below 56 | Needs support before Lessons 8.2–8.7 (the cipher and the unit checkpoint) |
 
 ### Marking sheet (one row per student — keep it outside the repository)
 
@@ -214,4 +214,4 @@ deduct for a missing `def` line, a missing `return`, `print` instead of `return`
 | | | | | | | | | | | | | |
 
 After grading, record **aggregates only** here (mean, median, range, strongest and weakest items, common errors), as
-for the Unit 1 test.
+for the Python A review test (lessons 1.0–2.3).

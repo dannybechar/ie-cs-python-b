@@ -1,4 +1,4 @@
-# Unit 6.1 — Advanced Language Model
+# Lessons 10.0–10.2 — Advanced Language Model
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Tokens, Tokenization and IDs
@@ -14,23 +14,23 @@ Ministry is silent: the three-sentence hook, the controlled-experiment table, an
 "if time" extension). See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the tokenizer library**.
-**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit. The Ministry worksheet is written with `def`
+**Prerequisite (precondition stated at the top):** the functions block (lessons 4.1–4.6) is taught **before** this unit. The Ministry worksheet is written with `def`
 (`print_sentence_info`, `tokens_sentence`; `count_tokens` is our addition), so `def`/`return`/parameters appear here only on that condition. If the class
 has not learned `def`, give the three functions ready-made and let students only call them. No list is written by students in this meeting:
-the printed token lists are only shown, like `split` in Unit 5 (lists proper start in Unit 7), and the playground calls one word per line instead of looping over a list.
+the printed token lists are only shown, like `split` in the strings block (lessons 7.1–8.7) (lists proper start in the lists block (lessons 9.1–9.5, 12.0–14.5)), and the playground calls one word per line instead of looping over a list.
 
 ---
 
-## 1. Position in Unit 6
+## 1. Position in the advanced-language-model block (lessons 10.0–11.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **6.1 (this)** | **tokens, tokenization, token IDs — with the real tokenizer** | 45 / 45 |
-| 6.2 | the meaning map, self-attention, the context window; `calculate_similarity` | 45 / 45 |
-| 6.3 | the "Semantle" project (unit checkpoint) | 0 / 90 |
+| **Lessons 10.0–10.2 (this)** | **tokens, tokenization, token IDs — with the real tokenizer** | 45 / 45 |
+| Lessons 11.1–11.2 | the meaning map, self-attention, the context window; `calculate_similarity` | 45 / 45 |
+| Lesson 11.3 | the "Semantle" project (unit checkpoint) | 0 / 90 |
 
 The Ministry fits the unit in **two** meetings (10.x tokens; 11.x meaning map and project). We keep three because the
-master table gives 6 hours: 6.2 takes deck 11.1 and worksheet 11.2, 6.3 takes the project 11.3.
+master table gives 6 hours: lessons 11.1–11.2 takes deck 11.1 and worksheet 11.2, lesson 11.3 takes the project 11.3.
 
 ---
 
@@ -43,7 +43,7 @@ master table gives 6 hours: 6.2 takes deck 11.1 and worksheet 11.2, 6.3 takes th
 | Goal 3: distinguish characters, words and tokens | ✅ `len`, `count(" ")` against the token count |
 
 ### Deliberate exclusions
-Embeddings, the meaning map and attention (6.2), any similarity computation (6.2–6.3).
+Embeddings, the meaning map and attention (lessons 11.1–11.2), any similarity computation (lessons 11.1–11.2; 11.3).
 
 ---
 
@@ -86,7 +86,7 @@ Real output of the worksheet's tokenizer (`paraphrase-multilingual-MiniLM-L12-v2
 |---|---|
 | 0–7 | **Hook — the Semantle demo** (10.1 pp. 2–7): the teacher plays the real game (the link is in the deck) and the class guesses. "By the end of next week you build this." Also the 10.0 requirement: **everyone has `sentence-transformers` installed** (Terminal or Colab) |
 | 7–15 | **Old language models** (10.1 pp. 10–14): autocomplete, N-grams until 2014; three limits — poor memory, no flexibility (dog / puppy), double meaning ("mouse"). Predict first: *what would an autocomplete do with "mouse"?* |
-| 15–22 | **Three stages** (p. 17) and the definition of a token (p. 20): a word, a part of a word, a number, a space, a punctuation mark; a fixed vocabulary. Prediction question (pp. 21–22): *how many tokens can Gemini hold at once?* — answered in 6.2 |
+| 15–22 | **Three stages** (p. 17) and the definition of a token (p. 20): a word, a part of a word, a number, a space, a punctuation mark; a fixed vocabulary. Prediction question (pp. 21–22): *how many tokens can Gemini hold at once?* — answered in lessons 11.1–11.2 |
 | 22–35 | **Token quiz** (pp. 23–33): students guess the number of tokens, then the teacher runs the sentence live and shows the tokens and IDs. Use *"nice to see you again!"*, *"It is a xylophone"*, *"I will definitly try"* (spelling mistakes cost tokens), *"כשהלכתי הביתה אתמול"* and the `park` pair (same ID twice) |
 | 35–45 | **Name it and compare** (p. 34): the token count of your name; `apple` vs `APPLE`. Bridge to the lab: *the worksheet lets you do exactly this* |
 
@@ -100,7 +100,7 @@ Real output of the worksheet's tokenizer (`paraphrase-multilingual-MiniLM-L12-v2
 `sentence-transformers` is a **toolbox** for running AI models that turn human language into mathematical calculations. At the heart of the project is
 the model `paraphrase-multilingual`, a multilingual "brain" trained on billions of sentences to understand Hebrew and English on **one shared meaning map**.
 Before the model works, the **tokenizer** (the translator) splits our text into small units called tokens and gives each one a number from a ready-made
-dictionary; that lets the model measure the "distance of meaning" between the guesses and the secret word (the project of 6.3).
+dictionary; that lets the model measure the "distance of meaning" between the guesses and the secret word (the project of lesson 11.3).
 
 ### Tool Note – the tokenizer library
 `pip install sentence-transformers`, then the first run downloads the model (hundreds of MB): **do it once at school, before

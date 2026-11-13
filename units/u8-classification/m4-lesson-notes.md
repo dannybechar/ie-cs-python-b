@@ -1,4 +1,4 @@
-# Unit 8.4 — Classification
+# Lessons 19.0–19.1 — Classification
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Connecting the Trained Model to Python — Confidence and Acting on It (Unit Checkpoint)
@@ -14,18 +14,18 @@ only them, run on test pictures. The v1 `keras_Model.h5` / `load_model` flow and
 clearly-labelled stand-in is kept so the lab functions can be verified and run without TensorFlow. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – the exported model**.
-**Prerequisite:** functions (Unit 3), lists (Unit 7), the saved `converted_savedmodel.zip` from 8.3.
+**Prerequisite:** functions (lessons 4.1–4.6), lists (lessons 9.1–9.5, 12.0–14.5), the saved `converted_savedmodel.zip` from lessons 18.0–18.1.
 
 ---
 
-## 1. Position in Unit 8
+## 1. Position in the classification block (lessons 16.0–19.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 8.1 | classification by rules, features, a separating line | 45 / 45 |
-| 8.2 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
-| 8.3 | accuracy, the fist / OK project, export | 45 / 45 |
-| **8.4 (this)** | **the trained model inside Python, confidence, acting only when sure** | 45 / 45 |
+| Lessons 16.0–16.2 | classification by rules, features, a separating line | 45 / 45 |
+| Lessons 17.0–17.1 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
+| Lessons 18.0–18.1 | accuracy, the fist / OK project, export | 45 / 45 |
+| **Lessons 19.0–19.1 (this)** | **the trained model inside Python, confidence, acting only when sure** | 45 / 45 |
 
 ---
 
@@ -169,7 +169,7 @@ Returns `"ACT: <label>"` when the confidence is at least `0.85`, otherwise `"NOT
 
 ## 71–81 — Task 3: `evaluate(test_images, true_labels)` — the unit checkpoint
 
-For each picture: classify, print `correct` or `WRONG (model said ...)`, count the successes, return the accuracy using `calculate_accuracy` (from 8.3). In stand-in mode the 7 made-up names give
+For each picture: classify, print `correct` or `WRONG (model said ...)`, count the successes, return the accuracy using `calculate_accuracy` (from lessons 18.0–18.1). In stand-in mode the 7 made-up names give
 `Accuracy: 85.7 %` (6 of 7; the drawing is wrong). With the real model use `תמונה1`–`תמונה7` and the true labels the teacher gives.
 **If time:** how many pictures would the program **act on** under the 85% rule, and were those right? (stand-in: 4 of 7, all 4 right.)
 
@@ -202,12 +202,12 @@ Save As `G8_U8_M4_Model_<Name>.py`.
 
 ---
 
-# 8. Assessment Evidence (formative) — Unit 8 checkpoint
+# 8. Assessment Evidence (formative) — Classification checkpoint (lessons 16.0–19.1)
 
 - The warm-up label bug explained, not just fixed
 - `report`, `decide` and `evaluate` working, with the accuracy printed
 - The model run on at least one test picture with the three paths edited (real model or stand-in)
-- **Unit 8 checkpoint**, 20 points (the v1 rubric, kept): problem definition 2, data planning 4, test set 3, accuracy calculation 3, bias testing 3, loading in Python 3, critical explanation 2.
+- **Classification checkpoint (lessons 16.0–19.1)**, 20 points (the v1 rubric, kept): problem definition 2, data planning 4, test set 3, accuracy calculation 3, bias testing 3, loading in Python 3, critical explanation 2.
   Bands: 18–20 full process, diverse data, correct measurement, critical analysis · 14–17 working model, one small gap in diversity, measurement or documentation · 10–13 an early model; missing a clean
   train/test split or bias check · 0–9 needs support with problem definition, collection, measurement or loading.
 - The model report and exit check

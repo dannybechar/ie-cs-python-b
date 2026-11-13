@@ -1,4 +1,4 @@
-# Unit 9.1 — Recommender Systems
+# Lessons 20.0–20.1 — Recommender Systems
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: The Feed Riddle, Two Kinds of Recommender, the Culinary Twin, the Survey
@@ -16,21 +16,21 @@ V / X / 0. The v1 build is kept where the Ministry is silent: the four-scenario 
 pre-publish checklist. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Google Forms**.
-**Prerequisite:** functions (Unit 3) and lists (Unit 7) are done before Unit 9; the code uses `def`, strings and flat lists only.
+**Prerequisite:** functions (lessons 4.1–4.6) and lists (lessons 9.1–9.5, 12.0–14.5) are done before the recommender-systems block (lessons 20.0–22.1); the code uses `def`, strings and flat lists only.
 
 ---
 
-## 1. Position in Unit 9
+## 1. Position in the recommender-systems block (lessons 20.0–22.1)
 
-The Ministry fits the unit in **three** meetings (20, 21, 22); we keep **four** because the master table gives 8 hours. 9.1 = deck 20.1,
-9.2 = first half of 21.1, 9.3 = second half of 21.1 plus the code, 9.4 = 22.1.
+The Ministry fits the unit in **three** meetings (20, 21, 22); we keep **four** because the master table gives 8 hours. Lessons 20.0–20.1 = deck 20.1,
+Lesson 21.1 = first half of 21.1, lessons 21.1–21.2 = second half of 21.1 plus the code, lessons 22.0–22.1 = 22.1.
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **9.1 (this)** | **the feed riddle, content-based vs user-based, the culinary twin, the survey (V / X / 0)** | 45 / 45 |
-| 9.2 | the participants × items table, counting similarity points, the twin | 45 / 45 |
-| 9.3 | recommend what the twin liked, the project (checkpoint) | 45 / 45 |
-| 9.4 | the dangers: fake and fact, the business model, the cave, three traps, controls | 45 / 45 |
+| **Lessons 20.0–20.1 (this)** | **the feed riddle, content-based vs user-based, the culinary twin, the survey (V / X / 0)** | 45 / 45 |
+| Lesson 21.1 | the participants × items table, counting similarity points, the twin | 45 / 45 |
+| Lessons 21.1–21.2 | recommend what the twin liked, the project (checkpoint) | 45 / 45 |
+| Lessons 22.0–22.1 | the dangers: fake and fact, the business model, the cave, three traps, controls | 45 / 45 |
 
 ---
 
@@ -44,7 +44,7 @@ The Ministry fits the unit in **three** meetings (20, 21, 22); we keep **four** 
 | Goal 14: privacy limits on data collection | ✅ the survey rules |
 
 ### Deliberate exclusions
-Note: 20.0 says the unit has "two meetings" but lists three (survey, code, dangers); the Ministry's three lessons (20, 21, 22) become our four meetings (see the unit strategy). Left to later meetings: the table and the similarity count (9.2), the recommendation code (9.3), the traps and ethics (9.4).
+Note: 20.0 says the unit has "two meetings" but lists three (survey, code, dangers); the Ministry's three lessons (20, 21, 22) become our four meetings (see the unit strategy). Left to later meetings: the table and the similarity count (lesson 21.1), the recommendation code (lessons 21.1–21.2), the traps and ethics (lessons 22.0–22.1).
 
 ---
 
@@ -83,7 +83,7 @@ user-based:    my answers -> people with similar answers (the "twin") -> what th
 | 6–10 | **What is a feed** (pp. 5–13): *why is YouTube's home page different from person to person?* YouTube does not read minds, it learns from behaviour: what we watched, clicked, liked, where we stayed longer. **Definition (p. 6):** a recommender is a smart (AI) tool that predicts our preferences and gives personalised content without our searching. The stream is the *feed* ("to feed"); it is different for everyone. Where we meet it: video, music, shopping, social networks (show your own screens, never a student's) |
 | 10–14 | **The riddle** (pp. 14–15, question only): three people, three YouTube home pages, who owns which? Pairs, one minute, finger vote |
 | 14–17 | **The riddle answered:** what clues did you use? (words in the titles = interests) — the system uses the same clues |
-| 17–21 | **Regular algorithm vs AI** (pp. 17–18): same rule for everybody vs a prediction for me; call back the grandma greeting from Unit 2 |
+| 17–21 | **Regular algorithm vs AI** (pp. 17–18): same rule for everybody vs a prediction for me; call back the grandma greeting from the AI2 year-opening block (lessons 3.0–3.2) |
 | 21–25 | **Method 1 — content-based** (pp. 21–23): similar items to what I liked; the signals it collects |
 | 25–29 | **Method 2 — user-based** (pp. 25–26): the ice-cream seller who has seen others with the same taste: "strawberry and banana? add chocolate sauce" |
 | 29–32 | **Classify** (question only, pairs): four sentences — content-based or user-based? |
@@ -217,9 +217,9 @@ Save As `G8_U9_M1_SurveyData_<Name>.py`.
 ### Tool Note – Google Forms
 One multiple-choice question per item with exactly three choices `V`, `X`, `0` (or a multiple-choice grid: rows = items, columns = the three
 letters). Link responses to a sheet, then **File → Download → CSV**. The CSV header is `alias,item1,item2,…` — the sample
-[`ratings.csv`](ratings.csv) has this shape. Before 9.2 the teacher checks that every cell is `V`, `X` or `0` (the helper
+[`ratings.csv`](ratings.csv) has this shape. Before lesson 21.1 the teacher checks that every cell is `V`, `X` or `0` (the helper
 [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) warns about bad cells). If Forms is unavailable, use the sample file.
-**Wording difference to settle:** 20.1 p. 38 describes the survey options in words (*like / dislike / don't know*), while 20.0 requires the marks `V` / `X` / `0` in capital English letters. We assume the Forms options are literally `V`, `X`, `0` (with the legend); an alternative is words in the form that the teacher maps to the letters before 9.2. The Ministry asks students to spread the survey among **family and friends** (20.1 p. 42): we keep that, with the privacy rules above.
+**Wording difference to settle:** 20.1 p. 38 describes the survey options in words (*like / dislike / don't know*), while 20.0 requires the marks `V` / `X` / `0` in capital English letters. We assume the Forms options are literally `V`, `X`, `0` (with the legend); an alternative is words in the form that the teacher maps to the letters before lesson 21.1. The Ministry asks students to spread the survey among **family and friends** (20.1 p. 42): we keep that, with the privacy rules above.
 The Ministry's worksheet 20.2 (not delivered) may give the exact form layout; follow it if it differs.
 
 ---

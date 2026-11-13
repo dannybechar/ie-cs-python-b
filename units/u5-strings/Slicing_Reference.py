@@ -1,4 +1,4 @@
-# Unit 5.2 - reference for the teacher. No functions: the class has not learned def yet.
+# Lessons 7.1–7.2 - reference for the teacher. No functions: the class has not learned def yet.
 # Each task: a variable, the code, and print. Change the value to try the other test values.
 
 

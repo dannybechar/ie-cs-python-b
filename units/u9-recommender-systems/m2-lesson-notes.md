@@ -1,4 +1,4 @@
-# Unit 9.2 — Recommender Systems
+# Lesson 21.1 — Recommender Systems
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: The Table, Similarity Points, the Twin
@@ -16,18 +16,18 @@ uses only plain strings, flat lists and `def`. The Ministry's sample table (four
 "a `0` is not a match" warm-up bug (the 0–3 scale is replaced by V / X / 0). See
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral.
-**Prerequisite:** `def`, `return`, strings and flat lists (Units 3, 5, 7). No file reading, no tuples, no dictionaries, no `csv` module.
+**Prerequisite:** `def`, `return`, strings and flat lists (lessons 4.1–4.6, 7.1–8.7, 9.1–9.5, 12.0–14.5). No file reading, no tuples, no dictionaries, no `csv` module.
 
 ---
 
-## 1. Position in Unit 9
+## 1. Position in the recommender-systems block (lessons 20.0–22.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 9.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
-| **9.2 (this)** | **the table, similarity points, the twin; `count_same`** | 45 / 45 |
-| 9.3 | recommend what the twin liked; the project (checkpoint) | 45 / 45 |
-| 9.4 | dangers of recommender systems | 45 / 45 |
+| Lessons 20.0–20.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
+| **Lesson 21.1 (this)** | **the table, similarity points, the twin; `count_same`** | 45 / 45 |
+| Lessons 21.1–21.2 | recommend what the twin liked; the project (checkpoint) | 45 / 45 |
+| Lessons 22.0–22.1 | dangers of recommender systems | 45 / 45 |
 
 ---
 
@@ -38,7 +38,7 @@ uses only plain strings, flat lists and `def`. The Ministry's sample table (four
 | Goal 3: represent preferences as data (a table, parallel lists) | ✅ the table, `item_names` / `aliases` / `answers` |
 | Goal 4: a shared answer; why `0` is excluded | ✅ the point rule |
 | Goal 5–6: trace a similarity count, implement it with a loop and a compound condition | ✅ trace table, `count_same` |
-| Goal 7: find the most similar user | ✅ in words and by `best_score`; the full `find_twin` is 9.3 |
+| Goal 7: find the most similar user | ✅ in words and by `best_score`; the full `find_twin` is lessons 21.1–21.2 |
 
 ### Deliberate exclusions
 Reading files (the data is typed in as lists; a teacher helper converts the Forms CSV), similarity *rates*, tuples, dictionaries.
@@ -114,7 +114,7 @@ The Ministry's deck uses first names (Natalie, Aviv, Ariel and the new user Kere
 | 26–30 | **The answer** and the completed table against user_03: 2 points |
 | 30–35 | **Pairs count** user_04 against user_01 and user_02 |
 | 35–39 | **Who is the twin?** (pp. 24–25): the participant with the most points (user_03). *What if two had 2 points?* |
-| 39–45 | **Bridge to code:** one string per person, `first[index]` and `second[index]` — the loop pattern of Unit 5 (pseudocode below) |
+| 39–45 | **Bridge to code:** one string per person, `first[index]` and `second[index]` — the loop pattern of the strings block (lessons 7.1–8.7) (pseudocode below) |
 
 ```text
 same = 0
@@ -185,7 +185,7 @@ user_03 2
 
 The highest score among the others (the "keep the maximum so far" pattern). `best_score(3)` → `2` (user_03); `best_score(0)` → `2` too
 (user_01 against user_02 shares beet `V` and pizza `X`; against user_03 only 1, against user_04 0 — students check by hand). Which
-participant gives the best score is the job of `find_twin` in 9.3.
+participant gives the best score is the job of `find_twin` in lessons 21.1–21.2.
 
 ## 80–86 — Task 4 (if time): the class's own survey
 

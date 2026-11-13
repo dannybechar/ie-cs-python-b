@@ -1,4 +1,4 @@
-# Unit 9.4 - reference for the teacher.
+# Lessons 22.0–22.1 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 # The model is a TOY: the numbers (+1 related card per round, at most 4 of 5) are our own choice,
 # not the real rule of any platform. It shows the direction of the effect, nothing more.

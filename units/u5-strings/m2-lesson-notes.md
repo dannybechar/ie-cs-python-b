@@ -1,4 +1,4 @@
-# Unit 5.2 — Strings
+# Lessons 7.1–7.2 — Strings
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: Slicing and Searching — `[start:end:jump]`, `count`, `replace`, `in`, `find`
@@ -12,7 +12,7 @@
 **Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
 deck **7.1** slides 14–28 (slicing with `start`, `end`, `jump`; `count`; `replace` with and without a count; `in`; `find`)
 and worksheet **7.2** questions 5–11, 13, 15 (the slicing tables, `mississippi`, `replace`, `in`, `find`). **Changed from the
-previous version:** the old 5.2 was a 90-minute slicing lab with `mask_id`; slicing is now a 45-minute theory block plus
+previous version:** the old Lessons 7.1–7.2 was a 90-minute slicing lab with `mask_id`; slicing is now a 45-minute theory block plus
 practice, and `count`, `replace`, `in`, `find` are taught here as in the Ministry deck. The slice-the-title, `last_ten`
 and `mask_id` tasks are gone. The Ministry shows the slicing picture of `"think big be bold show your color"`; its printed
 outputs were all re-run (e.g. `text[4:25:4]` is `"kg doo"`).
@@ -21,14 +21,14 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
-| **5.2 (this)** | **slicing `[start:end:jump]`, `count`, `replace`, `in`, `find`** | 45 / 45 |
-| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
-| 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
+| Lesson 7.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
+| **Lessons 7.1–7.2 (this)** | **slicing `[start:end:jump]`, `count`, `replace`, `in`, `find`** | 45 / 45 |
+| Lessons 8.0–8.1 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| Lessons 8.2–8.7 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
 
 ---
 
@@ -42,7 +42,7 @@ labeled **Tool Note – Thonny**.
 | Goal 8 (start): searching and counting | ✅ Task 2 (count `the`), If time (email shape) |
 
 ### Deliberate exclusions
-`startswith`/`endswith`, `isalpha`/`isdigit` (5.3); `lower`/`upper` appear here only as the tool for the recap and for Task 4 (their full lesson, with the Ministry's examples, is 5.3); loops (5.3); `index()` from worksheet Q16 (it is the
+`startswith`/`endswith`, `isalpha`/`isdigit` (Lessons 8.0–8.1); `lower`/`upper` appear here only as the tool for the recap and for Task 4 (their full lesson, with the Ministry's examples, is Lessons 8.0–8.1); loops (Lessons 8.0–8.1); `index()` from worksheet Q16 (it is the
 same as `find` but raises `ValueError` when nothing is found — mentioned in one sentence, not practised).
 
 ---
@@ -180,7 +180,7 @@ Type slices in the **Shell** first (`text[5:12:2]`; also a slice with negative p
 | `count` finds overlapping matches | It does not: `"aaaa".count("aa")` is 2 |
 | `find` gives `True`/`False` | It gives a place, or `-1`; `in` is the one that gives `True`/`False` |
 | A negative end place is an error | `text[-20:-14]` is fine: both places count from the right, the end is still not included |
-| `in` ignores letter case | It is case-sensitive — normalise with `lower()` (5.3 completes the picture) |
+| `in` ignores letter case | It is case-sensitive — normalise with `lower()` (Lessons 8.0–8.1 completes the picture) |
 | A digit string is a number | `"345124987"[0:3]` is the string `"345"` |
 
 ---

@@ -1,4 +1,4 @@
-# Unit 5.1 — Strings
+# Lesson 7.1 — Strings
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: A String Is an Ordered Sequence
@@ -15,7 +15,7 @@ deck **7.1** (slides 2–13: what a string is, quotes, `str` vs `int`, positive 
 `"think big be bold show your color"`, `len`, the quiz) and worksheet **7.2** (questions 1–4: `+` and `*`, `len`,
 `int()`/`str()`, positive and negative indices on `"PYTHON"`). **Changed from the previous version** (which followed
 `python_b_unit05_strings_complete_unit.md`): the `ROBOT` index table is replaced by the Ministry's two index pictures; `in`,
-`count`, `find`, `replace` and the other methods moved to 5.2–5.3 where the Ministry teaches them; the "prompt checker"
+`count`, `find`, `replace` and the other methods moved to Lessons 7.1–8.1 where the Ministry teaches them; the "prompt checker"
 and `header_check` tasks are gone; the immutability idea stays but only as a preview (a method returns a new string)
 because the Ministry meets it with the methods. Ministry slide wording was kept, but every example was run on Python 3.14.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
@@ -23,14 +23,14 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **5.1 (this)** | **what a string is, quotes, indices (+/−), `len`, `+` and `*`, `int`/`str`** | 45 / 45 |
-| 5.2 | slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` | 45 / 45 |
-| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
-| 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
+| **Lesson 7.1 (this)** | **what a string is, quotes, indices (+/−), `len`, `+` and `*`, `int`/`str`** | 45 / 45 |
+| Lessons 7.1–7.2 | slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` | 45 / 45 |
+| Lessons 8.0–8.1 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 |
+| Lessons 8.2–8.7 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
 
 Unit total 90 theory / 270 practice (master table: 8 h = 2 + 6).
 
@@ -41,18 +41,18 @@ Unit total 90 theory / 270 practice (master table: 8 h = 2 + 6).
 | Official goal (python-b-ai.pdf p. 13) | Covered here |
 |---|---|
 | Goal 1: a string is an ordered sequence of characters | ✅ 7.1 slides 2–3, 5 |
-| Goal 2: the empty string; `+`, `*` | ✅ worksheet 7.2 Q1–2 (`in` comes in 5.2) |
+| Goal 2: the empty string; `+`, `*` | ✅ worksheet 7.2 Q1–2 (`in` comes in Lessons 7.1–7.2) |
 | Goal 3: access by a positive or a negative index | ✅ 7.1 slides 9–11, worksheet Q4 |
 | Goal 4: why the first index is `0` | ✅ "the first character is zero steps from the start" |
 | Goal 6 (part): `len` | ✅ |
-| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after Unit 3 |
+| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after the functions block (lessons 4.1–4.6) |
 
 ### What Grade 7 already did
 Python A (Unit 6) taught `len`, `word[0]`, `word[len(word) - 1]`, `+`, `*` — but **no negative indices**. So `+`, `*`,
 `len` are a fast review here, and negative indices are the new idea.
 
 ### Deliberate exclusions
-Slicing and the string methods (5.2–5.3), loops over a string (5.3), lists. Functions (`def`, parameters, `return`): the class
+Slicing and the string methods (Lessons 7.1–8.1), loops over a string (Lessons 8.0–8.1), lists. Functions (`def`, parameters, `return`): the class
 has not learned them yet, so every lab task is plain code under a variable that ends in `print`.
 
 ---
@@ -82,7 +82,7 @@ print(text[16], text[-17])         # d d  - the same character, counted from the
   `"it's fine"` or `'say "hi"'`.
 - `"7"` is a string and `7` is a number: `"3" + "3"` is `"33"`, `3 + 3` is `6`; `"3" * 3` is `"333"`.
 - `int("12")` turns a string of digits into a number; `str(12)` turns a number into a string.
-- A string cannot be changed letter by letter: `text[0] = "x"` is a `TypeError` (shown now, understood in 5.2).
+- A string cannot be changed letter by letter: `text[0] = "x"` is a `TypeError` (shown now, understood in Lessons 7.1–7.2).
 
 ---
 

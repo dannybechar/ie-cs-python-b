@@ -1,4 +1,4 @@
-# Unit 7.5 — Lists
+# Lessons 12.5, 14.4 — Lists
 
 ## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official Python B program, 9 Nov 2026)
 ### Topic: Linear Search, "A New Phone Number", and the "AI Experiment Analyzer" (Unit Checkpoint)
@@ -15,7 +15,7 @@ first larger one; plus Q3 shift right, Q4 strictly ascending, Q8 permutation, Q9
 Linear search returning `-1`, the "AI Experiment Analyzer" project, its seven test cases and the 20-point rubric are **course additions kept from v1**
 (the Ministry files never name a linear-search function or a capstone; the 14.4 questions are its analogues). **New (audit):** `list.index()` and its error, the
 phone-number task with `random.choice`, a taken list and a special list, the project split into functions (step c of 12.5), `position_in_ranking` (14.4 Q10),
-the exam-bank choices. **Moved out:** 12.6 Q5 (duplicate names) lives in 7.3 Task 3 and 12.6 Q6 (Odelia's clothes) in 7.4 Task 4e.
+the exam-bank choices. **Moved out:** 12.6 Q5 (duplicate names) lives in lessons 12.6, 13.0–13.1 Task 3 and 12.6 Q6 (Odelia's clothes) in lessons 13.2, 14.0–14.2 Task 4e.
 **Ministry bugs not copied:** the 12.1 p. 31–32 solution has an extra closing parenthesis (`if(new_phone_num in list_special)):`) and checks
 the special list **after** the number was already added to the taken list; the `str = ...` variable hides the built-in `str`.
 Our `new_phone_number` checks first and loops until the number is acceptable. The 14.4 Q4 snippet (a buggy "strictly ascending" check for a list of 10) is an
@@ -26,19 +26,19 @@ ascending run) is long but flat and may be given as a take-home; nothing else of
 **Links only (not offline):** 12.2 and 12.4 (guided videos on exam questions), 14.3 (H5P) — titles in the unit README.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3). Part E of the Ministry's lists lessons (list of lists) was not delivered; the nested loops of 14.0 p. 25–29 are left out of this course.
+**Prerequisite:** the functions block (lessons 4.1–4.6). Part E of the Ministry's lists lessons (list of lists) was not delivered; the nested loops of 14.0 p. 25–29 are left out of this course.
 
 ---
 
-## 1. Position in Unit 7
+## 1. Position in the lists block (lessons 9.1–9.5, 12.0–14.5)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | what a list is; indices; slicing | 45 / 45 |
-| 7.2 | list operations | 45 / 45 |
-| 7.3 | walking a list; accumulation | 45 / 45 |
-| 7.4 | counting, filters, maximum, flat menu, parallel lists | 0 / 90 |
-| **7.5 (this)** | **linear search, `index()`, phone numbers, the "AI Experiment Analyzer"** | 0 / 90 |
+| Lessons 9.1, 9.4 | what a list is; indices; slicing | 45 / 45 |
+| Lessons 9.3, 9.5, 12.0–12.1 | list operations | 45 / 45 |
+| Lessons 12.6, 13.0–13.1 | walking a list; accumulation | 45 / 45 |
+| Lessons 13.2, 14.0–14.2 | counting, filters, maximum, flat menu, parallel lists | 0 / 90 |
+| **Lessons 12.5, 14.4 (this)** | **linear search, `index()`, phone numbers, the "AI Experiment Analyzer"** | 0 / 90 |
 
 ---
 
@@ -53,7 +53,7 @@ labeled **Tool Note – Thonny**.
 | Assessment (chapter): a graded modular list project | ✅ the checkpoint |
 
 ### Deliberate exclusions
-A new list method or pattern — this meeting applies 7.1–7.4. Binary search is not built.
+A new list method or pattern — this meeting applies lessons 9.1, 9.4; 9.3, 9.5, 12.0–12.1; 12.6, 13.0–13.1; 13.2, 14.0–14.2. Binary search is not built.
 
 ---
 
@@ -93,7 +93,7 @@ def linear_search_sorted(values, target):
 - `values.index(40)` on a missing value raises `ValueError: list.index(x): x not in list` (verified); our search returns `-1` instead.
 - On a **sorted** list, stop once the current value is no longer less than the target.
 - A number is *special* when it is in the special list, or its seven digits contain `"5"` more than once, or they are a rising or falling run
-  (`digits in "0123456789"` is a string-membership trick the class knows from Unit 5).
+  (`digits in "0123456789"` is a string-membership trick the class knows from the strings block (lessons 7.1–8.7)).
 
 Verified: `linear_search_sorted([10, 20, 35, 50, 80], 35)` → `2`, with `40` → `-1`; the warm-up fixed prints `Found at 0`.
 
@@ -152,7 +152,7 @@ Step c of the Ministry worksheet is exactly this: split the problem into functio
 
 Reads similarity scores with `input()` until `-1` (the sentinel, not stored), keeping only scores from `0` to `100`; prints the original list,
 a sorted **copy**, the average, minimum and maximum; reads a threshold and prints how many scores are at or above it; reads a target and prints its
-position in the sorted copy. Reuse the functions of 7.3–7.4 as black boxes.
+position in the sorted copy. Reuse the functions of lessons 12.6, 13.0–13.1; 13.2, 14.0–14.2 as black boxes.
 
 Sample run (inputs `81, 120, -5, 24, 67, 91, 73, -1`, threshold `70`, target `67`):
 
@@ -230,7 +230,7 @@ Test each function alone in the Shell (`find_maximum([1, 2, 3])`, `linear_search
 - The warm-up explained precisely (why `0` is falsy but a real success)
 - `linear_search_sorted()` correct for a present and an absent target, matching the trace table
 - `new_phone_number()` never repeats a number and never returns a special one
-- **Unit 7 checkpoint — "AI Experiment Analyzer"**, scored against the 20-point rubric: list creation and input 3, list operations 3,
+- **Lists checkpoint (lessons 9.1–9.5, 12.0–14.5) — "AI Experiment Analyzer"**, scored against the 20-point rubric: list creation and input 3, list operations 3,
   accumulation and average 3, minimum and maximum 3, linear search 3, modularity 3, testing and explanation 2. Bands: 18–20 complete,
   modular, tested and well explained · 14–17 works, one small flaw · 10–13 partial, missing a core pattern or the function split · 0–9 needs support.
 - All seven test cases matched against the table above

@@ -1,4 +1,4 @@
-# Unit 8.1 - reference for the teacher.
+# Lessons 16.0–16.2 - reference for the teacher.
 # One task per function; run ONE task at a time by removing the # from its call at the bottom.
 # Everything here is plain rule-based code: no AI, no model - a person wrote every rule.
 

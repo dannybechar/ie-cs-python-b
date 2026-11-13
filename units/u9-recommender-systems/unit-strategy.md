@@ -1,4 +1,4 @@
-# Unit 9 — Recommender Systems
+# Recommender Systems — lessons 20.0–22.1
 
 **8h = 4 Theory + 4 Practice = 4 double meetings**
 Source: [`python-b-ai.pdf`](../../docs/ministry-source/python-b-ai.pdf) Chapter 9 (pp. 21–23); hours from the master table (p. 3).
@@ -17,47 +17,47 @@ recommender 1/2, algorithm pitfalls + ethics + the attention economy 2/1, total 
 
 | Topic | Planned in | Minutes (T / P) | Ministry source | Status |
 |---|---|---:|---|---|
-| Recommender systems intro, the feed riddle, content-based vs user-based, the culinary-twin game, the Google Forms survey | 9.1 (45 T + 45 P) | 45 / 45 | 20.0, 20.1 | 🔶 |
-| The participants × items table (V / X / 0), counting similarity points, the twin; `count_same` | 9.2 (45 T + 45 P) | 45 / 45 | 21.1 first half | 🔶 |
-| Recommending what the twin liked, `find_twin`, `recommend_item`, `main` (checkpoint) | 9.3 (45 T + 45 P) | 45 / 45 | 21.1 second half | 🔶 |
-| Dangers: fact or fake, business model, Plato's cave, three traps, controls; a toy bubble in code | 9.4 (45 T + 45 P) | 45 / 45 | 20.0 p. 2, 22.1 | 🔶 |
+| Recommender systems intro, the feed riddle, content-based vs user-based, the culinary-twin game, the Google Forms survey | Lessons 20.0–20.1 (45 T + 45 P) | 45 / 45 | 20.0, 20.1 | 🔶 |
+| The participants × items table (V / X / 0), counting similarity points, the twin; `count_same` | Lesson 21.1 (45 T + 45 P) | 45 / 45 | 21.1 first half | 🔶 |
+| Recommending what the twin liked, `find_twin`, `recommend_item`, `main` (checkpoint) | Lessons 21.1–21.2 (45 T + 45 P) | 45 / 45 | 21.1 second half | 🔶 |
+| Dangers: fact or fake, business model, Plato's cave, three traps, controls; a toy bubble in code | Lessons 22.0–22.1 (45 T + 45 P) | 45 / 45 | 20.0 p. 2, 22.1 | 🔶 |
 | **Total** | | **180 / 180** | | |
 
 Chapter goals (source §1, fourteen in all):
 
-1. Explain why digital services use recommender systems → 9.1
-2. Distinguish content-based from user-based recommendation → 9.1
-3. Represent preferences as data (a table, parallel lists, a string of V / X / 0) → 9.1–9.2
-4. Explain a shared answer and why "don't know" (`0`) is excluded → 9.1–9.2
-5. Trace a similarity count with a trace table → 9.2
-6. Implement the similarity count with a loop and a compound condition → 9.2
-7. Find the most similar user — the "digital twin" → 9.2–9.3
-8. Recommend an item unknown to the current user but liked by the twin → 9.3
-9. Combine several functions in a main program → 9.3
-10. Test on normal cases and edge cases → 9.3
-11. Define a filter bubble, an echo chamber and addiction engineering / the attention economy → 9.4
-12. Analyze how behavioral signals can shape recommendations → 9.4
-13. Propose practical tools for better feed control → 9.4
-14. Identify ethical limits: privacy, consent, data scarcity, bias → 9.1, 9.3, 9.4
+1. Explain why digital services use recommender systems → lessons 20.0–20.1
+2. Distinguish content-based from user-based recommendation → lessons 20.0–20.1
+3. Represent preferences as data (a table, parallel lists, a string of V / X / 0) → lessons 20.0–21.1
+4. Explain a shared answer and why "don't know" (`0`) is excluded → lessons 20.0–21.1
+5. Trace a similarity count with a trace table → lesson 21.1
+6. Implement the similarity count with a loop and a compound condition → lesson 21.1
+7. Find the most similar user — the "digital twin" → lessons 21.1–21.2
+8. Recommend an item unknown to the current user but liked by the twin → lessons 21.1–21.2
+9. Combine several functions in a main program → lessons 21.1–21.2
+10. Test on normal cases and edge cases → lessons 21.1–21.2
+11. Define a filter bubble, an echo chamber and addiction engineering / the attention economy → lessons 22.0–22.1
+12. Analyze how behavioral signals can shape recommendations → lessons 22.0–22.1
+13. Propose practical tools for better feed control → lessons 22.0–22.1
+14. Identify ethical limits: privacy, consent, data scarcity, bias → lessons 20.0–20.1, lessons 21.1–21.2, lessons 22.0–22.1
 
-## Unit 9.1 — Knowledge + Lab: Feed Riddle, Two Kinds of Recommender, Survey
+## Lessons 20.0–20.1 — Knowledge + Lab: Feed Riddle, Two Kinds of Recommender, Survey
 - the viewing-habits discussion, the YouTube-feed riddle (three people, three home pages — our own text), a regular algorithm vs AI,
   content-based (signals) vs user-based (the ice-cream seller), the four-scenario classification drill.
 - the **culinary-twin class game** (a volunteer answers V / X / 0 on 12 foods; a point only for identical, non-0 answers).
 - lab: the warm-up bug (the last `else` swallows `"v"`), `is_valid_answers`, `count_known`, then the Google Forms survey with the
   scale **V / X / 0 (capital English letters only)** and the privacy rules.
 
-## Unit 9.2 — Knowledge + Lab: the Table and the Twin
+## Lesson 21.1 — Knowledge + Lab: the Table and the Twin
 - the Ministry's table (four participants, five foods), reading a row, counting similarity points one item at a time, the twin = the most points.
 - lab: the warm-up bug (`0` and `0` counted), `show_comparison` (the trace table printed), `print_scores`, `best_score`; the class's own
   survey pasted in as three lines.
 
-## Unit 9.3 — Knowledge + Lab: From the Twin to a Recommendation (unit checkpoint)
+## Lessons 21.1–21.2 — Knowledge + Lab: From the Twin to a Recommendation (unit checkpoint)
 - recommend an item the twin liked (`V`) and the target does not know (`0`); `find_twin` (skip yourself, `None` when nobody shares anything,
   first on a tie); `recommend_item`; `main`; three named limits (cold start, sparse data, similar ≠ same).
 - lab: the self-comparison warm-up bug, `recommend_item`, the project `main()`, six edge cases; a 20-point rubric.
 
-## Unit 9.4 — Knowledge + Lab: The Trap of Recommendations
+## Lessons 22.0–22.1 — Knowledge + Lab: The Trap of Recommendations
 - fact or fake (five posts), the business model ("who is the product"), the five-step incognito demo, Plato's cave, the three traps (filter bubble,
   echo chamber, addiction engineering), the 2014 polarisation graph (as a question about correlation), practical controls, pros and cons.
 - lab: pairs build a bubble (live incognito, or cards), observation vs interpretation; warm-up bug (`!=`), `simulate_feed_round` and
@@ -65,15 +65,15 @@ Chapter goals (source §1, fourteen in all):
 
 ### Scope decisions
 - **Why four meetings (13 Nov 2026 alignment).** The Ministry delivered **three** lessons (20, 21, 22; 20.0 even says "two meetings" and describes three). Only the
-  master table's 8 hours (4 T + 4 P = 4 x 90 minutes) supports four meetings, so **our fourth meeting is our own split of deck 21.1**: 9.2 = pp. 1–25 (quiz, table, points, twin),
-  9.3 = pp. 26–28 plus the code. 9.1 = 20.0 + 20.1 (+ the survey worksheet 20.2), 9.4 = 20.0 meeting 3 + 22.0 + 22.1 + 22.2.
-- **⚠️ Unverified against official 21.2 and 22.2.** 21.0, 21.2, 22.0 and 22.2 are missing from the download. The 9.3 code shape (`count_same`, `find_twin`,
-  `recommend_item`, `main`) and the 9.4 student activity (live incognito or cards, plus the Bubble code, our enrichment) are ours; compare them with the
+  master table's 8 hours (4 T + 4 P = 4 x 90 minutes) supports four meetings, so **our fourth meeting is our own split of deck 21.1**: Lesson 21.1 = pp. 1–25 (quiz, table, points, twin),
+  lessons 21.1–21.2 = pp. 26–28 plus the code. Lessons 20.0–20.1 = 20.0 + 20.1 (+ the survey worksheet 20.2), lessons 22.0–22.1 = 20.0 meeting 3 + 22.0 + 22.1 + 22.2.
+- **⚠️ Unverified against official 21.2 and 22.2.** 21.0, 21.2, 22.0 and 22.2 are missing from the download. The lessons 21.1–21.2 code shape (`count_same`, `find_twin`,
+  `recommend_item`, `main`) and the lessons 22.0–22.1 student activity (live incognito or cards, plus the Bubble code, our enrichment) are ours; compare them with the
   Ministry files when they arrive. Nothing is invented as Ministry content.
 - **`continue` removed (13 Nov).** `find_twin` used `continue`, which the class has not been taught; it now wraps the body in `if index != target_index:`.
-- **9.4 polarisation figures** (1994 / 2014 / 2022) are approximate estimates from the slide chart, not Ministry text; labelled so in the notes.
+- **Lessons 22.0–22.1 polarisation figures** (1994 / 2014 / 2022) are approximate estimates from the slide chart, not Ministry text; labelled so in the notes.
 - **The Ministry materials are the source (8 Nov 2026).** The Ministry has **three** lessons (20, 21, 22); we keep **four** and 360 minutes
-  (master table). 9.1 = 20.0 + 20.1; 9.2 = the first half of 21.1; 9.3 = pp. 26–28 of 21.1 plus the code (our split); 9.4 = 22.0 + 22.1.
+  (master table). Lessons 20.0–20.1 = 20.0 + 20.1; lesson 21.1 = the first half of 21.1; lessons 21.1–21.2 = pp. 26–28 of 21.1 plus the code (our split); lessons 22.0–22.1 = 22.0 + 22.1.
   Where the Ministry is thin, the v1 content stays: the classification drill, the survey privacy rules, the three limits, the edge-case table,
   the experiment safety rules, the offline card simulation, the responsibility card.
 - **Not delivered:** worksheets 20.2, 21.2 (the Ministry's recommender code), 22.2 and teacher notes 21.0, 22.0. Nothing from them is invented
@@ -81,7 +81,7 @@ Chapter goals (source §1, fourteen in all):
 - **The survey scale is V / X / 0** (liked / disliked / don't know), capital English letters only (20.0 p. 1). v1's 0–3 scale and the
   rate / minimum-common machinery are gone. The twin is the participant with the **most identical non-0 answers** (21.1); a shared `X` counts,
   a shared `0` does not; a tie keeps the first; a best score of 0 means no twin.
-- **Rulebook (from the teacher):** `def` and lists are allowed (Unit 9 comes after Units 3 and 7). **Forbidden in our own code:** tuples
+- **Rulebook (from the teacher):** `def` and lists are allowed (the recommender-systems block (lessons 20.0–22.1) comes after the functions and lists blocks). **Forbidden in our own code:** tuples
   (also tuple returns and `in (0, 1, 2, 3)`), default arguments, sets, dictionaries, comprehensions and generator expressions, nested loops,
   lists of lists, classes. v1's `best_key = (-1.0, -1)`, `minimum_common=2`, `liked_threshold=3`, `return matches, common`, `all(c >= 2 for c in counts)`
   and `csv.reader` are therefore replaced: each person's answers are **one string** (`"00XVV"`), the data are three flat parallel lists
@@ -90,7 +90,7 @@ Chapter goals (source §1, fourteen in all):
   (it lives in the missing 21.2). The data are typed in as lists; [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) (a teacher tool using
   `open` / `split`) turns the Forms CSV into the three lines the students paste. [`ratings.csv`](ratings.csv) is the Ministry's sample table with
   aliases instead of first names.
-- **9.4 simulation redesigned.** v1's card rule (two same-topic cards plus one other each round) gave a constant 2 of 3 and showed no
+- **Lessons 22.0–22.1 simulation redesigned.** v1's card rule (two same-topic cards plus one other each round) gave a constant 2 of 3 and showed no
   growth. The new toy grows the related share (1, 2, 3, 4, 4 of 5) and adds `count_different`; it is flagged everywhere as a toy with invented numbers.
   v1's `all(...)` generator was removed. The live demo keeps the v1 safety rules; the cards stay as the fallback.
 - **Ministry-deck points we did not copy:** the AI-generated people of the riddle (we use text only); the Elon Musk made-up quote (no
@@ -108,7 +108,7 @@ similarity points, writes `count_same`, `find_twin` and `recommend_item` and han
 filter bubble, echo chamber and addiction engineering with at least one practical response to each.
 
 ## Checkpoint
-9.3's recommender (`count_same`, `find_twin`, `recommend_item`, `main`) is the unit's capstone, scored on the 20-point rubric in `m3-lesson-notes.md`
+Lessons 21.1–21.2's recommender (`count_same`, `find_twin`, `recommend_item`, `main`) is the unit's capstone, scored on the 20-point rubric in `m3-lesson-notes.md`
 (data and privacy 3, similarity count 4, twin and recommendation 6, code quality 3, critical thinking 4). Verified here on the sample table
 and on five edge cases (no twin, nothing new, target knows everything, a tie, a shared `0`).
 

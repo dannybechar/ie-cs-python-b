@@ -1,17 +1,17 @@
-# Unit 5 — Strings
+# Lessons 7.1–8.7 — Strings
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 8 academic hours = 4 meetings = 360 minutes (**90 theory / 270 practice**). Reworked from the Ministry's teaching materials 🔶
 (built, awaiting approval).
 
-**Theory / practice labels.** Official plan: 5.1 and 5.2 are Knowledge + Lab (45 / 45), 5.3 and 5.4 are Lab + Lab (0 / 90) = 90 / 270. 5.3 was taught as the paper-classwork edition (live lesson + 45-minute paper lab) and the teacher recorded it as 45 / 45, so the unit as taught is 135 / 225; the 360 minutes are the same. Details: [`unit-strategy.md`](unit-strategy.md).
+**Theory / practice labels.** Official plan: Lesson 7.1 and Lessons 7.1–7.2 are Knowledge + Lab (45 / 45), Lessons 8.0–8.1 and Lessons 8.2–8.7 are Lab + Lab (0 / 90) = 90 / 270. Lessons 8.0–8.1 was taught as the paper-classwork edition (live lesson + 45-minute paper lab) and the teacher recorded it as 45 / 45, so the unit as taught is 135 / 225; the 360 minutes are the same. Details: [`unit-strategy.md`](unit-strategy.md).
 
-**No functions in this unit (teacher, 2 Nov 2026):** the class learns `def` after Unit 5, so every lab, worksheet and
-countdown case is plain code — a variable with the text, the code under it, `print`. The 5.3 classwork worksheet (already
+**No functions in this unit (teacher, 2 Nov 2026):** the class learns `def` after the strings block (lessons 7.1–8.7), so every lab, worksheet and
+countdown case is plain code — a variable with the text, the code under it, `print`. The Lessons 8.0–8.1 classwork worksheet (already
 taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def` / `return` (the one documented exception to the rulebook; the official exercises are all functions); its rubric gives plain code full marks.
 
-## Unit 5.1 — Strings
+## Lesson 7.1 — Strings
 
 **Topic:** A String Is an Ordered Sequence
 
@@ -30,7 +30,7 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 | Teacher | [`Indices_Reference.py`](Indices_Reference.py) | Solutions, one block of plain code per task (no functions) |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 18 slides) |
 
-## Unit 5.2 — Strings
+## Lessons 7.1–7.2 — Strings
 
 **Topic:** Slicing and Searching
 
@@ -49,7 +49,7 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 | Teacher | [`Slicing_Reference.py`](Slicing_Reference.py) | Solutions, one block of plain code per task (no functions) |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 16 slides) |
 
-## Unit 5.3 — Strings
+## Lessons 8.0–8.1 — Strings
 
 **Topic:** More Methods and Walking Over a String with `for`
 
@@ -68,7 +68,7 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 | Teacher | [`Traverse_Reference.py`](Traverse_Reference.py) | Solutions, one block of plain code per task (no functions; Task 4 reads input) |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 15 slides) |
 
-**Paper-classwork edition of 5.3** (a 45-minute lesson, then a printed worksheet done with the computer; the rest is homework):
+**Paper-classwork edition of Lessons 8.0–8.1** (a 45-minute lesson, then a printed worksheet done with the computer; the rest is homework):
 
 | For | File | What it is |
 |---|---|---|
@@ -80,7 +80,7 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 | Teacher | [`Classwork_Reference.py`](Classwork_Reference.py) | Solutions with expected values |
 | Teacher | slides | Pending (NotebookLM): 20 slides, 90 min; prep files (loose, beside the Word worksheet) in `Downloads\python-b\` (save the reviewed deck as `m3-classwork-slides-he.pdf`) |
 
-## Unit 5.4 — Strings
+## Lessons 8.2–8.7 — Strings
 
 **Topic:** String Algorithms, a Secret Code, and the Unit Checkpoint
 
@@ -94,7 +94,7 @@ taught) and its `Classwork_Starter.py` / `Classwork_Reference.py` still use `def
 | Teacher | [`Cipher_Reference.py`](Cipher_Reference.py) | Solutions, one block of plain code per task (no functions), plus worksheet 8.2 enrichment |
 | Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck, 13 slides) |
 
-**Live lesson + paper lab edition of 5.4** (the 5.1–5.3 recipe, built 13 Nov 2026): problem "Secret Message Machine" in six stages
+**Live lesson + paper lab edition of Lessons 8.2–8.7** (the Lessons 7.1–8.1 recipe, built 13 Nov 2026): problem "Secret Message Machine" in six stages
 (`while` checks, `ord`/`chr`, shift cipher with wrap-around, number cipher and initials with `+=`, frame with `split`/`join` shown only,
 decode); a 10-slide deck (five pairs: content slide, then a code-examples slide to copy into Thonny) and a one-sheet paper lab (five separate questions, three on the first side and two on the second, enlarged font).
 
@@ -106,14 +106,14 @@ decode); a 10-slide deck (five pairs: content slide, then a code-examples slide 
 | Student | [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md), `PaperLab4_Starter.py` | One-sheet handwritten lab: five separate questions, each with its own string and task (3 + 2 per side, enlarged font; 45 min) |
 | Teacher | [`m4-paper-lab-answer-key.md`](m4-paper-lab-answer-key.md), `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` | Key, 100-point rubric, one solution per question |
 
-**Countdown edition of 5.4** (the countdown method of the teacher's DP1/PDP classes: four timed cases done together on a projected
+**Countdown edition of Lessons 8.2–8.7** (the countdown method of the teacher's DP1/PDP classes: four timed cases done together on a projected
 page, each solved with `for` and with `while`; then a graded five-question worksheet):
 
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`m4-countdown-lesson-plan.md`](m4-countdown-lesson-plan.md) | Lesson plan: 48 min of cases, 37 min of worksheet, 5 min exit check |
 | Teacher | [`m4-countdown-he.html`](m4-countdown-he.html) | The countdown page (open in a browser and project; generated — rebuild with [`tools/countdown`](../../tools/countdown/README.md)) |
-| Student | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | The four cases as instructions, no solutions (generated; as `Countdown_Cases.pdf` in the Mashov zip `Downloads\python-b\Unit 5.4 - Strings.zip`) |
+| Student | [`m4-countdown-cases-he.md`](m4-countdown-cases-he.md) | The four cases as instructions, no solutions (generated; as `Countdown_Cases.pdf` in the Mashov zip `Downloads\python-b\Lessons 8.2–8.7 - Strings.zip`) |
 | Teacher | [`m4-countdown-cases.json`](m4-countdown-cases.json) | The page's content: Hebrew titles and goals, minutes, test calls, how the two solutions differ |
 | Student | [`FirstStarLast_Starter.py`](FirstStarLast_Starter.py), [`MiddleChar_Starter.py`](MiddleChar_Starter.py), [`Initials_Starter.py`](Initials_Starter.py), [`NumberCipher_Starter.py`](NumberCipher_Starter.py) | One file per case (generated): goal, test values, expected output — no `def`, the class has not learned functions yet |
 | Teacher | [`Countdown_Reference.py`](Countdown_Reference.py) | Each case with `for` and with `while`, by different ideas (plain code, no functions) |

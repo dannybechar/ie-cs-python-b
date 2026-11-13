@@ -1,4 +1,4 @@
-# Unit 1 test - reference solutions for the teacher (not for students).
+# Lessons 1.0–2.3 test - reference solutions for the teacher (not for students).
 # Questions 1-3 are trace questions; the code is shown in the test itself.
 
 

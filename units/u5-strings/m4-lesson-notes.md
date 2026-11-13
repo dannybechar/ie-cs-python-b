@@ -1,4 +1,4 @@
-# Unit 5.4 — Strings
+# Lessons 8.2–8.7 — Strings
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: String Algorithms, a Secret Code, and the Unit Checkpoint
@@ -14,7 +14,7 @@ decks **8.0 / 8.1** — exercises **#4, #5, #6, #7**, the ASCII enrichment (`ord
 and the `split` / `join` slides (8.1 slides 20–23); worksheet **8.2** (questions 2–8); the one-page summary **8.7**.
 **Changed from the previous version:** the whole "Smart Text Checker" project (normalize / counters / preview / hidden
 digits / seven test cases / 20-point rubric) is replaced. Its ideas that the Ministry also teaches — counting with a loop,
-building a string with `+=`, `startswith` — already appear in 5.3 and in exercises 4–7, so the project is no longer a
+building a string with `+=`, `startswith` — already appear in Lessons 8.0–8.1 and in exercises 4–7, so the project is no longer a
 separate build; the checkpoint is now three tasks from worksheet 8.2 (3, 4, 7), and the unit's "what a program can and
 cannot tell about AI text" discussion stays as the closing five minutes. **Fixes to the Ministry text:** its
 next-letter solution prints `"a"` with a plain `print` (a new line in the middle of the answer) and handles only `"z"`; the
@@ -26,14 +26,14 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
-| 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| 5.3 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 official (taught as 45 / 45) |
-| **5.4 (this)** | **exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint** | 0 / 90 |
+| Lesson 7.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
+| Lessons 7.1–7.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
+| Lessons 8.0–8.1 | `lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string | 0 / 90 official (taught as 45 / 45) |
+| **Lessons 8.2–8.7 (this)** | **exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, checkpoint** | 0 / 90 |
 
 ---
 
@@ -43,13 +43,13 @@ labeled **Tool Note – Thonny**.
 |---|---|
 | Goal 7: traverse with `for`, and with `range(len(text))` when the place matters | ✅ initials, Task 3b (no `count`), the checkpoint |
 | Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ exercises 4–7, cipher, alternating case |
-| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after Unit 3 |
+| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after the functions block (lessons 4.1–4.6) |
 | Goal 10: apply string skills to prompts and AI text | ✅ framing: the closing discussion and the cipher as a "text transformer" |
 | Ministry additions (not in the program text): `ord`/`chr`, `split`/`join` | ✅ `ord`/`chr` practised; `split`/`join` **shown and printed only** |
 
 ### Deliberate exclusions
 Lists as a topic: the result of `split` is printed and passed straight to `join`, never indexed, looped over or changed
-(Unit 7 does that). No nested loops, no dictionaries, no comprehensions. The 8.2 Q8 challenge is solved with `find` and a
+(the lists block (lessons 9.1–14.5) does that). No nested loops, no dictionaries, no comprehensions. The 8.2 Q8 challenge is solved with `find` and a
 loop, not `split`.
 
 ---
@@ -162,7 +162,7 @@ nothing.
 ## 63–70 — Demo + Task 6: `split` and `join`
 
 `"guitar piano drums".split(" ")` gives a **list** `['guitar', 'piano', 'drums']` — *only print it for now*: lists get their
-own unit (Unit 7). `"-".join(that_list)` glues it back with a separator. Task: with `text = "guitar piano drums"`, print the
+own unit (the lists block (lessons 9.1–14.5)). `"-".join(that_list)` glues it back with a separator. Task: with `text = "guitar piano drums"`, print the
 text with every space replaced by `-`, using `print("-".join(text.split(" ")))` → `guitar-piano-drums`. Compare with
 `print(text.replace(" ", "-"))` — same result; when would `split` be the better tool? (When you want the pieces, not only a
 different separator — next time.)
@@ -212,5 +212,5 @@ faster to check than a whole file of output.
 
 - The warm-up explained (why `or "e"` is always true)
 - Exercises 4–7 passing their test values; the cipher passing all three
-- **Unit 5 checkpoint** — the middle letter, the edges, alternating case, scored out of 10 as above
+- **Strings-block checkpoint** — the middle letter, the edges, alternating case, scored out of 10 as above
 - The two-line exit reflection on what a program can and cannot check

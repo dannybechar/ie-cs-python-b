@@ -1,4 +1,4 @@
-# Unit 8.3 — Classification
+# Lessons 18.0–18.1 — Classification
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: Accuracy and the Classification Project — Fist or OK
@@ -15,18 +15,18 @@ teacher's 7 images, **save the model**). The v1 build is kept for the category-d
 bias experiments, the privacy rules, `check_variety` and `check_balance`. See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Teachable Machine**.
-**Prerequisite:** functions (Unit 3) and lists (Unit 7).
+**Prerequisite:** functions (lessons 4.1–4.6) and lists (lessons 9.1–9.5, 12.0–14.5).
 
 ---
 
-## 1. Position in Unit 8
+## 1. Position in the classification block (lessons 16.0–19.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 8.1 | classification by rules, features, a separating line | 45 / 45 |
-| 8.2 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
-| **8.3 (this)** | **accuracy, the fist / OK project, export** | 45 / 45 |
-| 8.4 | the trained model inside Python, confidence | 45 / 45 |
+| Lessons 16.0–16.2 | classification by rules, features, a separating line | 45 / 45 |
+| Lessons 17.0–17.1 | training set and test set, challenging cases, bias, first Teachable Machine try | 45 / 45 |
+| **Lessons 18.0–18.1 (this)** | **accuracy, the fist / OK project, export** | 45 / 45 |
+| Lessons 19.0–19.1 | the trained model inside Python, confidence | 45 / 45 |
 
 ---
 
@@ -41,7 +41,7 @@ labeled **Tool Note – Teachable Machine**.
 | Goal 13: identify a visual bias and propose a concrete data change | ✅ the bias experiment, the unbalanced supplied set |
 
 ### Deliberate exclusions
-Loading the model in Python (8.4). A confusion matrix, precision and recall are not taught.
+Loading the model in Python (lessons 19.0–19.1). A confusion matrix, precision and recall are not taught.
 
 ---
 

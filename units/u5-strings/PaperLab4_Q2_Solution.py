@@ -1,4 +1,4 @@
-# Unit 5.4 paper lab - Question 2: count the words (the spaces plus one).
+# Lessons 8.2–8.7 paper lab - Question 2: count the words (the spaces plus one).
 sentence = "the quick brown fox jumps"
 
 words = sentence.count(" ") + 1

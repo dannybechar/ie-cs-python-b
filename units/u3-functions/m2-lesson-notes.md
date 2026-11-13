@@ -1,4 +1,4 @@
-# Unit 3.2 — Functions
+# Lessons 4.4–4.5 — Functions
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: Practice — Returning Functions and Loops Inside Functions
@@ -13,8 +13,8 @@
 **4.4 "תרגול לפיצוח — שאלות מבחינות"** (four exam-style questions, with `while` and `for` inside functions: the `secret1`–`secret4`
 digit loops, a "special" number, a "perfect" number, positions of a digit in an ID); worksheet **4.5** exercise 6 (the
 club-gift story, `calculate_gift`, with its solution in **4.5.0**).
-**Changed from the previous version of 3.2** (codex deck: parameters and arguments, `show_mission`, `show_card`, a refactor
-task): that meeting is now 3.1's theory (several parameters). This meeting is the practice of `return`, the point where the
+**Changed from the previous version of 4.4–4.5** (codex deck: parameters and arguments, `show_mission`, `show_card`, a refactor
+task): that meeting is now 4.1–4.2's theory (several parameters). This meeting is the practice of `return`, the point where the
 unit meets the exam — functions that return, and loops that live inside functions.
 **Changes to Ministry code** (all small, listed so the teacher can undo them): `int(number / 10)` → `number // 10`
 (same result for whole numbers, and the class has `//` from the Ministry's own question 2); the `"%d" % result` printing in
@@ -28,13 +28,13 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 3
+## 1. Position in the functions block (lessons 4.1–4.6)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 3.1 | recap; several parameters and their order; `return` vs `print` | 45 / 45 |
-| **3.2 (this)** | **return practice; exam questions with `while` inside functions** | 0 / 90 |
-| 3.3 | local and global variables, `global`, variable roles, unit checkpoint | 45 / 45 |
+| 4.1–4.2 | recap; several parameters and their order; `return` vs `print` | 45 / 45 |
+| **4.4–4.5 (this)** | **return practice; exam questions with `while` inside functions** | 0 / 90 |
+| 4.3, 4.6 | local and global variables, `global`, variable roles, unit checkpoint | 45 / 45 |
 
 ---
 
@@ -44,10 +44,10 @@ labeled **Tool Note – Thonny**.
 |---|---|
 | Goal Py 3: write and call a function with parameters that returns a value | ✅ every task |
 | Assessment: tracing an algorithm that uses procedural abstraction, developing one | ✅ digit-loop tracing, writing exam-style functions |
-| Program loops (Unit 1 review): `while`, `for`, counters, accumulators | ✅ used inside functions |
+| Program loops (lessons 1.0–2.3 review): `while`, `for`, counters, accumulators | ✅ used inside functions |
 
 ### Deliberate exclusions
-Returning more than one value; `global` (3.3); recursion; lists.
+Returning more than one value; `global` (4.3, 4.6); recursion; lists.
 
 ---
 
@@ -91,7 +91,7 @@ The tasks are in order of difficulty; Tasks 6 and 7 are the heaviest — if the 
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 3.2 – פעולות · "ערך חוזר וקוד שמחשב" |
+| 0–2 | Title: שיעורים 4.4–4.5 – פעולות · "ערך חוזר וקוד שמחשב" |
 | 2–8 | Warm-up |
 | 8–12 | Demo 1: several `return`s, the first one that runs ends the function |
 | 12–20 | Task 1 |
@@ -124,7 +124,7 @@ The price is 200 and the discount is 20 percent: the call has them swapped (`20`
 
 ## 8–12 — Demo 1: the first `return` ends it
 
-Show `get_cheaper` and `check_pass` from 3.1: a `return` in each branch. Predict the output for different inputs before running.
+Show `get_cheaper` and `check_pass` from 4.1–4.2: a `return` in each branch. Predict the output for different inputs before running.
 
 ## 12–20 — Task 1: `three_averages(g1, g2, g3)` (worksheet 4.2, exercise 7)
 

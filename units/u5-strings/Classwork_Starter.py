@@ -1,4 +1,4 @@
-# Unit 5.3 classwork. Paper first: predict or write on the worksheet, THEN run here to check.
+# Lessons 8.0–8.1 classwork. Paper first: predict or write on the worksheet, THEN run here to check.
 # Part A: do NOT run before you wrote your prediction on paper. Part B: write each function on paper first.
 
 

@@ -1,4 +1,4 @@
-# Reference solutions for the Unit 5.3 paper classwork (Ministry 8.0 / 8.1: walking over a string with for).
+# Reference solutions for the Lessons 8.0–8.1 paper classwork (Ministry 8.0 / 8.1: walking over a string with for).
 # One function per task. Run this file to see every answer next to the value the worksheet expects.
 
 

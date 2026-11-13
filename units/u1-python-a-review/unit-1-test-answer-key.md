@@ -1,12 +1,12 @@
-# Unit 1 Test — Teacher Answer Key and Rubric
+# Lessons 1.0–2.3 Test — Teacher Answer Key and Rubric
 
 Test: [`unit-1-test-he.md`](unit-1-test-he.md) · 60 minutes · 100 points · code: [`Test_Reference.py`](Test_Reference.py)
 (every output below was produced by running that file).
 
-**Scope:** only Unit 1 (conditions with `and`/`or`/`not`, `elif`, `for` + `range`, `while`, counters and totals, input
+**Scope:** only lessons 1.0–2.3 (conditions with `and`/`or`/`not`, `elif`, `for` + `range`, `while`, counters and totals, input
 validation). No lists, functions with parameters, `+=`, nested loops or string methods.
 **Timing:** A 14 min · B 8 min · C 33 min · 5 min review.
-**Grade level:** Grade 9 (students who took Python A and the Unit 1 review). Nothing beyond Python A + Unit 1 is required.
+**Grade level:** Grade 9 (students who took Python A and the lessons 1.0–2.3 review). Nothing beyond Python A + the Python A review block (lessons 1.0–2.3) is required.
 
 ## Part A (24)
 
@@ -49,11 +49,11 @@ Wording note: the test says "18 ומעלה" for `Regular`, so 18 is `Regular` (a
 
 **Q7 (18):** total and counter set to 0 **before** the loop (4) · `for` with 6 rounds (3) · `int(input())` inside the loop (2) ·
 `total = total + grade` (3) · counter grows only when `grade >= 90` (3) · average computed **after** the loop, divided by 6 (3).
-Common errors: `total = grade` (the 1.2 warm-up bug), dividing inside the loop, resetting inside the loop, `range(1, 6)` (5 rounds).
+Common errors: `total = grade` (the 1.2–1.4 warm-up bug), dividing inside the loop, resetting inside the loop, `range(1, 6)` (5 rounds).
 
 **Q8 (24):** `total` and `deposits` start at 0 (4) · `while total < 100 and deposits < 5` (8: 2 for each of the two comparisons, 4 for joining them with `and`; `or` loses the 4) ·
 input and both updates inside the loop (6) · final `if`/`else` decides by the total (4) · both messages correct (2).
-The flag style (`success = False`) from 1.3 is accepted if it is consistent.
+The flag style (`success = False`) from 2.0–2.3 is accepted if it is consistent.
 The test no longer requires `while` explicitly; a program that stops after 5 deposits or at 100 any other way the students have learned (e.g. a flag) is accepted if it is consistent.
 Check: 60, 50 → `Goal reached after 2 deposits`; 10 ×5 → `Goal not reached. Total: 50`; 30, 40, 30 → `Goal reached after 3 deposits`.
 Common errors: `or` instead of `and` (runs too long), no update to `deposits` (never ends when the goal is not reached),
@@ -86,7 +86,7 @@ Three near-identical Q8 solutions suggest copying.
 
 | Points | Meaning |
 |---|---|
-| 90–100 | Full command of Unit 1 |
+| 90–100 | Full command of the Python A review block (lessons 1.0–2.3) |
 | 75–89 | Solid, small slips |
 | 56–74 | Basic; revisit `while` and accumulators |
-| below 56 | Needs support before Unit 3 (functions) |
+| below 56 | Needs support before the functions block (lessons 4.1–4.6) |

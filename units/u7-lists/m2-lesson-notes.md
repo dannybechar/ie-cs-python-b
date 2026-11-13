@@ -1,4 +1,4 @@
-# Unit 7.2 — Lists
+# Lessons 9.3, 9.5, 12.0–12.1 — Lists
 
 ## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official lists part A, 9 Nov 2026)
 ### Topic: List Operations
@@ -14,7 +14,7 @@
 temperature filter pp. 9–10, fruit lists with `join`/`split` pp. 12–15, the colour cycle `colors[item % 4]` p. 16, palindromes pp. 19–23,
 name occurrence p. 24, name letters p. 23, `random.choice` pp. 34–36) and **12.7** (summary). Kept from v1: `extend`, `sort()` returns
 `None`, copy before sort. **Dropped from v1:** the stand-alone safe-remove and `pop(0)` task-queue tasks, and the `append([7, 8])` demo
-(it puts a list inside a list — see below); `join_class` (the duplicate-name check, Ministry 12.6 Q5 and 13.2 #1) moved to 7.3.
+(it puts a list inside a list — see below); `join_class` (the duplicate-name check, Ministry 12.6 Q5 and 13.2 #1) moved to lessons 12.6, 13.0–13.1.
 **Ministry bug not copied:** 12.0 p. 10 writes `new_list.append(i)` inside `for item in temperature` (a `NameError`). Used here as the
 **warm-up**, deliberately. Also not copied: 9.1 p. 14 shows the old error text `'Dog' is not in list` (Python 3.14 says
 `list.index(x): x not in list`); 9.1 p. 17 "the default is -1" is garbled (it means that `pop()` with no argument takes the **last** item);
@@ -26,19 +26,19 @@ name occurrence p. 24, name letters p. 23, `random.choice` pp. 34–36) and **12
 **Links only (not offline):** 9.2 (genially matching game, "Practice for cracking") and the 9.3 solution video — titles in the unit README.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3) — tasks are `def` functions that take a list and return a value, as in the Ministry worksheets.
+**Prerequisite:** the functions block (lessons 4.1–4.6) — tasks are `def` functions that take a list and return a value, as in the Ministry worksheets.
 
 ---
 
-## 1. Position in Unit 7
+## 1. Position in the lists block (lessons 9.1–9.5, 12.0–14.5)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | what a list is; indices; slicing | 45 / 45 |
-| **7.2 (this)** | **the 13 operations: `append`/`insert`, `count`/`in`/`index`, `remove`/`pop`, `sort`/`reverse`, `list(text)`, `split`/`join`, `random.choice`** | 45 / 45 |
-| 7.3 | traversal by index and by value; accumulation; the "change while looping" trap | 45 / 45 |
-| 7.4 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
-| 7.5 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
+| Lessons 9.1, 9.4 | what a list is; indices; slicing | 45 / 45 |
+| **Lessons 9.3, 9.5, 12.0–12.1 (this)** | **the 13 operations: `append`/`insert`, `count`/`in`/`index`, `remove`/`pop`, `sort`/`reverse`, `list(text)`, `split`/`join`, `random.choice`** | 45 / 45 |
+| Lessons 12.6, 13.0–13.1 | traversal by index and by value; accumulation; the "change while looping" trap | 45 / 45 |
+| Lessons 13.2, 14.0–14.2 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
+| Lessons 12.5, 14.4 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
 
 ---
 
@@ -52,7 +52,7 @@ labeled **Tool Note – Thonny**.
 | Goal 12: lists in AI contexts | ✅ names, results |
 
 ### Deliberate exclusions
-Accumulation and the "remove while looping" trap (7.3). Sorting with a key function, `sorted()`, dictionaries, comprehensions: out of the course.
+Accumulation and the "remove while looping" trap (lessons 12.6, 13.0–13.1). Sorting with a key function, `sorted()`, dictionaries, comprehensions: out of the course.
 `append([7, 8])` (a list inside a list): not shown — `extend` is contrasted with `append` of a single value instead.
 
 ---
@@ -136,7 +136,7 @@ The 13-row table (9.1 pp. 42–43 and the help sheet; also in the lab brief, to 
 
 | Clock | Activity |
 |---|---|
-| 0–3 | Quick recall from 7.1: one prediction on slicing, `[::-1]` and `in` |
+| 0–3 | Quick recall from lessons 9.1, 9.4: one prediction on slicing, `[::-1]` and `in` |
 | 3–8 | Growing a list: `list()`, `append` (and `append(input(...))` in a loop: the values stay text), `insert(0, x)` (position first), `extend` |
 | 8–14 | `count` and `in` (case-sensitive: `"cat"` is not `"Cat"`), `index` (the first match only), the `ValueError` and the `in` guard |
 | 14–20 | `remove` (first match only; try to remove it twice), `pop()` / `pop(0)` returning the removed value, the `IndexError` |
@@ -208,7 +208,7 @@ if a student asks.) The 9.3 solution video is a link only.
 
 (a) `same_initials(names)` (12.0 p. 23): first and last names in pairs; the sample list gives `3` (`chen`/`Cohen`, `dana`/`dikla`, `Carmi`/`Cohen`); a loop `for index in range(0, len(names), 2)`.
 (b) `to_sentence`, `random_word` (12.1 pp. 34–36) and the "Great match" `ord` check (12.1 p. 36: two random letters, `(ord + ord) % 7 == 0`).
-The `songs.sort()` and bug-severity counting exercises (12.1 pp. 39–40) are used in 7.4.
+The `songs.sort()` and bug-severity counting exercises (12.1 pp. 39–40) are used in lessons 13.2, 14.0–14.2.
 
 ## 86–90 — Save and exit check
 

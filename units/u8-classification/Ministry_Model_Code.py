@@ -1,4 +1,4 @@
-# Unit 8.4 - the REAL model code (Ministry deck 19.1, pp. 15-24), for a live run with TensorFlow.
+# Lessons 19.0–19.1 - the REAL model code (Ministry deck 19.1, pp. 15-24), for a live run with TensorFlow.
 #
 # NOT verified here: it needs TensorFlow, Pillow, NumPy and a model exported from Teachable Machine
 # ("Tensorflow" -> "Savedmodel" -> converted_savedmodel.zip, extracted: a folder model.savedmodel and labels.txt).

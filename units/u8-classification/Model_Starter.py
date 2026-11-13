@@ -1,4 +1,4 @@
-# Unit 8.4 - starter. Needs the file labels_standin.txt in the same folder (it looks like the labels.txt
+# Lessons 19.0–19.1 - starter. Needs the file labels_standin.txt in the same folder (it looks like the labels.txt
 # that Teachable Machine exports: one line per category, "<number> <name>").
 #
 # STAND-IN MODEL: the classify_image() below is NOT a real model. It returns fixed answers for seven
@@ -54,7 +54,7 @@ else:
 # Test it on ("ok", 0.99) and on ("fist", 0.73).
 
 
-# Task 3: write calculate_accuracy(successes, attempts) (from Unit 8.3), and then
+# Task 3: write calculate_accuracy(successes, attempts) (from lessons 18.0–18.1), and then
 # evaluate(test_images, true_labels): classify every image, print one line per image saying
 # "correct" or "WRONG", count the successes, and RETURN the accuracy in percent.
 # test_images = ["test_1_ok.png", "test_2_fist.png", "test_3_fist_dark.png", "test_4_ok_drawing.png",

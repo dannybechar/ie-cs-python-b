@@ -1,4 +1,4 @@
-# Unit 5.3 paper lab - Question 2: a ticket code (full solution, plain code, no functions).
+# Lessons 8.0–8.1 paper lab - Question 2: a ticket code (full solution, plain code, no functions).
 code = "TK-2027-AB"
 
 # a. the start, the end and the length

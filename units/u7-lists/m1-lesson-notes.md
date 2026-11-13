@@ -1,4 +1,4 @@
-# Unit 7.1 — Lists
+# Lessons 9.1, 9.4 — Lists
 
 ## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official Python B program, 9 Nov 2026)
 ### Topic: What Is a List? Creating, Indexing, Slicing
@@ -16,24 +16,24 @@ the data types so far, the rules of a list, mixed types, `list()` vs `[]`, the i
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Official items deliberately left out (rulebook):** 9.4 Q1 row `data[5] = list(range(2, 5))` puts a **list inside a list** (a list of lists is
 not taught in this course, CLAUDE.md) — the predict table below drops that row. Official 9.4 Q2 prints `12,988` (a comma typo of the
-Ministry; read here as the two items `12` and `988`). 9.4 Q3 `data_3 = data_2` (an alias) is taught in 7.3, where the trap lives. The
-9.2 matching game (genially) and the 9.3 "even list" video exist only as links: their titles are in the unit README (the exercise itself is built in 7.2).
+Ministry; read here as the two items `12` and `988`). 9.4 Q3 `data_3 = data_2` (an alias) is taught in lessons 12.6, 13.0–13.1, where the trap lives. The
+9.2 matching game (genially) and the 9.3 "even list" video exist only as links: their titles are in the unit README (the exercise itself is built in lessons 9.3, 9.5, 12.0–12.1).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3 comes before Unit 7 in the schedule) — the lab tasks are small `def` functions, as in the
-Ministry worksheets. The students already know slicing and `[::-1]` on strings (Unit 5); here the same notation is applied to lists.
+**Prerequisite:** functions (the functions block (lessons 4.1–4.6) comes before the lists block (lessons 9.1–9.5, 12.0–14.5) in the schedule) — the lab tasks are small `def` functions, as in the
+Ministry worksheets. The students already know slicing and `[::-1]` on strings (the strings block (lessons 7.1–8.7)); here the same notation is applied to lists.
 
 ---
 
-## 1. Position in Unit 7
+## 1. Position in the lists block (lessons 9.1–9.5, 12.0–14.5)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **7.1 (this)** | **what a list is; `[]`, `list()`; indices; update; `in`; `+`; slicing** | 45 / 45 |
-| 7.2 | list operations: `append`, `insert`, `count`, `index`, `remove`, `pop`, `sort`, `reverse`, `split`/`join`, `random.choice` | 45 / 45 |
-| 7.3 | traversal by index and by value; accumulation; the "change while looping" trap | 45 / 45 |
-| 7.4 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
-| 7.5 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
+| **Lessons 9.1, 9.4 (this)** | **what a list is; `[]`, `list()`; indices; update; `in`; `+`; slicing** | 45 / 45 |
+| Lessons 9.3, 9.5, 12.0–12.1 | list operations: `append`, `insert`, `count`, `index`, `remove`, `pop`, `sort`, `reverse`, `split`/`join`, `random.choice` | 45 / 45 |
+| Lessons 12.6, 13.0–13.1 | traversal by index and by value; accumulation; the "change while looping" trap | 45 / 45 |
+| Lessons 13.2, 14.0–14.2 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
+| Lessons 12.5, 14.4 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
 
 ---
 
@@ -45,10 +45,10 @@ Ministry worksheets. The students already know slicing and `[::-1]` on strings (
 | Goal 2: create an empty list or one with initial values | ✅ `[]`, `list()`, literal |
 | Goal 3: access by index, update an element | ✅ every task |
 | Goal 4: `len` and `in` with lists | ✅ |
-| Goal 7: traverse directly or by index | ✅ preview (full treatment in 7.3) |
+| Goal 7: traverse directly or by index | ✅ preview (full treatment in lessons 12.6, 13.0–13.1) |
 
 ### Deliberate exclusions
-`append`, `insert`, `remove`, `pop`, `sort` (7.2); accumulation (7.3); search (7.5). The Ministry previews **nested loops** and a
+`append`, `insert`, `remove`, `pop`, `sort` (lessons 9.3, 9.5, 12.0–12.1); accumulation (lessons 12.6, 13.0–13.1); search (lessons 12.5, 14.4). The Ministry previews **nested loops** and a
 **list of lists** (14.0 pp. 25–30, "next lesson"; the list-of-lists lesson itself, part E, was not delivered). **Official item deliberately left out:** both
 stay out of this course (CLAUDE.md rulebook); so does the 9.4 Q1 row that puts `list(range(2, 5))` inside a list.
 
@@ -213,7 +213,7 @@ Reversed: [23, 16, 21, 24, 21, 24, 21, 20, 25]
 ## 83–86 — Task 4 (if time): `+` and `list()`
 
 `combine(first, second)` returns `first + second`; print it, its `len`, and show the originals did not change. Then `list()` (`[]`).
-(`list("cat")` is the first demo of 7.2.)
+(`list("cat")` is the first demo of lessons 9.3, 9.5, 12.0–12.1.)
 
 ## 86–90 — Save and exit check
 

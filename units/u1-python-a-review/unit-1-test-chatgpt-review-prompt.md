@@ -1,4 +1,4 @@
-# Prompt for ChatGPT — Expert Review of the Unit 1 Test
+# Prompt for ChatGPT — Expert Review of the lessons 1.0–2.3 Test
 
 Copy everything below the line into ChatGPT and attach (or paste) these files:
 `unit-1-test-he.md` (the student test), `unit-1-test-answer-key.md` (key and rubric) and `Test_Reference.py`

@@ -1,4 +1,4 @@
-# Unit 1.1 — Python A Review
+# Lessons 1.0–1.1 — Python A Review
 
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Who Can Come In? — Compound Conditions, `elif` and Input Validation
@@ -13,13 +13,13 @@
 
 ---
 
-## 1. Position in Unit 1
+## 1. Position in the Python A review block (lessons 1.0–2.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **1.1 (this)** | **comparisons → `and` / `or` / `not` → `elif` → trace → input validation** | 45 / 45 |
-| 1.2 | `for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer | 0 / 90 |
-| 1.3 | `while` → stop condition → ask until valid → three-try locker → unit checkpoint | 0 / 90 |
+| **1.0–1.1 (this)** | **comparisons → `and` / `or` / `not` → `elif` → trace → input validation** | 45 / 45 |
+| 1.2–1.4 | `for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer | 0 / 90 |
+| 2.0–2.3 | `while` → stop condition → ask until valid → three-try locker → unit checkpoint | 0 / 90 |
 
 ---
 
@@ -39,8 +39,8 @@
 The unit's one theory hour (master table) is used here; 45 practice minutes of "conditions and conditional execution".
 
 ### Deliberate exclusions
-Chained comparisons (`13 <= age <= 15` — not taught in Python A), asking again after invalid input (needs `while`, 1.3),
-loops (1.2), `+=`.
+Chained comparisons (`13 <= age <= 15` — not taught in Python A), asking again after invalid input (needs `while`, 2.0–2.3),
+loops (1.2–1.4), `+=`.
 
 ---
 
@@ -75,7 +75,7 @@ else:                                       # none of the above
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 1.1 – חזרה על פייתון א' · "מי יכול להיכנס?" |
+| 0–2 | Title: שיעורים 1.0–1.1 – חזרה על פייתון א' · "מי יכול להיכנס?" |
 | 2–6 | **Hook (on paper, alone then in pairs):** the games club is for ages 13–15 with a permission note. Roni: 14, has a note · Maya: 12, has a note · Amir: 15, no note. Who gets in? |
 | 6–8 | Answer: only Roni. Two conditions must hold together → "וגם" |
 | 8–14 | Comparisons give `True` / `False`: `age = 14` → `age >= 13`, `age == 15`, `age != 12` (thumbs up / down); `=` vs `==`; `input()` gives text → `int()` |

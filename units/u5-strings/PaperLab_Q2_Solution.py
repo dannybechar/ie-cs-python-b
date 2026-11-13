@@ -1,4 +1,4 @@
-# Unit 5.1 paper lab - Question 2: registering a user (full solution, plain code, no functions).
+# Lesson 7.1 paper lab - Question 2: registering a user (full solution, plain code, no functions).
 
 # a. a username of 4 to 10 characters; ask again until it is valid
 username = input("Username: ")

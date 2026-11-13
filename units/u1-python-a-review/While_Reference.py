@@ -1,4 +1,4 @@
-# Unit 1.3 - reference solutions for the teacher.
+# Lessons 2.0–2.3 - reference solutions for the teacher.
 # One function per task (define -> call, from Python A).
 # Run ONE task at a time: remove the # from one call at the bottom.
 

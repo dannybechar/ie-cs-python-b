@@ -1,4 +1,4 @@
-# Unit 6 — Advanced Language Model
+# Lessons 10.0–11.3 — Advanced Language Model
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
@@ -7,11 +7,11 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 > **Reworked 8 Nov 2026 to the Ministry materials** (files 10.0–11.3.0 — see
 > [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Every code file now uses the **real**
 > `paraphrase-multilingual-MiniLM-L12-v2` model through `sentence-transformers` (the old classroom mock and its invented scores are
-> gone). The teacher installs the library and downloads the model **once, at school, before 6.1**; every file was run with the real
-> model on Python 3.14. The worksheets use `def` (precondition: Unit 3 is taught **before** Unit 6; if not, the functions are handed out ready-made — stated at the top of each notes file). The 6.1–6.3 files were patched on 13 Nov 2026 against the official program (GPT-4/GPT-5 token example, the "fewer tokens in Hebrew" challenge, the sentence-transformers intro, Gemini equivalents, emoji tip, `int()` vs `round()` table; the Semantle site link is still missing — the teacher adds it). The three NotebookLM decks are **superseded** —
+> gone). The teacher installs the library and downloads the model **once, at school, before lessons 10.0–10.2**; every file was run with the real
+> model on Python 3.14. The worksheets use `def` (precondition: the functions block (lessons 4.1–4.6) is taught **before** the advanced-language-model block (lessons 10.0–11.3); if not, the functions are handed out ready-made — stated at the top of each notes file). The lessons 10.0–10.2; 11.1–11.2; 11.3 files were patched on 13 Nov 2026 against the official program (GPT-4/GPT-5 token example, the "fewer tokens in Hebrew" challenge, the sentence-transformers intro, Gemini equivalents, emoji tip, `int()` vs `round()` table; the Semantle site link is still missing — the teacher adds it). The three NotebookLM decks are **superseded** —
 > new NotebookLM prep folders are ready (`unit6-m1-slides` … `unit6-m3-slides`, 17 / 16 / 13 slides).
 
-## Unit 6.1 — Advanced Language Model
+## Lessons 10.0–10.2 — Advanced Language Model
 
 **Topic:** Tokens, Tokenization and IDs
 
@@ -25,7 +25,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`Tokenizer_Reference.py`](Tokenizer_Reference.py) | Solutions, one function per task; the old toy tokenizer is an extension |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — needs regeneration (NotebookLM prep folder refreshed 13 Nov 2026) |
 
-## Unit 6.2 — Advanced Language Model
+## Lessons 11.1–11.2 — Advanced Language Model
 
 **Topic:** The Context Window, the Meaning Map, Self-Attention
 
@@ -39,7 +39,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 | Teacher | [`Meanings_Reference.py`](Meanings_Reference.py) | Solutions (real scores) |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — needs regeneration (NotebookLM prep folder refreshed 13 Nov 2026) |
 
-## Unit 6.3 — Advanced Language Model
+## Lesson 11.3 — Advanced Language Model
 
 **Topic:** Semantic Similarity + the "Semantle" Project — unit checkpoint
 

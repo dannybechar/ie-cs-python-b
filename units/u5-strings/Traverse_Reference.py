@@ -1,4 +1,4 @@
-# Unit 5.3 - reference for the teacher. No functions: the class has not learned def yet.
+# Lessons 8.0–8.1 - reference for the teacher. No functions: the class has not learned def yet.
 # Each task: a variable with the text, the code, and print. Change the value to try the other test values.
 # Task 4 reads 6 surnames (3 for version a, 3 for version b) - type them, or pipe them in.
 

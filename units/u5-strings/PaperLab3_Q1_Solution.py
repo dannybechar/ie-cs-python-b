@@ -1,4 +1,4 @@
-# Unit 5.3 paper lab - Question 1: analysing a message (full solution, plain code, no functions).
+# Lessons 8.0–8.1 paper lab - Question 1: analysing a message (full solution, plain code, no functions).
 message = "Was it a car or a cat I saw?"
 
 # a. upper and lower case copies, and two yes/no questions

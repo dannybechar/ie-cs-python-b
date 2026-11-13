@@ -1,4 +1,4 @@
-# Unit 5.3 — Strings
+# Lessons 8.0–8.1 — Strings
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: More String Methods and Walking Over a String with `for`
@@ -7,14 +7,14 @@
 **No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every task is plain code under a variable, ending in `print`; to test another value, students change the variable and run again.
 **Duration:** 90 minutes
 **Structure:** Lab + Lab (short demo → task → short demo → task)
-**Minutes (theory / practice):** 0 / 90 (official plan). 5.3 was taught as the paper-classwork edition and is recorded 45 / 45 (teacher's choice); the unit then totals 135 / 225 instead of the official 90 / 270 — see [`m3-classwork-lesson-plan.md`](m3-classwork-lesson-plan.md) and [`unit-strategy.md`](unit-strategy.md)
+**Minutes (theory / practice):** 0 / 90 (official plan). Lessons 8.0–8.1 was taught as the paper-classwork edition and is recorded 45 / 45 (teacher's choice); the unit then totals 135 / 225 instead of the official 90 / 270 — see [`m3-classwork-lesson-plan.md`](m3-classwork-lesson-plan.md) and [`unit-strategy.md`](unit-strategy.md)
 **Current tool:** Thonny
 **Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
 deck **7.1** slides 29–38 and worksheet **7.2** Q12, Q14, Q16 (`lower`, `upper`, `startswith`/`endswith` with start and
 end, `isalpha`, `isdigit`); decks **8.0 / 8.1** slides 7–15 (walking over a string with `for`, `end=`, the three
 read-the-code slides, exercises **#1, #2, #3**). **Changed from the previous version** (which followed
 `python_b_unit05_strings_complete_unit.md`): "dynamic slicing with `find`" and the digit-hiding task moved or were dropped
-(`find` is taught in 5.2; building a string with `+=` now appears as the Ministry's "keep letters a–e" slide); the
+(`find` is taught in Lessons 7.1–7.2; building a string with `+=` now appears as the Ministry's "keep letters a–e" slide); the
 `range(len(text) + 1)` warm-up is replaced by the counter-reset bug. **Fixes to the Ministry text:** the exercise-1
 solution prints with `print(count = ', count)`, which is an extraction/typing slip (it is a syntax error) — the course uses
 `print("num =", count)`; the exercises are written as plain code under a variable that holds the test text (no
@@ -25,14 +25,14 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 5.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
-| 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| **5.3 (this, lab edition)** | **`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string, counting and building with `+=`** | 0 / 90 official (taught as 45 / 45, paper-classwork edition) |
-| 5.4 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
+| Lesson 7.1 | what a string is, indices (+/−), `len`, `+`, `*`, `int`/`str` | 45 / 45 |
+| Lessons 7.1–7.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
+| **Lessons 8.0–8.1 (this, lab edition)** | **`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`, `for` over a string, counting and building with `+=`** | 0 / 90 official (taught as 45 / 45, paper-classwork edition) |
+| Lessons 8.2–8.7 | exercises 4–7, `ord`/`chr` cipher, `split`/`join` (shown), worksheet 8.2, unit checkpoint | 0 / 90 |
 
 ---
 
@@ -43,10 +43,10 @@ labeled **Tool Note – Thonny**.
 | Goal 6: `upper`, `lower`, `startswith`, `endswith`, `isalpha`, `isnumeric` | ✅ (`isdigit`, which the Ministry uses; for digit characters it agrees with `isnumeric` — mention once) |
 | Goal 7: traverse a string's characters with `for` | ✅ exercises 1–2, three read-the-code slides |
 | Goal 8: counting and validation algorithms | ✅ count a letter (Task 2), is it a year (Task 1), count the Cohens (Task 4) |
-| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after Unit 3 |
+| Goal 9: functions that take a string and return a value | ❌ not yet — functions not taught; revisit these tasks as functions after the functions block (lessons 4.1–4.6) |
 
 ### Deliberate exclusions
-Loops over `range(len(text))` (5.4, where position matters); `ord`/`chr`, `split`/`join` (5.4); lists; nested loops.
+Loops over `range(len(text))` (Lessons 8.2–8.7, where position matters); `ord`/`chr`, `split`/`join` (Lessons 8.2–8.7); lists; nested loops.
 `islower`/`isupper`/`index` (worksheet Q16) are named in the demo and left as a lookup.
 
 ---
@@ -179,7 +179,7 @@ Build a new string with only the characters between `"a"` and `"e"` and print it
 
 ## 74–84 — If time: count the words
 
-Count the spaces, then print the spaces plus one. `"We are learning to program"` → `5`; `"two  spaces"` → `3` (a double space counts twice) — what real text breaks this, and what would fix it? (Discuss; the fix, `split`, comes in 5.4.)
+Count the spaces, then print the spaces plus one. `"We are learning to program"` → `5`; `"two  spaces"` → `3` (a double space counts twice) — what real text breaks this, and what would fix it? (Discuss; the fix, `split`, comes in Lessons 8.2–8.7.)
 
 ## 84–90 — Save and exit check
 

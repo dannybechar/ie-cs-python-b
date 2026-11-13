@@ -1,4 +1,4 @@
-# Unit 1.2 — Python A Review
+# Lessons 1.2–1.4 — Python A Review
 
 ## Grade 8 / AI + Python B · Lesson Strategy v1
 ### Topic: Counting Rounds — `for`, `range` and the Five-Scores Analyzer
@@ -8,18 +8,18 @@
 **Structure:** Lab + Lab (25 min guided practice, then 65 min lab)  
 **Minutes (theory / practice):** 0 / 90  
 **Current tool:** Thonny  
-**Source of inspiration:** the codex deck `python_b_unit01_m02_for_loops_final.pptx` (`range(3)` prediction, the three forms of `range` with a negative step, the step-and-total prediction, counter vs total, the 80 / 70 / 100 trace table, the overwritten-total bug, the five-scores analyzer with three tests, the `10, 8, 6, 4` exit question kept; `+=` → `x = x + 1`; its 12-minute explanation blocks turned into predict-then-answer steps for a Lab + Lab meeting; the warm-up takes one of its two bugs) and the teacher's raw `G8_Unit1_M2` (countdown kept as Task 1; its `while` half moved to 1.3)  
+**Source of inspiration:** the codex deck `python_b_unit01_m02_for_loops_final.pptx` (`range(3)` prediction, the three forms of `range` with a negative step, the step-and-total prediction, counter vs total, the 80 / 70 / 100 trace table, the overwritten-total bug, the five-scores analyzer with three tests, the `10, 8, 6, 4` exit question kept; `+=` → `x = x + 1`; its 12-minute explanation blocks turned into predict-then-answer steps for a Lab + Lab meeting; the warm-up takes one of its two bugs) and the teacher's raw `G8_Unit1_M2` (countdown kept as Task 1; its `while` half moved to 2.0–2.3)  
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 1
+## 1. Position in the Python A review block (lessons 1.0–2.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 1.1 | comparisons → `and` / `or` / `not` → `elif` → trace → input validation | 45 / 45 |
-| **1.2 (this)** | **`for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer** | 0 / 90 |
-| 1.3 | `while` → stop condition → ask until valid → three-try locker → unit checkpoint | 0 / 90 |
+| 1.0–1.1 | comparisons → `and` / `or` / `not` → `elif` → trace → input validation | 45 / 45 |
+| **1.2–1.4 (this)** | **`for` + `range` (start, stop, step) → counter and total → trace → five-scores analyzer** | 0 / 90 |
+| 2.0–2.3 | `while` → stop condition → ask until valid → three-try locker → unit checkpoint | 0 / 90 |
 
 ---
 
@@ -37,7 +37,7 @@
 90 practice minutes of "counted repetition".
 
 ### Deliberate exclusions
-`while` (1.3), nested loops (not in the new program), lists (Unit 7), `+=`.
+`while` (2.0–2.3), nested loops (not in the new program), lists (lessons 9.1–9.5 and 12.0–14.5), `+=`.
 
 ---
 
@@ -77,7 +77,7 @@ print("Scores >= 80:", above)
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 1.2 – חזרה על פייתון א' · "סופרים סבבים" |
+| 0–2 | Title: שיעורים 1.2–1.4 – חזרה על פייתון א' · "סופרים סבבים" |
 | 2–6 | **Predict (alone):** `for i in range(3): print(i)` — how many lines, which values? |
 | 6–8 | Answer: 0, 1, 2 — three rounds; 3 is the stop, not a value |
 | 8–14 | **Fill the table (pairs):** the values of `range(4)`, `range(2, 6)`, `range(10, 3, -2)` |

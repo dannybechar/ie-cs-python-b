@@ -1,4 +1,4 @@
-# Unit 2.1 — AI2 Year Opening
+# Lessons 3.0–3.1 — AI2 Year Opening
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: AI or Not? A Greeting for Grandma Sarah — Classic Code vs AI
@@ -8,17 +8,17 @@
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab  
 **Minutes (theory / practice):** 45 / 45  
 **Current tool:** Thonny, a chatbot in the browser (teacher demo)  
-**Source of inspiration:** the Ministry deck **3.1 "שיעור פתיחה לשנה ב AI2"** (slides 1–34 and 48; the main source): the "AI or not?" image warm-up (slides 2–7), the six-product quiz "Is there AI inside?" with its answers (12–18), the shared-feature discussion and the definition of AI (19–20), the four revolutions and "why now: brain + power + fuel" (21–24), the question "landing on the moon vs writing a greeting" (25–26), and the greeting for Grandma Sarah — classic Python in three steps (print, then input and if, then the hobby), then an AI-written greeting and the comparison table (27–33). Slides 35–47 (Quick, Draw!, the programmers' role, consumers to creators, the road map) are in 2.2. **Changed from the previous version (Rules or Learning?):** the codex and raw material are replaced by the Ministry flow; the kettle rule, the rule-based message flag and the Quick, Draw! guess log are gone from 2.1 (Quick, Draw! and the kettle failure now live in 2.2 with the Ministry worksheet). The greeting program is the lab. **Changed from the Ministry:** the code prints English strings (a gendered Hebrew verb does not translate, so the `if` branch picks a sign-off line instead; English also keeps Thonny's console left-to-right); the AI greeting is shown in a chatbot, not through code (the API arrives in Unit 4).  
+**Source of inspiration:** the Ministry deck **3.1 "שיעור פתיחה לשנה ב AI2"** (slides 1–34 and 48; the main source): the "AI or not?" image warm-up (slides 2–7), the six-product quiz "Is there AI inside?" with its answers (12–18), the shared-feature discussion and the definition of AI (19–20), the four revolutions and "why now: brain + power + fuel" (21–24), the question "landing on the moon vs writing a greeting" (25–26), and the greeting for Grandma Sarah — classic Python in three steps (print, then input and if, then the hobby), then an AI-written greeting and the comparison table (27–33). Slides 35–47 (Quick, Draw!, the programmers' role, consumers to creators, the road map) are in 3.1–3.2. **Changed from the previous version (Rules or Learning?):** the codex and raw material are replaced by the Ministry flow; the kettle rule, the rule-based message flag and the Quick, Draw! guess log are gone from 3.0–3.1 (Quick, Draw! and the kettle failure now live in 3.1–3.2 with the Ministry worksheet). The greeting program is the lab. **Changed from the Ministry:** the code prints English strings (a gendered Hebrew verb does not translate, so the `if` branch picks a sign-off line instead; English also keeps Thonny's console left-to-right); the AI greeting is shown in a chatbot, not through code (the API arrives in the API block (lessons 5.0–6.2)).  
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny** or **Tool Note – Chatbot**.
 
 ---
 
-## 1. Position in Unit 2
+## 1. Position in the AI2 year-opening block (lessons 3.0–3.2)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **2.1 (this)** | **AI or not? → definition → the revolutions → classic greeting in Python vs AI greeting** | 45 / 45 |
-| 2.2 | Quick, Draw! → worksheet "איך מחשב רואה בלי עיניים?" → data and bias → consumers to creators, the year's road map, responsibility | 45 / 45 |
+| **3.0–3.1 (this)** | **AI or not? → definition → the revolutions → classic greeting in Python vs AI greeting** | 45 / 45 |
+| 3.1–3.2 | Quick, Draw! → worksheet "איך מחשב רואה בלי עיניים?" → data and bias → consumers to creators, the year's road map, responsibility | 45 / 45 |
 
 ---
 
@@ -32,7 +32,7 @@
 | Method 1: open with a discussion (here: the "AI or not?" warm-up and quiz) | ✅ |
 
 ### Deliberate exclusions
-Neural-network internals, training mathematics, the language-model API (Unit 4), Quick, Draw! (2.2). Python stays at Unit 1 level: `print`, `input`, `if`/`else`, `+` on strings, `int()`.
+Neural-network internals, training mathematics, the language-model API (lessons 5.0–6.2), Quick, Draw! (3.1–3.2). Python stays at the Python A review block (lessons 1.0–2.3) level: `print`, `input`, `if`/`else`, `+` on strings, `int()`.
 
 ---
 
@@ -65,7 +65,7 @@ Neural-network internals, training mathematics, the language-model API (Unit 4),
 
 | Clock | Activity |
 |---|---|
-| 0–1 | Title: יחידה 2.1 – פתיחת שנת AI2 · "בינה מלאכותית או לא?" |
+| 0–1 | Title: שיעורים 3.0–3.1 – פתיחת שנת AI2 · "בינה מלאכותית או לא?" |
 | 1–6 | **Warm-up "AI or not?" (whole class, hands):** four pairs of similar images (Ministry deck, slides 3–6); the left image made by AI → raise the left hand, the right → the right hand; reveal each answer. Punchline (slide 7): half the pictures were photographed, half were made by a computer that never left the room — how did it learn what a dog looks like? "We will learn that this year." |
 | 6–13 | **Quiz — is there AI inside? (pairs, thumbs up or down per product, then reveal):** calculator · text autocorrect · Netflix recommendations · voice assistant · automatic mall door · license-plate recognition in a parking lot |
 | 13–15 | Reveal the answers with reasons (table in the brief): the calculator and the automatic door follow fixed rules; the other four learn from data |

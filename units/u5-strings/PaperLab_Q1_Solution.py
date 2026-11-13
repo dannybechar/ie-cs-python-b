@@ -1,4 +1,4 @@
-# Unit 5.1 paper lab - Question 1: a word and its letters (full solution, plain code, no functions).
+# Lesson 7.1 paper lab - Question 1: a word and its letters (full solution, plain code, no functions).
 word = "BANANA"
 
 # a. length, first letter, last letter

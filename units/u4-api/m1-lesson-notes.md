@@ -1,4 +1,4 @@
-# Unit 4.1 — Bringing AI into Code (API)
+# Lessons 5.0–5.2 — Bringing AI into Code (API)
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: What Is an API? The Gemini Call, f-Strings, and the `ask_the_ai` Wrapper
@@ -31,12 +31,12 @@ data in a prompt; the answer is checked, not trusted".
 
 ---
 
-## 1. Position in Unit 4
+## 1. Position in the API block (lessons 5.0–6.2)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **4.1 (this)** | **what an API is, the Gemini call, f-strings, the `ask_the_ai` wrapper, limits, golden rules, the secret key** | 45 / 45 |
-| 4.2 | the "Balanced Day" project (Ministry 6.1 / 6.2) | 0 / 90 |
+| **5.0–5.2 (this)** | **what an API is, the Gemini call, f-strings, the `ask_the_ai` wrapper, limits, golden rules, the secret key** | 45 / 45 |
+| 6.1–6.2 | the "Balanced Day" project (Ministry 6.1 / 6.2) | 0 / 90 |
 
 ---
 
@@ -48,13 +48,13 @@ data in a prompt; the answer is checked, not trusted".
 | Goal 2: an API key, and why it is never shared or written in code | ✅ slide on the key; Colab Secrets / environment variable |
 | Goal 3: import a library and set up a client | ✅ the Gemini code, line by line |
 | Goal 4: a wrapper function that takes a prompt and returns the answer | ✅ Tasks 1 and the whole lab |
-| Goal 5 (start): a dynamic prompt with an f-string | ✅ `+` versus f-string, Task 2 (continued in 4.2) |
+| Goal 5 (start): a dynamic prompt with an f-string | ✅ `+` versus f-string, Task 2 (continued in 6.1–6.2) |
 | Goal 9: rate limits, overload errors, inaccurate answers | ✅ 15/min, 1M tokens/min, 1,500/day, 429, 503; the answer is checked |
 | Goal 10: privacy | ✅ golden rule 2 ("send only what is needed"); no personal data in a prompt |
 
 ### Deliberate exclusions
 `try`/`except` (the Ministry does not teach it here either: a 429/503 means "wait and run again"); HTTP internals; a
-`while` loop that waits and retries; the project (4.2).
+`while` loop that waits and retries; the project (6.1–6.2).
 
 ---
 
@@ -201,7 +201,7 @@ Calls sent: 1
 `if len(name) < 2:` print a warning and do not call the AI; if the trait is empty (`""`) use a default such as
 `"wonderful"`. (The worksheet's other ideas — a style choice with `if`/`elif`/`else`, a length limit, a list of banned
 words — stay as extensions; the banned-words version in the worksheet uses a list, which we do not teach until
-Unit 7: use `trait == "x" or trait == "y"`.)
+The lists block (lessons 9.1–9.5 and 12.0–14.5): use `trait == "x" or trait == "y"`.)
 
 ## 86–90 — Save and exit check
 

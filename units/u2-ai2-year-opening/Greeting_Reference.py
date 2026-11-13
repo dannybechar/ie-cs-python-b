@@ -1,4 +1,4 @@
-# Unit 2.1 - reference for the teacher.
+# Lessons 3.0–3.1 - reference for the teacher.
 # Classic code: every line of the greeting was written by a person, so the same answers always give the same greeting.
 # One function per task. Run ONE task at a time: remove the # from one call at the bottom.
 

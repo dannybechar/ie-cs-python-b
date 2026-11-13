@@ -1,4 +1,4 @@
-# Unit 7.3 — Lists
+# Lessons 12.6, 13.0–13.1 — Lists
 
 ## Grade 8 / AI + Python B · Lesson Strategy v3 (reconciled to the official Python B program, 9 Nov 2026)
 ### Topic: Walking a List (by Index and by Value) and the Accumulation Pattern
@@ -12,31 +12,31 @@
 `[24.7, "Itamar", -35, 4<3, "#"]` — the `4<3` prints `False`; `sum_listA` / `sum_listB` and the "why is `item` different?" question, pp. 7–11;
 exercises #1 class names and #2 Roni's prices, pp. 12–13, worksheet **13.2**), worksheet **12.6** (Q4: the same question again, "same or
 different outputs, and why?"; Q5 duplicate names, Q6 clothes), **12.0 pp. 6–10** (maximum, the two average loops, the temperature filter —
-used as predict questions and in 7.4) and **14.0** exercise #10 (`remove_even`). Kept from v1: the accumulation pattern
+used as predict questions and in lessons 13.2, 14.0–14.2) and **14.0** exercise #10 (`remove_even`). Kept from v1: the accumulation pattern
 (initialize, update, use after the loop), the average with an empty-list guard, copy before sort. **New (audit):** the `remove_even`
 mutation trap, with its trace, as the warm-up; the alias trap `b = a`.
 **Ministry naming, said once to the class:** the official files name the loop variable `item` even when it holds an index
 (`for item in range(len(...))`). We keep `item` in the demo so the students recognise the Ministry's examples (that is the very point of the
 "why is `item` different?" question); in the lab functions a clearer name (`index`) is welcome.
-**Ministry bug not copied:** the 14.0 p. 23 solution of the grouped-grades exercise (`begin += 1 + i`) is used in 7.4 as a bug hunt.
+**Ministry bug not copied:** the 14.0 p. 23 solution of the grouped-grades exercise (`begin += 1 + i`) is used in lessons 13.2, 14.0–14.2 as a bug hunt.
 Exercise #2 asks for a function that reads five prices; ours takes the number of prices as a parameter, `read_prices(count)`.
 See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Links only (not offline):** 13.3 (practice) and the projects 13.4 "dance party" and 13.5 "hangman" (H5P / genially) — titles in the unit README.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite:** functions (Unit 3).
+**Prerequisite:** the functions block (lessons 4.1–4.6).
 
 ---
 
-## 1. Position in Unit 7
+## 1. Position in the lists block (lessons 9.1–9.5, 12.0–14.5)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 7.1 | what a list is; indices; slicing | 45 / 45 |
-| 7.2 | list operations | 45 / 45 |
-| **7.3 (this)** | **two ways to walk a list; accumulation; average; the "change while looping" trap; copies** | 45 / 45 |
-| 7.4 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
-| 7.5 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
+| Lessons 9.1, 9.4 | what a list is; indices; slicing | 45 / 45 |
+| Lessons 9.3, 9.5, 12.0–12.1 | list operations | 45 / 45 |
+| **Lessons 12.6, 13.0–13.1 (this)** | **two ways to walk a list; accumulation; average; the "change while looping" trap; copies** | 45 / 45 |
+| Lessons 13.2, 14.0–14.2 | counting, filters, maximum, flat menus, parallel lists | 0 / 90 |
+| Lessons 12.5, 14.4 | linear search, phone numbers, the "AI Experiment Analyzer" | 0 / 90 |
 
 ---
 
@@ -49,7 +49,7 @@ labeled **Tool Note – Thonny**.
 | Goal 11: small functions as black boxes | ✅ every task |
 
 ### Deliberate exclusions
-Minimum/maximum and counting (7.4), search (7.5). Nested loops (14.0 pp. 25–29, a Ministry preview): **official item deliberately left out** (the new program dropped nested loops, clarifications p. 3).
+Minimum/maximum and counting (lessons 13.2, 14.0–14.2), search (lessons 12.5, 14.4). Nested loops (14.0 pp. 25–29, a Ministry preview): **official item deliberately left out** (the new program dropped nested loops, clarifications p. 3).
 
 ---
 
@@ -171,7 +171,7 @@ We cannot place you in this class
 ['Dana', 'Avi', 'Noa']
 ```
 
-(Capital letters count: `Dana` and `dana` are two names — the 7.2 lesson.)
+(Capital letters count: `Dana` and `dana` are two names — the lesson on list operations, lessons 9.3, 9.5, 12.0–12.1.)
 
 ## 72–81 — Task 4: Roni's prices (Ministry 13.2 #2)
 

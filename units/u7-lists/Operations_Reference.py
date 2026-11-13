@@ -1,4 +1,4 @@
-# Unit 7.2 - reference for the teacher.
+# Lessons 9.3, 9.5, 12.0–12.1 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 import random
 

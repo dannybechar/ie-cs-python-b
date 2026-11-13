@@ -1,4 +1,4 @@
-# Unit 2.2 — AI2 Year Opening
+# Lessons 3.1–3.2 — AI2 Year Opening
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: How Does a Computer See Without Eyes? Quick, Draw!, Data and the Road Ahead
@@ -8,17 +8,17 @@
 **Structure:** 45 min Knowledge + Guided Practice, then 45 min Lab  
 **Minutes (theory / practice):** 45 / 45  
 **Current tool:** Quick, Draw! and its data page (web), Ministry worksheet 3.2 (Classroom); Thonny only for the if-time block  
-**Source of inspiration:** the Ministry deck **3.1** (slides 35–50: Quick, Draw! with three volunteers, its rules, the summary questions, the programmers' role, "AI changes the world", consumers to creators with the language-model code teaser, the year's road map, the summary and "with great technology comes great responsibility") and the Ministry worksheet **3.2 "תרגול לפיצוח — איך מחשב רואה בלי עיניים?"** with the teacher's solution **3.2.0** (the whole lab: early recognition, the Data page, a failure, can a person recognise it, the Israeli stop sign, why biased data is dangerous, "guessing the future" from the stroke animation, the four fill-in sentences). **Changed from the previous version (Data, Bias and Responsibility):** the three stations, bias before and after training, cultural vs social bias, the improvement plan and the developer checklist are replaced by the Ministry worksheet and its model answers; the kettle failure is now the Ministry's own example. **Kept from the old version:** the dataset audit in Python (the kettle warm-up bug and `car_data_audit()`) — now only an "if time" block for fast finishers, because it turns the worksheet's question "is the dataset representative?" into numbers. **Changed from the Ministry:** the teaser code shows English strings and is labelled "no need to understand yet"; it is never run (no API key in any file; the API is Unit 4).  
+**Source of inspiration:** the Ministry deck **3.1** (slides 35–50: Quick, Draw! with three volunteers, its rules, the summary questions, the programmers' role, "AI changes the world", consumers to creators with the language-model code teaser, the year's road map, the summary and "with great technology comes great responsibility") and the Ministry worksheet **3.2 "תרגול לפיצוח — איך מחשב רואה בלי עיניים?"** with the teacher's solution **3.2.0** (the whole lab: early recognition, the Data page, a failure, can a person recognise it, the Israeli stop sign, why biased data is dangerous, "guessing the future" from the stroke animation, the four fill-in sentences). **Changed from the previous version (Data, Bias and Responsibility):** the three stations, bias before and after training, cultural vs social bias, the improvement plan and the developer checklist are replaced by the Ministry worksheet and its model answers; the kettle failure is now the Ministry's own example. **Kept from the old version:** the dataset audit in Python (the kettle warm-up bug and `car_data_audit()`) — now only an "if time" block for fast finishers, because it turns the worksheet's question "is the dataset representative?" into numbers. **Changed from the Ministry:** the teaser code shows English strings and is labelled "no need to understand yet"; it is never run (no API key in any file; the API is the API block (lessons 5.0–6.2)).  
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Quick, Draw!** or **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 2
+## 1. Position in the AI2 year-opening block (lessons 3.0–3.2)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 2.1 | AI or not? → definition → the revolutions → classic greeting in Python vs AI greeting | 45 / 45 |
-| **2.2 (this)** | **Quick, Draw! → worksheet "איך מחשב רואה בלי עיניים?" → data and bias → consumers to creators, the year's road map, responsibility** | 45 / 45 |
+| 3.0–3.1 | AI or not? → definition → the revolutions → classic greeting in Python vs AI greeting | 45 / 45 |
+| **3.1–3.2 (this)** | **Quick, Draw! → worksheet "איך מחשב רואה בלי עיניים?" → data and bias → consumers to creators, the year's road map, responsibility** | 45 / 45 |
 
 ---
 
@@ -64,8 +64,8 @@ Answer key check (13 Nov 2026): the model answers in §6 were compared with the 
 
 | Clock | Activity |
 |---|---|
-| 0–1 | Title: יחידה 2.2 – פתיחת שנת AI2 · "איך מחשב רואה בלי עיניים?" |
-| 1–3 | Recap of 2.1: AI learns from examples; data is the fuel. Today: see how, and what we build this year |
+| 0–1 | Title: שיעורים 3.1–3.2 – פתיחת שנת AI2 · "איך מחשב רואה בלי עיניים?" |
+| 1–3 | Recap of 3.0–3.1: AI learns from examples; data is the fuel. Today: see how, and what we build this year |
 | 3–5 | Meet Quick, Draw! (a game by Google's engineers; an AI that learned to recognise drawings from many examples; the goal: make it recognise your drawing as fast as possible) |
 | 5–18 | **Quick, Draw! on the board:** 3 volunteers, 2 rounds each (6 rounds). The class writes on the board how long each recognition took. **Audience task:** at which moment did the AI recognise the drawing — was there a line that helped? |
 | 18–22 | **Summary questions (pairs, then class; answers after):** At which stage did the game succeed? When did it not? Did it ever recognise before you finished (explained in the worksheet)? AI does not follow a fixed "rule book" — it learns from many examples; the data is the fuel; do the examples matter? (worksheet) |
@@ -99,7 +99,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Say: the program we wrote in 2.1 had every line written by us; here the sentence is written by the model — and we decide how it helps. Check the model name against the current Gemini list before Unit 4.
+Say: the program we wrote in 3.0–3.1 had every line written by us; here the sentence is written by the model — and we decide how it helps. Check the model name against the current Gemini list before the API block (lessons 5.0–6.2).
 
 ---
 

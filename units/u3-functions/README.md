@@ -1,11 +1,11 @@
-# Unit 3 — Functions
+# Lessons 4.1–4.6 — Functions
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 6 academic hours = 3 meetings = 270 minutes (90 theory / 180 practice).
 Content follows the Ministry's teaching materials (files 4.1–4.6): [`../../docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 
-## Unit 3.1 — Functions
+## Lessons 4.1–4.2 — Functions
 
 **Topic:** Several Parameters and `return`
 
@@ -19,7 +19,7 @@ Content follows the Ministry's teaching materials (files 4.1–4.6): [`../../doc
 | Teacher | [`Return_Reference.py`](Return_Reference.py) | Solutions, one function per task |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck: `def` and the call, 18 slides) |
 
-## Unit 3.2 — Functions
+## Lessons 4.4–4.5 — Functions
 
 **Topic:** Returning Functions and Loops Inside Functions
 
@@ -33,7 +33,7 @@ Content follows the Ministry's teaching materials (files 4.1–4.6): [`../../doc
 | Teacher | [`Practice_Reference.py`](Practice_Reference.py) | Solutions, one function per task |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | Superseded — pending new NotebookLM deck (old deck: parameters, 17 slides) |
 
-## Unit 3.3 — Functions
+## Lessons 4.3, 4.6 — Functions
 
 **Topic:** Local and Global Variables — unit checkpoint
 

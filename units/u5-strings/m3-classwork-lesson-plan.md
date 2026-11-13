@@ -1,12 +1,12 @@
-# Unit 5.3 — Strings: Walking Over a String (45-minute lesson + paper classwork)
+# Lessons 8.0–8.1 — Strings: Walking Over a String (45-minute lesson + paper classwork)
 
-## Grade 8 / AI + Python B · Paper-classwork edition of 5.3
+## Grade 8 / AI + Python B · Paper-classwork edition of Lessons 8.0–8.1
 ### Topic: `for` over a string, counters, building a string, methods inside a loop
 
 **Status:** Built, awaiting teacher approval 🔶
 **Duration:** 90 minutes = 45-minute lesson + about 46 minutes of paper-and-computer classwork (the rest finishes at home)
 **Structure:** Knowledge + Lab. The lesson teaches exactly what the worksheet needs, in four short demos, each followed by a student action.
-**Minutes (theory / practice):** 45 / 45 (the teacher chose this split for 5.3 — see "Decision" below)
+**Minutes (theory / practice):** 45 / 45 (the teacher chose this split for Lessons 8.0–8.1 — see "Decision" below)
 **Current tool:** Thonny, with a printed worksheet
 **Source of inspiration:** the Ministry's teaching materials ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)):
 decks **8.0 / 8.1** slides 7–15 (walking over a string with `for`, `end=`, the three read-the-code slides, exercises **#1, #2, #7**)
@@ -14,7 +14,7 @@ and deck **7.1** (`isalpha`, `isdigit`, `lower`). **What was built from them:** 
 [`m3-classwork-worksheet-he.md`](m3-classwork-worksheet-he.md) was designed first (Ministry slides → tasks), and this lesson was
 derived from it. **Changed from the Ministry text:** exercises are functions that take a string and *return* a value;
 the Ministry's `print(count = ', count)` is a typing slip (syntax error), so the course prints with `print("num =", count)`;
-exercise 3 (surnames with `input`) and exercises 4–6 stay in the existing 5.3 / 5.4 plans.
+exercise 3 (surnames with `input`) and exercises 4–6 stay in the existing Lessons 8.0–8.1 / Lessons 8.2–8.7 plans.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled **Tool Note – Thonny**.
 
 Slides: the deck for this lesson (20 slides, 90 minutes) is built from the loose files `0-START-HERE-instructions.md`, `1-source-slide-content.md`, `m3-lesson-notes.md`, `m3-lab-brief-he.md` in `Downloads\python-b\`; slides 1–17 are the 45-minute lesson, 18–20 the classwork block and exit check.
@@ -26,20 +26,20 @@ reference [`Classwork_Reference.py`](Classwork_Reference.py). The existing 90-mi
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice |
 |---|---|---|
-| 5.1 | what a string is, indices (+/−), `len`, `+`, `*` | 45 / 45 |
-| 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| **5.3 (this edition)** | **`for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` inside a loop** | **45 / 45** |
-| 5.4 | exercises 4–7, `ord`/`chr`, `split`/`join` (shown), worksheet 8.2, checkpoint | 0 / 90 |
+| Lesson 7.1 | what a string is, indices (+/−), `len`, `+`, `*` | 45 / 45 |
+| Lessons 7.1–7.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
+| **Lessons 8.0–8.1 (this edition)** | **`for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` inside a loop** | **45 / 45** |
+| Lessons 8.2–8.7 | exercises 4–7, `ord`/`chr`, `split`/`join` (shown), worksheet 8.2, checkpoint | 0 / 90 |
 
-**Decision (teacher, 2 Nov 2026).** This edition is the one taught, and it is recorded as 45 / 45. The unit plan had 5.3 as
-Lab + Lab 0 / 90, so Unit 5 now totals 135 theory / 225 practice instead of the official 90 / 270 (same 360 minutes;
+**Decision (teacher, 2 Nov 2026).** This edition is the one taught, and it is recorded as 45 / 45. The unit plan had Lessons 8.0–8.1 as
+Lab + Lab 0 / 90, so the strings block (lessons 7.1–8.7) now totals 135 theory / 225 practice instead of the official 90 / 270 (same 360 minutes;
 recorded in the course map and the unit strategy).
 
-**Time reconciliation (official 90 / 270).** The official plan for the unit is two Knowledge + Lab meetings (5.1, 5.2: 45 T + 45 P each) and two Lab + Lab meetings (5.3, 5.4: 0 / 90 each) = 90 theory / 270 practice, 360 minutes. 5.3 was **taught** as the paper-classwork edition (a ~45-minute live lesson, then a 45-minute handwritten lab); the teacher chose to record it as 45 / 45, so the unit as taught totals 135 / 225. The meeting is still 90 minutes and the unit is still 360 minutes; only the theory/practice label differs. The lab edition ([`m3-lesson-notes.md`](m3-lesson-notes.md), 0 / 90) is the official-plan version and is kept as the alternative; 5.4 is 0 / 90 in every edition.
+**Time reconciliation (official 90 / 270).** The official plan for the unit is two Knowledge + Lab meetings (Lesson 7.1, Lessons 7.1–7.2: 45 T + 45 P each) and two Lab + Lab meetings (Lessons 8.0–8.1, Lessons 8.2–8.7: 0 / 90 each) = 90 theory / 270 practice, 360 minutes. Lessons 8.0–8.1 was **taught** as the paper-classwork edition (a ~45-minute live lesson, then a 45-minute handwritten lab); the teacher chose to record it as 45 / 45, so the unit as taught totals 135 / 225. The meeting is still 90 minutes and the unit is still 360 minutes; only the theory/practice label differs. The lab edition ([`m3-lesson-notes.md`](m3-lesson-notes.md), 0 / 90) is the official-plan version and is kept as the alternative; Lessons 8.2–8.7 is 0 / 90 in every edition.
 
 ---
 
@@ -56,7 +56,7 @@ recorded in the course map and the unit strategy).
 | B5 | `lower()`, `ch in "aeiou"` |
 | Part C | the same patterns again (`if/else` building, reuse of `count_char`) |
 
-Nothing else is needed: no indices (5.4), no `range(len(text))`, no `ord`/`chr`, no lists.
+Nothing else is needed: no indices (Lessons 8.2–8.7), no `range(len(text))`, no `ord`/`chr`, no lists.
 
 ---
 

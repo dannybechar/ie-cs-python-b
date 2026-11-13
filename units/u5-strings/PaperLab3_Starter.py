@@ -1,4 +1,4 @@
-# Unit 5.3 paper lab: write each answer by hand first, then type it under its question and run to check.
+# Lessons 8.0–8.1 paper lab: write each answer by hand first, then type it under its question and run to check.
 # Question 1 and Question 2 are separate programs: put a # in front of the lines of the one you are not checking.
 
 # ===================== Question 1 =====================

@@ -1,4 +1,4 @@
-# Unit 9.3 — Recommender Systems
+# Lessons 21.1–21.2 — Recommender Systems
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: From the Twin to a Recommendation — the Unit Checkpoint
@@ -10,7 +10,7 @@
 **Current tool:** Thonny
 **⚠️ Unverified against official 21.2 / 21.0:** the whole code shape of this meeting (`find_twin`, `recommend_item`, `main`, the edge cases, the rubric) is **ours**.
 All that the delivered Ministry deck 21.1 contains is pp. 24–27 (the twin, the recommendation of sushi) and p. 28 ("go to activity 21.2 in Classroom").
-Because the Ministry has only three lessons, our fourth meeting is **our split of deck 21.1** (9.2 = pp. 1–25, 9.3 = pp. 26–28 plus the code), supported by the master table's 8 hours only.
+Because the Ministry has only three lessons, our fourth meeting is **our split of deck 21.1** (lesson 21.1 = pp. 1–25, lessons 21.1–21.2 = pp. 26–28 plus the code), supported by the master table's 8 hours only.
 If 21.2 arrives, compare its function names, data layout and expected output with this meeting and adapt before class; do not present our code as the Ministry's.
 **Source of inspiration:** Ministry deck **21.1**, second half (pp. 24–30): the twin is the participant with the most points; *an item the
 twin liked and the new user does not know* becomes the recommendation (p. 26–27: user_03 likes sushi, user_04 does not know it); the
@@ -21,18 +21,18 @@ preferences ≠ similar people), the edge-case testing table and the 20-point pr
 default arguments in our own functions, and the Ministry's twin is simply "the most identical non-0 answers", so no rate is needed.
 See [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and labeled **Tool Note – Thonny**.
-**Prerequisite:** `def`, `return`, `None`, strings, flat lists (Units 3, 5, 7).
+**Prerequisite:** `def`, `return`, `None`, strings, flat lists (lessons 4.1–4.6, 7.1–8.7, 9.1–9.5, 12.0–14.5).
 
 ---
 
-## 1. Position in Unit 9
+## 1. Position in the recommender-systems block (lessons 20.0–22.1)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 9.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
-| 9.2 | the table, similarity points, `count_same` | 45 / 45 |
-| **9.3 (this)** | **`find_twin`, `recommend_item`, `main` — the checkpoint** | 45 / 45 |
-| 9.4 | dangers of recommender systems | 45 / 45 |
+| Lessons 20.0–20.1 | feed riddle, content-based vs user-based, culinary twin, survey | 45 / 45 |
+| Lesson 21.1 | the table, similarity points, `count_same` | 45 / 45 |
+| **Lessons 21.1–21.2 (this)** | **`find_twin`, `recommend_item`, `main` — the checkpoint** | 45 / 45 |
+| Lessons 22.0–22.1 | dangers of recommender systems | 45 / 45 |
 
 ---
 
@@ -80,7 +80,7 @@ def recommend_item(target_answers, twin_answers):
     return None
 ```
 
-Trace of `find_twin(3)` on the class table (9.2): user_01 → 0, user_02 → 0, user_03 → 2 → `best_index = 2`.
+Trace of `find_twin(3)` on the class table (lesson 21.1): user_01 → 0, user_02 → 0, user_03 → 2 → `best_index = 2`.
 `recommend_item("00XVV", "V0XXV")`: index 0 → target `0` and twin `V` → `"sushi"`.
 
 - `best_score` starts at `0` on purpose: somebody who shares nothing is never a twin.
@@ -97,7 +97,7 @@ Trace of `find_twin(3)` on the class table (9.2): user_01 → 0, user_02 → 0, 
 |---|---|
 | 0–8 | **Recap:** the class table; predict the twin of user_04 (pairs), then run `count_same` on the three pairs — all as before |
 | 8–16 | **From twin to recommendation** (pp. 26–27): is there a food the twin liked and user_04 does not know? Predict first (which food?), then the answer (sushi). Counter-cases: twin disliked it (`X`); user_04 already has an opinion |
-| 16–30 | **Plan `find_twin`:** pseudocode (the "best so far" pattern of `best_score` from 9.2, now also remembering *who*), then a trace on the class table. Why start `best_score` at 0? What if everyone has 0? **The code is not shown:** the starter holds a version with the classic mistake (warm-up), so the bug is found by the students |
+| 16–30 | **Plan `find_twin`:** pseudocode (the "best so far" pattern of `best_score` from lesson 21.1, now also remembering *who*), then a trace on the class table. Why start `best_score` at 0? What if everyone has 0? **The code is not shown:** the starter holds a version with the classic mistake (warm-up), so the bug is found by the students |
 | 30–40 | **Plan `recommend_item`** in pseudocode, with the three cases (twin `V` + target `0` → recommend; twin `X` → no; target already answered → no); then the plan of `main()`: target = the last participant, find the twin, print or print a message. Students write `recommend_item` themselves in the lab |
 | 40–45 | **Three limits (kept from v1):** *cold start* — a new person with only `0`s has no twin; *sparse data* — a score of 2 from 3 shared answers is weak evidence; *similar ≠ same* — the twin shares food opinions, not necessarily anything else. A recommendation is a prediction, not a fact |
 
@@ -106,7 +106,7 @@ Trace of `find_twin(3)` on the class table (9.2): user_01 → 0, user_02 → 0, 
 # 6. Second 45 Minutes — Lab
 
 Starter: [`TwinRecommend_Starter.py`](TwinRecommend_Starter.py). Reference: [`TwinRecommend_Reference.py`](TwinRecommend_Reference.py).
-Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md). Data: the sample table is in the starter (or the class survey, pasted as in 9.2).
+Brief: [`m3-lab-brief-he.md`](m3-lab-brief-he.md). Data: the sample table is in the starter (or the class survey, pasted as in lesson 21.1).
 
 | Clock | Block |
 |---|---|
@@ -149,7 +149,7 @@ Recommendation: sushi
 | המטרה מכירה הכול | `recommend_item("VXVXV", "VXXXV")` | `None` — אין המלצה |
 | שוויון | שני משתתפים עם 2 נקודות | הראשון נשאר (מתועד) |
 | `0` ו-`0` בלבד | `count_same("0V", "0X")` | `0` — אין נקודה |
-| מחרוזות באורכים שונים | `count_same("V0", "V0X")` מול `count_same("V0X", "V0")` | הראשון מחזיר 1; השני `IndexError: string index out of range` — לכן בודקים אורך ב-`has_all_answers` (9.1) |
+| מחרוזות באורכים שונים | `count_same("V0", "V0X")` מול `count_same("V0X", "V0")` | הראשון מחזיר 1; השני `IndexError: string index out of range` — לכן בודקים אורך ב-`has_all_answers` (שיעורים 20.0–20.1) |
 
 </div>
 
@@ -202,5 +202,5 @@ a message, they forgot the `if ... is None` check.
 - `find_twin` traced on the class table, giving user_03
 - The warm-up (self-comparison) explained, not only fixed
 - `recommend_item` correct including its `None` path
-- **Unit 9 checkpoint** — `count_same`, `find_twin`, `recommend_item`, `main`, scored on the 20-point rubric above, run on the sample data and on the class data
+- **Recommender-systems checkpoint (lessons 20.0–22.1)** — `count_same`, `find_twin`, `recommend_item`, `main`, scored on the 20-point rubric above, run on the sample data and on the class data
 - The three limits explained in the student's own words

@@ -1,4 +1,4 @@
-# Unit 5.4 - worksheet (countdown edition), reference for the teacher. No functions: the class has not learned def yet.
+# Lessons 8.2–8.7 - worksheet (countdown edition), reference for the teacher. No functions: the class has not learned def yet.
 # Each question: a variable with the text, the code, and print. Change the value to try the other test values.
 
 

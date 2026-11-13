@@ -1,4 +1,4 @@
-# Unit 5.2 paper lab - Question 2: an item code (full solution, plain code, no functions).
+# Lessons 7.1–7.2 paper lab - Question 2: an item code (full solution, plain code, no functions).
 
 # a. a code with exactly 2 dashes; ask again until it is valid
 code = input("Code: ")

@@ -13,11 +13,14 @@ approved and pending) and the memory index. After every lesson, update `class-pr
 
 ## The teacher's commands
 
+The teacher names meetings by **official lesson numbers** ("build 8.2", "approve 8.0–8.1"); look the label up in [`docs/official-numbering.md`](docs/official-numbering.md).
+A lesson number that belongs to two meetings (7.1, 3.1, 21.1) means both. Old unit numbers ("approve unit 5") still work as the block.
+
 The teacher gives short commands. Each one has a fixed meaning; finish the whole routine, then commit and push
 without asking (`git push` is already set up — see "Git" below). Report back briefly: what was done, what was
 checked, any decision the teacher must make.
 
-### "build unit N" / "build U.M"
+### "build <lessons>" (also "build unit N" / "build U.M" = the old file key)
 
 Build every meeting of the unit (or one meeting), one at a time.
 
@@ -33,8 +36,8 @@ Build every meeting of the unit (or one meeting), one at a time.
    The year plan is [`docs/annual-strategy.md`](docs/annual-strategy.md) (provisional meeting outline, depth boundaries,
    tools to settle). The teacher's raw materials are **inspiration only**:
    `Downloads\python-b-raw-meterials\ie-cs-python-b\` — `U<N>_M<M>\` folders (strategy `.md`, raw deck `.pptx`, lab brief,
-   starter and reference `.py`, exit-check `.png`) for meetings 1.1–1.3, 2.1–2.2 and 3.1, plus a year strategy.
-   The Ministry's lessons 10–22 (our Units 6–9) arrived on 8 Nov 2026 and all four units were reworked to them the same day (see "Audit of lessons 10–22" in the Ministry doc; NotebookLM prep folders for 6.1–9.4 are in `Downloads\פדגוגיה\python-b\lessons\`). Some Ministry files are still missing (lists parts A and E, many worksheets and keys) — never invent them. The raw year strategy is wrong wherever it says the syllabus leaves a unit open (Units 4, 6, 8, 9): the official
+   starter and reference `.py`, exit-check `.png`) for the meetings with file keys u1/m1–u1/m3, u2/m1–u2/m2 and u3/m1, plus a year strategy.
+   The Ministry's lessons 10–22 (file keys u6–u9) arrived on 8 Nov 2026 and all four units were reworked to them the same day (see "Audit of lessons 10–22" in the Ministry doc; NotebookLM prep folders for 6.1–9.4 are in `Downloads\פדגוגיה\python-b\lessons\`). Some Ministry files are still missing (lists parts A and E, many worksheets and keys) — never invent them. The raw year strategy is wrong wherever it says the syllabus leaves a unit open (Units 4, 6, 8, 9): the official
    chapters name the activities — follow them. For meetings with no raw material, build from the Ministry program alone.
 2. **Plan the unit first** (`units/u<N>-<slug>/unit-strategy.md`): official topics with theory/practice hours from the
    Ministry master table, which meeting covers each topic, meeting-by-meeting outline, scope decisions (what the raw decks
@@ -47,22 +50,22 @@ Build every meeting of the unit (or one meeting), one at a time.
      common mistake, documented in the lesson notes); the reference solves every task, one function per task.
 4. **Verify all code**: run every example, output and trace in the lesson notes, brief and slides; check every error
    message against the installed Python (3.14). Code that calls an outside service or library (the language-model API
-   in Unit 4, the embedding library in Unit 6, the exported model in Unit 8) is verified with a stand-in function that
+   in lessons 5.0–6.2, the embedding library in lessons 10.0–11.3, the exported model in lessons 19.0–19.1) is verified with a stand-in function that
    returns fixed answers; tell the teacher which files need a live run in Thonny, with the real service, before class.
    Never put an API key in any file.
 5. **Records**: unit `README.md` (one section per meeting, table of files; the slides row is
    `| Teacher | slides | Pending (NotebookLM) |`), `unit-strategy.md` status 🔶, `course-map.md` (time budget row,
    schedule rows 🔶, meeting log row, open gaps), root `README.md` unit line ("🔶 built, awaiting approval").
 6. **Prepare the NotebookLM folder** for each meeting (next routine) as part of the build.
-7. Commit per meeting or per unit ("Build Unit 3 Functions (3 meetings)"), push, report: a table of meetings
+7. Commit per meeting or per unit ("Build lessons 4.1–4.6 Functions (3 meetings)"), push, report: a table of meetings
    (topic, theory/practice, starter bug, slide count), changes from the raw decks, open decisions.
 
-### "prepare slides U.M" (the NotebookLM folder)
+### "prepare slides <lessons>" (the NotebookLM folder; the folder is still named by the file key `unit<U>-m<M>-slides`)
 
 The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<M>-slides\` containing:
 
 - `0-START-HERE-instructions.md` — written with `tools/deck-patch-kit/mkinstr.py` (`make(...)`): Hebrew output language
-  as its own step; the prompt to paste; the exact NAMING block (title "יחידה U.M – <שם היחידה>", the theme as the subtitle,
+  as its own step; the prompt to paste; the exact NAMING block (title "<התווית הרשמית, למשל שיעורים 8.0–8.1> – <שם הנושא>", the theme as the subtitle,
   the same footer on every slide, never "מפגש", "שיעור" or "פרק"); exact slide count; straight double quotes only;
   keep table column order; bug slides show the bug exactly as written; "question only" slides show no answer;
   timers ("N דקות") only on student-activity slides; a warning not to upload the raw decks; a check list.
@@ -71,23 +74,23 @@ The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<
   Keep it to **≤ 20 slides** (NotebookLM drops slides past ~21). Question and answer on separate slides.
 - Copies of `m<M>-lesson-notes.md` and `m<M>-lab-brief-he.md`.
 
-### "live lesson U.M" (also: a frontal lesson built around one problem)
+### "live lesson <lessons>" (also: a frontal lesson built around one problem)
 
 The teacher presents one problem split into a few incremental stages and builds it live in Thonny on the projector.
-**Unit 5.1 is the working example:** [`m1-live-problem-he.md`](units/u5-strings/m1-live-problem-he.md) (problem + stages, no
+**Lesson 7.1 (file key u5/m1) is the working example:** [`m1-live-problem-he.md`](units/u5-strings/m1-live-problem-he.md) (problem + stages, no
 line-by-line script — the teacher leads the discussion), [`m1-live-program.py`](units/u5-strings/m1-live-program.py) (full
 solution), `Live_Step1_…`–`Live_Step5_…` (cumulative files, each runnable, new lines marked), and the deck
 ([`m1-live-slides-he.pdf`](units/u5-strings/m1-live-slides-he.pdf)). Slides: problem and sample run, a stage table, then one
 slide per step with code, output and a discussion question; predict slides are question-only; error demos get their own slide.
 Build the deck either through NotebookLM (the "prepare slides" routine) or directly with
 [`tools/live-deck`](tools/live-deck/README.md). Verify every file with sample inputs; put the PDF and the code folder under
-`Downloads` for review. The problem must use only what the class has learned (no functions until Unit 3 is done).
+`Downloads` for review. The problem must use only what the class has learned (no functions until the teacher says the functions block (lessons 4.1–4.6) is done).
 
-### Lesson + lab package (the Unit 5.1 recipe; also built for 5.2 and 5.3 on 6 Nov 2026)
+### Lesson + lab package (the Lesson 7.1 recipe; also built for lessons 7.1–7.2, 8.0–8.1 and 8.2–8.7)
 
 The teacher's pedagogical ratio for a Knowledge + Lab meeting is **~45-54 minutes of frontal live coding, then a 45-minute handwritten lab**.
-Unit 5.1 is the template; build 5.2 (slicing, `count`, `replace`, `in`, `find`) and 5.3 (`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`,
-`for` over a string, counting, `+=`) the same way, using only what the class has been taught up to that meeting (no functions until Unit 3 is done).
+Lesson 7.1 is the template; build lessons 7.1–7.2 (slicing, `count`, `replace`, `in`, `find`) and 8.0–8.1 (`lower`/`upper`, `startswith`/`endswith`, `isalpha`/`isdigit`,
+`for` over a string, counting, `+=`) the same way, using only what the class has been taught up to that meeting (no functions until the functions block is done).
 
 1. **Live lesson** (routine above): ONE challenging problem with requirements, solved in **six stages** that each add one idea (input checks with `while`,
    the new tools of the meeting, a loop, building new strings, a frame/report, a final input stage). Files: `m<M>-live-problem-he.md` (problem + stages),
@@ -105,38 +108,38 @@ Unit 5.1 is the template; build 5.2 (slicing, `count`, `replace`, `in`, `find`) 
    **Naming for later meetings:** `m<M>-live-*`, `Live<M>_Step1_<Name>.py` … `Step5`, `PaperLab<M>_Starter.py`, `PaperLab<M>_Q1_Solution.py`,
    `PaperLab<M>_Q2_Solution.py` (unique in the unit folder). The teacher keeps a copy per meeting in
    `Downloads\פדגוגיה\python-b\מעבדות-יחידה-5.<M>\` (`5.<M>-code`, `5.<M>-lab`, the deck PDF, the full program); the deck source is
-   `Downloads\פדגוגיה\python-b\lessons\unit5-m<M>-live-slides\1-source-slide-content.md`. The 5.2 and 5.3 packages were built by two parallel
+   `Downloads\פדגוגיה\python-b\lessons\unit5-m<M>-live-slides\1-source-slide-content.md`. The packages for lessons 7.1–7.2 and 8.0–8.1 were built by two parallel
    sub-agents that did not touch shared documents; the main agent then updated the README, course map, class progress and memory and committed.
 5. **Deliver:** the deck PDF, the worksheet `.docx` + `.pdf` (Downloads root) and the solution `.py` files for the teacher to review; update the unit README,
    `course-map.md` (meeting-log note and Assessments row), `class-progress.md`, memory; commit and push.
 
-### "review U.M" (a deck came back from NotebookLM)
+### "review <lessons>" (a deck came back from NotebookLM)
 
 1. Take the **newest PDF in Downloads** — its file name is thematic, not the unit number — and confirm from the
-   **title slide** that it really is U.M. If it isn't, say so and stop.
+   **title slide** that it really is the meeting the teacher named (its label from `docs/official-numbering.md`). If it isn't, say so and stop.
 2. Review every slide against `1-source-slide-content.md` (or, if the folder is gone, the lesson notes and the
    `_Reference` code): Hebrew wording, every code line and output, tables, pictures, timers, footer, naming,
    question-only slides, challenge slides (must not show the full solution), and the total time.
 3. **Patch the PDF with pixel edits** using `tools/deck-patch-kit/` (see its README: copy `common.py` + `heb.py` to the
    scratchpad, write `p<D>.py`, `build`). Don't ask for regeneration — it trades old errors for new ones.
-4. Save to `units/<unit dir>/m<M>-slides-he.pdf` **and** `Downloads\python-b\unit U.M - <English unit name>.pdf`
+4. Save to `units/<unit dir>/m<M>-slides-he.pdf` **and** `Downloads\python-b\<official label> - <English unit name>.pdf` (e.g. `Lessons 8.0–8.1 - Strings.pdf`)
    (the teacher uploads that copy to Google Drive).
 5. Update the unit README slides row → `| Teacher | [`m<M>-slides-he.pdf`](m<M>-slides-he.pdf) | Hebrew slide deck (N slides, NotebookLM, patched) |`
    and the course-map meeting-log note → `slides: `m<M>-slides-he.pdf` (N slides, 90 min; NotebookLM, patched)`.
-6. Commit ("Add Unit U.M slide deck (patched NotebookLM PDF)"), push, report what was patched, slide by slide.
+6. Commit ("Add Lessons X–Y slide deck (patched NotebookLM PDF)"), push, report what was patched, slide by slide.
 
-### "countdown lab U.M" (also: "countdown practice U.M", "build a countdown for U.M") — the teacher's lab format
+### "countdown lab <lessons>" (also: "countdown practice <lessons>", "build a countdown for <lessons>") — the teacher's lab format
 
 A 90-minute Lab + Lab: **four timed cases done together** on a projected countdown page (the method of the teacher's
 IB DP1/PDP classes: a big clock that turns amber then red, "ננעל!" at zero, then a reveal of a `for` solution and a
 `while` solution that use **different ideas**), then **a graded five-question worksheet** done in class on paper + Thonny.
-**Unit 5.4 is the complete working example — open it and copy its shape:**
+**Lessons 8.2–8.7 (file key u5/m4) is the complete working example — open it and copy its shape:**
 [`m4-countdown-lesson-plan.md`](units/u5-strings/m4-countdown-lesson-plan.md), `m4-countdown-cases.json`,
 `Countdown_Reference.py`, `m4-countdown-worksheet-he.md`, `Worksheet_Starter.py` / `Worksheet_Reference.py`,
 `m4-countdown-answer-key.md`, and [`tools/countdown/README.md`](tools/countdown/README.md).
 
 1. **Ask first** (one short question) if not given: which meeting/topic, and what the class has been taught so far.
-   **Use only what the class has actually learned** — see "Code style" (no functions until the teacher says Unit 3 is done).
+   **Use only what the class has actually learned** — see "Code style" (no functions until the teacher says the functions block is done).
 2. **Choose 4 cases + 5 worksheet questions** from the Ministry materials for that meeting
    ([`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md)): cases easy → hard, clocks 6–8 minutes;
    worksheet Q1 is a find-the-bug, then four write-the-code questions, plus one "if time" bonus and a 3-item exit check.
@@ -149,30 +152,30 @@ IB DP1/PDP classes: a big clock that turns amber then red, "ננעל!" at zero, 
    Mark code inside Hebrew contrast text with backticks (the page shows it left-to-right).
 4. **Worksheet:** `m<M>-countdown-worksheet-he.md`, `<Prefix>Worksheet_Starter.py` / `_Reference.py`, and
    `m<M>-countdown-answer-key.md` with answers, a **rubric (100 points, bonus capped at 100)**, a marking sheet and
-   "what to look for". **File names must be unique in the unit folder** — 5.4 used `Countdown_*` / `Worksheet_*`;
+   "what to look for". **File names must be unique in the unit folder** — the strings meeting 8.2–8.7 used `Countdown_*` / `Worksheet_*`;
    later meetings use a topic prefix (e.g. `ListsCountdown_Reference.py`, `ListsWorksheet_Starter.py`).
 5. **Word/PDF:** `python tools/md_to_docx.py <md> <docx> --worksheet` (needs `python-docx`; install it, or use a venv in
-   the scratchpad). Worksheet → `Downloads\python-b\Unit U.M - <name> countdown worksheet.docx`; the instructions →
+   the scratchpad). Worksheet → `Downloads\python-b\<official label> - <name> countdown worksheet.docx`; the instructions →
    `Countdown_Cases.pdf`. PDF via `soffice --headless --convert-to pdf`; if LibreOffice is missing (Windows), make the
    .docx and ask the teacher to Save as PDF in Word. Look at every page (no wrapped code lines, one task per page).
-6. **Mashov zip** `Downloads\python-b\Unit U.M - <name>.zip` = `Countdown_Cases.pdf` + every case starter +
+6. **Mashov zip** `Downloads\python-b\<official label> - <name>.zip` = `Countdown_Cases.pdf` + every case starter +
    the worksheet starter. **No solutions, no reference files.** Unzip it once and compare the files with the repo.
 7. **Check the page** in a browser (headless Chrome screenshot if available): card grid, briefing, clock, reveal — code
    panels must not scroll sideways (split long lines in the reference).
 8. **Records:** unit README section, lesson plan, course-map meeting-log note and an **Assessments** row; commit and push.
 
-**Graded classwork** (5.3 classwork, the countdown worksheets): grade the final answer including corrections in another
+**Graded classwork** (lessons 8.0–8.1 classwork, the countdown worksheets): grade the final answer including corrections in another
 colour; a wrong prediction loses nothing; handwritten slips −1 once per question; plain code without `def` gets full
 marks while functions are not taught (a value built but never printed: −1). Record only aggregates in the repo;
 per-student marks stay outside it.
 
-### "approve unit N"
+### "approve <lessons>" (also "approve unit N" = every meeting of the old unit / block)
 
 - Every `m*-lesson-notes.md` of the unit: `**Status:** Approved by the teacher`.
 - `unit-strategy.md`: build status "✅ complete — all K meetings built and approved by the teacher"; topic rows ✅.
 - `course-map.md`: budget row ✅ K/K, schedule rows ✅.
 - Root `README.md`: drop "awaiting approval" for the unit.
-- Check `git diff` so no other unit changed; commit ("Mark Unit N <name> as approved"), push.
+- Check `git diff` so no other unit changed; commit ("Mark lessons X–Y <name> as approved"), push.
 
 ### "review entire repository and clean up"
 
@@ -182,42 +185,45 @@ and make the README and course map describe the current state.
 
 ## Conventions (same as Python A)
 
-- **Naming rule:** a meeting is named by its curriculum unit: **Unit U.M — <unit name>**, in Hebrew
-  **יחידה U.M – <שם היחידה>**. The lesson's theme is only a subtitle. This applies everywhere: headings, course map,
-  briefs, slide titles and footers, NotebookLM notebook names, and how you refer to meetings in chat.
-  Meetings are 1-based (2.1, 2.2 …); files `m1-`, `m2-` ….
+- **Naming rule (changed 13 Nov 2026):** the **official lesson numbers** of the Ministry folder `classroom-downloader\downloads\פייתון_ב\`
+  are the numbers of this repository. A meeting is named by the range of official lessons it covers: **Lessons 8.0–8.1 — Strings**,
+  in Hebrew **שיעורים 8.0–8.1 – מחרוזות** (one lesson: **שיעור 11.3 – …**; a set: **שיעורים 9.1, 9.4 – רשימות**). The lesson's theme is only a subtitle.
+  This applies everywhere: headings, course map, briefs, slide titles and footers, NotebookLM notebook names, and how you refer to meetings in chat.
+  The full mapping (30 meetings → official lessons, whole blocks) is [`docs/official-numbering.md`](docs/official-numbering.md): **read it first and use its labels**.
+  The old "Unit U.M" / "יחידה U.M" labels are retired; the old numbers survive only as the **file key** (`u5/m4` = `units/u5-strings/m4-…`),
+  because file and folder names do not change. Never "מפגש" or "פרק". Whole blocks are written "the strings block (lessons 7.1–8.7)", never "Unit 5".
 - **Units** (from the master table, `python-b-ai.pdf` pp. 3–4; 60 h = 21 theory + 39 practice = 30 meetings).
   A unit has one Knowledge + Lab meeting per theory hour; its other meetings are Lab + Lab.
-  The Hebrew names are the official chapter names, shortened so a title never contains "שיעור" or a second dash
-  (official: "שיעור פתיחה לשנה ב' AI2", "API - להכניס בינה לקוד", "מודל שפה - מתקדם", "רשימה list").
+  The Hebrew theme names are the official chapter names, shortened so a title never has a second dash
+  (official: "שיעור פתיחה לשנה ב' AI2", "API - להכניס בינה לקוד", "מודל שפה - מתקדם", "רשימה list"). The `#` column is the old program-unit number (file key only).
 
-  | # | English | Hebrew | Hours (T / P) | Meetings (K+L / L+L) | Folder |
-  |---|---|---|---:|---:|---|
-  | 1 | Python A Review | חזרה על פייתון א' | 6 (1 / 5) | 3 (1 / 2) | `units/u1-python-a-review` |
-  | 2 | AI2 Year Opening | פתיחת שנת AI2 | 4 (2 / 2) | 2 (2 / 0) | `units/u2-ai2-year-opening` |
-  | 3 | Functions | פעולות | 6 (2 / 4) | 3 (2 / 1) | `units/u3-functions` |
-  | 4 | Bringing AI into Code (API) | להכניס בינה לקוד (API) | 4 (1 / 3) | 2 (1 / 1) | `units/u4-api` |
-  | 5 | Strings | מחרוזות | 8 (2 / 6) | 4 (2 / 2) | `units/u5-strings` |
-  | 6 | Advanced Language Model | מודל שפה מתקדם | 6 (2 / 4) | 3 (2 / 1) | `units/u6-advanced-language-model` |
-  | 7 | Lists | רשימות | 10 (3 / 7) | 5 (3 / 2) | `units/u7-lists` |
-  | 8 | Classification | סיווג | 8 (4 / 4) | 4 (4 / 0) | `units/u8-classification` |
-  | 9 | Recommender Systems | מערכות המלצה | 8 (4 / 4) | 4 (4 / 0) | `units/u9-recommender-systems` |
+  | # (file key) | English | Hebrew | Official lessons | Hours (T / P) | Meetings (K+L / L+L) | Folder |
+  |---|---|---|---|---:|---:|---|
+  | 1 | Python A Review | חזרה על פייתון א' | 1.0–2.3 | 6 (1 / 5) | 3 (1 / 2) | `units/u1-python-a-review` |
+  | 2 | AI2 Year Opening | פתיחת שנת AI2 | 3.0–3.2 | 4 (2 / 2) | 2 (2 / 0) | `units/u2-ai2-year-opening` |
+  | 3 | Functions | פעולות | 4.1–4.6 | 6 (2 / 4) | 3 (2 / 1) | `units/u3-functions` |
+  | 4 | Bringing AI into Code (API) | להכניס בינה לקוד (API) | 5.0–6.2 | 4 (1 / 3) | 2 (1 / 1) | `units/u4-api` |
+  | 5 | Strings | מחרוזות | 7.1–8.7 | 8 (2 / 6) | 4 (2 / 2) | `units/u5-strings` |
+  | 6 | Advanced Language Model | מודל שפה מתקדם | 10.0–11.3 | 6 (2 / 4) | 3 (2 / 1) | `units/u6-advanced-language-model` |
+  | 7 | Lists | רשימות | 9.1–9.5, 12.0–14.5 | 10 (3 / 7) | 5 (3 / 2) | `units/u7-lists` |
+  | 8 | Classification | סיווג | 16.0–19.1 | 8 (4 / 4) | 4 (4 / 0) | `units/u8-classification` |
+  | 9 | Recommender Systems | מערכות המלצה | 20.0–22.1 | 8 (4 / 4) | 4 (4 / 0) | `units/u9-recommender-systems` |
 
 - **Lesson rhythm:** never more than 10–15 minutes of teacher talk before students act (predict, trace, type, run,
   discuss); 4–5-minute demos in lab meetings; short demo → task → short demo → task. Predict-first questions get their
   own step, with the answer after. One flexible "if time" block per lab. One function per task.
 - **Code style:** double quotes, 4-space indents, `snake_case`, a comment line at the top of each starter saying what
   to find or do. Use only what the students have been taught: the Python A course (Grade 7) and earlier meetings of
-  this course. **Lists are new in Unit 7** — no lists before it (Units 1–6 accumulate into strings and counters).
+  this course. **Lists are new in the lists block (lessons 9.1–14.5)** — no lists before it (the earlier blocks accumulate into strings and counters).
   Never, in any unit: nested loops (dropped from the new program — clarifications p. 3), tuples, sets, dictionaries,
   list comprehensions, lists of lists (all moved to Part C), your own functions with default or keyword arguments, classes.
-  **Teaching order differs from the schedule:** as of 2 Nov 2026 Unit 5 is taught **before** Unit 3, so the class has
-  **not learned functions** — no `def`, `return` or parameters in anything students see until the teacher says Unit 3
-  is done (all Unit 5 labs are plain code: a variable, the code, `print`). Always check the course map's "Taught on"
+  **Teaching order differs from the schedule:** as of 2 Nov 2026 the strings block (lessons 7.1–8.7) is taught **before** the functions block (4.1–4.6), so the class has
+  **not learned functions** — no `def`, `return` or parameters in anything students see until the teacher says the functions block
+  is done (all strings-block labs are plain code: a variable, the code, `print`). Always check the course map's "Taught on"
   column and its "Teaching order" note for what the class has actually learned.
-  f-strings are new in Unit 4 (the program lists them there, p. 12). If Turtle is used, follow Python A
-  (module-level `turtle.` calls, no `turtle.Turtle()`). **As the Ministry materials do:** `global` (Unit 3.3), `+=`,
-  `print(..., end="")`, `ord`/`chr` and `split`/`join` (Unit 5; the result is only shown, lists proper are Unit 7) —
+  f-strings are new in the API block (lessons 5.0–6.2; the program lists them there, p. 12). If Turtle is used, follow Python A
+  (module-level `turtle.` calls, no `turtle.Turtle()`). **As the Ministry materials do:** `global` (lessons 4.3, 4.6), `+=`,
+  `print(..., end="")`, `ord`/`chr` and `split`/`join` (strings block; the result is only shown, lists proper are the lists block) —
   see the rulebook in `docs/ministry-teaching-materials.md`.
 - **Code in Hebrew-facing documents (tests, briefs, handouts, Word/PDF output):** every code example — block, inline
   snippet, trace/output table cell, expected output — is set in **Courier New** (like the terminal) and runs
@@ -226,7 +232,7 @@ and make the README and course map describe the current state.
   blocks and regular in others). In `.docx`, set the font on all four slots (ascii, hAnsi, cs, eastAsia) so Word and
   Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
 - **Problem sheet (handwriting lab, 6 Nov 2026):** one A4 sheet, two sides at most; every problem is a row with the problem in a box on the
-right and an empty box for handwritten code beside it (the 5.1 sheet: two questions with four sub-questions each, one per side, `... out.docx 1`). Source: Markdown with one `## ` per problem; build with
+right and an empty box for handwritten code beside it (the lesson 7.1 sheet: two questions with four sub-questions each, one per side, `... out.docx 1`). Source: Markdown with one `## ` per problem; build with
 `python tools/problem_sheet_docx.py in.md out.docx 3`. Example: [`m1-paper-lab-worksheet-he.md`](units/u5-strings/m1-paper-lab-worksheet-he.md).
 
 **Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with
@@ -245,15 +251,15 @@ right and an empty box for handwritten code beside it (the 5.1 sheet: two questi
 
 ## File templates (copy the shape from `ie-cs-python-a/units/u8-functions-parameters/`)
 
-**`m<M>-lesson-notes.md`:** `# Unit U.M — <name>` · `## Grade 8 / AI + Python B · Lesson Strategy v1` ·
+**`m<M>-lesson-notes.md`:** `# Lessons X–Y — <name>` (the official label) · `## Grade 8 / AI + Python B · Lesson Strategy v1` ·
 `### Topic: <theme>` · header lines `**Status:**` (🔶 text: "Built, awaiting teacher approval"), `**Duration:** 90 minutes`,
 `**Structure:**`, `**Minutes (theory / practice):**`, `**Current tool:** Thonny`, `**Source of inspiration:**` (the raw
-deck, what was kept, what was changed and why), `**Tool-dependence rule:**` · sections: 1 Position in Unit N (table of
+deck, what was kept, what was changed and why), `**Tool-dependence rule:**` · sections: 1 Position in the block (table of
 all meetings) · 2 Official Scope Used in This Meeting (Ministry goals with page numbers; deliberate exclusions) ·
 3 Lesson Goal · 4 Core Mental Models · 5 First 45 Minutes (clock table) · 6 Second 45 Minutes — Lab (one `## a–b — Task`
 heading per block, the warm-up bug, save, exit check) · Tool Note – Thonny · 7 Misconception Risks · 8 Assessment Evidence.
 
-**`m<M>-lab-brief-he.md`:** `# יחידה U.M – <שם>` · a one-line subtitle with the theme · the work cycle line ·
+**`m<M>-lab-brief-he.md`:** `# שיעורים X–Y – <שם>` (התווית הרשמית) · a one-line subtitle with the theme · the work cycle line ·
 a `> [!IMPORTANT]` key idea · `## דף עזר` (a short code reference) · numbered task sections (warm-up first) ·
 save/document · exit check.
 

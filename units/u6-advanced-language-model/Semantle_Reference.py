@@ -1,5 +1,5 @@
-# Unit 6.3 - reference for the teacher (Ministry worksheet 11.3, real model).
-# Precondition: Unit 3 (def) is taught first. round() is used for the percent and the bar; the Ministry uses int() - see the lesson notes (checked table).
+# Lesson 11.3 - reference for the teacher (Ministry worksheet 11.3, real model).
+# Precondition: the functions block (lessons 4.1–4.6) (def) is taught first. round() is used for the percent and the bar; the Ministry uses int() - see the lesson notes (checked table).
 # Needs: pip install sentence-transformers (the first run downloads the model - do it once before class).
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 from sentence_transformers import SentenceTransformer, util
@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, util
 model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 
-# Task 1: given to the students (copied from 6.2)
+# Task 1: given to the students (copied from lessons 11.1–11.2)
 def calculate_similarity(word1, word2):
     meaning_pos1 = model.encode([word1])
     meaning_pos2 = model.encode([word2])

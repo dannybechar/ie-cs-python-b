@@ -1,4 +1,4 @@
-# Unit 5.2 live program: the Email Desk - full solution.
+# Lessons 7.1–7.2 live program: the Email Desk - full solution.
 # The program is built in six stages; each stage adds lines and the program still runs.
 
 # Stage 1 - read an address; it needs exactly one @ and at least 2 characters before it

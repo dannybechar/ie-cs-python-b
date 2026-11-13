@@ -1,4 +1,4 @@
-# Unit 5.3 paper lab — answer key and rubric
+# Lessons 8.0–8.1 paper lab — answer key and rubric
 
 For [`m3-paper-lab-worksheet-he.md`](m3-paper-lab-worksheet-he.md): **one sheet, two sides, two challenging questions with four sub-questions each**
 (א–ד, each continues the previous one). On each side the question is in a box on the right and a large empty box for the handwritten code is on
@@ -7,7 +7,7 @@ another colour; they hand in the **paper** at the end of the 45 minutes (about 2
 Every answer below was run from the full solutions [`PaperLab3_Q1_Solution.py`](PaperLab3_Q1_Solution.py) and
 [`PaperLab3_Q2_Solution.py`](PaperLab3_Q2_Solution.py). **No functions:** the class has not learned `def` yet.
 Print with `python tools/problem_sheet_docx.py m3-paper-lab-worksheet-he.md out.docx 1` (one question per side).
-This lab is for the 5.3 live lesson ([`m3-live-problem-he.md`](m3-live-problem-he.md)); the earlier paper-classwork edition of 5.3
+This lab is for the Lessons 8.0–8.1 live lesson ([`m3-live-problem-he.md`](m3-live-problem-he.md)); the earlier paper-classwork edition of Lessons 8.0–8.1
 has its own worksheet and key ([`m3-classwork-answer-key.md`](m3-classwork-answer-key.md)).
 
 ## Answers

@@ -1,4 +1,4 @@
-# Unit 5.4 countdown edition — worksheet answer key and rubric
+# Lessons 8.2–8.7 countdown edition — worksheet answer key and rubric
 
 For [`m4-countdown-worksheet-he.md`](m4-countdown-worksheet-he.md). Every value below was produced by running
 [`Worksheet_Reference.py`](Worksheet_Reference.py) and changing its variables. Students' wording will differ; accept any
@@ -85,7 +85,7 @@ to the next place); without it the condition never changes and the loop never en
 
 ## Grading rubric (100 points + up to 5 bonus, capped at 100)
 
-**What is graded:** the handed-in paper worksheet. The `.py` file is not graded. Same reading rules as the 5.3 classwork:
+**What is graded:** the handed-in paper worksheet. The `.py` file is not graded. Same reading rules as the Lessons 8.0–8.1 classwork:
 
 - **Grade the final answer**, including corrections in another colour. A wrong prediction (Q1) loses nothing if one was written;
   a missing prediction costs 1 point.

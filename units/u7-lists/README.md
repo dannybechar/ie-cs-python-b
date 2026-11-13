@@ -1,4 +1,4 @@
-# Unit 7 — Lists
+# Lessons 9.1–9.5, 12.0–14.5 — Lists
 
 Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
@@ -6,7 +6,7 @@ Unit scope, official topics and hours: [`unit-strategy.md`](unit-strategy.md)
 
 > **Reconciled 9 Nov 2026 to the official Python B program** — Lists part A (files 9.1, 9.3, 9.4, 9.5 and the printable operations help sheet) was delivered
 > and is now built in; parts B, C, D (12.0–14.5) as before (see
-> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Part E (list of lists) was not delivered. The code uses `def` (Unit 3 comes
+> [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)). Part E (list of lists) was not delivered. The code uses `def` (the functions block (lessons 4.1–4.6) comes
 > first in the schedule); no nested loops, no lists of lists, no `sort(key=...)` — each official item left out for that reason is recorded in the lesson notes
 > ("Official items deliberately left out"). **Slides:** the five NotebookLM decks of the v1 build are superseded; the prep folders (`unit7-m1-slides` … `unit7-m5-slides`)
 > were refreshed on 9 Nov 2026 — **all five decks need regeneration** in NotebookLM.
@@ -18,7 +18,7 @@ Titles as in the Ministry's `links.md`: **9.2** "תרגול לפיצוח | אי�
 **12.4** "סרטון תרגול מודרך | הוספת מספר לרשימה" (YouTube, exam question 4 of תשפ"ה) · **13.4** "מאסטר פייתון | מסיבת ריקודים" (H5P) ·
 **13.5** "מאסטר פייתון | איש תלוי" (genially) · **14.3** "תרגול לפיצוח #2" (H5P). The 12.5, 12.6, 13.2, 14.2, 14.4 worksheets and 9.4 are used as lab sources.
 
-## Unit 7.1 — Lists
+## Lessons 9.1, 9.4 — Lists
 
 **Topic:** What Is a List? Creating, Indexing, Slicing
 
@@ -32,7 +32,7 @@ Titles as in the Ministry's `links.md`: **9.2** "תרגול לפיצוח | אי�
 | Teacher | [`Lists_Reference.py`](Lists_Reference.py) | Solutions, one function per task |
 | Teacher | [`m1-slides-he.pdf`](m1-slides-he.pdf) | **Superseded** deck of the v1 build (15 slides) — **needs regeneration** (NotebookLM prep folder refreshed 9 Nov 2026) |
 
-## Unit 7.2 — Lists
+## Lessons 9.3, 9.5, 12.0–12.1 — Lists
 
 **Topic:** List Operations
 
@@ -46,7 +46,7 @@ Titles as in the Ministry's `links.md`: **9.2** "תרגול לפיצוח | אי�
 | Teacher | [`Operations_Reference.py`](Operations_Reference.py) | Solutions, one function per task, plus the verified `demo()` and `table_demo()` (the 13 rows) |
 | Teacher | [`m2-slides-he.pdf`](m2-slides-he.pdf) | **Superseded** deck of the v1 build (14 slides) — **needs regeneration** (NotebookLM prep folder refreshed 9 Nov 2026) |
 
-## Unit 7.3 — Lists
+## Lessons 12.6, 13.0–13.1 — Lists
 
 **Topic:** Walking a List and the Accumulation Pattern
 
@@ -60,7 +60,7 @@ Titles as in the Ministry's `links.md`: **9.2** "תרגול לפיצוח | אי�
 | Teacher | [`Accumulate_Reference.py`](Accumulate_Reference.py) | Solutions, one function per task, with the trace of the trap |
 | Teacher | [`m3-slides-he.pdf`](m3-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — **needs regeneration** (NotebookLM prep folder refreshed 9 Nov 2026) |
 
-## Unit 7.4 — Lists
+## Lessons 13.2, 14.0–14.2 — Lists
 
 **Topic:** Counting, Filters, Maximum, Flat Menus, Parallel Lists
 
@@ -74,7 +74,7 @@ Titles as in the Ministry's `links.md`: **9.2** "תרגול לפיצוח | אי�
 | Teacher | [`Stats_Reference.py`](Stats_Reference.py) | Solutions, tested on the edge cases |
 | Teacher | [`m4-slides-he.pdf`](m4-slides-he.pdf) | **Superseded** deck of the v1 build (13 slides) — **needs regeneration** (NotebookLM prep folder refreshed 9 Nov 2026) |
 
-## Unit 7.5 — Lists
+## Lessons 12.5, 14.4 — Lists
 
 **Topic:** Linear Search, a New Phone Number, and the "AI Experiment Analyzer" — unit checkpoint
 

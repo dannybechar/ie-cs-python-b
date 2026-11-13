@@ -1,4 +1,4 @@
-# Unit 4.2 — Bringing AI into Code (API)
+# Lessons 6.1–6.2 — Bringing AI into Code (API)
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: The "Balanced Day" Project
@@ -25,20 +25,20 @@ template, the answer-critique and the 20-point rubric are kept; the warm-up is a
 (`{time_today}` instead of `{today_time}`) instead of "one call per activity" (that idea moved into golden rule 3 and
 the exit check); the sentinel and the stand-in are in English (see Tool Note).
 **Dropped on purpose:** colored output (`"\033[31m"` escape codes) — Thonny's Shell does not render them; they work in Colab
-only. The banned-words list (4.1 worksheet) — lists come in Unit 7; our `or` chain does the same job.
-**Ministry defects, not copied:** (1) the worksheet 6.2 setup snippet writes `genai.Client(api_key=YOUR_API_KEY)` with **no quotes** around the name — as written it raises `NameError`, and pasting a real key there is exactly what the golden rules forbid; our files never put a key in code (stand-in, `os.environ` or Colab Secrets, see 4.1) — if a student copies the official snippet, tell them to read the key from Colab Secrets or the environment, never to type it. (2) The official call is `answer = client.models.generate_content(...)`; printing `answer` instead of `answer.text` prints an object — the 4.1 warm-up bug already trains this, and `ask_the_ai` returns `.text`. (3) Parameter name: the Ministry decks use `my_prompt`, the 6.2.0 solution `prompt`; we use `my_prompt` throughout.
-**Live-run list for 4.2 (not verifiable offline):** `BalancedDay_Reference.py` `task3` and `task4_features` with a real key (model `gemini-2.5-flash`, `pip install -U google-genai` or Colab) — see the unit README checklist.
+only. The banned-words list (4.1 worksheet) — lists come in the lists block (lessons 9.1–9.5 and 12.0–14.5); our `or` chain does the same job.
+**Ministry defects, not copied:** (1) the worksheet 6.2 setup snippet writes `genai.Client(api_key=YOUR_API_KEY)` with **no quotes** around the name — as written it raises `NameError`, and pasting a real key there is exactly what the golden rules forbid; our files never put a key in code (stand-in, `os.environ` or Colab Secrets, see 5.0–5.2) — if a student copies the official snippet, tell them to read the key from Colab Secrets or the environment, never to type it. (2) The official call is `answer = client.models.generate_content(...)`; printing `answer` instead of `answer.text` prints an object — the 5.0–5.2 warm-up bug already trains this, and `ask_the_ai` returns `.text`. (3) Parameter name: the Ministry decks use `my_prompt`, the 6.2.0 solution `prompt`; we use `my_prompt` throughout.
+**Live-run list for 6.1–6.2 (not verifiable offline):** `BalancedDay_Reference.py` `task3` and `task4_features` with a real key (model `gemini-2.5-flash`, `pip install -U google-genai` or Colab) — see the unit README checklist.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled
 **Tool Note – Thonny vs Colab** or **Tool Note – the AI service**.
 
 ---
 
-## 1. Position in Unit 4
+## 1. Position in the API block (lessons 5.0–6.2)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 4.1 | what an API is, the Gemini call, f-strings, `ask_the_ai`, limits, golden rules, the secret key | 45 / 45 |
-| **4.2 (this)** | **the "Balanced Day" project: a returning function, accumulation, one prompt, one call** | 0 / 90 |
+| 5.0–5.2 | what an API is, the Gemini call, f-strings, `ask_the_ai`, limits, golden rules, the secret key | 45 / 45 |
+| **6.1–6.2 (this)** | **the "Balanced Day" project: a returning function, accumulation, one prompt, one call** | 0 / 90 |
 
 ---
 
@@ -91,7 +91,7 @@ result** (a short list of time blocks).
 
 | Clock | Activity |
 |---|---|
-| 0–3 | **Recap (deck slides 3–4):** f-strings and the wrapper `ask_the_ai` from 4.1 — the same code is on the slide. |
+| 0–3 | **Recap (deck slides 3–4):** f-strings and the wrapper `ask_the_ai` from 5.0–5.2 — the same code is on the slide. |
 | 3–5 | **The problem (slides 6–7):** school tasks, and no time for fun — what are the options? An app that balances. |
 | 5–8 | **What we build (slides 8–9):** 📥 input (home hour, sleep hour, tasks), ⚙ logic (the hours of the afternoon), ✨ the AI (a balanced, encouraging schedule). |
 | 8–11 | **Discussion (slide 10):** "What can the AI give us that plain code cannot?" — plain code prints a dry list ("14:00–15:00 homework"); the AI can order, split long tasks, add a break and a kind word. |
@@ -186,7 +186,7 @@ one assumption the model added, one detail to check or change. Save As `G8_U4_M2
 file). Exit question: "Why is the API called once, after the loop?"
 
 ### Tool Note – the AI service
-Same setup as 4.1 (keys from AI Studio, the model name `gemini-2.5-flash` checked before class, the key from Colab
+Same setup as 5.0–5.2 (keys from AI Studio, the model name `gemini-2.5-flash` checked before class, the key from Colab
 Secrets or an environment variable). **Quota plan:** ≈15 requests/minute per key; a class of 30 on 10 keys is three
 students per key, and each student needs only a few calls — so develop with the stand-in and switch to the real
 service for the **final run** only.
@@ -214,7 +214,7 @@ not switch keyboards; the Ministry's Hebrew `"סיום"` works exactly the same 
 
 - The warm-up error read and fixed; the debug print used
 - Stage 1, 2, 3 each run with a test input and the printed prompt
-- **Unit 4 checkpoint — "Balanced Day"** (20 points): functions that return a value (`calc_time_today`, `ask_the_ai`) 4 ·
+- **Lessons 5.0–6.2 checkpoint — "Balanced Day"** (20 points): functions that return a value (`calc_time_today`, `ask_the_ai`) 4 ·
   key security (no key in the file) 3 · dynamic prompt 3 · accumulation loop 3 · one call outside the loop 2 ·
   validation and privacy 3 · testing and explanation 2. Bands: 18–20 complete, safe and economical · 14–17 works with a minor flaw ·
   10–13 partial (a missing check or the call inside the loop) · 0–9 needs support

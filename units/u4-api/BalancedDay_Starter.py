@@ -54,7 +54,7 @@ client = FakeClient()
 
 # ===== ZONE B - your program =====
 
-# The wrapper from Unit 4.1 (use yours, or this one)
+# The wrapper from Lessons 5.0–5.2 (use yours, or this one)
 def ask_the_ai(my_prompt):
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=my_prompt)

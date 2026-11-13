@@ -1,4 +1,4 @@
-# Unit 5.1 live program: Robot ID Card machine - full solution.
+# Lesson 7.1 live program: Robot ID Card machine - full solution.
 # The program is built in six stages; each stage adds lines and the program still runs.
 
 # Stage 1 - read the name; ask again until it has at least 3 characters

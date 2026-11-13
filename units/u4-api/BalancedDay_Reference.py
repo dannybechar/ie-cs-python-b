@@ -1,4 +1,4 @@
-# Unit 4.2 - reference for the teacher: the "Balanced Day" project (Ministry worksheet 6.2, in English).
+# Lessons 6.1–6.2 - reference for the teacher: the "Balanced Day" project (Ministry worksheet 6.2, in English).
 # DEFAULT = CLASSROOM STAND-IN: ZONE A replaces the real Gemini client with a fake one that returns fixed
 # answers - plain `python`, no key, no internet. The live version is described right below ZONE A.
 # One function per task. Run one at a time: python -c "import BalancedDay_Reference as r; r.task3()"
@@ -72,7 +72,7 @@ client = FakeClient()
 # =========================================================================================
 
 
-# The wrapper from Unit 4.1
+# The wrapper from Lessons 5.0–5.2
 def ask_the_ai(my_prompt):
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=my_prompt)

@@ -1,4 +1,4 @@
-# Unit 5.4 live program: Secret Message Machine - full solution.
+# Lessons 8.2–8.7 live program: Secret Message Machine - full solution.
 # The program is built in six stages; each stage adds lines and the program still runs.
 # Use only invented messages.
 

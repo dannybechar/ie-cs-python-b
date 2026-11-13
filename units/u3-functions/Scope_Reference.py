@@ -1,4 +1,4 @@
-# Unit 3.3 - reference for the teacher.
+# Lessons 4.3, 4.6 - reference for the teacher.
 # One task per block; run ONE task at a time by removing the # from its call at the bottom.
 
 
@@ -58,7 +58,7 @@ def task2():
 
 
 # Task 3 (worksheet 4.6, question 1): a function that uses other functions. The Ministry version builds the
-# message with an f-string (taught in Unit 4); here the function returns a short word and the main program prints.
+# message with an f-string (taught in the API block (lessons 5.0–6.2)); here the function returns a short word and the main program prints.
 def parking_a():
     return 20
 

@@ -1,4 +1,4 @@
-# Unit 4.1 - reference for the teacher: the Gemini API, wrapped in ask_the_ai().
+# Lessons 5.0–5.2 - reference for the teacher: the Gemini API, wrapped in ask_the_ai().
 # DEFAULT = CLASSROOM STAND-IN: ZONE A below replaces the real Gemini client with a fake one that returns
 # fixed answers, so this file runs with plain `python`, with no key and no internet.
 # LIVE RUN (needs a real key): see "ZONE A - LIVE VERSION" right below ZONE A. Never write a key in this file.

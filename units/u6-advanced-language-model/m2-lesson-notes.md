@@ -1,4 +1,4 @@
-# Unit 6.2 — Advanced Language Model
+# Lessons 11.1–11.2 — Advanced Language Model
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2 (reworked to the Ministry materials, 8 Nov 2026)
 ### Topic: The Meaning Map, Self-Attention and the Similarity Function
@@ -14,22 +14,22 @@
 [`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md).
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
-**Prerequisite (precondition stated at the top):** Unit 3 (functions) is taught **before** this unit — the worksheet defines `calculate_similarity`
+**Prerequisite (precondition stated at the top):** the functions block (lessons 4.1–4.6) is taught **before** this unit — the worksheet defines `calculate_similarity`
 (`def` with two parameters and `return`). The Ministry hands the function over with blanks to fill; if `def` is not yet taught, hand it over
 complete and let students only call it. The only list-like syntax students meet is the "copy the form" call `model.encode([word])` (the
-library wants a list; lists proper are Unit 7) — students copy it exactly and are not asked to build lists.
+library wants a list; lists proper are the lists block (lessons 9.1–9.5, 12.0–14.5)) — students copy it exactly and are not asked to build lists.
 **Official naming caveat:** the Ministry calls the result `score_distance` and its comments say "distance", but a **higher** score means
 **closer** (1 = same meaning). We keep the official name (so files match the worksheet) and say it aloud: it is a closeness score, not a distance.
 
 ---
 
-## 1. Position in Unit 6
+## 1. Position in the advanced-language-model block (lessons 10.0–11.3)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 6.1 | tokens, tokenization, token IDs | 45 / 45 |
-| **6.2 (this)** | **meaning map, self-attention, context window, `calculate_similarity`** | 45 / 45 |
-| 6.3 | the "Semantle" project | 0 / 90 |
+| Lessons 10.0–10.2 | tokens, tokenization, token IDs | 45 / 45 |
+| **Lessons 11.1–11.2 (this)** | **meaning map, self-attention, context window, `calculate_similarity`** | 45 / 45 |
+| Lesson 11.3 | the "Semantle" project | 0 / 90 |
 
 ---
 
@@ -45,7 +45,7 @@ library wants a list; lists proper are Unit 7) — students copy it exactly and 
 | Goal 11: a similarity score is not a probability, a truth, or understanding | ✅ closing discussion |
 
 ### Deliberate exclusions
-The cosine formula, attention mathematics, training. The project itself (6.3).
+The cosine formula, attention mathematics, training. The project itself (lesson 11.3).
 
 ---
 
@@ -76,20 +76,20 @@ score = util.cos_sim(meaning_pos1, meaning_pos2).item()   # 0.30 here; closer to
 
 | Clock | Activity |
 |---|---|
-| 0–8 | **Recap and "watch" quiz** (pp. 5–6): tokens and IDs from 6.1 |
+| 0–8 | **Recap and "watch" quiz** (pp. 5–6): tokens and IDs from lessons 10.0–10.2 |
 | 8–23 | **The meaning map** (pp. 8–13): a token is a fixed point; groups; **students place** "four", "orange" and "mouse" on the board map; disputed placements explained |
 | 23–38 | **Self-attention** (pp. 13–21): "mouse" cannot have only one point; each word "listens" to the previous words (the 4-word window) and moves on the map. Predict first: *where does "mouse" go after "I clicked the…"?* |
 | 38–45 | **How much can a model hold?** (pp. 22–24): Gemini's window is about 2M tokens. **Official equivalents (11.1 p. 24):** 1.5M English words (≈ 20 thick books) · 800K Hebrew words (≈ 11 thick books) · 60,000 lines of code · 22 hours of audio · 2 hours of video ("audio and video can enter a language model too — but we won't learn that now"). Footnote for stage 2: here a token is treated roughly as a word. The **suitcase** (v1 activity, 5 min): six of ten cards fit — a bigger window is not memory and does not guarantee the details are used. Short "AI tips" (pp. 25–27): (1) tokens — spelling mistakes waste tokens, and Hebrew costs more than English in a long chat; (2) meaning map — "you are a physics professor" sends the chat to a very different area of the map than "you are a 5-year-old"; (3) self-attention — give the chat as many examples, links and documents as you can, so it can be accurate |
 
 ### Tool Note – Thonny
-Same setup as 6.1 (`pip install sentence-transformers`, model downloaded once at school). Print Hebrew directly in the Shell.
+Same setup as lessons 10.0–10.2 (`pip install sentence-transformers`, model downloaded once at school). Print Hebrew directly in the Shell.
 
 ---
 
 # 6. Second 45 Minutes — Lab (worksheet 11.2)
 
 Starter: [`Meanings_Starter.py`](Meanings_Starter.py). Reference: [`Meanings_Reference.py`](Meanings_Reference.py).
-Brief: [`m2-lab-brief-he.md`](m2-lab-brief-he.md). The Ministry's task 1 (set up the environment) is done in 6.1 — skip it.
+Brief: [`m2-lab-brief-he.md`](m2-lab-brief-he.md). The Ministry's task 1 (set up the environment) is done in lessons 10.0–10.2 — skip it.
 
 ## 45–52 — Warm-up: measuring the wrong thing
 
@@ -112,7 +112,7 @@ Fix: `character in word_b` → **5**.
 
 The starter gives the function with `___` blanks: `meaning_pos1 = model.encode([word1])`, `meaning_pos2 = model.encode([word2])`,
 `score_distance = util.cos_sim(meaning_pos1, meaning_pos2).item()`, `return score_distance`. Why must the function
-**return** the score and not print it? (6.3 uses it inside a loop.)
+**return** the score and not print it? (lesson 11.3 uses it inside a loop.)
 
 ## 62–70 — Task 2: the verdict program (worksheet task 3)
 

@@ -1,6 +1,6 @@
 # Warm-up: for score 0.70 the thermometer should show 14 fires and 6 snowflakes (a close guess is hot).
 # Predict, run, then fix one line (the two symbols are swapped).
-# Precondition: Unit 3 (def) is taught first; if not, the teacher hands out calculate_similarity and make_thermometer ready-made.
+# Precondition: the functions block (lessons 4.1–4.6) (def) is taught first; if not, the teacher hands out calculate_similarity and make_thermometer ready-made.
 # Emoji tip: press the Windows key + . (period) to type an emoji; "🔥" * 5 repeats it. Daily Semantle site: TEACHER - add the link (not guessed).
 # Needs: pip install sentence-transformers (the first run downloads the model - the teacher does it before class).
 from sentence_transformers import SentenceTransformer, util
@@ -17,7 +17,7 @@ print(make_thermometer(0.70))
 print(make_thermometer(0.20))
 
 
-# Task 1: copy calculate_similarity from your 6.2 file (or from the worksheet) and paste it here.
+# Task 1: copy calculate_similarity from your lessons 11.1–11.2 file (or from the worksheet) and paste it here.
 
 
 # Task 2 (basic game): a variable secret_word = "אוקינוס". A loop that keeps asking for a guess until

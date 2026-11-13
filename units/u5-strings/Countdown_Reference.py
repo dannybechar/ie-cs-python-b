@@ -1,4 +1,4 @@
-# Unit 5.4 - countdown cases, reference for the teacher. No functions: the class has not learned def yet.
+# Lessons 8.2–8.7 - countdown cases, reference for the teacher. No functions: the class has not learned def yet.
 # Every case is solved twice, once with a for loop and once with a while loop, using a DIFFERENT idea.
 # The countdown page is built from this file: each "# === case N for/while ===" section is run on every test
 # value (the first line, text = ..., is replaced), and what it prints becomes the expected output.

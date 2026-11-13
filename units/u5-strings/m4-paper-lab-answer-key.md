@@ -1,4 +1,4 @@
-# Unit 5.4 paper lab — answer key and rubric
+# Lessons 8.2–8.7 paper lab — answer key and rubric
 
 For [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md): **one sheet, two sides, five separate questions**, each with its **own string and its own task**; the questions do not
 continue each other. Side one has the three lighter questions (1 indices, 2 a `while` input check, 3 `count` and initials with a loop); side two has the two heavier ones, with more room
@@ -7,7 +7,7 @@ box for the handwritten code is on the left. Students write by hand first, then 
 they hand in the **paper** at the end of the 45 minutes (about 9 minutes per question).
 Every answer below was run from the solution files `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` (one per question; question 2 needs typed input). **No functions:** the class has not learned `def` yet.
 Print with `python tools/problem_sheet_docx.py m4-paper-lab-worksheet-he.md out.docx 3,2 1.3 9.0` (three questions on the first side, two on the second; font ×1.3; writing box 9 cm).
-New in 5.4 and needed here: `ord`, `chr`, `range(len(...))` with `text[i - 1]`. `split`/`join` are **not** used on this sheet.
+New in Lessons 8.2–8.7 and needed here: `ord`, `chr`, `range(len(...))` with `text[i - 1]`. `split`/`join` are **not** used on this sheet.
 
 ## Answers
 

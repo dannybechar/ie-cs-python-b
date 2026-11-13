@@ -1,6 +1,6 @@
-# Unit 5.4 — Strings: Countdown Cases + Worksheet
+# Lessons 8.2–8.7 — Strings: Countdown Cases + Worksheet
 
-## Grade 8 / AI + Python B · Countdown edition of 5.4
+## Grade 8 / AI + Python B · Countdown edition of Lessons 8.2–8.7
 ### Topic: String algorithms — four timed cases together, then a five-question worksheet (v2: cases rebuilt from the official exercises not used before)
 
 **Status:** Built, awaiting teacher approval 🔶
@@ -8,15 +8,15 @@
 **No functions:** the class has not learned `def` yet (teacher, 2 Nov 2026) — every case and question is a few statements
 under a variable (`text = "…"`), ending in `print`; to test another value, students change the variable and run again.
 **Structure:** Lab + Lab: 48 minutes of timed cases done together (countdown page), then 37 minutes of worksheet and a 5-minute exit check
-**Minutes (theory / practice):** 0 / 90 (the same as the unit plan for 5.4)
+**Minutes (theory / practice):** 0 / 90 (the same as the unit plan for Lessons 8.2–8.7)
 **Current tool:** Thonny, the countdown page in a browser (projected), a printed worksheet
 **Source of inspiration:** the **countdown method** of the teacher's IB DP1 and PDP classes
 (`ib-cs-java-dp1/units/b2-programming/test-prep-2026-11-10/countdown/`): one case at a time is projected, a big clock runs
 (green, amber, red), the room is "locked out" at zero, and the reveal shows a `for` solution and a `while` solution that use
 **different ideas**. The cases and questions come from the Ministry's teaching materials
 ([`docs/ministry-teaching-materials.md`](../../docs/ministry-teaching-materials.md)): worksheet **8.2** Q2 (case 1), guided practice **8.4** task 1 (case 2), deck **8.1** exercise #5 (case 3) and the enrichment video "new cipher" (case 4, not for the exam); worksheet exercise **8.1 #6** (count `is`, worksheet Q2) and **8.2** Q4, Q5, Q6, Q7 (the worksheet); the `or` bug of the
-existing 5.4 warm-up (worksheet question 1). **Changed from the 90-minute lab version** ([`m4-lesson-notes.md`](m4-lesson-notes.md)):
-exercise #7 (five vowel counters) is left out — the 5.3 classwork did vowels; `split`/`join` (8.1 slides 20–23) are shown only in the lab edition, not here (decision: shown and printed only, never used on a task; lists proper start in Unit 7); the checkpoint (`middle`, `edges`, `alternate_case`) is now part of a graded worksheet.
+existing Lessons 8.2–8.7 warm-up (worksheet question 1). **Changed from the 90-minute lab version** ([`m4-lesson-notes.md`](m4-lesson-notes.md)):
+exercise #7 (five vowel counters) is left out — the Lessons 8.0–8.1 classwork did vowels; `split`/`join` (8.1 slides 20–23) are shown only in the lab edition, not here (decision: shown and printed only, never used on a task; lists proper start in the lists block (lessons 9.1–14.5)); the checkpoint (`middle`, `edges`, `alternate_case`) is now part of a graded worksheet.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction is isolated and labeled **Tool Note – Thonny**.
 
 Files:
@@ -32,7 +32,7 @@ Files:
 | [`Worksheet_Starter.py`](Worksheet_Starter.py) / [`Worksheet_Reference.py`](Worksheet_Reference.py) | Students / Teacher | Question 1's bug and a variable to write under for each question; solutions with expected values |
 | [`m4-countdown-answer-key.md`](m4-countdown-answer-key.md) | Teacher | Answers, rubric (100 points + 5 bonus), marking sheet, what to look for |
 
-**Mashov upload:** `Downloads\python-b\Unit 5.4 - Strings.zip` = `Countdown_Cases.pdf` + the four case starters + `Worksheet_Starter.py`
+**Mashov upload:** `Downloads\python-b\Lessons 8.2–8.7 - Strings.zip` = `Countdown_Cases.pdf` + the four case starters + `Worksheet_Starter.py`
 (no solutions). The worksheet itself is printed. The page's "how to start" steps tell students to download this zip from Mashov.
 
 To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` or the reference and rebuild the page:
@@ -40,14 +40,14 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 
 ---
 
-## 1. Position in Unit 5
+## 1. Position in the strings block (lessons 7.1–8.7)
 
 | Meeting | Focus | Theory / practice |
 |---|---|---|
-| 5.1 | what a string is, indices (+/−), `len`, `+`, `*` | 45 / 45 |
-| 5.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
-| 5.3 | `for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` (paper-classwork edition, as taught) | 45 / 45 (official plan 0 / 90; see [`unit-strategy.md`](unit-strategy.md)) |
-| **5.4 (this edition)** | **loops over places (`for` with `range(len(text))` and `while` with an index), `ord`/`chr`, string algorithms; graded worksheet** | **0 / 90** |
+| Lesson 7.1 | what a string is, indices (+/−), `len`, `+`, `*` | 45 / 45 |
+| Lessons 7.1–7.2 | slicing, `count`, `replace`, `in`, `find` | 45 / 45 |
+| Lessons 8.0–8.1 | `for` over a string, counters, `+=` building, `isalpha`/`isdigit`/`lower` (paper-classwork edition, as taught) | 45 / 45 (official plan 0 / 90; see [`unit-strategy.md`](unit-strategy.md)) |
+| **Lessons 8.2–8.7 (this edition)** | **loops over places (`for` with `range(len(text))` and `while` with an index), `ord`/`chr`, string algorithms; graded worksheet** | **0 / 90** |
 
 ---
 
@@ -57,7 +57,7 @@ To change a case (wording, minutes, test calls), edit `m4-countdown-cases.json` 
 |---|---|
 | Goal 7: traverse with `for`, and with an index when the place matters | ✅ every case twice (`for` / `while`); worksheet Q4 |
 | Goal 8: counting, searching, validation and text-cleaning algorithms | ✅ cases 1–4; worksheet Q2–Q5 |
-| Goal 9: functions that take a string and return a value | ❌ not yet — **the class has not learned functions** (teacher, 2 Nov 2026), so every case and question is plain code: a variable, a loop, `print`. Revisit these exercises as functions after Unit 3 |
+| Goal 9: functions that take a string and return a value | ❌ not yet — **the class has not learned functions** (teacher, 2 Nov 2026), so every case and question is plain code: a variable, a loop, `print`. Revisit these exercises as functions after the functions block (lessons 4.1–4.6) |
 | Goal 10: apply string skills to AI text | ✅ case 4's debrief (a cipher protects nothing); the exit discussion |
 | Ministry addition: `ord` / `chr` | ✅ case 4 (the number cipher), exit check 1 |
 
@@ -110,13 +110,13 @@ If the class is slow, set case 4's clock to 6 minutes or do it as a live demo; d
 
 ## 6. Second 42 Minutes — Worksheet (graded)
 
-Hand out the printed worksheet; students open `Worksheet_Starter.py`. Work cycle as in 5.3: write on paper → run → compare →
+Hand out the printed worksheet; students open `Worksheet_Starter.py`. Work cycle as in Lessons 8.0–8.1: write on paper → run → compare →
 correct in another colour. Work alone. Collect the worksheets at the end; what is unfinished is finished at home and handed in
 next lesson (teacher's choice).
 
 | Clock | Question | Ministry source |
 |---|---|---|
-| 48–54 | **Q1 — find the bug:** `character == "a" or "e" or …` prints 19, not 8 | the 5.4 warm-up |
+| 48–54 | **Q1 — find the bug:** `character == "a" or "e" or …` prints 19, not 8 | the Lessons 8.2–8.7 warm-up |
 | 54–60 | **Q2 — count `is` without `count`** | 8.1 exercise 6 |
 | 60–67 | **Q3 — first 4 and last 4 characters** | 8.2 Q4 |
 | 67–75 | **Q4 — last letter of every word** | 8.2 Q5 |

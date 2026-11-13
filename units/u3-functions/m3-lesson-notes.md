@@ -1,4 +1,4 @@
-# Unit 3.3 — Functions
+# Lessons 4.3, 4.6 — Functions
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: Local and Global Variables
@@ -14,12 +14,12 @@
 `add_bonus`, the forgotten-`global` error, the local / global table; worksheet **4.5** (with the teacher solution **4.5.0**)
 exercises 1–5 feed the lab; **4.6 "תפקידי משתנים בפעולות"** (solutions in **4.5.0**) questions 1, 2 and 4 feed the lab and
 the checkpoint.
-**Changed from the previous version of 3.3** (codex deck: `print` vs `return`, bottom-up design, the task-calculator
-checkpoint): `return` moved to 3.1 and 3.2; this meeting is now the scope meeting and `global` is **taught** (the previous
+**Changed from the previous version of 4.3, 4.6** (codex deck: `print` vs `return`, bottom-up design, the task-calculator
+checkpoint): `return` moved to 4.1–4.2 and 4.4–4.5; this meeting is now the scope meeting and `global` is **taught** (the previous
 version only named it). The task-calculator checkpoint was dropped — the Ministry exercises win; the new checkpoint is a
 donation campaign adapted from 4.6 question 4. **Changes to Ministry code:** 4.6 question 1 builds its answer with an
 f-string and question 4 returns two values at once (`return sumOfDonations, numberOfHighDonors`, unpacked with
-`totalSum, highDonors = ...`); f-strings come in Unit 4 and returning several values (a tuple) is not taught, so the
+`totalSum, highDonors = ...`); f-strings come in the API block (lessons 5.0–6.2) and returning several values (a tuple) is not taught, so the
 parking function returns a short phrase (the main program prints the hours), and the donation checkpoint uses two
 global variables that `add_donation` changes — which also fits this meeting's topic. Question 3 (the calculator that returns
 four values) is held out for the same reason; the "if time" block has the four-function version. The error text on the
@@ -29,13 +29,13 @@ labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 3
+## 1. Position in the functions block (lessons 4.1–4.6)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| 3.1 | recap; several parameters and their order; `return` vs `print` | 45 / 45 |
-| 3.2 | return practice; exam questions with `while` inside functions | 0 / 90 |
-| **3.3 (this)** | **local and global variables, `global`, variable roles, unit checkpoint** | 45 / 45 |
+| 4.1–4.2 | recap; several parameters and their order; `return` vs `print` | 45 / 45 |
+| 4.4–4.5 | return practice; exam questions with `while` inside functions | 0 / 90 |
+| **4.3, 4.6 (this)** | **local and global variables, `global`, variable roles, unit checkpoint** | 45 / 45 |
 
 ---
 
@@ -49,7 +49,7 @@ labeled **Tool Note – Thonny**.
 | Assessment: tracing; developing and implementing | ✅ checkpoint |
 
 ### Deliberate exclusions
-`nonlocal`, nested functions, f-strings (Unit 4), lists as global variables (Unit 7), and the two Ministry items below.
+`nonlocal`, nested functions, f-strings (lessons 5.0–6.2), lists as global variables (lessons 9.1–9.5 and 12.0–14.5), and the two Ministry items below.
 
 **TEACHER DECISION NEEDED before the May 2027 exam — official items left out by the rulebook default.**
 
@@ -59,7 +59,7 @@ labeled **Tool Note – Thonny**.
    rulebook bans tuples in anything students see, so these two questions are **not given as written**. Replacement: question 3
    survives only as the "if time" block with four single-value functions; question 4 became the donation checkpoint with
    **two global variables** changed by `add_donation` (it practises exactly this meeting's topic, but it is a different
-   solution from the official one). 4.5.0 also uses f-strings in its answers (Unit 4). **Risk:** the Ministry exam bank
+   solution from the official one). 4.5.0 also uses f-strings in its answers (lessons 5.0–6.2). **Risk:** the Ministry exam bank
    may expect the multiple-return form. The program text (python-b-ai.pdf p. 10) lists scope and `return`, not tuples, and
    the raw clarifications drop tuples — but this is not confirmed against the exam. If the teacher decides to teach it,
    add a 10-minute section after the checkpoint (`return a, b` and `x, y = f(...)`, shown as "two values come back at once",
@@ -67,9 +67,9 @@ labeled **Tool Note – Thonny**.
    in `print`).
 2. **Default argument (lesson 4.7).** The Ministry classroom lists **4.7 "מאסטר פייתון (עבודה בזוגות)"**, an H5P
    (`https://h5p.org/node/1498619`, titled in `links.md` "ערך ברירת מחדל כארגומנט בפעולה" — a default value for a
-   parameter, `def f(x, y=10)`). It follows 4.6, so it belongs to Unit 3. It was **not built**: the rulebook forbids default
+   parameter, `def f(x, y=10)`). It follows 4.6, so it belongs to the functions block (lessons 4.1–4.6). It was **not built**: the rulebook forbids default
    arguments in our own functions, and the H5P itself is not among the delivered files (only its link). Options: skip
-   (default), show it as 5 minutes of enrichment in 3.3 "if time" (`def greet(name, greeting="Hello")`), or lift the rule
+   (default), show it as 5 minutes of enrichment in 4.3, 4.6 "if time" (`def greet(name, greeting="Hello")`), or lift the rule
    for this item and give the H5P as pairs homework. This too must be settled before the exam.
 
 Teacher-side only (not for students): the official question 4 in the form 4.5.0 gives, to check against any exam paper:
@@ -129,7 +129,7 @@ def show_square(num):
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 3.3 – פעולות · "משתנה מקומי ומשתנה גלובלי" |
+| 0–2 | Title: שיעורים 4.3, 4.6 – פעולות · "משתנה מקומי ומשתנה גלובלי" |
 | 2–6 | **Hook:** `average_grade(85, 95)` — `grade1` and `grade2` are used inside the function. Can `print(grade1)` work after the call? Vote, then test |
 | 6–13 | **A local variable's life (deck 4.3, slides 4–6):** `print_square(4)`; `result` is born and dies with the call; **predict** `print(result)` at the end → `NameError` (question slide first, answer on the next) |
 | 13–17 | **Separate worlds:** `print_square(3)`, `print_cube(2)` — both use `result`; no clash |

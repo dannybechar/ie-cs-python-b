@@ -1,4 +1,4 @@
-# Unit 3.1 — Functions
+# Lessons 4.1–4.2 — Functions
 
 ## Grade 8 / AI + Python B · Lesson Strategy v2
 ### Topic: Several Parameters and `return`
@@ -14,24 +14,24 @@ parameters, parameter order, the `calculate average` and `print_total` examples,
 `print` vs `return` (`square_print` / `square_return`), the five steps of a call that returns, `return` stops the
 function, using the returned value, the forgotten-`return` `None` trap, the four-kinds table; and worksheet
 **4.2 "דף תרגילים — פעולה המחזירה ערך"** (with the teacher solution **4.2.0**) feeds the lab: exercises 1–6.
-**Changed from the previous version of 3.1** (codex deck: `def`, the call, execution order, a four-function control
+**Changed from the previous version of 4.1–4.2** (codex deck: `def`, the call, execution order, a four-function control
 panel, no parameters): the control-panel lab is gone; no-parameter functions are now a **7-minute recap** (the program
 lists them, and some students may not have met one), and the meeting moves on to what the Ministry teaches here:
 several parameters and `return`. The call-before-`def` warm-up bug became a recap question. Not used from 4.1:
-nothing — slides 24–28 (`find_max`, `final_grade`) are held for 3.2. Changes to Ministry code: none in the lecture
+nothing — slides 24–28 (`find_max`, `final_grade`) are held for 4.4–4.5. Changes to Ministry code: none in the lecture
 examples; `check_pass` and the others run as written.
 **Tool-dependence rule:** Keep lesson content IDE-neutral. Any tool-specific instruction must be isolated and
 labeled **Tool Note – Thonny**.
 
 ---
 
-## 1. Position in Unit 3
+## 1. Position in the functions block (lessons 4.1–4.6)
 
 | Meeting | Focus | Theory / practice minutes |
 |---|---|---|
-| **3.1 (this)** | **recap; several parameters and their order; `return` vs `print`** | 45 / 45 |
-| 3.2 | return practice, exam questions with `while` inside functions | 0 / 90 |
-| 3.3 | local and global variables, `global`, variable roles, unit checkpoint | 45 / 45 |
+| **4.1–4.2 (this)** | **recap; several parameters and their order; `return` vs `print`** | 45 / 45 |
+| 4.4–4.5 | return practice, exam questions with `while` inside functions | 0 / 90 |
+| 4.3, 4.6 | local and global variables, `global`, variable roles, unit checkpoint | 45 / 45 |
 
 ---
 
@@ -45,8 +45,8 @@ labeled **Tool Note – Thonny**.
 | Python syntax: colon, indentation, `def` | ✅ recap |
 
 ### Deliberate exclusions
-Scope and `global` (3.3), exam-style loops inside functions (3.2), default and keyword arguments, returning more than
-one value (the Ministry's worksheet 4.6 does it; it is a tuple and is not taught here — deliberate, a **teacher decision before the May 2027 exam**, see 3.3 section 2), the 4.7 H5P "default value for an argument" (`def f(x, y=10)`, also deliberately left out, see 3.3 section 2). Ministry slide 16 is a "template" slide (`def name(param1, param2, ...): return(...)`); the four-kinds table in the lesson covers the same ground. Also not taught: recursion, lists.
+Scope and `global` (4.3, 4.6), exam-style loops inside functions (4.4–4.5), default and keyword arguments, returning more than
+one value (the Ministry's worksheet 4.6 does it; it is a tuple and is not taught here — deliberate, a **teacher decision before the May 2027 exam**, see 4.3, 4.6 section 2), the 4.7 H5P "default value for an argument" (`def f(x, y=10)`, also deliberately left out, see 4.3, 4.6 section 2). Ministry slide 16 is a "template" slide (`def name(param1, param2, ...): return(...)`); the four-kinds table in the lesson covers the same ground. Also not taught: recursion, lists.
 
 ---
 
@@ -85,7 +85,7 @@ x = square_return(5)                          # x = 25
 
 | Clock | Activity |
 |---|---|
-| 0–2 | Title: יחידה 3.1 – פעולות · "כמה פרמטרים וערך חוזר" |
+| 0–2 | Title: שיעורים 4.1–4.2 – פעולות · "כמה פרמטרים וערך חוזר" |
 | 2–9 | **Recap (pairs, predict):** a zero-parameter `show_header()` and a one-parameter `greet(name)`; write the output of four lines of calls. Cover `def` vs the call, and that the `def` must come before the call (`NameError` otherwise) — students who have never seen a no-parameter function get it here |
 | 9–17 | **Several parameters (deck 4.1, slides 4–7):** the comma in the `def` and in the call; `greet("Dana", 14)` vs `greet(14, "Dana")` — predict the second line; `print_average(85, 95)` |
 | 17–25 | **Write it (alone, then check):** `print_total("pencil", 3, 5)` → `Total for pencil is: 15 shekels` (slides 8–9). Then show the wrong-count call and read the `TypeError` aloud |
