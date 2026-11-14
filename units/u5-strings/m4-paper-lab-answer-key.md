@@ -1,12 +1,12 @@
 # Lessons 8.2–8.7 paper lab — answer key and rubric
 
 For [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md): **one sheet, two sides, five separate questions**, each with its **own string and its own task**; the questions do not
-continue each other. Side one has the three lighter questions (1 indices, 2 a `while` input check, 3 `count` and initials with a loop); side two has the two heavier ones, with more room
-(4 a shift cipher with `ord`/`chr`, 5 a number code with dashes and a total). The font is enlarged (printed at 1.3 × the usual size). In each row the question is in a box on the right and a large empty
+continue each other. Side one has questions 1 (indices) and 2 (a `while` input check); side two has 3 (`count` and initials with a loop), 4 (a shift cipher with `ord`/`chr`) and 5 (a number code with dashes and a total). The font is enlarged (1.25 × the usual size).
+**Every question has a "כלים לשימוש" box listing the methods and expressions to use** (not the solution): Q1 `len`, `[0]`, `[-1]`, `[len // 2]`; Q2 `input`, `while len(...) < 4`, `[0].upper()`; Q3 `count(" ")`, `range(1, len)`, `[i - 1] == " "`, `.upper()`; Q4 `for ch in`, `isalpha`, `ord`, `chr`, `+=`; Q5 `for ch in`, `ord(ch) - 96`, `str`, `!= ""`, `+=`. In each row the question is in a box on the right and a large empty
 box for the handwritten code is on the left. Students write by hand first, then type the code in Thonny ([`PaperLab4_Starter.py`](PaperLab4_Starter.py)), check, and correct in another colour;
 they hand in the **paper** at the end of the 45 minutes (about 9 minutes per question).
 Every answer below was run from the solution files `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` (one per question; question 2 needs typed input). **No functions:** the class has not learned `def` yet.
-Print with `python tools/problem_sheet_docx.py m4-paper-lab-worksheet-he.md out.docx 3,2 1.3 9.0` (three questions on the first side, two on the second; font ×1.3; writing box 9 cm).
+Print with `python tools/problem_sheet_docx.py m4-paper-lab-worksheet-he.md out.docx 2,3 1.25 8.0` (two questions on the first side, three on the second; font ×1.25; writing box 8 cm).
 New in Lessons 8.2–8.7 and needed here: `ord`, `chr`, `range(len(...))` with `text[i - 1]`. `split`/`join` are **not** used on this sheet.
 
 ## Answers

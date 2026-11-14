@@ -6,6 +6,12 @@
 ```python
 city = "jerusalem"
 ```
+**כלים לשימוש:**
+```python
+len(city)
+city[0]    city[-1]
+city[len(city) // 2]
+```
 ```text
 First: j
 Last: m
@@ -14,6 +20,12 @@ Middle: s
 ```
 ## שאלה 2: שם משתמש
 בקשו שם משתמש, ושאלו שוב כל עוד יש בו פחות מ-4 תווים. אחר כך הדפיסו ברכה עם האות הראשונה באות גדולה, ואת האורך.
+**כלים לשימוש:**
+```python
+input()
+while len(username) < 4:
+username[0].upper()
+```
 ```text
 Username: ab
 Too short, try again
@@ -26,6 +38,12 @@ Length: 6
 ```python
 band = "red hot chili peppers"
 ```
+**כלים לשימוש:**
+```python
+band.count(" ")
+for i in range(1, len(band)):
+band[i - 1] == " "    .upper()
+```
 ```text
 Words: 4
 Initials: RHCP
@@ -35,6 +53,12 @@ Initials: RHCP
 ```python
 text = "hello world"
 ```
+**כלים לשימוש:**
+```python
+for ch in text:
+ch.isalpha()
+ord(ch)    chr(number)    +=
+```
 ```text
 Coded: jgnnq yqtnf
 ```
@@ -42,6 +66,12 @@ Coded: jgnnq yqtnf
 נתונה מילה. בנו קוד מספרים: המקום של כל אות באלף-בית (a היא 1), כשהמספרים מופרדים במקפים ואין מקף בסוף. הדפיסו גם את סכום המספרים.
 ```python
 word = "snow"
+```
+**כלים לשימוש:**
+```python
+for ch in word:
+ord(ch) - 96    str(number)
+numbers != ""    +=
 ```
 ```text
 Number code: 19-14-15-23
