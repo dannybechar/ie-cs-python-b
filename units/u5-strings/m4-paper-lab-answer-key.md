@@ -95,6 +95,12 @@ for question 3 `len(band.split(" "))` is **not** expected (`split` is shown only
 (`numbers[:-1]`), and `ord(ch) - ord("a") + 1` for `ord(ch) - 96`. Question 4 has no wrap-around by design (no letter of the example reaches `z`); a student who adds the
 `if code > ord("z")` check from the live lesson gets the same answer and full marks.
 
+## Challenge for early finishers (projected, solved in Thonny)
+
+[`m4-challenge-he.pdf`](m4-challenge-he.pdf) — one slide, extra-large fonts. **The mirror cipher:** `a`↔`z`, `b`↔`y` …; capitals stay capitals, spaces and signs stay; apply it twice and check that the original comes back.
+Solution: [`PaperLab4_Challenge_Solution.py`](PaperLab4_Challenge_Solution.py) (`Svool Dliow` / `Back: Hello World` / `Same: yes`). The key idea is that every pair has the same sum of numbers
+(`ord("a") + ord("z")`), so the mirror of `ch` is that sum minus `ord(ch)`; the capitals use `ord("A") + ord("Z")`. Not graded; it may earn a bonus at the teacher's discretion (the rubric is capped at 100).
+
 ## Grading rubric (100 points)
 
 **What is graded:** the handed-in paper; the `.py` file is not graded. Grade the **final answer**, including corrections in another colour.

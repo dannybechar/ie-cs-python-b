@@ -10,6 +10,8 @@ ap.add_argument("--card", default="", help="a word shown in a card on the title 
 ap.add_argument("--boxes", default="", help="slides that get the letter boxes, e.g. 7,8")
 ap.add_argument("--boxes-word", default="ROBOT")
 ap.add_argument("--no-title", action="store_true", help="slide 1 is a normal slide, not the title slide")
+ap.add_argument("--scale", type=float, default=1.0, help="multiply every font size (extra large text for a projected one-slide challenge)")
+ap.add_argument("--stack", action="store_true", help="show each code block above its output (full width) instead of side by side")
 ap.add_argument("--numbered", default="", help="slides whose bullets are a numbered list, e.g. 19")
 args = ap.parse_args()
 BOX_SLIDES = [int(x) for x in args.boxes.split(",") if x]
@@ -162,6 +164,8 @@ footer{position:absolute;left:0;right:0;bottom:0;height:40px;background:#1a365d;
 .robot{font-size:130px}.card{display:inline-block;margin-top:24px;background:#fff;border:5px solid #2b6cb0;border-radius:16px;padding:10px 60px;font:bold 60px "Courier New",monospace;direction:ltr}
 .n1{background:linear-gradient(#e6f0ff,#fff)}
 """
-out = f'<!DOCTYPE html><html lang="he" dir="rtl"><meta charset="utf-8"><title>{FOOT}</title><style>{css}</style><body>' + "\n".join(render(s) for s in slides) + "</body></html>"
+FS = re.compile(r"font-size:\s*([0-9.]+)px")
+_scale = lambda t: FS.sub(lambda m: f"font-size:{float(m.group(1)) * args.scale:.0f}px", t)
+out = f'<!DOCTYPE html><html lang="he" dir="rtl"><meta charset="utf-8"><title>{FOOT}</title><style>{_scale(css)}{'.pair{grid-template-columns:1fr !important;gap:8px}' if args.stack else ''}</style><body>' + _scale("\n".join(render(s) for s in slides)) + "</body></html>"
 open(args.out, "w", encoding="utf-8").write(out)
 print(len(slides), "slides")
