@@ -27,14 +27,12 @@ Results: `j`, `m`, `9`, `s` (place 4).
 **Question 2** — no given string (the user types `ab`, then `pixel7`)
 
 ```python
-sentence = "the quick brown fox jumps"
-
-words = sentence.count(" ") + 1
-print("Words:", words)
-if words > 4:
-    print("Long sentence")
-else:
-    print("Short sentence")
+username = input("Username: ")
+while len(username) < 4:
+    print("Too short, try again")
+    username = input("Username: ")
+print("Hello", username[0].upper())
+print("Length:", len(username))
 ```
 
 Results: `Too short, try again` once, then `Hello P`, `Length: 6`.

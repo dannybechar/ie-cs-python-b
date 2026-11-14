@@ -104,6 +104,7 @@ decode); a 10-slide deck (five pairs: content slide, then a code-examples slide 
 | Teacher | [`m4-live-program.py`](m4-live-program.py), `Live4_Step1_Checks.py` … `Live4_Step5_ReportAndReceiver.py` | Full solution and five cumulative demo files |
 | Teacher | [`m4-live-slides-he.pdf`](m4-live-slides-he.pdf) | 10-slide deck, five content + code-example pairs, no title slide (54 min; source [`m4-live-source-slides.md`](m4-live-source-slides.md)) |
 | Student | [`m4-paper-lab-worksheet-he.md`](m4-paper-lab-worksheet-he.md), `PaperLab4_Starter.py` | One-sheet handwritten lab: five separate questions, each with its own string and task (3 + 2 per side, enlarged font; 45 min) |
+| Teacher | [`m4-paper-lab-teacher-guide-he.md`](m4-paper-lab-teacher-guide-he.md) | Printable teacher guide (Hebrew, 6 pages): full solutions, expected output, accepted variants, common errors and points for the five questions and the challenge, grade scale, marking sheet |
 | Teacher | [`m4-challenge-he.pdf`](m4-challenge-he.pdf), [`m4-challenge-source-slides.md`](m4-challenge-source-slides.md), [`PaperLab4_Challenge_Solution.py`](PaperLab4_Challenge_Solution.py) | One-slide early-finisher challenge for the wall projector (extra-large fonts, solved in Thonny, nothing written on paper): the mirror cipher `a`↔`z` |
 | Teacher | [`m4-paper-lab-answer-key.md`](m4-paper-lab-answer-key.md), `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` | Key, 100-point rubric, one solution per question |
 
