@@ -110,6 +110,10 @@ Lesson 7.1 is the template; build lessons 7.1–7.2 (slicing, `count`, `replace`
    `Downloads\פדגוגיה\python-b\מעבדות-יחידה-5.<M>\` (`5.<M>-code`, `5.<M>-lab`, the deck PDF, the full program); the deck source is
    `Downloads\פדגוגיה\python-b\lessons\unit5-m<M>-live-slides\1-source-slide-content.md`. The packages for lessons 7.1–7.2 and 8.0–8.1 were built by two parallel
    sub-agents that did not touch shared documents; the main agent then updated the README, course map, class progress and memory and committed.
+**Variant for later meetings (teacher's corrections, 13–14 Nov 2026, built for lessons 8.2–8.7):** the deck can be **10 slides = five pairs** (a content slide, then a
+   code-examples slide with complete standalone snippets the teacher copies into Thonny; `build_deck.py --no-title`); the paper lab can be **five separate questions** (own string and task each, 2 + 3 per side,
+   a "כלים לשימוש" box per question with the methods to use, `problem_sheet_docx.py in.md out.docx 2,3 1.25 8.0`); add a one-slide **early-finisher challenge** for the projector
+   (`--scale 1.3 --stack`, solved in Thonny) and a printable Hebrew **teacher guide** with full solutions. Estimate the student time before finalising a lab (45–55 minutes for the average student on five questions).
 5. **Deliver:** the deck PDF, the worksheet `.docx` + `.pdf` (Downloads root) and the solution `.py` files for the teacher to review; update the unit README,
    `course-map.md` (meeting-log note and Assessments row), `class-progress.md`, memory; commit and push.
 
