@@ -7,6 +7,8 @@ depth boundaries: [`docs/annual-strategy.md`](docs/annual-strategy.md).
 > **Hours rule (teacher's decision):** theory/practice hours come from the master table. The chapter tables of program units 1, 3,
 > 5 and 7 give a different split (1: 2 / 4, 3: 1 / 5, 5: 3 / 5, 7: 4 / 6); they are used only for the order and weight of topics.
 
+> **Layout (14 Nov 2026):** unit folders are now `lessons/`, `teacher/`, `exercises/`, `assessment/` with entry pages and a [`CONTENTS.md`](CONTENTS.md) hub; the file names in the tables below that read `m<K>-…` are the old flat names, mapped in [`units/README.md`](units/README.md).
+
 ## Time budget
 
 1 academic hour = 45 minutes, so the course is 60 hours = **2,700 minutes** = 30 double meetings of 90 minutes.

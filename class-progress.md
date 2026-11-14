@@ -5,6 +5,8 @@ Updated on the teacher's say-so after each lesson.
 
 Status: ✅ taught · ▶ next · ⏭ skipped for now (to be taught later) · ⏳ planned.
 
+Repository layout changed on 14 Nov 2026 (lessons/teacher/exercises/assessment per unit): file names mentioned below may use the old flat `m<K>-…` names; see [`units/README.md`](units/README.md).
+
 ## Where we are (14 Nov 2026)
 
 - **Done:** **the Python A review block** (Lessons 1.0–1.1, 1.2–1.4, 2.0–2.3) **including its written test** (given 18/24 Oct 2026 and graded; the Form B retest for two students is set for 11 Nov 2026).
