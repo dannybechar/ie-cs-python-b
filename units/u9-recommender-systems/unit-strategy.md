@@ -87,8 +87,8 @@ Chapter goals (source §1, fourteen in all):
   and `csv.reader` are therefore replaced: each person's answers are **one string** (`"00XVV"`), the data are three flat parallel lists
   (`item_names`, `aliases`, `answers`), every function returns one value (`None` for "nothing found").
 - **No file reading in student code.** Nothing in Python A or the Ministry decks teaches `open`, and the Ministry shows no CSV code on its slides
-  (it lives in the missing 21.2). The data are typed in as lists; [`CsvToLists_Teacher.py`](CsvToLists_Teacher.py) (a teacher tool using
-  `open` / `split`) turns the Forms CSV into the three lines the students paste. [`ratings.csv`](ratings.csv) is the Ministry's sample table with
+  (it lives in the missing 21.2). The data are typed in as lists; [`CsvToLists_Teacher.py`](teacher/solutions/CsvToLists_Teacher.py) (a teacher tool using
+  `open` / `split`) turns the Forms CSV into the three lines the students paste. [`ratings.csv`](exercises/ratings.csv) is the Ministry's sample table with
   aliases instead of first names.
 - **Lessons 22.0–22.1 simulation redesigned.** v1's card rule (two same-topic cards plus one other each round) gave a constant 2 of 3 and showed no
   growth. The new toy grows the related share (1, 2, 3, 4, 4 of 5) and adds `count_different`; it is flagged everywhere as a toy with invented numbers.

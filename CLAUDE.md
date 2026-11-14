@@ -11,6 +11,15 @@ when a format is unclear, open the matching file there and copy its shape.
 Start every session by reading `class-progress.md` (what the class has actually been taught), `course-map.md` (what is built,
 approved and pending) and the memory index. After every lesson, update `class-progress.md`.
 
+## Repository structure for units (restructured 14 Nov 2026)
+
+- Every unit lives in `units/<id>-<name>/` with the layout in [`units/README.md`](units/README.md): an entry page `README.md`, `background-paper.md` (not yet supplied), `unit-plan.md`, `lessons/`, `exercises/`, `assessment/`, `teacher/`. The hub is [`CONTENTS.md`](CONTENTS.md).
+- The lesson page `lessons/L<NN>-<slug>.md` is the Hebrew student lab brief; its generated `L<NN>-<slug>.html` deck sits beside it (Markdown is the source of truth, never edit the HTML; rebuild with `python tools/lesson-decks/build_decks.py`). PDFs and student worksheets of a meeting are in `lessons/L<NN>-<slug>/`.
+- Teacher-only files (lesson notes, live problems, answer keys, teacher guides, countdown cases, solutions, live steps) go in `teacher/`, never in `lessons/`, `exercises/` or `assessment/`. Starters and data files go in `exercises/`.
+- **The routines below still say `m<M>-…` and flat file names: read them with the old-to-new map in [`units/README.md`](units/README.md).** New files follow the new layout: `m<M>-lab-brief-he.md` becomes `lessons/L<NN>-<slug>.md`, `m<M>-lesson-notes.md` becomes `teacher/L<NN>-<slug>-notes.md`, `m<M>-slides-he.pdf` becomes `lessons/L<NN>-<slug>/slides-he.pdf`, `*_Reference.py` / `*_Solution.py` go to `teacher/solutions/`, `Live*_Step*.py` to `teacher/live-steps/`. The countdown JSON keeps `reference`, `output`, `instructions` and `starter_dir` as paths relative to its own folder (`teacher/`).
+- Obtain or write the background paper before drafting a unit's lessons. Whenever a unit gains or changes material, update its row in `CONTENTS.md`, its entry page and its `unit-plan.md`. Do not link planned material that does not exist.
+- Before finishing, run `bash tools/check-structure.sh`, `python -I tools/check-repo.py` and `python tools/lesson-decks/build_decks.py --check`, and report any failure. Do not push unless the teacher says so (the teacher's standing "commit and push without asking" for routines still applies to routine commits on `main`).
+
 ## The teacher's commands
 
 The teacher names meetings by **official lesson numbers** ("build 8.2", "approve 8.0–8.1"); look the label up in [`docs/official-numbering.md`](docs/official-numbering.md).
@@ -77,10 +86,10 @@ The teacher makes each deck in NotebookLM. Create `Downloads\python-b\unit<U>-m<
 ### "live lesson <lessons>" (also: a frontal lesson built around one problem)
 
 The teacher presents one problem split into a few incremental stages and builds it live in Thonny on the projector.
-**Lesson 7.1 (file key u5/m1) is the working example:** [`m1-live-problem-he.md`](units/u5-strings/m1-live-problem-he.md) (problem + stages, no
-line-by-line script — the teacher leads the discussion), [`m1-live-program.py`](units/u5-strings/m1-live-program.py) (full
+**Lesson 7.1 (file key u5/m1) is the working example:** [`L01-a-string-is-a-sequence-live-problem-he.md`](units/u5-strings/teacher/L01-a-string-is-a-sequence-live-problem-he.md) (problem + stages, no
+line-by-line script — the teacher leads the discussion), [`L01-a-string-is-a-sequence-live-program.py`](units/u5-strings/teacher/solutions/L01-a-string-is-a-sequence-live-program.py) (full
 solution), `Live_Step1_…`–`Live_Step5_…` (cumulative files, each runnable, new lines marked), and the deck
-([`m1-live-slides-he.pdf`](units/u5-strings/m1-live-slides-he.pdf)). Slides: problem and sample run, a stage table, then one
+([`live-slides-he.pdf`](units/u5-strings/lessons/L01-a-string-is-a-sequence/live-slides-he.pdf)). Slides: problem and sample run, a stage table, then one
 slide per step with code, output and a discussion question; predict slides are question-only; error demos get their own slide.
 Build the deck either through NotebookLM (the "prepare slides" routine) or directly with
 [`tools/live-deck`](tools/live-deck/README.md). Verify every file with sample inputs; put the PDF and the code folder under
@@ -138,7 +147,7 @@ A 90-minute Lab + Lab: **four timed cases done together** on a projected countdo
 IB DP1/PDP classes: a big clock that turns amber then red, "ננעל!" at zero, then a reveal of a `for` solution and a
 `while` solution that use **different ideas**), then **a graded five-question worksheet** done in class on paper + Thonny.
 **Lessons 8.2–8.7 (file key u5/m4) is the complete working example — open it and copy its shape:**
-[`m4-countdown-lesson-plan.md`](units/u5-strings/m4-countdown-lesson-plan.md), `m4-countdown-cases.json`,
+[`L04-string-algorithms-and-cipher-countdown-lesson-plan.md`](units/u5-strings/teacher/L04-string-algorithms-and-cipher-countdown-lesson-plan.md), `m4-countdown-cases.json`,
 `Countdown_Reference.py`, `m4-countdown-worksheet-he.md`, `Worksheet_Starter.py` / `Worksheet_Reference.py`,
 `m4-countdown-answer-key.md`, and [`tools/countdown/README.md`](tools/countdown/README.md).
 
@@ -151,7 +160,7 @@ IB DP1/PDP classes: a big clock that turns amber then red, "ננעל!" at zero, 
 3. **Cases:** `m<M>-countdown-cases.json` (Hebrew title/goal/contrast, English goal, minutes, test values, starter file
    name, zip name in the "how to start" steps) + `<Prefix>Countdown_Reference.py` with `# === case N for ===` / `while`
    sections, each starting with `text = "…"`. Build: `python tools/countdown/build_countdown.py units/<unit>/m<M>-countdown-cases.json`
-   → the page `m<M>-countdown-he.html`, the students' instructions `m<M>-countdown-cases-he.md` (no solutions) and one
+   → the page `teacher/L<NN>-<slug>-countdown-he.html` (it shows the solutions, so it is teacher-only), the students' instructions `m<M>-countdown-cases-he.md` (no solutions) and one
    `<Topic>_Starter.py` per case. Never edit generated files by hand; the build refuses if `for` and `while` disagree.
    Mark code inside Hebrew contrast text with backticks (the page shows it left-to-right).
 4. **Worksheet:** `m<M>-countdown-worksheet-he.md`, `<Prefix>Worksheet_Starter.py` / `_Reference.py`, and
@@ -237,7 +246,7 @@ and make the README and course map describe the current state.
   Google Docs keep it; `tools/md_to_docx.py` does this — check the rendered PDF/Word, not just the Markdown.
 - **Problem sheet (handwriting lab, 6 Nov 2026):** one A4 sheet, two sides at most; every problem is a row with the problem in a box on the
 right and an empty box for handwritten code beside it (the lesson 7.1 sheet: two questions with four sub-questions each, one per side, `... out.docx 1`). Source: Markdown with one `## ` per problem; build with
-`python tools/problem_sheet_docx.py in.md out.docx 3`. Example: [`m1-paper-lab-worksheet-he.md`](units/u5-strings/m1-paper-lab-worksheet-he.md).
+`python tools/problem_sheet_docx.py in.md out.docx 3`. Example: [`paper-lab-worksheet-he.md`](units/u5-strings/lessons/L01-a-string-is-a-sequence/paper-lab-worksheet-he.md).
 
 **Printed worksheets** (teacher's rule, 31 Oct 2026): build the Word file with
   `python tools/md_to_docx.py in.md out.docx --worksheet`. Every code block is its own **boxed grey square**, set in **bold

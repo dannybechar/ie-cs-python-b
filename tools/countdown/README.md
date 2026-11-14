@@ -20,7 +20,7 @@ Everything a student or the projector sees is **generated** — never edit it by
 - `countdown_template.html` (here): the page itself.
 
 ```
-python tools/countdown/build_countdown.py units/u5-strings/m4-countdown-cases.json
+python tools/countdown/build_countdown.py units/u5-strings/teacher/L04-string-algorithms-and-cipher-countdown-cases.json
 ```
 
 It writes the page, the students' instructions (Markdown — goal, file, test values, expected output, no solutions) and one
@@ -28,4 +28,4 @@ starter file per case. Turn the instructions into a PDF with `python tools/md_to
 `soffice --headless --convert-to pdf`, and zip the PDF with the starters for Mashov. Python 3, standard library only.
 Rebuild and commit after any change to the JSON, the reference or the template.
 
-Used by: [Lessons 8.2–8.7 countdown edition](../../units/u5-strings/m4-countdown-lesson-plan.md).
+Used by: [Lessons 8.2–8.7 countdown edition](../../units/u5-strings/teacher/L04-string-algorithms-and-cipher-countdown-lesson-plan.md).

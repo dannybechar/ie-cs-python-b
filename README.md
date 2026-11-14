@@ -1,5 +1,7 @@
 # Grade 8 — AI + Python B
 
+**Start here: [Table of contents (ordered unit material)](CONTENTS.md)**
+
 This repository is the source of truth for working examples and teaching
 resources for the Grade 8 course **"בינה מלאכותית בשילוב מדעי המחשב — AI2
 בשילוב פייתון ב'"**, the Ministry of Education's new program, first taught in
@@ -37,23 +39,30 @@ A 90-minute meeting is named by the range of official lessons it covers, e.g. **
 ## Repository layout
 
 ```
-CLAUDE.md                   — the build / review / approve workflow
+README.md, CONTENTS.md      — this page and the table of contents of all units (the navigation hub)
+CLAUDE.md                   — the build / review / approve workflow and working rules
+course-map.md, class-progress.md — schedule, time budget, what the class has been taught
 docs/
   annual-strategy.md        — year-wide strategy (hours, meeting outline, depth boundaries, tools, exit profile)
   annual-work-plan-he.docx  — annual work plan for the school (Hebrew)
+  official-numbering.md     — official lesson numbers: how every meeting is named
   ministry-source/          — the official ministry PDFs this course answers to
   ministry-teaching-materials.md — index of the Ministry decks/worksheets (source of truth) and the rulebook
+  standards/                — governing standards, incl. the HTML lesson deck standard
 tools/
+  lesson-decks/             — generates the HTML slide deck beside every lesson page; check-structure.sh, check-repo.py
   deck-patch-kit/           — scripts for reviewing and patching the NotebookLM slide decks
   countdown/                — builds a projected countdown page of timed cases (for/while reveal) from a unit JSON
-units/
+  live-deck/, problem_sheet_docx.py, md_to_docx.py — live-lesson decks and printed worksheets
+units/                      — see units/README.md for the layout and the old-to-new file map
   u{N}-{official-unit-slug}/
-    README.md               — index of the unit's meetings and their files
-    unit-strategy.md        — that unit's official scope + meeting breakdown
-    m{K}-lesson-notes.md    — teacher: minute-by-minute plan for meeting K
-    m{K}-slides-he.pdf      — teacher: Hebrew slide deck (NotebookLM, patched)
-    m{K}-lab-brief-he.md    — student: Hebrew lab brief
-    *_Starter.py / *_Reference.py — lab code for the unit's meetings
+    README.md               — unit entry page: links to everything in the unit
+    unit-plan.md, unit-strategy.md — lesson sequence and the official scope
+    lessons/L{NN}-{slug}.md, .html — student lab brief (source of truth) and generated HTML deck
+    lessons/L{NN}-{slug}/   — slides-he.pdf (NotebookLM), live deck, paper-lab / countdown worksheets
+    exercises/              — student starter code and data files
+    assessment/             — student test sheets (Python A review unit)
+    teacher/                — TEACHER-ONLY: lesson notes, keys, solutions/, live-steps/
 ```
 
 ## Repository conventions

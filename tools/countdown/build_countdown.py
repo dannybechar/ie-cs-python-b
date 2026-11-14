@@ -12,15 +12,15 @@ Reads, from the folder of the JSON file:
   - <cases>.json       title, subtitle, footer, unit, the steps to get the files, and per case: starter file name,
                        English goal (for the starter's comment), Hebrew title and goal, minutes, tools used,
                        test values, how the two solutions differ
-  - the reference .py  sections "# === case N for ===" and "# === case N while ===". The first code line of a
+  - the reference .py (path in "reference", relative to the JSON file)  sections "# === case N for ===" and "# === case N while ===". The first code line of a
                        section is  text = "..."  ; the build replaces it with every test value, runs the section,
                        and stops if the for and while versions print different things
-Writes, into the same folder:
+Writes ("output", "instructions" and "starter_dir" are paths relative to the JSON file's folder):
   - the page (<output>), the students' instructions (<instructions>, Markdown, no solutions),
     and one starter file per case (<file>)
 
 Usage (Python 3, standard library only):
-  python tools/countdown/build_countdown.py units/u5-strings/m4-countdown-cases.json
+  python tools/countdown/build_countdown.py units/u5-strings/teacher/L04-string-algorithms-and-cipher-countdown-cases.json
 """
 import contextlib
 import io
@@ -131,7 +131,7 @@ def main():
           page.replace("/*__DATA__*/{}", data).replace("__TITLE__", meta["title"]))
     write(os.path.join(folder, meta["instructions"]), instructions(meta, cases))
     for c in cases:
-        write(os.path.join(folder, c["file"]), c["starter"])
+        write(os.path.join(folder, meta.get("starter_dir", ""), c["file"]), c["starter"])
     for c in cases:
         print("  case %d: %s" % (c["num"], " | ".join("%s -> %s" % (v, e) for v, e in zip(c["inputs"], c["outputs"]))))
 

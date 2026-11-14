@@ -1,0 +1,79 @@
+{
+ "title": "שיעורים 8.2–8.7 – מחרוזות",
+ "subtitle": "ספירה לאחור: ארבעה תיקים על מחרוזות",
+ "footer": "שיעורים 8.2–8.7 – מחרוזות · עבודה משותפת בכיתה, ללא ציון",
+ "unit": "Lessons 8.2–8.7",
+ "reference": "solutions/Countdown_Reference.py",
+ "starter_dir": "../exercises",
+ "output": "L04-string-algorithms-and-cipher-countdown-he.html",
+ "instructions": "../lessons/L04-string-algorithms-and-cipher/countdown-cases-he.md",
+ "steps": [
+  "נכנסים למשו\"ב ומורידים את הקובץ Lessons 8.2–8.7 - Strings.zip",
+  "פותחים את ה-zip (Extract All) לתיקייה במחשב",
+  "פותחים ב-Thonny את הקובץ של התיק (השם שלו על הכרטיס)",
+  "כותבים את הקוד מתחת לשורה של text, בלולאה שעל הלוח",
+  "מריצים (F5) ומשווים לצפוי. אחר כך משנים את הטקסט לערך הבא ומריצים שוב"
+ ],
+ "cases": [
+  {
+   "n": 1,
+   "file": "FirstStarLast_Starter.py",
+   "goal_en": "print the first character, a star, then the last character (\"Cats\" becomes \"C*s\").",
+   "title": "ראשון כוכבית אחרון",
+   "objective": "התוכנית מדפיסה את התו הראשון של הטקסט, אחריו כוכבית, ואחריה את התו האחרון. למשל Cats הופך ל-C*s.",
+   "minutes": 5,
+   "ops": "text[0] · text[-1] · len(text) - 1 · +",
+   "inputs": [
+    "Cats",
+    "Python",
+    "a"
+   ],
+   "contrast": "בגרסת for עוברים על כל התווים, והתו האחרון שנראה הוא התו האחרון של הטקסט. בגרסת while מחשבים את המקום האחרון, `len(text) - 1`, ופונים אליו ישירות. בטקסט של תו אחד הראשון והאחרון הם אותו תו."
+  },
+  {
+   "n": 2,
+   "file": "MiddleChar_Starter.py",
+   "goal_en": "print the middle character; two characters when the length is even; a word shorter than 3 is printed whole.",
+   "title": "התו האמצעי",
+   "objective": "התוכנית מדפיסה את התו האמצעי של המילה. כשמספר התווים זוגי היא מדפיסה את שני התווים האמצעיים. מילה קצרה מ-3 תווים מודפסת כולה.",
+   "minutes": 6,
+   "ops": "len(text) // 2 · len(text) % 2 · slicing · while",
+   "inputs": [
+    "robot",
+    "python",
+    "a",
+    "ab"
+   ],
+   "contrast": "בגרסת for מחשבים את האמצע: `len(text) // 2`, ובודקים זוגי או אי-זוגי עם `% 2`. בגרסת while אין חישוב: שני מקומות, אחד בהתחלה ואחד בסוף, מתקרבים זה לזה בכל סיבוב עד שנשארים אחד או שניים, ומדפיסים את מה שביניהם."
+  },
+  {
+   "n": 3,
+   "file": "Initials_Starter.py",
+   "goal_en": "build and print the first letter of every word.",
+   "title": "ראשי תיבות",
+   "objective": "התוכנית בונה ומדפיסה מחרוזת מהאות הראשונה של כל מילה.",
+   "minutes": 7,
+   "ops": "previous · text[index - 1] == \" \" · +=",
+   "inputs": [
+    "American Standard Code Information Interchange",
+    "grade eight python"
+   ],
+   "contrast": "בגרסת for עוברים על התווים וזוכרים את התו הקודם במשתנה `previous` (בהתחלה רווח, כדי שגם האות הראשונה תיכנס). בגרסת while עוברים על המקומות ומסתכלים אחורה על `text[index - 1]`; האות הראשונה נכנסת לפני הלולאה."
+  },
+  {
+   "n": 4,
+   "file": "NumberCipher_Starter.py",
+   "goal_en": "new cipher: every English letter becomes its ASCII number followed by one space; a space becomes 3 spaces; every other character stays.",
+   "title": "הצפנה חדשה",
+   "objective": "כל אות באנגלית הופכת למספר שלה (קוד ASCII) ואחריו רווח אחד. רווח הופך לשלושה רווחים. כל תו אחר נשאר כמו שהוא. התוכנית מדפיסה את התוצאה.",
+   "minutes": 8,
+   "ops": "ord · str · isalpha · 65 <= ord(c) <= 90",
+   "inputs": [
+    "Big Secret!",
+    "x=1;",
+    "go home!"
+   ],
+   "contrast": "בגרסת for שואלים `isalpha()`. בגרסת while בודקים את הקוד עצמו: האות היא אות באנגלית רק אם `ord` שלה בין 65 ל-90 (גדולות) או בין 97 ל-122 (קטנות). ההבדל חשוב: `isalpha()` נכון גם לאות בעברית, והצופן הזה מוגדר רק ל-a עד z. וזכרו: מספרים במקום אותיות הם לא סוד, כל אחד מפענח עם `chr`."
+  }
+ ]
+}

@@ -14,6 +14,6 @@ Options: `--scale 1.3` (multiplies every font size) and `--stack` (code above ou
 `--boxes` (slide numbers that show the letter boxes with indices, for the word given by `--boxes-word`), `--numbered`
 (slides whose bullets are a numbered list, e.g. the exit check).
 
-- Used for the live lessons of Lesson 7.1, Lessons 7.1–7.2 and Lessons 8.0–8.1 ([`m1-live-slides-he.pdf`](../../units/u5-strings/m1-live-slides-he.pdf), [`m2-`](../../units/u5-strings/m2-live-slides-he.pdf), [`m3-`](../../units/u5-strings/m3-live-slides-he.pdf)).
+- Used for the live lessons of Lesson 7.1, Lessons 7.1–7.2 and Lessons 8.0–8.1 ([`live-slides-he.pdf`](../../units/u5-strings/lessons/L01-a-string-is-a-sequence/live-slides-he.pdf), [`m2-`](../../units/u5-strings/lessons/L02-slicing-and-searching/live-slides-he.pdf), [`m3-`](../../units/u5-strings/lessons/L03-string-methods-and-for/live-slides-he.pdf)).
 - A code block followed by its output is shown side by side when the lines are short; very tall outputs split in two columns.
 - Look at every page after building (the font size is computed per slide, long lines can still come out small).
