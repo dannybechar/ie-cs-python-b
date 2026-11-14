@@ -99,7 +99,7 @@ is built. Fill in **Target week** once the school calendar is known, and **Taugh
 | 11 | `u5/m1` Lesson 7.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
 | 12 | `u5/m2` Lessons 7.1–7.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
 | 13 | `u5/m3` Lessons 8.0–8.1 Strings | K+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition, 45 / 45 (date to confirm) |
-| 14 | `u5/m4` Lessons 8.2–8.7 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | | ▶ next |
+| 14 | `u5/m4` Lessons 8.2–8.7 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | Sun 15 Nov 2026 (completes the strings block, lessons 7.1–8.7) | ▶ next (planned 15 Nov 2026) |
 | 15 | `u6/m1` Lessons 10.0–10.2 Advanced Language Model | K+L · Tokens, tokenization and token IDs (Ministry 10.0–10.2) | 🔶 | | |
 | 16 | `u6/m2` Lessons 11.1–11.2 Advanced Language Model | K+L · The meaning map, self-attention, context window, `calculate_similarity` (Ministry 11.1, 11.2) | 🔶 | | |
 | 17 | `u6/m3` Lesson 11.3 Advanced Language Model | L+L · The "Semantle" project, unit checkpoint (Ministry 11.3) | 🔶 | | |
