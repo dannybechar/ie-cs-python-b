@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 16.0–16.2 – סיווג</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 16.0–16.2 – סיווג</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>סיווג לפי תכונות וקו מפריד</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>סיווג משייך דוגמה לאחת מקטגוריות קבועות, לפי התכונות שלה. תכונה טובה היא <strong>רלוונטית</strong> וגם <strong>מבדילה</strong>. קו מפריד הוא בחירה של מי שמתכנן את המערכת — לא עובדה שהתגלתה בטבע.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<div dir="rtl">
+<p>קטע קוד עם שם (<code>def</code>) שאפשר לקרוא לו נקרא <strong>פעולה</strong>.</p>
+</div>
+<pre><code class="language-python">def classifier():
+    years = [1889, 1519, 1906, 1893]
+    paintings = [&quot;Starry Night&quot;, &quot;Mona Lisa&quot;, &quot;Water Lilies&quot;, &quot;The Scream&quot;]
+    classic = []
+    modern = []
+    for i in range(len(paintings)):
+        if years[i] &lt; 1860:
+            classic.append(paintings[i])
+        else:
+            modern.append(paintings[i])
+    print(&quot;classic:&quot;, classic)
+    print(&quot;modern:&quot;, modern)
+</code></pre>
+<pre><code class="language-python">def classify_fruit(softness, color):
+    if softness &lt; 2 and color in [&quot;red&quot;, &quot;green&quot;, &quot;yellow&quot;]:
+        return &quot;apple&quot;
+    elif softness &gt; 2 and color in [&quot;yellow&quot;, &quot;green&quot;]:
+        return &quot;banana&quot;
+    else:
+        return &quot;unknown fruit&quot;
+</code></pre>
+<div dir="rtl">
+<p>כל דוגמה חייבת לקבל קטגוריה: בדקו תמיד את ערכי הגבול.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: היצירה שנעלמה</h2>
+<p>פתחו את <code>Classifier_Starter.py</code>.</p>
+<pre><code class="language-python">for i in range(len(paintings)):
+    if years[i] &lt; 1860:
+        classic.append(paintings[i])
+    elif years[i] &gt; 1860:
+        modern.append(paintings[i])
+</code></pre>
+<div dir="rtl">
+<p>ארבע יצירות צריכות להיכנס לשתי הרשימות. חזו כמה יהיו בכל רשימה, הריצו, ומצאו את הבאג. אחת היצירות היא משנת 1860 בדיוק. תקנו ובדקו.</p>
+</div>
+</section>
+<section class="slide">
+<h2>2. משימה 1: מסווג פלייליסטים (ספוטיפיי)</h2>
+<div dir="rtl">
+<p>בספוטיפיי רוצים ליצור פלייליסטים אוטומטיים. שירים שיצאו <strong>לפני</strong> שנת הפיצול נכנסים לרשימה <code>nostalgia</code> (פלייליסט נוסטלגיה), ואחרים לרשימה <code>hits</code> (פלייליסט להיטים עכשווים). כתבו לולאה עם שתי רשימות מקבילות (שירים ושנים) ושתי רשימות ריקות.</p>
+<p>א. הריצו עם שנת פיצול 2015. אחר כך <strong>בחרו שנת פיצול משלכם</strong> (לדוגמה 2010 או 2020) ושנו אותה בתנאי.</p>
+<p>ב. מה יודפס אחרי השינוי? השלימו את טבלת המעקב לפני שמריצים (השורה הראשונה כתובה לדוגמה).</p>
+<p>ג. הריצו ובדקו שהסיווג נכון.</p>
+</div>
+<pre><code class="language-python">years = [2008, 2022, 2015, 1999]
+songs = [&quot;Halo&quot;, &quot;As It Was&quot;, &quot;Shape of You&quot;, &quot;All Star&quot;]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>songs[i]</th>
+<th>years[i]</th>
+<th>התנאי מתקיים? (True / False)</th>
+<th>nostalgia</th>
+<th>hits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Halo</td>
+<td>2008</td>
+<td>True</td>
+<td>["Halo"]</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div dir="rtl">
+<p>אחר כך הוסיפו <strong>שני שירים שאתם אוהבים</strong>: את השם לרשימה <code>songs</code> ואת שנת היציאה לרשימה <code>years</code>. הריצו ובדקו שגם הם מסווגים נכון. (בקובץ ההתחלה יש כבר שני שירים נוספים, אפשר להשתמש בהם.)</p>
+</div>
+</section>
+<section class="slide">
+<h2>3. משימה 2: תכונה אחרת</h2>
+<div dir="rtl">
+<p>איזו תכונה נוספת, מלבד שנת היציאה, אפשר לסווג לפיה שירים בספוטיפיי? הציעו שתיים (אורך, מי מבצע, קצב, ז׳אנר, מצב רוח). כתבו תוכנית שמסווגת את אותם שירים לפי <strong>אורך בשניות</strong>: קצר (פחות מ-200) וארוך (200 ומעלה). צריך רשימה מקבילה חדשה (האורכים כאן מומצאים, לתרגול) ושתי רשימות ריקות, אחת לכל קטגוריה.</p>
+</div>
+<pre><code class="language-python">lengths = [180, 240, 150, 310, 200, 199]
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. משימה 3: בוחרים תכונות (על הנייר)</h2>
+<div dir="rtl">
+<p>הנה תכונות שנאספו על פירות: צבע, תאריך קנייה, ארץ ייצור, מידת רכות (1 עד 5), מחיר לקילו.</p>
+<p>א. בחרו <strong>שתי</strong> תכונות שיעזרו למחשב להבדיל בין תפוח לבננה, ונמקו למה הן טובות.</p>
+<p>ב. תנו דוגמה לתכונה שאינה טובה, והסבירו למה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>5. משימה 4: פעולת סיווג ומקרי קצה</h2>
+<div dir="rtl">
+<p>כתבו <code>classify_fruit(softness, color)</code>. הכללים:</p>
+<ul>
+<li>תפוח: רכות קטנה מ-2 והצבע אדום, ירוק או צהוב.</li>
+<li>בננה: רכות גדולה מ-2 והצבע צהוב או ירוק.</li>
+<li>כל השאר: <code>"unknown fruit"</code>.</li>
+</ul>
+<p>קראו לפעולה שלוש פעמים והדפיסו את התוצאה עבור הקלטים שבטבלה. אחר כך נסו לשבור אותה.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>softness</th>
+<th>color</th>
+<th>מה לדעתכם יודפס?</th>
+<th>מה הודפס?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>"green"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>"yellow"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>"purple"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>"yellow"</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div dir="rtl">
+<p>בננה שעוד לא הבשילה היא קשה וירוקה: מה הפעולה תחזיר עבורה? האם המחשב צדק? ומה קורה כשהרכות היא בדיוק 2? החליטו איזה פרי זה, וכתבו למה זו <strong>החלטה</strong> שלכם.</p>
+</div>
+</section>
+<section class="slide">
+<h2>6. משימה 5: שאלה למחשבה</h2>
+<div dir="rtl">
+<p>מתכנת הציע את החוק: אם קצב השיר גבוה מ-120 הוא "שמח", אחרת הוא "עצוב". מצאו שיר או סגנון שבו החוק נכשל, והסבירו למה קשה להגדיר "מצב רוח" בעזרת <code>if/else</code>.</p>
+<p><strong>אם נשאר זמן (פיצ׳רים מתקדמים):</strong> כתבו תוכנית נוספת שמסווגת משהו לבחירתכם. רעיונות: <strong>כלי תחבורה</strong> (מספר גלגלים, איפה נוסע, מהירות, מנוע, כידון או הגה עגול), <strong>בעלי חיים</strong> (יונק, ציפור או דג לפי מספר רגליים, כיסוי גוף, צבע, דרך תנועה), <strong>צורה הנדסית</strong> (מספר צלעות, סכום זוויות), או רעיון משלכם. השתמשו ברשימות מקבילות, רשימה ריקה לכל קטגוריה, ובדקו ערכי גבול.</p>
+<p><strong>ועוד אפשרות:</strong> כתבו <code>classify_activity(temperature, raining, strong_wind)</code> שמחזירה <code>"indoor"</code> או <code>"outdoor"</code> (גשם או רוח חזקה: indoor; אחרת טמפרטורה בין 18 ל-30 כולל: outdoor), ומצאו שני מקרי קצה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>7. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U8_M1_Classifier_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מהי תכונה, ומה הופך אותה לטובה?</li>
+<li>מהו קו מפריד?</li>
+<li>מדוע בננה שעוד לא הבשילה היא מקרה קצה לחוק של הפירות?</li>
+<li>מדוע אי אפשר לכתוב חוקי <code>if/else</code> לכל תמונה בעולם?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

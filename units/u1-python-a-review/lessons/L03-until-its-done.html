@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 2.0–2.3 – חזרה על פייתון א&#x27;</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 2.0–2.3 – חזרה על פייתון א'</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>עד שמסיימים: לולאת while ולולאות שלא נגמרות</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>הלולאה <code>while</code> חוזרת כל עוד התנאי <code>True</code>. למשתנה הלולאה נותנים ערך התחלתי <strong>לפני</strong> הלולאה, ומשהו <strong>בתוך</strong> הלולאה חייב לשנות אותו — <strong>בכיוון הנכון</strong>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">n = 0                  # 1. הכנה: ערך התחלתי, לפני הלולאה
+while n &lt; 10:          # 2. תנאי: נבדק לפני כל סבב
+    print(&quot;hi&quot;)        # 3. גוף הלולאה
+    n = n + 1          # 4. עדכון: בתוך הלולאה
+print(&quot;End loop&quot;)
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>עשרה סבבים — <strong>אחד-עשר</strong> בדיקות של התנאי. הבדיקה האחרונה נותנת <code>False</code>.</li>
+<li>משתנה שהמשתמש מקליד: קולטים <strong>לפני</strong> הלולאה וגם <strong>בתוך</strong> הלולאה.</li>
+<li><code>n += 1</code> זה קיצור של <code>n = n + 1</code>, ו-<code>n -= 1</code> של <code>n = n - 1</code>.</li>
+<li><code>for i in range(0, 5, 1)</code> זה <code>i = 0</code>, <code>while i &lt; 5</code>, ועדכון <code>i += 1</code>.</li>
+</ul>
+<p><strong>רשימת בדיקה ללולאה בטוחה:</strong></p>
+<ol>
+<li>יש ערך התחלתי לפני הלולאה?</li>
+<li>התנאי יכול להפוך ל-<code>False</code>?</li>
+<li>יש בתוך הלולאה פקודה שמשנה את המשתנה של התנאי?</li>
+<li>העדכון מקרב אותנו לעצירה (הכיוון נכון)?</li>
+</ol>
+</div>
+<div class="alert tip">
+<p><span class="t">TIP</span></p>
+<p>לולאה שלא נעצרת? שומרים את הקובץ ולוחצים על כפתור Stop האדום ב-Thonny.</p>
+</div>
+</section>
+<section class="slide">
+<h2>0. חוזים לפני שמריצים</h2>
+<pre><code class="language-python">n = 0
+while n &lt; 10:
+    print(&quot;hi&quot;)
+    n = n + 1
+print(&quot;End loop&quot;)
+</code></pre>
+<div dir="rtl">
+<p>כמה פעמים יודפס <code>hi</code>? כמה פעמים נבדק התנאי <code>n &lt; 10</code>? מלאו טבלת מעקב: <code>n</code>, התנאי, הפלט. אחר כך הריצו ובדקו.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: השאלה שלא חוזרת</h2>
+<p>פתחו את <code>While_Starter.py</code>.</p>
+<pre><code class="language-python">def ask_age():
+    age = int(input(&quot;Age: &quot;))
+    while age &lt; 0:
+        print(&quot;Invalid age&quot;)
+    print(&quot;Accepted:&quot;, age)
+</code></pre>
+<p>הריצו והקלידו מינוס 2. למה התוכנית לא נעצרת? עצרו אותה (כפתור Stop) והוסיפו שורה אחת. בדקו עם מינוס 2, מינוס 1 ו-0. איזו נקודה ברשימת הבדיקה הייתה חסרה?</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: מספר תלת-ספרתי</h2>
+<p>כתבו פונקציה בשם <code>three_digit()</code>: קולטת מספר שלם, ושואלת שוב ושוב כל עוד המספר אינו תלת-ספרתי (מ-100 עד 999). בסוף מדפיסה <code>End loop</code>.</p>
+<div dir="rtl">
+<p>בדקו עם 5, 1000, מינוס 3, 123. כתבו שני ערכים שעבורם יודפס <code>End loop</code> מיד, ושני ערכים שעבורם יידרש קלט חדש.</p>
+</div>
+</section>
+<section class="slide">
+<h2>3. משימה 2: עד שלושה מספרים זוגיים</h2>
+<p>כתבו פונקציה בשם <code>three_evens()</code>: קולטת מספרים שלמים עד שהוקלדו <strong>3 מספרים זוגיים</strong>, ואז מדפיסה <code>End loop</code>.</p>
+<div dir="rtl">
+<p>קודם מלאו על דף: מה הערך ההתחלתי של <code>count</code>? מה התנאי? מתי <code>count</code> גדל? מלאו טבלת מעקב לקלט 3, 4, 6, 7, 8 — כמה סבבים היו? מה הערך האחרון של <code>count</code>?</p>
+</div>
+</section>
+<section class="slide">
+<h2>4. משימה 3: ניקוד וטיימר</h2>
+<p>כתבו פונקציה בשם <code>score_and_timer()</code>: קודם ספירה <strong>קדימה</strong> של הניקוד מ-0 עד 10 (<code>Score: 0</code> … <code>Score: 10</code>), אחר כך ספירה <strong>לאחור</strong> של טיימר מ-10 עד 1 (<code>Timer: 10</code> … <code>Timer: 1</code>), ובסוף <code>Time is up!</code>.</p>
+<div dir="rtl">
+<p>מה שונה בין שתי הלולאות: ערך ההתחלה, התנאי, העדכון?</p>
+</div>
+</section>
+<section class="slide">
+<h2>5. משימה 4: לולאות שלא נגמרות</h2>
+<p>בקובץ ארבע פונקציות: <code>loop_a</code>, <code>loop_b</code>, <code>loop_c</code>, <code>loop_d</code>. <strong>אל תריצו מיד.</strong> לכל אחת ענו: מה יודפס? יש תנאי עצירה? הלולאה סופית? מה צריך לתקן? הריצו פונקציה אחת בכל פעם, עצרו אותה עם Stop ותקנו.</p>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>פונקציה</th>
+<th>מה קורה</th>
+<th>איזו נקודה ברשימת הבדיקה נפגעה</th>
+<th>התיקון</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loop_a</code></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>loop_b</code></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>loop_c</code></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>loop_d</code></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>6. משימה 5: for ו-while</h2>
+<div dir="rtl">
+<ol>
+<li>כתבו פונקציה בשם <code>for_to_while()</code> שמדפיסה את אותו הפלט כמו <code>for i in range(0, 5, 1): print(i)</code> — אבל עם <code>while</code>.</li>
+<li>בקובץ הפונקציה <code>compare_loops()</code> מכילה שלושה קטעים: A עם <code>while</code>, ו-B ו-C עם <code>for</code>. <strong>קודם</strong> מלאו טבלאות מעקב וחזו: הפלט של איזה קטעים זהה? <strong>אחר כך</strong> הריצו ובדקו.</li>
+</ol>
+</div>
+</section>
+<section class="slide">
+<h2>7. משימה 6: המנעול</h2>
+<p>כתבו פונקציה בשם <code>locker()</code>. יש עד שלושה ניסיונות להקליד את הקוד 4321. בסוף מודפס <code>Access granted. Attempts: ...</code> או <code>Access blocked</code>.</p>
+<p>רמז: הלולאה ממשיכה כל עוד נשארו ניסיונות <strong>וגם</strong> הקוד עוד לא נמצא.</p>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>קלט</th>
+<th>פלט</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4321</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1111, 4321</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1111, 2222, 4321</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>1111, 2222, 3333</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>בדקו גם שאין ניסיון רביעי.</p>
+</section>
+<section class="slide">
+<h2>8. משימה 7 (יחד): מספר מעורר</h2>
+<div dir="rtl">
+<p><strong>מספר מעורר</strong> הוא מספר שלם שבו סכום כל הספרות גדול פי שלושה <strong>או יותר</strong> ממספר הספרות. (שאלה מבחינת מפמ"ר פייתון א.) קלטו מספר והדפיסו אם הוא מעורר: <code>Exciting number</code> או <code>Not an exciting number</code>.</p>
+<ul>
+<li><code>num % 10</code> — הספרה האחרונה. <code>num // 10</code> — המספר בלי הספרה האחרונה.</li>
+<li><strong>קודם מעקב:</strong> מלאו טבלה למספר 789: <code>num</code>, <code>digit</code>, <code>total</code>, <code>digits</code> בכל סבב. אחר כך בדקו את 100.</li>
+<li><strong>אחר כך הרצה:</strong> כתבו את <code>exciting_number()</code> בעזרת התוכנית שבקובץ. בדקו 789, 100, 99, 123.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>9. משימה 8: סכום של חזקות שלישיות — בדיקת סיום היחידה</h2>
+<p>עבודה עצמית. כתבו פונקציה בשם <code>cubes_sum()</code> שמחברת <code>1 + 8 + 27 + …</code> (החזקות השלישיות: 1·1·1, 2·2·2, 3·3·3 …) <strong>כל עוד הסכום קטן מ-100</strong>. אחרי כל איבר מדפיסים <code>Sum so far: ...</code>, ובסוף <code>Stopped at ... after ... terms</code>.</p>
+<div dir="rtl">
+<p>תכננו על דף לפני שמקלידים: אילו משתנים צריך ומה ערכם ההתחלתי? מה התנאי? מה משתנה בכל סבב? הפלט הצפוי: סכומים 1, 9, 36, 100 ואחר כך <code>Stopped at 100 after 4 terms</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>10. אם נשאר זמן</h2>
+<div dir="rtl">
+<ul>
+<li><code>count_red()</code> — קולטים צבעי חרוזים אחד אחד. אחרי כל צבע שואלים <code>Do you want to continue? yes/no</code>, וממשיכים כל עוד התשובה <code>yes</code>. בסוף מדפיסים <code>The number of red beads is: ...</code>. בדקו עם red, yes, blue, yes, red, no — צריך לצאת 2.</li>
+<li><code>twos()</code> — מדפיסה את הסדרה 2, 22, 222, 2222 … כל עוד האיבר קטן מ-10000.</li>
+<li><code>alternating_squares()</code> — הסדרה -1 + 4 - 9 + 16 - 25 + 36 …: הסימן מתחלף בכל איבר. הדפיסו את הסכום אחרי כל איבר, וכל עוד ריבוע האיבר הבא קטן מ-50. רמז: משתנה <code>sign</code> שמכפילים ב-(-1) בכל סבב.</li>
+<li><code>factorial_sum()</code> — הסדרה 1 + 2 + 6 + 24 + 120 …: כל איבר הוא האיבר הקודם כפול מונה שגדל. הדפיסו את הסכום אחרי כל איבר, כל עוד הסכום קטן מ-1000.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>11. מתעדים ושומרים</h2>
+<p>מעל כל פונקציה — הערה. רק זימון אחד פעיל.</p>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U1_M3_While_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>בלולאה <code>n = 0</code>, <code>while n &lt; 10:</code>, <code>print("hi")</code>, <code>n = n + 1</code> — כמה פעמים יודפס <code>hi</code>, וכמה פעמים נבדק התנאי?</li>
+<li>הלולאה <code>n = 5</code>, <code>while n &gt; 0:</code>, <code>print(n)</code>, <code>n = n + 1</code> — האם היא נגמרת? איזו נקודה ברשימת הבדיקה נפגעה, ואיך מתקנים?</li>
+<li>כתבו בעזרת <code>while</code> את הלולאה <code>for i in range(0, 3, 1): print(i)</code>.</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

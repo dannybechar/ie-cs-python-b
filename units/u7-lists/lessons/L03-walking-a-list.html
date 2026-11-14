@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 12.6, 13.0–13.1 – רשימות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 12.6, 13.0–13.1 – רשימות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>מעבר על רשימה וצבירה</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>מעבר לפי <strong>אינדקס</strong> (<code>range(len(values))</code>) נותן מספר מקום; מעבר לפי <strong>ערך</strong> (<code>for item in values</code>) נותן את הערך עצמו. צבירה: <code>total = 0</code> לפני הלולאה, עדכון בתוכה, ושימוש בתוצאה אחריה. לא משנים רשימה בזמן שלולאה עוברת עליה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">def sum_by_index(values):
+    total = 0
+    for item in range(len(values)):    # item הוא מקום
+        total = total + values[item]
+    return total
+
+
+def sum_by_value(values):
+    total = 0
+    for item in values:                # item הוא ערך
+        total = total + item
+    return total
+
+
+copy = values.copy()                   # עותק אמיתי (כמו values[:])
+other = values                         # לא עותק! שני שמות לאותה רשימה
+</code></pre>
+</section>
+<section class="slide">
+<h2>1. חימום: מחיקה בזמן מעבר</h2>
+<p>פתחו את <code>Accumulate_Starter.py</code>.</p>
+<pre><code class="language-python">def remove_even(values):
+    for item in values:
+        if item % 2 == 0:
+            values.remove(item)
+
+
+numbers = [2, 4, 6, 8, 1]
+remove_even(numbers)
+print(numbers)
+</code></pre>
+<p>חזו מה יודפס. הריצו. עקבו על הדף אחרי הלולאה: איזה מספר "דלגו" עליו, ולמה?</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: סכום בשתי דרכים</h2>
+<p>כתבו <code>sum_by_index(values)</code> ו-<code>sum_by_value(values)</code>. בתוך כל לולאה הדפיסו את <code>item</code> לפני העדכון. בדקו על <code>[51, 84, 72, 13, 29]</code>; שתיהן מחזירות 249. מה שהודפס זהה או שונה? מה הגורם לכך?</p>
+</section>
+<section class="slide">
+<h2>3. משימה 2: ממוצע</h2>
+<p>כתבו <code>calculate_average(values)</code> שמחזירה את הממוצע, ו-<code>0</code> עבור רשימה ריקה. בדקו על <code>[25.1, 20.0, 21.5, 24.0, 21.4, 24.5, 21.5, 16.0, 23.3]</code> ועל <code>[]</code>.</p>
+</section>
+<section class="slide">
+<h2>4. משימה 3: שמות בכיתה</h2>
+<p>כתבו <code>register_students(count)</code> שקולטת <code>count</code> שמות לרשימת תלמידי הכיתה. לכל שם: אם הוא כבר ברשימה מדפיסים <code>"We cannot place you in this class"</code>, אחרת מוסיפים אותו. הפעולה מחזירה את הרשימה. הריצו עם 5 שמות, כשאחד מהם מוקלד פעמיים.</p>
+<pre><code class="language-text">Enter a name: Dana
+Enter a name: Avi
+Enter a name: Dana
+We cannot place you in this class
+Enter a name: Noa
+Enter a name: Avi
+We cannot place you in this class
+['Dana', 'Avi', 'Noa']
+</code></pre>
+</section>
+<section class="slide">
+<h2>5. משימה 4: הקניות של רוני</h2>
+<p>רוני קנתה 5 פריטים. כתבו <code>read_prices(count)</code> שקולטת <code>count</code> מחירים (<code>float</code>) לתוך רשימה ומחזירה אותה. מחוץ לפעולה הדפיסו את הרשימה ואת הסכום פעמיים: בעזרת <code>sum_by_index</code> ובעזרת <code>sum_by_value</code>.</p>
+<pre><code class="language-text">Enter price: 400
+Enter price: 350
+Enter price: 100
+Enter price: 250
+Enter price: 70
+[400.0, 350.0, 100.0, 250.0, 70.0]
+total = 1170.0
+</code></pre>
+</section>
+<section class="slide">
+<h2>6. אם נשאר זמן: רשימה חדשה ועותק ממוין</h2>
+<p>כתבו <code>without_even(values)</code> שמחזירה רשימה <strong>חדשה</strong> בלי המספרים הזוגיים, ו-<code>sorted_copy(values)</code> שמחזירה עותק ממוין כשהרשימה המקורית נשארת בסדר שלה. בדקו על <code>[5, 2, 8, 1, 4]</code> והדפיסו גם את הרשימה המקורית.</p>
+</section>
+<section class="slide">
+<h2>7. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U7_M3_Accumulate_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>ב-<code>for item in range(len(values))</code> — מה <code>item</code>? ובמעבר <code>for item in values</code>?</li>
+<li>מה ערכו של <code>total</code> לפני הלולאה?</li>
+<li>למה <code>calculate_average</code> בודקת רשימה ריקה?</li>
+<li>למה לא מוחקים איברים מרשימה בתוך <code>for</code> על אותה רשימה?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 5.0–5.2 – להכניס בינה לקוד (API)</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 5.0–5.2 – להכניס בינה לקוד (API)</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>שיחה עם Gemini מתוך פייתון: פרומפט, f-string ופעולה <code>ask_the_ai</code></strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>ה-AI לא יושב בתוך התוכנית שלנו. התוכנית שולחת פרומפט (מחרוזת) דרך ה-API, מחכה, ומקבלת מחרוזת חזרה. עוטפים את זה בפעולה <code>ask_the_ai</code> שמחזירה את התשובה עם <code>return</code>. את המפתח לא כותבים בקובץ, ולא קוראים ל-API בתוך לולאה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python"># פרומפט עם f-string: האות f לפני המירכאות, המשתנים בתוך { }
+prompt = f&quot;Write a short birthday greeting for {name}, who is a very {trait} grandmother.&quot;
+
+# הפעולה העוטפת
+def ask_the_ai(my_prompt):
+    response = client.models.generate_content(
+        model=&quot;gemini-2.5-flash&quot;, contents=my_prompt)
+    return response.text
+
+answer = ask_the_ai(prompt)
+print(answer)
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>את שם המודל (<code>model=...</code>) <strong>לא משנים</strong>. את <code>contents=</code> אפשר.</li>
+<li>הפרומפט הוא מחרוזת. הטקסט של התשובה נמצא ב-<code>response.text</code>.</li>
+<li>מגבלות: עד כ-15 בקשות בדקה, מיליון טוקנים בדקה ו-1,500 בקשות ביום לכל מפתח. שגיאה <strong>429</strong> = חרגנו מהמכסה, שגיאה <strong>503</strong> = השרת עמוס. הקוד תקין: מחכים ומנסים שוב.</li>
+<li>שלושה כללי זהב: <strong>מתכננים</strong> את הפרומפט (ובודקים בצ'אט) · <strong>שולחים רק מה שצריך</strong> · <strong>לא קוראים ל-API בתוך לולאה</strong> — קודם אוספים, ואז שולחים פעם אחת.</li>
+<li>תשובת ה-AI היא טקסט לבדיקה, לא עובדה. לא כותבים בפרומפט מידע אישי.</li>
+</ul>
+</div>
+<div class="alert note">
+<p><span class="t">NOTE</span></p>
+<p>בקובץ ההתחלה יש <strong>אזור A</strong> — "לקוח" מדומה שמחזיר תשובות קבועות (<code>[stand-in]</code>), כדי שהתוכנית תרוץ גם בלי מפתח ובלי אינטרנט. <strong>לא נוגעים באזור A.</strong> הקוד שאתם כותבים מתחתיו זהה לקוד האמיתי.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: בדיחה שמודפסת כמו אובייקט</h2>
+<p>פתחו את <code>AskTheAI_Starter.py</code> והריצו אותו. התוכנית אמורה להדפיס בדיחה על מתכנתים, אבל מודפס משהו מוזר.</p>
+<pre><code class="language-python">response = client.models.generate_content(
+    model=&quot;gemini-2.5-flash&quot;, contents=&quot;Tell me a short joke about programmers&quot;)
+print(response)
+</code></pre>
+<p>קראו את הפלט. איפה הטקסט של התשובה? תקנו שורה אחת, והריצו שוב. האם קיבלתם אותה בדיחה? (במודל אמיתי — כנראה לא.)</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: פעולה עוטפת</h2>
+<p>כתבו את הפעולה <code>ask_the_ai(my_prompt)</code>: היא שולחת את <code>my_prompt</code> למודל <strong>ומחזירה</strong> (<code>return</code>) את הטקסט — בלי <code>print</code> בתוכה. בתוכנית הראשית קראו לה עם <code>"What is the distance between the Earth and the Moon?"</code>, שמרו את התוצאה במשתנה והדפיסו אותו.</p>
+</section>
+<section class="slide">
+<h2>3. משימה 2: פרומפט דינמי</h2>
+<p>קלטו שם של סבתא ותכונה טובה שלה, בנו פרומפט עם f-string, <strong>הדפיסו את הפרומפט</strong>, שלחו אותו עם <code>ask_the_ai</code> והדפיסו את התשובה.</p>
+<pre><code class="language-text">Grandma's name: Sara
+A good trait of hers: kind
+Prompt: Write a short birthday greeting for Sara, who is a very kind grandmother.
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. משימה 3: קינוח החלומות</h2>
+<p>בלולאת <code>while</code> קלטו מרכיבים עד שהמשתמש מקליד <code>done</code>, והוסיפו כל אחד למחרוזת <code>all_ing</code> (עם פסיק ורווח אחריו). <strong>אחרי הלולאה</strong> (בלי הזחה!) בנו פרומפט שמבקש קינוח מטורף מהמרכיבים, שלחו <strong>פעם אחת</strong> והדפיסו את התשובה. בסוף הדפיסו <code>Calls sent:</code> ואת <code>client.models.calls</code> (רק בגרסת הכיתה).</p>
+<pre><code class="language-text">Calls sent: 1
+</code></pre>
+</section>
+<section class="slide">
+<h2>5. אם נשאר זמן: לא מבזבזים קריאה</h2>
+<p>אם שם הסבתא קצר מ-2 אותיות — הדפיסו אזהרה ואל תפנו ל-AI. אם התכונה ריקה (<code>""</code>) — קבעו לה ערך ברירת מחדל, למשל <code>"wonderful"</code>.</p>
+</section>
+<section class="slide">
+<h2>6. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U4_M1_AskTheAI_&lt;Name&gt;.py</code>. בודקים שאין בקובץ מפתח.</p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>API הוא…</li>
+<li>מפתח API נשמר ב… ולא ב…</li>
+<li>פעולה עוטפת משתמשת ב-<code>return</code> משום ש…</li>
+<li>שלושת כללי הזהב הם…</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

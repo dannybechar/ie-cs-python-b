@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 9.1, 9.4 – רשימות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 9.1, 9.4 – רשימות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>מהי רשימה? יוצרים, ניגשים, חותכים</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>רשימה מחזיקה אוסף סדור ודינמי של ערכים תחת שם אחד — מאונדקסת מ-0, וניתנת לשינוי אחרי שנוצרה. חיתוך <code>[start:stop:step]</code> נותן רשימה <strong>חדשה</strong>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">scores = [72, 84, 65]          # רשימה עם ערכים
+empty = []                     # רשימה ריקה (אפשר גם list())
+print(len(scores))             # 3
+print(scores[0])               # 72
+print(scores[-1])              # 65
+scores[1] = 90                 # עדכון במקום
+print(90 in scores)            # True
+print(scores + [50])           # [72, 90, 65, 50] - רשימה חדשה
+
+everything = [24.56, &quot;Itamar&quot;, 340, -7]   # אפשר לשלב טיפוסים שונים
+my_list = [25, 20, 21, 24, 21, 24, 21, 16, 23]
+print(my_list[:5])             # [25, 20, 21, 24, 21]
+print(my_list[2:5])            # [21, 24, 21]   (הסוף לא נכלל)
+print(my_list[2:9:3])          # [21, 24, 23]
+print(my_list[::-1])           # הרשימה הפוכה
+print(my_list[-4:-1])          # [24, 21, 16] - חיתוך עם אינדקסים שליליים
+print(my_list[1:])             # מהמקום 1 עד הסוף
+print([1, 2] + [3] + [4, 5])   # [1, 2, 3, 4, 5] - שלוש רשימות, רשימה חדשה
+</code></pre>
+<p>טבלת האינדקסים של <code>my_list = [24.56, "Itamar", 340, -7, "Yael"]</code>:</p>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>מקום</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ערך</td>
+<td><code>24.56</code></td>
+<td><code>"Itamar"</code></td>
+<td><code>340</code></td>
+<td><code>-7</code></td>
+<td><code>"Yael"</code></td>
+</tr>
+<tr>
+<td>מקום שלילי</td>
+<td><code>-5</code></td>
+<td><code>-4</code></td>
+<td><code>-3</code></td>
+<td><code>-2</code></td>
+<td><code>-1</code></td>
+</tr>
+</tbody>
+</table>
+<div dir="rtl">
+<ul>
+<li><code>values[2]</code> (ערך במיקום) ו-<code>2 in values</code> (האם הערך קיים בכלל) שואלות שתי שאלות שונות.</li>
+<li>האינדקס האחרון הוא <code>len(values) - 1</code>. אינדקס גדול מזה גורם ל-<code>IndexError</code>.</li>
+<li>רשימה היא mutable — אפשר לשנות אותה אחרי שנוצרה. חיתוך ו-<code>+</code> יוצרים רשימה חדשה ולא משנים את המקור.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: הושווה, לא הושם</h2>
+<p>פתחו את <code>Lists_Starter.py</code>.</p>
+<pre><code class="language-python">scores = [60, 70, 80]
+scores[1] == 75
+print(scores)
+</code></pre>
+<p>חזו <code>[60, 75, 80]</code>, הריצו — מקבלים <code>[60, 70, 80]</code> ללא שינוי. מדוע? תקנו סימן אחד.</p>
+</section>
+<section class="slide">
+<h2>2. חוזים לפני שמריצים: מה יודפס?</h2>
+<p>(מבוסס על דף העבודה 9.4 של משרד החינוך.) על הדף, בלי להריץ, רשמו את הפלט של כל שורה. רק אחר כך הקלידו, הריצו וסמנו כל חיזוי שהיה שגוי.</p>
+<pre><code class="language-python">data = [4, 5, 6, &quot;Yael&quot;, &quot;Ester&quot;, 7, 8]
+print(data[1])
+print(data[-3])
+data[2] = &quot;Amir&quot;
+print(data)
+print(len(data))
+</code></pre>
+<pre><code class="language-python">data = [4, 5, &quot;Amir&quot;, &quot;Yael&quot;, &quot;Adi&quot;, 12, 988, 20, &quot;20&quot;, 97]
+print(data[::2])
+print(data[::-1])
+print(data[2:7:2])
+print(data[-8:-3])
+print(data[1:])
+print(data[-4:-1])
+my_list = [4] * 3
+print(my_list)
+</code></pre>
+<p>שימו לב: ב-<code>data</code> יש גם <code>20</code> (מספר) וגם <code>"20"</code> (טקסט) — הם שני ערכים שונים.</p>
+</section>
+<section class="slide">
+<h2>3. משימה 1: דוח תוצאות AI</h2>
+<p>כתבו <code>ai_report(scores)</code> — מדפיסה: כמה ציונים, הציון הראשון, הציון האחרון, והאם 100 נמצא ביניהם. בדקו על <code>[81, 24, 67, 91]</code>.</p>
+<pre><code class="language-text">Number of tests: 4
+First score: 81
+Last score: 91
+Contains perfect score: False
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. משימה 2: עדכון עם בדיקת גבולות</h2>
+<p>כתבו <code>update_score(scores, index, new_value)</code> — אם <code>index</code> הוא מיקום תקין, מעדכנים ומחזירים <code>True</code>; אחרת מדפיסים <code>"Invalid index"</code> ומחזירים <code>False</code>. בדקו על <code>[60, 70, 80]</code> עם אינדקס 1 (תקין) ועם אינדקס 5 (לא תקין).</p>
+</section>
+<section class="slide">
+<h2>5. משימה 3: דוח חיתוכים</h2>
+<p>כתבו <code>slice_report(values)</code> שמדפיסה, כל פריט בשורה משלו עם כותרת: הרשימה כולה, חמשת הפריטים הראשונים, הפריטים ממקום 2 עד 5 (לא כולל), כל פריט שלישי החל ממקום 2, והרשימה הפוכה. בדקו על <code>[25, 20, 21, 24, 21, 24, 21, 16, 23]</code>.</p>
+<pre><code class="language-text">Every third, from index 2: [21, 24, 23]
+</code></pre>
+<p>(זו אחת מחמש השורות הצפויות.)</p>
+</section>
+<section class="slide">
+<h2>6. אם נשאר זמן: חיבור ו-list()</h2>
+<p>כתבו <code>combine(first, second)</code> שמחזירה רשימה חדשה משני הרשימות (עם <code>+</code>). הדפיסו אותה ואת אורכה, והראו שהמקור לא השתנה. אחר כך הדפיסו <code>list("cat")</code> והסבירו מה <code>list()</code> עשתה.</p>
+</section>
+<section class="slide">
+<h2>7. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U7_M1_Lists_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה — עבור <code>items = ["A", "B", "C"]</code>:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מהו <code>items[1]</code>?</li>
+<li>מהו <code>items[-1]</code>?</li>
+<li>איך מעדכנים את <code>"B"</code> ל-<code>"X"</code>?</li>
+<li>מהו האינדקס האחרון לפי <code>len</code>?</li>
+<li>מה נותן <code>items[::-1]</code>?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

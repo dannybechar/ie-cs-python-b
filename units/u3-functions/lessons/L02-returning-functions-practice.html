@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 4.4–4.5 – פעולות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 4.4–4.5 – פעולות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>ערך חוזר ולולאות בתוך פעולות</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>פעולה מקבלת ערכים, משתמשת ב-<code>if</code> או בלולאה, ומחזירה תוצאה אחת. ה-<code>return</code> הראשון שרץ מסיים את הפעולה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">def find_max(a, b, c):
+    biggest = a
+    if b &gt; biggest:
+        biggest = b
+    if c &gt; biggest:
+        biggest = c
+    return biggest
+
+
+def print_digits(number):
+    while number &gt; 0:
+        print(number % 10)
+        number = number // 10
+</code></pre>
+<div dir="rtl">
+<ul>
+<li><code>number % 10</code> — הספרה האחרונה. <code>number // 10</code> — המספר בלי הספרה האחרונה.</li>
+<li>משתנה שנבנה בלולאה מתחיל <strong>לפני</strong> הלולאה: <code>0</code> לסכום או למונה, <code>1</code> למכפלה.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: הארגומנטים בסדר הפוך</h2>
+<p>פתחו את <code>Practice_Starter.py</code>. מחיר המוצר 200 וההנחה 20 אחוז, אבל הפלט שגוי. הריצו, הבינו למה, ותקנו שורה אחת.</p>
+<pre><code class="language-python">def price_after_discount(price, percent):
+    discount = price * percent / 100
+    return price - discount
+
+
+print(price_after_discount(20, 200))
+</code></pre>
+<p>פלט צפוי אחרי התיקון: <code>160.0</code></p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: three_averages</h2>
+<p>כתבו <code>three_averages(g1, g2, g3)</code> שמחזירה את הממוצע. זמנו עם <code>80</code>, <code>90</code>, <code>100</code> והדפיסו את התוצאה.</p>
+<p>פלט צפוי: <code>The average is: 90.0</code></p>
+</section>
+<section class="slide">
+<h2>3. משימה 2: calculate_shipping</h2>
+<p>הפעולה מקבלת <code>price</code> (מספר) ו-<code>is_express</code> (<code>True</code> או <code>False</code>) ומחזירה את המחיר הסופי לתשלום:</p>
+<div dir="rtl">
+<ul>
+<li>מחיר הזמנה 200 ומעלה: משלוח חינם.</li>
+<li>אחרת, אם <code>is_express</code> הוא <code>True</code>: המשלוח עולה 30.</li>
+<li>אחרת: המשלוח עולה 15.</li>
+</ul>
+</div>
+<p>בדקו עם <code>(150, True)</code>, <code>(250, True)</code>, <code>(100, False)</code>. פלט צפוי: <code>180</code>, <code>250</code>, <code>115</code>.</p>
+</section>
+<section class="slide">
+<h2>4. משימה 3: find_max</h2>
+<p>כתבו <code>find_max(a, b, c)</code> שמחזירה את הגדול משלושה מספרים. רמז: התחילו בהנחה ש-<code>a</code> הוא הגדול, ובדקו את <code>b</code> ואת <code>c</code> בעזרת <code>if</code>.</p>
+<p><code>find_max(7, 15, 9)</code> ← <code>15</code></p>
+</section>
+<section class="slide">
+<h2>5. משימה 4: final_grade</h2>
+<p>כתבו <code>final_grade(grade, bonus)</code> שמחזירה את הציון עם הבונוס, אבל לא יותר מ-100.</p>
+<p><code>final_grade(95, 10)</code> ← <code>100</code> · <code>final_grade(70, 10)</code> ← <code>80</code></p>
+</section>
+<section class="slide">
+<h2>6. משימה 5: מה הפעולות האלה עושות?</h2>
+<p>בקובץ יש ארבע פעולות. <strong>קודם חוזים על הנייר</strong> (אפשר בטבלת מעקב), ורק אז מריצים:</p>
+<pre><code class="language-python">secret1(12345)
+secret2(12345)
+secret3(1024)
+secret4(1024)
+</code></pre>
+<div dir="rtl">
+<p>כתבו משפט אחד על מה שעושה כל אחת מהפעולות. למה <code>secret2</code> מתחילה ב-<code>counter = 0</code>, ולמה <code>secret4</code> מתחילה ב-<code>result = 1</code>?</p>
+</div>
+</section>
+<section class="slide">
+<h2>7. משימה 6: מספר "מיוחד"</h2>
+<p>מספר שלם הוא "מיוחד" אם ספרת האחדות שלו גדולה ממחצית סכום ספרותיו. למשל <code>129</code>: ספרת האחדות 9, סכום הספרות 12, המחצית 6 ← מיוחד.</p>
+<div dir="rtl">
+<p>א. האם <code>867</code> הוא מספר מיוחד? הראו חישוב על הנייר.</p>
+<p>ב. השלימו את הקוד:</p>
+</div>
+<pre><code class="language-python">def special_number():
+    num = int(input(&quot;Please enter a number: &quot;))
+    total = 0
+    digit = num % 10
+    while num != 0:
+        total = total + ________
+        num = num // ________
+    if ________ &gt; total / 2:
+        print(&quot;Number is special&quot;)
+    else:
+        print(&quot;Number is not special&quot;)
+
+
+special_number()
+</code></pre>
+</section>
+<section class="slide">
+<h2>8. משימה 7: מספר "מושלם"</h2>
+<p>מספר "מושלם" שווה לסכום מחלקיו (לא כולל המספר עצמו). למשל <code>28 = 1 + 2 + 4 + 7 + 14</code>. מחלק הוא מספר שמחלק את המספר בלי שארית.</p>
+<div dir="rtl">
+<p>א. האם <code>6</code> הוא מספר מושלם? הראו חישוב.</p>
+<p>ב. השלימו את הקוד:</p>
+</div>
+<pre><code class="language-python">def perfect_number():
+    num = int(input(&quot;Please enter a number: &quot;))
+    total = ________
+    x = 1
+    while x &lt; num:
+        if ________:
+            total = total + ________
+        x = ________
+    if ________:
+        print(&quot;Perfect number&quot;)
+    else:
+        print(&quot;Not perfect number&quot;)
+
+
+perfect_number()
+</code></pre>
+<p>בדקו עם <code>28</code> ועם <code>12</code>.</p>
+</section>
+<section class="slide">
+<h2>9. משימה 8: calculate_gift</h2>
+<p>לקוח מועדון מקבל תלוש שי אם היקף הקניות החודשי שלו (<code>monthly</code>) גדול מ-1,200 ש״ח: 50 ש״ח לכל שנת חברות אם יש לו פחות מ-8 שנות חברות (<code>years</code>), ו-100 ש״ח לכל שנה אם יש לו 8 שנים ומעלה. אחרת הוא לא זכאי והפעולה מחזירה <code>0</code>.</p>
+<p>כתבו <code>calculate_gift(years, monthly)</code> שמחזירה את סכום התלוש. בדקו: <code>(5, 1500)</code> ← <code>250</code> · <code>(10, 1500)</code> ← <code>1000</code> · <code>(10, 1000)</code> ← <code>0</code>.</p>
+</section>
+<section class="slide">
+<h2>10. אם יש זמן</h2>
+<div dir="rtl">
+<ul>
+<li><strong>עשרה לקוחות:</strong> כתבו תכנית ראשית שקולטת שנות חברות והיקף קניות של 10 לקוחות, מזמנת את <code>calculate_gift</code>, וסופרת (<code>count += 1</code>) וסוכמת (<code>total += voucher</code>) את מי שקיבל תלוש. הדפיסו כמה לקוחות קיבלו ומה הסכום הכולל.</li>
+<li><strong>מיקומי ספרה:</strong> כתבו <code>find_location()</code> שקולטת מספר זהות של 9 ספרות וספרה, ומדפיסה את המיקומים (מימין לשמאל, מ-1) שבהם הספרה מופיעה; אם אינה מופיעה — מדפיסה <code>-1</code>. לדוגמה <code>334429969</code> והספרה <code>9</code> ← <code>1</code>, <code>3</code>, <code>4</code>. רמז: <code>for index in range(1, 10)</code>, והמשתנה <code>found</code> מסמן אם מצאנו.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>11. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U3_M2_Practice_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>בפעולה יש <code>return</code> בתוך <code>if</code>. מה קורה לשורות שאחריו כשהתנאי מתקיים?</li>
+<li>למה <code>secret2</code> מתחילה ב-<code>counter = 0</code> ו-<code>secret4</code> ב-<code>result = 1</code>?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

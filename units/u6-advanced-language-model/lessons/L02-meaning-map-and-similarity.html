@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 11.1–11.2 – מודל שפה מתקדם</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 11.1–11.2 – מודל שפה מתקדם</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>מפת המשמעויות ומד הקירבה</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>המחשב ממקם כל מילה על "מפת משמעויות": מילים קרובות במשמעות הן קרובות במפה. הפעולה <code>calculate_similarity</code> מחזירה מספר — ככל שהוא קרוב ל-1, המילים קרובות יותר. הציון הוא הערכה של המודל, לא אמת ולא הסתברות.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">meaning_pos1 = model.encode([word1])
+meaning_pos2 = model.encode([word2])
+score_distance = util.cos_sim(meaning_pos1, meaning_pos2).item()
+</code></pre>
+</section>
+<section class="slide">
+<h2>1. חימום: מודדים את הדבר הלא נכון</h2>
+<p>פתחו את <code>Meanings_Starter.py</code>. הפעולה <code>shared_letters</code> אמורה לספור כמה אותיות של המילה הראשונה מופיעות במילה השנייה.</p>
+<pre><code class="language-python">print(shared_letters(&quot;מזוודה&quot;, &quot;מוזיקה&quot;))
+</code></pre>
+<div dir="rtl">
+<p>חזו מספר גדול מאפס, הריצו — ומקבלים <code>0</code>. תקנו שורה אחת. רמז: אות בודדת אף פעם אינה שווה למילה שלמה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>2. משימה 1: משלימים את הפעולה</h2>
+<div dir="rtl">
+<p>בקובץ יש את הפעולה <code>calculate_similarity</code> עם חורים (<code>___</code>). השלימו את שמות המשתנים הנכונים, והריצו אותה על שתי מילים. מדוע הפעולה <strong>מחזירה</strong> את הציון ולא מדפיסה אותו?</p>
+</div>
+</section>
+<section class="slide">
+<h2>3. משימה 2: מד קירבה בפעולה</h2>
+<div dir="rtl">
+<p>כתבו תוכנית שקולטת מהמשתמש שתי מילים, מחשבת את ציון הקירבה ביניהן ומדפיסה אותו (השתמשו בפעולה). אחר כך הוסיפו תנאים:</p>
+<ol>
+<li>ציון גדול או שווה ל-0.5 — הדפיסו "המילים האלו קרובות במשמעות!".</li>
+<li>ציון בין 0.3 ל-0.5 — הדפיסו "יש קשר מסוים".</li>
+<li>ציון קטן או שווה ל-0.3 — הדפיסו "המילים האלו מעולמות שונים לחלוטין".</li>
+</ol>
+</div>
+</section>
+<section class="slide">
+<h2>4. משימה 3: איות או משמעות?</h2>
+<div dir="rtl">
+<p>לכל מילה, הדפיסו את מספר האותיות המשותפות עם "מוזיקה" (<code>shared_letters</code>) ואת ציון המשמעות (<code>calculate_similarity</code>): פסנתר, שיר, כדורגל, מזוודה. כתבו משפט אחד: מה ההשוואה מראה?</p>
+</div>
+</section>
+<section class="slide">
+<h2>5. מעבדת ניסויים</h2>
+<div dir="rtl">
+<p>המטרה כאן היא לחקור — זה בסדר גמור אם לא תפתרו הכול.</p>
+<ol>
+<li><strong>מבחן השפות:</strong> האם לאותה מילה בעברית ובאנגלית יש משמעות קרובה? (<code>dog</code> ו-<code>כלב</code>)</li>
+<li><strong>מבחן ההפכים:</strong> האם <code>happy</code> ו-<code>sad</code> רחוקים במפה או קרובים?</li>
+<li><strong>מילים לא קשורות:</strong> מצאו זוג מילים שהמרחק ביניהן הכי קרוב ל-0. לאיזה ציון הגעתם ב-10 ניסיונות?</li>
+<li><strong>מבחן המותגים:</strong> בחרו שני מותגים מאותו עולם (<code>adidas</code> ו-<code>nike</code>) וגלו אם המחשב חושב שהם קרובים.</li>
+</ol>
+</div>
+</section>
+<section class="slide">
+<h2>6. שומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U6_M2_Meanings_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מהי מפת המשמעויות?</li>
+<li>מדוע לא מספיק שלמילה "mouse" תהיה נקודה אחת במפה?</li>
+<li>מה מחזירה <code>calculate_similarity</code>, ומה אומר הציון 1?</li>
+<li>מדוע ציון דמיון אינו הסתברות?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

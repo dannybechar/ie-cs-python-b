@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 7.1–7.2 – מחרוזות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 7.1–7.2 – מחרוזות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>חיתוך וחיפוש בתוך מחרוזת</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p><code>text[start:end:jump]</code> חותכת חלק מהמחרוזת — המקום <code>end</code> <strong>לא</strong> נכלל. גם <code>replace</code>, <code>upper</code>, <code>lower</code> ו-<code>count</code> לא משנים את המחרוזת המקורית: הם נותנים ערך חדש.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">text = &quot;think big be bold show your color&quot;
+print(text[3:])       # מהמקום 3 עד הסוף
+print(text[:4])       # thin - מקומות 0 עד 3
+print(text[5:12:2])   # בקפיצות של 2
+print(text[-5:])      # color
+print(text[::-1])     # הפוך
+</code></pre>
+<pre><code class="language-python">s = &quot;sometimes you win sometimes you learn&quot;
+print(s.count(&quot;some&quot;))          # 2
+print(s.replace(&quot;you&quot;, &quot;we&quot;, 1))
+print(&quot;win&quot; in s)               # True
+print(s.find(&quot;win&quot;))            # 14
+print(s.find(&quot;lose&quot;))           # -1 - לא נמצא
+print(s.find(&quot;win&quot;, 10, 20))    # 14 - חיפוש רק בין המקומות 10 ל-20
+print(&quot;think big be bold show your color&quot;[-20:-14:2])   # bl  - מקומות שליליים בשני הקצוות
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>אורך חיתוך פשוט: <code>end - start</code>.</li>
+<li><code>find</code> נותן מקום, או <code>-1</code>. <code>in</code> נותן <code>True</code> או <code>False</code>.</li>
+<li><code>in</code> ו-<code>find</code> מבדילים בין אותיות גדולות לקטנות.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: הפקודה שלא שינתה כלום</h2>
+<p>פתחו את <code>Slicing_Starter.py</code>. בכל משימה כותבים קוד מתחת למשתנה, ומדפיסים את התשובה עם <code>print</code>. אחר כך משנים את ערך המשתנה ומריצים שוב.</p>
+<pre><code class="language-python">title = &quot;strings are sequences&quot;
+title.upper()
+print(title)
+</code></pre>
+<p>חזו, הריצו, ותקנו שורה אחת כך שתודפס הכותרת באותיות גדולות.</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: כותבים את החיתוך</h2>
+<div dir="rtl">
+<p>עבור המשתנה <code>text</code> הדפיסו בעזרת חיתוך: <code>drums</code>, <code>to play</code>, <code>Ikoar</code>.
+עבור המשתנה <code>number</code> (שימו לב: מחרוזת!) הדפיסו: <code>124</code>, <code>49</code>, <code>4512</code>, <code>987</code>.
+יש כמה תשובות נכונות — השוו עם חברים.</p>
+</div>
+<pre><code class="language-python">text = &quot;I like to play drums&quot;
+number = &quot;345124987&quot;
+</code></pre>
+</section>
+<section class="slide">
+<h2>3. משימה 2: כמה פעמים מופיע the?</h2>
+<p>כתבו קוד שמדפיס כמה פעמים מופיע הרצף <code>the</code> בתוך <code>text</code>.</p>
+<pre><code class="language-python">text = &quot;the other theme is there&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"the other theme is there"</code></td>
+<td><code>4</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>אחר כך חזו: מה ידפיס <code>print("aaaa".count("aa"))</code>? הריצו, והסבירו.</p>
+</section>
+<section class="slide">
+<h2>4. משימה 3: מחליפים רק 3 פעמים</h2>
+<p>כתבו קוד שמחליף את התו <code>|</code> ב-<code>we</code> רק ב-3 המקומות הראשונים שבהם הוא מופיע, ומדפיס את המחרוזת החדשה.</p>
+<pre><code class="language-python">text = &quot;a|b|c|d|e&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"a\|b\|c\|d\|e"</code></td>
+<td><code>awebwecwed\|e</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>5. משימה 4: יש בטקסט yes?</h2>
+<p>כתבו קוד שמדפיס <code>True</code> אם המחרוזת מכילה את המילה <code>yes</code> בכל צורת אותיות (<code>yes</code>, <code>YES</code>, <code>Yes</code>), ואחרת <code>False</code>.</p>
+<pre><code class="language-python">text = &quot;Maybe YES maybe no&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"Maybe YES maybe no"</code></td>
+<td><code>True</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"no way"</code></td>
+<td><code>False</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>6. אם נשאר זמן: נראה כמו כתובת מייל?</h2>
+<p>כתבו קוד שמדפיס <code>True</code> כשיש בטקסט <code>@</code> <strong>ואחריו</strong> גם <code>.</code>, ואחרת <code>False</code>. השתמשו ב-<code>find</code> עם מקום התחלה.</p>
+<pre><code class="language-python">address = &quot;dana@school.org&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"dana@school.org"</code></td>
+<td><code>True</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"dana@school"</code></td>
+<td><code>False</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"dana.school"</code></td>
+<td><code>False</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>שימו לב: הקוד בודק רק את הצורה — הוא לא יודע אם הכתובת קיימת.</p>
+</section>
+<section class="slide">
+<h2>7. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U5_M2_Slicing_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה — עבור <code>text = "think big"</code>, מה מודפס?</strong></p>
+<div dir="rtl">
+<ol>
+<li><code>text[:5]</code></li>
+<li><code>text[-3:]</code></li>
+<li><code>text.find("big")</code></li>
+<li><code>text.replace("big", "small")</code> — ואחר כך <code>text</code> עצמו</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 8.2–8.7 – מחרוזות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 8.2–8.7 – מחרוזות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>אלגוריתמים על מחרוזות, קוד סודי ובדיקת סיום היחידה</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>כדי לפתור בעיית טקסט עוברים על התווים (או על המקומות) עם מונה, מקום שזוכרים, או מחרוזת חדשה שבונים עם <code>+=</code>. בכל משימה הטקסט נמצא במשתנה, והקוד מדפיס את התשובה עם <code>print</code>. כדי לבדוק ערך אחר – משנים את ערך המשתנה ומריצים שוב.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">print(ord(&quot;a&quot;), chr(100))        # 97 d  - אות הופכת למספר, ומספר לאות
+print(chr(ord(&quot;c&quot;) + 1))         # d     - האות הבאה
+
+for index in range(len(text)):   # כשצריך את המקום
+    print(index, text[index])
+
+print(&quot;guitar piano drums&quot;.split(&quot; &quot;))           # ['guitar', 'piano', 'drums'] - רשימה, רק מדפיסים
+print(&quot;-&quot;.join(&quot;guitar piano drums&quot;.split(&quot; &quot;)))  # guitar-piano-drums
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>משימה</th>
+<th>כלי מתאים</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>לספור אות או רצף</td>
+<td>לולאה ומונה, או <code>count</code></td>
+</tr>
+<tr>
+<td>המילה הראשונה</td>
+<td><code>find(" ")</code> וחיתוך</td>
+</tr>
+<tr>
+<td>המילה האחרונה</td>
+<td>לולאה שזוכרת את הרווח האחרון</td>
+</tr>
+<tr>
+<td>בניית מחרוזת חדשה</td>
+<td>לולאה ו-<code>+=</code></td>
+</tr>
+<tr>
+<td>אות ← מספר ← אות</td>
+<td><code>ord</code> ו-<code>chr</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="rtl">
+<p>טיפ: הקובץ רץ מההתחלה עד הסוף. בזמן שעובדים על משימה אחת, שמים <code>#</code> לפני הקוד של המשימות האחרות (ב-Thonny: מסמנים את השורות ולוחצים Ctrl+3).</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: ה-or שתמיד נכון</h2>
+<p>פתחו את <code>Cipher_Starter.py</code>. הקוד בראש הקובץ אמור לספור רק את התנועות <code>a, e, i, o, u</code>.</p>
+<pre><code class="language-python">text = &quot;sometimes you learn&quot;
+total = 0
+for character in text:
+    if character == &quot;a&quot; or &quot;e&quot; or &quot;i&quot; or &quot;o&quot; or &quot;u&quot;:
+        total += 1
+print(total)                                   # אמור להיות 8
+</code></pre>
+<p>חזו, הריצו והסבירו למה מודפס מספר גדול מדי. תקנו שורה אחת.</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: המילה הראשונה והאחרונה</h2>
+<p>כתבו קוד שמדפיס את המילה הראשונה ואת המילה האחרונה בטקסט, עם רווח אחד ביניהן.</p>
+<pre><code class="language-python">text = &quot;Cats and dogs are great friends&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "Cats and dogs are great friends"</code></td>
+<td><code>Cats friends</code></td>
+</tr>
+<tr>
+<td><code>text = "Hello"</code></td>
+<td><code>Hello</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>3. משימה 2: ראשי תיבות</h2>
+<p>כתבו קוד שמדפיס את האותיות הראשונות של כל המילים. (רמז: אות ראשונה של מילה באה מיד אחרי רווח.)</p>
+<pre><code class="language-python">text = &quot;American Standard Code Information Interchange&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "American Standard Code Information Interchange"</code></td>
+<td><code>ASCII</code></td>
+</tr>
+<tr>
+<td><code>text = "hello big world"</code></td>
+<td><code>hbw</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>4. משימה 3: כמה פעמים <code>is</code></h2>
+<p>כתבו קוד שמדפיס כמה פעמים מופיע הרצף <code>is</code> בטקסט – פעמיים:</p>
+<div dir="rtl">
+<ul>
+<li>משימה 3a – בעזרת <code>count</code>.</li>
+<li>משימה 3b – בלי <code>count</code>.</li>
+</ul>
+</div>
+<pre><code class="language-python">text = &quot;this is his list&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "this is his list"</code></td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><code>text = "mississippi"</code></td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>למה בטקסט הראשון התשובה 4 ולא 1?</p>
+</section>
+<section class="slide">
+<h2>5. משימה 4: תנועות</h2>
+<p>כתבו קוד שמדפיס כמה פעמים מופיעה כל אחת מהאותיות <code>a, e, i, o, u</code>, כל אות בשורה משלה (<code>a: 1</code>). פעמיים: במשימה 4a עם <code>count</code>, ובמשימה 4b בלי <code>count</code> (מעבר אחד על הטקסט וחמישה מונים).</p>
+<pre><code class="language-python">text = &quot;sometimes you learn&quot;
+</code></pre>
+<p>הפלט הצפוי:</p>
+<pre><code class="language-text">a: 1
+e: 3
+i: 1
+o: 2
+u: 1
+</code></pre>
+</section>
+<section class="slide">
+<h2>6. משימה 5: קוד האות הבאה</h2>
+<p>קודם הריצו את השורה הבאה וקראו את המספרים:</p>
+<pre><code class="language-python">for ch in &quot;Hello&quot;: print(ord(ch), end=&quot;,&quot;)
+</code></pre>
+<p>אחר כך כתבו קוד שמדפיס את הטקסט כשכל אות הוחלפה באות הבאה באלף-בית, ו-<code>z</code> הופכת ל-<code>a</code>. תווים אחרים (רווח) נשארים. רק אותיות קטנות.</p>
+<pre><code class="language-python">text = &quot;abcd&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "abcd"</code></td>
+<td><code>bcde</code></td>
+</tr>
+<tr>
+<td><code>text = "zoo"</code></td>
+<td><code>app</code></td>
+</tr>
+<tr>
+<td><code>text = "i like python"</code></td>
+<td><code>j mjlf qzuipo</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>7. משימה 6: split ו-join</h2>
+<p>הריצו את שתי השורות שבהערה בקובץ וקראו את הפלט (<code>split</code> נותנת <strong>רשימה</strong> – בינתיים רק מדפיסים אותה). אחר כך כתבו קוד שמדפיס את הטקסט כשכל רווח הוחלף ב-<code>-</code>, בעזרת <code>split</code> ו-<code>join</code>. השוו ל-<code>replace</code>.</p>
+<pre><code class="language-python">text = &quot;guitar piano drums&quot;
+</code></pre>
+<p>הפלט הצפוי:</p>
+<pre><code class="language-text">guitar-piano-drums
+</code></pre>
+</section>
+<section class="slide">
+<h2>8. בדיקת סיום היחידה</h2>
+<p>עבודה עצמית. בכל משימה כותבים קוד מתחת למשתנה, <strong>ומדפיסים</strong> את התשובה עם <code>print</code>. אחר כך משנים את ערך המשתנה ובודקים גם את המקרה המיוחד.</p>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>משימה</th>
+<th>המשתנה</th>
+<th>מה הקוד מדפיס</th>
+<th>בדיקה</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>האות האמצעית</td>
+<td><code>word = "robot"</code></td>
+<td>האות האמצעית; במילה באורך זוגי – שתי האמצעיות</td>
+<td><code>"robot"</code> ← <code>b</code> · <code>"python"</code> ← <code>th</code> · <code>"a"</code> ← <code>a</code></td>
+</tr>
+<tr>
+<td>הקצוות</td>
+<td><code>text = "I like to play drums"</code></td>
+<td>4 התווים הראשונים ו-4 האחרונים; פחות מ-4 תווים ← <code>****</code></td>
+<td><code>"I like to play drums"</code> ← <code>I lirums</code> · <code>"abc"</code> ← <code>****</code></td>
+</tr>
+<tr>
+<td>אות גדולה וקטנה</td>
+<td><code>text = "trust yourself"</code></td>
+<td>אות גדולה, קטנה, גדולה… רווח נשאר ואינו נספר</td>
+<td><code>"trust yourself"</code> ← <code>TrUsT yOuRsElF</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>להעשרה או לשיעורי בית: דף העבודה 8.2, שאלות 2, 5, 6 ושאלת האתגר 8.</p>
+</section>
+<section class="slide">
+<h2>9. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U5_M4_Cipher_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה — שתי שורות:</strong></p>
+<div dir="rtl">
+<ol>
+<li>דבר אחד שתוכנית יכולה לבדוק בתשובת AI כמחרוזת.</li>
+<li>דבר אחד שהיא אינה יכולה להסיק רק מהוראות על מחרוזות.</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעור 21.1 – מערכות המלצה</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעור 21.1 – מערכות המלצה</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>הטבלה, נקודות דמיון והתאום</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>נקודת דמיון = שתי תשובות <strong>זהות</strong> ושאינן <code>0</code>. שני <code>X</code> הם נקודה. שני <code>0</code> אינם נקודה — אף אחד לא מכיר, ואין דעה משותפת. התאום הוא מי שיש לו הכי הרבה נקודות.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">item_names = [&quot;sushi&quot;, &quot;beet&quot;, &quot;dal&quot;, &quot;pasta&quot;, &quot;pizza&quot;]
+aliases = [&quot;user_01&quot;, &quot;user_02&quot;, &quot;user_03&quot;, &quot;user_04&quot;]
+answers = [&quot;XV0XX&quot;, &quot;0VV0X&quot;, &quot;V0XXV&quot;, &quot;00XVV&quot;]
+</code></pre>
+<div dir="rtl">
+<p>המקום ברשימה זהה אצל כולם: <code>aliases[2]</code> ו-<code>answers[2]</code> שייכים לאותו אדם. התשובות של כל אדם הן מחרוזת, תו אחד לכל פריט: <code>answers[3][2]</code> היא תשובתו של <code>user_04</code> על <code>dal</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: אפס ואפס נחשבים נקודה</h2>
+<p>פתחו את <code>Similarity_Starter.py</code>, חזו מה יודפס, והריצו.</p>
+<pre><code class="language-python">def count_same(first, second):
+    same = 0
+    for index in range(len(first)):
+        if first[index] == second[index]:
+            same += 1
+    return same
+
+
+print(count_same(&quot;00XVV&quot;, &quot;V0XXV&quot;))
+</code></pre>
+<div dir="rtl">
+<p>התשובה הנכונה היא <code>2</code>. מקבלים <code>3</code>. באיזה פריט נספרה נקודה שלא הייתה צריכה להיספר? תקנו שורה אחת.</p>
+</div>
+</section>
+<section class="slide">
+<h2>2. משימה 1: טבלת מעקב</h2>
+<div dir="rtl">
+<p>מלאו ביד את הטבלה עבור <code>"00XVV"</code> מול <code>"V0XXV"</code>, ואז כתבו <code>show_comparison(first, second)</code> שמדפיסה את אותה טבלה: שם הפריט, שתי התשובות, ו-<code>point</code> או <code>-</code>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>פריט</th>
+<th style="text-align: center;">first</th>
+<th style="text-align: center;">second</th>
+<th style="text-align: center;">נקודה?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sushi</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>beet</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>dal</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>pasta</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>pizza</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide">
+<h2>3. משימה 2: print_scores(target_index)</h2>
+<div dir="rtl">
+<p>כתבו פעולה שמדפיסה לכל משתתף <strong>חוץ מהמטרה</strong> את הכינוי ואת מספר הנקודות המשותפות איתה. הקריאה <code>print_scores(3)</code> מדפיסה:</p>
+</div>
+<pre><code class="language-text">user_01 0
+user_02 0
+user_03 2
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. משימה 3: best_score(target_index)</h2>
+<div dir="rtl">
+<p>כתבו פעולה שמחזירה את מספר הנקודות הגבוה ביותר בין המטרה לבין כל משתתף אחר. בדקו: <code>best_score(3)</code> מחזירה <code>2</code>. חשבו ביד: מה מחזירה <code>best_score(0)</code>?</p>
+</div>
+</section>
+<section class="slide">
+<h2>5. משימה 4 (אם נשאר זמן): הסקר של הכיתה</h2>
+<div dir="rtl">
+<p>המורה נותן שלוש שורות (<code>item_names</code>, <code>aliases</code>, <code>answers</code>) שנבנו מתשובות הסקר שלנו. הדביקו אותן במקום נתוני הדוגמה והריצו את משימה 2. מי התאום של המשתתף האחרון?</p>
+</div>
+</section>
+<section class="slide">
+<h2>6. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U9_M2_Similarity_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מתי שתי תשובות נותנות נקודת דמיון?</li>
+<li><code>"0"</code> מול <code>"0"</code> — נקודה או לא, ולמה?</li>
+<li>מיהו ה"תאום" של אדם?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

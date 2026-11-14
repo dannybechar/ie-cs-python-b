@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 8.0–8.1 – מחרוזות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 8.0–8.1 – מחרוזות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>שיטות נוספות ומעבר על מחרוזת בלולאה</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>לולאת <code>for</code> עוברת על כל תו במחרוזת, תו אחרי תו. מונה מאפסים <strong>פעם אחת לפני הלולאה</strong>, ומחרוזת חדשה בונים בעזרת <code>+=</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">text = &quot;I like to play drums&quot;
+print(text.startswith(&quot;I like&quot;))        # True
+print(text.startswith(&quot;play&quot;, 10, 17))  # True - בודקים רק את המקומות 10 עד 16
+print(&quot;2027&quot;.isdigit())                 # True
+print(&quot;1.9.2027&quot;.isdigit())             # False
+print(&quot;Hello&quot;.isalpha())                # True
+print(&quot;Piano&quot;.upper(), &quot;DRUMS&quot;.lower())
+</code></pre>
+<pre><code class="language-python">text = &quot;sometimes you win sometimes you learn&quot;
+letter = &quot;e&quot;
+count = 0                       # פעם אחת, לפני הלולאה
+for character in text:
+    if character == letter:
+        count += 1
+print(count)                    # פעם אחת, אחרי הלולאה
+</code></pre>
+<pre><code class="language-python">for character in &quot;Learn&quot;:
+    print(character * 3, end=&quot;&quot;)    # end=&quot;&quot; - נשארים באותה שורה
+print()                             # ירידת שורה בסוף
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>בכל משימה כותבים קוד מתחת למשתנה, ומדפיסים את התשובה עם <code>print</code>.</li>
+<li>כדי לבדוק ערך אחר משנים את ערך המשתנה ומריצים שוב.</li>
+<li>בזמן שעובדים על משימה אחת, שמים <code>#</code> לפני הקוד של המשימות האחרות (או עובדים בקובץ חדש).</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: המונה שמתאפס</h2>
+<p>פתחו את <code>Traverse_Starter.py</code>. הקוד אמור להדפיס <code>5</code>.</p>
+<pre><code class="language-python">text = &quot;sometimes you win sometimes you learn&quot;
+letter = &quot;e&quot;
+for character in text:
+    count = 0
+    if character == letter:
+        count += 1
+print(count)
+</code></pre>
+<p>חזו מה יודפס, הריצו, והסבירו למה. תקנו על ידי העברת שורה אחת למקום אחר.</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: האם זו שנה?</h2>
+<p>קודם חזו והריצו את שלוש הוראות <code>startswith</code> שבקובץ. אחר כך כתבו קוד שמדפיס <code>True</code> רק כשהטקסט מורכב מספרות בלבד <strong>ואורכו 4</strong>:</p>
+<pre><code class="language-python">text = &quot;2027&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "2027"</code></td>
+<td><code>True</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "1.9.2027"</code></td>
+<td><code>False</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "20x7"</code></td>
+<td><code>False</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "99"</code></td>
+<td><code>False</code></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>3. משימה 2: סופרים אות</h2>
+<p>כתבו קוד שסופר כמה פעמים האות שב-<code>letter</code> מופיעה ב-<code>text</code> — <strong>בלי</strong> <code>count()</code>, בעזרת לולאת <code>for</code> — ומדפיס את התשובה <strong>אחרי</strong> הלולאה.</p>
+<pre><code class="language-python">text = &quot;sometimes you win sometimes you learn&quot;
+letter = &quot;e&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "sometimes you win sometimes you learn"</code>, <code>letter = "e"</code></td>
+<td><code>5</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "banana"</code>, <code>letter = "a"</code></td>
+<td><code>3</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "banana"</code>, <code>letter = "z"</code></td>
+<td><code>0</code></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>4. משימה 3: שלוש פעמים כל אות</h2>
+<pre><code class="language-python">text = &quot;Learn&quot;
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>א. כתבו קוד שמדפיס כל אות שלוש פעמים, הכול בשורה אחת: <code>LLLeeeaaarrrnnn</code>.</li>
+<li>ב. כתבו קוד שבונה את אותה מחרוזת במשתנה חדש <code>result</code> בעזרת <code>+=</code>, ומדפיס אותה פעם אחת, אחרי הלולאה.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "Learn"</code></td>
+<td><code>LLLeeeaaarrrnnn</code></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "ab"</code></td>
+<td><code>aaabbb</code></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>5. משימה 4: שמות משפחה</h2>
+<p>כתבו קוד שקולט <code>number</code> שמות משפחה עם <code>input()</code> ומדפיס כמה מהם מכילים את <code>cohen</code> (בכל צורת אותיות):</p>
+<pre><code class="language-python">number = 3
+</code></pre>
+<div dir="rtl">
+<ul>
+<li>גרסה א — בעזרת <code>count</code>.</li>
+<li>גרסה ב — בלי <code>count</code> (השתמשו ב-<code>in</code>).</li>
+</ul>
+</div>
+<p>בדיקה: מקלידים <code>Cohen</code>, <code>Levi</code>, <code>BenCOHEN</code> ← מודפס <code>2</code>.</p>
+<div class="alert note">
+<p><span class="t">NOTE</span></p>
+<p>מקלידים שמות <strong>בדויים</strong> בלבד — לא שמות של תלמידים אמיתיים.</p>
+</div>
+</section>
+<section class="slide">
+<h2>6. משימה 5: שומרים רק אותיות מ-a עד e</h2>
+<p>כתבו קוד שבונה מחרוזת חדשה שמכילה רק את התווים שבין <code>"a"</code> ל-<code>"e"</code> (<code>&gt;= "a"</code> ו-<code>&lt;= "e"</code>), ומדפיס אותה.
+חזו קודם מה יודפס עבור הטקסט הזה:</p>
+<pre><code class="language-python">text = &quot;We play on the computer&quot;
+</code></pre>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>ערך המשתנה</th>
+<th>צפוי</th>
+<th>בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text = "We play on the computer"</code></td>
+<td>(חזו קודם)</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><code>text = "abcdefg"</code></td>
+<td><code>abcde</code></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide">
+<h2>7. אם נשאר זמן: כמה מילים?</h2>
+<p>כתבו קוד שמדפיס את מספר הרווחים ועוד 1.</p>
+<pre><code class="language-python">text = &quot;We are learning to program&quot;
+</code></pre>
+<p>צפוי: <code>5</code>. מה קורה ב-<code>"two  spaces"</code> (שני רווחים רצופים)? למה?</p>
+</section>
+<section class="slide">
+<h2>8. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U5_M3_Traverse_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li><code>"2027".isdigit()</code> היא…</li>
+<li><code>"Python".startswith("py")</code> היא…</li>
+<li>מה מודפס אחרי <code>for ch in "abc": print(ch * 2, end="")</code>?</li>
+<li>איפה כותבים <code>count = 0</code> בלולאת ספירה?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

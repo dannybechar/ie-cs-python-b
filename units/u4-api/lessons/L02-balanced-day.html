@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 6.1–6.2 – להכניס בינה לקוד (API)</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 6.1–6.2 – להכניס בינה לקוד (API)</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>פרויקטון "יום מאוזן"</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>קודם אוספים את כל הנתונים, ורק אחרי הלולאה שולחים ל-AI קריאה <strong>אחת</strong>. ה-AI מקבל פרומפט ברור שנבנה עם f-string, ומחזיר הצעה שאנחנו בודקים.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">def calc_time_today(start, end):
+    return end - start
+
+all_tasks = &quot;&quot;
+task_name = input(&quot;Enter a task (or done to finish): &quot;)
+while task_name != &quot;done&quot;:
+    task_time = float(input(f&quot;How many hours will {task_name} take? &quot;))
+    all_tasks += f&quot;{task_name} ({task_time} hours), &quot;
+    task_name = input(&quot;Enter another task (or done to finish): &quot;)
+
+# הלולאה הסתיימה: עכשיו בונים פרומפט ושולחים פעם אחת
+prompt = f&quot;I have these tasks: {all_tasks} ...&quot;
+result = ask_the_ai(prompt)
+</code></pre>
+<div dir="rtl">
+<p>פרומפט טוב כולל: <strong>הקשר</strong> (מי אני), <strong>משימה</strong> (מה לבנות), <strong>נתונים</strong> (השעות והמטלות) ו<strong>תוצר רצוי</strong> (למשל רשימה קצרה של בלוקי זמן). בודקים את הפרומפט בצ'אט לפני הקוד, ולא כותבים בו מידע אישי.</p>
+</div>
+<div class="alert note">
+<p><span class="t">NOTE</span></p>
+<p>בקובץ ההתחלה יש <strong>אזור A</strong> (לקוח מדומה עם תשובות קבועות) ואת הפעולה <code>ask_the_ai</code> מהמפגש הקודם. לא נוגעים באזור A.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: משתנה שלא קיים</h2>
+<p>הריצו את <code>BalancedDay_Starter.py</code>. התוכנית נעצרת עם שגיאה. קראו אותה, מצאו את הטעות ותקנו.</p>
+<pre><code class="language-python">today_time = sleep_hour - home_hour
+prompt = f&quot;I have {time_today} hours today. Build me a balanced schedule that starts at {home_hour}.&quot;
+</code></pre>
+<p>איך אפשר לגלות טעות כזו לפני ששולחים ל-AI? (רמז: מדפיסים את הפרומפט.)</p>
+</section>
+<section class="slide">
+<h2>2. שלב 1: כמה שעות יש לנו?</h2>
+<p>קלטו <code>home_hour</code> ו-<code>sleep_hour</code> (מספרים שלמים). כתבו פעולה <code>calc_time_today(start, end)</code> שמחזירה את מספר השעות, וקראו לה. הדפיסו: <code>You have 8 hours this afternoon.</code></p>
+</section>
+<section class="slide">
+<h2>3. שלב 2: אוספים מטלות</h2>
+<p>לולאת <code>while</code> עד שהמשתמש מקליד <code>done</code>. בכל סיבוב: שם מטלה ואחריו מספר שעות (<code>float(input(...))</code>), והוספה ל-<code>all_tasks</code> עם <code>+=</code>. שורת ה-<code>input</code> הבאה היא <strong>השורה האחרונה</strong> בלולאה. הדפיסו את <code>all_tasks</code> כדי לבדוק.</p>
+<pre><code class="language-text">homework (2.0 hours), sport (1.5 hours), 
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. שלב 3: הפרומפט והקריאה היחידה</h2>
+<p>תכננו את הפרומפט בצ'אט. <strong>אחרי הלולאה</strong> בנו אותו עם f-string מ-<code>all_tasks</code>, <code>today_time</code>, <code>home_hour</code> ו-<code>sleep_hour</code>, הדפיסו אותו, קראו ל-<code>ask_the_ai</code> <strong>פעם אחת</strong> והדפיסו את הלו"ז. בסוף הדפיסו <code>Calls sent:</code> ואת <code>client.models.calls</code> (בגרסת הכיתה בלבד) — צריך לצאת 1.</p>
+</section>
+<section class="slide">
+<h2>5. פיצ'רים מתקדמים (בוחרים אחד או שניים — או רעיון משלכם)</h2>
+<div dir="rtl">
+<ol>
+<li>לבקש מה-AI אימוג'י מתאים לכל מטלה.</li>
+<li>לתת למשתמש לבחור שפה (עברית / אנגלית) ולשלב אותה בפרומפט.</li>
+<li>מטלה בשם קצר מ-3 אותיות לא נוספת (<code>len</code>).</li>
+<li><code>total_task_time += task_time</code>; אם המטלות תופסות יותר שעות מהיום — לא קוראים ל-AI, אלא מדפיסים אזהרה.</li>
+<li>לבקש משפט מוטיבציה קצר לכל מטלה.</li>
+<li>סיכום באחוזים: <code>task_percent = round(total_task_time / today_time * 100)</code>.</li>
+<li>פרטיות: מטלה שמכילה <code>password</code>, <code>phone</code> או <code>address</code> לא נוספת (עם אזהרה).</li>
+</ol>
+</div>
+</section>
+<section class="slide">
+<h2>6. ביקורת עמיתים</h2>
+<div dir="rtl">
+<p>מחליפים עם בן/בת זוג ובודקים: המפתח לא בקובץ? <code>calc_time_today</code> ו-<code>ask_the_ai</code> מחזירות ערך עם <code>return</code>? בפרומפט יש הקשר, משימה, נתונים ותוצר רצוי? הנתונים נאספים לפני הקריאה? יש קריאה אחת בלבד? מטלות קצרות ורגישות מטופלות?</p>
+</div>
+</section>
+<section class="slide">
+<h2>7. ביקורת על התשובה</h2>
+<div dir="rtl">
+<p>אחרי הרצה סמנו: פרט אחד שמבוסס ישירות על הקלט · הצעה אחת שנראית שימושית · הנחה אחת שה-AI הוסיף · פרט שדורש בדיקה או שינוי. הלו"ז הוא הצעה — לא אמת.</p>
+</div>
+</section>
+<section class="slide">
+<h2>8. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U4_M2_BalancedDay_&lt;Name&gt;.py</code>. בודקים שאין בקובץ מפתח.</p>
+<hr />
+<p><strong>בדיקת יציאה:</strong> למה קוראים ל-AI פעם אחת, אחרי הלולאה, ולא בתוך הלולאה?</p>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

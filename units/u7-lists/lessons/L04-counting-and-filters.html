@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 13.2, 14.0–14.2 – רשימות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 13.2, 14.0–14.2 – רשימות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>ספירה, סינון, מקסימום ורשימות מקבילות</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>מונה גדל רק כשהתנאי מתקיים. מקסימום מתחילים מערך <strong>אמיתי</strong> מהרשימה (<code>values[0]</code>), לא מ-0. כשכל הנתונים ברשימה שטוחה אחת (שם, מחיר, שם, מחיר…), המקום קובע מה הפריט: מקום זוגי הוא שם ומקום אי-זוגי הוא מחיר.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">count = 0
+for value in values:
+    if value &gt; 50:
+        count += 1            # גדל רק כשהתנאי מתקיים
+
+largest = values[0]           # לא 0!
+for value in values:
+    if value &gt; largest:
+        largest = value
+
+menu = [&quot;milk&quot;, 15, &quot;bread&quot;, 10, &quot;cornflakes&quot;, 20, &quot;eggs&quot;, 18]
+for index in range(len(menu)):
+    if index % 2 == 1:        # מקום אי-זוגי: מחיר
+        print(menu[index - 1], menu[index])   # השם נמצא לפני המחיר
+
+print(menu[0::2])             # כל השמות
+print(menu[1::2])             # כל המחירים
+</code></pre>
+</section>
+<section class="slide">
+<h2>1. חימום: המקסימום שלא מתעדכן</h2>
+<p>פתחו את <code>Stats_Starter.py</code>.</p>
+<pre><code class="language-python">def find_maximum(values):
+    largest = 0
+    for value in values:
+        if value &gt; largest:
+            largest = value
+    return largest
+
+
+print(find_maximum([-5, -2, -9]))
+</code></pre>
+<p>חזו <code>-2</code>. הריצו — מתקבל <code>0</code>. למה? תקנו שורה אחת.</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: דוח ציונים</h2>
+<p>כתבו <code>grades_report(grades)</code> שמדפיסה: את ממוצע הציונים, את רשימת הציונים שמעל הממוצע, את רשימת הציונים ששווים ל-60 או קטנים ממנו, ואם הממוצע מעל 90 גם <code>"Excellent!"</code>. עבור רשימה ריקה הדפיסו <code>"No grades"</code>. בדקו על:</p>
+<pre><code class="language-python">[95, 72, 88, 100, 45, 78, 96, 56]
+[95, 100, 92, 98]
+[]
+</code></pre>
+</section>
+<section class="slide">
+<h2>3. משימה 2: מתנות וטווחים</h2>
+<p>כתבו <code>presents_report(presents)</code> שמדפיסה את הסכום הכולל, את הממוצע ואת מספר המתנות שמעל הממוצע. בדקו על <code>[200, 150, 300, 50, 100, 250, 500, 120, 80, 350]</code>. אחר כך כתבו <code>count_in_range(values, low, high)</code> שסופרת ערכים מ-<code>low</code> עד <code>high</code> (שני הקצוות נכללים). בדקו על <code>[81, 24, 67, 91]</code> עם 60 ו-90.</p>
+</section>
+<section class="slide">
+<h2>4. משימה 3: שמות</h2>
+<p>שמות מלאים (שם פרטי, רווח, שם משפחה) נמצאים ברשימה, למשל <code>"Dana Dikla"</code>. כתבו <code>names_report(full_names)</code> שמדפיסה: כמה שמות מכילים את הרצף <code>"el"</code> (בלי להבדיל בין גדולות לקטנות: Elinor, Batel, Israel), כמה שמות ארוכים מ-7 תווים (הרווח נספר), וכמה שמות שבהם השם הפרטי ושם המשפחה מתחילים באותה אות (Dana Dikla, Carmi Cohen). בדקו על רשימה של 10 שמות שאתם ממציאים.</p>
+</section>
+<section class="slide">
+<h2>5. משימה 4: תפריט במסעדה</h2>
+<pre><code class="language-python">menu = [&quot;milk&quot;, 15, &quot;bread&quot;, 10, &quot;cornflakes&quot;, 20, &quot;eggs&quot;, 18]
+</code></pre>
+<div dir="rtl">
+<p>א. כתבו <code>read_menu(count)</code> שקולטת <code>count</code> מנות (שם ואחריו מחיר) לתוך רשימה שטוחה אחת ומחזירה אותה.</p>
+<p>ב. כתבו <code>print_most_expensive(menu)</code> שמדפיסה את שם המנה היקרה ביותר ואת מחירה.</p>
+<p>ג. כתבו <code>average_price(menu)</code> שמחזירה את המחיר הממוצע.</p>
+<p>ד. כתבו <code>names_above_average(menu)</code> שמחזירה רשימה של שמות המנות שמחירן מעל הממוצע.</p>
+<p>ה. אודליה קנתה בגדים. הרשימה שלה: שם פריט ואחריו מחיר. הדפיסו את הסכום במעבר לפי אינדקס, את הסכום במעבר לפי ערך (רמז: <code>type(item) != str</code>) ואת שמות הפריטים בלבד.</p>
+</div>
+<pre><code class="language-python">buy = [&quot;yellow shirt&quot;, 61.5, &quot;red shirt&quot;, 73.99, &quot;blue shirt&quot;, 60.0, &quot;long shirt&quot;, 33.3, &quot;orange shirt&quot;, 45.5]
+</code></pre>
+<p>אחר כך הדפיסו <code>menu[0::2]</code> ו-<code>menu[1::2]</code> והסבירו מה מתקבל.</p>
+</section>
+<section class="slide">
+<h2>6. משימה 5: רשימות מקבילות</h2>
+<p>ציוני אותם 5 תלמידים בשלוש רשימות, באותו סדר:</p>
+<pre><code class="language-python">math = [100, 77, 85, 98, 100]
+comp = [95, 83, 77, 90, 100]
+physics = [76, 87, 84, 93, 100]
+</code></pre>
+<p>כתבו <code>student_averages(math, comp, physics)</code> שמחזירה רשימה חדשה: ממוצע כל תלמיד, מעוגל לשתי ספרות אחרי הנקודה.</p>
+</section>
+<section class="slide">
+<h2>7. משימה 6: תרגול לפיצוח 14.2 (בחרו שתיים)</h2>
+<div dir="rtl">
+<p>א. <code>half_zero_one(size)</code> — <code>size</code> זוגי. החזירו רשימה בגודל <code>size</code>: המחצית הראשונה אפסים והשנייה אחדות (עבור 8: <code>[0, 0, 0, 0, 1, 1, 1, 1]</code>).</p>
+<p>ב. <code>is_ascending(values)</code> — <code>True</code> אם כל ערך אינו קטן מהערך שלפניו (<code>[11, 22, 33, 44]</code> כן, <code>[11, 22, 77, 44]</code> לא).</p>
+<p>ג. <code>best_grades(grade_a, grade_b)</code> — שתי רשימות ציונים של אותם תלמידים. החזירו רשימה חדשה עם הציון הגבוה של כל תלמיד.</p>
+<p>ד. <code>pass_fail(numbers)</code> — הדפיסו את רשימת הציונים שמעל 55 ואת רשימת שאר הציונים.</p>
+</div>
+<p>השאלות 2 ו-3 בדף 14.2 הן תבנית "מעל הממוצע" שכבר כתבתם במשימה 2.</p>
+</section>
+<section class="slide">
+<h2>8. תפריט אתגרים (בחרו מה שבא לכם)</h2>
+<div dir="rtl">
+<p>א. <code>evens_first(values)</code> — רשימה חדשה: קודם כל הזוגיים ואחריהם האי-זוגיים.</p>
+<p>ב. <code>discount_20(prices)</code> — רשימה חדשה של המחירים אחרי הנחה של 20%.</p>
+<p>ג. <code>remove_place_num(values)</code> — רשימה חדשה בלי האיברים שהמקום שלהם מתחלק ב-3 (מקומות 0, 3, 6…).</p>
+<p>ד. <code>magic(my_list)</code> — "רשימה קסומה": לא ריקה, האורך מתחלק ב-3, ושלושת השלישים זהים (<code>[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]</code> קסומה). שלושה חיתוכים מספיקים, אין צורך ברשימה בתוך רשימה.</p>
+<p>ה. <code>count_words(text)</code> — כמה מילים במשפט? חובה <code>split</code>, אסור <code>count</code>.</p>
+<p>ו. <code>can_release(bugs)</code> — <code>bugs</code> היא רשימת סוגי תקלות (<code>"Highly Critical"</code>, <code>"Critical"</code>, <code>"Major"</code>, <code>"Medium"</code>, <code>"Minor"</code>). הדפיסו כמה מכל סוג. מותר להפיץ אם אין Critical ומעלה, יש לכל היותר Major אחד, 5 Medium ו-10 Minor.</p>
+<p>ז. <strong>מצאו את הבאג:</strong> הפעולה <code>avg_stud</code> בקובץ ההתחלה אמורה להחזיר את ממוצע הציונים של כל תלמיד, כשציוני כולם ברשימה אחת. התוצאה שגויה. מצאו מדוע.</p>
+</div>
+<pre><code class="language-python">l1 = [80, 35, 90, 85, 55, 75, 60, 80, 90]
+l2 = [3, 2, 4]
+</code></pre>
+</section>
+<section class="slide">
+<h2>9. אתגר מתקדם: מחרוזות ורשימות</h2>
+<div dir="rtl">
+<p>א. <strong>שפת Robber</strong> — <code>robber(text)</code>: כל אות שאינה אות ניקוד (<code>a e i o u</code>) מוכפלת וביניהן <code>o</code>; אותיות הניקוד והרווח נשארים. <code>"cat"</code> הופך ל-<code>"cocatot"</code>.</p>
+<p>ב. <strong>כתובת IP</strong> — <code>valid_ip(ip_text)</code>: <code>True</code> אם הכתובת מורכבת מארבעה מספרים שלמים בין 0 ל-255 המופרדים בנקודות (<code>"192.168.0.17"</code> כן, <code>"192.890.0.17"</code> לא).</p>
+<p>ג. <strong>הצפנה</strong> — <code>encrypt(text)</code>: כל <code>E</code> הופך ל-<code>&amp;</code>, כל <code>T</code> ל-<code>@</code>, כל <code>A</code> ל-<code>%</code> (גדולות וקטנות).</p>
+</div>
+</section>
+<section class="slide">
+<h2>10. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U7_M4_Stats_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מהו הערך ההתחלתי של מונה?</li>
+<li>איך מאתחלים מקסימום ברשימה לא ריקה?</li>
+<li>בתפריט השטוח — באילו מקומות נמצאים המחירים?</li>
+<li>מה נותן <code>menu[1::2]</code>?</li>
+<li>למה ציון קירבה של מודל אינו הסתברות?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

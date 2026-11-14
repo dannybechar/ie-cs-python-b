@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 20.0–20.1 – מערכות המלצה</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 20.0–20.1 – מערכות המלצה</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>חידת הפיד, שתי שיטות המלצה וסקר</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert warning">
+<p><span class="t">WARNING</span></p>
+<p>בסקר לא אוספים שם, דוא"ל, טלפון, כיתה או תמונה. משתמשים בכינוי או במספר. בוחרים נושא נייטרלי בלבד, והמורה בודק את הסקר לפני ששולחים.</p>
+</div>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>מערכת המלצה לא קוראת מחשבות — היא לומדת מההתנהגות שלנו או מאנשים שדומים לנו. כדי שהקוד יוכל להשוות אנשים, כולם עונים באותה סקאלה סגורה: <code>V</code> אהבתי, <code>X</code> לא אהבתי, <code>0</code> לא מכיר/ה. <strong>רק אותיות גדולות באנגלית.</strong></p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-text">מבוססת תוכן:   מה אהבתי ← מאפייני הפריט ← פריטים דומים
+מבוססת משתמשים: התשובות שלי ← אנשים עם תשובות דומות ← מה הם אהבו ואני לא מכיר/ה
+</code></pre>
+<div dir="rtl">
+<p>סקאלה: <code>V</code> — אהבתי, <code>X</code> — לא אהבתי, <code>0</code> — לא מכיר/ה. נקודת דמיון: שתי תשובות <strong>זהות</strong> ושאינן <code>0</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: הכול נהיה "לא מכיר"</h2>
+<p>פתחו את <code>SurveyData_Starter.py</code>, חזו מה יודפס, והריצו.</p>
+<pre><code class="language-python">def describe_answer(answer):
+    if answer == &quot;V&quot;:
+        return &quot;liked&quot;
+    elif answer == &quot;X&quot;:
+        return &quot;disliked&quot;
+    else:
+        return &quot;don't know&quot;
+
+
+print(describe_answer(&quot;0&quot;))
+print(describe_answer(&quot;v&quot;))
+</code></pre>
+<div dir="rtl">
+<p>חזו <code>don't know</code> ואחריו <code>invalid answer</code>. הריצו — מקבלים <code>don't know</code> פעמיים. מי "בולע" את התשובה השגויה? תקנו כך ש-<code>0</code> יחזיר <code>don't know</code> ותשובה לא חוקית תחזיר <code>invalid answer</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>2. משימה 1: is_valid_answers(answers)</h2>
+<div dir="rtl">
+<p>התשובות של אדם אחד הן מחרוזת, תו אחד לכל פריט. כתבו פעולה שמחזירה <code>True</code> רק אם <strong>כל</strong> תו הוא <code>V</code>, <code>X</code> או <code>0</code>. בדקו:</p>
+</div>
+<pre><code class="language-python">print(is_valid_answers(&quot;VX0XV&quot;))   # True
+print(is_valid_answers(&quot;VX0xV&quot;))   # False
+print(is_valid_answers(&quot;VX5XV&quot;))   # False
+</code></pre>
+</section>
+<section class="slide">
+<h2>3. משימה 2: count_known(answers)</h2>
+<div dir="rtl">
+<p>כתבו פעולה שמחזירה כמה תווים אינם <code>0</code>. בדקו על <code>"VX0XV"</code> — התוצאה <code>4</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>4. בונים סקר</h2>
+<div dir="rtl">
+<p>בזוגות, ב-Google Forms:</p>
+<ol>
+<li>בחרו נושא נייטרלי (מוזיקה, סדרות, משחקים, טיולים, אוכל, ספורט) — לא בריאות, פוליטיקה, דת או משהו אישי.</li>
+<li>כתבו 6–10 פריטים בשמות ברורים.</li>
+<li>לכל פריט אותן שלוש אפשרויות: <code>V</code>, <code>X</code>, <code>0</code>. מקרא אחד בראש הטופס.</li>
+<li>שאלה ראשונה: כינוי או מספר (לא שם).</li>
+<li>בהגדרות: לא אוספים כתובות דוא"ל ולא דורשים כניסה.</li>
+</ol>
+</div>
+</section>
+<section class="slide">
+<h2>5. רשימת בדיקה לפני שליחה</h2>
+<div dir="rtl">
+<ul>
+<li>האם אותן אפשרויות בכל השאלות?</li>
+<li>האם ברור ש-<code>0</code> הוא "לא מכיר/ה"?</li>
+<li>האם שמות הפריטים חד-משמעיים?</li>
+<li>האם אין שום פרט מזהה?</li>
+<li>מלאו את הטופס בעצמכם: האם בגיליון התשובות רואים בדיוק <code>V</code>, <code>X</code> או <code>0</code>?</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>6. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U9_M1_SurveyData_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>כתבו במשפט אחד את ההבדל בין המלצה מבוססת תוכן להמלצה מבוססת משתמשים.</li>
+<li>מדוע <code>0</code> אינו נחשב לתשובה משותפת?</li>
+<li>ציינו כלל פרטיות אחד שיש ליישם בסקר.</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

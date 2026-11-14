@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 21.1–21.2 – מערכות המלצה</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 21.1–21.2 – מערכות המלצה</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>מהתאום להמלצה — פרויקט הסיכום</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>ממליצים על פריט ששני התנאים מתקיימים בו: <strong>התאום אהב אותו</strong> (<code>V</code>) ו<strong>המשתמש לא מכיר אותו</strong> (<code>0</code>). אם אין תאום או אין פריט כזה — מדפיסים הודעה ברורה, לא קורסים.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">def find_twin(target_index):
+    best_index = None
+    best_score = 0
+    for index in range(len(answers)):
+        # ... בודקים את המשתתף, ושומרים את הטוב ביותר עד כה
+    return best_index
+</code></pre>
+<div dir="rtl">
+<p><code>None</code> אומר "לא נמצא". כשיש שוויון — נשאר המשתתף הראשון שנמצא.</p>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: האדם הוא התאום של עצמו</h2>
+<p>פתחו את <code>TwinRecommend_Starter.py</code>, חזו מה יודפס, והריצו.</p>
+<pre><code class="language-python">print(find_twin(3))
+</code></pre>
+<div dir="rtl">
+<p>התאום של <code>user_04</code> (מקום 3) אמור להיות <code>user_03</code> — מקום 2. מקבלים <code>3</code>. מי הוא התאום שנמצא? מדוע? תקנו בעזרת תנאי <code>index != target_index</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>2. משימה 1: recommend_item(target_answers, twin_answers)</h2>
+<div dir="rtl">
+<p>כתבו פעולה שמחזירה את <strong>שם</strong> הפריט הראשון שהתאום אהב (<code>V</code>) והמטרה לא מכירה (<code>0</code>). אם אין פריט כזה — מחזירה <code>None</code>. בדקו:</p>
+</div>
+<pre><code class="language-python">print(recommend_item(&quot;00XVV&quot;, &quot;V0XXV&quot;))   # sushi
+print(recommend_item(&quot;V0XXV&quot;, &quot;V0XXV&quot;))   # None
+</code></pre>
+</section>
+<section class="slide">
+<h2>3. משימה 2 (פרויקט): main()</h2>
+<div dir="rtl">
+<p>כתבו <code>main()</code> שמבצעת:</p>
+<ol>
+<li>המטרה היא המשתתף האחרון: <code>target_index = len(aliases) - 1</code>.</li>
+<li>מוצאים תאום. אם אין — מדפיסים <code>No twin found.</code> ועוצרים (<code>return</code>).</li>
+<li>מדפיסים את כינוי המטרה, כינוי התאום ומספר הנקודות.</li>
+<li>מדפיסים את ההמלצה, או <code>Nothing new to recommend.</code></li>
+</ol>
+</div>
+<div dir="rtl">
+<p>הפלט הצפוי עם נתוני הדוגמה:</p>
+</div>
+<pre><code class="language-text">Target: user_04
+Twin: user_03
+Points: 2
+Recommendation: sushi
+</code></pre>
+<div dir="rtl">
+<p>הריצו גם על נתוני הכיתה (שלוש השורות שהמורה נותן). האם ההמלצה נשמעת לכם הגיונית? למה כן או לא?</p>
+</div>
+</section>
+<section class="slide">
+<h2>4. בדיקת מקרי קצה</h2>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>מקרה</th>
+<th>מה מצפים</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>אף אחד לא חולק תשובה עם המטרה</td>
+<td>אין תאום — <code>No twin found.</code></td>
+</tr>
+<tr>
+<td>התאום לא אוהב דבר שהמטרה לא מכירה</td>
+<td><code>Nothing new to recommend.</code></td>
+</tr>
+<tr>
+<td>המטרה כבר מכירה הכול</td>
+<td><code>Nothing new to recommend.</code></td>
+</tr>
+<tr>
+<td>שני משתתפים עם אותו מספר נקודות</td>
+<td>נשאר הראשון</td>
+</tr>
+<tr>
+<td><code>0</code> מול <code>0</code> בלבד</td>
+<td>אין נקודה</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="rtl">
+<p>בחרו שני מקרים, הכינו להם נתונים משלכם, והריצו.</p>
+</div>
+</section>
+<section class="slide">
+<h2>5. אם נשאר זמן: כל ההמלצות</h2>
+<div dir="rtl">
+<p>כתבו <code>recommend_all(target_answers, twin_answers)</code> שמחזירה <strong>מחרוזת אחת</strong> עם כל הפריטים המומלצים, מופרדים ב-<code>", "</code> (מחרוזת ריקה אם אין).</p>
+</div>
+</section>
+<section class="slide">
+<h2>6. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U9_M3_TwinRecommend_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>מדוע אסור להשוות את המטרה לעצמה?</li>
+<li>מהם שני התנאים להמלצה על פריט?</li>
+<li>מהי בעיית ההתחלה הקרה (cold start)?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

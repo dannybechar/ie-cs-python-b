@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 9.3, 9.5, 12.0–12.1 – רשימות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 9.3, 9.5, 12.0–12.1 – רשימות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>פעולות על רשימה</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>לכל פעולה על רשימה יש תפקיד אחד ותוצאה אחת מדויקת. <code>sort()</code> ו-<code>reverse()</code> משנות את הרשימה עצמה ומחזירות <code>None</code>. רשימה <strong>חדשה</strong> בונים עם <code>result = []</code> לפני הלולאה ו-<code>result.append(item)</code> בתוכה.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<p>כל הפעולות עם מה שהן מחזירות ומה קורה לרשימה (מתוך דף העזר של משרד החינוך):</p>
+<div dir="rtl">
+<table>
+<thead>
+<tr>
+<th>הפעולה</th>
+<th>מה היא עושה</th>
+<th>דוגמה</th>
+<th>מה מוחזר</th>
+<th>הרשימה אחרי</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>len()</code></td>
+<td>אורך הרשימה</td>
+<td><code>len([1,2,3])</code></td>
+<td><code>3</code></td>
+<td>ללא שינוי</td>
+</tr>
+<tr>
+<td><code>count(x)</code></td>
+<td>כמה פעמים <code>x</code> מופיע</td>
+<td><code>[1,2,2,3].count(2)</code></td>
+<td><code>2</code></td>
+<td>ללא שינוי</td>
+</tr>
+<tr>
+<td><code>in</code></td>
+<td>האם <code>x</code> ברשימה</td>
+<td><code>2 in [1,2,3]</code></td>
+<td><code>True</code></td>
+<td>ללא שינוי</td>
+</tr>
+<tr>
+<td><code>index(x)</code></td>
+<td>המקום <strong>הראשון</strong> של <code>x</code></td>
+<td><code>[1,2,3].index(2)</code></td>
+<td><code>1</code></td>
+<td>ללא שינוי</td>
+</tr>
+<tr>
+<td><code>remove(x)</code></td>
+<td>מוחקת את ה-<code>x</code> <strong>הראשון</strong></td>
+<td><code>[1,2,3,2].remove(2)</code></td>
+<td><code>None</code></td>
+<td><code>[1, 3, 2]</code></td>
+</tr>
+<tr>
+<td><code>pop(i)</code></td>
+<td>מוחקת לפי מקום ומחזירה את הערך</td>
+<td><code>[1,2,3].pop(0)</code></td>
+<td><code>1</code></td>
+<td><code>[2, 3]</code></td>
+</tr>
+<tr>
+<td><code>append(x)</code></td>
+<td>הוספה לסוף</td>
+<td><code>[1,2].append(3)</code></td>
+<td><code>None</code></td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+<tr>
+<td><code>insert(i, x)</code></td>
+<td>הוספה במקום <code>i</code> (קודם מקום!)</td>
+<td><code>[1,3].insert(1,2)</code></td>
+<td><code>None</code></td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+<tr>
+<td><code>sort()</code></td>
+<td>מיון במקום (עולה)</td>
+<td><code>[3,1,2].sort()</code></td>
+<td><code>None</code></td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+<tr>
+<td><code>reverse()</code></td>
+<td>היפוך הסדר (לא מיון!)</td>
+<td><code>[1,2,3].reverse()</code></td>
+<td><code>None</code></td>
+<td><code>[3, 2, 1]</code></td>
+</tr>
+<tr>
+<td><code>list(text)</code></td>
+<td>כל תו הופך לאיבר</td>
+<td><code>list("abc")</code></td>
+<td><code>['a', 'b', 'c']</code></td>
+<td>רשימה חדשה</td>
+</tr>
+<tr>
+<td><code>sep.join(lst)</code></td>
+<td>רשימה למחרוזת</td>
+<td><code>"?".join(["a","b","c"])</code></td>
+<td><code>"a?b?c"</code></td>
+<td>ללא שינוי</td>
+</tr>
+<tr>
+<td><code>text.split(sep)</code></td>
+<td>מחרוזת לרשימה</td>
+<td><code>"a?b?c".split("?")</code></td>
+<td><code>['a', 'b', 'c']</code></td>
+<td>(פועלת על מחרוזת)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-python">numbers.sort(reverse=True)       # מיון יורד
+&quot;a b  c&quot;.split()                 # ברירת מחדל: מפריד רווחים ['a', 'b', 'c']
+
+import random
+random.choice([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])   # איבר אקראי
+</code></pre>
+<div dir="rtl">
+<ul>
+<li><code>count</code>, <code>in</code>, <code>index</code>, <code>remove</code> מבחינות בין אותיות גדולות לקטנות: <code>"cat"</code> אינו <code>"Cat"</code>.</li>
+<li><code>index</code> ו-<code>remove</code> שגיאה אם הערך לא קיים: בודקים קודם <code>x in values</code>.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: משתנה שלא קיים</h2>
+<p>פתחו את <code>Operations_Starter.py</code>. התוכנית אמורה לבנות רשימה חדשה של הטמפרטורות הנמוכות מ-21, אך היא קורסת.</p>
+<pre><code class="language-python">temperature = [25, 20, 21, 24, 21, 24, 21, 16, 23]
+new_list = []
+for item in temperature:
+    if item &lt; 21:
+        new_list.append(i)
+print(new_list)
+</code></pre>
+<p>חזו מה אמור להיות מודפס. הריצו, קראו את הודעת השגיאה (השורה האחרונה ומה שהחץ מצביע עליו) ותקנו.</p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: רשימה חדשה מתנאי</h2>
+<p>כתבו <code>colder_than(values, limit)</code> שמחזירה רשימה <strong>חדשה</strong> של הערכים הקטנים מ-<code>limit</code>. בדקו על <code>[25, 20, 21, 24, 21, 24, 21, 16, 23]</code> עם 21 ועם 10.</p>
+</section>
+<section class="slide">
+<h2>3. משימה 2: מופע של שם</h2>
+<p>כתבו <code>name_check(names, name)</code>. אם השם ברשימה — מדפיסים כמה פעמים הוא מופיע. אם לא — מוסיפים אותו לסוף הרשימה ומדפיסים שנוסף. בדקו על <code>["Dana", "Avi", "Dana", "Noa"]</code> עם <code>"Dana"</code>, אחר כך עם <code>"dana"</code> ואחר כך עם <code>"Lior"</code>, והדפיסו את הרשימה בסוף. מה למדתם על <code>"Dana"</code> ו-<code>"dana"</code>?</p>
+<pre><code class="language-text">Dana appears 2 times
+dana was added
+Lior was added
+['Dana', 'Avi', 'Dana', 'Noa', 'dana', 'Lior']
+</code></pre>
+</section>
+<section class="slide">
+<h2>4. משימה 3: כולן פלינדרומים?</h2>
+<p>כתבו <code>all_palindromes(words)</code> שמחזירה <code>True</code> אם <strong>כל</strong> המילים נקראות אותו דבר מימין ומשמאל, בלי להבדיל בין אותיות גדולות לקטנות (רמז: חיתוך עם צעד <code>-1</code> ו-<code>lower()</code>). בדקו:</p>
+<pre><code class="language-python">[&quot;ABA&quot;, &quot;1221&quot;, &quot;A12321A&quot;]
+[&quot;ACA&quot;, &quot;AcCA&quot;]
+[&quot;ACA&quot;, &quot;ACB&quot;]
+</code></pre>
+<p>כתבו קודם על הדף מה תחזיר כל קריאה.</p>
+</section>
+<section class="slide">
+<h2>5. משימה 4: אתגר הסנדוויץ'</h2>
+<p>כתבו <code>sandwich(text)</code>. הטקסט מכיל מילים מופרדות ברווח. החזירו טקסט <strong>חדש</strong> ובו רק המילים שהאות הראשונה שלהן זהה לאות האחרונה שלהן. חובה להשתמש ב-<code>split</code> וב-<code>join</code>; אסור להשתמש באופרטור <code>+</code>.</p>
+<pre><code class="language-text">sandwich(&quot;anna told bob he won level two!&quot;)  -&gt;  anna bob level
+</code></pre>
+</section>
+<section class="slide">
+<h2>6. משימה 5: רשימה זוגית</h2>
+<p>רשימה היא "זוגית" אם אורכה זוגי <strong>וגם</strong> המחצית הראשונה שלה זהה למחצית השנייה. כתבו <code>even_list(values)</code> שמחזירה <code>True</code> או <code>False</code>. בדקו:</p>
+<pre><code class="language-python">[&quot;A&quot;, &quot;b&quot;, &quot;c&quot;, &quot;A&quot;, &quot;b&quot;, &quot;c&quot;]
+[1, 2, 3]
+[1, 2, 3, 1, 2, 4]
+</code></pre>
+</section>
+<section class="slide">
+<h2>7. אם נשאר זמן</h2>
+<div dir="rtl">
+<p>א. שמות פרטיים ושמות משפחה יושבים ברשימה אחת בזוגות (מקום זוגי: שם פרטי, מקום אי-זוגי: שם משפחה). כתבו <code>same_initials(names)</code> שמחזירה בכמה זוגות השם הפרטי ושם המשפחה מתחילים באותה אות, בלי להבדיל בין גדולות לקטנות. עבור הרשימה הבאה התשובה היא 3.</p>
+</div>
+<pre><code class="language-python">[&quot;Amit&quot;, &quot;Berkovich&quot;, &quot;chen&quot;, &quot;Cohen&quot;, &quot;Daniel&quot;, &quot;levi&quot;, &quot;dana&quot;, &quot;dikla&quot;, &quot;Carmi&quot;, &quot;Cohen&quot;]
+</code></pre>
+<div dir="rtl">
+<p>ב. כתבו <code>to_sentence(text)</code> שהופכת <code>"One#Apple#a#day#keeps#the#doctor#away"</code> למשפט עם רווחים, ו-<code>random_word(text)</code> שמחזירה מילה אקראית אחת מהטקסט.</p>
+</div>
+</section>
+<section class="slide">
+<h2>8. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U7_M2_Operations_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>איזו פעולה מוסיפה לסוף הרשימה? ואיזו למקום שנבחר?</li>
+<li>מה מחזירה <code>pop()</code>?</li>
+<li>מה יודפס אחרי הקוד הבא?</li>
+</ol>
+</div>
+<pre><code class="language-python">result = [3, 1].sort()
+print(result)
+</code></pre>
+<div dir="rtl">
+<ol start="4">
+<li>איך נמנעים מהשגיאה של <code>index()</code> על ערך שלא קיים?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>

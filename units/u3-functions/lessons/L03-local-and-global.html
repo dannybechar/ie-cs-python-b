@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שיעורים 4.3, 4.6 – פעולות</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--fg:#1d2433;--muted:#5a6478;--accent:#1f5fbf;--line:#d7dcea;--code:#eef1f8;--note:#e8f0ff;--tip:#e6f6ec;--warn:#fff3d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10141c;--card:#171d29;--fg:#e8ecf5;--muted:#9aa5bd;--accent:#7fb0ff;--line:#2a3347;--code:#0e121a;--note:#16233d;--tip:#12301f;--warn:#3a2f10}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font:18px/1.6 "Segoe UI",Arial,sans-serif}
+.deck{display:flex;flex-direction:column;height:100%}
+main{flex:1;min-height:0;display:flex;justify-content:center;padding:16px}
+.slide{display:none;width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;overflow:auto}
+.slide.on{display:block}
+h1{font-size:2em;margin:.2em 0}h2{font-size:1.45em;margin:.1em 0 .6em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:.6em 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:start;unicode-bidi:plaintext}
+th{background:var(--code)}
+pre{direction:ltr;text-align:left;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow:auto;font-size:.92em}
+code{display:inline-block;direction:ltr;unicode-bidi:isolate;background:var(--code);border-radius:4px;padding:0 4px;font-family:Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+.alert{border-inline-start:5px solid var(--accent);background:var(--note);border-radius:8px;padding:6px 14px;margin:.8em 0}
+.alert.tip{background:var(--tip)}.alert.warning,.alert.caution{background:var(--warn)}
+.alert .t{font-weight:700;display:block;color:var(--muted);font-size:.8em;letter-spacing:.04em}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);background:var(--card)}
+button{font:inherit;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}#pos{min-width:5em;text-align:center;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+@media (max-width:600px){body{font-size:16px}.slide{padding:14px}main{padding:8px}}
+@media print{html,body{height:auto}body{background:#fff;color:#000;font-size:14pt}nav{display:none}.deck,main{display:block;padding:0}
+.slide{display:block!important;max-width:none;border:0;border-radius:0;padding:0;overflow:visible;page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}.alert,pre,th,code{background:#fff!important;border:1px solid #999}}
+</style>
+</head>
+<body>
+<div class="deck">
+<main>
+<section class="slide">
+<h1>שיעורים 4.3, 4.6 – פעולות</h1>
+<p>כיתה ח׳ · AI + Python B · <strong>משתנה מקומי ומשתנה גלובלי</strong></p>
+<p><strong>קוראים ← חוזים ← מריצים ← בודקים ← מתקנים</strong></p>
+<div class="alert important">
+<p><span class="t">IMPORTANT</span></p>
+<p>משתנה שנוצר בתוך פעולה חי רק כשהיא רצה. משתנה שמוגדר מחוץ לכל הפעולות אפשר לקרוא מכל פעולה — ואם רוצים <strong>לשנות</strong> אותו מבפנים, חייבים לכתוב <code>global</code>.</p>
+</div>
+</section>
+<section class="slide">
+<h2>דף עזר</h2>
+<pre><code class="language-python">score = 0
+
+
+def add_bonus(bonus):
+    global score
+    score = score + bonus
+
+
+def show_square(num):
+    result = num ** 2
+    print(result)
+</code></pre>
+<div dir="rtl">
+<ul>
+<li><code>result</code> ו-<code>num</code> הם משתנים <strong>מקומיים</strong>: מחוץ לפעולה פייתון לא מכירה אותם (<code>NameError</code>).</li>
+<li><code>score</code> הוא <strong>גלובלי</strong>: קריאה ממנו בתוך פעולה לא דורשת כלום; שינוי דורש <code>global score</code> בתחילת הפעולה.</li>
+<li>בלי <code>global</code>, השמה כמו <code>score = 100</code> בתוך פעולה יוצרת משתנה מקומי חדש.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>1. חימום: המונה שלא סופר</h2>
+<p>פתחו את <code>Scope_Starter.py</code>. הריצו וקראו את השגיאה. הוסיפו שורה אחת כדי לתקן.</p>
+<pre><code class="language-python">counter = 0
+
+
+def do_step():
+    counter = counter + 1
+    print(&quot;Step done!&quot;)
+
+
+do_step()
+print(&quot;Counter:&quot;, counter)
+</code></pre>
+<p>פלט צפוי אחרי התיקון: <code>Step done!</code> ואחריו <code>Counter: 1</code></p>
+</section>
+<section class="slide">
+<h2>2. משימה 1: מקומי או גלובלי?</h2>
+<p><strong>על הנייר:</strong></p>
+<pre><code class="language-python">app_name = &quot;Math Quiz&quot;
+
+
+def show_greeting(user_name):
+    welcome_msg = &quot;Hello &quot; + user_name
+    print(welcome_msg)
+    print(&quot;Welcome to &quot; + app_name)
+</code></pre>
+<div dir="rtl">
+<p>א. איזה משתנה הוא גלובלי?
+ב. אילו משתנים מקומיים בפעולה <code>show_greeting</code>?
+ג. מה יקרה אם נוסיף בסוף התכנית, מחוץ לפעולה, את <code>print(welcome_msg)</code>? נמקו.</p>
+</div>
+<pre><code class="language-python">score = 50
+
+
+def update_score():
+    score = 100
+    print(&quot;Inside function:&quot;, score)
+
+
+update_score()
+print(&quot;Outside function:&quot;, score)
+</code></pre>
+<div dir="rtl">
+<p>ד. מה יודפס? למה הערך של <code>score</code> מחוץ לפעולה לא השתנה?</p>
+</div>
+<p>אחרי שכתבתם תשובות — הריצו ובדקו.</p>
+</section>
+<section class="slide">
+<h2>3. משימה 2: add_bonus</h2>
+<p>כתבו תכנית: משתנה גלובלי <code>total_points</code> שערכו <code>0</code>, ופעולה <code>add_bonus(bonus)</code> שמוסיפה את <code>bonus</code> ל-<code>total_points</code>. זמנו אותה פעמיים עם <code>10</code> והדפיסו את <code>total_points</code>.</p>
+<p>פלט צפוי: <code>20</code></p>
+</section>
+<section class="slide">
+<h2>4. משימה 3: שני החניונים</h2>
+<div dir="rtl">
+<p>חניון א׳ עולה 20 ש״ח ליום. חניון ב׳: עד 3 שעות — 5 ש״ח; עד 4 שעות — 15 ש״ח; יותר מ-4 שעות — 30 ש״ח.</p>
+</div>
+<p>כתבו שלוש פעולות: <code>parking_a()</code> מחזירה <code>20</code>; <code>parking_b(hours)</code> מחזירה את המחיר בחניון ב׳; <code>compare_parking(hours)</code> מזמנת את שתי הפעולות ומחזירה <code>"Parking A is cheaper"</code>, <code>"Parking B is cheaper"</code> או <code>"Same price"</code>.</p>
+<p>בתכנית הראשית הדפיסו את התשובה עבור 2, 4, 10 ו-24 שעות, למשל <code>print("10 hours:", compare_parking(10))</code>.</p>
+<p>פלט צפוי: חניון ב׳ זול יותר ב-2 שעות וב-4 שעות; חניון א׳ זול יותר ב-10 וב-24 שעות.</p>
+</section>
+<section class="slide">
+<h2>5. משימה 4: how_many_legs</h2>
+<p>כתבו <code>how_many_legs(animal)</code> שמחזירה את מספר הרגליים: <code>spider</code> — 8, <code>ant</code> — 6, <code>dog</code> או <code>cat</code> — 4, <code>chicken</code> — 2; כל שם אחר — <code>-1</code>. השתמשו ב-<code>elif</code>. בתכנית הראשית קלטו שם בעזרת <code>input</code> והדפיסו את התוצאה.</p>
+</section>
+<section class="slide">
+<h2>6. נקודת בקרה: קמפיין תרומות</h2>
+<div dir="rtl">
+<p>בקמפיין לנטיעת עצים כל תורם נותן תרומה. תורם שתרם <strong>יותר</strong> מ-100 ש״ח מקבל תעודת הוקרה.</p>
+</div>
+<p>הגדירו שני משתנים גלובליים: <code>sum_of_donations</code> (מתחיל ב-<code>0</code>) ו-<code>number_of_high_donors</code> (מתחיל ב-<code>0</code>).</p>
+<p>כתבו <code>add_donation(donation)</code>: היא מוסיפה את התרומה לסכום; אם התרומה גדולה מ-100 היא גם מוסיפה תורם אחד למספר התורמים הגדולים ומדפיסה <code>Thank you, the certificate is on the way</code>.</p>
+<p>בתכנית הראשית: קלטו את מספר התורמים, ואז קלטו תרומה לכל תורם (בלולאת <code>for</code>) וזמנו את <code>add_donation</code>. בסוף הדפיסו את שני המשתנים הגלובליים.</p>
+<p>דוגמה: שלושה תורמים — <code>150</code>, <code>80</code>, <code>200</code>.</p>
+<pre><code class="language-text">Thank you, the certificate is on the way
+Thank you, the certificate is on the way
+Total donations: 430
+Number of donations above 100 nis: 2
+</code></pre>
+<p>בדקו גם תרומה של בדיוק <code>100</code>: היא לא נחשבת גדולה.</p>
+</section>
+<section class="slide">
+<h2>7. אם יש זמן</h2>
+<div dir="rtl">
+<ul>
+<li><code>add_coins(new_coins)</code> עם משתנה גלובלי <code>coins = 10</code>. אחרי <code>add_coins(5)</code> ההדפסה: <code>Total coins: 15</code>.</li>
+<li><code>weight_of_number(number)</code> — מכפלת שתי הספרות של מספר דו-ספרתי (<code>75</code> ← <code>35</code>, <code>12</code> ← <code>2</code>); תכנית שקולטת שני מספרים דו-ספרתיים ומדפיסה את זה שהמכפלה שלו גדולה יותר.</li>
+<li>ארבע פעולות קטנות <code>add_numbers</code>, <code>subtract_numbers</code>, <code>multiply_numbers</code>, <code>divide_numbers</code>, שכל אחת מחזירה ערך אחד, ותכנית שקולטת שני מספרים ומדפיסה את ארבע התוצאות.</li>
+</ul>
+</div>
+</section>
+<section class="slide">
+<h2>8. מתעדים ושומרים</h2>
+<p>שומרים: <code>File › Save As</code> ← <code>G8_U3_M3_Scope_&lt;Name&gt;.py</code></p>
+<hr />
+<p><strong>בדיקת יציאה:</strong></p>
+<div dir="rtl">
+<ol>
+<li>פעולה מבצעת <code>total = total + 5</code> ונכשלת בשגיאה. מה השגיאה, ואיזו שורה אחת מתקנת?</li>
+<li>משתנה <code>area</code> נוצר בתוך <code>calculate_rectangle</code>. למה <code>print(area)</code> אחרי הזימון מפיל <code>NameError</code>?</li>
+<li>מתי עדיף להעביר ערך כפרמטר ולא להשתמש במשתנה גלובלי?</li>
+</ol>
+</div>
+</section>
+</main>
+<nav><button id="prev" type="button">הקודם</button><span id="pos"></span><button id="next" type="button">הבא</button></nav>
+</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.slide')),i=0,pos=document.getElementById('pos');
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});s[i].scrollTop=0;
+pos.textContent=(i+1)+' / '+s.length;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+document.getElementById('prev').onclick=function(){show(i-1)};document.getElementById('next').onclick=function(){show(i+1)};
+document.addEventListener('keydown',function(e){var k=e.key;
+if(k==='ArrowLeft'||k===' '||k==='PageDown'){e.preventDefault();show(i+1)}else if(k==='ArrowRight'||k==='PageUp'){e.preventDefault();show(i-1)}});
+var h=parseInt((location.hash||'').slice(1),10);show(h>0?h-1:0)})();
+</script>
+</body>
+</html>
