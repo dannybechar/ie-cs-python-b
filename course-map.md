@@ -35,12 +35,13 @@ Folders (`units/u<N>-<slug>/`) keep their names; the file key `u<N>/m<M>` below 
 
 ## Deadline and pace
 
-- **Assessment:** the Ministry exam (בחינת מפמ"ר) for "בינה מלאכותית בשילוב מדעי המחשב חלק ב'", set for **May 2027**
-  ([`ministry-circular-tashpaz-he.pdf`](docs/ministry-source/ministry-circular-tashpaz-he.pdf), p. 2; the exact date is
-  published during the year). Printed notes are allowed; calculators are not (p. 3).
-- **Meetings needed:** 30 (plus any school-added meeting, as Python A's Unit 0 (a separate repository)).
-- **Meetings available:** *to confirm with the teacher* — the weekly meeting day and the first meeting date.
-- **Check after every lesson:** meetings left in the schedule below ≤ meetings left before the exam.
+- **Assessment:** the Ministry exam (בחינת מפמ"ר) for "בינה מלאכותית בשילוב מדעי המחשב חלק ב'" is on **Wednesday 17 March 2027**
+  ([focus document](docs/ministry-source/focus-python-b-tashpaz-he.pdf); the earlier "May 2027" in the circular is obsolete). Printed notes are allowed; calculators are not
+  ([`ministry-circular-tashpaz-he.pdf`](docs/ministry-source/ministry-circular-tashpaz-he.pdf), p. 3). Exam length and format: not yet known.
+- **Plan:** [`docs/plan-to-mafmar-2027-03-17.md`](docs/plan-to-mafmar-2027-03-17.md), approved by the teacher on 18 Nov 2026. Exam-first: only the focus chapters
+  (1, 3, 4, 5, 6) are taught before the exam; the non-exam blocks (AI2 opening, lists, classification, recommender systems, Semantle) move to after 17 Mar.
+- **Meetings available:** 17 Sundays, 22 Nov 2026 – 14 Mar 2027 (no closures known). **Meetings needed:** 9 of teaching + 2 tests + 2 rehearsals + review (see the schedule). It fits; P13 (14 Feb) is the slack.
+- **Check after every lesson:** meetings left in the exam-first schedule below ≤ Sundays left before 17 Mar; if a Sunday is lost, drop P13 first.
 
 ## Open coverage gaps
 
@@ -83,41 +84,34 @@ Folders (`units/u<N>-<slug>/`) keep their names; the file key `u<N>/m<M>` below 
 
 ## Schedule
 
-All meetings in teaching order. **Content** is the provisional outline from the annual strategy; it is refined when the unit
-is built. Fill in **Target week** once the school calendar is known, and **Taught on** after each lesson. What the class has actually completed is tracked in [`class-progress.md`](class-progress.md).
+**Exam-first schedule (approved 18 Nov 2026; plan: [`docs/plan-to-mafmar-2027-03-17.md`](docs/plan-to-mafmar-2027-03-17.md)).** Sundays; "Built": ✅ approved · 🔶 built, awaiting approval · ❌ to build.
+What the class has actually completed is in [`class-progress.md`](class-progress.md). Quizzes (בחנים) are teacher-only.
 
-| # | Meeting (file key, official lessons) | Content | Built | Target week | Taught on |
+| # | Sunday | Meeting (file key, official lessons) / content | Quiz / test | Built | Taught on |
 |---:|---|---|---|---|---|
-| 1 | `u1/m1` Lessons 1.0–1.1 Python A Review | K+L · Who can come in? Compound conditions, `elif`, validation | ✅ | | ✅ |
-| 2 | `u1/m2` Lessons 1.2–1.4 Python A Review | L+L · Counting rounds: `range`, counter and total, five-scores analyzer | ✅ | | ✅ |
-| 3 | `u1/m3` Lessons 2.0–2.3 Python A Review | L+L · Until it's done: `while`, the stop condition, loops that never end; unit checkpoint (Ministry 2.0, 2.1, loop-trap deck) | 🔶 | | ✅ |
-| 4 | `u2/m1` Lessons 3.0–3.1 AI2 Year Opening | K+L · AI or not? Definition, revolutions, classic vs AI greeting (Ministry deck 3.1) | 🔶 | | ⏭ skipped for now |
-| 5 | `u2/m2` Lessons 3.1–3.2 AI2 Year Opening | K+L · Quick, Draw!, data and bias worksheet (Ministry 3.2), consumers to creators | 🔶 | | ⏭ skipped for now |
-| 6 | `u3/m1` Lessons 4.1–4.2 Functions | K+L · Several parameters and `return` (Ministry 4.1, 4.2) | 🔶 | | ⏭ skipped for now |
-| 7 | `u3/m2` Lessons 4.4–4.5 Functions | L+L · Practice: returning functions and loops inside functions (Ministry 4.2, 4.4, 4.5) | 🔶 | | ⏭ skipped for now |
-| 8 | `u3/m3` Lessons 4.3, 4.6 Functions | K+L · Local and `global` variables, variable roles; checkpoint (Ministry 4.3, 4.5, 4.6) | 🔶 | | ⏭ skipped for now |
-| 9 | `u4/m1` Lessons 5.0–5.2 Bringing AI into Code (API) | K+L · What is an API, the Gemini call, f-strings, the `ask_the_ai` wrapper (Ministry 5.0–5.2) | 🔶 | | ⏭ skipped for now |
-| 10 | `u4/m2` Lessons 6.1–6.2 Bringing AI into Code (API) | L+L · The "יום מאוזן" project: `while` accumulation, one API call (Ministry 6.1, 6.2) | 🔶 | | ⏭ skipped for now |
-| 11 | `u5/m1` Lesson 7.1 Strings | K+L · A string as an ordered sequence: quotes, indices, `len`, `+`/`*` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
-| 12 | `u5/m2` Lessons 7.1–7.2 Strings | K+L · Slicing `[start:end:jump]`, `count`, `replace`, `in`, `find` (Ministry 7.1, 7.2) | 🔶 | | ✅ (date to confirm) |
-| 13 | `u5/m3` Lessons 8.0–8.1 Strings | K+L · More string methods and `for` over a string (Ministry 8.0, 8.1) | 🔶 | | ✅ paper-classwork edition, 45 / 45 (date to confirm) |
-| 14 | `u5/m4` Lessons 8.2–8.7 Strings | L+L · String algorithms, `ord`/`chr` cipher, `split`/`join`; checkpoint (Ministry 8.1, 8.2, 8.7) | 🔶 | Sun 15 Nov 2026 (completes the strings block, lessons 7.1–8.7) | ▶ next (planned 15 Nov 2026) |
-| 15 | `u6/m1` Lessons 10.0–10.2 Advanced Language Model | K+L · Tokens, tokenization and token IDs (Ministry 10.0–10.2) | 🔶 | | |
-| 16 | `u6/m2` Lessons 11.1–11.2 Advanced Language Model | K+L · The meaning map, self-attention, context window, `calculate_similarity` (Ministry 11.1, 11.2) | 🔶 | | |
-| 17 | `u6/m3` Lesson 11.3 Advanced Language Model | L+L · The "Semantle" project, unit checkpoint (Ministry 11.3) | 🔶 | | |
-| 18 | `u7/m1` Lessons 9.1, 9.4 Lists | K+L · Lists: `[]`, `list()`, indices, `in`, `+`, slicing (Ministry 12.0, 12.1) | 🔶 | | |
-| 19 | `u7/m2` Lessons 9.3, 9.5, 12.0–12.1 Lists | K+L · List methods, `split`/`join`, `random.choice`, building new lists (Ministry 12.0–12.7) | 🔶 | | |
-| 20 | `u7/m3` Lessons 12.6, 13.0–13.1 Lists | K+L · Traversal by index vs value, accumulation, average, the change-while-looping trap (Ministry 13.0, 13.1) | 🔶 | | |
-| 21 | `u7/m4` Lessons 13.2, 14.0–14.2 Lists | L+L · Counters, maximum, filters, the flat name/price menu, parallel lists (Ministry 13.1, 14.0, 14.1) | 🔶 | | |
-| 22 | `u7/m5` Lessons 12.5, 14.4 Lists | L+L · Linear search, `index()`, phone numbers + the "AI Experiment Analyzer" checkpoint | 🔶 | | |
-| 23 | `u8/m1` Lessons 16.0–16.2 Classification | K+L · Rule-based classification, features, the separating line (Ministry 16.0–16.2.0) | 🔶 | | |
-| 24 | `u8/m2` Lessons 17.0–17.1 Classification | K+L · Training vs test, bias, the first Teachable Machine try (Ministry 17.0–17.1) | 🔶 | | |
-| 25 | `u8/m3` Lessons 18.0–18.1 Classification | K+L · Accuracy, the fist/OK project, saving the model (Ministry 18.0, 18.1) | 🔶 | | |
-| 26 | `u8/m4` Lessons 19.0–19.1 Classification | K+L · The trained model in Python, confidence, "act only above 85%" — checkpoint (Ministry 19.0, 19.1) | 🔶 | | |
-| 27 | `u9/m1` Lessons 20.0–20.1 Recommender Systems | K+L · The feed riddle, content-based vs user-based, the culinary twin, the V/X/0 survey (Ministry 20.0, 20.1) | 🔶 | | |
-| 28 | `u9/m2` Lesson 21.1 Recommender Systems | K+L · The table, similarity points, the twin (Ministry 21.1) | 🔶 | | |
-| 29 | `u9/m3` Lessons 21.1–21.2 Recommender Systems | K+L · `find_twin`, `recommend_item` — checkpoint (Ministry 21.1) | 🔶 | | |
-| 30 | `u9/m4` Lessons 22.0–22.1 Recommender Systems | K+L · Fact or fake, who is the product, filter bubble, echo chamber, addiction engineering (Ministry 22.0, 22.1) | 🔶 | | |
+| P1 | 22 Nov 2026 | `u5/m4` Lessons 8.2–8.7 Strings: algorithms, index vs content loops (completes the strings block) | — | 🔶 | |
+| P2 | 29 Nov | `u3/m1` Lessons 4.1–4.2 Functions: parameters and `return`, the four kinds | Quiz Q1 (strings) | 🔶 | |
+| P3 | 6 Dec | `u3/m2` Lessons 4.4–4.5 Functions: returning functions, loops inside functions | — | 🔶 | |
+| P4 | 13 Dec | `u3/m3` Lessons 4.3, 4.6 trimmed + mixed functions/strings lab | Quiz Q2 (functions) | 🔶 | |
+| P5 | 20 Dec | `u4/m1` Lessons 5.0–5.2 API: the key, the call, prompts | — | 🔶 (live run with a key) | |
+| P6 | 27 Dec | `u4/m2` Lessons 6.1–6.2 API: "Balanced Day" project | Quiz Q3 (API, prompts) | 🔶 | |
+| P7 | 3 Jan 2027 | Mixed lab, chapters 1, 3, 4, 5 | **Test T1** (45 min) | ❌ | |
+| P8 | 10 Jan | T1 feedback, then `u6/m1` Lessons 10.0–10.2 tokens | — | 🔶 | |
+| P9 | 17 Jan | `u6/m2` Lessons 11.1–11.2 meaning map, self-attention | Quiz Q4 (language model) | 🔶 | |
+| P10 | 24 Jan | Mixed lab, all chapters | **Test T2** (60 min, full scope) | ❌ | |
+| P11 | 31 Jan | T2 feedback and gap closing | retake quizzes by topic | ❌ | |
+| P12 | 7 Feb | Exam-style programs: loops, strings, functions | Quiz Q5 (strings, loops) | ❌ | |
+| P13 | 14 Feb | Flex: second gap closing or API/prompt practice | — | ❌ | |
+| P14 | 21 Feb | — | **Rehearsal R1** (past exam, exam conditions) | ❌ | |
+| P15 | 28 Feb | R1 review, exam technique | — | ❌ | |
+| P16 | 7 Mar | — | **Rehearsal R2** | ❌ | |
+| P17 | 14 Mar | R2 review, aids sheet, Q&A; no new material | — | ❌ | |
+| — | **Wed 17 Mar 2027** | **Mafmar exam** | | | |
+
+**After the exam (from 21 Mar 2027), 15 meetings plus optional strings methods:** `u2/m1`–`u2/m2` (Lessons 3.0–3.2), `u6/m3` (Lesson 11.3 Semantle), `u7/m1`–`u7/m5` (lists), `u8/m1`–`u8/m4` (classification), `u9/m1`–`u9/m4` (recommender systems).
+About 11–14 Sundays remain in the school year, so merging will be needed (later decision).
+
+The file keys and built status of all 30 meetings stay in the **Meeting log** below; the pre-18-Nov block-order schedule is in the git history.
 
 ## Meeting log
 
@@ -171,10 +165,14 @@ Written tests made outside the 30-meeting plan (they do not change the time budg
 | 5 | `u5/m3` Lessons 8.0–8.1 Strings — paper classwork (worksheet) | 45-min lesson + ~46 min classwork, rest at home; 100 points + 10 bonus | 🔶 taught; worksheets handed in next week, to be graded with the rubric (plain code without `def` gets full marks — functions not taught yet; exit item 3, `print` vs `return`, not graded) | [worksheet](units/u5-strings/lessons/L03-string-methods-and-for/classwork-worksheet-he.md), [key and rubric](units/u5-strings/teacher/L03-string-methods-and-for-classwork-answer-key.md), [`Classwork_Reference.py`](units/u5-strings/teacher/solutions/Classwork_Reference.py) |
 | 5 | `u5/m4` Lessons 8.2–8.7 Strings — countdown edition worksheet | 37 min in class + 5-min exit check; 100 points + 5 bonus | 🔶 prepared 2 Nov 2026 for the next lesson | [worksheet](units/u5-strings/lessons/L04-string-algorithms-and-cipher/countdown-worksheet-he.md), [key and rubric](units/u5-strings/teacher/L04-string-algorithms-and-cipher-countdown-answer-key.md), [`Worksheet_Reference.py`](units/u5-strings/teacher/solutions/Worksheet_Reference.py) |
 
+### Planned assessments before the exam (teacher-only; none built yet)
+
+Quizzes Q1–Q5 (P2, P4, P6, P9, P12), tests T1 (3 Jan, 45 min) and T2 (24 Jan, 60 min, full scope), rehearsals R1 (21 Feb) and R2 (7 Mar). Items stay inside the focus: no `startswith`, `endswith`, `isalpha`, `isdigit`, lists, classification or recommender questions.
+
 ## Keeping this up to date
 
 When a meeting is added or its timing changes:
-1. Add or update its row in the **Meeting log**, and mark it 🔶 in the **Schedule** (✅ only after the teacher approves it).
+1. Add or update its row in the **Meeting log**, and mark its **Built** column in the **Schedule** (✅ only after the teacher approves it).
 2. Update that unit's **Planned minutes**, **Remaining** and **Built** in the time budget, and the totals.
 3. A unit's planned minutes must not exceed its official minutes. If they would, cut the lesson or
    note the overrun in the unit row with the reason.

@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הדרך למבחן המפמ"ר בפייתון ב'</title>
+<style>
+  :root {
+    --bg: #f4f7fb;
+    --ink: #1d2433;
+    --muted: #5b6579;
+    --card: #ffffff;
+    --line: #dfe5f0;
+    --brand: #4f46e5;
+    --brand2: #06b6d4;
+    --ok: #15803d;
+    --ok-bg: #e8f8ee;
+    --no: #b91c1c;
+    --no-bg: #fdeaea;
+    --quiz: #ea7a00;
+    --quiz-bg: #fff1dc;
+    --test: #c026d3;
+    --test-bg: #fbe8fd;
+    --rehearse: #0d9488;
+    --rehearse-bg: #dcf7f3;
+    --exam: #ca8a04;
+    --exam-bg: #fff6c9;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", "Arial Hebrew", Arial, Tahoma, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px 48px; }
+
+  header.hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 45%, #06b6d4 100%);
+    color: #fff;
+    padding: 40px 16px 56px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 6px; font-size: clamp(28px, 5vw, 44px); letter-spacing: .3px; }
+  .hero p.sub { margin: 0; font-size: clamp(16px, 2.4vw, 21px); opacity: .95; }
+  .exam-date {
+    display: inline-block;
+    margin-top: 22px;
+    background: #fff;
+    color: #3b2f9c;
+    border-radius: 18px;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: clamp(18px, 3vw, 26px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .exam-date small { display: block; font-weight: 500; font-size: 15px; color: #5b6579; margin-top: 2px; }
+  #countdown { margin-top: 14px; font-size: 18px; font-weight: 600; min-height: 28px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: -34px auto 28px; max-width: 1040px; padding: 0 16px; }
+  .stat { background: var(--card); border-radius: 16px; padding: 14px 10px; text-align: center; box-shadow: 0 6px 18px rgba(30,41,80,.12); border-top: 5px solid var(--brand); }
+  .stat b { display: block; font-size: 30px; line-height: 1.1; }
+  .stat span { color: var(--muted); font-size: 14px; }
+  .stat.q { border-top-color: var(--quiz); } .stat.q b { color: var(--quiz); }
+  .stat.t { border-top-color: var(--test); } .stat.t b { color: var(--test); }
+  .stat.r { border-top-color: var(--rehearse); } .stat.r b { color: var(--rehearse); }
+  .stat.m b { color: var(--brand); }
+
+  h2 { font-size: clamp(22px, 3.4vw, 30px); margin: 40px 0 6px; display: flex; align-items: center; gap: 10px; }
+  h2 .dot { width: 14px; height: 38px; border-radius: 8px; background: linear-gradient(180deg, var(--brand), var(--brand2)); flex: none; }
+  p.lead { margin: 0 0 18px; color: var(--muted); }
+
+  /* chapters */
+  .chapters { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+  .ch { background: var(--card); border-radius: 18px; box-shadow: 0 4px 14px rgba(30,41,80,.09); overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; }
+  .ch .head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: #fff; }
+  .ch .num { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.25); display: grid; place-items: center; font-weight: 800; font-size: 20px; flex: none; }
+  .ch .head h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+  .ch .body { padding: 12px 16px 16px; flex: 1; }
+  .ch ul { list-style: none; margin: 0; padding: 0; }
+  .ch li { position: relative; padding: 5px 30px 5px 0; }
+  .ch li::before { position: absolute; right: 0; top: 5px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+  .ch li.in::before { content: "✓"; background: var(--ok-bg); color: var(--ok); }
+  .ch li.out { color: var(--no); }
+  .ch li.out::before { content: "✕"; background: var(--no-bg); color: var(--no); }
+  .ch li.out b { text-decoration: underline wavy rgba(185,28,28,.45); text-underline-offset: 3px; }
+  .ch.none { border: 2px dashed #e7a3a3; background: #fffafa; }
+  .ch.none .body { color: var(--no); }
+  .tag-none { display: inline-block; margin-top: 6px; background: var(--no); color: #fff; padding: 2px 12px; border-radius: 99px; font-weight: 700; font-size: 14px; }
+  .c1 .head { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+  .c3 .head { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+  .c4 .head { background: linear-gradient(135deg, #ea580c, #f97316); }
+  .c5 .head { background: linear-gradient(135deg, #db2777, #ec4899); }
+  .c6 .head { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+  .c2 .head, .c7 .head, .c8 .head, .c9 .head { background: linear-gradient(135deg, #64748b, #94a3b8); }
+
+  /* not included */
+  .banner-no {
+    background: linear-gradient(135deg, #fff1f1, #fff7ed);
+    border: 2px solid #f3b5b5;
+    border-radius: 20px;
+    padding: 20px 22px;
+  }
+  .banner-no h3 { margin: 0 0 10px; color: var(--no); font-size: 22px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: #fff; border: 1.5px solid #f0a8a8; color: var(--no); border-radius: 99px; padding: 4px 14px; font-weight: 600; font-size: 15.5px; }
+  .chip::before { content: "✕ "; font-weight: 800; }
+  .banner-no p { margin: 12px 0 0; color: #7a2a2a; }
+
+  /* legend */
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 16px; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 3px 13px; font-weight: 700; font-size: 14.5px; white-space: nowrap; }
+  .b-quiz { background: var(--quiz-bg); color: var(--quiz); border: 1.5px solid var(--quiz); }
+  .b-test { background: var(--test-bg); color: var(--test); border: 1.5px solid var(--test); }
+  .b-rehearse { background: var(--rehearse-bg); color: var(--rehearse); border: 1.5px solid var(--rehearse); }
+  .b-exam { background: var(--exam-bg); color: #8a5d00; border: 1.5px solid var(--exam); }
+  .b-new { background: #e9ecff; color: var(--brand); border: 1.5px solid var(--brand); }
+
+  /* timeline */
+  .tl { display: grid; gap: 10px; }
+  .row { display: grid; grid-template-columns: 112px 1fr; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 3px 10px rgba(30,41,80,.07); }
+  .row .date { background: var(--brand); color: #fff; text-align: center; padding: 10px 6px; display: flex; flex-direction: column; justify-content: center; }
+  .row .date b { font-size: 25px; line-height: 1.1; }
+  .row .date span { font-size: 14px; opacity: .92; }
+  .row .date em { font-style: normal; font-size: 12px; opacity: .85; margin-top: 2px; }
+  .row .what { padding: 10px 16px; }
+  .row .what h4 { margin: 0 0 2px; font-size: 18px; }
+  .row .what p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .row .what .badges { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .row.quiz .date { background: var(--quiz); }
+  .row.test .date { background: var(--test); }
+  .row.rehearse .date { background: var(--rehearse); }
+  .row.exam { border: 3px solid var(--exam); }
+  .row.exam .date { background: linear-gradient(135deg, #eab308, #f59e0b); color: #4a3300; }
+  .row.exam .what { background: var(--exam-bg); }
+  .row.exam .what h4 { font-size: 22px; }
+  .row.next { outline: 4px solid #22c55e; outline-offset: 2px; }
+  .row.next .date::after { content: "השיעור הבא"; margin-top: 4px; background: #fff; color: #15803d; border-radius: 99px; font-size: 12px; font-weight: 800; padding: 1px 8px; }
+  .row.past { opacity: .6; }
+
+  .phase { margin: 22px 0 8px; font-weight: 800; font-size: 18px; color: var(--brand); display: flex; align-items: center; gap: 10px; }
+  .phase::after { content: ""; flex: 1; height: 2px; background: linear-gradient(270deg, var(--line), transparent); }
+
+  /* after exam + tips */
+  .after { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 20px; }
+  .after ul { margin: 8px 0 0; padding: 0 20px 0 0; columns: 2; column-gap: 28px; }
+  .after li { margin-bottom: 4px; break-inside: avoid; }
+  .tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .tip { background: var(--card); border-radius: 16px; padding: 14px 16px; border: 1px solid var(--line); border-top: 5px solid var(--brand2); box-shadow: 0 3px 10px rgba(30,41,80,.07); }
+  .tip b { display: block; margin-bottom: 3px; font-size: 18px; }
+  .note { margin-top: 30px; font-size: 14.5px; color: var(--muted); text-align: center; }
+
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .stat b { font-size: 24px; }
+    .row { grid-template-columns: 88px 1fr; }
+    .row .date b { font-size: 21px; }
+    .after ul { columns: 1; }
+  }
+  @media print {
+    body { background: #fff; font-size: 14px; }
+    header.hero { padding: 18px 12px 34px; }
+    .stats { margin-top: -22px; }
+    .row, .ch, .tip, .banner-no, .after { box-shadow: none; break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .row.past { opacity: 1; }
+    .row.next { outline: none; }
+    .row.next .date::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>הדרך למבחן המפמ"ר – פייתון ב'</h1>
+  <p class="sub">AI2 בשילוב פייתון ב' · מה לומדים, מתי, ומה לא נבחן</p>
+  <div class="exam-date">יום רביעי, 17.3.2027<small>מבחן מפמ"ר – משרד החינוך</small></div>
+  <div id="countdown"></div>
+</header>
+
+<div class="stats">
+  <div class="stat m"><b>17</b><span>מפגשים עד המבחן</span></div>
+  <div class="stat t"><b>2</b><span>מבחנים</span></div>
+  <div class="stat r"><b>2</b><span>הדמיות בחינה מלאות</span></div>
+</div>
+
+<div class="wrap">
+
+  <h2><span class="dot"></span>מה נבחנים עליו? המיקוד של משרד החינוך</h2>
+  <p class="lead">המיקוד הרשמי מחלק את החומר לתשעה פרקים. ✓ = מופיע במבחן. ✕ = <b>לא</b> מופיע במבחן (גם אם למדנו אותו בכיתה).</p>
+
+  <div class="chapters">
+    <section class="ch c1">
+      <div class="head"><div class="num">1</div><h3>חזרה על פייתון א'</h3></div>
+      <div class="body"><ul>
+        <li class="in">מפגש חדש עם מושגים אלגוריתמיים</li>
+        <li class="in">סביבת עבודה ומשתנים</li>
+        <li class="in">משפטי תנאי (<b>if</b>, <b>elif</b>, <b>else</b>)</li>
+        <li class="in">ביצוע חוזר: <b>for</b> ו-<b>while</b></li>
+      </ul></div>
+    </section>
+    <section class="ch c2 none">
+      <div class="head"><div class="num">2</div><h3>שיעור פתיחה לשנה ב' AI2</h3></div>
+      <div class="body"><span class="tag-none">הפרק כולו לא יופיע במבחן</span><br>מהפכת ה-AI, תכנות קלאסי לעומת AI, נתונים, אחריות והטיות, ומצרכנים ליצרנים.</div>
+    </section>
+    <section class="ch c3">
+      <div class="head"><div class="num">3</div><h3>פעולות (פונקציות)</h3></div>
+      <div class="body"><ul>
+        <li class="in">פונקציה <b>בלי</b> פרמטרים שאינה מחזירה ערך</li>
+        <li class="in">פונקציה <b>עם</b> פרמטרים שאינה מחזירה ערך</li>
+        <li class="in">פונקציה <b>בלי</b> פרמטרים שמחזירה ערך</li>
+        <li class="in">פונקציה <b>עם</b> פרמטרים שמחזירה ערך</li>
+      </ul></div>
+    </section>
+    <section class="ch c4">
+      <div class="head"><div class="num">4</div><h3>API – להכניס בינה לקוד</h3></div>
+      <div class="body"><ul>
+        <li class="in">שילוב AI בקוד</li>
+        <li class="in">שימוש במפתח API (דגש על פונקציות)</li>
+        <li class="in">כתיבת פרומפט</li>
+        <li class="in">פרויקט: פתרון בעיה עם תנאים, לולאות, פונקציות ו-API</li>
+      </ul></div>
+    </section>
+    <section class="ch c5">
+      <div class="head"><div class="num">5</div><h3>מחרוזות</h3></div>
+      <div class="body"><ul>
+        <li class="in">המחרוזת הריקה</li>
+        <li class="in">אופרטורים: חיבור <b>+</b> וחזרה <b>*</b></li>
+        <li class="in">אופרטור ההיסק <b>in</b></li>
+        <li class="in">חיתוך מחרוזת: <b>[ ]</b> ו-<b>[::]</b></li>
+        <li class="in">פעולות מרכזיות: <b>len</b>, <b>find</b>, <b>upper</b>, <b>lower</b>, <b>count</b>, <b>replace</b></li>
+        <li class="in">לולאה מוגבלת מראש – ההבדל בין <b>אינדקס</b> לבין <b>תוכן</b>:<br><span dir="ltr"><b>for i in range(len(st))</b> / <b>for ch in st</b></span></li>
+        <li class="out"><b>לא</b> במבחן: <b>startswith</b></li>
+        <li class="out"><b>לא</b> במבחן: <b>endswith</b></li>
+        <li class="out"><b>לא</b> במבחן: <b>isalpha</b></li>
+        <li class="out"><b>לא</b> במבחן: <b>isnumeric</b> (ובדומה לה גם <b>isdigit</b>)</li>
+      </ul></div>
+    </section>
+    <section class="ch c6">
+      <div class="head"><div class="num">6</div><h3>מודל שפה – מתקדם</h3></div>
+      <div class="body"><ul>
+        <li class="in"><b>Tokens</b> – יחידות הטקסט שהמודל קורא</li>
+        <li class="in">מפת משמעויות</li>
+        <li class="in">הקשב העצמי (self-attention) – שימוש בהקשר</li>
+      </ul></div>
+    </section>
+    <section class="ch c7 none">
+      <div class="head"><div class="num">7</div><h3>רשימה (list)</h3></div>
+      <div class="body"><span class="tag-none">הפרק כולו לא יופיע במבחן</span><br>מהי רשימה, גישה לאיברים, שרשור, <b>len</b>, <b>count</b>, <b>in</b>, <b>remove</b>, <b>pop</b>, <b>index</b>, <b>append</b>, <b>insert</b>, <b>join</b>, <b>split</b>, <b>sort</b>, <b>reverse</b> ואלגוריתמים על רשימות.</div>
+    </section>
+    <section class="ch c8 none">
+      <div class="head"><div class="num">8</div><h3>סיווג</h3></div>
+      <div class="body"><span class="tag-none">הפרק כולו לא יופיע במבחן</span><br>מהו סיווג ומהי תכונה, אימון ומבחן, Teachable Machines ומדד הדיוק.</div>
+    </section>
+    <section class="ch c9 none">
+      <div class="head"><div class="num">9</div><h3>מערכות המלצה</h3></div>
+      <div class="body"><span class="tag-none">הפרק כולו לא יופיע במבחן</span><br>שני סוגי מערכות המלצה: מבוססת תוכן ומבוססת משתמשים.</div>
+    </section>
+
+  </div>
+
+  <h2><span class="dot" style="background:linear-gradient(180deg,#dc2626,#f97316)"></span>מה <u>לא</u> יהיה במבחן – בקצרה</h2>
+  <div class="banner-no">
+    <h3>אל תבזבזו זמן על זה לקראת המבחן</h3>
+    <div class="chips">
+      <span class="chip">שיעור הפתיחה של AI2 – כל הפרק</span>
+      <span class="chip">startswith</span>
+      <span class="chip">endswith</span>
+      <span class="chip">isalpha</span>
+      <span class="chip">isnumeric</span>
+      <span class="chip">רשימות (list) – כל הפרק</span>
+      <span class="chip">סיווג ו-Teachable Machines – כל הפרק</span>
+      <span class="chip">מערכות המלצה – כל הפרק</span>
+    </div>
+    <p><b>שימו לב:</b> בפרק המחרוזות נבחנים <b>len, find, upper, lower, count, replace</b>, האופרטורים <b>+ * in</b>, חיתוך ושתי צורות הלולאה. את שאר הפעולות על מחרוזות, את הרשימות, הסיווג ומערכות ההמלצה נלמד או נחזור אליהם אחרי 17 במרץ.</p>
+  </div>
+
+  <h2><span class="dot"></span>לוח המפגשים עד המבחן</h2>
+  <p class="lead">מפגש כפול (90 דקות) בכל יום ראשון. מבחנים והדמיות בחינה מסומנים בצבע.</p>
+  <div class="legend">
+    <span class="badge b-new">📘 חומר חדש</span>
+    <span class="badge b-test">📝 מבחן</span>
+    <span class="badge b-rehearse">🎯 הדמיית בחינה</span>
+    <span class="badge b-exam">🏆 מבחן המפמ"ר</span>
+  </div>
+
+  <div class="tl" id="timeline">
+
+    <div class="phase">שלב א' – לומדים את החומר</div>
+
+    <div class="row" data-date="2026-11-22">
+      <div class="date"><b>22.11</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>מחרוזות: אלגוריתמים ולולאות</h4>
+        <p>רצים על מחרוזת לפי <b>אינדקס</b> ולפי <b>תוכן</b>, סופרים, בונים מחרוזות חדשות. מסיימים את פרק המחרוזות.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 5</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2026-11-29">
+      <div class="date"><b>29.11</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>פונקציות: פרמטרים והחזרת ערך</h4>
+        <p>פונקציה עם פרמטרים ובלי, פונקציה שמחזירה ערך ופונקציה שרק מדפיסה – ארבעת הסוגים.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 3</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2026-12-06">
+      <div class="date"><b>6.12</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>פונקציות: תרגול</h4>
+        <p>פונקציות שמחזירות ערך, ולולאות (<b>for</b>, <b>while</b>) בתוך פונקציות.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 3</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2026-12-13">
+      <div class="date"><b>13.12</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>פונקציות: מעבדה משולבת</h4>
+        <p>מחברים פונקציות עם מחרוזות ולולאות בתרגיל אחד.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 3</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2026-12-20">
+      <div class="date"><b>20.12</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>API: מכניסים בינה לקוד</h4>
+        <p>מהו API, מפתח API, שליחת שאלה למודל מתוך הקוד, וכתיבת פרומפט טוב.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 4</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2026-12-27">
+      <div class="date"><b>27.12</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>פרויקט API</h4>
+        <p>פרויקט שמשלב תנאים, לולאות, פונקציות וקריאה ל-API.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 4</span></div>
+      </div>
+    </div>
+
+    <div class="row test" data-date="2027-01-03">
+      <div class="date"><b>3.1</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>מעבדה משולבת + מבחן 1</h4>
+        <p>מתרגלים לולאות, מחרוזות ופונקציות – ואז מבחן.</p>
+        <div class="badges"><span class="badge b-test">📝 מבחן 1 · 45 דק' · לולאות, מחרוזות, פונקציות</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-01-10">
+      <div class="date"><b>10.1</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>משוב על מבחן 1 + Tokens</h4>
+        <p>עוברים על הטעויות הנפוצות, ואז לומדים איך מודל שפה חותך טקסט ל-<b>Tokens</b>.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 6</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-01-17">
+      <div class="date"><b>17.1</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>מפת משמעויות והקשב העצמי</h4>
+        <p>איך מודל מייצג משמעות, ואיך <b>הקשב העצמי</b> (self-attention) משתמש בהקשר.</p>
+        <div class="badges"><span class="badge b-new">📘 פרק 6</span></div>
+      </div>
+    </div>
+
+    <div class="phase">שלב ב' – בודקים איפה אנחנו עומדים</div>
+
+    <div class="row test" data-date="2027-01-24">
+      <div class="date"><b>24.1</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>מעבדה משולבת + מבחן 2</h4>
+        <p>המבחן הגדול הראשון על כל החומר שבמיקוד, בפורמט דומה לבחינה.</p>
+        <div class="badges"><span class="badge b-test">📝 מבחן 2 · 60 דק' · כל החומר</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-01-31">
+      <div class="date"><b>31.1</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>משוב וחיזוק נושאים חלשים</h4>
+        <p>כל תלמיד מקבל רשימה של נושאים לחזק, ומתרגלים בתחנות.</p>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-02-07">
+      <div class="date"><b>7.2</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>תוכניות בסגנון המבחן</h4>
+        <p>לולאות, מחרוזות ופונקציות: אינדקס מול תוכן, <b>while</b>, פונקציות עם ערך מוחזר.</p>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-02-14">
+      <div class="date"><b>14.2</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>תרגול ממוקד</h4>
+        <p>חוזרים על מה שעדיין קשה: תרגול נוסף בפרקים החלשים ובכתיבת פרומפטים.</p>
+      </div>
+    </div>
+
+    <div class="phase">שלב ג' – מתרגלים בחינה אמיתית</div>
+
+    <div class="row rehearse" data-date="2027-02-21">
+      <div class="date"><b>21.2</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>הדמיית בחינה 1</h4>
+        <p>בחינת מפמ"ר משנים קודמות בתנאי בחינה אמיתיים: שקט, זמן קצוב, בלי עזרה.</p>
+        <div class="badges"><span class="badge b-rehearse">🎯 בחינה מלאה</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-02-28">
+      <div class="date"><b>28.2</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>סקירת ההדמיה וטכניקת בחינה</h4>
+        <p>עוברים שאלה אחר שאלה, לומדים איך לקרוא שאלה, לבנות טבלת מעקב ולחלק זמן.</p>
+      </div>
+    </div>
+
+    <div class="row rehearse" data-date="2027-03-07">
+      <div class="date"><b>7.3</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>הדמיית בחינה 2</h4>
+        <p>עוד בחינה מלאה בתנאי בחינה, כדי לראות את ההתקדמות.</p>
+        <div class="badges"><span class="badge b-rehearse">🎯 בחינה מלאה</span></div>
+      </div>
+    </div>
+
+    <div class="row" data-date="2027-03-14">
+      <div class="date"><b>14.3</b><span>ראשון</span></div>
+      <div class="what">
+        <h4>סקירה אחרונה – בלי חומר חדש</h4>
+        <p>סקירת ההדמיה השנייה, דף העזר המותר, שאלות ותשובות ושאלות מהירות על כל פרק. נכנסים לבחינה רגועים.</p>
+      </div>
+    </div>
+
+    <div class="row exam" data-date="2027-03-17">
+      <div class="date"><b>17.3</b><span>רביעי</span><em>2027</em></div>
+      <div class="what">
+        <h4>🏆 מבחן המפמ"ר בפייתון ב'</h4>
+        <p>בהצלחה! מי שהתרגל לאורך הדרך מגיע מוכן.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2><span class="dot"></span>ואחרי המבחן?</h2>
+  <div class="after">
+    הקורס ממשיך! את הנושאים שאינם במבחן נלמד אחרי 17 במרץ:
+    <ul>
+      <li>שיעור הפתיחה של AI2: מהפכת ה-AI, נתונים והטיות</li>
+      <li>רשימות (list) ופעולות עליהן</li>
+      <li>סיווג ו-Teachable Machines</li>
+      <li>מערכות המלצה</li>
+      <li>פעולות נוספות על מחרוזות</li>
+    </ul>
+  </div>
+
+  <h2><span class="dot"></span>איך מתכוננים נכון</h2>
+  <div class="tips">
+    <div class="tip"><b>מתרגלים כל שבוע</b>כתבו קוד בעצמכם, אל תסתפקו בלקרוא. חצי שעה בשבוע שווה יותר משעתיים ערב המבחן.</div>
+    <div class="tip"><b>טבלת מעקב</b>הכלי החשוב ביותר בבחינה: עוברים שורה אחרי שורה וכותבים מה ערך כל משתנה.</div>
+    <div class="tip"><b>אינדקס או תוכן?</b>לפני שכותבים לולאה על מחרוזת, שואלים: צריך את המקום של התו או רק את התו עצמו?</div>
+    <div class="tip"><b>שאלות? שואלים מיד</b>אם משהו לא ברור, שאלו בשיעור, כי כל נושא מתבסס על הקודם.</div>
+  </div>
+
+  <p class="note">התאריכים עשויים להשתנות בהתאם ללוח בית הספר. התוכנית מבוססת על המיקוד הרשמי של משרד החינוך למבחן המפמ"ר תשפ"ז – AI2 בשילוב פייתון ב'.</p>
+</div>
+
+<script>
+(function () {
+  try {
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var exam = new Date(2027, 2, 17);
+    var days = Math.round((exam - today) / 86400000);
+    var el = document.getElementById('countdown');
+    if (days > 1) el.textContent = 'נשארו ' + days + ' ימים עד המבחן';
+    else if (days === 1) el.textContent = 'המבחן מחר!';
+    else if (days === 0) el.textContent = 'היום המבחן – בהצלחה!';
+
+    var rows = document.querySelectorAll('.row[data-date]');
+    var nextSet = false;
+    rows.forEach(function (r) {
+      var p = r.getAttribute('data-date').split('-');
+      var d = new Date(+p[0], +p[1] - 1, +p[2]);
+      if (d < today) r.classList.add('past');
+      else if (!nextSet) { r.classList.add('next'); nextSet = true; }
+    });
+  } catch (e) { /* the page works without the countdown */ }
+})();
+</script>
+</body>
+</html>

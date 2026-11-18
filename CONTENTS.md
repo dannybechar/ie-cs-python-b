@@ -29,8 +29,10 @@ Python B (Grade 8, AI + Python), in the order of the Ministry master table. Ever
 | [`docs/official-numbering.md`](docs/official-numbering.md) | Official lesson numbers: how every meeting is named |
 | [`docs/annual-strategy.md`](docs/annual-strategy.md) | Year-wide pedagogical strategy |
 | [`docs/instructions-exam-focus-plan.md`](docs/instructions-exam-focus-plan.md) | Instructions for a session that builds the exam-focus plan, trackers and student page for the 17 Mar 2027 mafmar |
+| [`docs/plan-to-mafmar-2027-03-17.md`](docs/plan-to-mafmar-2027-03-17.md) | Exam-first teaching plan to the mafmar of Wed 17 Mar 2027: scope, dated meetings, tests and rehearsals |
+| [`docs/mafmar-plan-python-b-he.html`](docs/mafmar-plan-python-b-he.html) | Student page (Hebrew): what is on the exam, what is not, the dated timeline |
 | [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md) | Index of the Ministry decks and worksheets (source of truth) and the rulebook |
-| [`docs/ministry-source/`](docs/ministry-source) | The official Ministry PDFs (program, circular, clarifications) |
+| [`docs/ministry-source/`](docs/ministry-source) | The official Ministry PDFs (program, circular, clarifications, the mafmar focus document) |
 | [`docs/standards/`](docs/standards/README.md) | Governing standards for this repository |
 | [`python-b-built/`](python-b-built/README.md) | Empty staging folder kept as a record of the build process (not a unit) |
 | [`tools/`](tools) | Deck patch kit, live-deck, countdown, worksheet builders, lesson-deck generator, structure checks |

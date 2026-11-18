@@ -51,7 +51,7 @@ labeled **Tool Note – Thonny**.
 ### Deliberate exclusions
 `nonlocal`, nested functions, f-strings (lessons 5.0–6.2), lists as global variables (lessons 9.1–9.5 and 12.0–14.5), and the two Ministry items below.
 
-**TEACHER DECISION NEEDED before the May 2027 exam — official items left out by the rulebook default.**
+**TEACHER DECISION NEEDED before the 17 Mar 2027 exam — official items left out by the rulebook default.**
 
 1. **Returning several values.** The Ministry's 4.6 question 3 (`return add, sub, mul, div`, called as
    `a, b, c, d = calculator(num1, num2)`) and question 4 (`return sumOfDonations, numberOfHighDonors`, called as

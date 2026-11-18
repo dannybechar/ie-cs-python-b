@@ -282,7 +282,7 @@ save/document · exit check.
 
 Keep `course-map.md` current whenever a meeting is added, retimed or taught: time budget vs official minutes,
 the schedule (target week / taught on), open coverage gaps, the meeting log, and the pace check (meetings left in
-the schedule ≤ meetings left before the exam). The Ministry exam (בחינת מפמ"ר) is set for **May 2027**
+the schedule ≤ meetings left before the exam). The Ministry exam (בחינת מפמ"ר) is on **Wednesday 17 March 2027**
 (circular, p. 2). Not yet known for this class — ask the teacher: the weekly meeting day, the first meeting date,
 and the exact exam date (see "Deadline and pace" in the course map).
 

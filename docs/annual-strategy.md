@@ -11,7 +11,7 @@ Per-unit detail lives in each unit's own `unit-strategy.md` (written when the un
 1. **`python-b-ai.pdf`** — the authority for units, topics, performance objectives, teaching methods,
    assessment and hours. Master syllabus table pp. 3–4; one chapter per unit on pp. 5–23.
 2. **Ministry circular תשפ"ז** ([`ministry-circular-tashpaz-he.pdf`](ministry-source/ministry-circular-tashpaz-he.pdf), p. 2) —
-   this program is Grade 8 alternative A; the Ministry exam (בחינת מפמ"ר) is set for **May 2027**; printed notes are allowed,
+   this program is Grade 8 alternative A; the Ministry exam (בחינת מפמ"ר) is on **Wednesday 17 March 2027**; printed notes are allowed,
    calculators are not (p. 3).
 3. **Clarifications תשפ"ז** ([`clarifications-tashpaz-he.pdf`](ministry-source/clarifications-tashpaz-he.pdf), p. 3) —
    compared with the old Python B, the new program drops the cyber chapter, the ciphers and **nested loops**, and moves
@@ -139,7 +139,7 @@ What the official chapters do **not** require, so we don't teach it:
 
 ## 9. Assessment
 
-The Ministry exam (בחינת מפמ"ר) at the end of the year, set for **May 2027** (circular, p. 2). Its structure for the new
+The Ministry exam (בחינת מפמ"ר) at the end of the year, on **Wednesday 17 March 2027** (focus document; the circular's "May 2027" is obsolete). Its structure for the new
 program has not been published — we don't guess it. Evidence is collected inside the 60 hours, following each chapter's
 "דרכי הערכה": tracing and predicting code, identifying an algorithm's goal, writing and running solutions, and — for the AI
 blocks — worksheets, experiment logs, a working project (יום מאוזן, Semantle, the classifier, the recommender) and a written
