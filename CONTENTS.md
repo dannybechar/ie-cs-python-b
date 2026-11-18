@@ -28,6 +28,7 @@ Python B (Grade 8, AI + Python), in the order of the Ministry master table. Ever
 | [`class-progress.md`](class-progress.md) | What the class has actually been taught |
 | [`docs/official-numbering.md`](docs/official-numbering.md) | Official lesson numbers: how every meeting is named |
 | [`docs/annual-strategy.md`](docs/annual-strategy.md) | Year-wide pedagogical strategy |
+| [`docs/instructions-exam-focus-plan.md`](docs/instructions-exam-focus-plan.md) | Instructions for a session that builds the exam-focus plan, trackers and student page for the 17 Mar 2027 mafmar |
 | [`docs/ministry-teaching-materials.md`](docs/ministry-teaching-materials.md) | Index of the Ministry decks and worksheets (source of truth) and the rulebook |
 | [`docs/ministry-source/`](docs/ministry-source) | The official Ministry PDFs (program, circular, clarifications) |
 | [`docs/standards/`](docs/standards/README.md) | Governing standards for this repository |
