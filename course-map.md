@@ -89,7 +89,7 @@ What the class has actually completed is in [`class-progress.md`](class-progress
 
 | # | Sunday | Meeting (file key, official lessons) / content | Quiz / test | Built | Taught on |
 |---:|---|---|---|---|---|
-| P1 | 22 Nov 2026 | `u5/m4` Lessons 8.2–8.7 Strings: algorithms, index vs content loops (completes the strings block) | — | 🔶 | |
+| P1 | 22 Nov 2026 | `u5/m4` Lessons 8.2–8.7 Strings: exam review of the מיקוד strings topics (5 slides) + 5-question lab, index vs content loops (completes the strings block; prepares Quiz Q1 on 29 Nov) | — | 🔶 | |
 | P2 | 29 Nov | `u3/m1` Lessons 4.1–4.2 Functions: parameters and `return`, the four kinds | Quiz Q1 (strings) | 🔶 | |
 | P3 | 6 Dec | `u3/m2` Lessons 4.4–4.5 Functions: returning functions, loops inside functions | — | 🔶 | |
 | P4 | 13 Dec | `u3/m3` Lessons 4.3, 4.6 trimmed + mixed functions/strings lab | Quiz Q2 (functions) | 🔶 | |

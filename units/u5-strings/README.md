@@ -175,6 +175,14 @@ decode); a 10-slide deck (five pairs: content slide, then a code-examples slide 
 | Teacher | [`challenge-he.pdf`](lessons/L04-string-algorithms-and-cipher/challenge-he.pdf), [`L04-string-algorithms-and-cipher-challenge-source-slides.md`](teacher/L04-string-algorithms-and-cipher-challenge-source-slides.md), [`PaperLab4_Challenge_Solution.py`](teacher/solutions/PaperLab4_Challenge_Solution.py) | One-slide early-finisher challenge for the wall projector (extra-large fonts, solved in Thonny, nothing written on paper): the mirror cipher `a`↔`z` |
 | Teacher | [`L04-string-algorithms-and-cipher-paper-lab-answer-key.md`](teacher/L04-string-algorithms-and-cipher-paper-lab-answer-key.md), `PaperLab4_Q1_Solution.py` … `PaperLab4_Q5_Solution.py` | Key, 100-point rubric, one solution per question |
 
+**Exam-review edition of Lessons 8.2–8.7 (built 20 Nov 2026; this is the edition for P1, Sun 22 Nov):** a 5-slide consolidation of exactly the strings material of the Ministry's מיקוד (chapter 5), then a five-question paper lab; it closes the strings block and prepares Quiz Q1 on 29 Nov. Out of scope on purpose: `startswith`, `endswith`, `isalpha`, `isnumeric`, `ord`, `chr`, `split`, `join`.
+
+| For | File | What it is |
+|---|---|---|
+| Teacher | [`exam-review-slides-he.pdf`](lessons/L04-string-algorithms-and-cipher/exam-review-slides-he.pdf), [`L04-string-algorithms-and-cipher-exam-review-source-slides.md`](teacher/L04-string-algorithms-and-cipher-exam-review-source-slides.md) | 5-slide deck (45 min), code blocks to copy into Thonny |
+| Student | [`exam-review-lab-he.md`](lessons/L04-string-algorithms-and-cipher/exam-review-lab-he.md), [`ExamReview_Starter.py`](exercises/ExamReview_Starter.py) | One-sheet handwritten lab: five questions (bug, e-mail, sentence, vowels, two loops), 2 + 3 per side, 45 min |
+| Teacher | [`L04-string-algorithms-and-cipher-exam-review-answer-key.md`](teacher/L04-string-algorithms-and-cipher-exam-review-answer-key.md), `ExamReview_Q1_Solution.py` … `ExamReview_Q5_Solution.py` in [`teacher/solutions/`](teacher/solutions/) | Guide, accepted variants, 100-point rubric, marking sheet, one solution per question |
+
 **Countdown edition of Lessons 8.2–8.7** (the countdown method of the teacher's DP1/PDP classes: four timed cases done together on a projected
 page, each solved with `for` and with `while`; then a graded five-question worksheet):
 

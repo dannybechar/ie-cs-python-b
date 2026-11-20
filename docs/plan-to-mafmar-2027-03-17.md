@@ -47,7 +47,7 @@ Phases: **A** teach the exam material (P1–P9) · **B** full-scope tests and ga
 
 | # | Sunday | Content | Quiz / test | Built |
 |---:|---|---|---|---|
-| P1 | 22 Nov | Lessons 8.2–8.7: string algorithms, loops by index and by content, building strings (the strings block is complete) | — | 🔶 |
+| P1 | 22 Nov | Lessons 8.2–8.7: exam review of the strings topics in the מיקוד (5-slide deck + five-question lab; index vs content loops; the strings block is complete) | — | 🔶 |
 | P2 | 29 Nov | Lessons 4.1–4.2: functions with parameters and `return`; the four kinds | **Quiz Q1** (10 min, strings) | 🔶 |
 | P3 | 6 Dec | Lessons 4.4–4.5: returning functions, loops (`for`, `while`) inside functions | — | 🔶 |
 | P4 | 13 Dec | Lessons 4.3, 4.6 trimmed: local variables, `global` briefly, then a mixed functions + strings lab | **Quiz Q2** (15 min, functions) | 🔶 |
