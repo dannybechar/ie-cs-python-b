@@ -177,6 +177,15 @@ decode); a 10-slide deck (five pairs: content slide, then a code-examples slide 
 
 **Exam-review edition of Lessons 8.2–8.7 (built 20 Nov 2026; this is the edition for P1, Sun 22 Nov):** a 5-slide consolidation of exactly the strings material of the Ministry's מיקוד (chapter 5), then a five-question paper lab; it closes the strings block and prepares Quiz Q1 on 29 Nov. Out of scope on purpose: `startswith`, `endswith`, `isalpha`, `isnumeric`, `ord`, `chr`, `split`, `join`.
 
+**Strings quiz Q1 and mock quiz (built 25 Nov 2026; quiz on Sun 29 Nov, P2):** 25 minutes, paper, four questions, 100 points, plain code only.
+
+| Audience | File | Purpose |
+|---|---|---|
+| Student | [`strings-quiz-mock-he.md`](assessment/strings-quiz-mock-he.md), [`StringsQuizMock_Starter.py`](exercises/StringsQuizMock_Starter.py) | Practice quiz (zipped for Mashov, no solutions) |
+| Teacher | [`strings-quiz-he.md`](assessment/strings-quiz-he.md) | The real quiz (different strings, same shape) |
+| Teacher | [`L04-string-algorithms-and-cipher-quiz-answer-key.md`](teacher/L04-string-algorithms-and-cipher-quiz-answer-key.md), [`StringsQuiz_Solution.py`](teacher/solutions/StringsQuiz_Solution.py) | Answers, rubric, marking sheet, verified code |
+| Teacher | [`L04-string-algorithms-and-cipher-quiz-mock-answers.md`](teacher/L04-string-algorithms-and-cipher-quiz-mock-answers.md), [`StringsQuizMock_Solution.py`](teacher/solutions/StringsQuizMock_Solution.py) | Mock answers to release after practice |
+
 | For | File | What it is |
 |---|---|---|
 | Teacher | [`exam-review-slides-he.pdf`](lessons/L04-string-algorithms-and-cipher/exam-review-slides-he.pdf), [`L04-string-algorithms-and-cipher-exam-review-source-slides.md`](teacher/L04-string-algorithms-and-cipher-exam-review-source-slides.md) | 5-slide deck (45 min), code blocks to copy into Thonny |
