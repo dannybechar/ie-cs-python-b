@@ -7,7 +7,11 @@ Status: ✅ taught · ▶ next · ⏭ skipped for now (to be taught later) · �
 
 Repository layout changed on 14 Nov 2026 (lessons/teacher/exercises/assessment per unit): file names mentioned below may use the old flat `m<K>-…` names; see [`units/README.md`](units/README.md).
 
-## Where we are (18 Nov 2026)
+## Where we are (25 Nov 2026)
+
+- **Update 25 Nov:** Lessons 8.2–8.7 were taught on 22 Nov (P1, teacher confirmed); the strings block is complete. Next meeting P2 (29 Nov) opens with the strings quiz Q1, then Lessons 4.1–4.2 Functions.
+
+## Earlier status (18 Nov 2026)
 
 - **Exam:** the mafmar is on **Wednesday 17 March 2027**. The approved exam-first plan is [`docs/plan-to-mafmar-2027-03-17.md`](docs/plan-to-mafmar-2027-03-17.md): Sundays 22 Nov – 14 Mar (17 meetings), only focus chapters 1, 3, 4, 5, 6 before the exam; the non-exam blocks come after it.
 - **Done:** the Python A review block (Lessons 1.0–2.3, with its written test), and Lessons 7.1, 7.1–7.2 and 8.0–8.1 (strings).
@@ -34,7 +38,7 @@ Repository layout changed on 14 Nov 2026 (lessons/teacher/exercises/assessment p
 | 11 | `u5/m1` Lesson 7.1 Strings | ✅ | Date to confirm; live-lesson edition and a handwritten paper lab (45 min, one sheet, 2 questions × 4 sub-questions, [worksheet](units/u5-strings/lessons/L01-a-string-is-a-sequence/paper-lab-worksheet-he.md)) prepared 6 Nov 2026 |
 | 12 | `u5/m2` Lessons 7.1–7.2 Strings | ✅ | Date to confirm; live-lesson edition and a handwritten paper lab prepared 6 Nov 2026 ([worksheet](units/u5-strings/lessons/L02-slicing-and-searching/paper-lab-worksheet-he.md)) |
 | 13 | `u5/m3` Lessons 8.0–8.1 Strings | ✅ | Paper-classwork edition (45 / 45); worksheets to be graded; a separate live-lesson edition and paper lab prepared 6 Nov 2026 ([worksheet](units/u5-strings/lessons/L03-string-methods-and-for/paper-lab-worksheet-he.md)) |
-| 14 | `u5/m4` Lessons 8.2–8.7 Strings | ▶ | **P1, Sun 22 Nov 2026 (not taught on 15 Nov): completes the strings block (lessons 7.1–8.7).** Exam-review edition: 5-slide deck of the מיקוד strings topics + five-question paper lab (2 + 3 per side) + answer key; the older 10-slide live deck, challenge and countdown editions remain as optional extras. Mark ✅ after the lesson |
+| 14 | `u5/m4` Lessons 8.2–8.7 Strings | ✅ | **Taught as P1, Sun 22 Nov 2026 (not on 15 Nov); completes the strings block (lessons 7.1–8.7).** Exam-review edition: 5-slide deck of the מיקוד strings topics + five-question paper lab (2 + 3 per side) + answer key; the older 10-slide live deck, challenge and countdown editions remain as optional extras |
 | 15–17 | `u6/m1`–`u6/m3` Lessons 10.0–10.2, 11.1–11.2, 11.3 Advanced Language Model | ⏳ | |
 | 18–22 | `u7/m1`–`u7/m5` Lessons 9.1, 9.4 · 9.3, 9.5, 12.0–12.1 · 12.6, 13.0–13.1 · 13.2, 14.0–14.2 · 12.5, 14.4 Lists | ⏳ | |
 | 23–26 | `u8/m1`–`u8/m4` Lessons 16.0–16.2, 17.0–17.1, 18.0–18.1, 19.0–19.1 Classification | ⏳ | |
@@ -44,8 +48,8 @@ Repository layout changed on 14 Nov 2026 (lessons/teacher/exercises/assessment p
 
 | P | Sunday | Content | Quiz / test | Class |
 |---|---|---|---|:---:|
-| P1 | 22 Nov | Lessons 8.2–8.7 Strings | — | ▶ |
-| P2 | 29 Nov | Lessons 4.1–4.2 Functions | Quiz Q1 | ⏳ |
+| P1 | 22 Nov | Lessons 8.2–8.7 Strings | — | ✅ |
+| P2 | 29 Nov | Lessons 4.1–4.2 Functions | Quiz Q1 (strings) | ▶ |
 | P3 | 6 Dec | Lessons 4.4–4.5 Functions | — | ⏳ |
 | P4 | 13 Dec | Lessons 4.3, 4.6 (trimmed) + mixed lab | Quiz Q2 | ⏳ |
 | P5 | 20 Dec | Lessons 5.0–5.2 API | — | ⏳ |
