@@ -177,7 +177,7 @@ decode); a 10-slide deck (five pairs: content slide, then a code-examples slide 
 
 **Exam-review edition of Lessons 8.2–8.7 (built 20 Nov 2026; this is the edition for P1, Sun 22 Nov):** a 5-slide consolidation of exactly the strings material of the Ministry's מיקוד (chapter 5), then a five-question paper lab; it closes the strings block and prepares Quiz Q1 on 29 Nov. Out of scope on purpose: `startswith`, `endswith`, `isalpha`, `isnumeric`, `ord`, `chr`, `split`, `join`.
 
-**Strings quiz Q1 and mock quiz (built 25 Nov 2026; quiz on Sun 29 Nov, P2):** 25 minutes, paper, four questions, 100 points, plain code only.
+**Strings quiz Q1 and mock quiz (built and approved 25 Nov 2026; quiz on Sun 29 Nov, P2):** 25 minutes, paper, four questions, 100 points, plain code only.
 
 | Audience | File | Purpose |
 |---|---|---|

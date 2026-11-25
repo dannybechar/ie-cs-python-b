@@ -9,7 +9,7 @@ Repository layout changed on 14 Nov 2026 (lessons/teacher/exercises/assessment p
 
 ## Where we are (25 Nov 2026)
 
-- **Update 25 Nov:** Lessons 8.2–8.7 were taught on 22 Nov (P1, teacher confirmed); the strings block is complete. Next meeting P2 (29 Nov) opens with the strings quiz Q1, then Lessons 4.1–4.2 Functions. Quiz Q1 and a student mock quiz (for Mashov) are built: `units/u5-strings/assessment/`.
+- **Update 25 Nov:** Lessons 8.2–8.7 were taught on 22 Nov (P1, teacher confirmed); the strings block is complete. Next meeting P2 (29 Nov) opens with the strings quiz Q1, then Lessons 4.1–4.2 Functions. Quiz Q1 and a student mock quiz (for Mashov) are built and approved: `units/u5-strings/assessment/`.
 
 ## Earlier status (18 Nov 2026)
 

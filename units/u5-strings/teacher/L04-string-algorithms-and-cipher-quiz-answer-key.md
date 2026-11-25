@@ -1,6 +1,6 @@
 # Strings quiz Q1 (lessons 7.1–8.7) — answer key
 
-**Status:** Built, awaiting teacher approval 🔶
+**Status:** Approved by the teacher ✅ (25 Nov 2026)
 **Given:** Sun 29 Nov 2026 (P2), 25 minutes, paper, no computer. Student sheet: [`strings-quiz-he.md`](../assessment/strings-quiz-he.md). Practice version for the students (Mashov): [`strings-quiz-mock-he.md`](../assessment/strings-quiz-mock-he.md) with [answers](L04-string-algorithms-and-cipher-quiz-mock-answers.md).
 **Solutions (run, Python 3.14):** [`StringsQuiz_Solution.py`](solutions/StringsQuiz_Solution.py). Plain code only: no functions, no lists. Scope = the מיקוד chapter 5 (`startswith`, `endswith`, `isalpha`, `isnumeric` are not examined).
 
